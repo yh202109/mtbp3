@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "mtbp3"
+version = "0.1.5"
+description = "my tool box"
+authors = ["Y. Hsu"]
+license = "GNU General Public License v3.0"
+readme = "README.md"
+packages = [{include = "mtbp3"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pandas = "^2.0.0"
+
+[tool.poetry.dev-dependencies]
+sphinx = { version = "*", optional = false }
+myst-nb = { version = "*", optional = false }
+sphinx-autoapi = { version = "*", optional = false }
+sphinx_rtd_theme = { version = "*", optional = false }
+pytest = { version = "*", optional = false }
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.extras]
+docs = ["Sphinx"]

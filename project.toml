@@ -1,0 +1,39 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mtbp3"
+version = "0.1.5"
+dependencies = [
+  "pathlib",
+  "pandas",
+]
+requires-python = ">=3.8"
+authors = [
+  {name = "Y. Hsu", email = "yh202109@gmail.com"},
+]
+maintainers = [
+  {name = "Y. Hsu", email = "yh202109@gmail.com"},
+]
+description = "My tool box in Python 3"
+readme = "README.md"
+license = {file = "LICENSE"}
+keywords = ["general tool box"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python",
+  "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+  "Intended Audience :: Developers",
+  "Topic :: Software Development :: Build Tools",
+]
+
+[project.urls]
+Homepage = "https://github.com/yh202109/mtbp3"
+Documentation = "https://github.com/yh202109/mtbp3/docs"
+Repository = "https://github.com/yh202109/mtbp3.git"
+"Bug Tracker" = "https://github.com/yh202109/mtbp3/issues"
+Changelog = "https://github.com/yh202109/mtbp3/main/CHANGELOG.md"
+
+
+

@@ -1,0 +1,18 @@
+# Changelog
+
+<!--next-version-placeholder-->
+
+## v0.1.5 (2024-01-30)
+
+- add emt2 functions
+- fix outfmt=tree indent
+- add lsr tests
+
+## v0.1.4 (2024-01-28)
+
+- add outfmt=tree option in lsr
+- add emt module
+
+## v0.1.3 (2024-01-12)
+
+- add docs
