@@ -15,7 +15,7 @@
 
 import pandas as pd
 
-def diff_two_columns(df, col1='ARM', col2='ACTARM'):
+def diff_2cols_in_1df(df, col1='ARM', col2='ACTARM', keep_diff_only=False):
     """
     Calculate the difference between two columns in a DataFrame.
 
@@ -44,9 +44,64 @@ def diff_two_columns(df, col1='ARM', col2='ACTARM'):
     
     diff = df[col1].ne(df[col2]).any()
     if diff:
-        out = df.groupby([col1, col2]).size().reset_index()
+        out = df.groupby([col1, col2]).size().reset_index(name='count')
         out['diff'] = (out[col1] != out[col2]).map(lambda x: "" if x==False else "True")
-        return out
+        if keep_diff_only:
+            return out[out['diff']=='True']
+        else:
+            return out
     else:
         return "The two columns are the same."
         
+def diff_2cols_in_2df(df1, df2, col, gp):
+    """
+    Check if a column exists in both dataframes.
+
+    Args:
+        df1 (pandas.DataFrame): The first dataframe.
+        df2 (pandas.DataFrame): The second dataframe.
+        col (str): The column to check.
+        gp (str): The group column.
+
+    Returns:
+        bool: True if the column exists in both dataframes, False otherwise.
+    """
+    if not isinstance(df1, pd.DataFrame) or not isinstance(df2, pd.DataFrame):
+        return "Input is not a DataFrame."
+    if not col or not isinstance(col, str):
+        return "col should be a non-empty string."
+    if not gp or not isinstance(gp, str):
+        return "gp should be a non-empty string."
+    if col not in df1.columns or col not in df2.columns:
+        return f"Column '{col}' not found in both dataframes."
+    if gp not in df1.columns or gp not in df2.columns:
+        return f"Group '{gp}' not found in both dataframes."
+    if gp == col:
+        return "Columns 'gp' and 'col' should be different columns."
+    if not df1[col].is_unique:
+        return f"All values in column '{col}' of df1 should be unique."
+    if not df2[col].is_unique:
+        return f"All values in column '{col}' of df2 should be unique."
+
+    df1 = df1[[col, gp]]
+    df1.rename(columns={gp: f'{gp}_1'}, inplace=True)
+    df2 = df2[[col, gp]]
+    df2.rename(columns={gp: f'{gp}_2'}, inplace=True)
+    df1['source_1'] = 'True'
+    df2['source_2'] = 'True'
+
+    merged_df = pd.merge(df1, df2, on=col, how='outer')
+    summary = merged_df.groupby([f'{gp}_1', f'{gp}_2', 'source_1', 'source_2']).size().reset_index(name='count')
+    return summary
+
+
+if __name__ == "__main__":
+    # pass
+    df = pd.DataFrame({'ARM': [1, 2, 3, 4], 'ACTARM': [1, 2, 5, 4]})
+    print(diff_2cols_in_1df(df, col1='ARM', col2='ACTARM'), keep_diff_only=True)
+    df1 = pd.DataFrame({'col': [1, 2, 3, 4], 'gp': ['1', '1', '3', '3']})
+    df2 = pd.DataFrame({'col': [1, 2, 3, 6], 'gp': ['1', '2', '3', '3']})
+    print(diff_2cols_in_2df(df1, df2, 'col', 'gp'))
+
+
+    
