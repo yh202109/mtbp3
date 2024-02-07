@@ -47,9 +47,12 @@ def diff_2cols_in_1df(df, col1='ARM', col2='ACTARM', keep_diff_only=False):
         out = df.groupby([col1, col2]).size().reset_index(name='count')
         out['diff'] = (out[col1] != out[col2]).map(lambda x: "" if x==False else "True")
         if keep_diff_only:
-            return out[out['diff']=='True']
+            out = out[out['diff']=='True']
+            out = out.drop(columns=['diff'])
         else:
-            return out
+            out[col2] = out[col2].where(out['diff'] != '', '(same)')
+            out = out.drop(columns=['diff'])
+        return out
     else:
         return "The two columns are the same."
         
@@ -98,7 +101,7 @@ def diff_2cols_in_2df(df1, df2, col, gp):
 if __name__ == "__main__":
     # pass
     df = pd.DataFrame({'ARM': [1, 2, 3, 4], 'ACTARM': [1, 2, 5, 4]})
-    print(diff_2cols_in_1df(df, col1='ARM', col2='ACTARM'), keep_diff_only=True)
+    print(diff_2cols_in_1df(df, col1='ARM', col2='ACTARM', keep_diff_only=False))
     df1 = pd.DataFrame({'col': [1, 2, 3, 4], 'gp': ['1', '1', '3', '3']})
     df2 = pd.DataFrame({'col': [1, 2, 3, 6], 'gp': ['1', '2', '3', '3']})
     print(diff_2cols_in_2df(df1, df2, 'col', 'gp'))
