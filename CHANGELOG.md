@@ -1,6 +1,10 @@
 # Changelog
 
 <!--next-version-placeholder-->
+## v0.1.10 (2024-02-07)
+
+- update cdt
+
 ## v0.1.9 (2024-02-07)
 
 - update cdt

@@ -87,14 +87,14 @@ def diff_2cols_in_2df(df1, df2, col, gp):
         return f"All values in column '{col}' of df2 should be unique."
 
     df1 = df1[[col, gp]]
-    df1.rename(columns={gp: f'{gp}_1'}, inplace=True)
+    df1.rename(columns={gp: f'{gp}1'}, inplace=True)
     df2 = df2[[col, gp]]
-    df2.rename(columns={gp: f'{gp}_2'}, inplace=True)
-    df1['source_1'] = 'True'
-    df2['source_2'] = 'True'
+    df2.rename(columns={gp: f'{gp}2'}, inplace=True)
+    df1['source1'] = 'True'
+    df2['source2'] = 'True'
 
-    merged_df = pd.merge(df1, df2, on=col, how='outer')
-    summary = merged_df.groupby([f'{gp}_1', f'{gp}_2', 'source_1', 'source_2']).size().reset_index(name='count')
+    merged_df = pd.merge(df1, df2, on=col, how='outer', indicator=True)
+    summary = merged_df.groupby([f'{gp}1', f'{gp}2', 'source1', 'source2'], dropna=False).size().reset_index(name='count')
     return summary
 
 
