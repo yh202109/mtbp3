@@ -2,6 +2,11 @@
 
 <!--next-version-placeholder-->
 
+## v0.1.6 (2024-02-05)
+
+- add cdt 
+- add lsr tree count option
+
 ## v0.1.5 (2024-01-30)
 
 - add emt2 functions
