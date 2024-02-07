@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.1.7 (2024-02-07)
+
+- update tests
+
 ## v0.1.6 (2024-02-05)
 
 - add cdt 
