@@ -10,6 +10,7 @@ Submodules
    :titlesonly:
    :maxdepth: 1
 
+   cdt/index.rst
    lsr/index.rst
 
 
@@ -25,6 +26,15 @@ Classes
 
 
 
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   mtbp3.util.diff_2cols_in_1df
+   mtbp3.util.diff_2cols_in_2df
+
+
 
 Attributes
 ~~~~~~~~~~
@@ -32,9 +42,10 @@ Attributes
 .. autoapisummary::
 
    mtbp3.util.lsr
+   mtbp3.util.df
 
 
-.. py:class:: LsrTree(path='', outfmt='list')
+.. py:class:: LsrTree(path='', outfmt='list', with_counts=False, count_str='', with_file_label=False, label_str='')
 
 
    .. py:method:: list_files()
@@ -91,8 +102,55 @@ Attributes
       :rtype: str
 
 
+   .. py:method:: list_files_tree_simple()
+
+      List files in the specified directory and return the result as a tree structure.
+
+      :returns: The tree structure representing the file list.
+      :rtype: str
+
+
 
 .. py:data:: lsr
+
+   
+
+.. py:function:: diff_2cols_in_1df(df, col1='ARM', col2='ACTARM', keep_diff_only=False)
+
+   Calculate the difference between two columns in a DataFrame.
+
+   :param df: The DataFrame containing the columns to compare.
+   :type df: pandas.DataFrame
+   :param col1: The name of the first column to compare. Default is 'ARM'.
+   :type col1: str
+   :param col2: The name of the second column to compare. Default is 'ACTARM'.
+   :type col2: str
+
+   :returns: If there is a difference between the two columns,
+             a DataFrame is returned with the unique combinations of values in col1 and col2,
+             along with a 'diff' column indicating whether the values are different ('True') or not ('').
+             If there is no difference between the two columns, the string "The two columns are the same." is returned.
+   :rtype: pandas.DataFrame or str
+
+
+.. py:function:: diff_2cols_in_2df(df1, df2, col, gp)
+
+   Check if a column exists in both dataframes.
+
+   :param df1: The first dataframe.
+   :type df1: pandas.DataFrame
+   :param df2: The second dataframe.
+   :type df2: pandas.DataFrame
+   :param col: The column to check.
+   :type col: str
+   :param gp: The group column.
+   :type gp: str
+
+   :returns: True if the column exists in both dataframes, False otherwise.
+   :rtype: bool
+
+
+.. py:data:: df
 
    
 

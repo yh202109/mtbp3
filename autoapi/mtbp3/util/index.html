@@ -23,7 +23,7 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="mtbp3.util.lsr" href="lsr/index.html" />
+    <link rel="next" title="mtbp3.util.cdt" href="cdt/index.html" />
     <link rel="prev" title="mtbp3" href="../index.html" /> 
 </head>
 
@@ -96,6 +96,7 @@
 <h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="cdt/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mtbp3.util.cdt</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="lsr/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mtbp3.util.lsr</span></code></a></li>
 </ul>
 </div>
@@ -112,6 +113,19 @@
 </tbody>
 </table>
 </section>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mtbp3.util.diff_2cols_in_1df" title="mtbp3.util.diff_2cols_in_1df"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diff_2cols_in_1df</span></code></a>(df[, col1, col2, keep_diff_only])</p></td>
+<td><p>Calculate the difference between two columns in a DataFrame.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mtbp3.util.diff_2cols_in_2df" title="mtbp3.util.diff_2cols_in_2df"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diff_2cols_in_2df</span></code></a>(df1, df2, col, gp)</p></td>
+<td><p>Check if a column exists in both dataframes.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="attributes">
 <h3>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h3>
 <table class="autosummary longtable docutils align-default">
@@ -119,11 +133,14 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="lsr/index.html#module-mtbp3.util.lsr" title="mtbp3.util.lsr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lsr</span></code></a></p></td>
 <td><p></p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mtbp3.util.df" title="mtbp3.util.df"><code class="xref py py-obj docutils literal notranslate"><span class="pre">df</span></code></a></p></td>
+<td><p></p></td>
+</tr>
 </tbody>
 </table>
 <dl class="py class">
 <dt class="sig sig-object py" id="mtbp3.util.LsrTree">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mtbp3.util.</span></span><span class="sig-name descname"><span class="pre">LsrTree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'list'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/lsr.html#LsrTree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.LsrTree" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mtbp3.util.</span></span><span class="sig-name descname"><span class="pre">LsrTree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'list'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_counts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_file_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/lsr.html#LsrTree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.LsrTree" title="Link to this definition"></a></dt>
 <dd><dl class="py method">
 <dt class="sig sig-object py" id="mtbp3.util.LsrTree.list_files">
 <span class="sig-name descname"><span class="pre">list_files</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/lsr.html#LsrTree.list_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.LsrTree.list_files" title="Link to this definition"></a></dt>
@@ -214,11 +231,76 @@
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="mtbp3.util.LsrTree.list_files_tree_simple">
+<span class="sig-name descname"><span class="pre">list_files_tree_simple</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/lsr.html#LsrTree.list_files_tree_simple"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.LsrTree.list_files_tree_simple" title="Link to this definition"></a></dt>
+<dd><p>List files in the specified directory and return the result as a tree structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The tree structure representing the file list.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="mtbp3.util.lsr">
 <span class="sig-prename descclassname"><span class="pre">mtbp3.util.</span></span><span class="sig-name descname"><span class="pre">lsr</span></span><a class="headerlink" href="#mtbp3.util.lsr" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mtbp3.util.diff_2cols_in_1df">
+<span class="sig-prename descclassname"><span class="pre">mtbp3.util.</span></span><span class="sig-name descname"><span class="pre">diff_2cols_in_1df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ARM'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ACTARM'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_diff_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/cdt.html#diff_2cols_in_1df"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.diff_2cols_in_1df" title="Link to this definition"></a></dt>
+<dd><p>Calculate the difference between two columns in a DataFrame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pandas.DataFrame</em>) – The DataFrame containing the columns to compare.</p></li>
+<li><p><strong>col1</strong> (<em>str</em>) – The name of the first column to compare. Default is ‘ARM’.</p></li>
+<li><p><strong>col2</strong> (<em>str</em>) – The name of the second column to compare. Default is ‘ACTARM’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>If there is a difference between the two columns,
+a DataFrame is returned with the unique combinations of values in col1 and col2,
+along with a ‘diff’ column indicating whether the values are different (‘True’) or not (‘’).
+If there is no difference between the two columns, the string “The two columns are the same.” is returned.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame or str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mtbp3.util.diff_2cols_in_2df">
+<span class="sig-prename descclassname"><span class="pre">mtbp3.util.</span></span><span class="sig-name descname"><span class="pre">diff_2cols_in_2df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/cdt.html#diff_2cols_in_2df"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.diff_2cols_in_2df" title="Link to this definition"></a></dt>
+<dd><p>Check if a column exists in both dataframes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df1</strong> (<em>pandas.DataFrame</em>) – The first dataframe.</p></li>
+<li><p><strong>df2</strong> (<em>pandas.DataFrame</em>) – The second dataframe.</p></li>
+<li><p><strong>col</strong> (<em>str</em>) – The column to check.</p></li>
+<li><p><strong>gp</strong> (<em>str</em>) – The group column.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the column exists in both dataframes, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="mtbp3.util.df">
+<span class="sig-prename descclassname"><span class="pre">mtbp3.util.</span></span><span class="sig-name descname"><span class="pre">df</span></span><a class="headerlink" href="#mtbp3.util.df" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </section>
@@ -230,7 +312,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../index.html" class="btn btn-neutral float-left" title="mtbp3" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="lsr/index.html" class="btn btn-neutral float-right" title="mtbp3.util.lsr" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="cdt/index.html" class="btn btn-neutral float-right" title="mtbp3.util.cdt" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
