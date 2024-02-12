@@ -130,7 +130,8 @@ class Emt:
                 missing_files.append(file)
 
         if not missing_files:
-            return [], f"All files found. Version: {self.version_number}, Year: {self.year}, Month: {self.month}."
+            
+            return [], f"All files found. Version: {self.version_number}; Year: {self.year}; Month: {self.month}; Language: {self.language}."
         else:
             return missing_files, f"{len(missing_files)} files not found."
 
