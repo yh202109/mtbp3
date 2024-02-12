@@ -29,6 +29,7 @@
                 "import shutil\n",
                 "import random\n",
                 "\n",
+                "\n",
                 "random_number = random.randint(1, 100)\n",
                 "testfolder_name = f\"testfolder_{random_number}\"\n",
                 "\n",
@@ -37,6 +38,24 @@
                 "os.mkdir(f\"{testfolder_name}/subfolder1\")\n",
                 "with open(f\"{testfolder_name}/subfolder2/testfile3\", \"w\") as file:\n",
                 "    pass"
+            ]
+        },
+        {
+            "cell_type": "code",
+            "execution_count": null,
+            "metadata": {},
+            "outputs": [],
+            "source": [
+                "To use the LsrTree:"
+            ]
+        },
+        {
+            "cell_type": "code",
+            "execution_count": null,
+            "metadata": {},
+            "outputs": [],
+            "source": [
+                "from mtbp3.util.lsr import LsrTree"
             ]
         },
         {
@@ -52,8 +71,6 @@
             "metadata": {},
             "outputs": [],
             "source": [
-                "from mtbp3.util.lsr import LsrTree\n",
-                "\n",
                 "lsr = LsrTree(testfolder_name, outfmt=\"tree\")\n",
                 "print(lsr.list_files())"
             ]
@@ -62,7 +79,24 @@
             "cell_type": "markdown",
             "metadata": {},
             "source": [
-                "To list files in more details:"
+                "To list files in a folder with counts added after folder names:"
+            ]
+        },
+        {
+            "cell_type": "code",
+            "execution_count": null,
+            "metadata": {},
+            "outputs": [],
+            "source": [
+                "lsr = LsrTree(testfolder_name, outfmt=\"tree\", with_counts=True)\n",
+                "print(lsr.list_files())"
+            ]
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [
+                "To list files with file sizes and dates:"
             ]
         },
         {

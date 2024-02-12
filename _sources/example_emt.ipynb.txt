@@ -1,0 +1,125 @@
+{
+    "cells": [
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [
+                "\n",
+                "# Example - Working with MedDRA Data\n",
+                "\n",
+                "The Medical Dictionary for Regulatory Activities (MedDRA) is a set of standardized terminologies commonly used in clinical safety recording, communicating, and reporting activities.  MedDRA is developed and maintained by the International Council for Harmonisation of Technical Requirements for Pharmaceuticals for Human Use (ICH)[^1]<sup>,</sup>[^2]. The module `emt` include basic functions for processing MedDRA data. \n",
+                "\n",
+                "An example distribution folder is shipped with this module. To simplify data sharing process[^3], the example folder includes randomly generated strings and numbers following MedDRA distribution format in Version 26.1 to demonstrate the usage of this module.\n"
+            ]
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [
+                "## Assign MedDRA Distribution Folder\n",
+                "\n",
+                "To check if necessary files are found:"
+            ]
+        },
+        {
+            "cell_type": "code",
+            "execution_count": null,
+            "metadata": {},
+            "outputs": [],
+            "source": [
+                "import os\n",
+                "from mtbp3.util.emt import Emt\n",
+                "\n",
+                "# To use downloaded MedDRA distribution files, assign folder_name to the relative or exact path of the unzipped folder.\n",
+                "emt = Emt(folder_name='')\n",
+                "print(emt.find_files())"
+            ]
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [
+                "\n",
+                "## Find MedDRA Terms \n",
+                "\n",
+                "MedDRA terms are organized in a hierarchical system: SOC, HLGT, HLT, PT, LLT.\n",
+                "\n",
+                "To find a list of SOC:"
+            ]
+        },
+        {
+            "cell_type": "code",
+            "execution_count": null,
+            "metadata": {},
+            "outputs": [],
+            "source": [
+                "soc_names = emt.emt.find_soc()"
+            ]
+        },
+        {
+            "cell_type": "code",
+            "execution_count": null,
+            "metadata": {},
+            "outputs": [],
+            "source": [
+                "To find PTs related to the first SOC on the list:"
+            ]
+        },
+        {
+            "cell_type": "code",
+            "execution_count": null,
+            "metadata": {},
+            "outputs": [],
+            "source": [
+                "df = emt.find_pt_given_soc(soc_names[0])\n",
+                "\n",
+                "# to save the df to a CSV file:\n",
+                "# df.to_csv('filename.csv', index=False)"
+            ]
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [
+                "## Find SMQ Information\n",
+                "\n",
+                "TBA\n",
+                "\n"
+            ]
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [
+                "## Reference\n",
+                "\n",
+                "[^1]: ICH. (2013). [Understanding MedDRA](https://admin.meddra.org/sites/default/files/page/documents_insert/meddra2013_0.pdf)\n",
+                "[^2]: Dutta, A. (2020). [MedDRA - Terminologies & Coding](https://meddra.org/sites/default/files/page/documents_insert/meddra_-_terminologies_coding.pdf)\n",
+                "[^3]: ICH. (year). [MedDRA Data Sharing Statement](https://admin.meddra.org/sites/default/files/page/documents/000198%20Statement%20on%20MedDRA%20Data%20Sharing.pdf)\n",
+                "\n",
+                "\n"
+            ]
+        }
+    ],
+    "metadata": {
+        "kernelspec": {
+            "display_name": "Python 3",
+            "language": "python",
+            "name": "python3"
+        },
+        "language_info": {
+            "codemirror_mode": {
+                "name": "ipython",
+                "version": 3
+            },
+            "file_extension": ".py",
+            "mimetype": "text/x-python",
+            "name": "python",
+            "nbconvert_exporter": "python",
+            "pygments_lexer": "ipython3",
+            "version": "3.12.1"
+        }
+    },
+    "nbformat": 4,
+    "nbformat_minor": 4
+}

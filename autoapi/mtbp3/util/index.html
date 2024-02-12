@@ -97,6 +97,8 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="cdt/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mtbp3.util.cdt</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdtg/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mtbp3.util.cdtg</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="emt/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mtbp3.util.emt</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="lsr/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mtbp3.util.lsr</span></code></a></li>
 </ul>
 </div>
@@ -123,6 +125,12 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#mtbp3.util.diff_2cols_in_2df" title="mtbp3.util.diff_2cols_in_2df"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diff_2cols_in_2df</span></code></a>(df1, df2, col, gp)</p></td>
 <td><p>Check if a column exists in both dataframes.</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mtbp3.util.plot_ridge_logx" title="mtbp3.util.plot_ridge_logx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_ridge_logx</span></code></a>(df, group_col, y_col[, x_scale_base])</p></td>
+<td><p>Plot ridge plots with logarithmic x-axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mtbp3.util.plot_hbox_logx" title="mtbp3.util.plot_hbox_logx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_hbox_logx</span></code></a>(df, group_col, y_col[, fn_x, fn_y, ...])</p></td>
+<td><p>Plot a horizontal boxplot with logarithmic x-axis.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -134,6 +142,9 @@
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#mtbp3.util.df" title="mtbp3.util.df"><code class="xref py py-obj docutils literal notranslate"><span class="pre">df</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mtbp3.util.group" title="mtbp3.util.group"><code class="xref py py-obj docutils literal notranslate"><span class="pre">group</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -301,6 +312,78 @@ If there is no difference between the two columns, the string “The two columns
 <dl class="py data">
 <dt class="sig sig-object py" id="mtbp3.util.df">
 <span class="sig-prename descclassname"><span class="pre">mtbp3.util.</span></span><span class="sig-name descname"><span class="pre">df</span></span><a class="headerlink" href="#mtbp3.util.df" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mtbp3.util.plot_ridge_logx">
+<span class="sig-prename descclassname"><span class="pre">mtbp3.util.</span></span><span class="sig-name descname"><span class="pre">plot_ridge_logx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_scale_base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/cdtg.html#plot_ridge_logx"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.plot_ridge_logx" title="Link to this definition"></a></dt>
+<dd><p>Plot ridge plots with logarithmic x-axis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pandas.DataFrame</em>) – The input DataFrame.</p></li>
+<li><p><strong>group_col</strong> (<em>str</em>) – The column name used for grouping the data.</p></li>
+<li><p><strong>y_col</strong> (<em>str</em>) – The column name used for the y-axis values.</p></li>
+<li><p><strong>x_scale_base</strong> (<em>int</em><em>, </em><em>optional</em>) – The base value for the logarithmic x-axis scale. Defaults to 10.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The resulting plot.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>matplotlib.pyplot</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mtbp3.util.plot_hbox_logx">
+<span class="sig-prename descclassname"><span class="pre">mtbp3.util.</span></span><span class="sig-name descname"><span class="pre">plot_hbox_logx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pt_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_scale_base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/cdtg.html#plot_hbox_logx"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.plot_hbox_logx" title="Link to this definition"></a></dt>
+<dd><p>Plot a horizontal boxplot with logarithmic x-axis.</p>
+<p>Parameters:
+- df: DataFrame</p>
+<blockquote>
+<div><p>The input DataFrame containing the data to be plotted.</p>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt>group_col: str</dt><dd><p>The column name in the DataFrame to group the data by.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>y_col: str</dt><dd><p>The column name in the DataFrame representing the y-axis values.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>fn_x: float, optional</dt><dd><p>The x-coordinate of the text annotation.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>fn_y: float, optional</dt><dd><p>The y-coordinate of the text annotation.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>pt_size: int, optional</dt><dd><p>The size of the points in the stripplot.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>x_scale_base: int, optional</dt><dd><p>The base value for the logarithmic x-axis scale.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Returns:
+None</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="mtbp3.util.group">
+<span class="sig-prename descclassname"><span class="pre">mtbp3.util.</span></span><span class="sig-name descname"><span class="pre">group</span></span><a class="headerlink" href="#mtbp3.util.group" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </section>

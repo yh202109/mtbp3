@@ -38,6 +38,8 @@ Functions
 
    mtbp3.diff_2cols_in_1df
    mtbp3.diff_2cols_in_2df
+   mtbp3.plot_ridge_logx
+   mtbp3.plot_hbox_logx
    mtbp3.get_data
 
 
@@ -49,6 +51,7 @@ Attributes
 
    mtbp3.lsr
    mtbp3.df
+   mtbp3.group
    mtbp3.__version__
    mtbp3._ROOT
 
@@ -159,6 +162,52 @@ Attributes
 
 
 .. py:data:: df
+
+   
+
+.. py:function:: plot_ridge_logx(df, group_col, y_col, x_scale_base=10)
+
+   Plot ridge plots with logarithmic x-axis.
+
+   :param df: The input DataFrame.
+   :type df: pandas.DataFrame
+   :param group_col: The column name used for grouping the data.
+   :type group_col: str
+   :param y_col: The column name used for the y-axis values.
+   :type y_col: str
+   :param x_scale_base: The base value for the logarithmic x-axis scale. Defaults to 10.
+   :type x_scale_base: int, optional
+
+   :returns: The resulting plot.
+   :rtype: matplotlib.pyplot
+
+
+.. py:function:: plot_hbox_logx(df, group_col, y_col, fn_x=0.5, fn_y=0.01, pt_size=5, x_scale_base=10, title='')
+
+   Plot a horizontal boxplot with logarithmic x-axis.
+
+   Parameters:
+   - df: DataFrame
+       The input DataFrame containing the data to be plotted.
+   - group_col: str
+       The column name in the DataFrame to group the data by.
+   - y_col: str
+       The column name in the DataFrame representing the y-axis values.
+   - fn_x: float, optional
+       The x-coordinate of the text annotation.
+   - fn_y: float, optional
+       The y-coordinate of the text annotation.
+   - pt_size: int, optional
+       The size of the points in the stripplot.
+   - x_scale_base: int, optional
+       The base value for the logarithmic x-axis scale.
+
+
+   Returns:
+   None
+
+
+.. py:data:: group
 
    
 

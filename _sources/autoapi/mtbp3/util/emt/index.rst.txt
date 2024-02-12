@@ -1,0 +1,113 @@
+:py:mod:`mtbp3.util.emt`
+========================
+
+.. py:module:: mtbp3.util.emt
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   mtbp3.util.emt.Emt
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   mtbp3.util.emt.emt
+
+
+.. py:class:: Emt(folder_name='')
+
+
+   A class representing MedDRA terms.
+
+   This class provides methods to interact with the Emt object,
+   including listing files associated with the Emt.
+
+   .. attribute:: folder_name
+
+      The folder name associated with the Emt.
+
+      :type: str
+
+   .. attribute:: lsr
+
+      An instance of the LsrTree class for listing files.
+
+      :type: LsrTree
+
+   .. attribute:: month
+
+      The month of the version published.
+
+      :type: str
+
+   .. attribute:: year
+
+      The year of the version published.
+
+      :type: str
+
+   .. py:method:: expected_file_lists()
+
+      Get the three lists of files associated with the Emt.
+
+      :returns: A tuple containing three lists of file names.
+      :rtype: tuple
+
+
+   .. py:method:: find_files()
+
+      Find all expected files associated with the Emt.
+
+      :returns: A list of missing file names.
+      :rtype: list
+
+
+   .. py:method:: list_files()
+
+      List all files associated with the Emt.
+
+      :returns: A list of file names.
+      :rtype: list
+
+
+   .. py:method:: find_soc(outfmt='name')
+
+      Find all unique SOC (System Organ Class) names in the mdhier.asc file.
+
+      :returns: A list of unique SOC names.
+      :rtype: list
+
+
+   .. py:method:: find_pt_given_soc(soc_name, primary_soc_only=False)
+
+      Find all PTs (Preferred Terms) given a SOC (System Organ Class) name.
+
+      :param soc_name: The name of the SOC.
+      :type soc_name: str
+      :param primary_soc_only: If True, only return PTs associated with the primary SOC.
+                               Defaults to False.
+      :type primary_soc_only: bool, optional
+
+      :returns:
+
+                A DataFrame containing the PTs associated with the given SOC.
+                                    Each row represents a PT and contains the PT code and PT name.
+      :rtype: pandas.DataFrame
+
+
+
+.. py:data:: emt
+
+   
+
