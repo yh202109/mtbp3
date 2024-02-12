@@ -20,7 +20,7 @@ setup(
     ],
     packages=find_packages(),  # Required
     python_requires=">=3.7, <4",
-    install_requires=['pathlib', 'json', 'pandas'],
+    install_requires=['pathlib', 'json', 'pandas', 'matplotlib', 'seaborn'],
     project_urls={  # Optional
         "Bug Reports": "https://github.com/yh202109/mtbp3/issues",
         "Source": "https://github.com/yh202109/mtbp3/",
