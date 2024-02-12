@@ -6,6 +6,7 @@
 :hidden:
 
 example_files.ipynb
+example_emt.ipynb
 changelog.md
 contributing.md
 conduct.md
