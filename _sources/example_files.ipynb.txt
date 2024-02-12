@@ -41,10 +41,8 @@
             ]
         },
         {
-            "cell_type": "code",
-            "execution_count": null,
+            "cell_type": "markdown",
             "metadata": {},
-            "outputs": [],
             "source": [
                 "To use the LsrTree:"
             ]
@@ -108,6 +106,13 @@
                 "\n",
                 "lsr = LsrTree(testfolder_name, outfmt=\"dataframe\")\n",
                 "print(lsr.list_files())"
+            ]
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [
+                "To remove the test folder:"
             ]
         },
         {
