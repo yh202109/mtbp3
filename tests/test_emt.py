@@ -22,7 +22,7 @@ class TestEmt(unittest.TestCase):
     def test_list_files(self):
         files = self.emt.list_files()
         first_file = files.split('\n')[0] 
-        self.assertEqual(first_file, "MedDRA/  <<<((( F=11; D=3 )))>>>")
+        self.assertEqual(first_file, "MedDRA/  <<<((( F=8; D=2 )))>>>")
 
     def test_find_pt_given_soc(self):
         soc_names = self.emt.find_soc()
