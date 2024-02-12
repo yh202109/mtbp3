@@ -81,11 +81,14 @@ Attributes
       :rtype: list
 
 
-   .. py:method:: find_soc(outfmt='name')
+   .. py:method:: find_soc(soc_name='')
 
-      Find all unique SOC (System Organ Class) names in the mdhier.asc file.
+      Find all unique SOC (System Organ Class) names.
 
-      :returns: A list of unique SOC names.
+      :param soc_name: The specific SOC name to filter the results. Defaults to "".
+      :type soc_name: str, optional
+
+      :returns: A list of unique SOC names. If soc_name is provided, it returns id.
       :rtype: list
 
 
