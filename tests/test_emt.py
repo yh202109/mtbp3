@@ -30,7 +30,7 @@ class TestEmt(unittest.TestCase):
         df = self.emt.find_pt_given_soc(soc_name)
         self.assertIsNotNone(df)
         self.assertEqual(len(df), 31)
-        self.assertEqual(df.columns.tolist(), [0, 4, 11])
+        self.assertEqual(df.columns.tolist(), ['Id', 'Name', 'Primary'])
 
     def test_find_pt_given_soc_primary_only(self):
         soc_names = self.emt.find_soc()
@@ -38,7 +38,7 @@ class TestEmt(unittest.TestCase):
         df = self.emt.find_pt_given_soc(soc_name, primary_soc_only=True)
         self.assertIsNotNone(df)
         self.assertEqual(len(df), 27)
-        self.assertEqual(df.columns.tolist(), [0, 4])
+        self.assertEqual(df.columns.tolist(), ['Id', 'Name'])
 
 if __name__ == "__main__":
     unittest.main()

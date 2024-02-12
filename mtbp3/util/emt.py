@@ -146,18 +146,25 @@ class Emt:
         lsr_files = lsr.list_files()
         return lsr_files
 
-    def find_soc(self, outfmt='name'):
+    def find_soc(self, soc_name=""):
         """
-        Find all unique SOC (System Organ Class) names in the mdhier.asc file.
+        Find all unique SOC (System Organ Class) names.
+
+        Args:
+            soc_name (str, optional): The specific SOC name to filter the results. Defaults to "".
 
         Returns:
-            list: A list of unique SOC names.
+            list: A list of unique SOC names. If soc_name is provided, it returns id.
         """
         meddra_mdhier = os.path.join(self.folder_name, 'MedAscii', 'mdhier.asc')
         df = pd.read_csv(meddra_mdhier, delimiter='$', header=None)
-        soc = df[7].unique().tolist()
-
-        return soc
+        out = df[7].unique().tolist()
+        if soc_name:
+            if soc_name in out:
+                out = df[df[7] == soc_name][3].unique().tolist()
+            else:
+                out = []
+        return out
 
     def find_pt_given_soc(self, soc_name, primary_soc_only=False):
         """
@@ -173,17 +180,21 @@ class Emt:
                                 Each row represents a PT and contains the PT code and PT name.
         """
         meddra_mdhier = os.path.join(self.folder_name, 'MedAscii', 'mdhier.asc')
-        df = pd.read_csv(meddra_mdhier, delimiter='$', header=None)
-        if primary_soc_only:
-            subset_df = df[(df[7] == soc_name) & (df[11] == 'Y')][[0, 4]]
-        else:
-            subset_df = df[df[7] == soc_name][[0, 4, 11]]
 
+        df = pd.read_csv(meddra_mdhier, delimiter='$', header=None, dtype=str)
+        if primary_soc_only:
+            subset_df = df[(df[7] == soc_name) & (df[11] == 'Y')][[0, 4]].reset_index(drop=True)
+            subset_df.columns = ['Id', 'Name']
+        else:
+            subset_df = df[df[7] == soc_name][[0, 4, 11]].reset_index(drop=True)
+            subset_df.columns = ['Id', 'Name', 'Primary']
+            
         return subset_df
 
 if __name__ == "__main__":
     emt = Emt()
-    print(emt.list_files())
+    soc_names = emt.find_soc()
+    print(emt.find_pt_given_soc(soc_names[0]).head())
 
 
 
