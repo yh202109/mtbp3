@@ -3,7 +3,7 @@
 [![PyPI version](https://badge.fury.io/py/mtbp3.svg)](https://badge.fury.io/py/mtbp3)
 ![PyPI](https://img.shields.io/pypi/v/mtbp3?label=pypi%20package)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/mtbp3)
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue-svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 My tool box in Python.
 
