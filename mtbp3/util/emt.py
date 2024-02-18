@@ -55,7 +55,7 @@ class Emt:
         self.year = ""
         self.month = ""
         self.language = ""
-
+        self.mdhier = None
 
         meddra_release_file = os.path.join(self.folder_name, 'MedAscii', 'meddra_release.asc')
         if os.path.isfile(meddra_release_file):
@@ -82,6 +82,7 @@ class Emt:
                 if match:
                     self.month, self.year = match.group().split()
                     break
+
 
     def expected_file_lists(self):
         """
@@ -113,7 +114,7 @@ class Emt:
         seq_ascii_files = ["/SeqAscii/" + file for file in seq_ascii_files] 
         return support_doc_files, med_ascii_files, seq_ascii_files
 
-    def find_files(self):
+    def find_files(self, load_if_all_found=True):
         """
         Find all expected files associated with the Emt.
 
@@ -130,8 +131,10 @@ class Emt:
                 missing_files.append(file)
 
         if not missing_files:
-            
-            return [], f"All files found. Version: {self.version_number}; Year: {self.year}; Month: {self.month}; Language: {self.language}."
+            mdhierasc = os.path.join(self.folder_name, 'MedAscii', 'mdhier.asc')
+            self.mdhier = pd.read_csv(mdhierasc, delimiter='$', header=None, dtype=str)
+            nsoc = len(self.mdhier[7].unique())
+            return [], f"All files found. Version: {self.version_number}; Year: {self.year}; Month: {self.month}; Language: {self.language}. N_SOC: {nsoc}."
         else:
             return missing_files, f"{len(missing_files)} files not found."
 
@@ -146,7 +149,7 @@ class Emt:
         lsr_files = lsr.list_files()
         return lsr_files
 
-    def find_soc(self, soc_name=""):
+    def find_soc(self, soc_name=[]):
         """
         Find all unique SOC (System Organ Class) names.
 
@@ -156,14 +159,17 @@ class Emt:
         Returns:
             list: A list of unique SOC names. If soc_name is provided, it returns id.
         """
-        meddra_mdhier = os.path.join(self.folder_name, 'MedAscii', 'mdhier.asc')
-        df = pd.read_csv(meddra_mdhier, delimiter='$', header=None)
-        out = df[7].unique().tolist()
+        subset = self.mdhier[[3, 7]].drop_duplicates()
         if soc_name:
-            if soc_name in out:
-                out = df[df[7] == soc_name][3].unique().tolist()
+            assert isinstance(soc_name, list), "soc_name must be a list"
+            if all(isinstance(elem, str) and elem.isdigit() for elem in soc_name):
+                assert all(elem in subset[3].tolist() for elem in soc_name), "All elements of soc_name must be present in subset[3]"
+                out = pd.merge(pd.DataFrame(soc_name), subset, left_on=0, right_on=3)[7].tolist()
             else:
-                out = []
+                assert all(elem in subset[7].tolist() for elem in soc_name), "All elements of soc_name must be present in subset[3]"
+                out = pd.merge(pd.DataFrame(soc_name), subset, left_on=0, right_on=7)[3].tolist()
+        else:
+            out = subset[7].tolist()
         return out
 
     def find_pt_given_soc(self, soc_name, primary_soc_only=False):
@@ -193,8 +199,14 @@ class Emt:
 
 if __name__ == "__main__":
     emt = Emt()
+    print(emt.find_files())
     soc_names = emt.find_soc()
-    print(emt.find_pt_given_soc(soc_names[0]).head())
+    print(soc_names)
+    id=emt.find_soc(soc_names)
+    print(id)
+    print(emt.find_soc(id))
+    #print(emt.find_pt_given_soc(soc_names[0]).head())
+    #pass
 
 
 

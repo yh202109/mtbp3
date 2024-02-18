@@ -231,70 +231,11 @@ class LsrTree:
         prelst_joined = prelst.apply(lambda row: ''.join(row), axis=1)
         return "\n".join(prelst_joined)
 
-    def list_files_tree_simple(self):
-            """
-            List files in the specified directory and return the result as a tree structure.
-
-            Returns:
-                str: The tree structure representing the file list.
-            """
-
-            pre = ['', '    ', '│   ', '├── ', '└── ', '  ']
-            data = []
-            dir_path = os.path.dirname(self.path)
-
-            for s0, d0, f0 in sorted(os.walk(self.path)):
-                if s0.startswith(dir_path):
-                    s1 = s0[len(dir_path):] if len(s0) > len(dir_path) else ""
-                else:
-                    s1 = s0 
-                if s1 and s1.startswith('/'):
-                    s1 = s1[1:] 
-                level = s1.count(os.sep)
-                if len(d0)+len(f0) > 0:
-                    data.append((os.path.dirname(s1), level, "folder", os.path.basename(s1)))
-                    for index, f1 in enumerate(f0):
-                        data.append((s1, level+1, "file", f1))
-                    for index, d1 in enumerate(d0):
-                        data.append((s1, level+1, "folder", d1))
-                else:
-                    data.append((os.path.dirname(s1), level, "folder", os.path.basename(s1)))
-                
-            colnames = ["path", "level", "type", "file"]
-            df0 = pd.DataFrame(data, columns=colnames)
-            df0['row_index'] = df0.index
-            
-            df = df0.groupby(df0.columns.difference(['row_index']).tolist(), sort=False).agg({ 'row_index': 'max'}).reset_index().sort_values('row_index')
-            prelst = pd.DataFrame([['' for _ in range(df['level'].max())] for _ in range(len(df))])
-            prelst = pd.concat([prelst, df], axis=1).sort_values('row_index')
-            prelst.reset_index(drop=True, inplace=True) 
-            prelst['row_index'] = prelst.index
-            
-            for index, row in prelst.iterrows():
-                if row['level'] > 0: 
-                    prelst.loc[index, :(row['level']-1)] = [pre[1]]*(row['level'])
-
-            folder_paths = prelst[prelst['type'] == 'folder'][['path', 'file', 'level']].apply(lambda row: (os.path.join(row['path'], row['file']), row['level']), axis=1)
-            for folder_path, level in folder_paths:
-                index_set = prelst[prelst['path'] == folder_path]['row_index']
-                
-                if not index_set.empty:
-                    min_row_index = index_set.min()
-                    max_row_index = index_set.max()
-                    prelst.loc[(min_row_index):(max_row_index), level] = [pre[2]] * (max_row_index - min_row_index + 1) 
-                    prelst.loc[index_set, level] = [pre[3]] * len(index_set)
-                    prelst.loc[max_row_index, level] = pre[4] 
-
-            prelst['file'] = prelst.apply(lambda row: row['file'] + '/' if row['type'] == 'folder' else row['file'], axis=1)
-            
-            prelst = prelst.loc[:, :'file']
-            prelst_joined = prelst.apply(lambda row: ''.join(row), axis=1)
-            return "\n".join(prelst_joined)
-
 if __name__ == "__main__":
-    lsr = LsrTree("mtbp3/data/test_lsr", outfmt="tree", with_counts=True)
+    #lsr = LsrTree("mtbp3/data/test_lsr", outfmt="tree", with_counts=True)
     #print(lsr.list_files())
-    prelst = lsr.list_files()
-    print(prelst)
+    #prelst = lsr.list_files()
+    #print(prelst)
+    pass
 
 

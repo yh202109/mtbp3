@@ -1,6 +1,10 @@
 # Changelog
 
 <!--next-version-placeholder-->
+## v0.1.22 (2024-02-15)
+
+- update cdtg+violin+swarm
+
 ## v0.1.18 (2024-02-12)
 
 - update emt
