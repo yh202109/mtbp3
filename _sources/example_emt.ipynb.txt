@@ -33,6 +33,7 @@
             "metadata": {},
             "outputs": [],
             "source": [
+                "import matplotlib.pyplot as plt\n",
                 "from mtbp3.util.emt import Emt\n",
                 "\n",
                 "emt = Emt(folder_name='')\n",
