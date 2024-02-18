@@ -1,9 +1,9 @@
 # mtbp3
 
 [![PyPI version](https://badge.fury.io/py/mtbp3.svg)](https://badge.fury.io/py/mtbp3)
-[![GitHub version](https://badge.fury.io/gh/yh202109%2Fmtbp3.svg)](https://badge.fury.io/gh/yh202109%2Fmtbp3)
 ![PyPI](https://img.shields.io/pypi/v/mtbp3?label=pypi%20package)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/mtbp3)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue-svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 My tool box in Python.
 
@@ -54,4 +54,12 @@ Documentation:
 
 Hsu, Y. (2024). mtbp3: My tool box in Python [Software]. Retrieved from https://yh202109.github.io/mtbp3/index.html.
 
-
+```
+@software{mtbp3,
+  author = {Hsu, Y.},
+  title = {mtbp3: My tool box in Python},
+  year = {2024},
+  url = {https://yh202109.github.io/mtbp3/index.html},
+  note = {Software}
+}
+```
