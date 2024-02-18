@@ -1,50 +1,87 @@
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<html lang="en" data-content_root="./">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Example - Create Plots Using catPlotter &mdash; mtbp3  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=eafc0fe6" />
 
-    <title>Example - Create Plots Using catPlotter &#8212; mtbp3  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="_static/nature.css?v=601dbdee" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=eafc0fe6" />
-    <script src="_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Changelog" href="changelog.html" />
     <link rel="prev" title="Example - Working with MedDRA Data" href="example_emt.html" /> 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="changelog.html" title="Changelog"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="example_emt.html" title="Example - Working with MedDRA Data"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">mtbp3  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Example - Create Plots Using catPlotter</a></li> 
-      </ul>
-    </div>  
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            mtbp3
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="example_files.html">Example - Showing Folder Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_emt.html">Example - Working with MedDRA Data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Example - Create Plots Using catPlotter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">mtbp3</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Example - Create Plots Using catPlotter</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/example_cdtg.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="example-create-plots-using-catplotter">
-<h1>Example - Create Plots Using catPlotter<a class="headerlink" href="#example-create-plots-using-catplotter" title="Link to this heading">¶</a></h1>
+<h1>Example - Create Plots Using catPlotter<a class="headerlink" href="#example-create-plots-using-catplotter" title="Link to this heading"></a></h1>
 <p>The module <code class="docutils literal notranslate"><span class="pre">cdtg</span></code> include basic functions for processing data and generate plots.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -68,15 +105,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/seaborn/categorical.py:3399: UserWarning: 27.8% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/seaborn/categorical.py:3399: UserWarning: 5.6% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
   warnings.warn(msg, UserWarning)
-/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/seaborn/categorical.py:3399: UserWarning: 35.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-  warnings.warn(msg, UserWarning)
-/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/seaborn/categorical.py:3399: UserWarning: 45.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/seaborn/categorical.py:3399: UserWarning: 25.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
   warnings.warn(msg, UserWarning)
 </pre></div>
 </div>
-<img alt="_images/8d2549a4fb396e9cf6fc40a6c9fb13f37d19cd16f7f1b7012462378282f910c3.png" src="_images/8d2549a4fb396e9cf6fc40a6c9fb13f37d19cd16f7f1b7012462378282f910c3.png" />
+<img alt="_images/74a1beaae3f0ab42aa194f4b8a39c30ddf78f86867c5232bba1cac9b0c760bf9.png" src="_images/74a1beaae3f0ab42aa194f4b8a39c30ddf78f86867c5232bba1cac9b0c760bf9.png" />
 </div>
 </div>
 <p>To create a line plot:</p>
@@ -88,73 +123,42 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c3abb39a3932bfb2d58b5246938f2c59188ece7814f7e54fb0a4826cc6bd42cd.png" src="_images/c3abb39a3932bfb2d58b5246938f2c59188ece7814f7e54fb0a4826cc6bd42cd.png" />
+<img alt="_images/1e88ed2e1a40f6bff65943c4d537b5e53aea972faa5d51ba2d76af345d86e314.png" src="_images/1e88ed2e1a40f6bff65943c4d537b5e53aea972faa5d51ba2d76af345d86e314.png" />
 </div>
 </div>
 <p>Please note that the GM is defined as exponential of mean of natural base transform of y.
-When plot on the assigned scale base, that represent :math:<code class="docutils literal notranslate"><span class="pre">\frac{1}{ln(5)}</span></code> times the mean of natural base transform of y.</p>
+When plot on the assigned scale base, that represent <code class="docutils literal notranslate"><span class="pre">\frac{1}{ln(5)}</span></code> times the mean of natural base transform of y.</p>
 </section>
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="example_emt.html" class="btn btn-neutral float-left" title="Example - Working with MedDRA Data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="changelog.html" class="btn btn-neutral float-right" title="Changelog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Y. Hsu.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="example_emt.html"
-                          title="previous chapter">Example - Working with MedDRA Data</a></p>
+    </section>
   </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="changelog.html"
-                          title="next chapter">Changelog</a></p>
-  </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/example_cdtg.ipynb.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="changelog.html" title="Changelog"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="example_emt.html" title="Example - Working with MedDRA Data"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">mtbp3  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Example - Create Plots Using catPlotter</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-    &#169; Copyright 2024, Y. Hsu.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
-    </div>
-  </body>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>

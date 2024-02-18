@@ -65,7 +65,7 @@
             "metadata": {},
             "source": [
                 "Please note that the GM is defined as exponential of mean of natural base transform of y. \n",
-                "When plot on the assigned scale base, that represent :math:`\\frac{1}{ln(5)}` times the mean of natural base transform of y.\n",
+                "When plot on the assigned scale base, that represent `\\frac{1}{ln(5)}` times the mean of natural base transform of y.\n",
                 "\n",
                 "\n"
             ]
