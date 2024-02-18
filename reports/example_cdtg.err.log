@@ -1,0 +1,38 @@
+Traceback (most recent call last):
+  File "/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+  File "/opt/hostedtoolcache/Python/3.10.13/x64/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+cat_plot = catPlotter(None, group_col='CValueGroup', y_col='Value', x_col='CValue', y_scale_base=5, title='Another Example')
+cat_plot.lineplot()
+
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[3], line 2[0m
+[1;32m      1[0m cat_plot [38;5;241m=[39m catPlotter([38;5;28;01mNone[39;00m, group_col[38;5;241m=[39m[38;5;124m'[39m[38;5;124mCValueGroup[39m[38;5;124m'[39m, y_col[38;5;241m=[39m[38;5;124m'[39m[38;5;124mValue[39m[38;5;124m'[39m, x_col[38;5;241m=[39m[38;5;124m'[39m[38;5;124mCValue[39m[38;5;124m'[39m, y_scale_base[38;5;241m=[39m[38;5;241m5[39m, title[38;5;241m=[39m[38;5;124m'[39m[38;5;124mAnother Example[39m[38;5;124m'[39m)
+[0;32m----> 2[0m [43mcat_plot[49m[38;5;241;43m.[39;49m[43mlineplot[49m[43m([49m[43m)[49m
+
+File [0;32m~/work/mtbp3/mtbp3/mtbp3/util/cdtg.py:235[0m, in [0;36mcatPlotter.lineplot[0;34m(self)[0m
+[1;32m    232[0m     ax[38;5;241m.[39mtext(i, tmp[[38;5;241m1[39m], [38;5;124mf[39m[38;5;124m'[39m[38;5;124mN=[39m[38;5;132;01m{[39;00mcount[38;5;132;01m}[39;00m[38;5;130;01m\n[39;00m[38;5;124m%m=[39m[38;5;132;01m{[39;00mnanperct[38;5;132;01m:[39;00m[38;5;124m.1f[39m[38;5;132;01m}[39;00m[38;5;130;01m\n[39;00m[38;5;124m♦GM=[39m[38;5;132;01m{[39;00mmean[38;5;132;01m:[39;00m[38;5;124m.2f[39m[38;5;132;01m}[39;00m[38;5;124m'[39m, va[38;5;241m=[39m[38;5;124m'[39m[38;5;124mtop[39m[38;5;124m'[39m, ha[38;5;241m=[39m[38;5;124m'[39m[38;5;124mcenter[39m[38;5;124m'[39m, fontsize[38;5;241m=[39mfont_size)
+[1;32m    233[0m     ax[38;5;241m.[39mplot(i, mean, marker[38;5;241m=[39m[38;5;124m'[39m[38;5;124md[39m[38;5;124m'[39m, markersize[38;5;241m=[39m[38;5;28mmax[39m([38;5;28mint[39m(font_size[38;5;241m*[39m[38;5;241m.6[39m),[38;5;241m1[39m), color[38;5;241m=[39m[38;5;124m"[39m[38;5;124m#248[39m[38;5;124m"[39m)
+[0;32m--> 235[0m ax[38;5;241m.[39mset_ylim(top[38;5;241m=[39m[43mtmp[49m[38;5;241;43m*[39;49m[38;5;241;43m1.1[39;49m) 
+[1;32m    236[0m tmp [38;5;241m=[39m ax[38;5;241m.[39mget_xlim()
+[1;32m    237[0m ax[38;5;241m.[39mset_xlim(left[38;5;241m=[39mtmp[[38;5;241m0[39m] [38;5;241m-[39m [38;5;241m0.5[39m, right[38;5;241m=[39mtmp[[38;5;241m1[39m] [38;5;241m+[39m [38;5;241m0.5[39m) 
+
+[0;31mTypeError[0m: can't multiply sequence by non-int of type 'float'
+

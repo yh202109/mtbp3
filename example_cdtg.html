@@ -105,15 +105,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/seaborn/categorical.py:3399: UserWarning: 22.2% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-  warnings.warn(msg, UserWarning)
-/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/seaborn/categorical.py:3399: UserWarning: 15.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-  warnings.warn(msg, UserWarning)
-/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/seaborn/categorical.py:3399: UserWarning: 40.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
-  warnings.warn(msg, UserWarning)
-</pre></div>
-</div>
-<img alt="_images/f411706f42f3879f4350c8d6ae7f5aad3a19b2f0520cbecb2c722a6b1f92bb84.png" src="_images/f411706f42f3879f4350c8d6ae7f5aad3a19b2f0520cbecb2c722a6b1f92bb84.png" />
+<img alt="_images/ba041461b2431819124b6610b91984b747477071af93c3302be61b101774f005.png" src="_images/ba041461b2431819124b6610b91984b747477071af93c3302be61b101774f005.png" />
 </div>
 </div>
 <p>To create a line plot:</p>
@@ -125,7 +117,23 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d7f903f2575462813d70512858e0a402d83015bac41b78c1b16ef01bf2d62bca.png" src="_images/d7f903f2575462813d70512858e0a402d83015bac41b78c1b16ef01bf2d62bca.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">cat_plot</span> <span class="o">=</span> <span class="n">catPlotter</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">group_col</span><span class="o">=</span><span class="s1">&#39;CValueGroup&#39;</span><span class="p">,</span> <span class="n">y_col</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span> <span class="n">x_col</span><span class="o">=</span><span class="s1">&#39;CValue&#39;</span><span class="p">,</span> <span class="n">y_scale_base</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Another Example&#39;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">cat_plot</span><span class="o">.</span><span class="n">lineplot</span><span class="p">()</span>
+
+<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/util/cdtg.py:235,</span> in <span class="ni">catPlotter.lineplot</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">232</span>     <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="sa">f</span><span class="s1">&#39;N=</span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="se">\n</span><span class="s1">%m=</span><span class="si">{</span><span class="n">nanperct</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="se">\n</span><span class="s1">♦GM=</span><span class="si">{</span><span class="n">mean</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">font_size</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">233</span>     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">font_size</span><span class="o">*</span><span class="mf">.6</span><span class="p">),</span><span class="mi">1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#248&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">235</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="n">tmp</span><span class="o">*</span><span class="mf">1.1</span><span class="p">)</span> 
+<span class="g g-Whitespace">    </span><span class="mi">236</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">237</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span> 
+
+<span class="ne">TypeError</span>: can&#39;t multiply sequence by non-int of type &#39;float&#39;
+</pre></div>
+</div>
+<img alt="_images/a06a48a162e94b639f41e706a0551a1f8f9945a0ce3507b2946a10d72b6405c4.png" src="_images/a06a48a162e94b639f41e706a0551a1f8f9945a0ce3507b2946a10d72b6405c4.png" />
 </div>
 </div>
 </section>
