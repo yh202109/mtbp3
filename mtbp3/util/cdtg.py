@@ -130,11 +130,14 @@ class catPlotter:
             x_counts = df.groupby(self.x_col, dropna=True).size()
             geometric_means = df.groupby(self.x_col)[self.y_col].apply(lambda x: np.exp(np.mean(np.log(x))))
             nan_percentage = df.groupby(self.x_col)[self.y_col].apply(lambda x: (x.isna() | np.isnan(x)).mean() * 100)
+            font_size = int(ax.xaxis.label.get_fontsize() * 0.9)
+            tmp = ax.get_xlim()
             for i in list(range(0, len(self.x_order))):
                 count = x_counts[self.x_order[i]]
                 mean = geometric_means[self.x_order[i]]
                 nanperct = nan_percentage[self.x_order[i]]
-                ax.text(ax.get_xlim()[1], i, f'N: {count}\nGM: {mean:.2f}\nNaN: {nanperct:.2f}%', va='center', ha='left')
+                ax.text(tmp[1], i, f'N: {count}\nGM: {mean:.2f}\n%m: {nanperct:.2f}', va='center', ha='left')
+                ax.plot(mean, i, marker='d', markersize=max(int(font_size*.6),1), color="#248")
 
             plt.tight_layout()
             ax.set_title(self.title)
