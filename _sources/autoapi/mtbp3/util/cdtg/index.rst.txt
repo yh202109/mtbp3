@@ -7,68 +7,58 @@
 Module Contents
 ---------------
 
-
-Functions
-~~~~~~~~~
-
-.. autoapisummary::
-
-   mtbp3.util.cdtg.plot_ridge_logx
-   mtbp3.util.cdtg.plot_hbox_logx
-
-
-
-Attributes
-~~~~~~~~~~
+Classes
+~~~~~~~
 
 .. autoapisummary::
 
-   mtbp3.util.cdtg.group
+   mtbp3.util.cdtg.catPlotter
 
 
-.. py:function:: plot_ridge_logx(df, group_col, y_col, x_scale_base=10)
-
-   Plot ridge plots with logarithmic x-axis.
-
-   :param df: The input DataFrame.
-   :type df: pandas.DataFrame
-   :param group_col: The column name used for grouping the data.
-   :type group_col: str
-   :param y_col: The column name used for the y-axis values.
-   :type y_col: str
-   :param x_scale_base: The base value for the logarithmic x-axis scale. Defaults to 10.
-   :type x_scale_base: int, optional
-
-   :returns: The resulting plot.
-   :rtype: matplotlib.pyplot
 
 
-.. py:function:: plot_hbox_logx(df, group_col, y_col, fn_x=0.5, fn_y=0.01, pt_size=5, x_scale_base=10, title='')
+.. py:class:: catPlotter(df, y_col, group_col=None, grid_col=None, grid_wrap=None, x_col=None, pt_size=5, y_scale_base=0, x_scale_base=0, title='', fig_size_0=7, fig_size_1=6, point_position='swarm', grid_kws=None)
 
-   Plot a horizontal boxplot with logarithmic x-axis.
+
+   A class for creating categorical box plots and strip plots.
 
    Parameters:
-   - df: DataFrame
-       The input DataFrame containing the data to be plotted.
-   - group_col: str
-       The column name in the DataFrame to group the data by.
-   - y_col: str
-       The column name in the DataFrame representing the y-axis values.
-   - fn_x: float, optional
-       The x-coordinate of the text annotation.
-   - fn_y: float, optional
-       The y-coordinate of the text annotation.
-   - pt_size: int, optional
-       The size of the points in the stripplot.
-   - x_scale_base: int, optional
-       The base value for the logarithmic x-axis scale.
+   - df (pandas.DataFrame): The input DataFrame.
+   - group_col (str): The column name for grouping the data.
+   - y_col (str): The column name for the y-axis variable.
+   - x_col (str): The column name for the x-axis variable.
+   - grid_col (str, optional): The column name for creating subplots based on a grid. Default is None.
+   - grid_wrap (int, optional): The number of columns in the grid. Default is None.
+   - pt_size (int, optional): The size of the points in the strip plot. Default is 5.
+   - x_scale_base (int, optional): The base for the x-axis scale. Default is 10.
+   - title (str, optional): The title of the plot. Default is an empty string.
+   - fig_size_0 (int, optional): The width of the figure. Default is 7.
+   - fig_size_1 (int, optional): The height of the figure. Default is 6.
+   - grid_kws (dict, optional): Additional keyword arguments for the FacetGrid. Default is None.
+
+   .. py:method:: boxplot()
+
+      Create a categorical box plot and strip plot.
+
+      Raises:
+      - ValueError: If group_col or y_col is not found in DataFrame columns.
 
 
-   Returns:
-   None
+   .. py:method:: generate_example_dataset()
+      :staticmethod:
+
+      Generate an example dataset.
+
+      :returns: The example dataset.
+      :rtype: pandas.DataFrame
 
 
-.. py:data:: group
+   .. py:method:: lineplot()
 
-   
+      Create a line plot by categorical group_col on the x-axis with grid option.
+
+      Raises:
+      - ValueError: If group_col or y_col is not found in DataFrame columns.
+
+
 

@@ -82,14 +82,6 @@ Attributes
       :rtype: str
 
 
-   .. py:method:: list_files_tree_simple()
-
-      List files in the specified directory and return the result as a tree structure.
-
-      :returns: The tree structure representing the file list.
-      :rtype: str
-
-
 
 .. py:data:: lsr
 

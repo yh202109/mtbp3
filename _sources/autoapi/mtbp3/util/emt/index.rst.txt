@@ -65,7 +65,7 @@ Attributes
       :rtype: tuple
 
 
-   .. py:method:: find_files()
+   .. py:method:: find_files(load_if_all_found=True)
 
       Find all expected files associated with the Emt.
 
@@ -81,7 +81,7 @@ Attributes
       :rtype: list
 
 
-   .. py:method:: find_soc(soc_name='')
+   .. py:method:: find_soc(soc_name=[])
 
       Find all unique SOC (System Organ Class) names.
 

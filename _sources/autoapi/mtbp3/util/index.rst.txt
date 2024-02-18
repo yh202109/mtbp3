@@ -25,6 +25,9 @@ Classes
 .. autoapisummary::
 
    mtbp3.util.LsrTree
+   mtbp3.util.LsrTree
+   mtbp3.util.Emt
+   mtbp3.util.catPlotter
 
 
 
@@ -35,8 +38,6 @@ Functions
 
    mtbp3.util.diff_2cols_in_1df
    mtbp3.util.diff_2cols_in_2df
-   mtbp3.util.plot_ridge_logx
-   mtbp3.util.plot_hbox_logx
 
 
 
@@ -46,8 +47,8 @@ Attributes
 .. autoapisummary::
 
    mtbp3.util.lsr
+   mtbp3.util.emt
    mtbp3.util.df
-   mtbp3.util.group
 
 
 .. py:class:: LsrTree(path='', outfmt='list', with_counts=False, count_str='', with_file_label=False, label_str='')
@@ -107,7 +108,61 @@ Attributes
       :rtype: str
 
 
-   .. py:method:: list_files_tree_simple()
+
+.. py:data:: lsr
+
+   
+
+.. py:class:: LsrTree(path='', outfmt='list', with_counts=False, count_str='', with_file_label=False, label_str='')
+
+
+   .. py:method:: list_files()
+
+      List files in the specified directory based on the output format.
+
+      :returns: The list of files, JSON string, or DataFrame based on the output format.
+      :rtype: list or str or pd.DataFrame
+
+      .. rubric:: Examples
+
+      >>> lsr = LsrTree("/path/to/directory", outfmt="list")
+      >>> lsr.list_files()
+      ['file1.txt', 'file2.txt', 'file3.txt']
+
+
+   .. py:method:: list_files_json()
+
+      List files in the specified directory and return the result as a JSON string.
+
+      :returns: The JSON string representing the file list.
+      :rtype: str
+
+
+   .. py:method:: list_files_list()
+
+      List files in the specified directory and return the result as a list.
+
+      :returns: The list of files.
+      :rtype: list
+
+
+   .. py:method:: list_files_dataframe()
+
+      List files in the specified directory and return the result as a pandas DataFrame.
+
+      :returns: The DataFrame representing the file list.
+      :rtype: pd.DataFrame
+
+
+   .. py:method:: list_files_string()
+
+      List files in the specified directory using the default output format.
+
+      :returns: The file list as a string.
+      :rtype: str
+
+
+   .. py:method:: list_files_tree()
 
       List files in the specified directory and return the result as a tree structure.
 
@@ -116,7 +171,92 @@ Attributes
 
 
 
-.. py:data:: lsr
+.. py:class:: Emt(folder_name='')
+
+
+   A class representing MedDRA terms.
+
+   This class provides methods to interact with the Emt object,
+   including listing files associated with the Emt.
+
+   .. attribute:: folder_name
+
+      The folder name associated with the Emt.
+
+      :type: str
+
+   .. attribute:: lsr
+
+      An instance of the LsrTree class for listing files.
+
+      :type: LsrTree
+
+   .. attribute:: month
+
+      The month of the version published.
+
+      :type: str
+
+   .. attribute:: year
+
+      The year of the version published.
+
+      :type: str
+
+   .. py:method:: expected_file_lists()
+
+      Get the three lists of files associated with the Emt.
+
+      :returns: A tuple containing three lists of file names.
+      :rtype: tuple
+
+
+   .. py:method:: find_files(load_if_all_found=True)
+
+      Find all expected files associated with the Emt.
+
+      :returns: A list of missing file names.
+      :rtype: list
+
+
+   .. py:method:: list_files()
+
+      List all files associated with the Emt.
+
+      :returns: A list of file names.
+      :rtype: list
+
+
+   .. py:method:: find_soc(soc_name=[])
+
+      Find all unique SOC (System Organ Class) names.
+
+      :param soc_name: The specific SOC name to filter the results. Defaults to "".
+      :type soc_name: str, optional
+
+      :returns: A list of unique SOC names. If soc_name is provided, it returns id.
+      :rtype: list
+
+
+   .. py:method:: find_pt_given_soc(soc_name, primary_soc_only=False)
+
+      Find all PTs (Preferred Terms) given a SOC (System Organ Class) name.
+
+      :param soc_name: The name of the SOC.
+      :type soc_name: str
+      :param primary_soc_only: If True, only return PTs associated with the primary SOC.
+                               Defaults to False.
+      :type primary_soc_only: bool, optional
+
+      :returns:
+
+                A DataFrame containing the PTs associated with the given SOC.
+                                    Each row represents a PT and contains the PT code and PT name.
+      :rtype: pandas.DataFrame
+
+
+
+.. py:data:: emt
 
    
 
@@ -159,49 +299,48 @@ Attributes
 
    
 
-.. py:function:: plot_ridge_logx(df, group_col, y_col, x_scale_base=10)
-
-   Plot ridge plots with logarithmic x-axis.
-
-   :param df: The input DataFrame.
-   :type df: pandas.DataFrame
-   :param group_col: The column name used for grouping the data.
-   :type group_col: str
-   :param y_col: The column name used for the y-axis values.
-   :type y_col: str
-   :param x_scale_base: The base value for the logarithmic x-axis scale. Defaults to 10.
-   :type x_scale_base: int, optional
-
-   :returns: The resulting plot.
-   :rtype: matplotlib.pyplot
+.. py:class:: catPlotter(df, y_col, group_col=None, grid_col=None, grid_wrap=None, x_col=None, pt_size=5, y_scale_base=0, x_scale_base=0, title='', fig_size_0=7, fig_size_1=6, point_position='swarm', grid_kws=None)
 
 
-.. py:function:: plot_hbox_logx(df, group_col, y_col, fn_x=0.5, fn_y=0.01, pt_size=5, x_scale_base=10, title='')
-
-   Plot a horizontal boxplot with logarithmic x-axis.
+   A class for creating categorical box plots and strip plots.
 
    Parameters:
-   - df: DataFrame
-       The input DataFrame containing the data to be plotted.
-   - group_col: str
-       The column name in the DataFrame to group the data by.
-   - y_col: str
-       The column name in the DataFrame representing the y-axis values.
-   - fn_x: float, optional
-       The x-coordinate of the text annotation.
-   - fn_y: float, optional
-       The y-coordinate of the text annotation.
-   - pt_size: int, optional
-       The size of the points in the stripplot.
-   - x_scale_base: int, optional
-       The base value for the logarithmic x-axis scale.
+   - df (pandas.DataFrame): The input DataFrame.
+   - group_col (str): The column name for grouping the data.
+   - y_col (str): The column name for the y-axis variable.
+   - x_col (str): The column name for the x-axis variable.
+   - grid_col (str, optional): The column name for creating subplots based on a grid. Default is None.
+   - grid_wrap (int, optional): The number of columns in the grid. Default is None.
+   - pt_size (int, optional): The size of the points in the strip plot. Default is 5.
+   - x_scale_base (int, optional): The base for the x-axis scale. Default is 10.
+   - title (str, optional): The title of the plot. Default is an empty string.
+   - fig_size_0 (int, optional): The width of the figure. Default is 7.
+   - fig_size_1 (int, optional): The height of the figure. Default is 6.
+   - grid_kws (dict, optional): Additional keyword arguments for the FacetGrid. Default is None.
+
+   .. py:method:: boxplot()
+
+      Create a categorical box plot and strip plot.
+
+      Raises:
+      - ValueError: If group_col or y_col is not found in DataFrame columns.
 
 
-   Returns:
-   None
+   .. py:method:: generate_example_dataset()
+      :staticmethod:
+
+      Generate an example dataset.
+
+      :returns: The example dataset.
+      :rtype: pandas.DataFrame
 
 
-.. py:data:: group
+   .. py:method:: lineplot()
 
-   
+      Create a line plot by categorical group_col on the x-axis with grid option.
+
+      Raises:
+      - ValueError: If group_col or y_col is not found in DataFrame columns.
+
+
 
