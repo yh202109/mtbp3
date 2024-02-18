@@ -1,6 +1,5 @@
 # mtbp3
 
-[![PyPI version](https://badge.fury.io/py/mtbp3.svg)](https://badge.fury.io/py/mtbp3)
 ![PyPI](https://img.shields.io/pypi/v/mtbp3?label=pypi%20package)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/mtbp3)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
@@ -48,7 +47,7 @@ Interested in contributing? Check out the contributing guidelines. Please note t
 Documentation: 
 
 - Documents were initially created with [`cookiecutter`](https://cookiecutter.readthedocs.io/en/latest/) and the `py-pkgs-cookiecutter` [template](https://github.com/py-pkgs/py-pkgs-cookiecutter).
-- Version badges are provided by: https://badge.fury.io/for/py and https://img.shields.io/pypi
+- Version badges are provided by: https://img.shields.io/pypi
 
 ## How to Cite 
 
