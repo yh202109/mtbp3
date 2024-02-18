@@ -36,7 +36,8 @@ class TestLsrTree(unittest.TestCase):
         self.assertEqual(files, expected_files)
 
     def test_list_files_tree(self):
-        lsr = LsrTree(os.path.join(self.test_folder, 'testfolder2'), outfmt="tree")
+        #lsr = LsrTree(os.path.join(self.test_folder, 'testfolder2'), outfmt="tree")
+        lsr = LsrTree(self.test_folder, outfmt="tree")
         files = lsr.list_files()
         expected_files = 'testfolder2/\n├── testfile21\n└── testfile22'
         self.assertEqual(files, expected_files)
