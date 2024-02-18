@@ -234,7 +234,7 @@ class catPlotter:
 
             ax.set_ylim(top=tmp[1]*1.1) 
             tmp = ax.get_xlim()
-            ax.set_xlim(left=tmp[0] - 0.2, right=tmp[1] + 0.2) 
+            ax.set_xlim(left=tmp[0] - len(self.x_order)*0.05, right=tmp[1] + len(self.x_order)*0.05) 
             ax.set_title(self.title)
             ax.xaxis.grid(True)
             plt.tight_layout()
