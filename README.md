@@ -52,5 +52,6 @@ Documentation:
 
 ## How to Cite 
 
-Hsu, Y. (2024). mtbp3: My tool box in Python. [Software]. Available at https://yh202109.github.io/mtbp3/index.html.
+Hsu, Y. (2024). mtbp3: My tool box in Python [Software]. Retrieved from https://yh202109.github.io/mtbp3/index.html.
+
 
