@@ -232,7 +232,7 @@ class catPlotter:
                 ax.text(i, tmp[1], f'N={count}\n%m={nanperct:.1f}\n♦GM={mean:.2f}', va='top', ha='center', fontsize=font_size)
                 ax.plot(i, mean, marker='d', markersize=max(int(font_size*.6),1), color="#248")
 
-            ax.set_ylim(top=tmp*1.1) 
+            ax.set_ylim(top=tmp[1]*1.1) 
             tmp = ax.get_xlim()
             ax.set_xlim(left=tmp[0] - 0.5, right=tmp[1] + 0.5) 
             ax.set_title(self.title)
