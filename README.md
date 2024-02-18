@@ -14,7 +14,7 @@ My tool box in Python.
 - [Contributing](#contributing)
 - [License](#license) 
 - [Credits](#credits) 
-- [How to Cite](#howtocite) 
+- [How to Cite](#how-to-cite) 
 
 ## Installation
 

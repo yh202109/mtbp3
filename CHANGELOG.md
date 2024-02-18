@@ -1,7 +1,7 @@
 # Changelog
 
 <!--next-version-placeholder-->
-## v0.1.22 (2024-02-18)
+## v0.1.23 (2024-02-18)
 
 - update examples
 
