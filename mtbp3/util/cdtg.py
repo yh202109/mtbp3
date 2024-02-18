@@ -136,7 +136,7 @@ class catPlotter:
                 count = x_counts[self.x_order[i]]
                 mean = geometric_means[self.x_order[i]]
                 nanperct = nan_percentage[self.x_order[i]]
-                ax.text(tmp[1], i, f'N: {count}\nGM: {mean:.2f}\n%m: {nanperct:.2f}', va='center', ha='left')
+                ax.text(tmp[1], i, f'N: {count}\n♦GM: {mean:.2f}\n%m: {nanperct:.1f}', va='center', ha='left')
                 ax.plot(mean, i, marker='d', markersize=max(int(font_size*.6),1), color="#248")
 
             plt.tight_layout()
@@ -187,7 +187,10 @@ class catPlotter:
             g = sns.FacetGrid(df, col=self.grid_col, col_wrap=self.grid_wrap, height=self.grid_kws.get('height', 3), aspect=self.grid_kws.get('aspect', 2), sharex=True, sharey=True, legend_out=True)
             g.map(sns.lineplot, self.x_col, self.y_col, self.group_col)
             if self.point_position=='density':
-                g.map(sns.violinplot, self.x_col, self.y_col, log_scale=True, fill=False)
+                if self.y_scale_base > 0:
+                    g.map(sns.violinplot, self.x_col, self.y_col, log_scale=self.y_scale_base, fill=False)
+                else:
+                    g.map(sns.violinplot, self.x_col, self.y_col, log_scale=False, fill=False)
             g.set_titles("{col_name}")
 
             if self.y_scale_base > 0:
@@ -221,7 +224,10 @@ class catPlotter:
             
             sns.lineplot(df, x=self.x_col, y=self.y_col, hue=self.group_col, legend=False)
             if self.point_position=='density':
-                sns.violinplot(df, x=self.x_col, y=self.y_col, log_scale=True, fill=False)
+                if self.y_scale_base > 0:
+                    sns.violinplot(df, x=self.x_col, y=self.y_col, log_scale=self.y_scale_base, fill=False)
+                else:
+                    sns.violinplot(df, x=self.x_col, y=self.y_col, log_scale=False, fill=False)
 
             if self.y_scale_base > 0:
                 plt.yscale("log", base=self.y_scale_base)
@@ -248,4 +254,3 @@ class catPlotter:
 
 if __name__ == "__main__": 
     pass
-
