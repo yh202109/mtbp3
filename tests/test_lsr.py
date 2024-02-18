@@ -14,32 +14,32 @@ class TestLsrTree(unittest.TestCase):
     def test_list_files_list(self):
         lsr = LsrTree(self.test_folder, outfmt="list")
         files = lsr.list_files()
-        expected_files = ['/testfolder1/testfile11', '/testfolder2/testfile20', '/testfolder2/testfile3']
+        expected_files = ['/testfolder1/testfile10', '/testfolder1/testfile11', '/testfolder1/testfile12', '/testfolder2/testfile20', '/testfolder2/testfile3']
         self.assertCountEqual(files, expected_files)
 
     def test_list_files_json(self):
         lsr = LsrTree(self.test_folder, outfmt="json")
         files = lsr.list_files()
-        expected_files = '{"0": {"path": "", "level": 0, "folders": ["testfolder1", "testfolder2"], "files": []}, "1": {"path": "/testfolder1", "level": 1, "folders": [], "files": ["testfile11"]}, "2": {"path": "/testfolder2", "level": 1, "folders": [], "files": ["testfile20", "testfile3"]}}'
+        expected_files = '{"0": {"path": "", "level": 0, "folders": ["testfolder1", "testfolder2"], "files": []}, "1": {"path": "/testfolder1", "level": 1, "folders": [], "files": ["testfile10", "testfile11", "testfile12"]}, "2": {"path": "/testfolder2", "level": 1, "folders": [], "files": ["testfile20", "testfile3"]}}'
         self.assertCountEqual(files, expected_files)
 
     def test_list_files_dataframe(self):
         lsr = LsrTree(self.test_folder, outfmt="dataframe")
         files = lsr.list_files()['file'].tolist()
-        expected_files = ['testfile11', 'testfile20', 'testfile3']
+        expected_files = ['testfile10', 'testfile11', 'testfile12', 'testfile20', 'testfile3']
         self.assertCountEqual(files, expected_files)
 
     def test_list_files_string(self):
         lsr = LsrTree(os.path.join(self.test_folder, 'testfolder1'), outfmt="string")
         files = lsr.list_files()
-        expected_files = 'testfolder1/\n... testfile11'
+        expected_files = 'testfolder1/\n... testfile10\n... testfile11\n... testfile12'
         self.assertEqual(files, expected_files)
 
     def test_list_files_tree(self):
         #lsr = LsrTree(os.path.join(self.test_folder, 'testfolder2'), outfmt="tree")
         lsr = LsrTree(self.test_folder, outfmt="tree")
         files = lsr.list_files()
-        expected_files = 'test_lsr/\n├── testfolder1/\n│   └── testfile11\n└── testfolder2/\n    ├── testfile20\n    └── testfile3'
+        expected_files = 'test_lsr/\n├── testfolder1/\n│   ├── testfile10\n│   ├── testfile11\n│   └── testfile12\n└── testfolder2/\n    ├── testfile20\n    └── testfile3'
         self.assertEqual(files, expected_files)
 
     def test_list_files_tree2(self):

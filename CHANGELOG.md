@@ -1,9 +1,9 @@
 # Changelog
 
 <!--next-version-placeholder-->
-## v0.1.22 (2024-02-15)
+## v0.1.22 (2024-02-18)
 
-- update cdtg+violin+swarm
+- update emt, add soc searching
 
 ## v0.1.18 (2024-02-12)
 

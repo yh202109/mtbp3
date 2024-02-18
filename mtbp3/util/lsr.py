@@ -105,7 +105,7 @@ class LsrTree:
                 s1 = s0[len(self.path):] if len(s0) > len(self.path) else ""
             else:
                 s1 = s0 
-            for f1 in f0:
+            for f1 in sorted(f0):
                 files.append(os.path.join(s1, f1))
             if len(f0) == 0 and len(d0) == 0:
                 files.append(s1 + "/(((empty folder)))")
@@ -128,7 +128,7 @@ class LsrTree:
             if level == 0:
                 s1 = "."
             if len(f0) > 0:
-                for f1 in f0:
+                for f1 in sorted(f0):
                     file_path = os.path.join(s0, f1)
                     file_size = os.path.getsize(file_path)
                     file_modified = time.ctime(os.path.getmtime(file_path))
@@ -159,7 +159,7 @@ class LsrTree:
             indent = "... " * (level)
             out0.append(f"{indent}{os.path.basename(s1)}/")
             subindent = "... " * (level + 1)
-            for f1 in f0:
+            for f1 in sorted(f0):
                 out0.append(f"{subindent}{f1}")
             if len(f0) == 0 and len(d0) == 0:
                 out0.append(f"{subindent}(((empty folder)))") 
@@ -190,9 +190,9 @@ class LsrTree:
                     data.append((os.path.dirname(s1), level, "folder", os.path.basename(s1), f"{pre[5]}<<<((( F={len(f0)}; D={len(d0)} )))>>>"))
                 else:
                     data.append((os.path.dirname(s1), level, "folder", os.path.basename(s1), ""))
-                for index, f1 in enumerate(f0):
+                for index, f1 in enumerate(sorted(f0)):
                     data.append((s1, level + 1, "file", f1, ""))
-                for index, d1 in enumerate(d0):
+                for index, d1 in enumerate(sorted(d0)):
                     data.append((s1, level + 1, "folder", d1, ""))
             else:
                 if self.with_counts:
@@ -232,10 +232,8 @@ class LsrTree:
         return "\n".join(prelst_joined)
 
 if __name__ == "__main__":
-    #lsr = LsrTree("mtbp3/data/test_lsr", outfmt="tree", with_counts=True)
-    #print(lsr.list_files())
-    #prelst = lsr.list_files()
-    #print(prelst)
+    lsr = LsrTree("mtbp3/data/test_lsr", outfmt="list")
+    print(lsr.list_files())
     pass
 
 
