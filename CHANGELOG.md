@@ -4,6 +4,7 @@
 ## v0.1.22 (2024-02-18)
 
 - update emt, add soc searching
+- update cdtg+violin+swarm
 
 ## v0.1.18 (2024-02-12)
 
