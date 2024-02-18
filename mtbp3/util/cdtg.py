@@ -205,6 +205,9 @@ class catPlotter:
                         ax.text(i, tmp[1], f'N={count}\n%m={nanperct:.1f}\n♦GM={mean:.2f}', va='top', ha='center', fontsize=font_size)
                         ax.plot(i, mean, marker='d', markersize=max(int(font_size*.6),1), color="#248")
 
+            ax.set_ylim(top=tmp[1]*1.1) 
+            tmp = ax.get_xlim()
+            ax.set_xlim(left=tmp[0] - len(self.x_order)*0.05, right=tmp[1] + len(self.x_order)*0.05) 
             plt.suptitle(self.title, weight='bold')
             plt.tight_layout()
 
