@@ -95,7 +95,8 @@
 <p>To create a horizontal box plot:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mtbp3.util.cdtg</span> <span class="kn">import</span> <span class="n">catPlotter</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">mtbp3.util.cdtg</span> <span class="kn">import</span> <span class="n">catPlotter</span> 
 
 <span class="n">cat_plot</span> <span class="o">=</span> <span class="n">catPlotter</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">x_col</span><span class="o">=</span><span class="s1">&#39;Group&#39;</span><span class="p">,</span> <span class="n">y_col</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span> <span class="n">y_scale_base</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;An Example&#39;</span><span class="p">)</span>
 <span class="n">cat_plot</span><span class="o">.</span><span class="n">boxplot</span><span class="p">()</span>
@@ -104,21 +105,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/seaborn/categorical.py:3399: UserWarning: 16.7% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/seaborn/categorical.py:3399: UserWarning: 25.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+  warnings.warn(msg, UserWarning)
+/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/seaborn/categorical.py:3399: UserWarning: 30.0% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
   warnings.warn(msg, UserWarning)
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">cat_plot</span> <span class="o">=</span> <span class="n">catPlotter</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">x_col</span><span class="o">=</span><span class="s1">&#39;Group&#39;</span><span class="p">,</span> <span class="n">y_col</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span> <span class="n">y_scale_base</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;An Example&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">cat_plot</span><span class="o">.</span><span class="n">boxplot</span><span class="p">()</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="ne">NameError</span>: name &#39;plt&#39; is not defined
-</pre></div>
-</div>
-<img alt="_images/bde0892949566eac833fe110ba0fa1ea672e794a721e58fa4e063bba42c91961.png" src="_images/bde0892949566eac833fe110ba0fa1ea672e794a721e58fa4e063bba42c91961.png" />
+<img alt="_images/94279585ddd8e99a0f86319aeaa9ac291d309549b0ee6a93d2d8ed739401b38b.png" src="_images/94279585ddd8e99a0f86319aeaa9ac291d309549b0ee6a93d2d8ed739401b38b.png" />
 </div>
 </div>
 <p>To create a line plot:</p>
@@ -128,6 +121,9 @@
 <span class="n">cat_plot</span><span class="o">.</span><span class="n">lineplot</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/466aa937bfe4c07370da6876a9af517553f7b7c9f317ad8e920ecdd5e083916d.png" src="_images/466aa937bfe4c07370da6876a9af517553f7b7c9f317ad8e920ecdd5e083916d.png" />
 </div>
 </div>
 </section>
