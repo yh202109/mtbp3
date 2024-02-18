@@ -11,7 +11,7 @@
                 "\n",
                 "Please note that this module does not include MedDRA distribution files. \n",
                 "MedDRA data sharing follows data share statement published by MSSO[^3]. \n",
-                "The user can download distribution files from the MedDRA website[^4]. \n",
+                "The user can download distribution files from the MedDRA website. \n",
                 "\n",
                 "For demonstration purpose, an example distribution folder is shipped with this module. The example folder includes randomly generated strings and numbers following MedDRA distribution format in Version 26.1 to demonstrate the usage of this module. The numbers of terms are also reduced for faster results.\n"
             ]
@@ -118,7 +118,6 @@
                 "[^1]: ICH. (2013). Understanding MedDRA. ([pdf](https://admin.meddra.org/sites/default/files/page/documents_insert/meddra2013_0.pdf))\n",
                 "[^2]: Dutta, A. (2020). MedDRA - Terminologies & Coding. ([pdf](https://meddra.org/sites/default/files/page/documents_insert/meddra_-_terminologies_coding.pdf))\n",
                 "[^3]: ICH. (year). MedDRA Data Sharing Statement. ([pdf](https://admin.meddra.org/sites/default/files/page/documents/000198%20Statement%20on%20MedDRA%20Data%20Sharing.pdf))\n",
-                "[^4]: ICH. (2024). MedDRA Support Documentation. [webpage](https://www.meddra.org/how-to-use/support-documentation/english)\n",
                 "\n",
                 "\n"
             ]
