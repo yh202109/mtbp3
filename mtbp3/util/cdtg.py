@@ -35,9 +35,18 @@ class catPlotter:
     - fig_size_0 (int, optional): The width of the figure. Default is 7.
     - fig_size_1 (int, optional): The height of the figure. Default is 6.
     - grid_kws (dict, optional): Additional keyword arguments for the FacetGrid. Default is None.
+
+    Methods:
+    - update_parameters(**kwargs): Update the parameters of the catPlotter instance.
+    - boxplot(): Create a categorical box plot and strip plot.
+    - lineplot(): Create a line plot by categorical group_col on the x-axis with grid option.
+    - generate_example_dataset(): Generate an example dataset.
+
+    Raises:
+    - ValueError: If an invalid parameter is provided or if group_col, x_col, or y_col is not found in DataFrame columns.
     """
 
-    def __init__(self, df, y_col, group_col=None, grid_col=None, grid_wrap=None, x_col=None, pt_size=5, y_scale_base=0, x_scale_base=0, title="", fig_size_0=7, fig_size_1=6, point_position='swarm', grid_kws=None):
+    def __init__(self, df, y_col, group_col=None, grid_col=None, grid_wrap=None, x_col=None, pt_size=5, y_scale_base=0, x_scale_base=0, title="", fig_size_0=7, fig_size_1=6, point_position='swarm', x_label_rotate=None, grid_kws=None):
         if df is None:
             df = self.generate_example_dataset()
         self.df = df
@@ -57,6 +66,7 @@ class catPlotter:
         self.title = title
         self.fig_size_0 = fig_size_0
         self.fig_size_1 = fig_size_1
+        self.x_label_rotate = x_label_rotate
         if group_col and group_col in df.columns:
             self.group_order = sorted(df[self.group_col].unique())
         else:
@@ -69,6 +79,26 @@ class catPlotter:
             grid_kws = {}
         self.grid_kws = grid_kws
         sns.set_style("ticks", {'axes.grid': True})
+    
+    def update_parameters(self, **kwargs):
+        """
+        Update the parameters.
+
+        Parameters:
+        - kwargs (dict): The keyword arguments to update the parameters.
+
+        Raises:
+        - ValueError: If an invalid parameter is provided.
+        """
+        valid_parameters = [
+            "df", "y_col", "group_col", "grid_col", "grid_wrap", "x_col", "pt_size",
+            "y_scale_base", "x_scale_base", "title", "fig_size_0", "fig_size_1",
+            "point_position", "x_label_rotate", "grid_kws"
+        ]
+        for key, value in kwargs.items():
+            if key not in valid_parameters:
+                raise ValueError(f"Invalid parameter: {key}")
+            setattr(self, key, value)
 
     def boxplot(self):
         """
@@ -177,20 +207,32 @@ class catPlotter:
         if self.group_col not in self.df.columns or self.y_col not in self.df.columns or self.x_col not in self.df.columns:
             raise ValueError("group_col, x_col, or y_col not found in DataFrame columns")
 
-        df_grouped = self.df.groupby([self.x_col, self.group_col])[self.y_col].nunique()
+        if self.grid_col:
+            df_grouped = self.df.groupby([self.x_col, self.group_col, self.grid_col])[self.y_col].nunique()
+        else:
+            df_grouped = self.df.groupby([self.x_col, self.group_col])[self.y_col].nunique()
         if (df_grouped > 1).any():
             raise AssertionError("Multiple y_col values found for a combination of x_col and group_col")
 
         if self.grid_col:
-            df = self.df.sort_values([self.grid_col, self.group_col, self.x_col]).reset_index()
+            df = self.df.copy()
+            df['GroupedMean'] = df.groupby([self.grid_col, self.group_col])[self.y_col].transform('mean')
+            df = df.sort_values([self.grid_col, self.x_col, 'GroupedMean']).reset_index()
 
-            g = sns.FacetGrid(df, col=self.grid_col, col_wrap=self.grid_wrap, height=self.grid_kws.get('height', 3), aspect=self.grid_kws.get('aspect', 2), sharex=True, sharey=True, legend_out=True)
-            g.map(sns.lineplot, self.x_col, self.y_col, self.group_col)
+            g = sns.FacetGrid(df, col=self.grid_col, col_wrap=self.grid_wrap, height=self.grid_kws.get('height', 3), aspect=self.grid_kws.get('aspect', 2.5), sharex=True, sharey=True, legend_out=True)
+            
             if self.point_position=='density':
                 if self.y_scale_base > 0:
-                    g.map(sns.violinplot, self.x_col, self.y_col, log_scale=self.y_scale_base, fill=False)
+                    g.map(sns.violinplot, self.x_col, self.y_col, log_scale=self.y_scale_base, fill=False, order=self.x_order)
                 else:
-                    g.map(sns.violinplot, self.x_col, self.y_col, log_scale=False, fill=False)
+                    g.map(sns.violinplot, self.x_col, self.y_col, log_scale=False, fill=False, order=self.x_order)
+            else:
+                if self.y_scale_base > 0:
+                    g.map(sns.violinplot, self.x_col, self.y_col, log_scale=self.y_scale_base, fill=False, order=self.x_order, linewidth=0)
+                else:
+                    g.map(sns.violinplot, self.x_col, self.y_col, log_scale=False, fill=False, order=self.x_order, linewidth=0)
+            g.map(sns.lineplot, self.x_col, self.y_col, self.group_col, sort=True, hue='GroupedMean', linewidth=0.7)
+
             g.set_titles("{col_name}")
 
             if self.y_scale_base > 0:
@@ -210,6 +252,9 @@ class catPlotter:
                         nanperct = nan_percentage[self.x_order[i]]
                         ax.text(i, tmp[1], f'N={count}\n%m={nanperct:.1f}\n♦GM={mean:.2f}', va='top', ha='center', fontsize=font_size)
                         ax.plot(i, mean, marker='d', markersize=max(int(font_size*.6),1), color="#248")
+                    if self.x_label_rotate:
+                        ax.tick_params(axis='x', rotation=self.x_label_rotate)  
+                        #plt.xticks(rotation=self.x_label_rotate)
 
             ax.set_ylim(top=tmp[1]*1.1) 
             tmp = ax.get_xlim()
@@ -218,16 +263,22 @@ class catPlotter:
             plt.tight_layout()
 
         else:
-            df = self.df.sort_values([self.group_col, self.x_col]).reset_index()
+            df = self.df.copy()
+            df['GroupedMean'] = df.groupby([self.group_col])[self.y_col].transform('mean')
+            df = df.sort_values([self.x_col, 'GroupedMean']).reset_index()
             f, ax = plt.subplots(figsize=(self.fig_size_0, self.fig_size_1))
             
-            
-            sns.lineplot(df, x=self.x_col, y=self.y_col, hue=self.group_col, legend=False)
             if self.point_position=='density':
                 if self.y_scale_base > 0:
-                    sns.violinplot(df, x=self.x_col, y=self.y_col, log_scale=self.y_scale_base, fill=False)
+                    sns.violinplot(df, x=self.x_col, y=self.y_col, log_scale=self.y_scale_base, fill=False, order=self.x_order)
                 else:
-                    sns.violinplot(df, x=self.x_col, y=self.y_col, log_scale=False, fill=False)
+                    sns.violinplot(df, x=self.x_col, y=self.y_col, log_scale=False, fill=False, order=self.x_order)
+            else:
+                if self.y_scale_base > 0:
+                    sns.violinplot(df, x=self.x_col, y=self.y_col, log_scale=self.y_scale_base, fill=False, order=self.x_order, linewidth=0)
+                else:
+                    sns.violinplot(df, x=self.x_col, y=self.y_col, log_scale=False, fill=False, order=self.x_order, linewidth=0)
+            sns.lineplot(df, x=self.x_col, y=self.y_col, hue=self.group_col, sort=True, legend=False)
 
             if self.y_scale_base > 0:
                 plt.yscale("log", base=self.y_scale_base)
@@ -249,8 +300,10 @@ class catPlotter:
             ax.set_xlim(left=tmp[0] - len(self.x_order)*0.05, right=tmp[1] + len(self.x_order)*0.05) 
             ax.set_title(self.title)
             ax.xaxis.grid(True)
+            if self.x_label_rotate:
+                plt.xticks(rotation=self.x_label_rotate)
             plt.tight_layout()
             sns.despine(trim=False, left=False)
 
-if __name__ == "__main__": 
+if __name__ == "__main__":
     pass

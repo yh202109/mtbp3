@@ -13,14 +13,13 @@
 #  You should have received a copy of the GNU General Public license
 #  along with this program. If not, see <https://www.gnu.org/license/>
 
-
-import os
-from mtbp3.util.lsr import LsrTree
-import re
-import glob
 import csv
-import mtbp3
+import glob
+import os
+import re
 import pandas as pd
+from mtbp3.util.lsr import LsrTree
+import mtbp3
 
 class Emt:
     """A class representing MedDRA terms.
@@ -82,7 +81,6 @@ class Emt:
                 if match:
                     self.month, self.year = match.group().split()
                     break
-
 
     def expected_file_lists(self):
         """
@@ -154,10 +152,13 @@ class Emt:
         Find all unique SOC (System Organ Class) names.
 
         Args:
-            soc_name (str, optional): The specific SOC name to filter the results. Defaults to "".
+            soc_name (list, optional): The specific SOC name(s) to filter the results. Defaults to an empty list.
 
         Returns:
-            list: A list of unique SOC names. If soc_name is provided, it returns id.
+            list: A list of unique SOC names. If soc_name is provided, it returns the corresponding ids.
+        
+        Raises:
+            AssertionError: If soc_name is not a list or if any element of soc_name is not present in the subset.
         """
         subset = self.mdhier[[3, 7]].drop_duplicates()
         if soc_name:
@@ -198,15 +199,8 @@ class Emt:
         return subset_df
 
 if __name__ == "__main__":
-    emt = Emt()
-    print(emt.find_files())
-    soc_names = emt.find_soc()
-    print(soc_names)
-    id=emt.find_soc(soc_names)
-    print(id)
-    print(emt.find_soc(id))
-    #print(emt.find_pt_given_soc(soc_names[0]).head())
-    #pass
+    pass
+
 
 
 

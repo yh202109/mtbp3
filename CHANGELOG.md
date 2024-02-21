@@ -1,6 +1,14 @@
 # Changelog
 
 <!--next-version-placeholder-->
+## v0.1.38 (2024-02-21)
+
+- update doc
+
+## v0.1.37 (2024-02-19)
+
+- update cdt, cdtg
+
 ## v0.1.23 (2024-02-18)
 
 - update examples
