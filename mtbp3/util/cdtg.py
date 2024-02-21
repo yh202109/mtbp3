@@ -91,14 +91,41 @@ class catPlotter:
         - ValueError: If an invalid parameter is provided.
         """
         valid_parameters = [
-            "df", "y_col", "group_col", "grid_col", "grid_wrap", "x_col", "pt_size",
+            "y_col", "group_col", "grid_col", "grid_wrap", "x_col", "pt_size",
             "y_scale_base", "x_scale_base", "title", "fig_size_0", "fig_size_1",
-            "point_position", "x_label_rotate", "grid_kws"
+            "point_position", "x_label_rotate"
+        ]
+        not_valid_parameters = [
+            "df", "grid_kws"
         ]
         for key, value in kwargs.items():
+            if key in not_valid_parameters:
+                raise ValueError(f"Unable to update parameter: {key}. Please create a new plot with the updated parameters.")
             if key not in valid_parameters:
                 raise ValueError(f"Invalid parameter: {key}")
             setattr(self, key, value)
+        
+        if 'group_col' in kwargs:
+            group_col = kwargs.get('group_col')
+            if group_col and group_col in self.df.columns:
+                self.group_order = sorted(self.df[self.group_col].unique())
+            else:
+                self.group_order = []
+        if 'x_col' in kwargs:
+            x_col = kwargs.get('x_col')
+            if x_col and x_col in self.df.columns:
+                self.x_order = sorted(self.df[self.x_col].unique())
+            else:
+                self.x_order = []
+        if 'grid_col' in kwargs:
+            grid_col = kwargs.get('grid_col')
+            if not grid_col or not grid_col in self.df.columns:
+                grid_col = ""
+            self.grid_col = grid_col
+        if 'grid_wrap' in kwargs:
+            grid_wrap = kwargs.get('grid_wrap')
+            if not grid_wrap:
+                grid_wrap = 1
 
     def boxplot(self):
         """
