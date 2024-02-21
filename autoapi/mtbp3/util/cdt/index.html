@@ -107,15 +107,8 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#mtbp3.util.cdt.diff_2cols_in_2df" title="mtbp3.util.cdt.diff_2cols_in_2df"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diff_2cols_in_2df</span></code></a>(df1, df2, col, gp)</p></td>
 <td><p>Check if a column exists in both dataframes.</p></td>
 </tr>
-</tbody>
-</table>
-</section>
-<section id="attributes">
-<h3>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h3>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mtbp3.util.cdt.df" title="mtbp3.util.cdt.df"><code class="xref py py-obj docutils literal notranslate"><span class="pre">df</span></code></a></p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mtbp3.util.cdt.summarize_1nc_by_2group" title="mtbp3.util.cdt.summarize_1nc_by_2group"><code class="xref py py-obj docutils literal notranslate"><span class="pre">summarize_1nc_by_2group</span></code></a>([df, column, cutoff, ...])</p></td>
+<td><p>Create a summary dataframe that shows the percentage of NaN values and values less than a cutoff point in a numerical column.</p></td>
 </tr>
 </tbody>
 </table>
@@ -165,10 +158,36 @@ If there is no difference between the two columns, the string “The two columns
 </dl>
 </dd></dl>
 
-<dl class="py data">
-<dt class="sig sig-object py" id="mtbp3.util.cdt.df">
-<span class="sig-prename descclassname"><span class="pre">mtbp3.util.cdt.</span></span><span class="sig-name descname"><span class="pre">df</span></span><a class="headerlink" href="#mtbp3.util.cdt.df" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="mtbp3.util.cdt.summarize_1nc_by_2group">
+<span class="sig-prename descclassname"><span class="pre">mtbp3.util.cdt.</span></span><span class="sig-name descname"><span class="pre">summarize_1nc_by_2group</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_col0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_col1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_cat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/util/cdt.html#summarize_1nc_by_2group"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.cdt.summarize_1nc_by_2group" title="Link to this definition"></a></dt>
+<dd><p>Create a summary dataframe that shows the percentage of NaN values and values less than a cutoff point in a numerical column.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pandas.DataFrame</em>) – The input dataframe.</p></li>
+<li><p><strong>column</strong> (<em>str</em>) – The name of the numerical column.</p></li>
+<li><p><strong>cutoff</strong> (<em>float</em>) – The cutoff point.</p></li>
+<li><p><strong>group_col0</strong> (<em>str</em>) – The first group column.</p></li>
+<li><p><strong>group_col1</strong> (<em>str</em>) – The second group column.</p></li>
+<li><p><strong>to_cat</strong> (<em>bool</em>) – Whether to categorize the column based on the cutoff point.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A summary dataframe with two columns: ‘NaN Percentage’ and ‘Below Cutoff Percentage’, pivoted by group_col1.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – If the input is not a DataFrame or if the column is not a string or does not exist in the DataFrame.</p></li>
+<li><p><strong>ValueError</strong> – If the group_col0 or group_col1 is not a string or does not exist in the DataFrame.</p></li>
+<li><p><strong>ValueError</strong> – If the column is not a numerical column.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </section>
 </section>

@@ -82,7 +82,7 @@
              
   <section id="example-create-plots-using-catplotter">
 <h1>Example - Create Plots Using catPlotter<a class="headerlink" href="#example-create-plots-using-catplotter" title="Link to this heading"></a></h1>
-<p>The module <code class="docutils literal notranslate"><span class="pre">cdtg</span></code> include basic functions for processing data and generate plots.</p>
+<p>The module <code class="docutils literal notranslate"><span class="pre">cdtg</span></code> include basic functions for processing data and generating plots.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
@@ -92,6 +92,7 @@
 </div>
 </div>
 </div>
+<p>The function <code class="docutils literal notranslate"><span class="pre">boxplot</span></code> generates plots for a given continuous variable Y, a categorical variable X, and a categorical group variable.</p>
 <p>To create a horizontal box plot:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -103,19 +104,81 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6ccdd83d08c29238469a7b5e3ec99e815121e6b5b5831ca6ddea223ff6f7979c.png" src="_images/6ccdd83d08c29238469a7b5e3ec99e815121e6b5b5831ca6ddea223ff6f7979c.png" />
+<img alt="_images/9c467cfdcf59fbbf849f47375e09704dd733df6cad4234f873f44e0518f4632d.png" src="_images/9c467cfdcf59fbbf849f47375e09704dd733df6cad4234f873f44e0518f4632d.png" />
 </div>
 </div>
 <p>To create a line plot:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat_plot</span> <span class="o">=</span> <span class="n">catPlotter</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">group_col</span><span class="o">=</span><span class="s1">&#39;CValueGroup&#39;</span><span class="p">,</span> <span class="n">y_col</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span> <span class="n">x_col</span><span class="o">=</span><span class="s1">&#39;CValue&#39;</span><span class="p">,</span> <span class="n">y_scale_base</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Another Example&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat_plot</span><span class="o">.</span><span class="n">update_parameters</span><span class="p">(</span><span class="n">group_col</span><span class="o">=</span><span class="s1">&#39;CValueGroup&#39;</span><span class="p">,</span> <span class="n">x_col</span><span class="o">=</span><span class="s1">&#39;CValue&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Another Example&#39;</span><span class="p">)</span>
 <span class="n">cat_plot</span><span class="o">.</span><span class="n">lineplot</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6743135ede96bc6d3c02379197a86b568a57ca3257f992b6c130e4a777ed2b7f.png" src="_images/6743135ede96bc6d3c02379197a86b568a57ca3257f992b6c130e4a777ed2b7f.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/indexes/base.py:3802,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3801</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3802</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3803</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+
+<span class="nn">File index.pyx:153,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">File index.pyx:182,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">File pandas/_libs/hashtable_class_helper.pxi:7081,</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+
+<span class="nn">File pandas/_libs/hashtable_class_helper.pxi:7089,</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+
+<span class="ne">KeyError</span>: &#39;A&#39;
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">cat_plot</span><span class="o">.</span><span class="n">update_parameters</span><span class="p">(</span><span class="n">group_col</span><span class="o">=</span><span class="s1">&#39;CValueGroup&#39;</span><span class="p">,</span> <span class="n">x_col</span><span class="o">=</span><span class="s1">&#39;CValue&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Another Example&#39;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">cat_plot</span><span class="o">.</span><span class="n">lineplot</span><span class="p">()</span>
+
+<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/util/cdtg.py:292,</span> in <span class="ni">catPlotter.lineplot</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">290</span> <span class="n">font_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">get_fontsize</span><span class="p">()</span> <span class="o">*</span> <span class="mf">0.9</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">291</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x_order</span><span class="p">))):</span>
+<span class="ne">--&gt; </span><span class="mi">292</span>     <span class="n">count</span> <span class="o">=</span> <span class="n">x_counts</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">x_order</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+<span class="g g-Whitespace">    </span><span class="mi">293</span>     <span class="n">mean</span> <span class="o">=</span> <span class="n">geometric_means</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">x_order</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+<span class="g g-Whitespace">    </span><span class="mi">294</span>     <span class="n">nanperct</span> <span class="o">=</span> <span class="n">nan_percentage</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">x_order</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/series.py:1111,</span> in <span class="ni">Series.__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1108</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_values</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1110</span> <span class="k">elif</span> <span class="n">key_is_scalar</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1111</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_value</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1113</span> <span class="c1"># Convert generator to list before going through hashable part</span>
+<span class="g g-Whitespace">   </span><span class="mi">1114</span> <span class="c1"># (We will iterate through the generator there to check for slices)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1115</span> <span class="k">if</span> <span class="n">is_iterator</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/series.py:1227,</span> in <span class="ni">Series._get_value</span><span class="nt">(self, label, takeable)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1224</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_values</span><span class="p">[</span><span class="n">label</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1226</span> <span class="c1"># Similar to Index.get_value, but we do not fall back to positional</span>
+<span class="ne">-&gt; </span><span class="mi">1227</span> <span class="n">loc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1229</span> <span class="k">if</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">loc</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1230</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_values</span><span class="p">[</span><span class="n">loc</span><span class="p">]</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/indexes/base.py:3809,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3804</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">casted_key</span><span class="p">,</span> <span class="nb">slice</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">3805</span>         <span class="nb">isinstance</span><span class="p">(</span><span class="n">casted_key</span><span class="p">,</span> <span class="n">abc</span><span class="o">.</span><span class="n">Iterable</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3806</span>         <span class="ow">and</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">slice</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3807</span>     <span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">3808</span>         <span class="k">raise</span> <span class="n">InvalidIndexError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">3809</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
+<span class="g g-Whitespace">   </span><span class="mi">3810</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3811</span>     <span class="c1"># If we have a listlike key, _check_indexing_error will raise</span>
+<span class="g g-Whitespace">   </span><span class="mi">3812</span>     <span class="c1">#  InvalidIndexError. Otherwise we fall through and re-raise</span>
+<span class="g g-Whitespace">   </span><span class="mi">3813</span>     <span class="c1">#  the TypeError.</span>
+<span class="g g-Whitespace">   </span><span class="mi">3814</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_check_indexing_error</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+<span class="ne">KeyError</span>: &#39;A&#39;
+</pre></div>
+</div>
+<img alt="_images/b051bba9c62da0350c035f98786d3ed91b3a82e5155c946ba83a96d0565d812a.png" src="_images/b051bba9c62da0350c035f98786d3ed91b3a82e5155c946ba83a96d0565d812a.png" />
 </div>
 </div>
 </section>

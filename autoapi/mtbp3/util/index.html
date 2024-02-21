@@ -136,6 +136,9 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#mtbp3.util.diff_2cols_in_2df" title="mtbp3.util.diff_2cols_in_2df"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diff_2cols_in_2df</span></code></a>(df1, df2, col, gp)</p></td>
 <td><p>Check if a column exists in both dataframes.</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mtbp3.util.summarize_1nc_by_2group" title="mtbp3.util.summarize_1nc_by_2group"><code class="xref py py-obj docutils literal notranslate"><span class="pre">summarize_1nc_by_2group</span></code></a>([df, column, cutoff, ...])</p></td>
+<td><p>Create a summary dataframe that shows the percentage of NaN values and values less than a cutoff point in a numerical column.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -144,12 +147,6 @@
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="lsr/index.html#module-mtbp3.util.lsr" title="mtbp3.util.lsr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lsr</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mtbp3.util.emt" title="mtbp3.util.emt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">emt</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mtbp3.util.df" title="mtbp3.util.df"><code class="xref py py-obj docutils literal notranslate"><span class="pre">df</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -447,13 +444,16 @@ including listing files associated with the Emt.</p>
 <dd><p>Find all unique SOC (System Organ Class) names.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>soc_name</strong> (<em>str</em><em>, </em><em>optional</em>) – The specific SOC name to filter the results. Defaults to “”.</p>
+<dd class="field-odd"><p><strong>soc_name</strong> (<em>list</em><em>, </em><em>optional</em>) – The specific SOC name(s) to filter the results. Defaults to an empty list.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A list of unique SOC names. If soc_name is provided, it returns id.</p>
+<dd class="field-even"><p>A list of unique SOC names. If soc_name is provided, it returns the corresponding ids.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>AssertionError</strong> – If soc_name is not a list or if any element of soc_name is not present in the subset.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -484,11 +484,6 @@ Defaults to False.</p></li>
 </dd></dl>
 
 </dd></dl>
-
-<dl class="py data">
-<dt class="sig sig-object py" id="mtbp3.util.emt">
-<span class="sig-prename descclassname"><span class="pre">mtbp3.util.</span></span><span class="sig-name descname"><span class="pre">emt</span></span><a class="headerlink" href="#mtbp3.util.emt" title="Link to this definition"></a></dt>
-<dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="mtbp3.util.diff_2cols_in_1df">
@@ -536,14 +531,40 @@ If there is no difference between the two columns, the string “The two columns
 </dl>
 </dd></dl>
 
-<dl class="py data">
-<dt class="sig sig-object py" id="mtbp3.util.df">
-<span class="sig-prename descclassname"><span class="pre">mtbp3.util.</span></span><span class="sig-name descname"><span class="pre">df</span></span><a class="headerlink" href="#mtbp3.util.df" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="mtbp3.util.summarize_1nc_by_2group">
+<span class="sig-prename descclassname"><span class="pre">mtbp3.util.</span></span><span class="sig-name descname"><span class="pre">summarize_1nc_by_2group</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_col0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_col1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_cat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/cdt.html#summarize_1nc_by_2group"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.summarize_1nc_by_2group" title="Link to this definition"></a></dt>
+<dd><p>Create a summary dataframe that shows the percentage of NaN values and values less than a cutoff point in a numerical column.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pandas.DataFrame</em>) – The input dataframe.</p></li>
+<li><p><strong>column</strong> (<em>str</em>) – The name of the numerical column.</p></li>
+<li><p><strong>cutoff</strong> (<em>float</em>) – The cutoff point.</p></li>
+<li><p><strong>group_col0</strong> (<em>str</em>) – The first group column.</p></li>
+<li><p><strong>group_col1</strong> (<em>str</em>) – The second group column.</p></li>
+<li><p><strong>to_cat</strong> (<em>bool</em>) – Whether to categorize the column based on the cutoff point.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A summary dataframe with two columns: ‘NaN Percentage’ and ‘Below Cutoff Percentage’, pivoted by group_col1.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – If the input is not a DataFrame or if the column is not a string or does not exist in the DataFrame.</p></li>
+<li><p><strong>ValueError</strong> – If the group_col0 or group_col1 is not a string or does not exist in the DataFrame.</p></li>
+<li><p><strong>ValueError</strong> – If the column is not a numerical column.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="mtbp3.util.catPlotter">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mtbp3.util.</span></span><span class="sig-name descname"><span class="pre">catPlotter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_wrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pt_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_scale_base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_scale_base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_size_0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_size_1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'swarm'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_kws</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/cdtg.html#catPlotter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.catPlotter" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mtbp3.util.</span></span><span class="sig-name descname"><span class="pre">catPlotter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_wrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pt_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_scale_base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_scale_base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_size_0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_size_1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'swarm'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_label_rotate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_kws</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/cdtg.html#catPlotter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.catPlotter" title="Link to this definition"></a></dt>
 <dd><p>A class for creating categorical box plots and strip plots.</p>
 <p>Parameters:
 - df (pandas.DataFrame): The input DataFrame.
@@ -558,6 +579,23 @@ If there is no difference between the two columns, the string “The two columns
 - fig_size_0 (int, optional): The width of the figure. Default is 7.
 - fig_size_1 (int, optional): The height of the figure. Default is 6.
 - grid_kws (dict, optional): Additional keyword arguments for the FacetGrid. Default is None.</p>
+<p>Methods:
+- update_parameters(<a href="#id7"><span class="problematic" id="id8">**</span></a>kwargs): Update the parameters of the catPlotter instance.
+- boxplot(): Create a categorical box plot and strip plot.
+- lineplot(): Create a line plot by categorical group_col on the x-axis with grid option.
+- generate_example_dataset(): Generate an example dataset.</p>
+<p>Raises:
+- ValueError: If an invalid parameter is provided or if group_col, x_col, or y_col is not found in DataFrame columns.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mtbp3.util.catPlotter.update_parameters">
+<span class="sig-name descname"><span class="pre">update_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/cdtg.html#catPlotter.update_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.catPlotter.update_parameters" title="Link to this definition"></a></dt>
+<dd><p>Update the parameters.</p>
+<p>Parameters:
+- kwargs (dict): The keyword arguments to update the parameters.</p>
+<p>Raises:
+- ValueError: If an invalid parameter is provided.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="mtbp3.util.catPlotter.boxplot">
 <span class="sig-name descname"><span class="pre">boxplot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/cdtg.html#catPlotter.boxplot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.catPlotter.boxplot" title="Link to this definition"></a></dt>

@@ -17,14 +17,6 @@ Classes
 
 
 
-Attributes
-~~~~~~~~~~
-
-.. autoapisummary::
-
-   mtbp3.util.emt.emt
-
-
 .. py:class:: Emt(folder_name='')
 
 
@@ -85,11 +77,13 @@ Attributes
 
       Find all unique SOC (System Organ Class) names.
 
-      :param soc_name: The specific SOC name to filter the results. Defaults to "".
-      :type soc_name: str, optional
+      :param soc_name: The specific SOC name(s) to filter the results. Defaults to an empty list.
+      :type soc_name: list, optional
 
-      :returns: A list of unique SOC names. If soc_name is provided, it returns id.
+      :returns: A list of unique SOC names. If soc_name is provided, it returns the corresponding ids.
       :rtype: list
+
+      :raises AssertionError: If soc_name is not a list or if any element of soc_name is not present in the subset.
 
 
    .. py:method:: find_pt_given_soc(soc_name, primary_soc_only=False)
@@ -109,8 +103,4 @@ Attributes
       :rtype: pandas.DataFrame
 
 
-
-.. py:data:: emt
-
-   
 

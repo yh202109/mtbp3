@@ -94,14 +94,13 @@
 <span class="c1">#  You should have received a copy of the GNU General Public license</span>
 <span class="c1">#  along with this program. If not, see &lt;https://www.gnu.org/license/&gt;</span>
 
-
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">mtbp3.util.lsr</span> <span class="kn">import</span> <span class="n">LsrTree</span>
-<span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">import</span> <span class="nn">glob</span>
 <span class="kn">import</span> <span class="nn">csv</span>
-<span class="kn">import</span> <span class="nn">mtbp3</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">mtbp3.util.lsr</span> <span class="kn">import</span> <span class="n">LsrTree</span>
+<span class="kn">import</span> <span class="nn">mtbp3</span>
 
 <div class="viewcode-block" id="Emt">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt">[docs]</a>
@@ -165,7 +164,6 @@
                 <span class="k">if</span> <span class="n">match</span><span class="p">:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">year</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
                     <span class="k">break</span>
-
 
 <div class="viewcode-block" id="Emt.expected_file_lists">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.expected_file_lists">[docs]</a>
@@ -248,10 +246,13 @@
 <span class="sd">        Find all unique SOC (System Organ Class) names.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            soc_name (str, optional): The specific SOC name to filter the results. Defaults to &quot;&quot;.</span>
+<span class="sd">            soc_name (list, optional): The specific SOC name(s) to filter the results. Defaults to an empty list.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            list: A list of unique SOC names. If soc_name is provided, it returns id.</span>
+<span class="sd">            list: A list of unique SOC names. If soc_name is provided, it returns the corresponding ids.</span>
+<span class="sd">        </span>
+<span class="sd">        Raises:</span>
+<span class="sd">            AssertionError: If soc_name is not a list or if any element of soc_name is not present in the subset.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">subset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mdhier</span><span class="p">[[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">soc_name</span><span class="p">:</span>
@@ -297,15 +298,8 @@
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">emt</span> <span class="o">=</span> <span class="n">Emt</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">emt</span><span class="o">.</span><span class="n">find_files</span><span class="p">())</span>
-    <span class="n">soc_names</span> <span class="o">=</span> <span class="n">emt</span><span class="o">.</span><span class="n">find_soc</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">soc_names</span><span class="p">)</span>
-    <span class="nb">id</span><span class="o">=</span><span class="n">emt</span><span class="o">.</span><span class="n">find_soc</span><span class="p">(</span><span class="n">soc_names</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">emt</span><span class="o">.</span><span class="n">find_soc</span><span class="p">(</span><span class="nb">id</span><span class="p">))</span>
-    <span class="c1">#print(emt.find_pt_given_soc(soc_names[0]).head())</span>
-    <span class="c1">#pass</span>
+    <span class="k">pass</span>
+
 
 
 

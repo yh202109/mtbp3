@@ -94,7 +94,7 @@
            <div itemprop="articleBody">
              
   <section id="module-mtbp3.util.emt">
-<span id="mtbp3-util-emt"></span><h1><a class="reference internal" href="../index.html#mtbp3.util.emt" title="mtbp3.util.emt"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mtbp3.util.emt</span></code></a><a class="headerlink" href="#module-mtbp3.util.emt" title="Link to this heading"></a></h1>
+<span id="mtbp3-util-emt"></span><h1><a class="reference internal" href="#module-mtbp3.util.emt" title="mtbp3.util.emt"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mtbp3.util.emt</span></code></a><a class="headerlink" href="#module-mtbp3.util.emt" title="Link to this heading"></a></h1>
 <section id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
 <section id="classes">
@@ -103,16 +103,6 @@
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mtbp3.util.emt.Emt" title="mtbp3.util.emt.Emt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Emt</span></code></a></p></td>
 <td><p>A class representing MedDRA terms.</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="attributes">
-<h3>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h3>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mtbp3.util.emt.emt" title="mtbp3.util.emt.emt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">emt</span></code></a></p></td>
-<td><p></p></td>
 </tr>
 </tbody>
 </table>
@@ -214,13 +204,16 @@ including listing files associated with the Emt.</p>
 <dd><p>Find all unique SOC (System Organ Class) names.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>soc_name</strong> (<em>str</em><em>, </em><em>optional</em>) – The specific SOC name to filter the results. Defaults to “”.</p>
+<dd class="field-odd"><p><strong>soc_name</strong> (<em>list</em><em>, </em><em>optional</em>) – The specific SOC name(s) to filter the results. Defaults to an empty list.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A list of unique SOC names. If soc_name is provided, it returns id.</p>
+<dd class="field-even"><p>A list of unique SOC names. If soc_name is provided, it returns the corresponding ids.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>AssertionError</strong> – If soc_name is not a list or if any element of soc_name is not present in the subset.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -251,11 +244,6 @@ Defaults to False.</p></li>
 </dd></dl>
 
 </dd></dl>
-
-<dl class="py data">
-<dt class="sig sig-object py" id="mtbp3.util.emt.emt">
-<span class="sig-prename descclassname"><span class="pre">mtbp3.util.emt.</span></span><span class="sig-name descname"><span class="pre">emt</span></span><a class="headerlink" href="#mtbp3.util.emt.emt" title="Link to this definition"></a></dt>
-<dd></dd></dl>
 
 </section>
 </section>

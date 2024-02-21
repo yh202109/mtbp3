@@ -1,0 +1,83 @@
+Traceback (most recent call last):
+  File "/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+  File "/opt/hostedtoolcache/Python/3.10.13/x64/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+cat_plot.update_parameters(group_col='CValueGroup', x_col='CValue', title='Another Example')
+cat_plot.lineplot()
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+File [0;32m~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/indexes/base.py:3802[0m, in [0;36mIndex.get_loc[0;34m(self, key)[0m
+[1;32m   3801[0m [38;5;28;01mtry[39;00m:
+[0;32m-> 3802[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_engine[49m[38;5;241;43m.[39;49m[43mget_loc[49m[43m([49m[43mcasted_key[49m[43m)[49m
+[1;32m   3803[0m [38;5;28;01mexcept[39;00m [38;5;167;01mKeyError[39;00m [38;5;28;01mas[39;00m err:
+
+File [0;32mindex.pyx:153[0m, in [0;36mpandas._libs.index.IndexEngine.get_loc[0;34m()[0m
+
+File [0;32mindex.pyx:182[0m, in [0;36mpandas._libs.index.IndexEngine.get_loc[0;34m()[0m
+
+File [0;32mpandas/_libs/hashtable_class_helper.pxi:7081[0m, in [0;36mpandas._libs.hashtable.PyObjectHashTable.get_item[0;34m()[0m
+
+File [0;32mpandas/_libs/hashtable_class_helper.pxi:7089[0m, in [0;36mpandas._libs.hashtable.PyObjectHashTable.get_item[0;34m()[0m
+
+[0;31mKeyError[0m: 'A'
+
+The above exception was the direct cause of the following exception:
+
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+Cell [0;32mIn[3], line 2[0m
+[1;32m      1[0m cat_plot[38;5;241m.[39mupdate_parameters(group_col[38;5;241m=[39m[38;5;124m'[39m[38;5;124mCValueGroup[39m[38;5;124m'[39m, x_col[38;5;241m=[39m[38;5;124m'[39m[38;5;124mCValue[39m[38;5;124m'[39m, title[38;5;241m=[39m[38;5;124m'[39m[38;5;124mAnother Example[39m[38;5;124m'[39m)
+[0;32m----> 2[0m [43mcat_plot[49m[38;5;241;43m.[39;49m[43mlineplot[49m[43m([49m[43m)[49m
+
+File [0;32m~/work/mtbp3/mtbp3/mtbp3/util/cdtg.py:292[0m, in [0;36mcatPlotter.lineplot[0;34m(self)[0m
+[1;32m    290[0m font_size [38;5;241m=[39m [38;5;28mint[39m(ax[38;5;241m.[39mxaxis[38;5;241m.[39mlabel[38;5;241m.[39mget_fontsize() [38;5;241m*[39m [38;5;241m0.9[39m)
+[1;32m    291[0m [38;5;28;01mfor[39;00m i [38;5;129;01min[39;00m [38;5;28mlist[39m([38;5;28mrange[39m([38;5;241m0[39m, [38;5;28mlen[39m([38;5;28mself[39m[38;5;241m.[39mx_order))):
+[0;32m--> 292[0m     count [38;5;241m=[39m [43mx_counts[49m[43m[[49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mx_order[49m[43m[[49m[43mi[49m[43m][49m[43m][49m
+[1;32m    293[0m     mean [38;5;241m=[39m geometric_means[[38;5;28mself[39m[38;5;241m.[39mx_order[i]]
+[1;32m    294[0m     nanperct [38;5;241m=[39m nan_percentage[[38;5;28mself[39m[38;5;241m.[39mx_order[i]]
+
+File [0;32m~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/series.py:1111[0m, in [0;36mSeries.__getitem__[0;34m(self, key)[0m
+[1;32m   1108[0m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_values[key]
+[1;32m   1110[0m [38;5;28;01melif[39;00m key_is_scalar:
+[0;32m-> 1111[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_get_value[49m[43m([49m[43mkey[49m[43m)[49m
+[1;32m   1113[0m [38;5;66;03m# Convert generator to list before going through hashable part[39;00m
+[1;32m   1114[0m [38;5;66;03m# (We will iterate through the generator there to check for slices)[39;00m
+[1;32m   1115[0m [38;5;28;01mif[39;00m is_iterator(key):
+
+File [0;32m~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/series.py:1227[0m, in [0;36mSeries._get_value[0;34m(self, label, takeable)[0m
+[1;32m   1224[0m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_values[label]
+[1;32m   1226[0m [38;5;66;03m# Similar to Index.get_value, but we do not fall back to positional[39;00m
+[0;32m-> 1227[0m loc [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mindex[49m[38;5;241;43m.[39;49m[43mget_loc[49m[43m([49m[43mlabel[49m[43m)[49m
+[1;32m   1229[0m [38;5;28;01mif[39;00m is_integer(loc):
+[1;32m   1230[0m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_values[loc]
+
+File [0;32m~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/indexes/base.py:3809[0m, in [0;36mIndex.get_loc[0;34m(self, key)[0m
+[1;32m   3804[0m     [38;5;28;01mif[39;00m [38;5;28misinstance[39m(casted_key, [38;5;28mslice[39m) [38;5;129;01mor[39;00m (
+[1;32m   3805[0m         [38;5;28misinstance[39m(casted_key, abc[38;5;241m.[39mIterable)
+[1;32m   3806[0m         [38;5;129;01mand[39;00m [38;5;28many[39m([38;5;28misinstance[39m(x, [38;5;28mslice[39m) [38;5;28;01mfor[39;00m x [38;5;129;01min[39;00m casted_key)
+[1;32m   3807[0m     ):
+[1;32m   3808[0m         [38;5;28;01mraise[39;00m InvalidIndexError(key)
+[0;32m-> 3809[0m     [38;5;28;01mraise[39;00m [38;5;167;01mKeyError[39;00m(key) [38;5;28;01mfrom[39;00m [38;5;21;01merr[39;00m
+[1;32m   3810[0m [38;5;28;01mexcept[39;00m [38;5;167;01mTypeError[39;00m:
+[1;32m   3811[0m     [38;5;66;03m# If we have a listlike key, _check_indexing_error will raise[39;00m
+[1;32m   3812[0m     [38;5;66;03m#  InvalidIndexError. Otherwise we fall through and re-raise[39;00m
+[1;32m   3813[0m     [38;5;66;03m#  the TypeError.[39;00m
+[1;32m   3814[0m     [38;5;28mself[39m[38;5;241m.[39m_check_indexing_error(key)
+
+[0;31mKeyError[0m: 'A'
+

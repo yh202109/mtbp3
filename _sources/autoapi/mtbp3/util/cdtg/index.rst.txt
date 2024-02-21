@@ -17,7 +17,7 @@ Classes
 
 
 
-.. py:class:: catPlotter(df, y_col, group_col=None, grid_col=None, grid_wrap=None, x_col=None, pt_size=5, y_scale_base=0, x_scale_base=0, title='', fig_size_0=7, fig_size_1=6, point_position='swarm', grid_kws=None)
+.. py:class:: catPlotter(df, y_col, group_col=None, grid_col=None, grid_wrap=None, x_col=None, pt_size=5, y_scale_base=0, x_scale_base=0, title='', fig_size_0=7, fig_size_1=6, point_position='swarm', x_label_rotate=None, grid_kws=None)
 
 
    A class for creating categorical box plots and strip plots.
@@ -35,6 +35,26 @@ Classes
    - fig_size_0 (int, optional): The width of the figure. Default is 7.
    - fig_size_1 (int, optional): The height of the figure. Default is 6.
    - grid_kws (dict, optional): Additional keyword arguments for the FacetGrid. Default is None.
+
+   Methods:
+   - update_parameters(**kwargs): Update the parameters of the catPlotter instance.
+   - boxplot(): Create a categorical box plot and strip plot.
+   - lineplot(): Create a line plot by categorical group_col on the x-axis with grid option.
+   - generate_example_dataset(): Generate an example dataset.
+
+   Raises:
+   - ValueError: If an invalid parameter is provided or if group_col, x_col, or y_col is not found in DataFrame columns.
+
+   .. py:method:: update_parameters(**kwargs)
+
+      Update the parameters.
+
+      Parameters:
+      - kwargs (dict): The keyword arguments to update the parameters.
+
+      Raises:
+      - ValueError: If an invalid parameter is provided.
+
 
    .. py:method:: boxplot()
 
