@@ -18,11 +18,10 @@ class TestCdt(unittest.TestCase):
         self.assertEqual(len(result), len(self.df))
 
     def test_diff_2cols_in_1df_without_difference(self):
-        expected_output = "The two columns are the same."
         tmpdf = self.df[['ARM', 'ARM']]
         tmpdf.columns = ['ARM', 'ACTARM']
         result = diff_2cols_in_1df(tmpdf)
-        self.assertEqual(result, expected_output)
+        self.assertTrue(result.empty)
 
     def test_diff_2cols_in_1df_invalid_input(self):
         expected_output = "Input is not a DataFrame."
@@ -55,15 +54,6 @@ class TestCdt(unittest.TestCase):
         result = diff_2cols_in_2df(self.df1, self.df2, 'gp', 'gp')
         self.assertEqual(result, expected_output)
 
-    #def test_diff_2cols_in_2df_with_non_unique_values_in_df1(self):
-    #    expected_output = "All values in column 'col' of df1 should be unique."
-    #    result = diff_2cols_in_2df(self.df1.append({'col': 1, 'gp': '4'}, ignore_index=True), self.df2, 'col', 'gp')
-    #    self.assertEqual(result, expected_output)
-
-    #def test_diff_2cols_in_2df_with_non_unique_values_in_df2(self):
-    #    expected_output = "All values in column 'col' of df2 should be unique."
-    #    result = diff_2cols_in_2df(self.df1, self.df2.append({'col': 1, 'gp': '4'}, ignore_index=True), 'col', 'gp')
-    #    self.assertEqual(result, expected_output)
 
 if __name__ == "__main__":
     unittest.main()
