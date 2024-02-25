@@ -146,13 +146,19 @@ Note that the MedDRA terms do use both capital letters and lowercase letters. Th
 <p>If the input SOC string may have letter cases changed, use the option <code class="docutils literal notranslate"><span class="pre">ignore_case</span></code> to find id:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span> <span class="o">=</span> <span class="n">emt</span><span class="o">.</span><span class="n">find_soc</span><span class="p">([</span><span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">soc_names</span><span class="p">[:</span><span class="mi">3</span><span class="p">]])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span> <span class="o">=</span> <span class="n">emt</span><span class="o">.</span><span class="n">find_soc</span><span class="p">([</span><span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">soc_names</span><span class="p">[:</span><span class="mi">3</span><span class="p">]],</span> <span class="n">ignore_case</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nan, nan, nan]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">id</span> <span class="o">=</span> <span class="n">emt</span><span class="o">.</span><span class="n">find_soc</span><span class="p">([</span><span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">soc_names</span><span class="p">[:</span><span class="mi">3</span><span class="p">]],</span> <span class="n">ignore_case</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: Emt.find_soc() got an unexpected keyword argument &#39;ignore_case&#39;
 </pre></div>
 </div>
 </div>
@@ -162,11 +168,6 @@ Note that the MedDRA terms do use both capital letters and lowercase letters. Th
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span> <span class="o">=</span> <span class="n">emt</span><span class="o">.</span><span class="n">find_soc</span><span class="p">(</span><span class="n">soc_names</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s1">&#39;This is not a standard term!&#39;</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;19926972&#39;, &#39;19986360&#39;, &#39;19908214&#39;, nan]
 </pre></div>
 </div>
 </div>
