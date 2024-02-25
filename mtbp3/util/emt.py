@@ -171,7 +171,7 @@ class Emt:
                 out = pd.merge(pd.DataFrame(soc_name), subset, left_on=0, right_on=3)[7].tolist()
             else:
                 soc_name_df = pd.DataFrame(soc_name)
-                if self.ignore_case:
+                if ignore_case:
                     out = pd.merge(soc_name_df, subset, left_on=soc_name_df[0].str.lower(), right_on=subset[7].str.lower(), how='left', sort=False)[3].tolist()
                 else:
                     out = pd.merge(soc_name_df, subset, left_on=0, right_on=7, how='left', sort=False)[3].tolist()
