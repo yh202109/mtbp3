@@ -5,9 +5,9 @@
             "metadata": {},
             "source": [
                 "\n",
-                "# Example - Working with MedDRA Data\n",
+                "# Example - Work with MedDRA Distribution Files\n",
                 "\n",
-                "The Medical Dictionary for Regulatory Activities (MedDRA) is a set of standardized terminologies commonly used in clinical safety recording, communicating, and reporting activities.  MedDRA is developed and maintained by the International Council for Harmonisation of Technical Requirements for Pharmaceuticals for Human Use (ICH)[^1]<sup>,</sup>[^2]. The module `emt` include basic functions for processing MedDRA distribution folder and data already coded in MedDRA.  \n",
+                "The Medical Dictionary for Regulatory Activities (MedDRA) is a set of standardized terminologies commonly used in clinical safety recording, communicating, and reporting activities.  MedDRA is developed and maintained by the International Council for Harmonisation of Technical Requirements for Pharmaceuticals for Human Use (ICH)[^1]<sup>,</sup>[^2]. The module `emt` includes basic functions for processing MedDRA distribution folder to get information of terms and processing data already coded in MedDRA to further use those data in analyses. \n",
                 "\n",
                 "Please note that this module does not include MedDRA distribution files. \n",
                 "MedDRA data sharing follows data share statement published by MSSO[^3]. \n",
@@ -24,7 +24,6 @@
                 "\n",
                 "To use downloaded MedDRA distribution files, assign `folder_name` to the relative or exact path of the unzipped folder.\n",
                 "If the `folder_name` remains empty, then the name will be assigned to the example folder. \n",
-                "Please note that using `find_files` and having the \"all files found\" response is required for the following steps.\n",
                 "\n",
                 "To check if necessary files are found:"
             ]
@@ -45,10 +44,18 @@
             "cell_type": "markdown",
             "metadata": {},
             "source": [
+                "Please note that having the \"all files found\" response from `find_files` is required for using the following steps."
+            ]
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [
                 "\n",
-                "## Finding MedDRA Terms\n",
+                "## Find MedDRA Terms Within a Given Hierarchical Level\n",
                 "\n",
-                "MedDRA terms are organized in a hierarchical system: SOC, HLGT, HLT, PT, LLT.\n",
+                "MedDRA terms are organized in a hierarchical system: **SOC**, HLGT, HLT, **PT**, LLT. Two most commonly used levels for analyses are SOC and PT. \n",
+                "Note that the MedDRA terms do use both capital letters and lowercase letters. The outputs will follow the exact letters used in the distribution folder. \n",
                 "\n",
                 "To find a list of SOC:"
             ]
@@ -66,7 +73,7 @@
             "cell_type": "markdown",
             "metadata": {},
             "source": [
-                "If a list of SOC terms are given to the function `find_soc`, the function will return the corresponding list of id, and vice versa. \n",
+                "If a list of SOC terms are given to the function `find_soc`, the function will return the corresponding list of id, and vice versa.  \n",
                 "\n",
                 "To find the id of a given list of SOC term(s):"
             ]
@@ -85,6 +92,47 @@
             "cell_type": "markdown",
             "metadata": {},
             "source": [
+                "If the input SOC string may have letter cases changed, use the option `ignore_case` to find id:"
+            ]
+        },
+        {
+            "cell_type": "code",
+            "execution_count": null,
+            "metadata": {},
+            "outputs": [],
+            "source": [
+                "id = emt.find_soc([name.upper() for name in soc_names[:3]])\n",
+                "print(id)"
+            ]
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [
+                "If the input can not be found in the current version, the output will remain empty as:"
+            ]
+        },
+        {
+            "cell_type": "code",
+            "execution_count": null,
+            "metadata": {},
+            "outputs": [],
+            "source": [
+                "id = emt.find_soc(soc_names[:3]+['This is not a standard term!'])\n",
+                "print(id)"
+            ]
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [
+                "## Fid MedDRA Terms Across the Hierarchical Levels"
+            ]
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [
                 "To find a list of PTs related to the first SOC on the list:"
             ]
         },
@@ -96,7 +144,7 @@
             "source": [
                 "df = emt.find_pt_given_soc(soc_names[0])\n",
                 "\n",
-                "# to save the df to a CSV file:\n",
+                "# To save the df to a CSV file:\n",
                 "# df.to_csv('filename.csv', index=False)"
             ]
         },
@@ -106,7 +154,7 @@
             "source": [
                 "## Other Options\n",
                 "\n",
-                "MedDRA also provides other options including online viewer, desktop viewer, and API access. Please visit MedDRA website for more information."
+                "MedDRA also provides other options including online viewer, desktop browser [^4], and API access[^5]. Please visit MedDRA website for more information. "
             ]
         },
         {
@@ -118,7 +166,8 @@
                 "[^1]: ICH. (2013). Understanding MedDRA. ([pdf](https://admin.meddra.org/sites/default/files/page/documents_insert/meddra2013_0.pdf))\n",
                 "[^2]: Dutta, A. (2020). MedDRA - Terminologies & Coding. ([pdf](https://meddra.org/sites/default/files/page/documents_insert/meddra_-_terminologies_coding.pdf))\n",
                 "[^3]: ICH. (year). MedDRA Data Sharing Statement. ([pdf](https://admin.meddra.org/sites/default/files/page/documents/000198%20Statement%20on%20MedDRA%20Data%20Sharing.pdf))\n",
-                "\n",
+                "[^4]: ICH, MedDRA browsers. ([webpage](https://www.meddra.org/browsers))\n",
+                "[^5]: Jasonpott. (2023). MEDDRA API with R. ([GitHub Repository](https://github.com/jasonpott/meddra_api_R))\n",
                 "\n"
             ]
         }

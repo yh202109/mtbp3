@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Example - Working with MedDRA Data &mdash; mtbp3  documentation</title>
+  <title>Example - Work with MedDRA Distribution Files &mdash; mtbp3  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -48,9 +48,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="example_files.html">Example - Showing Folder Contents</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Example - Working with MedDRA Data</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Example - Work with MedDRA Distribution Files</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#assign-meddra-distribution-folder">Assign MedDRA Distribution Folder</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#finding-meddra-terms">Finding MedDRA Terms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#find-meddra-terms-within-a-given-hierarchical-level">Find MedDRA Terms Within a Given Hierarchical Level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fid-meddra-terms-across-the-hierarchical-levels">Fid MedDRA Terms Across the Hierarchical Levels</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#other-options">Other Options</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
@@ -76,7 +77,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Example - Working with MedDRA Data</li>
+      <li class="breadcrumb-item active">Example - Work with MedDRA Distribution Files</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/example_emt.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -86,18 +87,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="example-working-with-meddra-data">
-<h1>Example - Working with MedDRA Data<a class="headerlink" href="#example-working-with-meddra-data" title="Link to this heading"></a></h1>
-<p>The Medical Dictionary for Regulatory Activities (MedDRA) is a set of standardized terminologies commonly used in clinical safety recording, communicating, and reporting activities.  MedDRA is developed and maintained by the International Council for Harmonisation of Technical Requirements for Pharmaceuticals for Human Use (ICH)<a class="footnote-reference brackets" href="#id4" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a><sup>,</sup><a class="footnote-reference brackets" href="#id5" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>. The module <code class="docutils literal notranslate"><span class="pre">emt</span></code> include basic functions for processing MedDRA distribution folder and data already coded in MedDRA.</p>
+  <section id="example-work-with-meddra-distribution-files">
+<h1>Example - Work with MedDRA Distribution Files<a class="headerlink" href="#example-work-with-meddra-distribution-files" title="Link to this heading"></a></h1>
+<p>The Medical Dictionary for Regulatory Activities (MedDRA) is a set of standardized terminologies commonly used in clinical safety recording, communicating, and reporting activities.  MedDRA is developed and maintained by the International Council for Harmonisation of Technical Requirements for Pharmaceuticals for Human Use (ICH)<a class="footnote-reference brackets" href="#id6" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a><sup>,</sup><a class="footnote-reference brackets" href="#id7" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>. The module <code class="docutils literal notranslate"><span class="pre">emt</span></code> includes basic functions for processing MedDRA distribution folder to get information of terms and processing data already coded in MedDRA to further use those data in analyses.</p>
 <p>Please note that this module does not include MedDRA distribution files.
-MedDRA data sharing follows data share statement published by MSSO<a class="footnote-reference brackets" href="#id6" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.
+MedDRA data sharing follows data share statement published by MSSO<a class="footnote-reference brackets" href="#id8" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.
 The user can download distribution files from the MedDRA website.</p>
 <p>For demonstration purpose, an example distribution folder is shipped with this module. The example folder includes randomly generated strings and numbers following MedDRA distribution format in Version 26.1 to demonstrate the usage of this module. The numbers of terms are also reduced for faster results.</p>
 <section id="assign-meddra-distribution-folder">
 <h2>Assign MedDRA Distribution Folder<a class="headerlink" href="#assign-meddra-distribution-folder" title="Link to this heading"></a></h2>
 <p>To use downloaded MedDRA distribution files, assign <code class="docutils literal notranslate"><span class="pre">folder_name</span></code> to the relative or exact path of the unzipped folder.
-If the <code class="docutils literal notranslate"><span class="pre">folder_name</span></code> remains empty, then the name will be assigned to the example folder.
-Please note that using <code class="docutils literal notranslate"><span class="pre">find_files</span></code> and having the “all files found” response is required for the following steps.</p>
+If the <code class="docutils literal notranslate"><span class="pre">folder_name</span></code> remains empty, then the name will be assigned to the example folder.</p>
 <p>To check if necessary files are found:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -114,10 +114,12 @@ Please note that using <code class="docutils literal notranslate"><span class="p
 </div>
 </div>
 </div>
+<p>Please note that having the “all files found” response from <code class="docutils literal notranslate"><span class="pre">find_files</span></code> is required for using the following steps.</p>
 </section>
-<section id="finding-meddra-terms">
-<h2>Finding MedDRA Terms<a class="headerlink" href="#finding-meddra-terms" title="Link to this heading"></a></h2>
-<p>MedDRA terms are organized in a hierarchical system: SOC, HLGT, HLT, PT, LLT.</p>
+<section id="find-meddra-terms-within-a-given-hierarchical-level">
+<h2>Find MedDRA Terms Within a Given Hierarchical Level<a class="headerlink" href="#find-meddra-terms-within-a-given-hierarchical-level" title="Link to this heading"></a></h2>
+<p>MedDRA terms are organized in a hierarchical system: <strong>SOC</strong>, HLGT, HLT, <strong>PT</strong>, LLT. Two most commonly used levels for analyses are SOC and PT.
+Note that the MedDRA terms do use both capital letters and lowercase letters. The outputs will follow the exact letters used in the distribution folder.</p>
 <p>To find a list of SOC:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -141,12 +143,43 @@ Please note that using <code class="docutils literal notranslate"><span class="p
 </div>
 </div>
 </div>
+<p>If the input SOC string may have letter cases changed, use the option <code class="docutils literal notranslate"><span class="pre">ignore_case</span></code> to find id:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span> <span class="o">=</span> <span class="n">emt</span><span class="o">.</span><span class="n">find_soc</span><span class="p">([</span><span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">soc_names</span><span class="p">[:</span><span class="mi">3</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nan, nan, nan]
+</pre></div>
+</div>
+</div>
+</div>
+<p>If the input can not be found in the current version, the output will remain empty as:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span> <span class="o">=</span> <span class="n">emt</span><span class="o">.</span><span class="n">find_soc</span><span class="p">(</span><span class="n">soc_names</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s1">&#39;This is not a standard term!&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;19926972&#39;, &#39;19986360&#39;, &#39;19908214&#39;, nan]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="fid-meddra-terms-across-the-hierarchical-levels">
+<h2>Fid MedDRA Terms Across the Hierarchical Levels<a class="headerlink" href="#fid-meddra-terms-across-the-hierarchical-levels" title="Link to this heading"></a></h2>
 <p>To find a list of PTs related to the first SOC on the list:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">emt</span><span class="o">.</span><span class="n">find_pt_given_soc</span><span class="p">(</span><span class="n">soc_names</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
-<span class="c1"># to save the df to a CSV file:</span>
+<span class="c1"># To save the df to a CSV file:</span>
 <span class="c1"># df.to_csv(&#39;filename.csv&#39;, index=False)</span>
 </pre></div>
 </div>
@@ -155,23 +188,31 @@ Please note that using <code class="docutils literal notranslate"><span class="p
 </section>
 <section id="other-options">
 <h2>Other Options<a class="headerlink" href="#other-options" title="Link to this heading"></a></h2>
-<p>MedDRA also provides other options including online viewer, desktop viewer, and API access. Please visit MedDRA website for more information.</p>
+<p>MedDRA also provides other options including online viewer, desktop browser <a class="footnote-reference brackets" href="#id9" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>, and API access<a class="footnote-reference brackets" href="#id10" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>. Please visit MedDRA website for more information.</p>
 </section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>
 <hr class="footnotes docutils" />
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id4" role="doc-footnote">
+<aside class="footnote brackets" id="id6" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p>ICH. (2013). Understanding MedDRA. (<a class="reference external" href="https://admin.meddra.org/sites/default/files/page/documents_insert/meddra2013_0.pdf">pdf</a>)</p>
 </aside>
-<aside class="footnote brackets" id="id5" role="doc-footnote">
+<aside class="footnote brackets" id="id7" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
 <p>Dutta, A. (2020). MedDRA - Terminologies &amp; Coding. (<a class="reference external" href="https://meddra.org/sites/default/files/page/documents_insert/meddra_-_terminologies_coding.pdf">pdf</a>)</p>
 </aside>
-<aside class="footnote brackets" id="id6" role="doc-footnote">
+<aside class="footnote brackets" id="id8" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
 <p>ICH. (year). MedDRA Data Sharing Statement. (<a class="reference external" href="https://admin.meddra.org/sites/default/files/page/documents/000198%20Statement%20on%20MedDRA%20Data%20Sharing.pdf">pdf</a>)</p>
+</aside>
+<aside class="footnote brackets" id="id9" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
+<p>ICH, MedDRA browsers. (<a class="reference external" href="https://www.meddra.org/browsers">webpage</a>)</p>
+</aside>
+<aside class="footnote brackets" id="id10" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">5</a><span class="fn-bracket">]</span></span>
+<p>Jasonpott. (2023). MEDDRA API with R. (<a class="reference external" href="https://github.com/jasonpott/meddra_api_R">GitHub Repository</a>)</p>
 </aside>
 </aside>
 </section>

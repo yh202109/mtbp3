@@ -170,7 +170,7 @@ Attributes
 
 
 
-.. py:class:: Emt(folder_name='')
+.. py:class:: Emt(folder_name='', ignore_case=False)
 
 
    A class representing MedDRA terms.
