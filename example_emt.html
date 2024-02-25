@@ -138,20 +138,7 @@ Note that the MedDRA terms do use both capital letters and lowercase letters. Th
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">id</span> <span class="o">=</span> <span class="n">emt</span><span class="o">.</span><span class="n">find_soc</span><span class="p">(</span><span class="n">soc_names</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
-
-<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/util/emt.py:174,</span> in <span class="ni">Emt.find_soc</span><span class="nt">(self, soc_name, ignore_case)</span>
-<span class="g g-Whitespace">    </span><span class="mi">172</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">173</span>     <span class="n">soc_name_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">soc_name</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">174</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ignore_case</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">175</span>         <span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">soc_name_df</span><span class="p">,</span> <span class="n">subset</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="n">soc_name_df</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="n">right_on</span><span class="o">=</span><span class="n">subset</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">176</span>     <span class="k">else</span><span class="p">:</span>
-
-<span class="ne">AttributeError</span>: &#39;Emt&#39; object has no attribute &#39;ignore_case&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;19926972&#39;, &#39;19986360&#39;, &#39;19908214&#39;]
 </pre></div>
 </div>
 </div>
@@ -164,12 +151,22 @@ Note that the MedDRA terms do use both capital letters and lowercase letters. Th
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;19926972&#39;, &#39;19986360&#39;, &#39;19908214&#39;]
+</pre></div>
+</div>
+</div>
 </div>
 <p>If the input can not be found in the current version, the output will remain empty as:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span> <span class="o">=</span> <span class="n">emt</span><span class="o">.</span><span class="n">find_soc</span><span class="p">(</span><span class="n">soc_names</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s1">&#39;This is not a standard term!&#39;</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;19926972&#39;, &#39;19986360&#39;, &#39;19908214&#39;, nan]
 </pre></div>
 </div>
 </div>
