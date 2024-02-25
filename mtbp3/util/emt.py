@@ -35,7 +35,7 @@ class Emt:
     """
 
 
-    def __init__(self, folder_name='', ignore_case=False):
+    def __init__(self, folder_name=''):
         """
         Initialize a new Emt object.
 
@@ -48,7 +48,6 @@ class Emt:
         else:
             self.folder_name = mtbp3.get_data('test_emt/MedDRA')
 
-        self.ignore_case = ignore_case if isinstance(ignore_case, bool) and ignore_case else False
         self.version_number = "00.0"
         self.version_number_us = "00_0"
         self.readme_file = None
@@ -148,19 +147,21 @@ class Emt:
         lsr_files = lsr.list_files()
         return lsr_files
 
-    def find_soc(self, soc_name=[]):
+    def find_soc(self, soc_name=[], ignore_case=False):
         """
         Find all unique SOC (System Organ Class) names.
 
         Args:
             soc_name (list, optional): The specific SOC name(s) to filter the results. Defaults to an empty list.
+            ignore_case (bool, optional): Flag to indicate whether to ignore case sensitivity when filtering soc_name. Defaults to False.
 
         Returns:
             list: A list of unique SOC names. If soc_name is provided, it returns the corresponding ids.
-        
+
         Raises:
-            AssertionError: If soc_name is not a list or if any element of soc_name is not present in the subset.
+            AssertionError: If soc_name is not a list.
         """
+        ignore_case = ignore_case if isinstance(ignore_case, bool) and ignore_case else False
         subset = self.mdhier[[3, 7]].drop_duplicates()
         subset['7c'] = subset[7].str.lower().copy()
         if soc_name:
