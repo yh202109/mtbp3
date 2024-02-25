@@ -108,7 +108,7 @@
 </table>
 <dl class="py class">
 <dt class="sig sig-object py" id="mtbp3.util.emt.Emt">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mtbp3.util.emt.</span></span><span class="sig-name descname"><span class="pre">Emt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_case</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/util/emt.html#Emt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.emt.Emt" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mtbp3.util.emt.</span></span><span class="sig-name descname"><span class="pre">Emt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/util/emt.html#Emt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.emt.Emt" title="Link to this definition"></a></dt>
 <dd><p>A class representing MedDRA terms.</p>
 <p>This class provides methods to interact with the Emt object,
 including listing files associated with the Emt.</p>
@@ -200,11 +200,14 @@ including listing files associated with the Emt.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mtbp3.util.emt.Emt.find_soc">
-<span class="sig-name descname"><span class="pre">find_soc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">soc_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/util/emt.html#Emt.find_soc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.emt.Emt.find_soc" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">find_soc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">soc_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_case</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/util/emt.html#Emt.find_soc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.emt.Emt.find_soc" title="Link to this definition"></a></dt>
 <dd><p>Find all unique SOC (System Organ Class) names.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>soc_name</strong> (<em>list</em><em>, </em><em>optional</em>) – The specific SOC name(s) to filter the results. Defaults to an empty list.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>soc_name</strong> (<em>list</em><em>, </em><em>optional</em>) – The specific SOC name(s) to filter the results. Defaults to an empty list.</p></li>
+<li><p><strong>ignore_case</strong> (<em>bool</em><em>, </em><em>optional</em>) – Flag to indicate whether to ignore case sensitivity when filtering soc_name. Defaults to False.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A list of unique SOC names. If soc_name is provided, it returns the corresponding ids.</p>
@@ -213,7 +216,7 @@ including listing files associated with the Emt.</p>
 <dd class="field-odd"><p>list</p>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>AssertionError</strong> – If soc_name is not a list or if any element of soc_name is not present in the subset.</p>
+<dd class="field-even"><p><strong>AssertionError</strong> – If soc_name is not a list.</p>
 </dd>
 </dl>
 </dd></dl>

@@ -117,7 +117,7 @@ Attributes
 
    
 
-.. py:class:: Emt(folder_name='', ignore_case=False)
+.. py:class:: Emt(folder_name='')
 
 
    A class representing MedDRA terms.
@@ -173,17 +173,19 @@ Attributes
       :rtype: list
 
 
-   .. py:method:: find_soc(soc_name=[])
+   .. py:method:: find_soc(soc_name=[], ignore_case=False)
 
       Find all unique SOC (System Organ Class) names.
 
       :param soc_name: The specific SOC name(s) to filter the results. Defaults to an empty list.
       :type soc_name: list, optional
+      :param ignore_case: Flag to indicate whether to ignore case sensitivity when filtering soc_name. Defaults to False.
+      :type ignore_case: bool, optional
 
       :returns: A list of unique SOC names. If soc_name is provided, it returns the corresponding ids.
       :rtype: list
 
-      :raises AssertionError: If soc_name is not a list or if any element of soc_name is not present in the subset.
+      :raises AssertionError: If soc_name is not a list.
 
 
    .. py:method:: find_pt_given_soc(soc_name, primary_soc_only=False)
