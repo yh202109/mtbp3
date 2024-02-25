@@ -1,7 +1,12 @@
 # Changelog
 
 <!--next-version-placeholder-->
-## v0.1.38 (2024-02-21)
+## v0.1.40 (2024-00-00)
+
+- update examples
+- update emt, ignore_case, not found
+
+## v0.1.39 (2024-02-21)
 
 - update doc
 

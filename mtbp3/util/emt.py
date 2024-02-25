@@ -35,7 +35,7 @@ class Emt:
     """
 
 
-    def __init__(self, folder_name=''):
+    def __init__(self, folder_name='', ignore_case=False):
         """
         Initialize a new Emt object.
 
@@ -47,7 +47,8 @@ class Emt:
             self.folder_name = folder_name
         else:
             self.folder_name = mtbp3.get_data('test_emt/MedDRA')
-        
+
+        self.ignore_case = ignore_case if isinstance(ignore_case, bool) and ignore_case else False
         self.version_number = "00.0"
         self.version_number_us = "00_0"
         self.readme_file = None
@@ -161,14 +162,18 @@ class Emt:
             AssertionError: If soc_name is not a list or if any element of soc_name is not present in the subset.
         """
         subset = self.mdhier[[3, 7]].drop_duplicates()
+        subset['7c'] = subset[7].str.lower().copy()
         if soc_name:
             assert isinstance(soc_name, list), "soc_name must be a list"
             if all(isinstance(elem, str) and elem.isdigit() for elem in soc_name):
-                assert all(elem in subset[3].tolist() for elem in soc_name), "All elements of soc_name must be present in subset[3]"
+                #assert all(elem in subset[3].tolist() for elem in soc_name), "All elements of soc_name must be present in SOC id"
                 out = pd.merge(pd.DataFrame(soc_name), subset, left_on=0, right_on=3)[7].tolist()
             else:
-                assert all(elem in subset[7].tolist() for elem in soc_name), "All elements of soc_name must be present in subset[3]"
-                out = pd.merge(pd.DataFrame(soc_name), subset, left_on=0, right_on=7)[3].tolist()
+                soc_name_df = pd.DataFrame(soc_name)
+                if self.ignore_case:
+                    out = pd.merge(soc_name_df, subset, left_on=soc_name_df[0].str.lower(), right_on=subset[7].str.lower(), how='left', sort=False)[3].tolist()
+                else:
+                    out = pd.merge(soc_name_df, subset, left_on=0, right_on=7, how='left', sort=False)[3].tolist()
         else:
             out = subset[7].tolist()
         return out
