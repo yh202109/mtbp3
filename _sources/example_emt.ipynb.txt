@@ -126,6 +126,13 @@
             "cell_type": "markdown",
             "metadata": {},
             "source": [
+                "Similar finding functions for HLGT, HLT, PT, and LLT are included in this module. Simply replace `find_soc` to `find_pt`, etc. "
+            ]
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [
                 "## Fid MedDRA Terms Across the Hierarchical Levels"
             ]
         },

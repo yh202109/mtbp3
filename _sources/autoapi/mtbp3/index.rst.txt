@@ -157,7 +157,7 @@ Attributes
       :rtype: tuple
 
 
-   .. py:method:: find_files(load_if_all_found=True)
+   .. py:method:: find_files()
 
       Find all expected files associated with the Emt.
 
@@ -173,19 +173,96 @@ Attributes
       :rtype: list
 
 
-   .. py:method:: find_soc(soc_name=[], ignore_case=False)
+   .. py:method:: find_soc(terms=[], ignore_case=False)
 
-      Find all unique SOC (System Organ Class) names.
+      Find all unique SOC (System Organ Class) terms.
 
-      :param soc_name: The specific SOC name(s) to filter the results. Defaults to an empty list.
-      :type soc_name: list, optional
-      :param ignore_case: Flag to indicate whether to ignore case sensitivity when filtering soc_name. Defaults to False.
+      :param terms: The specific SOC name(s) to filter the results. Defaults to an empty list.
+      :type terms: list, optional
+      :param ignore_case: Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.
       :type ignore_case: bool, optional
 
-      :returns: A list of unique SOC names. If soc_name is provided, it returns the corresponding ids.
+      :returns: A list of unique SOC terms. If terms is provided, it returns the corresponding ids.
       :rtype: list
 
-      :raises AssertionError: If soc_name is not a list.
+      :raises AssertionError: If terms is not a list.
+
+
+   .. py:method:: find_hlgt(terms=[], ignore_case=False)
+
+      Find all unique HLGT terms.
+
+      :param terms: The specific HLGT name(s) to filter the results. Defaults to an empty list.
+      :type terms: list, optional
+      :param ignore_case: Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.
+      :type ignore_case: bool, optional
+
+      :returns: A list of unique HLGT terms. If terms is provided, it returns the corresponding ids.
+      :rtype: list
+
+      :raises AssertionError: If terms is not a list.
+
+
+   .. py:method:: find_hlt(terms=[], ignore_case=False)
+
+      Find all unique HLT terms.
+
+      :param terms: The specific HLT name(s) to filter the results. Defaults to an empty list.
+      :type terms: list, optional
+      :param ignore_case: Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.
+      :type ignore_case: bool, optional
+
+      :returns: A list of unique HLT terms. If terms is provided, it returns the corresponding ids.
+      :rtype: list
+
+      :raises AssertionError: If terms is not a list.
+
+
+   .. py:method:: find_pt(terms=[], ignore_case=False)
+
+      Find all unique PT terms.
+
+      :param terms: The specific PT name(s) to filter the results. Defaults to an empty list.
+      :type terms: list, optional
+      :param ignore_case: Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.
+      :type ignore_case: bool, optional
+
+      :returns: A list of unique PT terms. If terms is provided, it returns the corresponding ids.
+      :rtype: list
+
+      :raises AssertionError: If terms is not a list.
+
+
+   .. py:method:: find_llt(terms=[], ignore_case=False)
+
+      Find all unique LLT terms.
+
+      :param terms: The specific LLT name(s) to filter the results. Defaults to an empty list.
+      :type terms: list, optional
+      :param ignore_case: Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.
+      :type ignore_case: bool, optional
+
+      :returns: A list of unique LLT terms. If terms is provided, it returns the corresponding ids.
+      :rtype: list
+
+      :raises AssertionError: If terms is not a list.
+
+
+   .. py:method:: find_term_wi_level(terms=[], ignore_case=False, level=1)
+
+      Find all unique terms.
+
+      :param terms: The specific SOC name(s) to filter the results. Defaults to an empty list.
+      :type terms: list, optional
+      :param ignore_case: Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.
+      :type ignore_case: bool, optional
+      :param level: The level of the SOC hierarchy to consider. Defaults to 1.
+      :type level: int, optional
+
+      :returns: A list of unique terms. If terms is provided, it returns the corresponding ids.
+      :rtype: list
+
+      :raises AssertionError: If terms is not a list.
 
 
    .. py:method:: find_pt_given_soc(soc_name, primary_soc_only=False)

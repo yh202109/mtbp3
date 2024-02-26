@@ -332,7 +332,7 @@ including listing files associated with the Emt.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mtbp3.Emt.find_files">
-<span class="sig-name descname"><span class="pre">find_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">load_if_all_found</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mtbp3/util/emt.html#Emt.find_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.Emt.find_files" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">find_files</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mtbp3/util/emt.html#Emt.find_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.Emt.find_files" title="Link to this definition"></a></dt>
 <dd><p>Find all expected files associated with the Emt.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -360,23 +360,139 @@ including listing files associated with the Emt.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mtbp3.Emt.find_soc">
-<span class="sig-name descname"><span class="pre">find_soc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">soc_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_case</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mtbp3/util/emt.html#Emt.find_soc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.Emt.find_soc" title="Link to this definition"></a></dt>
-<dd><p>Find all unique SOC (System Organ Class) names.</p>
+<span class="sig-name descname"><span class="pre">find_soc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">terms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_case</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mtbp3/util/emt.html#Emt.find_soc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.Emt.find_soc" title="Link to this definition"></a></dt>
+<dd><p>Find all unique SOC (System Organ Class) terms.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>soc_name</strong> (<em>list</em><em>, </em><em>optional</em>) – The specific SOC name(s) to filter the results. Defaults to an empty list.</p></li>
-<li><p><strong>ignore_case</strong> (<em>bool</em><em>, </em><em>optional</em>) – Flag to indicate whether to ignore case sensitivity when filtering soc_name. Defaults to False.</p></li>
+<li><p><strong>terms</strong> (<em>list</em><em>, </em><em>optional</em>) – The specific SOC name(s) to filter the results. Defaults to an empty list.</p></li>
+<li><p><strong>ignore_case</strong> (<em>bool</em><em>, </em><em>optional</em>) – Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A list of unique SOC names. If soc_name is provided, it returns the corresponding ids.</p>
+<dd class="field-even"><p>A list of unique SOC terms. If terms is provided, it returns the corresponding ids.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list</p>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>AssertionError</strong> – If soc_name is not a list.</p>
+<dd class="field-even"><p><strong>AssertionError</strong> – If terms is not a list.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mtbp3.Emt.find_hlgt">
+<span class="sig-name descname"><span class="pre">find_hlgt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">terms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_case</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mtbp3/util/emt.html#Emt.find_hlgt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.Emt.find_hlgt" title="Link to this definition"></a></dt>
+<dd><p>Find all unique HLGT terms.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>terms</strong> (<em>list</em><em>, </em><em>optional</em>) – The specific HLGT name(s) to filter the results. Defaults to an empty list.</p></li>
+<li><p><strong>ignore_case</strong> (<em>bool</em><em>, </em><em>optional</em>) – Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of unique HLGT terms. If terms is provided, it returns the corresponding ids.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>AssertionError</strong> – If terms is not a list.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mtbp3.Emt.find_hlt">
+<span class="sig-name descname"><span class="pre">find_hlt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">terms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_case</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mtbp3/util/emt.html#Emt.find_hlt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.Emt.find_hlt" title="Link to this definition"></a></dt>
+<dd><p>Find all unique HLT terms.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>terms</strong> (<em>list</em><em>, </em><em>optional</em>) – The specific HLT name(s) to filter the results. Defaults to an empty list.</p></li>
+<li><p><strong>ignore_case</strong> (<em>bool</em><em>, </em><em>optional</em>) – Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of unique HLT terms. If terms is provided, it returns the corresponding ids.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>AssertionError</strong> – If terms is not a list.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mtbp3.Emt.find_pt">
+<span class="sig-name descname"><span class="pre">find_pt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">terms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_case</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mtbp3/util/emt.html#Emt.find_pt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.Emt.find_pt" title="Link to this definition"></a></dt>
+<dd><p>Find all unique PT terms.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>terms</strong> (<em>list</em><em>, </em><em>optional</em>) – The specific PT name(s) to filter the results. Defaults to an empty list.</p></li>
+<li><p><strong>ignore_case</strong> (<em>bool</em><em>, </em><em>optional</em>) – Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of unique PT terms. If terms is provided, it returns the corresponding ids.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>AssertionError</strong> – If terms is not a list.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mtbp3.Emt.find_llt">
+<span class="sig-name descname"><span class="pre">find_llt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">terms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_case</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mtbp3/util/emt.html#Emt.find_llt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.Emt.find_llt" title="Link to this definition"></a></dt>
+<dd><p>Find all unique LLT terms.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>terms</strong> (<em>list</em><em>, </em><em>optional</em>) – The specific LLT name(s) to filter the results. Defaults to an empty list.</p></li>
+<li><p><strong>ignore_case</strong> (<em>bool</em><em>, </em><em>optional</em>) – Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of unique LLT terms. If terms is provided, it returns the corresponding ids.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>AssertionError</strong> – If terms is not a list.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mtbp3.Emt.find_term_wi_level">
+<span class="sig-name descname"><span class="pre">find_term_wi_level</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">terms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_case</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mtbp3/util/emt.html#Emt.find_term_wi_level"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.Emt.find_term_wi_level" title="Link to this definition"></a></dt>
+<dd><p>Find all unique terms.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>terms</strong> (<em>list</em><em>, </em><em>optional</em>) – The specific SOC name(s) to filter the results. Defaults to an empty list.</p></li>
+<li><p><strong>ignore_case</strong> (<em>bool</em><em>, </em><em>optional</em>) – Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.</p></li>
+<li><p><strong>level</strong> (<em>int</em><em>, </em><em>optional</em>) – The level of the SOC hierarchy to consider. Defaults to 1.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of unique terms. If terms is provided, it returns the corresponding ids.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>AssertionError</strong> – If terms is not a list.</p>
 </dd>
 </dl>
 </dd></dl>
