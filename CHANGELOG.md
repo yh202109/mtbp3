@@ -1,10 +1,10 @@
 # Changelog
 
 <!--next-version-placeholder-->
-## v0.1.40 (2024-00-00)
+## v0.1.41 (2024-02-26)
 
-- update examples
-- update emt, ignore_case, not found
+- update emt examples
+- update emt, ignore_case, not found, all hier
 
 ## v0.1.39 (2024-02-21)
 

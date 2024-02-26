@@ -6,6 +6,7 @@ import pandas as pd
 from mtbp3.util.emt import Emt
 
 class TestEmt(unittest.TestCase):
+
     def setUp(self):
         self.emt = Emt()
         self.emt.find_files()
@@ -31,6 +32,30 @@ class TestEmt(unittest.TestCase):
         self.assertIsNotNone(soc_names)
         self.assertIsInstance(soc_names, list)
         self.assertGreater(len(soc_names), 0)
+
+    def test_find_hlgt(self):
+        hlgt_names = self.emt.find_hlgt()
+        self.assertIsNotNone(hlgt_names)
+        self.assertIsInstance(hlgt_names, list)
+        self.assertGreater(len(hlgt_names), 0)
+
+    def test_find_hlt(self):
+        hlt_names = self.emt.find_hlt()
+        self.assertIsNotNone(hlt_names)
+        self.assertIsInstance(hlt_names, list)
+        self.assertGreater(len(hlt_names), 0)
+
+    def test_find_pt(self):
+        pt_names = self.emt.find_pt()
+        self.assertIsNotNone(pt_names)
+        self.assertIsInstance(pt_names, list)
+        self.assertGreater(len(pt_names), 0)
+
+    def test_find_llt(self):
+        llt_names = self.emt.find_llt()
+        self.assertIsNotNone(llt_names)
+        self.assertIsInstance(llt_names, list)
+        self.assertGreater(len(llt_names), 0)
 
     def test_find_pt_given_soc(self):
         soc_names = self.emt.find_soc()

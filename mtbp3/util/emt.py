@@ -55,6 +55,7 @@ class Emt:
         self.month = ""
         self.language = ""
         self.mdhier = None
+        self.llt = None
 
         meddra_release_file = os.path.join(self.folder_name, 'MedAscii', 'meddra_release.asc')
         if os.path.isfile(meddra_release_file):
@@ -112,7 +113,7 @@ class Emt:
         seq_ascii_files = ["/SeqAscii/" + file for file in seq_ascii_files] 
         return support_doc_files, med_ascii_files, seq_ascii_files
 
-    def find_files(self, load_if_all_found=True):
+    def find_files(self):
         """
         Find all expected files associated with the Emt.
 
@@ -147,36 +148,126 @@ class Emt:
         lsr_files = lsr.list_files()
         return lsr_files
 
-    def find_soc(self, soc_name=[], ignore_case=False):
+    def find_soc(self, terms=[], ignore_case=False):
+            """
+            Find all unique SOC (System Organ Class) terms.
+
+            Args:
+                terms (list, optional): The specific SOC name(s) to filter the results. Defaults to an empty list.
+                ignore_case (bool, optional): Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.
+
+            Returns:
+                list: A list of unique SOC terms. If terms is provided, it returns the corresponding ids.
+
+            Raises:
+                AssertionError: If terms is not a list.
+            """
+            return self.find_term_wi_level(terms, ignore_case, level=1)
+
+    def find_hlgt(self, terms=[], ignore_case=False):
+            """
+            Find all unique HLGT terms.
+
+            Args:
+                terms (list, optional): The specific HLGT name(s) to filter the results. Defaults to an empty list.
+                ignore_case (bool, optional): Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.
+
+            Returns:
+                list: A list of unique HLGT terms. If terms is provided, it returns the corresponding ids.
+
+            Raises:
+                AssertionError: If terms is not a list.
+            """
+            return self.find_term_wi_level(terms, ignore_case, level=2)
+
+    def find_hlt(self, terms=[], ignore_case=False):
+            """
+            Find all unique HLT terms.
+
+            Args:
+                terms (list, optional): The specific HLT name(s) to filter the results. Defaults to an empty list.
+                ignore_case (bool, optional): Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.
+
+            Returns:
+                list: A list of unique HLT terms. If terms is provided, it returns the corresponding ids.
+
+            Raises:
+                AssertionError: If terms is not a list.
+            """
+            return self.find_term_wi_level(terms, ignore_case, level=3)
+
+    def find_pt(self, terms=[], ignore_case=False):
+            """
+            Find all unique PT terms.
+
+            Args:
+                terms (list, optional): The specific PT name(s) to filter the results. Defaults to an empty list.
+                ignore_case (bool, optional): Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.
+
+            Returns:
+                list: A list of unique PT terms. If terms is provided, it returns the corresponding ids.
+
+            Raises:
+                AssertionError: If terms is not a list.
+            """
+            return self.find_term_wi_level(terms, ignore_case, level=4)
+
+    def find_llt(self, terms=[], ignore_case=False):
+            """
+            Find all unique LLT terms.
+
+            Args:
+                terms (list, optional): The specific LLT name(s) to filter the results. Defaults to an empty list.
+                ignore_case (bool, optional): Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.
+
+            Returns:
+                list: A list of unique LLT terms. If terms is provided, it returns the corresponding ids.
+
+            Raises:
+                AssertionError: If terms is not a list.
+            """
+            return self.find_term_wi_level(terms, ignore_case, level=5)
+
+    def find_term_wi_level(self, terms=[], ignore_case=False, level=1):
         """
-        Find all unique SOC (System Organ Class) names.
+        Find all unique terms.
 
         Args:
-            soc_name (list, optional): The specific SOC name(s) to filter the results. Defaults to an empty list.
-            ignore_case (bool, optional): Flag to indicate whether to ignore case sensitivity when filtering soc_name. Defaults to False.
+            terms (list, optional): The specific SOC name(s) to filter the results. Defaults to an empty list.
+            ignore_case (bool, optional): Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.
+            level (int, optional): The level of the SOC hierarchy to consider. Defaults to 1.
 
         Returns:
-            list: A list of unique SOC names. If soc_name is provided, it returns the corresponding ids.
+            list: A list of unique terms. If terms is provided, it returns the corresponding ids.
 
         Raises:
-            AssertionError: If soc_name is not a list.
+            AssertionError: If terms is not a list.
+
         """
+        assert level in range(1, 6), "level should be between 1 and 5"
         ignore_case = ignore_case if isinstance(ignore_case, bool) and ignore_case else False
-        subset = self.mdhier[[3, 7]].drop_duplicates()
-        subset['7c'] = subset[7].str.lower().copy()
-        if soc_name:
-            assert isinstance(soc_name, list), "soc_name must be a list"
-            if all(isinstance(elem, str) and elem.isdigit() for elem in soc_name):
-                #assert all(elem in subset[3].tolist() for elem in soc_name), "All elements of soc_name must be present in SOC id"
-                out = pd.merge(pd.DataFrame(soc_name), subset, left_on=0, right_on=3)[7].tolist()
-            else:
-                soc_name_df = pd.DataFrame(soc_name)
-                if ignore_case:
-                    out = pd.merge(soc_name_df, subset, left_on=soc_name_df[0].str.lower(), right_on=subset[7].str.lower(), how='left', sort=False)[3].tolist()
-                else:
-                    out = pd.merge(soc_name_df, subset, left_on=0, right_on=7, how='left', sort=False)[3].tolist()
+        if level < 5:
+            id0 = 4-level 
+            id1 = 8-level
+            subset = self.mdhier[[id0, id1]].drop_duplicates().reset_index(drop=True)
         else:
-            out = subset[7].tolist()
+            id0 = 0 
+            id1 = 1
+            if not self.llt:
+                self.llt = pd.read_csv(os.path.join(self.folder_name, 'MedAscii', 'llt.asc'), delimiter='$', header=None, dtype=str)
+            subset = self.llt[[id0, id1]].drop_duplicates().reset_index(drop=True)
+        if terms:
+            assert isinstance(terms, list), "terms must be a list"
+            if all(isinstance(elem, str) and elem.isdigit() for elem in terms):
+                out = pd.merge(pd.DataFrame(terms), subset, left_on=0, right_on=id0)[id1].tolist()
+            else:
+                terms_df = pd.DataFrame(terms)
+                if ignore_case:
+                    out = pd.merge(terms_df, subset, left_on=terms_df[0].str.lower(), right_on=subset[id1].str.lower(), how='left', sort=False)[id0].tolist()
+                else:
+                    out = pd.merge(terms_df, subset, left_on=0, right_on=id1, how='left', sort=False)[id0].tolist()
+        else:
+            out = subset[id1].tolist()
         return out
 
     def find_pt_given_soc(self, soc_name, primary_soc_only=False):
