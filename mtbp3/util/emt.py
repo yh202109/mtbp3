@@ -21,6 +21,7 @@ import pandas as pd
 from mtbp3.util.lsr import LsrTree
 import mtbp3
 
+
 class Emt:
     """A class representing MedDRA terms.
 
@@ -228,6 +229,28 @@ class Emt:
             """
             return self.find_term_wi_level(terms, ignore_case, level=5)
 
+    def load_llt(self, unique=True):
+        ids=[0,1,2]
+        if not self.llt:
+            tmp = pd.read_csv(os.path.join(self.folder_name, 'MedAscii', 'llt.asc'), delimiter='$', header=None, dtype=str)
+            self.llt = tmp[ids]
+        if unique:
+            self.llt = self.llt.drop_duplicates().reset_index(drop=True)
+
+    def all_str_digit(self, lst):
+        """
+        Check if all elements in a given list are strings containing only digits.
+
+        Args:
+            fin (list): The list to check.
+
+        Returns:
+            bool: True if all elements in the list are strings containing only digits, False otherwise.
+        """
+        if not isinstance(lst, list):
+            return False
+        return all(isinstance(element, str) and element.isdigit() for element in lst)
+
     def find_term_wi_level(self, terms=[], ignore_case=False, level=1):
         """
         Find all unique terms.
@@ -253,12 +276,11 @@ class Emt:
         else:
             id0 = 0 
             id1 = 1
-            if not self.llt:
-                self.llt = pd.read_csv(os.path.join(self.folder_name, 'MedAscii', 'llt.asc'), delimiter='$', header=None, dtype=str)
-            subset = self.llt[[id0, id1]].drop_duplicates().reset_index(drop=True)
+            self.load_llt()
+            subset = self.llt[[id0,id1]]
         if terms:
             assert isinstance(terms, list), "terms must be a list"
-            if all(isinstance(elem, str) and elem.isdigit() for elem in terms):
+            if self.all_str_digit(lst=terms):
                 out = pd.merge(pd.DataFrame(terms), subset, left_on=0, right_on=id0)[id1].tolist()
             else:
                 terms_df = pd.DataFrame(terms)
@@ -270,12 +292,12 @@ class Emt:
             out = subset[id1].tolist()
         return out
 
-    def find_pt_given_soc(self, soc_name, primary_soc_only=False):
+    def find_pt_given_soc(self, soc, primary_soc_only=False, ignore_case=False):
         """
         Find all PTs (Preferred Terms) given a SOC (System Organ Class) name.
 
         Args:
-            soc_name (str): The name of the SOC.
+            soc (str or list): The name of the SOC or a list of SOC names.
             primary_soc_only (bool, optional): If True, only return PTs associated with the primary SOC. 
                                                 Defaults to False.
 
@@ -283,21 +305,75 @@ class Emt:
             pandas.DataFrame: A DataFrame containing the PTs associated with the given SOC. 
                                 Each row represents a PT and contains the PT code and PT name.
         """
-        meddra_mdhier = os.path.join(self.folder_name, 'MedAscii', 'mdhier.asc')
 
-        df = pd.read_csv(meddra_mdhier, delimiter='$', header=None, dtype=str)
-        if primary_soc_only:
-            subset_df = df[(df[7] == soc_name) & (df[11] == 'Y')][[0, 4]].reset_index(drop=True)
-            subset_df.columns = ['Id', 'Name']
+        df = self.mdhier
+        if df.empty:
+            return pd.DataFrame(columns=['pt_id', 'pt', 'primary'])
+        if not isinstance(soc, (str, list)):
+            raise ValueError("soc should be a string or a list")
+        if isinstance(soc, str):
+            soc = [soc]
+        if self.all_str_digit(lst=soc):
+            soc_id = soc
         else:
-            subset_df = df[df[7] == soc_name][[0, 4, 11]].reset_index(drop=True)
-            subset_df.columns = ['Id', 'Name', 'Primary']
+            soc_id = self.find_soc(soc, ignore_case=ignore_case)
+
+        if primary_soc_only:
+            subset_df = df[(df[3].isin(soc_id)) & (df[11] == 'Y')][[0, 4, 3, 7]].reset_index(drop=True)
+            subset_df.columns = ['pt_id', 'pt', 'soc_id', 'soc']
+        else:
+            subset_df = df[df[3].isin(soc_id)][[0, 4, 3, 7, 11]].reset_index(drop=True)
+            subset_df.columns = ['pt_id', 'pt', 'soc_id', 'soc', 'primary']
             
         return subset_df
 
+
+    def find_llt_given_pt(self, pt, ignore_case=False):
+        """
+        Find all LLTs (Lowest Level Terms) given a PT (Preferred Term) name or a list of PT names.
+
+        Args:
+            pt (str or list): The name of the PT or a list of PT names.
+
+        Returns:
+            pandas.DataFrame: A DataFrame containing the LLTs associated with the given PT(s). 
+                                Each row represents an LLT and contains the LLT code and LLT name.
+        """
+        self.load_llt()
+        df = self.llt
+
+        if not isinstance(pt, (str, list)):
+            raise ValueError("pt should be a string or a list")
+        if isinstance(pt, str):
+            pt = [pt]
+        pt2 = [x for x in pt if x.strip() and pd.notna(x)]
+        if self.all_str_digit(lst=pt2):
+            pt_id = pt2
+        else:
+            pt_id = self.find_pt(pt2, ignore_case=ignore_case)
+
+        subset_df = df[df[2].isin(pt_id)]
+        subset_df.columns = ['llt_id', 'llt', 'pt_id']
+        subset_df['pt'] = self.find_pt(subset_df['pt_id'])
+        
+        return subset_df
+
+    def find_llt_given_soc(self, soc, primary_soc_only=False, ignore_case=False):
+        """
+        Find all LLTs (Lowest Level Terms) given a SOC (System Organ Class) name.
+
+        Args:
+            soc_name (str): The name of the SOC.
+            primary_soc_only (bool, optional): If True, only return LLTs associated with the primary SOC. 
+                                                Defaults to False.
+
+        Returns:
+            pandas.DataFrame: A DataFrame containing the LLTs associated with the given SOC. 
+                                Each row represents an LLT and contains the LLT code and LLT name.
+        """
+        pt_df = self.find_pt_given_soc(soc=soc, primary_soc_only=primary_soc_only, ignore_case=ignore_case)
+        llt_df = self.find_lt_given_pt(pt=pt['pt_id'], ignore_case=ignore_case)
+        return llt_df.merge(pt_df, on='pt_id')
+
 if __name__ == "__main__":
     pass
-
-
-
-

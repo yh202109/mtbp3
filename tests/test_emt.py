@@ -64,7 +64,7 @@ class TestEmt(unittest.TestCase):
         self.assertIsNotNone(df)
         self.assertIsInstance(df, pd.DataFrame)
         self.assertGreater(len(df), 0)
-        self.assertEqual(df.columns.tolist(), ['Id', 'Name', 'Primary'])
+        self.assertEqual(df.columns.tolist(), ['pt_id', 'pt', 'soc_id', 'soc', 'primary'])
 
     def test_find_pt_given_soc_primary_only(self):
         soc_names = self.emt.find_soc()
@@ -73,7 +73,7 @@ class TestEmt(unittest.TestCase):
         self.assertIsNotNone(df)
         self.assertIsInstance(df, pd.DataFrame)
         self.assertGreater(len(df), 0)
-        self.assertEqual(df.columns.tolist(), ['Id', 'Name'])
+        self.assertEqual(df.columns.tolist(), ['pt_id', 'pt', 'soc_id', 'soc'])
 
 if __name__ == "__main__":
     unittest.main()

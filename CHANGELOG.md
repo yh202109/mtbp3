@@ -1,6 +1,10 @@
 # Changelog
 
 <!--next-version-placeholder-->
+## v0.1.42 (2024-00-00)
+
+- add lsr column count
+
 ## v0.1.41 (2024-02-26)
 
 - update emt examples

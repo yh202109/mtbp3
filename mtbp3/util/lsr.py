@@ -19,6 +19,8 @@ import os
 import json
 import pandas as pd
 import time
+import numpy as np
+import PyPDF2 
 
 class LsrTree:
     def __init__(self, path="", outfmt="list", with_counts=False, count_str="", with_file_label=False, label_str=""):
@@ -133,11 +135,47 @@ class LsrTree:
                     file_size = os.path.getsize(file_path)
                     file_modified = time.ctime(os.path.getmtime(file_path))
                     file_created = time.ctime(os.path.getctime(file_path))
-                    data.append((s1, level + 1, "file", f1, file_size, file_modified, file_created))
+                    file_type = f1.split(".")[-1]
+                    num_pages = None
+                    num_columns = None
+                    num_rows = None
+                    if file_type == "xlsx":
+                        try:
+                            excel_file = pd.ExcelFile(file_path)
+                            num_pages = len(excel_file.sheet_names)
+                            first_sheet = excel_file.sheet_names[0]
+                            sheet = excel_file.parse(first_sheet)
+                            num_columns = sheet.shape[1]
+                            num_rows = sheet.shape[0]
+                        except pd.errors.EmptyDataError:
+                            num_pages = 0
+                            num_columns = 0
+                            num_rows = 0
+                    elif file_type == "sas7bdat":
+                        try:
+                            sas_file = pd.read_sas(file_path)
+                            num_columns = sas_file.shape[1]
+                            num_rows = sas_file.shape[0]
+                        except pd.errors.EmptyDataError:
+                            num_columns = 0
+                            num_rows = 0
+                    elif file_type == "csv":
+                        try:
+                            csv_file = pd.read_csv(file_path)
+                            num_columns = csv_file.shape[1]
+                            num_rows = csv_file.shape[0]
+                        except pd.errors.EmptyDataError:
+                            num_columns = 0
+                            num_rows = 0
+                    elif file_type == "pdf":
+                        with open(file_path, "rb") as f:
+                            pdf = PyPDF2.PdfFileReader(f)
+                            num_pages = pdf.getNumPages()
+
+                    data.append((s1, level + 1, "file", f1, file_size, file_modified, file_created, file_type, num_pages, num_columns, num_rows))
             elif len(d0) == 0:
-                type = "folder"
-                data.append((s1, level, "folder", "<<<((( Empty Folder )))>>>", None, None, None))
-        df = pd.DataFrame(data, columns=["path", "level", "type", "file", "size_in_bytes", "modified", "created"])
+                data.append((s1, level, "folder", "<<<((( Empty Folder )))>>>", None, None, None, None, None, None, None))
+        df = pd.DataFrame(data, columns=["path", "level", "type", "file", "size_in_bytes", "modified", "created", "file_type", "N_page", "N_column", "N_row"])
         return df
 
     def list_files_string(self):
