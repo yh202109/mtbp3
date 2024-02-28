@@ -5,13 +5,15 @@
             "metadata": {},
             "source": [
                 "\n",
-                "# Example - Work with MedDRA Distribution Files\n",
+                "# Example - Work with MedDRA Distribution Files \n",
+                "\n",
                 "\n",
                 "The Medical Dictionary for Regulatory Activities (MedDRA) is a set of standardized terminologies commonly used in clinical safety recording, communicating, and reporting activities.  MedDRA is developed and maintained by the International Council for Harmonisation of Technical Requirements for Pharmaceuticals for Human Use (ICH)[^1]<sup>,</sup>[^2]. The module `emt` includes basic functions for processing MedDRA distribution folder to get information of terms and processing data already coded in MedDRA to further use those data in analyses. \n",
                 "\n",
                 "Please note that this module does not include MedDRA distribution files. \n",
                 "MedDRA data sharing follows data share statement published by MSSO[^3]. \n",
                 "The user can download distribution files from the MedDRA website. \n",
+                "Please also note that this module works with MedDRA Version >= 15.0 (March 2012).\n",
                 "\n",
                 "For demonstration purpose, an example distribution folder is shipped with this module. The example folder includes randomly generated strings and numbers following MedDRA distribution format in Version 26.1 to demonstrate the usage of this module. The numbers of terms are also reduced for faster results.\n"
             ]
@@ -56,6 +58,7 @@
                 "\n",
                 "MedDRA terms are organized in a hierarchical system: **SOC**, HLGT, HLT, **PT**, LLT. Two most commonly used levels for analyses are SOC and PT. \n",
                 "Note that the MedDRA terms do use both capital letters and lowercase letters. The outputs will follow the exact letters used in the distribution folder. \n",
+                "Functions in this section return a list for faster follow-up processing.\n",
                 "\n",
                 "To find a list of SOC:"
             ]
@@ -133,13 +136,15 @@
             "cell_type": "markdown",
             "metadata": {},
             "source": [
-                "## Fid MedDRA Terms Across the Hierarchical Levels"
+                "## Find MedDRA Terms Across the Hierarchical Levels"
             ]
         },
         {
             "cell_type": "markdown",
             "metadata": {},
             "source": [
+                "Functions in this sections return DataFrames.\n",
+                "\n",
                 "To find a list of PTs related to the first SOC on the list:"
             ]
         },
@@ -159,9 +164,17 @@
             "cell_type": "markdown",
             "metadata": {},
             "source": [
+                "Please note that the default returned output includes PT with the specified SOC as both primary and non-primary SOC.\n",
+                "Add the option `primary_soc_only=True` to get primary only results."
+            ]
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [
                 "## Other Options\n",
                 "\n",
-                "MedDRA also provides other options including online viewer, desktop browser [^4], and API access[^5]. Please visit MedDRA website for more information. "
+                "MedDRA also provides other options including online viewer, desktop browser [^4], and API access[^5]. Please visit MedDRA website for more information. Another Python module for multiple medical term systems is also available [^6]."
             ]
         },
         {
@@ -175,6 +188,11 @@
                 "[^3]: ICH. (year). MedDRA Data Sharing Statement. ([pdf](https://admin.meddra.org/sites/default/files/page/documents/000198%20Statement%20on%20MedDRA%20Data%20Sharing.pdf))\n",
                 "[^4]: ICH, MedDRA browsers. ([webpage](https://www.meddra.org/browsers))\n",
                 "[^5]: Jasonpott. (2023). MEDDRA API with R. ([GitHub Repository](https://github.com/jasonpott/meddra_api_R))\n",
+                "[^6]: Lamy JB, Venot A, Duclos C. PyMedTermino: an open-source generic API for advanced terminology services. Stud Health Technol Inform 2015;210:924-928 ([webpage](https://pythonhosted.org/PyMedTermino/))\n",
+                "\n",
+                "\n",
+                "\n",
+                "\n",
                 "\n"
             ]
         }

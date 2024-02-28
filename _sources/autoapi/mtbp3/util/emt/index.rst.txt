@@ -148,6 +148,20 @@ Classes
       :raises AssertionError: If terms is not a list.
 
 
+   .. py:method:: load_llt(unique=True)
+
+
+   .. py:method:: all_str_digit(lst)
+
+      Check if all elements in a given list are strings containing only digits.
+
+      :param fin: The list to check.
+      :type fin: list
+
+      :returns: True if all elements in the list are strings containing only digits, False otherwise.
+      :rtype: bool
+
+
    .. py:method:: find_term_wi_level(terms=[], ignore_case=False, level=1)
 
       Find all unique terms.
@@ -165,12 +179,12 @@ Classes
       :raises AssertionError: If terms is not a list.
 
 
-   .. py:method:: find_pt_given_soc(soc_name, primary_soc_only=False)
+   .. py:method:: find_pt_given_soc(soc, primary_soc_only=False, ignore_case=False)
 
       Find all PTs (Preferred Terms) given a SOC (System Organ Class) name.
 
-      :param soc_name: The name of the SOC.
-      :type soc_name: str
+      :param soc: The name of the SOC or a list of SOC names.
+      :type soc: str or list
       :param primary_soc_only: If True, only return PTs associated with the primary SOC.
                                Defaults to False.
       :type primary_soc_only: bool, optional
@@ -179,6 +193,37 @@ Classes
 
                 A DataFrame containing the PTs associated with the given SOC.
                                     Each row represents a PT and contains the PT code and PT name.
+      :rtype: pandas.DataFrame
+
+
+   .. py:method:: find_llt_given_pt(pt, ignore_case=False)
+
+      Find all LLTs (Lowest Level Terms) given a PT (Preferred Term) name or a list of PT names.
+
+      :param pt: The name of the PT or a list of PT names.
+      :type pt: str or list
+
+      :returns:
+
+                A DataFrame containing the LLTs associated with the given PT(s).
+                                    Each row represents an LLT and contains the LLT code and LLT name.
+      :rtype: pandas.DataFrame
+
+
+   .. py:method:: find_llt_given_soc(soc, primary_soc_only=False, ignore_case=False)
+
+      Find all LLTs (Lowest Level Terms) given a SOC (System Organ Class) name.
+
+      :param soc_name: The name of the SOC.
+      :type soc_name: str
+      :param primary_soc_only: If True, only return LLTs associated with the primary SOC.
+                               Defaults to False.
+      :type primary_soc_only: bool, optional
+
+      :returns:
+
+                A DataFrame containing the LLTs associated with the given SOC.
+                                    Each row represents an LLT and contains the LLT code and LLT name.
       :rtype: pandas.DataFrame
 
 
