@@ -104,21 +104,6 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## SMQ Design Types\n",
-    "\n",
-    "There are several concepts that was used for designing SMQ:\n",
-    "\n",
-    "- Narrow (A) / Broad\n",
-    "- Algorithm\n",
-    "- Category \n",
-    "- Weight\n",
-    "- Hierarchy"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
     "## Reference\n",
     "\n",
     "[^1]: ICH. (2013). Understanding MedDRA. ([pdf](https://admin.meddra.org/sites/default/files/page/documents_insert/meddra2013_0.pdf))\n",
