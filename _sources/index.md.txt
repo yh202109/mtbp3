@@ -7,6 +7,7 @@
 
 example_files.ipynb
 example_emt.ipynb
+example_emt2.ipynb
 example_cdtg.ipynb
 changelog.md
 contributing.md

@@ -45,7 +45,8 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../example_files.html">Example - Showing Folder Contents</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../example_emt.html">Example - Work with MedDRA Distribution Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../example_emt.html">MedDRA - Start with Distribution Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../example_emt2.html">MedDRA - SMQ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../example_cdtg.html">Example - Create Plots Using catPlotter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
@@ -140,6 +141,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">language</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mdhier</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">llt</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">smq_list</span> <span class="o">=</span> <span class="kc">None</span>
 
         <span class="n">meddra_release_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">folder_name</span><span class="p">,</span> <span class="s1">&#39;MedAscii&#39;</span><span class="p">,</span> <span class="s1">&#39;meddra_release.asc&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">meddra_release_file</span><span class="p">):</span>
@@ -225,6 +227,18 @@
             <span class="k">return</span> <span class="p">[],</span> <span class="sa">f</span><span class="s2">&quot;All files found. Version: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">version_number</span><span class="si">}</span><span class="s2">; Year: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">year</span><span class="si">}</span><span class="s2">; Month: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">month</span><span class="si">}</span><span class="s2">; Language: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="si">}</span><span class="s2">. N_SOC: </span><span class="si">{</span><span class="n">nsoc</span><span class="si">}</span><span class="s2">.&quot;</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">missing_files</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">missing_files</span><span class="p">)</span><span class="si">}</span><span class="s2"> files not found.&quot;</span></div>
+
+
+<div class="viewcode-block" id="Emt.load_llt">
+<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.load_llt">[docs]</a>
+    <span class="k">def</span> <span class="nf">load_llt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">ids</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">llt</span><span class="p">:</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">folder_name</span><span class="p">,</span> <span class="s1">&#39;MedAscii&#39;</span><span class="p">,</span> <span class="s1">&#39;llt.asc&#39;</span><span class="p">),</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;$&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">llt</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">[</span><span class="n">ids</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">unique</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">llt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">llt</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
 
 
 <div class="viewcode-block" id="Emt.list_files">
@@ -336,20 +350,9 @@
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_term_wi_level</span><span class="p">(</span><span class="n">terms</span><span class="p">,</span> <span class="n">ignore_case</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Emt.load_llt">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.load_llt">[docs]</a>
-    <span class="k">def</span> <span class="nf">load_llt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="n">ids</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">llt</span><span class="p">:</span>
-            <span class="n">tmp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">folder_name</span><span class="p">,</span> <span class="s1">&#39;MedAscii&#39;</span><span class="p">,</span> <span class="s1">&#39;llt.asc&#39;</span><span class="p">),</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;$&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">llt</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">[</span><span class="n">ids</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">unique</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">llt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">llt</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
-
-
 <div class="viewcode-block" id="Emt.all_str_digit">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.all_str_digit">[docs]</a>
-    <span class="k">def</span> <span class="nf">all_str_digit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lst</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">all_str_digit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lst</span><span class="o">=</span><span class="p">[]):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check if all elements in a given list are strings containing only digits.</span>
 
@@ -393,8 +396,11 @@
             <span class="n">id1</span> <span class="o">=</span> <span class="mi">1</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">load_llt</span><span class="p">()</span>
             <span class="n">subset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">llt</span><span class="p">[[</span><span class="n">id0</span><span class="p">,</span><span class="n">id1</span><span class="p">]]</span>
+
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">terms</span><span class="p">,</span> <span class="nb">list</span><span class="p">),</span> <span class="s2">&quot;terms must be a list&quot;</span>
+        <span class="n">terms</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">term</span><span class="p">)</span> <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">terms</span> <span class="k">if</span> <span class="n">term</span><span class="o">.</span><span class="n">strip</span><span class="p">()]</span>
+
         <span class="k">if</span> <span class="n">terms</span><span class="p">:</span>
-            <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">terms</span><span class="p">,</span> <span class="nb">list</span><span class="p">),</span> <span class="s2">&quot;terms must be a list&quot;</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_str_digit</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">terms</span><span class="p">):</span>
                 <span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">terms</span><span class="p">),</span> <span class="n">subset</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="n">id0</span><span class="p">)[</span><span class="n">id1</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
             <span class="k">else</span><span class="p">:</span>
@@ -410,7 +416,7 @@
 
 <div class="viewcode-block" id="Emt.find_pt_given_soc">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.find_pt_given_soc">[docs]</a>
-    <span class="k">def</span> <span class="nf">find_pt_given_soc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">soc</span><span class="p">,</span> <span class="n">primary_soc_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ignore_case</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">find_pt_given_soc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">soc</span><span class="o">=</span><span class="p">[],</span> <span class="n">primary_soc_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ignore_case</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Find all PTs (Preferred Terms) given a SOC (System Organ Class) name.</span>
 
@@ -449,7 +455,7 @@
 
 <div class="viewcode-block" id="Emt.find_llt_given_pt">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.find_llt_given_pt">[docs]</a>
-    <span class="k">def</span> <span class="nf">find_llt_given_pt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pt</span><span class="p">,</span> <span class="n">ignore_case</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">find_llt_given_pt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pt</span><span class="o">=</span><span class="p">[],</span> <span class="n">ignore_case</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Find all LLTs (Lowest Level Terms) given a PT (Preferred Term) name or a list of PT names.</span>
 
@@ -467,7 +473,7 @@
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;pt should be a string or a list&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pt</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
             <span class="n">pt</span> <span class="o">=</span> <span class="p">[</span><span class="n">pt</span><span class="p">]</span>
-        <span class="n">pt2</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">pt</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">and</span> <span class="n">pd</span><span class="o">.</span><span class="n">notna</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span>
+        <span class="n">pt2</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">pt</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">and</span> <span class="n">pd</span><span class="o">.</span><span class="n">notna</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_str_digit</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">pt2</span><span class="p">):</span>
             <span class="n">pt_id</span> <span class="o">=</span> <span class="n">pt2</span>
         <span class="k">else</span><span class="p">:</span>
@@ -482,7 +488,7 @@
 
 <div class="viewcode-block" id="Emt.find_llt_given_soc">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.find_llt_given_soc">[docs]</a>
-    <span class="k">def</span> <span class="nf">find_llt_given_soc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">soc</span><span class="p">,</span> <span class="n">primary_soc_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ignore_case</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">find_llt_given_soc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">soc</span><span class="o">=</span><span class="p">[],</span> <span class="n">primary_soc_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ignore_case</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Find all LLTs (Lowest Level Terms) given a SOC (System Organ Class) name.</span>
 
@@ -498,6 +504,60 @@
         <span class="n">pt_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_pt_given_soc</span><span class="p">(</span><span class="n">soc</span><span class="o">=</span><span class="n">soc</span><span class="p">,</span> <span class="n">primary_soc_only</span><span class="o">=</span><span class="n">primary_soc_only</span><span class="p">,</span> <span class="n">ignore_case</span><span class="o">=</span><span class="n">ignore_case</span><span class="p">)</span>
         <span class="n">llt_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_lt_given_pt</span><span class="p">(</span><span class="n">pt</span><span class="o">=</span><span class="n">pt</span><span class="p">[</span><span class="s1">&#39;pt_id&#39;</span><span class="p">],</span> <span class="n">ignore_case</span><span class="o">=</span><span class="n">ignore_case</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">llt_df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">pt_df</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;pt_id&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Emt.load_smq">
+<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.load_smq">[docs]</a>
+    <span class="k">def</span> <span class="nf">load_smq</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">smq_ist</span><span class="p">:</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">folder_name</span><span class="p">,</span> <span class="s1">&#39;MedAscii&#39;</span><span class="p">,</span> <span class="s1">&#39;smq_list.asc&#39;</span><span class="p">),</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;$&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">tmp</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">tmp</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">smq_list</span> <span class="o">=</span> <span class="n">tmp</span></div>
+
+
+<div class="viewcode-block" id="Emt.find_smq">
+<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.find_smq">[docs]</a>
+    <span class="k">def</span> <span class="nf">find_smq</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">terms</span><span class="o">=</span><span class="p">[],</span> <span class="n">ignore_case</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Find all unique SMQ (Standard MedDRA Queries) terms.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            terms (list, optional): The specific SMQ name(s) to filter the results. Defaults to an empty list.</span>
+<span class="sd">            ignore_case (bool, optional): Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            list: A list of unique SMQ terms. If terms is provided, it returns the corresponding ids.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            AssertionError: If terms is not a list.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">load_smq</span><span class="p">()</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">smq_ist</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">terms</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;terms should be a string or a list&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">terms</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">terms</span> <span class="o">=</span> <span class="p">[</span><span class="n">terms</span><span class="p">]</span>
+        <span class="n">terms</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">term</span><span class="p">)</span> <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">terms</span> <span class="k">if</span> <span class="n">term</span><span class="o">.</span><span class="n">strip</span><span class="p">()]</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">terms</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">terms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+                <span class="n">out</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">terms</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">out</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">terms</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+            <span class="n">out</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;level&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;source&#39;</span><span class="p">,</span> <span class="s1">&#39;note&#39;</span><span class="p">,</span> <span class="s1">&#39;MedDRA_version&#39;</span><span class="p">,</span> <span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;algorithm&#39;</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">out</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">terms</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_str_digit</span><span class="p">(</span><span class="n">terms</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">terms</span><span class="p">)][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">ignore_case</span><span class="p">:</span>
+                    <span class="n">out</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="n">term</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">terms</span><span class="p">])][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+                <span class="k">else</span><span class="p">:</span> 
+                    <span class="n">out</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">terms</span><span class="p">)][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+                <span class="k">return</span> <span class="n">out</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">df</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span></div>
 </div>
 
 

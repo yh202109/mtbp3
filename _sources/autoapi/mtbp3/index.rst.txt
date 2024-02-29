@@ -50,7 +50,6 @@ Attributes
 
 .. autoapisummary::
 
-   mtbp3.lsr
    mtbp3.__version__
    mtbp3._ROOT
 
@@ -113,10 +112,6 @@ Attributes
 
 
 
-.. py:data:: lsr
-
-   
-
 .. py:class:: Emt(folder_name='')
 
 
@@ -163,6 +158,9 @@ Attributes
 
       :returns: A list of missing file names.
       :rtype: list
+
+
+   .. py:method:: load_llt(unique=True)
 
 
    .. py:method:: list_files()
@@ -248,10 +246,7 @@ Attributes
       :raises AssertionError: If terms is not a list.
 
 
-   .. py:method:: load_llt(unique=True)
-
-
-   .. py:method:: all_str_digit(lst)
+   .. py:method:: all_str_digit(lst=[])
 
       Check if all elements in a given list are strings containing only digits.
 
@@ -279,7 +274,7 @@ Attributes
       :raises AssertionError: If terms is not a list.
 
 
-   .. py:method:: find_pt_given_soc(soc, primary_soc_only=False, ignore_case=False)
+   .. py:method:: find_pt_given_soc(soc=[], primary_soc_only=False, ignore_case=False)
 
       Find all PTs (Preferred Terms) given a SOC (System Organ Class) name.
 
@@ -296,7 +291,7 @@ Attributes
       :rtype: pandas.DataFrame
 
 
-   .. py:method:: find_llt_given_pt(pt, ignore_case=False)
+   .. py:method:: find_llt_given_pt(pt=[], ignore_case=False)
 
       Find all LLTs (Lowest Level Terms) given a PT (Preferred Term) name or a list of PT names.
 
@@ -310,7 +305,7 @@ Attributes
       :rtype: pandas.DataFrame
 
 
-   .. py:method:: find_llt_given_soc(soc, primary_soc_only=False, ignore_case=False)
+   .. py:method:: find_llt_given_soc(soc=[], primary_soc_only=False, ignore_case=False)
 
       Find all LLTs (Lowest Level Terms) given a SOC (System Organ Class) name.
 
@@ -325,6 +320,24 @@ Attributes
                 A DataFrame containing the LLTs associated with the given SOC.
                                     Each row represents an LLT and contains the LLT code and LLT name.
       :rtype: pandas.DataFrame
+
+
+   .. py:method:: load_smq()
+
+
+   .. py:method:: find_smq(terms=[], ignore_case=False)
+
+      Find all unique SMQ (Standard MedDRA Queries) terms.
+
+      :param terms: The specific SMQ name(s) to filter the results. Defaults to an empty list.
+      :type terms: list, optional
+      :param ignore_case: Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.
+      :type ignore_case: bool, optional
+
+      :returns: A list of unique SMQ terms. If terms is provided, it returns the corresponding ids.
+      :rtype: list
+
+      :raises AssertionError: If terms is not a list.
 
 
 

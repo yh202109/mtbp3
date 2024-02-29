@@ -17,14 +17,6 @@ Classes
 
 
 
-Attributes
-~~~~~~~~~~
-
-.. autoapisummary::
-
-   mtbp3.util.lsr.lsr
-
-
 .. py:class:: LsrTree(path='', outfmt='list', with_counts=False, count_str='', with_file_label=False, label_str='')
 
 
@@ -82,8 +74,4 @@ Attributes
       :rtype: str
 
 
-
-.. py:data:: lsr
-
-   
 
