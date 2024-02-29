@@ -19,7 +19,7 @@
    "source": [
     "## Assign MedDRA Distribution Folder\n",
     "\n",
-    "Please see more details <a href=\"mtbp3/example_emt.html\">here</a>."
+    "Please see more details <a href=\"example_emt.html\">here</a>."
    ]
   },
   {
@@ -44,7 +44,7 @@
    "source": [
     "## Find SMQ Terms \n",
     "\n",
-    "To find a list of SMQ:"
+    "To find a list of SMQ names:"
    ]
   },
   {
@@ -64,7 +64,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "To find more details about a SMQ:"
+    "To find more details about a specific SMQ by name or id:"
    ]
   },
   {
@@ -78,6 +78,26 @@
    "outputs": [],
    "source": [
     "print(emt.find_smq(smq_names[0]).T)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "To find a list of id from SMQ names:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "vscode": {
+     "languageId": "plaintext"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "print(emt.find_smq(smq_names[:3]))"
    ]
   },
   {

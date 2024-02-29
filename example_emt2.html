@@ -92,7 +92,7 @@
 <p>The Medical Dictionary for Regulatory Activities (MedDRA) is a set of standardized terminologies commonly used in clinical safety recording, communicating, and reporting activities.  MedDRA is developed and maintained by the International Council for Harmonisation of Technical Requirements for Pharmaceuticals for Human Use (ICH)<a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a><sup>,</sup><a class="footnote-reference brackets" href="#id4" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>. The Standardised MedDRA Queries (SMQs) are groups of MedDRA terms used to describe conditions of interest. The module <code class="docutils literal notranslate"><span class="pre">emt</span></code> also includes basic functions for working with MedDRA SMQ.</p>
 <section id="assign-meddra-distribution-folder">
 <h2>Assign MedDRA Distribution Folder<a class="headerlink" href="#assign-meddra-distribution-folder" title="Link to this heading"></a></h2>
-<p>Please see more details <a href="mtbp3/example_emt.html">here</a>.</p>
+<p>Please see more details <a href="example_emt.html">here</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mtbp3.util.emt</span> <span class="kn">import</span> <span class="n">Emt</span>
@@ -111,7 +111,7 @@
 </section>
 <section id="find-smq-terms">
 <h2>Find SMQ Terms<a class="headerlink" href="#find-smq-terms" title="Link to this heading"></a></h2>
-<p>To find a list of SMQ:</p>
+<p>To find a list of SMQ names:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smq_names</span> <span class="o">=</span> <span class="n">emt</span><span class="o">.</span><span class="n">find_smq</span><span class="p">()</span>
@@ -119,7 +119,7 @@
 </div>
 </div>
 </div>
-<p>To find more details about a SMQ:</p>
+<p>To find more details about a specific SMQ by name or id:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">emt</span><span class="o">.</span><span class="n">find_smq</span><span class="p">(</span><span class="n">smq_names</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
@@ -137,6 +137,19 @@ note                                 smq_note891lVUSvRlAzNpx
 MedDRA_version                                          26.1
 status                                                     A
 algorithm                 A or (B and C) or (D and (B or C))
+</pre></div>
+</div>
+</div>
+</div>
+<p>To find a list of id from SMQ names:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">emt</span><span class="o">.</span><span class="n">find_smq</span><span class="p">(</span><span class="n">smq_names</span><span class="p">[:</span><span class="mi">3</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;69918820&#39;, &#39;69948258&#39;, &#39;69901813&#39;]
 </pre></div>
 </div>
 </div>
