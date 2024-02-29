@@ -381,7 +381,7 @@ class Emt:
         return llt_df.merge(pt_df, on='pt_id')
 
     def load_smq(self):
-        if not self.smq_list:
+        if self.smq_list is None:
             tmp = pd.read_csv(os.path.join(self.folder_name, 'MedAscii', 'smq_list.asc'), delimiter='$', header=None, dtype=str)
             if tmp is not None and not tmp.empty:
                 self.smq_list = tmp
