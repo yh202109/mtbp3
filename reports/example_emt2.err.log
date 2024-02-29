@@ -24,23 +24,17 @@ smq_names = emt.find_smq()
 Cell [0;32mIn[2], line 1[0m
 [0;32m----> 1[0m smq_names [38;5;241m=[39m [43memt[49m[38;5;241;43m.[39;49m[43mfind_smq[49m[43m([49m[43m)[49m
 
-File [0;32m~/work/mtbp3/mtbp3/mtbp3/util/emt.py:403[0m, in [0;36mEmt.find_smq[0;34m(self, terms, ignore_case)[0m
-[1;32m    389[0m [38;5;28;01mdef[39;00m [38;5;21mfind_smq[39m([38;5;28mself[39m, terms[38;5;241m=[39m[], ignore_case[38;5;241m=[39m[38;5;28;01mFalse[39;00m):
-[1;32m    390[0m [38;5;250m    [39m[38;5;124;03m"""[39;00m
-[1;32m    391[0m [38;5;124;03m    Find all unique SMQ (Standard MedDRA Queries) terms.[39;00m
+File [0;32m~/work/mtbp3/mtbp3/mtbp3/util/emt.py:404[0m, in [0;36mEmt.find_smq[0;34m(self, terms, ignore_case)[0m
+[1;32m    390[0m [38;5;250m[39m[38;5;124;03m"""[39;00m
+[1;32m    391[0m [38;5;124;03mFind all unique SMQ (Standard MedDRA Queries) terms.[39;00m
 [1;32m    392[0m 
 [0;32m   (...)[0m
-[1;32m    401[0m [38;5;124;03m        AssertionError: If terms is not a list.[39;00m
-[1;32m    402[0m [38;5;124;03m    """[39;00m
-[0;32m--> 403[0m     [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mload_smq[49m[43m([49m[43m)[49m
-[1;32m    404[0m     df [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39msmq_ist
-[1;32m    406[0m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28misinstance[39m(terms, ([38;5;28mstr[39m, [38;5;28mlist[39m)):
-
-File [0;32m~/work/mtbp3/mtbp3/mtbp3/util/emt.py:384[0m, in [0;36mEmt.load_smq[0;34m(self)[0m
-[1;32m    383[0m [38;5;28;01mdef[39;00m [38;5;21mload_smq[39m([38;5;28mself[39m):
-[0;32m--> 384[0m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43msmq_ist[49m:
-[1;32m    385[0m         tmp [38;5;241m=[39m pd[38;5;241m.[39mread_csv(os[38;5;241m.[39mpath[38;5;241m.[39mjoin([38;5;28mself[39m[38;5;241m.[39mfolder_name, [38;5;124m'[39m[38;5;124mMedAscii[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124msmq_list.asc[39m[38;5;124m'[39m), delimiter[38;5;241m=[39m[38;5;124m'[39m[38;5;124m$[39m[38;5;124m'[39m, header[38;5;241m=[39m[38;5;28;01mNone[39;00m, dtype[38;5;241m=[39m[38;5;28mstr[39m)
-[1;32m    386[0m         [38;5;28;01mif[39;00m tmp [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m [38;5;129;01mand[39;00m [38;5;129;01mnot[39;00m tmp[38;5;241m.[39mempty:
+[1;32m    401[0m [38;5;124;03m    AssertionError: If terms is not a list.[39;00m
+[1;32m    402[0m [38;5;124;03m"""[39;00m
+[1;32m    403[0m [38;5;28mself[39m[38;5;241m.[39mload_smq()
+[0;32m--> 404[0m df [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43msmq_ist[49m
+[1;32m    406[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28misinstance[39m(terms, ([38;5;28mstr[39m, [38;5;28mlist[39m)):
+[1;32m    407[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;124m"[39m[38;5;124mterms should be a string or a list[39m[38;5;124m"[39m)
 
 [0;31mAttributeError[0m: 'Emt' object has no attribute 'smq_ist'
 
