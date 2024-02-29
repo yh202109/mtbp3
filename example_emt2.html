@@ -129,35 +129,49 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="nn">/tmp/ipykernel_1963/1857705088.py</span> in <span class="ni">?</span><span class="nt">()</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">emt</span><span class="o">.</span><span class="n">find_smq</span><span class="p">(</span><span class="n">smq_names</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 
-<span class="nn">~/work/mtbp3/mtbp3/mtbp3/util/emt.py</span> in <span class="ni">?</span><span class="nt">(self, terms, ignore_case)</span>
-<span class="g g-Whitespace">    </span><span class="mi">399</span> 
-<span class="g g-Whitespace">    </span><span class="mi">400</span>         <span class="n">Raises</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">401</span>             <span class="ne">AssertionError</span><span class="p">:</span> <span class="n">If</span> <span class="n">terms</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">a</span> <span class="nb">list</span><span class="o">.</span>
-<span class="g g-Whitespace">    </span><span class="mi">402</span>         <span class="s2">&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">403</span><span class="s2">         self.load_smq()</span>
-<span class="g g-Whitespace">    </span><span class="mi">404</span><span class="s2">         df = self.smq_list</span>
-<span class="g g-Whitespace">    </span><span class="mi">405</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">406</span><span class="s2">         if not isinstance(terms, (str, list)):</span>
+<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/util/emt.py:417,</span> in <span class="ni">Emt.find_smq</span><span class="nt">(self, terms, ignore_case)</span>
+<span class="g g-Whitespace">    </span><span class="mi">415</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">416</span>         <span class="n">out</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">terms</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="ne">--&gt; </span><span class="mi">417</span>     <span class="n">out</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;level&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;source&#39;</span><span class="p">,</span> <span class="s1">&#39;note&#39;</span><span class="p">,</span> <span class="s1">&#39;MedDRA_version&#39;</span><span class="p">,</span> <span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;algorithm&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">418</span>     <span class="k">return</span> <span class="n">out</span>
+<span class="g g-Whitespace">    </span><span class="mi">419</span> <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">terms</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">:</span>
 
-<span class="nn">~/work/mtbp3/mtbp3/mtbp3/util/emt.py</span> in <span class="ni">?</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">383</span><span class="s2">     def load_smq(self):</span>
-<span class="ne">--&gt; </span><span class="mi">384</span><span class="s2">         if not self.smq_list:</span>
-<span class="g g-Whitespace">    </span><span class="mi">385</span><span class="s2">             tmp = pd.read_csv(os.path.join(self.folder_name, &#39;MedAscii&#39;, &#39;smq_list.asc&#39;), delimiter=&#39;$&#39;, header=None, dtype=str)</span>
-<span class="g g-Whitespace">    </span><span class="mi">386</span><span class="s2">             if tmp is not None and not tmp.empty:</span>
-<span class="g g-Whitespace">    </span><span class="mi">387</span><span class="s2">                 self.smq_list = tmp</span>
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/generic.py:6310,</span> in <span class="ni">NDFrame.__setattr__</span><span class="nt">(self, name, value)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6308</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">6309</span>     <span class="nb">object</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">6310</span>     <span class="k">return</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6311</span> <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">6312</span>     <span class="k">pass</span>
 
-<span class="nn">~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/generic.py</span> in <span class="ni">?</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1574</span><span class="s2">     @final</span>
-<span class="g g-Whitespace">   </span><span class="mi">1575</span><span class="s2">     def __nonzero__(self) -&gt; NoReturn:</span>
-<span class="ne">-&gt; </span><span class="mi">1576</span><span class="s2">         raise ValueError(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1577</span><span class="s2">             f&quot;The truth value of a {type(self).__name__} is ambiguous. &quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1578</span><span class="s2">             &quot;Use a.empty, a.bool(), a.item(), a.any() or a.all().&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1579</span><span class="s2">         )</span>
+<span class="nn">File properties.pyx:69,</span> in <span class="ni">pandas._libs.properties.AxisProperty.__set__</span><span class="nt">()</span>
 
-<span class="ne">ValueError</span>: The truth value of a DataFrame is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/generic.py:813,</span> in <span class="ni">NDFrame._set_axis</span><span class="nt">(self, axis, labels)</span>
+<span class="g g-Whitespace">    </span><span class="mi">808</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">809</span><span class="sd"> This is called from the cython code when we set the `index` attribute</span>
+<span class="g g-Whitespace">    </span><span class="mi">810</span><span class="sd"> directly, e.g. `series.index = [1, 2, 3]`.</span>
+<span class="g g-Whitespace">    </span><span class="mi">811</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">812</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">ensure_index</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">813</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mgr</span><span class="o">.</span><span class="n">set_axis</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">814</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clear_item_cache</span><span class="p">()</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/internals/managers.py:238,</span> in <span class="ni">BaseBlockManager.set_axis</span><span class="nt">(self, axis, new_labels)</span>
+<span class="g g-Whitespace">    </span><span class="mi">236</span> <span class="k">def</span> <span class="nf">set_axis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span> <span class="n">AxisInt</span><span class="p">,</span> <span class="n">new_labels</span><span class="p">:</span> <span class="n">Index</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">237</span>     <span class="c1"># Caller is responsible for ensuring we have an Index object.</span>
+<span class="ne">--&gt; </span><span class="mi">238</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_validate_set_axis</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">new_labels</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">239</span>     <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_labels</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/internals/base.py:98,</span> in <span class="ni">DataManager._validate_set_axis</span><span class="nt">(self, axis, new_labels)</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span>     <span class="k">pass</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span> <span class="k">elif</span> <span class="n">new_len</span> <span class="o">!=</span> <span class="n">old_len</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">98</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span>         <span class="sa">f</span><span class="s2">&quot;Length mismatch: Expected axis has </span><span class="si">{</span><span class="n">old_len</span><span class="si">}</span><span class="s2"> elements, new &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span>         <span class="sa">f</span><span class="s2">&quot;values have </span><span class="si">{</span><span class="n">new_len</span><span class="si">}</span><span class="s2"> elements&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span>     <span class="p">)</span>
+
+<span class="ne">ValueError</span>: Length mismatch: Expected axis has 8 elements, new values have 9 elements
 </pre></div>
 </div>
 </div>

@@ -21,33 +21,47 @@ print(emt.find_smq(smq_names[0]).T)
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mValueError[0m                                Traceback (most recent call last)
-[0;32m/tmp/ipykernel_1963/1857705088.py[0m in [0;36m?[0;34m()[0m
-[0;32m----> 1[0;31m [0mprint[0m[0;34m([0m[0memt[0m[0;34m.[0m[0mfind_smq[0m[0;34m([0m[0msmq_names[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m)[0m[0;34m.[0m[0mT[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m
-[0;32m~/work/mtbp3/mtbp3/mtbp3/util/emt.py[0m in [0;36m?[0;34m(self, terms, ignore_case)[0m
-[1;32m    399[0m [0;34m[0m[0m
-[1;32m    400[0m         [0mRaises[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    401[0m             [0mAssertionError[0m[0;34m:[0m [0mIf[0m [0mterms[0m [0;32mis[0m [0;32mnot[0m [0ma[0m [0mlist[0m[0;34m.[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    402[0m         """
-[0;32m--> 403[0;31m         [0mself[0m[0;34m.[0m[0mload_smq[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    404[0m         [0mdf[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0msmq_list[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    405[0m [0;34m[0m[0m
-[1;32m    406[0m         [0;32mif[0m [0;32mnot[0m [0misinstance[0m[0;34m([0m[0mterms[0m[0;34m,[0m [0;34m([0m[0mstr[0m[0;34m,[0m [0mlist[0m[0;34m)[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+Cell [0;32mIn[3], line 1[0m
+[0;32m----> 1[0m [38;5;28mprint[39m([43memt[49m[38;5;241;43m.[39;49m[43mfind_smq[49m[43m([49m[43msmq_names[49m[43m[[49m[38;5;241;43m0[39;49m[43m][49m[43m)[49m[38;5;241m.[39mT)
 
-[0;32m~/work/mtbp3/mtbp3/mtbp3/util/emt.py[0m in [0;36m?[0;34m(self)[0m
-[1;32m    383[0m     [0;32mdef[0m [0mload_smq[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 384[0;31m         [0;32mif[0m [0;32mnot[0m [0mself[0m[0;34m.[0m[0msmq_list[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    385[0m             [0mtmp[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mjoin[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mfolder_name[0m[0;34m,[0m [0;34m'MedAscii'[0m[0;34m,[0m [0;34m'smq_list.asc'[0m[0;34m)[0m[0;34m,[0m [0mdelimiter[0m[0;34m=[0m[0;34m'$'[0m[0;34m,[0m [0mheader[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m [0mdtype[0m[0;34m=[0m[0mstr[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    386[0m             [0;32mif[0m [0mtmp[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m [0;32mand[0m [0;32mnot[0m [0mtmp[0m[0;34m.[0m[0mempty[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    387[0m                 [0mself[0m[0;34m.[0m[0msmq_list[0m [0;34m=[0m [0mtmp[0m[0;34m[0m[0;34m[0m[0m
+File [0;32m~/work/mtbp3/mtbp3/mtbp3/util/emt.py:417[0m, in [0;36mEmt.find_smq[0;34m(self, terms, ignore_case)[0m
+[1;32m    415[0m     [38;5;28;01melse[39;00m:
+[1;32m    416[0m         out [38;5;241m=[39m df[df[[38;5;241m1[39m] [38;5;241m==[39m terms[[38;5;241m0[39m]]
+[0;32m--> 417[0m     [43mout[49m[38;5;241;43m.[39;49m[43mcolumns[49m [38;5;241m=[39m [[38;5;124m'[39m[38;5;124mid[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mname[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mlevel[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mdescription[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124msource[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mnote[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mMedDRA_version[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mstatus[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124malgorithm[39m[38;5;124m'[39m]
+[1;32m    418[0m     [38;5;28;01mreturn[39;00m out
+[1;32m    419[0m [38;5;28;01melif[39;00m [38;5;28mlen[39m(terms)[38;5;241m>[39m[38;5;241m1[39m:
 
-[0;32m~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/generic.py[0m in [0;36m?[0;34m(self)[0m
-[1;32m   1574[0m     [0;34m@[0m[0mfinal[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   1575[0m     [0;32mdef[0m [0m__nonzero__[0m[0;34m([0m[0mself[0m[0;34m)[0m [0;34m->[0m [0mNoReturn[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m-> 1576[0;31m         raise ValueError(
-[0m[1;32m   1577[0m             [0;34mf"The truth value of a {type(self).__name__} is ambiguous. "[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   1578[0m             [0;34m"Use a.empty, a.bool(), a.item(), a.any() or a.all()."[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   1579[0m         )
+File [0;32m~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/generic.py:6310[0m, in [0;36mNDFrame.__setattr__[0;34m(self, name, value)[0m
+[1;32m   6308[0m [38;5;28;01mtry[39;00m:
+[1;32m   6309[0m     [38;5;28mobject[39m[38;5;241m.[39m[38;5;21m__getattribute__[39m([38;5;28mself[39m, name)
+[0;32m-> 6310[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mobject[39;49m[38;5;241;43m.[39;49m[38;5;21;43m__setattr__[39;49m[43m([49m[38;5;28;43mself[39;49m[43m,[49m[43m [49m[43mname[49m[43m,[49m[43m [49m[43mvalue[49m[43m)[49m
+[1;32m   6311[0m [38;5;28;01mexcept[39;00m [38;5;167;01mAttributeError[39;00m:
+[1;32m   6312[0m     [38;5;28;01mpass[39;00m
 
-[0;31mValueError[0m: The truth value of a DataFrame is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+File [0;32mproperties.pyx:69[0m, in [0;36mpandas._libs.properties.AxisProperty.__set__[0;34m()[0m
+
+File [0;32m~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/generic.py:813[0m, in [0;36mNDFrame._set_axis[0;34m(self, axis, labels)[0m
+[1;32m    808[0m [38;5;250m[39m[38;5;124;03m"""[39;00m
+[1;32m    809[0m [38;5;124;03mThis is called from the cython code when we set the `index` attribute[39;00m
+[1;32m    810[0m [38;5;124;03mdirectly, e.g. `series.index = [1, 2, 3]`.[39;00m
+[1;32m    811[0m [38;5;124;03m"""[39;00m
+[1;32m    812[0m labels [38;5;241m=[39m ensure_index(labels)
+[0;32m--> 813[0m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_mgr[49m[38;5;241;43m.[39;49m[43mset_axis[49m[43m([49m[43maxis[49m[43m,[49m[43m [49m[43mlabels[49m[43m)[49m
+[1;32m    814[0m [38;5;28mself[39m[38;5;241m.[39m_clear_item_cache()
+
+File [0;32m~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/internals/managers.py:238[0m, in [0;36mBaseBlockManager.set_axis[0;34m(self, axis, new_labels)[0m
+[1;32m    236[0m [38;5;28;01mdef[39;00m [38;5;21mset_axis[39m([38;5;28mself[39m, axis: AxisInt, new_labels: Index) [38;5;241m-[39m[38;5;241m>[39m [38;5;28;01mNone[39;00m:
+[1;32m    237[0m     [38;5;66;03m# Caller is responsible for ensuring we have an Index object.[39;00m
+[0;32m--> 238[0m     [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_validate_set_axis[49m[43m([49m[43maxis[49m[43m,[49m[43m [49m[43mnew_labels[49m[43m)[49m
+[1;32m    239[0m     [38;5;28mself[39m[38;5;241m.[39maxes[axis] [38;5;241m=[39m new_labels
+
+File [0;32m~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/internals/base.py:98[0m, in [0;36mDataManager._validate_set_axis[0;34m(self, axis, new_labels)[0m
+[1;32m     95[0m     [38;5;28;01mpass[39;00m
+[1;32m     97[0m [38;5;28;01melif[39;00m new_len [38;5;241m!=[39m old_len:
+[0;32m---> 98[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(
+[1;32m     99[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mLength mismatch: Expected axis has [39m[38;5;132;01m{[39;00mold_len[38;5;132;01m}[39;00m[38;5;124m elements, new [39m[38;5;124m"[39m
+[1;32m    100[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mvalues have [39m[38;5;132;01m{[39;00mnew_len[38;5;132;01m}[39;00m[38;5;124m elements[39m[38;5;124m"[39m
+[1;32m    101[0m     )
+
+[0;31mValueError[0m: Length mismatch: Expected axis has 8 elements, new values have 9 elements
 
