@@ -1,14 +1,17 @@
 # Changelog
 
 <!--next-version-placeholder-->
-## v0.1.42 (2024-00-00)
+## v0.1.43 (2024-02-29)
+
+- add emt smq functions, 
+- update emt example 
+
+## v0.1.42 (2024-02-27)
 
 - add lsr column count
-
-## v0.1.41 (2024-02-26)
-
 - update emt examples
 - update emt, ignore_case, not found, all hier
+- add emt llt_by_soc
 
 ## v0.1.39 (2024-02-21)
 

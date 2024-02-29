@@ -169,10 +169,10 @@ class LsrTree:
                             num_rows = 0
                     elif file_type == "pdf":
                         with open(file_path, "rb") as f:
-                            pdf = PyPDF2.PdfFileReader(f)
+                            pdf = PyPDF2.PdfFileReader(f, strict=False)
                             num_pages = pdf.getNumPages()
 
-                    data.append((s1, level + 1, "file", f1, file_size, file_modified, file_created, file_type, num_pages, num_columns, num_rows))
+                    data.append((s1, level + 1, "file", f1, str(file_size), file_modified, file_created, file_type, str(num_pages), str(num_columns), str(num_rows)))
             elif len(d0) == 0:
                 data.append((s1, level, "folder", "<<<((( Empty Folder )))>>>", None, None, None, None, None, None, None))
         df = pd.DataFrame(data, columns=["path", "level", "type", "file", "size_in_bytes", "modified", "created", "file_type", "N_page", "N_column", "N_row"])
@@ -270,8 +270,8 @@ class LsrTree:
         return "\n".join(prelst_joined)
 
 if __name__ == "__main__":
-    lsr = LsrTree("mtbp3/data/test_lsr", outfmt="list")
-    print(lsr.list_files())
+    #lsr = LsrTree("mtbp3/data/test_lsr", outfmt="list")
+    #print(lsr.list_files())
     pass
 
 
