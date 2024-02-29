@@ -401,7 +401,7 @@ class Emt:
             AssertionError: If terms is not a list.
         """
         self.load_smq()
-        df = self.smq_ist
+        df = self.smq_list
 
         if not isinstance(terms, (str, list)):
             raise ValueError("terms should be a string or a list")
