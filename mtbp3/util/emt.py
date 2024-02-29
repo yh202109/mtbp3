@@ -414,6 +414,7 @@ class Emt:
                 out = df[df[0] == terms[0]]
             else:
                 out = df[df[1] == terms[0]]
+            out = out.iloc[:, :-1]
             out.columns = ['id', 'name', 'level', 'description', 'source', 'note', 'MedDRA_version', 'status', 'algorithm']
             return out
         elif len(terms)>1:
