@@ -127,51 +127,16 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">emt</span><span class="o">.</span><span class="n">find_smq</span><span class="p">(</span><span class="n">smq_names</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-
-<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/util/emt.py:418,</span> in <span class="ni">Emt.find_smq</span><span class="nt">(self, terms, ignore_case)</span>
-<span class="g g-Whitespace">    </span><span class="mi">416</span>         <span class="n">out</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">terms</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
-<span class="g g-Whitespace">    </span><span class="mi">417</span>     <span class="n">out</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="ne">--&gt; </span><span class="mi">418</span>     <span class="n">out</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;level&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;source&#39;</span><span class="p">,</span> <span class="s1">&#39;note&#39;</span><span class="p">,</span> <span class="s1">&#39;MedDRA_version&#39;</span><span class="p">,</span> <span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;algorithm&#39;</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">419</span>     <span class="k">return</span> <span class="n">out</span>
-<span class="g g-Whitespace">    </span><span class="mi">420</span> <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">terms</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">:</span>
-
-<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/generic.py:6310,</span> in <span class="ni">NDFrame.__setattr__</span><span class="nt">(self, name, value)</span>
-<span class="g g-Whitespace">   </span><span class="mi">6308</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">6309</span>     <span class="nb">object</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">6310</span>     <span class="k">return</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">6311</span> <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">6312</span>     <span class="k">pass</span>
-
-<span class="nn">File properties.pyx:69,</span> in <span class="ni">pandas._libs.properties.AxisProperty.__set__</span><span class="nt">()</span>
-
-<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/generic.py:813,</span> in <span class="ni">NDFrame._set_axis</span><span class="nt">(self, axis, labels)</span>
-<span class="g g-Whitespace">    </span><span class="mi">808</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">809</span><span class="sd"> This is called from the cython code when we set the `index` attribute</span>
-<span class="g g-Whitespace">    </span><span class="mi">810</span><span class="sd"> directly, e.g. `series.index = [1, 2, 3]`.</span>
-<span class="g g-Whitespace">    </span><span class="mi">811</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">812</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">ensure_index</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">813</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mgr</span><span class="o">.</span><span class="n">set_axis</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">814</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clear_item_cache</span><span class="p">()</span>
-
-<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/internals/managers.py:238,</span> in <span class="ni">BaseBlockManager.set_axis</span><span class="nt">(self, axis, new_labels)</span>
-<span class="g g-Whitespace">    </span><span class="mi">236</span> <span class="k">def</span> <span class="nf">set_axis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span> <span class="n">AxisInt</span><span class="p">,</span> <span class="n">new_labels</span><span class="p">:</span> <span class="n">Index</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">237</span>     <span class="c1"># Caller is responsible for ensuring we have an Index object.</span>
-<span class="ne">--&gt; </span><span class="mi">238</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_validate_set_axis</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">new_labels</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">239</span>     <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_labels</span>
-
-<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/internals/base.py:98,</span> in <span class="ni">DataManager._validate_set_axis</span><span class="nt">(self, axis, new_labels)</span>
-<span class="g g-Whitespace">     </span><span class="mi">95</span>     <span class="k">pass</span>
-<span class="g g-Whitespace">     </span><span class="mi">97</span> <span class="k">elif</span> <span class="n">new_len</span> <span class="o">!=</span> <span class="n">old_len</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">98</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">99</span>         <span class="sa">f</span><span class="s2">&quot;Length mismatch: Expected axis has </span><span class="si">{</span><span class="n">old_len</span><span class="si">}</span><span class="s2"> elements, new &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">100</span>         <span class="sa">f</span><span class="s2">&quot;values have </span><span class="si">{</span><span class="n">new_len</span><span class="si">}</span><span class="s2"> elements&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">101</span>     <span class="p">)</span>
-
-<span class="ne">ValueError</span>: Length mismatch: Expected axis has 7 elements, new values have 9 elements
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                           0
+id                                                  69918820
+name                                smq820ZLDyYwCdDbEPjbUdUk
+level                                                      1
+description     smq_description310dhXBilFbMhiEIluWRdIEyDOERJ
+source                           smq_source809EaXgsugXUDQego
+note                                 smq_note891lVUSvRlAzNpx
+MedDRA_version                                          26.1
+status                                                     A
+algorithm                 A or (B and C) or (D and (B or C))
 </pre></div>
 </div>
 </div>
