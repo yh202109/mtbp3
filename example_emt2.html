@@ -132,12 +132,12 @@
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">emt</span><span class="o">.</span><span class="n">find_smq</span><span class="p">(</span><span class="n">smq_names</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 
-<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/util/emt.py:417,</span> in <span class="ni">Emt.find_smq</span><span class="nt">(self, terms, ignore_case)</span>
-<span class="g g-Whitespace">    </span><span class="mi">415</span>     <span class="k">else</span><span class="p">:</span>
+<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/util/emt.py:418,</span> in <span class="ni">Emt.find_smq</span><span class="nt">(self, terms, ignore_case)</span>
 <span class="g g-Whitespace">    </span><span class="mi">416</span>         <span class="n">out</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">terms</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
-<span class="ne">--&gt; </span><span class="mi">417</span>     <span class="n">out</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;level&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;source&#39;</span><span class="p">,</span> <span class="s1">&#39;note&#39;</span><span class="p">,</span> <span class="s1">&#39;MedDRA_version&#39;</span><span class="p">,</span> <span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;algorithm&#39;</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">418</span>     <span class="k">return</span> <span class="n">out</span>
-<span class="g g-Whitespace">    </span><span class="mi">419</span> <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">terms</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">417</span>     <span class="n">out</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">418</span>     <span class="n">out</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;level&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;source&#39;</span><span class="p">,</span> <span class="s1">&#39;note&#39;</span><span class="p">,</span> <span class="s1">&#39;MedDRA_version&#39;</span><span class="p">,</span> <span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;algorithm&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">419</span>     <span class="k">return</span> <span class="n">out</span>
+<span class="g g-Whitespace">    </span><span class="mi">420</span> <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">terms</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">:</span>
 
 <span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/generic.py:6310,</span> in <span class="ni">NDFrame.__setattr__</span><span class="nt">(self, name, value)</span>
 <span class="g g-Whitespace">   </span><span class="mi">6308</span> <span class="k">try</span><span class="p">:</span>
@@ -171,7 +171,7 @@
 <span class="g g-Whitespace">    </span><span class="mi">100</span>         <span class="sa">f</span><span class="s2">&quot;values have </span><span class="si">{</span><span class="n">new_len</span><span class="si">}</span><span class="s2"> elements&quot;</span>
 <span class="g g-Whitespace">    </span><span class="mi">101</span>     <span class="p">)</span>
 
-<span class="ne">ValueError</span>: Length mismatch: Expected axis has 8 elements, new values have 9 elements
+<span class="ne">ValueError</span>: Length mismatch: Expected axis has 7 elements, new values have 9 elements
 </pre></div>
 </div>
 </div>

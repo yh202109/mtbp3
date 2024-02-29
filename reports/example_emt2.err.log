@@ -24,12 +24,12 @@ print(emt.find_smq(smq_names[0]).T)
 Cell [0;32mIn[3], line 1[0m
 [0;32m----> 1[0m [38;5;28mprint[39m([43memt[49m[38;5;241;43m.[39;49m[43mfind_smq[49m[43m([49m[43msmq_names[49m[43m[[49m[38;5;241;43m0[39;49m[43m][49m[43m)[49m[38;5;241m.[39mT)
 
-File [0;32m~/work/mtbp3/mtbp3/mtbp3/util/emt.py:417[0m, in [0;36mEmt.find_smq[0;34m(self, terms, ignore_case)[0m
-[1;32m    415[0m     [38;5;28;01melse[39;00m:
+File [0;32m~/work/mtbp3/mtbp3/mtbp3/util/emt.py:418[0m, in [0;36mEmt.find_smq[0;34m(self, terms, ignore_case)[0m
 [1;32m    416[0m         out [38;5;241m=[39m df[df[[38;5;241m1[39m] [38;5;241m==[39m terms[[38;5;241m0[39m]]
-[0;32m--> 417[0m     [43mout[49m[38;5;241;43m.[39;49m[43mcolumns[49m [38;5;241m=[39m [[38;5;124m'[39m[38;5;124mid[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mname[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mlevel[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mdescription[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124msource[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mnote[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mMedDRA_version[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mstatus[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124malgorithm[39m[38;5;124m'[39m]
-[1;32m    418[0m     [38;5;28;01mreturn[39;00m out
-[1;32m    419[0m [38;5;28;01melif[39;00m [38;5;28mlen[39m(terms)[38;5;241m>[39m[38;5;241m1[39m:
+[1;32m    417[0m     out [38;5;241m=[39m out[38;5;241m.[39miloc[:, :[38;5;241m-[39m[38;5;241m1[39m]
+[0;32m--> 418[0m     [43mout[49m[38;5;241;43m.[39;49m[43mcolumns[49m [38;5;241m=[39m [[38;5;124m'[39m[38;5;124mid[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mname[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mlevel[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mdescription[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124msource[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mnote[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mMedDRA_version[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mstatus[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124malgorithm[39m[38;5;124m'[39m]
+[1;32m    419[0m     [38;5;28;01mreturn[39;00m out
+[1;32m    420[0m [38;5;28;01melif[39;00m [38;5;28mlen[39m(terms)[38;5;241m>[39m[38;5;241m1[39m:
 
 File [0;32m~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/generic.py:6310[0m, in [0;36mNDFrame.__setattr__[0;34m(self, name, value)[0m
 [1;32m   6308[0m [38;5;28;01mtry[39;00m:
@@ -63,5 +63,5 @@ File [0;32m~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/s
 [1;32m    100[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mvalues have [39m[38;5;132;01m{[39;00mnew_len[38;5;132;01m}[39;00m[38;5;124m elements[39m[38;5;124m"[39m
 [1;32m    101[0m     )
 
-[0;31mValueError[0m: Length mismatch: Expected axis has 8 elements, new values have 9 elements
+[0;31mValueError[0m: Length mismatch: Expected axis has 7 elements, new values have 9 elements
 
