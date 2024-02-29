@@ -15,26 +15,39 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-smq_names = emt.find_smq()
+print(emt.find_smq(smq_names[0]).T)
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mAttributeError[0m                            Traceback (most recent call last)
-Cell [0;32mIn[2], line 1[0m
-[0;32m----> 1[0m smq_names [38;5;241m=[39m [43memt[49m[38;5;241;43m.[39;49m[43mfind_smq[49m[43m([49m[43m)[49m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m/tmp/ipykernel_1963/1857705088.py[0m in [0;36m?[0;34m()[0m
+[0;32m----> 1[0;31m [0mprint[0m[0;34m([0m[0memt[0m[0;34m.[0m[0mfind_smq[0m[0;34m([0m[0msmq_names[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m)[0m[0;34m.[0m[0mT[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/work/mtbp3/mtbp3/mtbp3/util/emt.py[0m in [0;36m?[0;34m(self, terms, ignore_case)[0m
+[1;32m    399[0m [0;34m[0m[0m
+[1;32m    400[0m         [0mRaises[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    401[0m             [0mAssertionError[0m[0;34m:[0m [0mIf[0m [0mterms[0m [0;32mis[0m [0;32mnot[0m [0ma[0m [0mlist[0m[0;34m.[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    402[0m         """
+[0;32m--> 403[0;31m         [0mself[0m[0;34m.[0m[0mload_smq[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    404[0m         [0mdf[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0msmq_list[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    405[0m [0;34m[0m[0m
+[1;32m    406[0m         [0;32mif[0m [0;32mnot[0m [0misinstance[0m[0;34m([0m[0mterms[0m[0;34m,[0m [0;34m([0m[0mstr[0m[0;34m,[0m [0mlist[0m[0;34m)[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
 
-File [0;32m~/work/mtbp3/mtbp3/mtbp3/util/emt.py:404[0m, in [0;36mEmt.find_smq[0;34m(self, terms, ignore_case)[0m
-[1;32m    390[0m [38;5;250m[39m[38;5;124;03m"""[39;00m
-[1;32m    391[0m [38;5;124;03mFind all unique SMQ (Standard MedDRA Queries) terms.[39;00m
-[1;32m    392[0m 
-[0;32m   (...)[0m
-[1;32m    401[0m [38;5;124;03m    AssertionError: If terms is not a list.[39;00m
-[1;32m    402[0m [38;5;124;03m"""[39;00m
-[1;32m    403[0m [38;5;28mself[39m[38;5;241m.[39mload_smq()
-[0;32m--> 404[0m df [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43msmq_ist[49m
-[1;32m    406[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28misinstance[39m(terms, ([38;5;28mstr[39m, [38;5;28mlist[39m)):
-[1;32m    407[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;124m"[39m[38;5;124mterms should be a string or a list[39m[38;5;124m"[39m)
+[0;32m~/work/mtbp3/mtbp3/mtbp3/util/emt.py[0m in [0;36m?[0;34m(self)[0m
+[1;32m    383[0m     [0;32mdef[0m [0mload_smq[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 384[0;31m         [0;32mif[0m [0;32mnot[0m [0mself[0m[0;34m.[0m[0msmq_list[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    385[0m             [0mtmp[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mjoin[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mfolder_name[0m[0;34m,[0m [0;34m'MedAscii'[0m[0;34m,[0m [0;34m'smq_list.asc'[0m[0;34m)[0m[0;34m,[0m [0mdelimiter[0m[0;34m=[0m[0;34m'$'[0m[0;34m,[0m [0mheader[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m [0mdtype[0m[0;34m=[0m[0mstr[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    386[0m             [0;32mif[0m [0mtmp[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m [0;32mand[0m [0;32mnot[0m [0mtmp[0m[0;34m.[0m[0mempty[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    387[0m                 [0mself[0m[0;34m.[0m[0msmq_list[0m [0;34m=[0m [0mtmp[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mAttributeError[0m: 'Emt' object has no attribute 'smq_ist'
+[0;32m~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/generic.py[0m in [0;36m?[0;34m(self)[0m
+[1;32m   1574[0m     [0;34m@[0m[0mfinal[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1575[0m     [0;32mdef[0m [0m__nonzero__[0m[0;34m([0m[0mself[0m[0;34m)[0m [0;34m->[0m [0mNoReturn[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1576[0;31m         raise ValueError(
+[0m[1;32m   1577[0m             [0;34mf"The truth value of a {type(self).__name__} is ambiguous. "[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1578[0m             [0;34m"Use a.empty, a.bool(), a.item(), a.any() or a.all()."[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1579[0m         )
+
+[0;31mValueError[0m: The truth value of a DataFrame is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
 
