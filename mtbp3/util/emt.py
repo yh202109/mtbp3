@@ -505,21 +505,21 @@ class Emt:
 
         if not with_detail:
             if self.all_str_digit(terms):
-                return df[df[0].isin(terms)][1].tolist()
+                return df[df['id'].isin(terms)]['name'].tolist()
             else:
                 if ignore_case:
-                    out = df[df[1].str.lower().isin([term.lower() for term in terms])][0].tolist()
+                    out = df[df['name'].str.lower().isin([term.lower() for term in terms])]['id'].tolist()
                 else: 
-                    out=df[df[1].isin(terms)][0].tolist()
+                    out=df[df['name'].isin(terms)]['id'].tolist()
                 return out
         else:
             if self.all_str_digit(terms):
-                out = df[df[0].isin(terms)]
+                out = df[df['id'].isin(terms)]
             else:
                 if ignore_case:
-                    out = df[df[1].str.lower().isin([term.lower() for term in terms])]
+                    out = df[df['name'].str.lower().isin([term.lower() for term in terms])]
                 else:
-                    out = df[df[1].isin(terms)]
+                    out = df[df['name'].isin(terms)]
             return out
 
     def find_llt_given_smq(self, smq=[], ignore_case=False):
