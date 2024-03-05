@@ -462,12 +462,11 @@ class Emt:
 
         return out
 
-
     def load_smq(self):
         if self.smq_list is None:
             #tmp = pd.read_csv(os.path.join(self.folder_name, 'MedAscii', 'smq_list.asc'), delimiter='$', header=None, dtype=str)
             tmp = pd.read_csv(os.path.join(self.folder_name, 'MedAscii', 'smq_list.asc'), delimiter='$', header=None)
-            if tmp is not None and not tmp.empty:
+            if not tmp.empty:
                 tmp = tmp.iloc[:, :-1]
                 tmp.columns = ['id', 'name', 'level', 'description', 'source', 'note', 'MedDRA_version', 'status', 'algorithm']
                 self.smq_list = tmp
@@ -494,22 +493,25 @@ class Emt:
             AssertionError: If terms is not a list.
         """
         self.load_smq()
+        if self.smq_list is None:
+            return 'smq file not found'
+
         df = self.smq_list
 
         terms = self.assert_terms(terms)
 
+        if len(terms) == 0:
+            return df['name'].tolist()
+
         if not with_detail:
-            if len(terms)>0:
-                if self.all_str_digit(terms):
-                    return df[df[0].isin(terms)][1].tolist()
-                else:
-                    if ignore_case:
-                        out = df[df[1].str.lower().isin([term.lower() for term in terms])][0].tolist()
-                    else: 
-                        out=df[df[1].isin(terms)][0].tolist()
-                    return out
+            if self.all_str_digit(terms):
+                return df[df[0].isin(terms)][1].tolist()
             else:
-                return df[1].tolist()
+                if ignore_case:
+                    out = df[df[1].str.lower().isin([term.lower() for term in terms])][0].tolist()
+                else: 
+                    out=df[df[1].isin(terms)][0].tolist()
+                return out
         else:
             if self.all_str_digit(terms):
                 out = df[df[0].isin(terms)]
