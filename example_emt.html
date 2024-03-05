@@ -50,7 +50,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">MedDRA - Start with Distribution Files</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#assign-meddra-distribution-folder">Assign MedDRA Distribution Folder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#find-meddra-terms-within-a-given-hierarchical-level">Find MedDRA Terms Within a Given Hierarchical Level</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#find-meddra-terms-across-the-hierarchical-levels">Find MedDRA Terms Across the Hierarchical Levels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#find-meddra-terms-across-different-hierarchical-levels">Find MedDRA Terms Across Different Hierarchical Levels</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#other-options">Other Options</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
@@ -94,7 +94,7 @@
 <p>Please note that this module does not include MedDRA distribution files.
 MedDRA data sharing follows data share statement published by MSSO<a class="footnote-reference brackets" href="#id9" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.
 The users can download distribution files from the MedDRA website.
-Please also note that this module works with MedDRA Version &gt;= 15.0 (March 2012).</p>
+Please note that some extra columns included in files distributed before March 2012 (Version 15.0) will not be processed by this module.</p>
 <p>For demonstration purpose, an example distribution folder is shipped with this module. The example folder includes randomly generated strings and numbers following MedDRA distribution format in Version 26.1 to demonstrate the usage of this module. The numbers of terms are also reduced for faster results.</p>
 <section id="assign-meddra-distribution-folder">
 <h2>Assign MedDRA Distribution Folder<a class="headerlink" href="#assign-meddra-distribution-folder" title="Link to this heading"></a></h2>
@@ -141,7 +141,7 @@ Functions in this section return a list for faster follow-up processing.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;19926972&#39;, &#39;19986360&#39;, &#39;19908214&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[19926972, 19986360, 19908214]
 </pre></div>
 </div>
 </div>
@@ -155,7 +155,7 @@ Functions in this section return a list for faster follow-up processing.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;19926972&#39;, &#39;19986360&#39;, &#39;19908214&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[19926972, 19986360, 19908214]
 </pre></div>
 </div>
 </div>
@@ -169,15 +169,15 @@ Functions in this section return a list for faster follow-up processing.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;19926972&#39;, &#39;19986360&#39;, &#39;19908214&#39;, nan]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[19926972.0, 19986360.0, 19908214.0, nan]
 </pre></div>
 </div>
 </div>
 </div>
 <p>Similar finding functions for HLGT, HLT, PT, and LLT are included in this module. Simply replace <code class="docutils literal notranslate"><span class="pre">find_soc</span></code> to <code class="docutils literal notranslate"><span class="pre">find_pt</span></code>, etc.</p>
 </section>
-<section id="find-meddra-terms-across-the-hierarchical-levels">
-<h2>Find MedDRA Terms Across the Hierarchical Levels<a class="headerlink" href="#find-meddra-terms-across-the-hierarchical-levels" title="Link to this heading"></a></h2>
+<section id="find-meddra-terms-across-different-hierarchical-levels">
+<h2>Find MedDRA Terms Across Different Hierarchical Levels<a class="headerlink" href="#find-meddra-terms-across-different-hierarchical-levels" title="Link to this heading"></a></h2>
 <p>Functions in this sections return DataFrames.</p>
 <p>To find a list of PTs related to the first SOC on the list:</p>
 <div class="cell docutils container">
@@ -191,7 +191,7 @@ Functions in this section return a list for faster follow-up processing.</p>
 </div>
 </div>
 <p>Please note that the default returned output includes PT with the specified SOC as both primary and non-primary SOC.
-Add the option <code class="docutils literal notranslate"><span class="pre">primary_soc_only=True</span></code> to get primary only results. Other across level functions are also available, including <code class="docutils literal notranslate"><span class="pre">find_llt_given_pt</span></code>, <code class="docutils literal notranslate"><span class="pre">find_llt_given_soc</span></code>, etc.</p>
+Add the option <code class="docutils literal notranslate"><span class="pre">primary_soc_only=True</span></code> to get primary only results. Other across level functions are also available, including <code class="docutils literal notranslate"><span class="pre">find_llt_given_pt</span></code>, <code class="docutils literal notranslate"><span class="pre">find_llt_given_soc</span></code>, <code class="docutils literal notranslate"><span class="pre">find_soc_given_pt</span></code>, etc.</p>
 </section>
 <section id="other-options">
 <h2>Other Options<a class="headerlink" href="#other-options" title="Link to this heading"></a></h2>

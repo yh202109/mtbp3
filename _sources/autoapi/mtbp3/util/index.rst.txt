@@ -303,6 +303,21 @@ Functions
       :rtype: bool
 
 
+   .. py:method:: assert_terms(input, remove_none=False)
+
+      Assert that the input is either a string or a list.
+      If the input is a string, it is converted to a length one list.
+      All elements in the list are converted to strings and empty elements are removed.
+
+      :param input: The input to be validated.
+      :type input: str or list
+
+      :returns: The validated list.
+      :rtype: list
+
+      :raises AssertionError: If the input is neither a string nor a list.
+
+
    .. py:method:: find_term_wi_level(terms=[], ignore_case=False, level=1)
 
       Find all unique terms.
@@ -368,10 +383,23 @@ Functions
       :rtype: pandas.DataFrame
 
 
+   .. py:method:: find_soc_given_pt(pt=[], primary_only=True, ignore_case=False)
+
+      Find the SOC (System Organ Class) given a list of PT (Preferred Term) names.
+
+      :param pt: A list of PT names.
+      :type pt: list
+
+      :returns: The name of the primary SOC.
+      :rtype: str
+
+      :raises AssertionError: If pt is not a list.
+
+
    .. py:method:: load_smq()
 
 
-   .. py:method:: find_smq(terms=[], ignore_case=False)
+   .. py:method:: find_smq(terms=[], with_detail=False, ignore_case=False)
 
       Find all unique SMQ (Standard MedDRA Queries) terms.
 
@@ -384,6 +412,22 @@ Functions
       :rtype: list
 
       :raises AssertionError: If terms is not a list.
+
+
+   .. py:method:: find_llt_given_smq(smq=[], ignore_case=False)
+
+      Find all LLTs (Lowest Level Terms) given an SMQ (Standard MedDRA Query) name or a list of SMQ names.
+
+      :param smq: The name of the SMQ or a list of SMQ names.
+      :type smq: str or list
+      :param ignore_case: Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.
+      :type ignore_case: bool, optional
+
+      :returns:
+
+                A DataFrame containing the LLTs associated with the given SMQ(s).
+                                    Each row represents an LLT and contains the LLT code and LLT name.
+      :rtype: pandas.DataFrame
 
 
 
