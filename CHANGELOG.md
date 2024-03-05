@@ -1,6 +1,12 @@
 # Changelog
 
 <!--next-version-placeholder-->
+## v0.1.45 (2024-03-04)
+
+- change emt none behavior
+- update emt example
+- add emt find_smq 
+
 ## v0.1.43 (2024-02-29)
 
 - add emt smq functions, 

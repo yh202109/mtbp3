@@ -20,6 +20,7 @@ import re
 import pandas as pd
 from mtbp3.util.lsr import LsrTree
 import mtbp3
+import numpy as np
 
 
 class Emt:
@@ -58,6 +59,7 @@ class Emt:
         self.mdhier = None
         self.llt = None
         self.smq_list = None
+        self.smq_content = None
 
         meddra_release_file = os.path.join(self.folder_name, 'MedAscii', 'meddra_release.asc')
         if os.path.isfile(meddra_release_file):
@@ -133,7 +135,8 @@ class Emt:
 
         if not missing_files:
             mdhierasc = os.path.join(self.folder_name, 'MedAscii', 'mdhier.asc')
-            self.mdhier = pd.read_csv(mdhierasc, delimiter='$', header=None, dtype=str)
+            #self.mdhier = pd.read_csv(mdhierasc, delimiter='$', header=None, dtype=str)
+            self.mdhier = pd.read_csv(mdhierasc, delimiter='$', header=None)
             nsoc = len(self.mdhier[7].unique())
             return [], f"All files found. Version: {self.version_number}; Year: {self.year}; Month: {self.month}; Language: {self.language}. N_SOC: {nsoc}."
         else:
@@ -142,7 +145,8 @@ class Emt:
     def load_llt(self, unique=True):
         ids=[0,1,2]
         if not self.llt:
-            tmp = pd.read_csv(os.path.join(self.folder_name, 'MedAscii', 'llt.asc'), delimiter='$', header=None, dtype=str)
+            #tmp = pd.read_csv(os.path.join(self.folder_name, 'MedAscii', 'llt.asc'), delimiter='$', header=None, dtype=str)
+            tmp = pd.read_csv(os.path.join(self.folder_name, 'MedAscii', 'llt.asc'), delimiter='$', header=None)
             self.llt = tmp[ids]
         if unique:
             self.llt = self.llt.drop_duplicates().reset_index(drop=True)
@@ -251,7 +255,60 @@ class Emt:
         """
         if not isinstance(lst, list):
             return False
-        return all(isinstance(element, str) and element.isdigit() for element in lst)
+        return all(isinstance(element, int) or element is None for element in lst)
+
+    def assert_terms(self, input, remove_none=False):
+        """
+        Assert that the input is either a string or a list.
+        If the input is a string, it is converted to a length one list.
+        All elements in the list are converted to strings and empty elements are removed.
+
+        Args:
+            input (str or list): The input to be validated.
+
+        Returns:
+            list: The validated list.
+
+        Raises:
+            AssertionError: If the input is neither a string nor a list.
+        """
+        range_8_int = [10000000, 99999999]
+        less_term_warning = "Warning: Some input terms might be removed due to format"
+        if isinstance(input, int):
+            if range_8_int[0] <= input <= range_8_int:
+                return [input]
+            else:
+                if remove_none:
+                    print(less_term_warning)
+                    return []
+                else:
+                    return [None]
+
+        if isinstance(input, str):
+            if len(input) == 8 and input.isdigit() and input[0] != '0':
+                return [int(input)]
+            else:
+                return [input]
+
+        if not isinstance(input, (list, pd.core.series.Series, np.ndarray)):
+            raise ValueError("Input must be a list, pandas Series, or numpy array.")
+        if len(input) == 0:
+            return []
+
+        len0 = len(input)
+
+        if all(isinstance(element, int) or (element is None) or (element is np.nan) for element in input):
+            out = [element if (range_8_int[0] <= element <= range_8_int[1]) else None for element in input]
+        else:
+            if all((isinstance(element, str) and ((len(element) == 8 and element.isdigit()) or len(element) == 0)) or (element is None) or (element is np.nan) for element in input):
+                out = [int(element) if (len(element) == 8 and element.isdigit() and element[0] != '0') else None for element in input]
+            else:
+                out = [element if (element is not np.nan) else None for element in input]
+        if remove_none:
+            out = [element for element in out if element is not None]
+        if len(out) != len0:
+            print(less_term_warning)
+        return out
 
     def find_term_wi_level(self, terms=[], ignore_case=False, level=1):
         """
@@ -281,8 +338,7 @@ class Emt:
             self.load_llt()
             subset = self.llt[[id0,id1]]
 
-        assert isinstance(terms, list), "terms must be a list"
-        terms = [str(term) for term in terms if term.strip()]
+        terms = self.assert_terms(terms)
 
         if terms:
             if self.all_str_digit(lst=terms):
@@ -314,10 +370,7 @@ class Emt:
         df = self.mdhier
         if df.empty:
             return pd.DataFrame(columns=['pt_id', 'pt', 'primary'])
-        if not isinstance(soc, (str, list)):
-            raise ValueError("soc should be a string or a list")
-        if isinstance(soc, str):
-            soc = [soc]
+        soc = self.assert_terms(soc, remove_none=True)
         if self.all_str_digit(lst=soc):
             soc_id = soc
         else:
@@ -346,16 +399,12 @@ class Emt:
         """
         self.load_llt()
         df = self.llt
+        pt = self.assert_terms(pt, remove_none=True)
 
-        if not isinstance(pt, (str, list)):
-            raise ValueError("pt should be a string or a list")
-        if isinstance(pt, str):
-            pt = [pt]
-        pt2 = [str(x) for x in pt if x.strip() and pd.notna(x)]
-        if self.all_str_digit(lst=pt2):
-            pt_id = pt2
+        if self.all_str_digit(lst=pt):
+            pt_id = pt
         else:
-            pt_id = self.find_pt(pt2, ignore_case=ignore_case)
+            pt_id = self.find_pt(pt, ignore_case=ignore_case)
 
         subset_df = df[df[2].isin(pt_id)]
         subset_df.columns = ['llt_id', 'llt', 'pt_id']
@@ -377,16 +426,60 @@ class Emt:
                                 Each row represents an LLT and contains the LLT code and LLT name.
         """
         pt_df = self.find_pt_given_soc(soc=soc, primary_soc_only=primary_soc_only, ignore_case=ignore_case)
-        llt_df = self.find_lt_given_pt(pt=pt['pt_id'], ignore_case=ignore_case)
+        llt_df = self.find_lt_given_pt(pt=pt_df['pt_id'], ignore_case=ignore_case)
         return llt_df.merge(pt_df, on='pt_id')
+
+    def find_soc_given_pt(self, pt=[], primary_only=True, ignore_case=False):
+        """
+        Find the SOC (System Organ Class) given a list of PT (Preferred Term) names.
+
+        Args:
+            pt (list): A list of PT names.
+
+        Returns:
+            str: The name of the primary SOC.
+
+        Raises:
+            AssertionError: If pt is not a list.
+        """
+        df = self.mdhier
+        pt = self.assert_terms(pt, remove_none=True)
+
+        if self.all_str_digit(lst=pt):
+            pt_id = pt
+        else:
+            pt_id = self.find_pt(pt, ignore_case=ignore_case)
+
+        pt_soc = df[[0,4, 3,7, 11]]
+        pt_soc.columns=['pt_id', 'pt', 'soc_id','soc','primary']
+        if primary_only:
+            pt_soc = pt_soc[pt_soc['primary'] == 'Y']
+
+        out = pd.DataFrame(pt_id)
+        out.columns = ['pt_id']
+        
+        out = out.merge(pt_soc, on='pt_id', how='left')
+
+        return out
+
 
     def load_smq(self):
         if self.smq_list is None:
-            tmp = pd.read_csv(os.path.join(self.folder_name, 'MedAscii', 'smq_list.asc'), delimiter='$', header=None, dtype=str)
+            #tmp = pd.read_csv(os.path.join(self.folder_name, 'MedAscii', 'smq_list.asc'), delimiter='$', header=None, dtype=str)
+            tmp = pd.read_csv(os.path.join(self.folder_name, 'MedAscii', 'smq_list.asc'), delimiter='$', header=None)
             if tmp is not None and not tmp.empty:
+                tmp = tmp.iloc[:, :-1]
+                tmp.columns = ['id', 'name', 'level', 'description', 'source', 'note', 'MedDRA_version', 'status', 'algorithm']
                 self.smq_list = tmp
+        if self.smq_content is None:
+            #tmp = pd.read_csv(os.path.join(self.folder_name, 'MedAscii', 'smq_contents.asc'), delimiter='$', header=None, dtype=str)
+            tmp = pd.read_csv(os.path.join(self.folder_name, 'MedAscii', 'smq_contents.asc'), delimiter='$', header=None)
+            if tmp is not None and not tmp.empty:
+                tmp = tmp.iloc[:, :-1]
+                self.smq_content = tmp
 
-    def find_smq(self, terms=[], ignore_case=False):
+
+    def find_smq(self, terms=[], with_detail=False, ignore_case=False):
         """
         Find all unique SMQ (Standard MedDRA Queries) terms.
 
@@ -403,31 +496,53 @@ class Emt:
         self.load_smq()
         df = self.smq_list
 
-        if not isinstance(terms, (str, list)):
-            raise ValueError("terms should be a string or a list")
-        if isinstance(terms, str):
-            terms = [terms]
-        terms = [str(term) for term in terms if term.strip()]
+        terms = self.assert_terms(terms)
 
-        if len(terms) == 1:
-            if terms[0].isdigit():
-                out = df[df[0] == terms[0]]
+        if not with_detail:
+            if len(terms)>0:
+                if self.all_str_digit(terms):
+                    return df[df[0].isin(terms)][1].tolist()
+                else:
+                    if ignore_case:
+                        out = df[df[1].str.lower().isin([term.lower() for term in terms])][0].tolist()
+                    else: 
+                        out=df[df[1].isin(terms)][0].tolist()
+                    return out
             else:
-                out = df[df[1] == terms[0]]
-            out = out.iloc[:, :-1]
-            out.columns = ['id', 'name', 'level', 'description', 'source', 'note', 'MedDRA_version', 'status', 'algorithm']
-            return out
-        elif len(terms)>1:
+                return df[1].tolist()
+        else:
             if self.all_str_digit(terms):
-                return df[df[0].isin(terms)][1].tolist()
+                out = df[df[0].isin(terms)]
             else:
                 if ignore_case:
-                    out = df[df[1].str.lower().isin([term.lower() for term in terms])][0].tolist()
-                else: 
-                    out=df[df[1].isin(terms)][0].tolist()
-                return out
+                    out = df[df[1].str.lower().isin([term.lower() for term in terms])]
+                else:
+                    out = df[df[1].isin(terms)]
+            return out
+
+    def find_llt_given_smq(self, smq=[], ignore_case=False):
+        """
+        Find all LLTs (Lowest Level Terms) given an SMQ (Standard MedDRA Query) name or a list of SMQ names.
+
+        Args:
+            smq (str or list): The name of the SMQ or a list of SMQ names.
+            ignore_case (bool, optional): Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.
+
+        Returns:
+            pandas.DataFrame: A DataFrame containing the LLTs associated with the given SMQ(s). 
+                                Each row represents an LLT and contains the LLT code and LLT name.
+        """
+        self.load_smq()
+        df = self.smq_content
+
+        smq = self.assert_terms(smq)
+
+        if len(smq) == 1:
+            subset_df = df[df['SMQ_NAME'].str.contains(smq[0], case=ignore_case)]
         else:
-            return df[1].tolist()
+            subset_df = df[df['SMQ_NAME'].isin(smq)]
+        llt_df = self.find_llt(subset_df['LLT_CODE'], ignore_case=ignore_case)
+        return llt_df
 
 if __name__ == "__main__":
     pass
