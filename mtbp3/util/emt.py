@@ -471,12 +471,12 @@ class Emt:
                 tmp = tmp.iloc[:, :-1]
                 tmp.columns = ['id', 'name', 'level', 'description', 'source', 'note', 'MedDRA_version', 'status', 'algorithm']
                 self.smq_list = tmp
-        if self.smq_content is None:
-            #tmp = pd.read_csv(os.path.join(self.folder_name, 'MedAscii', 'smq_content.asc'), delimiter='$', header=None, dtype=str)
-            tmp = pd.read_csv(os.path.join(self.folder_name, 'MedAscii', 'smq_content.asc'), delimiter='$', header=None)
-            if tmp is not None and not tmp.empty:
-                tmp = tmp.iloc[:, :-1]
-                self.smq_content = tmp
+       #if self.smq_content is None:
+        #    #tmp = pd.read_csv(os.path.join(self.folder_name, 'MedAscii', 'smq_content.asc'), delimiter='$', header=None, dtype=str)
+        #    tmp = pd.read_csv(os.path.join(self.folder_name, 'MedAscii', 'smq_content.asc'), delimiter='$', header=None)
+        #    if tmp is not None and not tmp.empty:
+        #        tmp = tmp.iloc[:, :-1]
+        #        self.smq_content = tmp
 
 
     def find_smq(self, terms=[], with_detail=False, ignore_case=False):
