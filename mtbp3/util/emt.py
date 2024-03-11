@@ -472,22 +472,21 @@ class Emt:
         if self.smq_list is None:
             try:
                 tmp = pd.read_csv(os.path.join(self.folder_name, 'MedAscii', 'smq_list.asc'), delimiter='$', header=None)
-                if tmp is not None and not tmp.empty:
-                    tmp = tmp.iloc[:, :-1]
-                    tmp.columns = ['smq_id', 'smq', 'smq_level', 'smq_description', 'smq_source', 'smq_note', 'MedDRA_version', 'smq_status', 'smq_algorithm']
-                    self.smq_list = tmp
+                tmp = tmp.iloc[:, :-1]
+                tmp.columns = ['smq_id', 'smq', 'smq_level', 'smq_description', 'smq_source', 'smq_note', 'MedDRA_version', 'smq_status', 'smq_algorithm']
+                self.smq_list = tmp
             except pd.errors.EmptyDataError:
                 self.smq_list = None
         if self.smq_content is None:
             try:
                 tmp = pd.read_csv(os.path.join(self.folder_name, 'MedAscii', 'smq_content.asc'), delimiter='$', header=None)
-                if tmp is not None and not tmp.empty:
-                    tmp = tmp.iloc[:, :-3]
-                    tmp.columns = ['smq_id', 'term_id', 'term_level', 'term_scope', 'term_category', 'term_weight', 'term_status']
-                    tmp.loc[tmp['term_level'] == 4, 'term_level'] = 'pt'
-                    tmp.loc[tmp['term_level'] == 5, 'term_level'] = 'llt'
-                    tmp.loc[tmp['term_level'] == 0, 'term_level'] = 'smq'
-                    self.smq_content = tmp
+                tmp = tmp.iloc[:, :-3]
+                tmp.columns = ['smq_id', 'term_id', 'term_level', 'term_scope', 'term_category', 'term_weight', 'term_status']
+                tmp['term_level'] = tmp['term_level'].astype(str)
+                tmp.loc[tmp['term_level'] == '4', 'term_level'] = 'pt'
+                tmp.loc[tmp['term_level'] == '5', 'term_level'] = 'llt'
+                tmp.loc[tmp['term_level'] == '0', 'term_level'] = 'smq'
+                self.smq_content = tmp
             except pd.errors.EmptyDataError:
                 self.smq_content = None
 
@@ -561,16 +560,17 @@ class Emt:
         if narrow_only:
             keep_columns = ['term_id', 'term_level', 'term_status']
             if active_only:
-                subset_df = df[(df['smq_id'] == smq_details['smq_id']) & (df['term_scope'] == 2) & (df['term_status']=='A')]
+                subset_df = df[(df['smq_id'].isin(smq_details['smq_id'])) & (df['term_scope'] == 2) & (df['term_status'] == 'A')]
             else:
-                subset_df = df[(df['smq_id'] == smq_details['smq_id']) & (df['term_scope'] == 2)]
+                subset_df = df[(df['smq_id'].isin(smq_details['smq_id'])) & (df['term_scope'] == 2) ]
             out = self.find_terms_given_smq_sub(active_only, llt_only, keep_columns, subset_df)
         else:
             if active_only:
-                subset_df = df[(df['smq_id'] == smq_details['smq_id']) & (df['term_status']=='A')]
+                subset_df = df[(df['smq_id'].isin(smq_details['smq_id'])) & (df['term_status']=='A')]
             else:
-                subset_df = df[(df['smq_id'] == smq_details['smq_id'])]
+                subset_df = df[(df['smq_id'].isin(smq_details['smq_id']))]
 
+            
             if subset_df['term_category'].eq('A').all():
                 keep_columns = ['term_id', 'term_level', 'term_status']
                 out = self.find_terms_given_smq_sub(active_only, llt_only, keep_columns, subset_df)
@@ -593,7 +593,12 @@ class Emt:
                     else:
                         break
             else:
-                keep_columns = ['term_id', 'term_level', 'term_status', 'term_category']
+                print(smq_details['smq_algorithm'])
+
+                if 'Weight' in str(smq_details['smq_algorithm']):
+                    keep_columns = ['term_id', 'term_level', 'term_status', 'term_category', 'term_weight']
+                else:
+                    keep_columns = ['term_id', 'term_level', 'term_status', 'term_category']
                 out = self.find_terms_given_smq_sub(active_only, llt_only, keep_columns, subset_df)
         return out
 
@@ -601,6 +606,7 @@ class Emt:
         llt_df = subset_df.loc[subset_df['term_level'] == 'llt', keep_columns]
         llt_df['term'] = self.find_llt(llt_df['term_id'])
         pt_df = subset_df.loc[subset_df['term_level'] == 'pt', keep_columns]
+
         if llt_only:
             llt_df2 = self.find_llt_given_pt(pt_df['term_id'], active_only=True)
             llt_df2 = llt_df2.drop(columns=[2])
