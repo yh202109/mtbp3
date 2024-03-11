@@ -427,7 +427,15 @@ Functions
       :rtype: pandas.DataFrame
 
 
-   .. py:method:: find_terms_given_smq_sub(active_only, llt_only, keep_columns, subset_df)
+   .. py:method:: find_terms_given_smq_sub(subset_df, keep_columns, llt_only, llt_current_only)
+
+
+   .. py:method:: save_fmq_consolidated_list_csv()
+
+      Save the CSV file in the specified folder.
+
+      :param folder_path: The path of the folder where the CSV file should be saved.
+      :type folder_path: str
 
 
 
