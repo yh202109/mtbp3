@@ -120,7 +120,7 @@
     "Functions in this section accept only one SMQ each time, and return a dataframe that includes information necessary for further processing.\n",
     "For algorithm based SMQ, `term_category` will be included in output.\n",
     "\n",
-    "To find LLTs given a SMQ:"
+    "To find MedDRA terms given a SMQ and count by level:"
    ]
   },
   {
@@ -134,7 +134,7 @@
    "outputs": [],
    "source": [
     "terms = emt.find_terms_given_smq(smq_names[0])\n",
-    "print(terms['term_level'].value_counts())"
+    "print(terms['term_level'].value_counts())\n"
    ]
   },
   {

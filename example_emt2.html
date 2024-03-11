@@ -166,7 +166,7 @@ SMQs may also have up to 5 hierarchical relationships.
 There are 39 SMQs related to at least one other more general SMQs in v26.1.</p>
 <p>Functions in this section accept only one SMQ each time, and return a dataframe that includes information necessary for further processing.
 For algorithm based SMQ, <code class="docutils literal notranslate"><span class="pre">term_category</span></code> will be included in output.</p>
-<p>To find LLTs given a SMQ:</p>
+<p>To find MedDRA terms given a SMQ and count by level:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">terms</span> <span class="o">=</span> <span class="n">emt</span><span class="o">.</span><span class="n">find_terms_given_smq</span><span class="p">(</span><span class="n">smq_names</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
