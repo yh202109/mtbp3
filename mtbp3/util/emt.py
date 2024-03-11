@@ -143,9 +143,8 @@ class Emt:
             return missing_files, f"{len(missing_files)} files not found."
 
     def load_llt(self, unique=True):
-        ids=[0,1,2]
-        if not self.llt:
-            #tmp = pd.read_csv(os.path.join(self.folder_name, 'MedAscii', 'llt.asc'), delimiter='$', header=None, dtype=str)
+        if self.llt is None:
+            ids=[0,1,2,9]
             tmp = pd.read_csv(os.path.join(self.folder_name, 'MedAscii', 'llt.asc'), delimiter='$', header=None)
             self.llt = tmp[ids]
         if unique:
@@ -227,7 +226,7 @@ class Emt:
             """
             return self.find_term_wi_level(terms, ignore_case, level=4)
 
-    def find_llt(self, terms=[], ignore_case=False):
+    def find_llt(self, terms=[], ignore_case=False, llt_current_only=True):
             """
             Find all unique LLT terms.
 
@@ -241,7 +240,8 @@ class Emt:
             Raises:
                 AssertionError: If terms is not a list.
             """
-            return self.find_term_wi_level(terms, ignore_case, level=5)
+            self.load_llt()
+            return self.find_term_wi_level(terms=terms, ignore_case=ignore_case, level=5, llt_current_only=llt_current_only)
 
     def all_str_digit(self, lst=[]):
         """
@@ -310,7 +310,7 @@ class Emt:
             print(less_term_warning)
         return out
 
-    def find_term_wi_level(self, terms=[], ignore_case=False, level=1):
+    def find_term_wi_level(self, terms=[], ignore_case=False, level=1, llt_current_only=True):
         """
         Find all unique terms.
 
@@ -336,7 +336,10 @@ class Emt:
             id0 = 0 
             id1 = 1
             self.load_llt()
-            subset = self.llt[[id0,id1]]
+            if llt_current_only:
+                subset = self.llt[self.llt[9]=='Y'][[id0,id1]]
+            else:
+                subset = self.llt[[id0,id1]]
 
         terms = self.assert_terms(terms)
 
@@ -386,7 +389,7 @@ class Emt:
         return subset_df
 
 
-    def find_llt_given_pt(self, pt=[], ignore_case=False):
+    def find_llt_given_pt(self, pt=[], ignore_case=False, llt_current_only=True):
         """
         Find all LLTs (Lowest Level Terms) given a PT (Preferred Term) name or a list of PT names.
 
@@ -399,6 +402,10 @@ class Emt:
         """
         self.load_llt()
         df = self.llt
+        df.columns = ['llt_id', 'llt', 'pt_id', 'llt_currency']
+        if llt_current_only:
+            df = df[df['llt_currency'] == 'Y']
+        
         pt = self.assert_terms(pt, remove_none=True)
 
         if self.all_str_digit(lst=pt):
@@ -406,13 +413,12 @@ class Emt:
         else:
             pt_id = self.find_pt(pt, ignore_case=ignore_case)
 
-        subset_df = df[df[2].isin(pt_id)]
-        subset_df.columns = ['llt_id', 'llt', 'pt_id']
+        subset_df = df[df['pt_id'].isin(pt_id)]
         subset_df['pt'] = self.find_pt(subset_df['pt_id'])
         
         return subset_df
 
-    def find_llt_given_soc(self, soc=[], primary_soc_only=False, ignore_case=False):
+    def find_llt_given_soc(self, soc=[], primary_soc_only=False, ignore_case=False, llt_current_only=True):
         """
         Find all LLTs (Lowest Level Terms) given a SOC (System Organ Class) name.
 
@@ -426,7 +432,7 @@ class Emt:
                                 Each row represents an LLT and contains the LLT code and LLT name.
         """
         pt_df = self.find_pt_given_soc(soc=soc, primary_soc_only=primary_soc_only, ignore_case=ignore_case)
-        llt_df = self.find_lt_given_pt(pt=pt_df['pt_id'], ignore_case=ignore_case)
+        llt_df = self.find_llt_given_pt(pt=pt_df['pt_id'], ignore_case=ignore_case, llt_current_only=llt_current_only)
         return llt_df.merge(pt_df, on='pt_id')
 
     def find_soc_given_pt(self, pt=[], primary_only=True, ignore_case=False):
@@ -464,19 +470,26 @@ class Emt:
 
     def load_smq(self):
         if self.smq_list is None:
-            #tmp = pd.read_csv(os.path.join(self.folder_name, 'MedAscii', 'smq_list.asc'), delimiter='$', header=None, dtype=str)
-            tmp = pd.read_csv(os.path.join(self.folder_name, 'MedAscii', 'smq_list.asc'), delimiter='$', header=None)
-            if not tmp.empty:
-                tmp = tmp.iloc[:, :-1]
-                tmp.columns = ['id', 'name', 'level', 'description', 'source', 'note', 'MedDRA_version', 'status', 'algorithm']
-                self.smq_list = tmp
-       #if self.smq_content is None:
-        #    #tmp = pd.read_csv(os.path.join(self.folder_name, 'MedAscii', 'smq_content.asc'), delimiter='$', header=None, dtype=str)
-        #    tmp = pd.read_csv(os.path.join(self.folder_name, 'MedAscii', 'smq_content.asc'), delimiter='$', header=None)
-        #    if tmp is not None and not tmp.empty:
-        #        tmp = tmp.iloc[:, :-1]
-        #        self.smq_content = tmp
-
+            try:
+                tmp = pd.read_csv(os.path.join(self.folder_name, 'MedAscii', 'smq_list.asc'), delimiter='$', header=None)
+                if tmp is not None and not tmp.empty:
+                    tmp = tmp.iloc[:, :-1]
+                    tmp.columns = ['smq_id', 'smq', 'smq_level', 'smq_description', 'smq_source', 'smq_note', 'MedDRA_version', 'smq_status', 'smq_algorithm']
+                    self.smq_list = tmp
+            except pd.errors.EmptyDataError:
+                self.smq_list = None
+        if self.smq_content is None:
+            try:
+                tmp = pd.read_csv(os.path.join(self.folder_name, 'MedAscii', 'smq_content.asc'), delimiter='$', header=None)
+                if tmp is not None and not tmp.empty:
+                    tmp = tmp.iloc[:, :-3]
+                    tmp.columns = ['smq_id', 'term_id', 'term_level', 'term_scope', 'term_category', 'term_weight', 'term_status']
+                    tmp.loc[tmp['term_level'] == 4, 'term_level'] = 'pt'
+                    tmp.loc[tmp['term_level'] == 5, 'term_level'] = 'llt'
+                    tmp.loc[tmp['term_level'] == 0, 'term_level'] = 'smq'
+                    self.smq_content = tmp
+            except pd.errors.EmptyDataError:
+                self.smq_content = None
 
     def find_smq(self, terms=[], with_detail=False, ignore_case=False):
         """
@@ -501,50 +514,104 @@ class Emt:
         terms = self.assert_terms(terms)
 
         if len(terms) == 0:
-            return df['name'].tolist()
+            return df['smq'].tolist()
 
         if not with_detail:
             if self.all_str_digit(terms):
-                return df[df['id'].isin(terms)]['name'].tolist()
+                return df[df['smq_id'].isin(terms)]['smq'].tolist()
             else:
                 if ignore_case:
-                    out = df[df['name'].str.lower().isin([term.lower() for term in terms])]['id'].tolist()
+                    out = df[df['smq'].str.lower().isin([term.lower() for term in terms])]['smq_id'].tolist()
                 else: 
-                    out=df[df['name'].isin(terms)]['id'].tolist()
+                    out=df[df['smq'].isin(terms)]['smq_id'].tolist()
                 return out
         else:
             if self.all_str_digit(terms):
-                out = df[df['id'].isin(terms)]
+                out = df[df['smq_id'].isin(terms)]
             else:
                 if ignore_case:
-                    out = df[df['name'].str.lower().isin([term.lower() for term in terms])]
+                    out = df[df['smq'].str.lower().isin([term.lower() for term in terms])]
                 else:
-                    out = df[df['name'].isin(terms)]
+                    out = df[df['smq'].isin(terms)]
             return out
 
-    def find_llt_given_smq(self, smq=[], ignore_case=False):
+    def find_terms_given_smq(self, smq=[], ignore_case=False, active_only=True, narrow_only=True, llt_only=False, llt_current_only=True):
         """
-        Find all LLTs (Lowest Level Terms) given an SMQ (Standard MedDRA Query) name or a list of SMQ names.
+        Find all terms related an SMQ (Standard MedDRA Query) name or a list of SMQ names.
 
         Args:
             smq (str or list): The name of the SMQ or a list of SMQ names.
             ignore_case (bool, optional): Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.
 
         Returns:
-            pandas.DataFrame: A DataFrame containing the LLTs associated with the given SMQ(s). 
-                                Each row represents an LLT and contains the LLT code and LLT name.
+            pandas.DataFrame: A DataFrame containing the terms associated with the given SMQ(s). 
         """
         self.load_smq()
         df = self.smq_content
 
         smq = self.assert_terms(smq)
+        if len(smq) == 0:
+            return []
+        if len(smq) > 1:
+            print("Warning: Only the first element of smq will be used.")
+            smq = smq[0]
 
-        if len(smq) == 1:
-            subset_df = df[df['SMQ_NAME'].str.contains(smq[0], case=ignore_case)]
+        smq_details = self.find_smq(terms=smq, with_detail=True, ignore_case=ignore_case) 
+
+        if narrow_only:
+            keep_columns = ['term_id', 'term_level', 'term_status']
+            if active_only:
+                subset_df = df[(df['smq_id'] == smq_details['smq_id']) & (df['term_scope'] == 2) & (df['term_status']=='A')]
+            else:
+                subset_df = df[(df['smq_id'] == smq_details['smq_id']) & (df['term_scope'] == 2)]
+            out = self.find_terms_given_smq_sub(active_only, llt_only, keep_columns, subset_df)
         else:
-            subset_df = df[df['SMQ_NAME'].isin(smq)]
-        llt_df = self.find_llt(subset_df['LLT_CODE'], ignore_case=ignore_case)
-        return llt_df
+            if active_only:
+                subset_df = df[(df['smq_id'] == smq_details['smq_id']) & (df['term_status']=='A')]
+            else:
+                subset_df = df[(df['smq_id'] == smq_details['smq_id'])]
+
+            if subset_df['term_category'].eq('A').all():
+                keep_columns = ['term_id', 'term_level', 'term_status']
+                out = self.find_terms_given_smq_sub(active_only, llt_only, keep_columns, subset_df)
+            elif set(subset_df['term_category'].unique()) == {'A', 'S'}:
+                keep_columns = ['term_id', 'term_level', 'term_status']
+                out = pd.DataFrame()
+                for _ in range(5):
+                    subset_df0 = subset_df[(subset_df['term_category'] == 'A')]
+                    subset_df1 = subset_df[(subset_df['term_category'] == 'S')]
+                    out1 = self.find_terms_given_smq_sub(active_only, llt_only, keep_columns, subset_df0)
+                    out1['term_associated_smq_level'] = _ + 1
+                    out = pd.concat([out, out1], ignore_index=True)
+
+                    if not subset_df1.empty:
+                        unique_smq_ids = subset_df1['smq_id'].unique().tolist()
+                        if active_only:
+                            subset_df = df[(df['smq_id'].isin(unique_smq_ids)) & (df['term_status']=='A')]
+                        else:
+                            subset_df = df[(df['smq_id'].isin(unique_smq_ids))]
+                    else:
+                        break
+            else:
+                keep_columns = ['term_id', 'term_level', 'term_status', 'term_category']
+                out = self.find_terms_given_smq_sub(active_only, llt_only, keep_columns, subset_df)
+        return out
+
+    def find_terms_given_smq_sub(self, active_only, llt_only, keep_columns, subset_df):
+        llt_df = subset_df.loc[subset_df['term_level'] == 'llt', keep_columns]
+        llt_df['term'] = self.find_llt(llt_df['term_id'])
+        pt_df = subset_df.loc[subset_df['term_level'] == 'pt', keep_columns]
+        if llt_only:
+            llt_df2 = self.find_llt_given_pt(pt_df['term_id'], active_only=True)
+            llt_df2 = llt_df2.drop(columns=[2])
+            llt_df2.columns = keep_columns
+            out = pd.concat([llt_df, llt_df2], ignore_index=True)
+        else:
+            pt_df['term'] = self.find_pt(pt_df['term_id'])
+            out = pd.concat([llt_df, pt_df], ignore_index=True)
+        out.reset_index(drop=True, inplace=True)
+        return out
 
 if __name__ == "__main__":
     pass
+
