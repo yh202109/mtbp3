@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mtbp3"
-version = "0.1.45"
+version = "0.1.46"
 description = "my tool box"
 authors = ["Y. Hsu"]
 license = "GNU General Public License v3.0"

@@ -1,6 +1,10 @@
 # Changelog
 
 <!--next-version-placeholder-->
+## v0.1.46 (2024-03-10)
+
+- add emt smq to terms function
+
 ## v0.1.45 (2024-03-04)
 
 - change emt none behavior
