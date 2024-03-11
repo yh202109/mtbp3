@@ -50,6 +50,8 @@
 <li class="toctree-l1"><a class="reference internal" href="example_emt.html">MedDRA - Start with Distribution Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_emt2.html">MedDRA - work with SMQs</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">MedDRA - work with FMQs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#assign-meddra-distribution-folder">Assign MedDRA Distribution Folder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#work-with-fmqs">Work With FMQs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
@@ -91,12 +93,25 @@
 <p>The FDA Medical Queries (FMQs) are groups of MedDRA terms used to describe conditions of interest published by FDA for the goal of improving transparency. There are currently 104 FMQs, and 4 of 104 are algorithm based in Version 2.1 <a class="footnote-reference brackets" href="#id7" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.
 FMQ is in public domain and a consolidated list<a class="footnote-reference brackets" href="#id8" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a> of FMQ is shipped with this module.
 The module <code class="docutils literal notranslate"><span class="pre">emt</span></code> includes basic functions for working with FMQs.</p>
+<section id="assign-meddra-distribution-folder">
+<h2>Assign MedDRA Distribution Folder<a class="headerlink" href="#assign-meddra-distribution-folder" title="Link to this heading"></a></h2>
+<p>Please see more details <a href="example_emt.html">here</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mtbp3.util.emt</span> <span class="kn">import</span> <span class="n">Emt</span>
+
+<span class="n">emt</span> <span class="o">=</span> <span class="n">Emt</span><span class="p">(</span><span class="n">folder_name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="work-with-fmqs">
+<h2>Work With FMQs<a class="headerlink" href="#work-with-fmqs" title="Link to this heading"></a></h2>
 <p>To download the consolidated FMQ list:</p>
 <code>
-from mtbp3.util.emt import Emt
-<p>emt = Emt(folder_name=’’)
-emt.save_fmq_consolidated_list_csv(folder_path=”a_valid_folder_path”):
-</code></p>
+emt.save_fmq_consolidated_list_csv(folder_path="a_valid_folder_path")
+</code></section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>
 <hr class="footnotes docutils" />
