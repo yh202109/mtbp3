@@ -563,7 +563,7 @@ class Emt:
                 subset_df = df[(df['smq_id'].isin(smq_details['smq_id'])) & (df['term_scope'] == 2) & (df['term_status'] == 'A')]
             else:
                 subset_df = df[(df['smq_id'].isin(smq_details['smq_id'])) & (df['term_scope'] == 2) ]
-            out = self.find_terms_given_smq_sub(active_only, llt_only, keep_columns, subset_df)
+            out = self.find_terms_given_smq_sub(subset_df, keep_columns, llt_only=llt_only, llt_current_only=llt_current_only)
         else:
             if active_only:
                 subset_df = df[(df['smq_id'].isin(smq_details['smq_id'])) & (df['term_status']=='A')]
@@ -573,14 +573,14 @@ class Emt:
             
             if subset_df['term_category'].eq('A').all():
                 keep_columns = ['term_id', 'term_level', 'term_status']
-                out = self.find_terms_given_smq_sub(active_only, llt_only, keep_columns, subset_df)
+                out = self.find_terms_given_smq_sub(subset_df, keep_columns, llt_only=llt_only, llt_current_only=llt_current_only)
             elif set(subset_df['term_category'].unique()) == {'A', 'S'}:
                 keep_columns = ['term_id', 'term_level', 'term_status']
                 out = pd.DataFrame()
                 for _ in range(5):
                     subset_df0 = subset_df[(subset_df['term_category'] == 'A')]
                     subset_df1 = subset_df[(subset_df['term_category'] == 'S')]
-                    out1 = self.find_terms_given_smq_sub(active_only, llt_only, keep_columns, subset_df0)
+                    out1 = self.find_terms_given_smq_sub(subset_df0, keep_columns, llt_only=llt_only, llt_current_only=llt_current_only)
                     out1['term_associated_smq_level'] = _ + 1
                     out = pd.concat([out, out1], ignore_index=True)
 
@@ -599,16 +599,16 @@ class Emt:
                     keep_columns = ['term_id', 'term_level', 'term_status', 'term_category', 'term_weight']
                 else:
                     keep_columns = ['term_id', 'term_level', 'term_status', 'term_category']
-                out = self.find_terms_given_smq_sub(active_only, llt_only, keep_columns, subset_df)
+                out = self.find_terms_given_smq_sub(subset_df, keep_columns, llt_only=llt_only, llt_current_only=llt_current_only)
         return out
 
-    def find_terms_given_smq_sub(self, active_only, llt_only, keep_columns, subset_df):
+    def find_terms_given_smq_sub(self, subset_df, keep_columns, llt_only, llt_current_only):
         llt_df = subset_df.loc[subset_df['term_level'] == 'llt', keep_columns]
         llt_df['term'] = self.find_llt(llt_df['term_id'])
         pt_df = subset_df.loc[subset_df['term_level'] == 'pt', keep_columns]
 
         if llt_only:
-            llt_df2 = self.find_llt_given_pt(pt_df['term_id'], active_only=True)
+            llt_df2 = self.find_llt_given_pt(pt_df['term_id'], llt_current_only=llt_current_only)
             llt_df2 = llt_df2.drop(columns=[2])
             llt_df2.columns = keep_columns
             out = pd.concat([llt_df, llt_df2], ignore_index=True)
@@ -618,6 +618,21 @@ class Emt:
         out.reset_index(drop=True, inplace=True)
         return out
 
+    def save_fmq_consolidated_list_csv(folder_path=""):
+        """
+        Save the CSV file in the specified folder.
+
+        Args:
+            folder_path (str): The path of the folder where the CSV file should be saved.
+        """
+        if not os.path.isdir(folder_path):
+            print("Error: Invalid folder path.")
+            return
+        
+        file_path = os.path.join(mtbp3.get_data('test_emt'), "FMQ_Consolidated_List.csv")
+        df = pd.read_csv(file_path, header=0)
+        new_file_path = os.path.join(folder_path, "FMQ_Consolidated_List.csv")
+        df.to_csv(new_file_path, index=False)
+
 if __name__ == "__main__":
     pass
-

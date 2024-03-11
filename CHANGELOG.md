@@ -1,6 +1,10 @@
 # Changelog
 
 <!--next-version-placeholder-->
+## v0.1.47 (2024-03-10)
+
+- add emt fmq functions
+
 ## v0.1.46 (2024-03-10)
 
 - add emt smq to terms function
