@@ -4,9 +4,11 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "# MedDRA - work with SMQ\n",
+    "# MedDRA - work with SMQs\n",
     "\n",
-    "The Medical Dictionary for Regulatory Activities (MedDRA) is a set of standardized terminologies commonly used in clinical safety recording, communicating, and reporting activities.  MedDRA is developed and maintained by the International Council for Harmonisation of Technical Requirements for Pharmaceuticals for Human Use (ICH)[^1]<sup>,</sup>[^2]. The Standardised MedDRA Queries (SMQs) are groups of MedDRA terms used to describe conditions of interest[^3]. The module `emt` also includes basic functions for working with MedDRA SMQ. \n"
+    "The Medical Dictionary for Regulatory Activities (MedDRA) is a set of standardized terminologies commonly used in clinical safety recording, communicating, and reporting activities.  MedDRA is developed and maintained by the International Council for Harmonisation of Technical Requirements for Pharmaceuticals for Human Use (ICH)[^1]<sup>,</sup>[^2]. \n",
+    "The Standardized MedDRA Queries (SMQs) are groups of MedDRA terms used to describe conditions of interest[^3]. \n",
+    "The module `emt` also includes basic functions for working with MedDRA SMQs. \n"
    ]
   },
   {
@@ -44,7 +46,7 @@
    "source": [
     "## Find SMQ Terms \n",
     "\n",
-    "To find a list of SMQ names:"
+    "To find a list of SMQ terms:"
    ]
   },
   {
@@ -110,13 +112,15 @@
    "source": [
     "## Find MedDRA Terms Given a SMQ\n",
     "\n",
-    "There are 230 active SMQs included in MedDRA V26.1 (Sep, 2023). \n",
-    "There are 10 out of 230 are algorithm based.\n",
+    "There are 230 active SMQs included in MedDRA v26.1 (Sep, 2023). \n",
+    "There are 10 out of these 230 SMQs are algorithm based.\n",
     "SMQs may also have up to 5 hierarchical relationships. \n",
-    "There are 39 SMQs related to at least one other more general SMQs.\n",
+    "There are 39 SMQs related to at least one other more general SMQs in v26.1.\n",
     "\n",
     "Functions in this section accept only one SMQ each time, and return a dataframe that includes information necessary for further processing.\n",
-    "\n"
+    "For algorithm based SMQ, `term_category` will be included in output.\n",
+    "\n",
+    "To find LLTs given a SMQ:"
    ]
   },
   {
@@ -128,7 +132,19 @@
     }
    },
    "outputs": [],
-   "source": []
+   "source": [
+    "terms = emt.find_terms_given_smq(smq_names[0])\n",
+    "print(terms['term_level'].value_counts())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Note that if the SMQ has hierarchical definition, the structure will be flattened in output, and the output will keep the level of child SMQs.\n",
+    "If the SMQ is algorithm based, the terms will keep category and weight information to be used for for downstream analyses. \n",
+    "Use the function `find_smq` with option `with_detail=True` to see the algorithm definition.\n"
+   ]
   },
   {
    "cell_type": "markdown",

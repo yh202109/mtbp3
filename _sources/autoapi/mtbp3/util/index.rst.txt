@@ -277,7 +277,7 @@ Functions
       :raises AssertionError: If terms is not a list.
 
 
-   .. py:method:: find_llt(terms=[], ignore_case=False)
+   .. py:method:: find_llt(terms=[], ignore_case=False, llt_current_only=True)
 
       Find all unique LLT terms.
 
@@ -318,7 +318,7 @@ Functions
       :raises AssertionError: If the input is neither a string nor a list.
 
 
-   .. py:method:: find_term_wi_level(terms=[], ignore_case=False, level=1)
+   .. py:method:: find_term_wi_level(terms=[], ignore_case=False, level=1, llt_current_only=True)
 
       Find all unique terms.
 
@@ -352,7 +352,7 @@ Functions
       :rtype: pandas.DataFrame
 
 
-   .. py:method:: find_llt_given_pt(pt=[], ignore_case=False)
+   .. py:method:: find_llt_given_pt(pt=[], ignore_case=False, llt_current_only=True)
 
       Find all LLTs (Lowest Level Terms) given a PT (Preferred Term) name or a list of PT names.
 
@@ -366,7 +366,7 @@ Functions
       :rtype: pandas.DataFrame
 
 
-   .. py:method:: find_llt_given_soc(soc=[], primary_soc_only=False, ignore_case=False)
+   .. py:method:: find_llt_given_soc(soc=[], primary_soc_only=False, ignore_case=False, llt_current_only=True)
 
       Find all LLTs (Lowest Level Terms) given a SOC (System Organ Class) name.
 
@@ -414,20 +414,20 @@ Functions
       :raises AssertionError: If terms is not a list.
 
 
-   .. py:method:: find_llt_given_smq(smq=[], ignore_case=False)
+   .. py:method:: find_terms_given_smq(smq=[], ignore_case=False, active_only=True, narrow_only=True, llt_only=False, llt_current_only=True)
 
-      Find all LLTs (Lowest Level Terms) given an SMQ (Standard MedDRA Query) name or a list of SMQ names.
+      Find all terms related an SMQ (Standard MedDRA Query) name or a list of SMQ names.
 
       :param smq: The name of the SMQ or a list of SMQ names.
       :type smq: str or list
       :param ignore_case: Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.
       :type ignore_case: bool, optional
 
-      :returns:
-
-                A DataFrame containing the LLTs associated with the given SMQ(s).
-                                    Each row represents an LLT and contains the LLT code and LLT name.
+      :returns: A DataFrame containing the terms associated with the given SMQ(s).
       :rtype: pandas.DataFrame
+
+
+   .. py:method:: find_terms_given_smq_sub(active_only, llt_only, keep_columns, subset_df)
 
 
 

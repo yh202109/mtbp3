@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MedDRA - work with SMQ &mdash; mtbp3  documentation</title>
+  <title>MedDRA - work with SMQs &mdash; mtbp3  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -23,7 +23,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Graph - Categorical Plots Using catPlotter" href="example_cdtg.html" />
+    <link rel="next" title="MedDRA - work with FMQs" href="example_emt3.html" />
     <link rel="prev" title="MedDRA - Start with Distribution Files" href="example_emt.html" /> 
 </head>
 
@@ -48,13 +48,14 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="example_emt.html">MedDRA - Start with Distribution Files</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">MedDRA - work with SMQ</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MedDRA - work with SMQs</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#assign-meddra-distribution-folder">Assign MedDRA Distribution Folder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#find-smq-terms">Find SMQ Terms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#find-meddra-terms-given-a-smq">Find MedDRA Terms Given a SMQ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="example_emt3.html">MedDRA - work with FMQs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_cdtg.html">Graph - Categorical Plots Using catPlotter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_files.html">System - List Folder Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
@@ -77,7 +78,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">MedDRA - work with SMQ</li>
+      <li class="breadcrumb-item active">MedDRA - work with SMQs</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/example_emt2.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -87,9 +88,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="meddra-work-with-smq">
-<h1>MedDRA - work with SMQ<a class="headerlink" href="#meddra-work-with-smq" title="Link to this heading"></a></h1>
-<p>The Medical Dictionary for Regulatory Activities (MedDRA) is a set of standardized terminologies commonly used in clinical safety recording, communicating, and reporting activities.  MedDRA is developed and maintained by the International Council for Harmonisation of Technical Requirements for Pharmaceuticals for Human Use (ICH)<a class="footnote-reference brackets" href="#id4" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a><sup>,</sup><a class="footnote-reference brackets" href="#id5" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>. The Standardised MedDRA Queries (SMQs) are groups of MedDRA terms used to describe conditions of interest<a class="footnote-reference brackets" href="#id6" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>. The module <code class="docutils literal notranslate"><span class="pre">emt</span></code> also includes basic functions for working with MedDRA SMQ.</p>
+  <section id="meddra-work-with-smqs">
+<h1>MedDRA - work with SMQs<a class="headerlink" href="#meddra-work-with-smqs" title="Link to this heading"></a></h1>
+<p>The Medical Dictionary for Regulatory Activities (MedDRA) is a set of standardized terminologies commonly used in clinical safety recording, communicating, and reporting activities.  MedDRA is developed and maintained by the International Council for Harmonisation of Technical Requirements for Pharmaceuticals for Human Use (ICH)<a class="footnote-reference brackets" href="#id4" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a><sup>,</sup><a class="footnote-reference brackets" href="#id5" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.
+The Standardized MedDRA Queries (SMQs) are groups of MedDRA terms used to describe conditions of interest<a class="footnote-reference brackets" href="#id6" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.
+The module <code class="docutils literal notranslate"><span class="pre">emt</span></code> also includes basic functions for working with MedDRA SMQs.</p>
 <section id="assign-meddra-distribution-folder">
 <h2>Assign MedDRA Distribution Folder<a class="headerlink" href="#assign-meddra-distribution-folder" title="Link to this heading"></a></h2>
 <p>Please see more details <a href="example_emt.html">here</a>.</p>
@@ -111,10 +114,16 @@
 </section>
 <section id="find-smq-terms">
 <h2>Find SMQ Terms<a class="headerlink" href="#find-smq-terms" title="Link to this heading"></a></h2>
-<p>To find a list of SMQ names:</p>
+<p>To find a list of SMQ terms:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smq_names</span> <span class="o">=</span> <span class="n">emt</span><span class="o">.</span><span class="n">find_smq</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/mtbp3/mtbp3/mtbp3/util/emt.py:487: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value &#39;pt&#39; has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+  tmp.loc[tmp[&#39;term_level&#39;] == 4, &#39;term_level&#39;] = &#39;pt&#39;
 </pre></div>
 </div>
 </div>
@@ -127,7 +136,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[69918820, 69948258, 69901813]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[69912916, 69949049, 69909345]
 </pre></div>
 </div>
 </div>
@@ -140,16 +149,16 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                           0
-id                                                  69918820
-name                                smq820ZLDyYwCdDbEPjbUdUk
-level                                                      1
-description     smq_description310dhXBilFbMhiEIluWRdIEyDOERJ
-source                           smq_source809EaXgsugXUDQego
-note                                 smq_note891lVUSvRlAzNpx
-MedDRA_version                                          26.1
-status                                                     A
-algorithm                                                  N
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                         0
+smq_id                                            69912916
+smq                                     smq916fXwGunhqIHpu
+smq_level                                                1
+smq_description             smq_description657TlCpxPwEHstW
+smq_source       smq_source174dDcFdqHEbXRmoojiGRqaWetdKqJD
+smq_note                  smq_note619XVQSmaLebToHGxnTMZPjq
+MedDRA_version                                        26.1
+smq_status                                               A
+smq_algorithm                                            N
 </pre></div>
 </div>
 </div>
@@ -157,11 +166,59 @@ algorithm                                                  N
 </section>
 <section id="find-meddra-terms-given-a-smq">
 <h2>Find MedDRA Terms Given a SMQ<a class="headerlink" href="#find-meddra-terms-given-a-smq" title="Link to this heading"></a></h2>
-<p>There are 230 active SMQs included in MedDRA V26.1 (Sep, 2023).
-There are 10 out of 230 are algorithm based.
+<p>There are 230 active SMQs included in MedDRA v26.1 (Sep, 2023).
+There are 10 out of these 230 SMQs are algorithm based.
 SMQs may also have up to 5 hierarchical relationships.
-There are 39 SMQs related to at least one other more general SMQs.</p>
-<p>Functions in this section accept only one SMQ each time, and return a dataframe that includes information necessary for further processing.</p>
+There are 39 SMQs related to at least one other more general SMQs in v26.1.</p>
+<p>Functions in this section accept only one SMQ each time, and return a dataframe that includes information necessary for further processing.
+For algorithm based SMQ, <code class="docutils literal notranslate"><span class="pre">term_category</span></code> will be included in output.</p>
+<p>To find LLTs given a SMQ:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">terms</span> <span class="o">=</span> <span class="n">emt</span><span class="o">.</span><span class="n">find_terms_given_smq</span><span class="p">(</span><span class="n">smq_names</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">terms</span><span class="p">[</span><span class="s1">&#39;term_level&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">terms</span> <span class="o">=</span> <span class="n">emt</span><span class="o">.</span><span class="n">find_terms_given_smq</span><span class="p">(</span><span class="n">smq_names</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">terms</span><span class="p">[</span><span class="s1">&#39;term_level&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+
+<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/util/emt.py:564,</span> in <span class="ni">Emt.find_terms_given_smq</span><span class="nt">(self, smq, ignore_case, active_only, narrow_only, llt_only, llt_current_only)</span>
+<span class="g g-Whitespace">    </span><span class="mi">562</span> <span class="n">keep_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;term_id&#39;</span><span class="p">,</span> <span class="s1">&#39;term_level&#39;</span><span class="p">,</span> <span class="s1">&#39;term_status&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">563</span> <span class="k">if</span> <span class="n">active_only</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">564</span>     <span class="n">subset_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;smq_id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">smq_details</span><span class="p">[</span><span class="s1">&#39;smq_id&#39;</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;term_scope&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;term_status&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;A&#39;</span><span class="p">)]</span>
+<span class="g g-Whitespace">    </span><span class="mi">565</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">566</span>     <span class="n">subset_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;smq_id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">smq_details</span><span class="p">[</span><span class="s1">&#39;smq_id&#39;</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;term_scope&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)]</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/ops/common.py:76,</span> in <span class="ni">_unpack_zerodim_and_defer.&lt;locals&gt;.new_method</span><span class="nt">(self, other)</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span>             <span class="k">return</span> <span class="bp">NotImplemented</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span> <span class="n">other</span> <span class="o">=</span> <span class="n">item_from_zerodim</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">76</span> <span class="k">return</span> <span class="n">method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/arraylike.py:40,</span> in <span class="ni">OpsMixin.__eq__</span><span class="nt">(self, other)</span>
+<span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="nd">@unpack_zerodim_and_defer</span><span class="p">(</span><span class="s2">&quot;__eq__&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span> <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">40</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cmp_method</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">operator</span><span class="o">.</span><span class="n">eq</span><span class="p">)</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/series.py:6105,</span> in <span class="ni">Series._cmp_method</span><span class="nt">(self, other, op)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6102</span> <span class="n">res_name</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">get_op_result_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6104</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Series</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_indexed_same</span><span class="p">(</span><span class="n">other</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">6105</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Can only compare identically-labeled Series objects&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6107</span> <span class="n">lvalues</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_values</span>
+<span class="g g-Whitespace">   </span><span class="mi">6108</span> <span class="n">rvalues</span> <span class="o">=</span> <span class="n">extract_array</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">extract_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">extract_range</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: Can only compare identically-labeled Series objects
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that if the SMQ has hierarchical definition, the structure will be flattened in output, and the output will keep the level of child SMQs.
+If the SMQ is algorithm based, the terms will keep category and weight information to be used for for downstream analyses.
+Use the function <code class="docutils literal notranslate"><span class="pre">find_smq</span></code> with option <code class="docutils literal notranslate"><span class="pre">with_detail=True</span></code> to see the algorithm definition.</p>
 </section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>
@@ -188,7 +245,7 @@ There are 39 SMQs related to at least one other more general SMQs.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="example_emt.html" class="btn btn-neutral float-left" title="MedDRA - Start with Distribution Files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="example_cdtg.html" class="btn btn-neutral float-right" title="Graph - Categorical Plots Using catPlotter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="example_emt3.html" class="btn btn-neutral float-right" title="MedDRA - work with FMQs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
