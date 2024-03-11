@@ -121,12 +121,6 @@ The module <code class="docutils literal notranslate"><span class="pre">emt</spa
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/mtbp3/mtbp3/mtbp3/util/emt.py:487: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value &#39;pt&#39; has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
-  tmp.loc[tmp[&#39;term_level&#39;] == 4, &#39;term_level&#39;] = &#39;pt&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <p>To find a list of id from SMQ names:</p>
 <div class="cell docutils container">
@@ -181,37 +175,10 @@ For algorithm based SMQ, <code class="docutils literal notranslate"><span class=
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">terms</span> <span class="o">=</span> <span class="n">emt</span><span class="o">.</span><span class="n">find_terms_given_smq</span><span class="p">(</span><span class="n">smq_names</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">terms</span><span class="p">[</span><span class="s1">&#39;term_level&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
-
-<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/util/emt.py:564,</span> in <span class="ni">Emt.find_terms_given_smq</span><span class="nt">(self, smq, ignore_case, active_only, narrow_only, llt_only, llt_current_only)</span>
-<span class="g g-Whitespace">    </span><span class="mi">562</span> <span class="n">keep_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;term_id&#39;</span><span class="p">,</span> <span class="s1">&#39;term_level&#39;</span><span class="p">,</span> <span class="s1">&#39;term_status&#39;</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">563</span> <span class="k">if</span> <span class="n">active_only</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">564</span>     <span class="n">subset_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;smq_id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">smq_details</span><span class="p">[</span><span class="s1">&#39;smq_id&#39;</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;term_scope&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;term_status&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;A&#39;</span><span class="p">)]</span>
-<span class="g g-Whitespace">    </span><span class="mi">565</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">566</span>     <span class="n">subset_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;smq_id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">smq_details</span><span class="p">[</span><span class="s1">&#39;smq_id&#39;</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;term_scope&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)]</span>
-
-<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/ops/common.py:76,</span> in <span class="ni">_unpack_zerodim_and_defer.&lt;locals&gt;.new_method</span><span class="nt">(self, other)</span>
-<span class="g g-Whitespace">     </span><span class="mi">72</span>             <span class="k">return</span> <span class="bp">NotImplemented</span>
-<span class="g g-Whitespace">     </span><span class="mi">74</span> <span class="n">other</span> <span class="o">=</span> <span class="n">item_from_zerodim</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">76</span> <span class="k">return</span> <span class="n">method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
-
-<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/arraylike.py:40,</span> in <span class="ni">OpsMixin.__eq__</span><span class="nt">(self, other)</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="nd">@unpack_zerodim_and_defer</span><span class="p">(</span><span class="s2">&quot;__eq__&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">39</span> <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">40</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cmp_method</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">operator</span><span class="o">.</span><span class="n">eq</span><span class="p">)</span>
-
-<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/series.py:6105,</span> in <span class="ni">Series._cmp_method</span><span class="nt">(self, other, op)</span>
-<span class="g g-Whitespace">   </span><span class="mi">6102</span> <span class="n">res_name</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">get_op_result_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">6104</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Series</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_indexed_same</span><span class="p">(</span><span class="n">other</span><span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">6105</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Can only compare identically-labeled Series objects&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">6107</span> <span class="n">lvalues</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_values</span>
-<span class="g g-Whitespace">   </span><span class="mi">6108</span> <span class="n">rvalues</span> <span class="o">=</span> <span class="n">extract_array</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">extract_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">extract_range</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="ne">ValueError</span>: Can only compare identically-labeled Series objects
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>term_level
+llt    1
+pt     1
+Name: count, dtype: int64
 </pre></div>
 </div>
 </div>
