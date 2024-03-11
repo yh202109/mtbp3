@@ -19,12 +19,12 @@
    "source": [
     "To download the consolidated FMQ list:\n",
     "\n",
-    "<pre>\n",
+    "<code>\n",
     "from mtbp3.util.emt import Emt\n",
     "\n",
     "emt = Emt(folder_name='')\n",
     "emt.save_fmq_consolidated_list_csv(folder_path=\"a_valid_folder_path\"):\n",
-    "</pre>"
+    "</code>"
    ]
   },
   {
