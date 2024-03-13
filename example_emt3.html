@@ -143,26 +143,16 @@ Algorithm based FMQs may utilize additional data sources, including labs, concom
 <p>To find a list of PT related to the first FMQ on the list:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pt_list</span> <span class="o">=</span> <span class="n">emt</span><span class="o">.</span><span class="n">find_fmq</span><span class="p">(</span><span class="n">fmq</span><span class="o">=</span><span class="n">fmq_list</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">narrow_only</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pt_list</span> <span class="o">=</span> <span class="n">emt</span><span class="o">.</span><span class="n">find_fmq</span><span class="p">(</span><span class="n">fmq</span><span class="o">=</span><span class="p">[</span><span class="n">fmq_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">narrow_only</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">pt_list</span><span class="p">[</span><span class="s1">&#39;classification&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AssertionError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">pt_list</span> <span class="o">=</span> <span class="n">emt</span><span class="o">.</span><span class="n">find_fmq</span><span class="p">(</span><span class="n">fmq</span><span class="o">=</span><span class="n">fmq_list</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">narrow_only</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">pt_list</span><span class="p">[</span><span class="s1">&#39;classification&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
-
-<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/util/emt.py:684,</span> in <span class="ni">Emt.find_fmq</span><span class="nt">(self, fmq, narrow_only)</span>
-<span class="g g-Whitespace">    </span><span class="mi">682</span>     <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fmq_list</span><span class="p">[</span><span class="s1">&#39;fmq&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
-<span class="g g-Whitespace">    </span><span class="mi">683</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">684</span>     <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">fmq</span><span class="p">,</span> <span class="nb">list</span><span class="p">),</span> <span class="s2">&quot;fmq should be a list&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">685</span>     <span class="k">if</span> <span class="n">narrow_only</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">686</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmq_list</span><span class="p">[(</span><span class="bp">self</span><span class="o">.</span><span class="n">fmq_list</span><span class="p">[</span><span class="s1">&#39;fmq&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">fmq</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fmq_list</span><span class="p">[</span><span class="s1">&#39;classification&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Narrow&#39;</span><span class="p">)][[</span><span class="s1">&#39;fmq&#39;</span><span class="p">,</span> <span class="s1">&#39;pt&#39;</span><span class="p">]]</span>
-
-<span class="ne">AssertionError</span>: fmq should be a list
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>classification
+Narrow    23
+Broad     20
+Name: count, dtype: int64
 </pre></div>
 </div>
 </div>
