@@ -157,10 +157,13 @@ It imports all the functions and classes from the util module.</p>
 <h3>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h3>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mtbp3.__version__" title="mtbp3.__version__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__version__</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mtbp3.emt" title="mtbp3.emt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">emt</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mtbp3._ROOT" title="mtbp3._ROOT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_ROOT</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mtbp3.__version__" title="mtbp3.__version__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__version__</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mtbp3._ROOT" title="mtbp3._ROOT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_ROOT</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -680,8 +683,18 @@ Defaults to False.</p></li>
 <dd></dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="mtbp3.Emt.load_fmq_default">
+<span class="sig-name descname"><span class="pre">load_fmq_default</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mtbp3/util/emt.html#Emt.load_fmq_default"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.Emt.load_fmq_default" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mtbp3.Emt.find_fmq_file">
+<span class="sig-name descname"><span class="pre">find_fmq_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mtbp3/util/emt.html#Emt.find_fmq_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.Emt.find_fmq_file" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="mtbp3.Emt.save_fmq_consolidated_list_csv">
-<span class="sig-name descname"><span class="pre">save_fmq_consolidated_list_csv</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mtbp3/util/emt.html#Emt.save_fmq_consolidated_list_csv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.Emt.save_fmq_consolidated_list_csv" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">save_fmq_consolidated_list_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mtbp3/util/emt.html#Emt.save_fmq_consolidated_list_csv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.Emt.save_fmq_consolidated_list_csv" title="Link to this definition"></a></dt>
 <dd><p>Save the CSV file in the specified folder.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -690,7 +703,32 @@ Defaults to False.</p></li>
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="mtbp3.Emt.find_fmq">
+<span class="sig-name descname"><span class="pre">find_fmq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">narrow_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mtbp3/util/emt.html#Emt.find_fmq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.Emt.find_fmq" title="Link to this definition"></a></dt>
+<dd><p>Find all unique FMQ (FDA Medical Queries) terms.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fmq</strong> (<em>list</em><em>, </em><em>optional</em>) – The specific FMQ name(s) to filter the results. Defaults to an empty list.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of unique FMQ terms. If fmq is provided, it returns the corresponding ids.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>AssertionError</strong> – If fmq is not a list.</p>
+</dd>
+</dl>
 </dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="mtbp3.emt">
+<span class="sig-prename descclassname"><span class="pre">mtbp3.</span></span><span class="sig-name descname"><span class="pre">emt</span></span><a class="headerlink" href="#mtbp3.emt" title="Link to this definition"></a></dt>
+<dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="mtbp3.diff_2cols_in_1df">

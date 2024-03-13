@@ -51,7 +51,7 @@
 <li class="toctree-l1"><a class="reference internal" href="example_emt2.html">MedDRA - work with SMQs</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">MedDRA - work with FMQs</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#assign-meddra-distribution-folder">Assign MedDRA Distribution Folder</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#work-with-fmqs">Work With FMQs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#assign-fmq-file-path">Assign FMQ File Path</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
@@ -89,10 +89,12 @@
              
   <section id="meddra-work-with-fmqs">
 <h1>MedDRA - work with FMQs<a class="headerlink" href="#meddra-work-with-fmqs" title="Link to this heading"></a></h1>
-<p>The Medical Dictionary for Regulatory Activities (MedDRA) is a set of standardized terminologies commonly used in clinical safety recording, communicating, and reporting activities.  MedDRA is developed and maintained by the International Council for Harmonisation of Technical Requirements for Pharmaceuticals for Human Use (ICH)<a class="footnote-reference brackets" href="#id5" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a><sup>,</sup><a class="footnote-reference brackets" href="#id6" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
-<p>The FDA Medical Queries (FMQs) are groups of MedDRA terms used to describe conditions of interest published by FDA for the goal of improving transparency. There are currently 104 FMQs, and 4 of 104 are algorithm based in Version 2.1 <a class="footnote-reference brackets" href="#id7" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.
-FMQ is in public domain and a consolidated list<a class="footnote-reference brackets" href="#id8" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a> of FMQ is shipped with this module.
-The module <code class="docutils literal notranslate"><span class="pre">emt</span></code> includes basic functions for working with FMQs.</p>
+<p>The Medical Dictionary for Regulatory Activities (MedDRA) is a set of standardized terminologies commonly used in clinical safety recording, communicating, and reporting activities.  MedDRA is developed and maintained by the International Council for Harmonisation of Technical Requirements for Pharmaceuticals for Human Use (ICH)<a class="footnote-reference brackets" href="#id6" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a><sup>,</sup><a class="footnote-reference brackets" href="#id7" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
+<p>The FDA Medical Queries (FMQs) are groups of MedDRA terms used to describe conditions of interest published by FDA for the goal of improving transparency.
+FMQ is available in public domain <a class="footnote-reference brackets" href="#id8" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a><sup>,</sup><a class="footnote-reference brackets" href="#id9" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a><sup>,</sup><a class="footnote-reference brackets" href="#id10" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>. A consolidated list of FMQ is shipped with this module.
+The FMQ list shipped with this module is for demonstrating purpose.
+The author(s) can not provide warranty or promises for the correctness, completeness, or usability of the list.</p>
+<p>The module <code class="docutils literal notranslate"><span class="pre">emt</span></code> includes basic functions for working with FMQs.</p>
 <section id="assign-meddra-distribution-folder">
 <h2>Assign MedDRA Distribution Folder<a class="headerlink" href="#assign-meddra-distribution-folder" title="Link to this heading"></a></h2>
 <p>Please see more details <a href="example_emt.html">here</a>.</p>
@@ -101,37 +103,102 @@ The module <code class="docutils literal notranslate"><span class="pre">emt</spa
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mtbp3.util.emt</span> <span class="kn">import</span> <span class="n">Emt</span>
 
 <span class="n">emt</span> <span class="o">=</span> <span class="n">Emt</span><span class="p">(</span><span class="n">folder_name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">emt</span><span class="o">.</span><span class="n">find_files</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([], &#39;All files found. Version: 26.1; Year: 2023; Month: September; Language: English. N_SOC: 17.&#39;)
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="work-with-fmqs">
-<h2>Work With FMQs<a class="headerlink" href="#work-with-fmqs" title="Link to this heading"></a></h2>
-<p>To download the consolidated FMQ list:</p>
-<code>
-emt.save_fmq_consolidated_list_csv(folder_path="a_valid_folder_path")
-</code></section>
+<section id="assign-fmq-file-path">
+<h2>Assign FMQ File Path<a class="headerlink" href="#assign-fmq-file-path" title="Link to this heading"></a></h2>
+<p>To find FMQ list file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">emt</span><span class="o">.</span><span class="n">find_fmq_file</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Default FMQ table found. Table size: (11712, 4)
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are currently 104 FMQs There are 8,839 PTs are utilized to define to either broad or narrow scope of FMQs.
+Note that 4 of 104 FMQs are algorithm based.
+Algorithm based FMQs may utilize additional data sources, including labs, concomitant medication records, patient histories, etc.</p>
+<p>To get a list of FMQ terms:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fmq_list</span> <span class="o">=</span> <span class="n">emt</span><span class="o">.</span><span class="n">find_fmq</span><span class="p">(</span><span class="n">fmq</span><span class="o">=</span><span class="p">[])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To find a list of PT related to the first FMQ on the list:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pt_list</span> <span class="o">=</span> <span class="n">emt</span><span class="o">.</span><span class="n">find_fmq</span><span class="p">(</span><span class="n">fmq</span><span class="o">=</span><span class="n">fmq_list</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">narrow_only</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pt_list</span><span class="p">[</span><span class="s1">&#39;classification&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AssertionError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">pt_list</span> <span class="o">=</span> <span class="n">emt</span><span class="o">.</span><span class="n">find_fmq</span><span class="p">(</span><span class="n">fmq</span><span class="o">=</span><span class="n">fmq_list</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">narrow_only</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">pt_list</span><span class="p">[</span><span class="s1">&#39;classification&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+
+<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/util/emt.py:684,</span> in <span class="ni">Emt.find_fmq</span><span class="nt">(self, fmq, narrow_only)</span>
+<span class="g g-Whitespace">    </span><span class="mi">682</span>     <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fmq_list</span><span class="p">[</span><span class="s1">&#39;fmq&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="g g-Whitespace">    </span><span class="mi">683</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">684</span>     <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">fmq</span><span class="p">,</span> <span class="nb">list</span><span class="p">),</span> <span class="s2">&quot;fmq should be a list&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">685</span>     <span class="k">if</span> <span class="n">narrow_only</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">686</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmq_list</span><span class="p">[(</span><span class="bp">self</span><span class="o">.</span><span class="n">fmq_list</span><span class="p">[</span><span class="s1">&#39;fmq&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">fmq</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fmq_list</span><span class="p">[</span><span class="s1">&#39;classification&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Narrow&#39;</span><span class="p">)][[</span><span class="s1">&#39;fmq&#39;</span><span class="p">,</span> <span class="s1">&#39;pt&#39;</span><span class="p">]]</span>
+
+<span class="ne">AssertionError</span>: fmq should be a list
+</pre></div>
+</div>
+</div>
+</div>
+<p>To save the FMQ list shipped with this module to a local folder in CSV format:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># emt.save_fmq_consolidated_list_csv(folder_path=&quot;a_valid_folder_path&quot;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>
 <hr class="footnotes docutils" />
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id5" role="doc-footnote">
+<aside class="footnote brackets" id="id6" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p>ICH. (2013). Understanding MedDRA. (<a class="reference external" href="https://admin.meddra.org/sites/default/files/page/documents_insert/meddra2013_0.pdf">pdf</a>)</p>
 </aside>
-<aside class="footnote brackets" id="id6" role="doc-footnote">
+<aside class="footnote brackets" id="id7" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
 <p>Dutta, A. (2020). MedDRA - Terminologies &amp; Coding. (<a class="reference external" href="https://meddra.org/sites/default/files/page/documents_insert/meddra_-_terminologies_coding.pdf">pdf</a>)</p>
 </aside>
-<aside class="footnote brackets" id="id7" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
-<p>Clio Wu. (2023) Why FDA Medical Queries (FMQs) for Adverse Events of Special Interest?</p>
-</aside>
 <aside class="footnote brackets" id="id8" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p>FDA. (2022). BIRRS FDA Medical Queries (FMQ) Project Update.(<a class="reference external" href="https://www.fda.gov/media/164639/download">pdf</a>)</p>
+</aside>
+<aside class="footnote brackets" id="id9" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
-<p>FDA. (2022). BIRRS FDA Medical Queries (FMQ) Project Update.(<a class="reference external" href="https://www.fda.gov/media/164639/download">pdf</a>)
-Implementation and Case Study. PharmaSUG 2023 - Paper DS-036. (<a class="reference external" href="https://www.lexjansen.com/pharmasug/2023/DS/PharmaSUG-2023-DS-036.pdf">pdf</a>)</p>
+<p>Duke Margolis Institute for Health Policy. (2022). Public Workshop Advancing Premarket Safety Analytics. (<a class="reference external" href="https://healthpolicy.duke.edu/events/advancing-premarket-safety-analytics">web page</a>)</p>
+</aside>
+<aside class="footnote brackets" id="id10" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">5</a><span class="fn-bracket">]</span></span>
+<p>Clio Wu. (2023) Why FDA Medical Queries (FMQs) for Adverse Events of Special Interest? Implementation and Case Study. PharmaSUG 2023 - Paper DS-036. (<a class="reference external" href="https://www.lexjansen.com/pharmasug/2023/DS/PharmaSUG-2023-DS-036.pdf">pdf</a>)</p>
 </aside>
 </aside>
 </section>

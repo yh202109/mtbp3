@@ -8,9 +8,12 @@
     "\n",
     "The Medical Dictionary for Regulatory Activities (MedDRA) is a set of standardized terminologies commonly used in clinical safety recording, communicating, and reporting activities.  MedDRA is developed and maintained by the International Council for Harmonisation of Technical Requirements for Pharmaceuticals for Human Use (ICH)[^1]<sup>,</sup>[^2]. \n",
     "\n",
-    "The FDA Medical Queries (FMQs) are groups of MedDRA terms used to describe conditions of interest published by FDA for the goal of improving transparency. There are currently 104 FMQs, and 4 of 104 are algorithm based in Version 2.1 [^3].\n",
-    "FMQ is in public domain and a consolidated list[^4] of FMQ is shipped with this module.\n",
-    "The module `emt` includes basic functions for working with FMQs.\n"
+    "The FDA Medical Queries (FMQs) are groups of MedDRA terms used to describe conditions of interest published by FDA for the goal of improving transparency. \n",
+    "FMQ is available in public domain [^3]<sup>,</sup>[^4]<sup>,</sup>[^5]. A consolidated list of FMQ is shipped with this module.\n",
+    "The FMQ list shipped with this module is for demonstrating purpose. \n",
+    "The author(s) can not provide warranty or promises for the correctness, completeness, or usability of the list.\n",
+    "\n",
+    "The module `emt` includes basic functions for working with FMQs."
    ]
   },
   {
@@ -34,19 +37,96 @@
    "source": [
     "from mtbp3.util.emt import Emt\n",
     "\n",
-    "emt = Emt(folder_name='')"
+    "emt = Emt(folder_name='')\n",
+    "print(emt.find_files())"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Work With FMQs\n",
-    "To download the consolidated FMQ list:\n",
+    "## Assign FMQ File Path\n",
     "\n",
-    "<code>\n",
-    "emt.save_fmq_consolidated_list_csv(folder_path=\"a_valid_folder_path\")\n",
-    "</code>"
+    "To find FMQ list file:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "vscode": {
+     "languageId": "plaintext"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "print(emt.find_fmq_file(file_path=\"\"))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "There are currently 104 FMQs There are 8,839 PTs are utilized to define to either broad or narrow scope of FMQs.\n",
+    "Note that 4 of 104 FMQs are algorithm based. \n",
+    "Algorithm based FMQs may utilize additional data sources, including labs, concomitant medication records, patient histories, etc.\n",
+    "\n",
+    "To get a list of FMQ terms:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "vscode": {
+     "languageId": "plaintext"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "fmq_list = emt.find_fmq(fmq=[])\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "To find a list of PT related to the first FMQ on the list:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "vscode": {
+     "languageId": "plaintext"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "pt_list = emt.find_fmq(fmq=fmq_list[0], narrow_only=False)\n",
+    "print(pt_list['classification'].value_counts())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "To save the FMQ list shipped with this module to a local folder in CSV format:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "vscode": {
+     "languageId": "plaintext"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "\n",
+    "# emt.save_fmq_consolidated_list_csv(folder_path=\"a_valid_folder_path\")"
    ]
   },
   {
@@ -57,9 +137,9 @@
     "\n",
     "[^1]: ICH. (2013). Understanding MedDRA. ([pdf](https://admin.meddra.org/sites/default/files/page/documents_insert/meddra2013_0.pdf))\n",
     "[^2]: Dutta, A. (2020). MedDRA - Terminologies & Coding. ([pdf](https://meddra.org/sites/default/files/page/documents_insert/meddra_-_terminologies_coding.pdf))\n",
-    "[^3]: Clio Wu. (2023) Why FDA Medical Queries (FMQs) for Adverse Events of Special Interest?\n",
-    "[^4]: FDA. (2022). BIRRS FDA Medical Queries (FMQ) Project Update.([pdf](https://www.fda.gov/media/164639/download))\n",
-    "Implementation and Case Study. PharmaSUG 2023 - Paper DS-036. ([pdf](https://www.lexjansen.com/pharmasug/2023/DS/PharmaSUG-2023-DS-036.pdf))\n"
+    "[^3]: FDA. (2022). BIRRS FDA Medical Queries (FMQ) Project Update.([pdf](https://www.fda.gov/media/164639/download))\n",
+    "[^4]: Duke Margolis Institute for Health Policy. (2022). Public Workshop Advancing Premarket Safety Analytics. ([web page](https://healthpolicy.duke.edu/events/advancing-premarket-safety-analytics))\n",
+    "[^5]: Clio Wu. (2023) Why FDA Medical Queries (FMQs) for Adverse Events of Special Interest? Implementation and Case Study. PharmaSUG 2023 - Paper DS-036. ([pdf](https://www.lexjansen.com/pharmasug/2023/DS/PharmaSUG-2023-DS-036.pdf))"
    ]
   }
  ],

@@ -17,6 +17,14 @@ Classes
 
 
 
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   mtbp3.util.emt.emt
+
+
 .. py:class:: Emt(folder_name='')
 
 
@@ -289,7 +297,13 @@ Classes
    .. py:method:: find_terms_given_smq_sub(subset_df, keep_columns, llt_only, llt_current_only)
 
 
-   .. py:method:: save_fmq_consolidated_list_csv()
+   .. py:method:: load_fmq_default()
+
+
+   .. py:method:: find_fmq_file(file_path='')
+
+
+   .. py:method:: save_fmq_consolidated_list_csv(folder_path='')
 
       Save the CSV file in the specified folder.
 
@@ -297,4 +311,21 @@ Classes
       :type folder_path: str
 
 
+   .. py:method:: find_fmq(fmq=[], narrow_only=True)
+
+      Find all unique FMQ (FDA Medical Queries) terms.
+
+      :param fmq: The specific FMQ name(s) to filter the results. Defaults to an empty list.
+      :type fmq: list, optional
+
+      :returns: A list of unique FMQ terms. If fmq is provided, it returns the corresponding ids.
+      :rtype: list
+
+      :raises AssertionError: If fmq is not a list.
+
+
+
+.. py:data:: emt
+
+   
 

@@ -42,6 +42,14 @@ Functions
 
 
 
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   mtbp3.util.emt
+
+
 .. py:class:: LsrTree(path='', outfmt='list', with_counts=False, count_str='', with_file_label=False, label_str='')
 
 
@@ -430,7 +438,13 @@ Functions
    .. py:method:: find_terms_given_smq_sub(subset_df, keep_columns, llt_only, llt_current_only)
 
 
-   .. py:method:: save_fmq_consolidated_list_csv()
+   .. py:method:: load_fmq_default()
+
+
+   .. py:method:: find_fmq_file(file_path='')
+
+
+   .. py:method:: save_fmq_consolidated_list_csv(folder_path='')
 
       Save the CSV file in the specified folder.
 
@@ -438,6 +452,23 @@ Functions
       :type folder_path: str
 
 
+   .. py:method:: find_fmq(fmq=[], narrow_only=True)
+
+      Find all unique FMQ (FDA Medical Queries) terms.
+
+      :param fmq: The specific FMQ name(s) to filter the results. Defaults to an empty list.
+      :type fmq: list, optional
+
+      :returns: A list of unique FMQ terms. If fmq is provided, it returns the corresponding ids.
+      :rtype: list
+
+      :raises AssertionError: If fmq is not a list.
+
+
+
+.. py:data:: emt
+
+   
 
 .. py:function:: diff_2cols_in_1df(df, col1='ARM', col2='ACTARM', keep_diff_only=False)
 
