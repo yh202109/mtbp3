@@ -60,6 +60,8 @@ class Emt:
         self.llt = None
         self.smq_list = None
         self.smq_content = None
+        self.fmq_list = None
+        self.fmq_list_default = None
 
         meddra_release_file = os.path.join(self.folder_name, 'MedAscii', 'meddra_release.asc')
         if os.path.isfile(meddra_release_file):
@@ -618,7 +620,34 @@ class Emt:
         out.reset_index(drop=True, inplace=True)
         return out
 
-    def save_fmq_consolidated_list_csv(folder_path=""):
+    def load_fmq_default(self):
+        if self.fmq_list_default is None:
+            try:
+                tmp = pd.read_csv(os.path.join(mtbp3.get_data('test_emt/FMQ'), "FMQ_Consolidated_List.csv"), delimiter=',', header=0)
+                tmp = tmp.iloc[:, :-1]
+                tmp.columns = ['fmq', 'pt', 'fmq_pt', 'classification']
+                self.fmq_list_default = tmp
+            except pd.errors.EmptyDataError:
+                self.fmq_list_default = None
+
+    def find_fmq_file(self, file_path=""):
+        if file_path=="": 
+            self.load_fmq_default()
+            self.fmq_list = self.fmq_list_default
+            return f"Default FMQ table found. Table size: {str(self.fmq_list.shape)}"
+        elif file_path and file_path.endswith(".csv") and os.path.isfile(file_path):
+            try:
+                tmp = pd.read_csv(file_path, delimiter=',', header=0)
+                tmp = tmp.iloc[:, :-1]
+                tmp.columns = ['fmq', 'pt', 'fmq_pt', 'classification']
+                self.fmq_list = tmp
+            except pd.errors.EmptyDataError:
+                self.fmq_list_default = None
+            return f"Specified FMQ CSV file found. Table size: {str(self.fmq_list.shape)}"
+        else:
+            return os.path.isfile(file_path)
+
+    def save_fmq_consolidated_list_csv(self, folder_path=""):
         """
         Save the CSV file in the specified folder.
 
@@ -629,10 +658,36 @@ class Emt:
             print("Error: Invalid folder path.")
             return
         
-        file_path = os.path.join(mtbp3.get_data('test_emt'), "FMQ_Consolidated_List.csv")
-        df = pd.read_csv(file_path, header=0)
+        self.load_fmq_default()
         new_file_path = os.path.join(folder_path, "FMQ_Consolidated_List.csv")
-        df.to_csv(new_file_path, index=False)
+        self.fmq_list_default.to_csv(new_file_path, index=False)
+
+    def find_fmq(self, fmq=[], narrow_only=True):
+        """
+        Find all unique FMQ (FDA Medical Queries) terms.
+
+        Args:
+            fmq (list, optional): The specific FMQ name(s) to filter the results. Defaults to an empty list.
+
+        Returns:
+            list: A list of unique FMQ terms. If fmq is provided, it returns the corresponding ids.
+
+        Raises:
+            AssertionError: If fmq is not a list.
+        """
+        if self.fmq_list is None:
+            self.load_fmq_default()
+            self.fmq_list = self.fmq_list_default
+        if len(fmq) == 0:
+            return list(self.fmq_list['fmq'].unique())
+        else:
+            assert isinstance(fmq, list), "fmq should be a list"
+            if narrow_only:
+                return self.fmq_list[(self.fmq_list['fmq'].isin(fmq)) & (self.fmq_list['classification'] == 'Narrow')][['fmq', 'pt']]
+            else:
+                return self.fmq_list[self.fmq_list['fmq'].isin(fmq)][['fmq', 'pt', 'classification']]
 
 if __name__ == "__main__":
-    pass
+    #pass
+    emt = Emt(folder_name='')
+    emt.find_files()
