@@ -543,6 +543,11 @@ Defaults to False.</p></li>
 <dd></dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="mtbp3.util.emt.Emt.load_fmq">
+<span class="sig-name descname"><span class="pre">load_fmq</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/util/emt.html#Emt.load_fmq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.emt.Emt.load_fmq" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="mtbp3.util.emt.Emt.find_fmq_file">
 <span class="sig-name descname"><span class="pre">find_fmq_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/util/emt.html#Emt.find_fmq_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.emt.Emt.find_fmq_file" title="Link to this definition"></a></dt>
 <dd></dd></dl>
@@ -574,6 +579,26 @@ Defaults to False.</p></li>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>AssertionError</strong> – If fmq is not a list.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mtbp3.util.emt.Emt.find_terms_given_fmq">
+<span class="sig-name descname"><span class="pre">find_terms_given_fmq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_case</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">narrow_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/util/emt.html#Emt.find_terms_given_fmq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.emt.Emt.find_terms_given_fmq" title="Link to this definition"></a></dt>
+<dd><p>Find all terms related to an FMQ (FDA Medical Query) name or a list of FMQ names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fmq</strong> (<em>str</em><em> or </em><em>list</em>) – The name of the FMQ or a list of FMQ names.</p></li>
+<li><p><strong>ignore_case</strong> (<em>bool</em><em>, </em><em>optional</em>) – Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A DataFrame containing the terms associated with the given FMQ(s).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
 </dd>
 </dl>
 </dd></dl>

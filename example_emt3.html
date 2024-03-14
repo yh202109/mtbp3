@@ -52,6 +52,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">MedDRA - work with FMQs</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#assign-meddra-distribution-folder">Assign MedDRA Distribution Folder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#assign-fmq-file-path">Assign FMQ File Path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#find-terms-given-a-fmq">Find Terms Given a FMQ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
@@ -129,9 +130,6 @@ The author(s) can not provide warranty or promises for the correctness, complete
 </div>
 </div>
 </div>
-<p>There are currently 104 FMQs There are 8,839 PTs are utilized to define to either broad or narrow scope of FMQs.
-Note that 4 of 104 FMQs are algorithm based.
-Algorithm based FMQs may utilize additional data sources, including labs, concomitant medication records, patient histories, etc.</p>
 <p>To get a list of FMQ terms:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -140,18 +138,37 @@ Algorithm based FMQs may utilize additional data sources, including labs, concom
 </div>
 </div>
 </div>
+<p>To check if a list of queries are included in the FMQ list file found above:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="n">emt</span><span class="o">.</span><span class="n">find_fmq</span><span class="p">(</span><span class="n">fmq_list</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s1">&#39;This is not a standard query!&#39;</span><span class="p">])</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[False, False, False, False]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="find-terms-given-a-fmq">
+<h2>Find Terms Given a FMQ<a class="headerlink" href="#find-terms-given-a-fmq" title="Link to this heading"></a></h2>
+<p>There are currently 104 FMQs There are 8,839 PTs are utilized to define to either broad or narrow scope of FMQs.
+Note that 4 of 104 FMQs are algorithm based.
+Algorithm based FMQs may utilize additional data sources, including labs, concomitant medication records, patient histories, etc.</p>
 <p>To find a list of PT related to the first FMQ on the list:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pt_list</span> <span class="o">=</span> <span class="n">emt</span><span class="o">.</span><span class="n">find_fmq</span><span class="p">(</span><span class="n">fmq</span><span class="o">=</span><span class="p">[</span><span class="n">fmq_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">narrow_only</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pt_list</span> <span class="o">=</span> <span class="n">emt</span><span class="o">.</span><span class="n">find_terms_given_fmq</span><span class="p">(</span><span class="n">fmq</span><span class="o">=</span><span class="p">[</span><span class="n">fmq_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">narrow_only</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">pt_list</span><span class="p">[</span><span class="s1">&#39;classification&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>classification
-Narrow    23
-Broad     20
+Narrow    7689
+Broad     4023
 Name: count, dtype: int64
 </pre></div>
 </div>

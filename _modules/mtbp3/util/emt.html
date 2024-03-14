@@ -778,6 +778,15 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">fmq_list_default</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 
+<div class="viewcode-block" id="Emt.load_fmq">
+<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.load_fmq">[docs]</a>
+    <span class="k">def</span> <span class="nf">load_fmq</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmq_list</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">load_fmq_default</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fmq_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmq_list_default</span></div>
+
+
+
 <div class="viewcode-block" id="Emt.find_fmq_file">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.find_fmq_file">[docs]</a>
     <span class="k">def</span> <span class="nf">find_fmq_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
@@ -831,17 +840,47 @@
 <span class="sd">        Raises:</span>
 <span class="sd">            AssertionError: If fmq is not a list.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmq_list</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">load_fmq_default</span><span class="p">()</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">fmq_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmq_list_default</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">load_fmq</span><span class="p">()</span>
+        <span class="n">fmq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">assert_terms</span><span class="p">(</span><span class="n">fmq</span><span class="p">)</span>
+
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">fmq</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fmq_list</span><span class="p">[</span><span class="s1">&#39;fmq&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">fmq</span><span class="p">,</span> <span class="nb">list</span><span class="p">),</span> <span class="s2">&quot;fmq should be a list&quot;</span>
-            <span class="k">if</span> <span class="n">narrow_only</span><span class="p">:</span>
-                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmq_list</span><span class="p">[(</span><span class="bp">self</span><span class="o">.</span><span class="n">fmq_list</span><span class="p">[</span><span class="s1">&#39;fmq&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">fmq</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fmq_list</span><span class="p">[</span><span class="s1">&#39;classification&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Narrow&#39;</span><span class="p">)][[</span><span class="s1">&#39;fmq&#39;</span><span class="p">,</span> <span class="s1">&#39;pt&#39;</span><span class="p">]]</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">e</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmq_list</span><span class="p">[</span><span class="s1">&#39;fmq&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">fmq</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="Emt.find_terms_given_fmq">
+<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.find_terms_given_fmq">[docs]</a>
+    <span class="k">def</span> <span class="nf">find_terms_given_fmq</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fmq</span><span class="o">=</span><span class="p">[],</span> <span class="n">ignore_case</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">narrow_only</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Find all terms related to an FMQ (FDA Medical Query) name or a list of FMQ names.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            fmq (str or list): The name of the FMQ or a list of FMQ names.</span>
+<span class="sd">            ignore_case (bool, optional): Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pandas.DataFrame: A DataFrame containing the terms associated with the given FMQ(s). </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">load_fmq</span><span class="p">()</span>
+        <span class="n">fmq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">assert_terms</span><span class="p">(</span><span class="n">fmq</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">fmq</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+        <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmq_list</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;fmq_pt&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">fmq</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">ignore_case</span><span class="p">:</span>
+                <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;fmq&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">fmq</span><span class="p">])]</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmq_list</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">fmq_list</span><span class="p">[</span><span class="s1">&#39;fmq&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">fmq</span><span class="p">)][[</span><span class="s1">&#39;fmq&#39;</span><span class="p">,</span> <span class="s1">&#39;pt&#39;</span><span class="p">,</span> <span class="s1">&#39;classification&#39;</span><span class="p">]]</span></div>
+                <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;fmq&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">fmq</span><span class="p">)]</span>
+
+        <span class="k">if</span> <span class="n">narrow_only</span><span class="p">:</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;classification&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Narrow&#39;</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">df</span></div>
 </div>
 
 

@@ -388,6 +388,9 @@ Attributes
    .. py:method:: load_fmq_default()
 
 
+   .. py:method:: load_fmq()
+
+
    .. py:method:: find_fmq_file(file_path='')
 
 
@@ -410,6 +413,19 @@ Attributes
       :rtype: list
 
       :raises AssertionError: If fmq is not a list.
+
+
+   .. py:method:: find_terms_given_fmq(fmq=[], ignore_case=False, narrow_only=True)
+
+      Find all terms related to an FMQ (FDA Medical Query) name or a list of FMQ names.
+
+      :param fmq: The name of the FMQ or a list of FMQ names.
+      :type fmq: str or list
+      :param ignore_case: Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.
+      :type ignore_case: bool, optional
+
+      :returns: A DataFrame containing the terms associated with the given FMQ(s).
+      :rtype: pandas.DataFrame
 
 
 
