@@ -630,6 +630,12 @@ class Emt:
             except pd.errors.EmptyDataError:
                 self.fmq_list_default = None
 
+    def load_fmq(self):
+        if self.fmq_list is None:
+            self.load_fmq_default()
+            self.fmq_list = self.fmq_list_default
+
+
     def find_fmq_file(self, file_path=""):
         if file_path=="": 
             self.load_fmq_default()
@@ -675,17 +681,44 @@ class Emt:
         Raises:
             AssertionError: If fmq is not a list.
         """
-        if self.fmq_list is None:
-            self.load_fmq_default()
-            self.fmq_list = self.fmq_list_default
+        self.load_fmq()
+        fmq = self.assert_terms(fmq)
+
         if len(fmq) == 0:
             return list(self.fmq_list['fmq'].unique())
         else:
             assert isinstance(fmq, list), "fmq should be a list"
-            if narrow_only:
-                return self.fmq_list[(self.fmq_list['fmq'].isin(fmq)) & (self.fmq_list['classification'] == 'Narrow')][['fmq', 'pt']]
+            return [e in self.fmq_list['fmq'] for e in fmq]
+
+    def find_terms_given_fmq(self, fmq=[], ignore_case=False, narrow_only=True):
+        """
+        Find all terms related to an FMQ (FDA Medical Query) name or a list of FMQ names.
+
+        Args:
+            fmq (str or list): The name of the FMQ or a list of FMQ names.
+            ignore_case (bool, optional): Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.
+
+        Returns:
+            pandas.DataFrame: A DataFrame containing the terms associated with the given FMQ(s). 
+        """
+        self.load_fmq()
+        fmq = self.assert_terms(fmq)
+        if len(fmq) == 0:
+            return pd.DataFrame()
+
+        df = self.fmq_list
+        df = df.drop('fmq_pt', axis=1)
+
+        if len(fmq) > 1:
+            if ignore_case:
+                df = df[df['fmq'].str.lower().isin([x.lower() for x in fmq])]
             else:
-                return self.fmq_list[self.fmq_list['fmq'].isin(fmq)][['fmq', 'pt', 'classification']]
+                df = df[df['fmq'].isin(fmq)]
+
+        if narrow_only:
+            df = df[df['classification'] == 'Narrow']
+
+        return df
 
 if __name__ == "__main__":
     #pass
