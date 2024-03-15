@@ -17,10 +17,10 @@ import csv
 import glob
 import os
 import re
+import numpy as np
 import pandas as pd
 from mtbp3.util.lsr import LsrTree
 import mtbp3
-import numpy as np
 
 
 class Emt:
@@ -61,6 +61,7 @@ class Emt:
         self.smq_list = None
         self.smq_content = None
         self.fmq_list = None
+        self.fmq_list_unique = None
         self.fmq_list_default = None
 
         meddra_release_file = os.path.join(self.folder_name, 'MedAscii', 'meddra_release.asc')
@@ -595,8 +596,6 @@ class Emt:
                     else:
                         break
             else:
-                print(smq_details['smq_algorithm'])
-
                 if 'Weight' in str(smq_details['smq_algorithm']):
                     keep_columns = ['term_id', 'term_level', 'term_status', 'term_category', 'term_weight']
                 else:
@@ -634,7 +633,6 @@ class Emt:
         if self.fmq_list is None:
             self.load_fmq_default()
             self.fmq_list = self.fmq_list_default
-
 
     def find_fmq_file(self, file_path=""):
         if file_path=="": 
@@ -688,7 +686,8 @@ class Emt:
             return list(self.fmq_list['fmq'].unique())
         else:
             assert isinstance(fmq, list), "fmq should be a list"
-            return [e in self.fmq_list['fmq'] for e in fmq]
+            tmp = self.fmq_list['fmq'].unique()
+            return [e in tmp for e in fmq]
 
     def find_terms_given_fmq(self, fmq=[], ignore_case=False, narrow_only=True):
         """
@@ -702,14 +701,16 @@ class Emt:
             pandas.DataFrame: A DataFrame containing the terms associated with the given FMQ(s). 
         """
         self.load_fmq()
-        fmq = self.assert_terms(fmq)
+        fmq0 = self.assert_terms(fmq)
+        fmq = list(set(fmq0))
+        
         if len(fmq) == 0:
             return pd.DataFrame()
 
         df = self.fmq_list
         df = df.drop('fmq_pt', axis=1)
 
-        if len(fmq) > 1:
+        if len(fmq) > 0:
             if ignore_case:
                 df = df[df['fmq'].str.lower().isin([x.lower() for x in fmq])]
             else:
@@ -717,10 +718,13 @@ class Emt:
 
         if narrow_only:
             df = df[df['classification'] == 'Narrow']
-
         return df
 
 if __name__ == "__main__":
     #pass
     emt = Emt(folder_name='')
-    emt.find_files()
+    emt.find_fmq_file(file_path="")
+    fmq_list = emt.find_fmq(fmq=[])
+    pt_list = emt.find_terms_given_fmq(fmq=[fmq_list[0]], narrow_only=False)
+    print(pt_list['classification'].value_counts())
+
