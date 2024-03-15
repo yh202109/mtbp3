@@ -50,7 +50,6 @@
 <li class="toctree-l1"><a class="reference internal" href="example_emt.html">MedDRA - Start with Distribution Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_emt2.html">MedDRA - work with SMQs</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">MedDRA - work with FMQs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#assign-meddra-distribution-folder">Assign MedDRA Distribution Folder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#assign-fmq-file-path">Assign FMQ File Path</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#find-terms-given-a-fmq">Find Terms Given a FMQ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
@@ -96,31 +95,15 @@ FMQ is available in public domain <a class="footnote-reference brackets" href="#
 The FMQ list shipped with this module is for demonstrating purpose.
 The author(s) can not provide warranty or promises for the correctness, completeness, or usability of the list.</p>
 <p>The module <code class="docutils literal notranslate"><span class="pre">emt</span></code> includes basic functions for working with FMQs.</p>
-<section id="assign-meddra-distribution-folder">
-<h2>Assign MedDRA Distribution Folder<a class="headerlink" href="#assign-meddra-distribution-folder" title="Link to this heading"></a></h2>
-<p>Please see more details <a href="example_emt.html">here</a>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mtbp3.util.emt</span> <span class="kn">import</span> <span class="n">Emt</span>
-
-<span class="n">emt</span> <span class="o">=</span> <span class="n">Emt</span><span class="p">(</span><span class="n">folder_name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">emt</span><span class="o">.</span><span class="n">find_files</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([], &#39;All files found. Version: 26.1; Year: 2023; Month: September; Language: English. N_SOC: 17.&#39;)
-</pre></div>
-</div>
-</div>
-</div>
-</section>
 <section id="assign-fmq-file-path">
 <h2>Assign FMQ File Path<a class="headerlink" href="#assign-fmq-file-path" title="Link to this heading"></a></h2>
 <p>To find FMQ list file:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">emt</span><span class="o">.</span><span class="n">find_fmq_file</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mtbp3.util.emt</span> <span class="kn">import</span> <span class="n">Emt</span>
+
+<span class="n">emt</span> <span class="o">=</span> <span class="n">Emt</span><span class="p">(</span><span class="n">folder_name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">emt</span><span class="o">.</span><span class="n">find_fmq_file</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -146,7 +129,7 @@ The author(s) can not provide warranty or promises for the correctness, complete
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[False, False, False, False]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[True, True, True, False]
 </pre></div>
 </div>
 </div>
@@ -167,8 +150,8 @@ Algorithm based FMQs may utilize additional data sources, including labs, concom
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>classification
-Narrow    7689
-Broad     4023
+Narrow    23
+Broad     20
 Name: count, dtype: int64
 </pre></div>
 </div>
