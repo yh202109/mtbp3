@@ -1,16 +1,15 @@
 # Changelog
 
 <!--next-version-placeholder-->
-## v0.1.47 (2024-03-10)
+## v0.1.49 (2024-03-21)
+
+- add emt fmq tree
+- add cdt show tree
+
+## v0.1.48 (2024-03-15)
 
 - add emt fmq functions
-
-## v0.1.46 (2024-03-10)
-
 - add emt smq to terms function
-
-## v0.1.45 (2024-03-04)
-
 - change emt none behavior
 - update emt example
 - add emt find_smq 
@@ -30,13 +29,7 @@
 ## v0.1.39 (2024-02-21)
 
 - update doc
-
-## v0.1.37 (2024-02-19)
-
 - update cdt, cdtg
-
-## v0.1.23 (2024-02-18)
-
 - update examples
 
 ## v0.1.22 (2024-02-18)
@@ -52,31 +45,7 @@
 
 - update cdtg
 
-## v0.1.14 (2024-02-09)
-
-- update cdtg
-
-## v0.1.13 (2024-02-08)
-
-- update cdtg
-
-## v0.1.12 (2024-02-08)
-
-- update cdtg
-
-## v0.1.11 (2024-02-08)
-
-- update cdtg
-
 ## v0.1.10 (2024-02-07)
-
-- update cdt
-
-## v0.1.9 (2024-02-07)
-
-- update cdt
-
-## v0.1.8 (2024-02-07)
 
 - update cdt
 

@@ -3,7 +3,7 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 import unittest
 import pandas as pd
-from mtbp3.util.emt import Emt
+from mtbp3.health.emt import Emt
 
 class TestEmt(unittest.TestCase):
 

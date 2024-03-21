@@ -21,7 +21,8 @@ import numpy as np
 import pandas as pd
 from mtbp3.util.lsr import LsrTree
 import mtbp3
-
+import networkx as nx
+import matplotlib.pyplot as plt
 
 class Emt:
     """A class representing MedDRA terms.
@@ -35,7 +36,6 @@ class Emt:
         month (str): The month of the version published.
         year (str): The year of the version published.
     """
-
 
     def __init__(self, folder_name=''):
         """
@@ -299,6 +299,7 @@ class Emt:
             return []
 
         len0 = len(input)
+
 
         if all(isinstance(element, int) or (element is None) or (element is np.nan) for element in input):
             out = [element if (range_8_int[0] <= element <= range_8_int[1]) else None for element in input]
@@ -702,10 +703,14 @@ class Emt:
         """
         self.load_fmq()
         fmq0 = self.assert_terms(fmq)
-        fmq = list(set(fmq0))
-        
-        if len(fmq) == 0:
+        if len(fmq0) == 0:
             return pd.DataFrame()
+        elif len(fmq0) == 1:
+            fmq = fmq0
+        elif len(fmq0) > 1:
+            fmq = list(set(fmq0))
+        else:
+            raise AssertionError("fmq0 should be a list")
 
         df = self.fmq_list
         df = df.drop('fmq_pt', axis=1)
@@ -720,11 +725,28 @@ class Emt:
             df = df[df['classification'] == 'Narrow']
         return df
 
+
+    def show_fmq_tree(self, fmq=[], with_soc=False):
+        pt_df = self.find_terms_given_fmq(fmq=fmq, narrow_only=False)
+
+        #list0a = pt_df['fmq'].unique().tolist()
+        #max_length = len(str(len(list0a)))
+        #list0b = [str(i).zfill(max_length) for i in range(1, len(list0a)+1)]
+        #list0 = [f"[FMQ{list0b[i]}]{list0a[i]}" for i in range(len(list0a))]
+
+        pt_df['ord0'] = pt_df.groupby('fmq')['fmq'].transform(lambda x: x.factorize()[0] + 1)
+        pt_df['ord2'] = pt_df.groupby(['fmq'])['pt'].transform(lambda x: x.factorize()[0] + 1)
+        pt_df['ord2'] = pt_df['ord2'].astype(str).str.zfill(len(str(pt_df['ord2'].max())))
+
+        list0 = [f"FMQ/{fmq}/" for fmq in pt_df['fmq'].unique().tolist()]
+        pt_df['fmq_class'] = 'FMQ/'+pt_df['fmq'] + '/[Classification]' + pt_df['classification'] + '/'
+        list1 = pt_df['fmq_class'].unique().tolist()
+        pt_df['fmq_class_pt'] = 'FMQ/'+pt_df['fmq'] + '/[Classification]' + pt_df['classification'] + '/[PT' + pt_df['ord2'] + ']' + pt_df['pt']
+        list2 = pt_df['fmq_class_pt'].unique().tolist()
+
+        return mtbp3.util.cdt.list_tree(lst = ['FMQ/']+list0+list1+list2)
+
+
 if __name__ == "__main__":
-    #pass
-    emt = Emt(folder_name='')
-    emt.find_fmq_file(file_path="")
-    fmq_list = emt.find_fmq(fmq=[])
-    pt_list = emt.find_terms_given_fmq(fmq=[fmq_list[0]], narrow_only=False)
-    print(pt_list['classification'].value_counts())
+    pass
 
