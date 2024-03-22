@@ -729,10 +729,6 @@ class Emt:
     def show_fmq_tree(self, fmq=[], with_soc=False, ignore_case=False):
         pt_df = self.find_terms_given_fmq(fmq=fmq, narrow_only=False)
 
-        pt_df['ord0'] = pt_df.groupby('fmq')['fmq'].transform(lambda x: x.factorize()[0] + 1)
-        pt_df['ord2'] = pt_df.groupby(['fmq'])['pt'].transform(lambda x: x.factorize()[0] + 1)
-        pt_df['ord2'] = pt_df['ord2'].astype(str).str.zfill(len(str(pt_df['ord2'].max())))
-
         if with_soc:
             if self.demo:
                 soc_list = self.find_soc()
@@ -744,6 +740,10 @@ class Emt:
                 soc_df = self.find_soc_given_pt(pt=pt_df['pt'], primary_only=True, ignore_case=ignore_case)
                 pt_df = pt_df.merge(soc_df[['pt','soc']], on='pt', how='left')
 
+            pt_df = pt_df.sort_values(by=['fmq', 'classification', 'soc'])
+            pt_df['ord2'] = pt_df.groupby(['fmq'])['pt'].transform(lambda x: x.factorize()[0] + 1)
+            pt_df['ord2'] = pt_df['ord2'].astype(str).str.zfill(len(str(pt_df['ord2'].max())))
+
             list0 = [f"FMQ/{fmq}/" for fmq in pt_df['fmq'].unique().tolist()]
             pt_df['fmq_class'] = 'FMQ/'+pt_df['fmq'] + '/[Classification]' + pt_df['classification'] + '/'
             list1 = pt_df['fmq_class'].unique().tolist()
@@ -753,6 +753,9 @@ class Emt:
             list2 = pt_df['fmq_class_soc_pt'].unique().tolist()
             return mtbp3.util.cdt.list_tree(lst = ['FMQ/']+list0+list1+lists+list2)
         else:
+            pt_df = pt_df.sort_values(by=['fmq', 'classification'])
+            pt_df['ord2'] = pt_df.groupby(['fmq'])['pt'].transform(lambda x: x.factorize()[0] + 1)
+            pt_df['ord2'] = pt_df['ord2'].astype(str).str.zfill(len(str(pt_df['ord2'].max())))
             list0 = [f"FMQ/{fmq}/" for fmq in pt_df['fmq'].unique().tolist()]
             pt_df['fmq_class'] = 'FMQ/'+pt_df['fmq'] + '/[Classification]' + pt_df['classification'] + '/'
             list1 = pt_df['fmq_class'].unique().tolist()
