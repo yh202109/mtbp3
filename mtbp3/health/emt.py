@@ -734,8 +734,7 @@ class Emt:
                 soc_list = self.find_soc()
                 pt_given_soc = self.find_pt_given_soc(soc=soc_list[:3], primary_soc_only=True)
                 pt_given_soc_sample = pt_given_soc.sample(n=len(pt_df), replace=True, axis=0)
-                pt_id = self.find_pt(pt_given_soc_sample['pt'], ignore_case=ignore_case)
-                soc_df = self.find_soc_given_pt(pt=pt_id, primary_only=True, ignore_case=ignore_case)
+                soc_df = self.find_soc_given_pt(pt=pt_given_soc_sample['pt_id'], primary_only=True, ignore_case=ignore_case)
                 pt_df['soc'] = soc_df['soc']
             else:
                 soc_df = self.find_soc_given_pt(pt=pt_df['pt'], primary_only=True, ignore_case=ignore_case)
@@ -766,6 +765,10 @@ class Emt:
 
 
 if __name__ == "__main__":
-    pass
+    emt = Emt()
+    print(emt.find_files())
+    print(emt.find_fmq_file(file_path=""))
+    fmq_list = emt.find_fmq()
+    emt.show_fmq_tree(fmq=fmq_list[:2], with_soc=True, ignore_case=False)
 
 
