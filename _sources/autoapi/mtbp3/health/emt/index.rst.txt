@@ -17,14 +17,6 @@ Classes
 
 
 
-Attributes
-~~~~~~~~~~
-
-.. autoapisummary::
-
-   mtbp3.health.emt.emt
-
-
 .. py:class:: Emt(folder_name='')
 
 
@@ -343,8 +335,4 @@ Attributes
    .. py:method:: show_fmq_tree(fmq=[], with_soc=False, ignore_case=False)
 
 
-
-.. py:data:: emt
-
-   
 
