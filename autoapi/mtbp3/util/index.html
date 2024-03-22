@@ -24,7 +24,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="mtbp3.util.cdt" href="cdt/index.html" />
-    <link rel="prev" title="mtbp3" href="../index.html" /> 
+    <link rel="prev" title="mtbp3.health.emt" href="../health/emt/index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -48,8 +48,9 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../example_emt.html">MedDRA - Start with Distribution Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../example_emt2.html">MedDRA - work with SMQs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../example_emt3.html">MedDRA - work with FMQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../example_emt2.html">MedDRA Query - SMQs by ICH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../example_emt3.html">MedDRA Query - FMQs by FDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../example_emt4.html">MedDRA query - MLGs by CIOMS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../example_cdtg.html">Graph - Categorical Plots Using catPlotter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../example_files.html">System - List Folder Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
@@ -58,6 +59,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mtbp3</span></code></a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../health/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mtbp3.health</span></code></a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mtbp3.util</span></code></a></li>
 </ul>
 </li>
@@ -102,7 +104,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="cdt/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mtbp3.util.cdt</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="cdtg/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mtbp3.util.cdtg</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="emt/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mtbp3.util.emt</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="lsr/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mtbp3.util.lsr</span></code></a></li>
 </ul>
 </div>
@@ -113,14 +114,8 @@
 <h3>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h3>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#id0" title="mtbp3.util.LsrTree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LsrTree</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mtbp3.util.LsrTree" title="mtbp3.util.LsrTree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LsrTree</span></code></a></p></td>
 <td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#id0" title="mtbp3.util.LsrTree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LsrTree</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mtbp3.util.Emt" title="mtbp3.util.Emt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Emt</span></code></a></p></td>
-<td><p>A class representing MedDRA terms.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#mtbp3.util.catPlotter" title="mtbp3.util.catPlotter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">catPlotter</span></code></a></p></td>
 <td><p>A class for creating categorical box plots and strip plots.</p></td>
@@ -141,14 +136,13 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#mtbp3.util.summarize_1nc_by_2group" title="mtbp3.util.summarize_1nc_by_2group"><code class="xref py py-obj docutils literal notranslate"><span class="pre">summarize_1nc_by_2group</span></code></a>([df, column, cutoff, ...])</p></td>
 <td><p>Create a summary dataframe that shows the percentage of NaN values and values less than a cutoff point in a numerical column.</p></td>
 </tr>
-</tbody>
-</table>
-</section>
-<section id="attributes">
-<h3>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h3>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mtbp3.util.emt" title="mtbp3.util.emt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">emt</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mtbp3.util.list_tree_df" title="mtbp3.util.list_tree_df"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list_tree_df</span></code></a>([lst])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mtbp3.util.list_tree_pre" title="mtbp3.util.list_tree_pre"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list_tree_pre</span></code></a>(lst)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mtbp3.util.list_tree" title="mtbp3.util.list_tree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list_tree</span></code></a>([lst, reverse])</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -248,593 +242,6 @@
 
 </dd></dl>
 
-<dl class="py class">
-<dt class="sig sig-object py" id="id0">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mtbp3.util.</span></span><span class="sig-name descname"><span class="pre">LsrTree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'list'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_counts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_file_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/lsr.html#LsrTree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
-<dd><dl class="py method">
-<dt class="sig sig-object py" id="id1">
-<span class="sig-name descname"><span class="pre">list_files</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/lsr.html#LsrTree.list_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id1" title="Link to this definition"></a></dt>
-<dd><p>List files in the specified directory based on the output format.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The list of files, JSON string, or DataFrame based on the output format.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>list or str or pd.DataFrame</p>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lsr</span> <span class="o">=</span> <span class="n">LsrTree</span><span class="p">(</span><span class="s2">&quot;/path/to/directory&quot;</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s2">&quot;list&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">lsr</span><span class="o">.</span><span class="n">list_files</span><span class="p">()</span>
-<span class="go">[&#39;file1.txt&#39;, &#39;file2.txt&#39;, &#39;file3.txt&#39;]</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="id2">
-<span class="sig-name descname"><span class="pre">list_files_json</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/lsr.html#LsrTree.list_files_json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id2" title="Link to this definition"></a></dt>
-<dd><p>List files in the specified directory and return the result as a JSON string.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The JSON string representing the file list.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="id3">
-<span class="sig-name descname"><span class="pre">list_files_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/lsr.html#LsrTree.list_files_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id3" title="Link to this definition"></a></dt>
-<dd><p>List files in the specified directory and return the result as a list.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The list of files.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>list</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="id4">
-<span class="sig-name descname"><span class="pre">list_files_dataframe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/lsr.html#LsrTree.list_files_dataframe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id4" title="Link to this definition"></a></dt>
-<dd><p>List files in the specified directory and return the result as a pandas DataFrame.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The DataFrame representing the file list.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>pd.DataFrame</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="id5">
-<span class="sig-name descname"><span class="pre">list_files_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/lsr.html#LsrTree.list_files_string"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id5" title="Link to this definition"></a></dt>
-<dd><p>List files in the specified directory using the default output format.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The file list as a string.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="id6">
-<span class="sig-name descname"><span class="pre">list_files_tree</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/lsr.html#LsrTree.list_files_tree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id6" title="Link to this definition"></a></dt>
-<dd><p>List files in the specified directory and return the result as a tree structure.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The tree structure representing the file list.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="mtbp3.util.Emt">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mtbp3.util.</span></span><span class="sig-name descname"><span class="pre">Emt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/emt.html#Emt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.Emt" title="Link to this definition"></a></dt>
-<dd><p>A class representing MedDRA terms.</p>
-<p>This class provides methods to interact with the Emt object,
-including listing files associated with the Emt.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="mtbp3.util.Emt.folder_name">
-<span class="sig-name descname"><span class="pre">folder_name</span></span><a class="headerlink" href="#mtbp3.util.Emt.folder_name" title="Link to this definition"></a></dt>
-<dd><p>The folder name associated with the Emt.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="mtbp3.util.Emt.lsr">
-<span class="sig-name descname"><span class="pre">lsr</span></span><a class="headerlink" href="#mtbp3.util.Emt.lsr" title="Link to this definition"></a></dt>
-<dd><p>An instance of the LsrTree class for listing files.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#id0" title="mtbp3.util.LsrTree">LsrTree</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="mtbp3.util.Emt.month">
-<span class="sig-name descname"><span class="pre">month</span></span><a class="headerlink" href="#mtbp3.util.Emt.month" title="Link to this definition"></a></dt>
-<dd><p>The month of the version published.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="mtbp3.util.Emt.year">
-<span class="sig-name descname"><span class="pre">year</span></span><a class="headerlink" href="#mtbp3.util.Emt.year" title="Link to this definition"></a></dt>
-<dd><p>The year of the version published.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mtbp3.util.Emt.expected_file_lists">
-<span class="sig-name descname"><span class="pre">expected_file_lists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/emt.html#Emt.expected_file_lists"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.Emt.expected_file_lists" title="Link to this definition"></a></dt>
-<dd><p>Get the three lists of files associated with the Emt.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>A tuple containing three lists of file names.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>tuple</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mtbp3.util.Emt.find_files">
-<span class="sig-name descname"><span class="pre">find_files</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/emt.html#Emt.find_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.Emt.find_files" title="Link to this definition"></a></dt>
-<dd><p>Find all expected files associated with the Emt.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>A list of missing file names.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>list</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mtbp3.util.Emt.load_llt">
-<span class="sig-name descname"><span class="pre">load_llt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unique</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/emt.html#Emt.load_llt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.Emt.load_llt" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mtbp3.util.Emt.list_files">
-<span class="sig-name descname"><span class="pre">list_files</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/emt.html#Emt.list_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.Emt.list_files" title="Link to this definition"></a></dt>
-<dd><p>List all files associated with the Emt.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>A list of file names.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>list</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mtbp3.util.Emt.find_soc">
-<span class="sig-name descname"><span class="pre">find_soc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">terms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_case</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/emt.html#Emt.find_soc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.Emt.find_soc" title="Link to this definition"></a></dt>
-<dd><p>Find all unique SOC (System Organ Class) terms.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>terms</strong> (<em>list</em><em>, </em><em>optional</em>) – The specific SOC name(s) to filter the results. Defaults to an empty list.</p></li>
-<li><p><strong>ignore_case</strong> (<em>bool</em><em>, </em><em>optional</em>) – Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A list of unique SOC terms. If terms is provided, it returns the corresponding ids.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list</p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>AssertionError</strong> – If terms is not a list.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mtbp3.util.Emt.find_hlgt">
-<span class="sig-name descname"><span class="pre">find_hlgt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">terms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_case</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/emt.html#Emt.find_hlgt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.Emt.find_hlgt" title="Link to this definition"></a></dt>
-<dd><p>Find all unique HLGT terms.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>terms</strong> (<em>list</em><em>, </em><em>optional</em>) – The specific HLGT name(s) to filter the results. Defaults to an empty list.</p></li>
-<li><p><strong>ignore_case</strong> (<em>bool</em><em>, </em><em>optional</em>) – Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A list of unique HLGT terms. If terms is provided, it returns the corresponding ids.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list</p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>AssertionError</strong> – If terms is not a list.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mtbp3.util.Emt.find_hlt">
-<span class="sig-name descname"><span class="pre">find_hlt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">terms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_case</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/emt.html#Emt.find_hlt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.Emt.find_hlt" title="Link to this definition"></a></dt>
-<dd><p>Find all unique HLT terms.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>terms</strong> (<em>list</em><em>, </em><em>optional</em>) – The specific HLT name(s) to filter the results. Defaults to an empty list.</p></li>
-<li><p><strong>ignore_case</strong> (<em>bool</em><em>, </em><em>optional</em>) – Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A list of unique HLT terms. If terms is provided, it returns the corresponding ids.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list</p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>AssertionError</strong> – If terms is not a list.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mtbp3.util.Emt.find_pt">
-<span class="sig-name descname"><span class="pre">find_pt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">terms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_case</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/emt.html#Emt.find_pt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.Emt.find_pt" title="Link to this definition"></a></dt>
-<dd><p>Find all unique PT terms.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>terms</strong> (<em>list</em><em>, </em><em>optional</em>) – The specific PT name(s) to filter the results. Defaults to an empty list.</p></li>
-<li><p><strong>ignore_case</strong> (<em>bool</em><em>, </em><em>optional</em>) – Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A list of unique PT terms. If terms is provided, it returns the corresponding ids.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list</p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>AssertionError</strong> – If terms is not a list.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mtbp3.util.Emt.find_llt">
-<span class="sig-name descname"><span class="pre">find_llt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">terms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_case</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">llt_current_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/emt.html#Emt.find_llt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.Emt.find_llt" title="Link to this definition"></a></dt>
-<dd><p>Find all unique LLT terms.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>terms</strong> (<em>list</em><em>, </em><em>optional</em>) – The specific LLT name(s) to filter the results. Defaults to an empty list.</p></li>
-<li><p><strong>ignore_case</strong> (<em>bool</em><em>, </em><em>optional</em>) – Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A list of unique LLT terms. If terms is provided, it returns the corresponding ids.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list</p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>AssertionError</strong> – If terms is not a list.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mtbp3.util.Emt.all_str_digit">
-<span class="sig-name descname"><span class="pre">all_str_digit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/emt.html#Emt.all_str_digit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.Emt.all_str_digit" title="Link to this definition"></a></dt>
-<dd><p>Check if all elements in a given list are strings containing only digits.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>fin</strong> (<em>list</em>) – The list to check.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>True if all elements in the list are strings containing only digits, False otherwise.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mtbp3.util.Emt.assert_terms">
-<span class="sig-name descname"><span class="pre">assert_terms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_none</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/emt.html#Emt.assert_terms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.Emt.assert_terms" title="Link to this definition"></a></dt>
-<dd><p>Assert that the input is either a string or a list.
-If the input is a string, it is converted to a length one list.
-All elements in the list are converted to strings and empty elements are removed.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>input</strong> (<em>str</em><em> or </em><em>list</em>) – The input to be validated.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The validated list.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list</p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>AssertionError</strong> – If the input is neither a string nor a list.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mtbp3.util.Emt.find_term_wi_level">
-<span class="sig-name descname"><span class="pre">find_term_wi_level</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">terms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_case</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">llt_current_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/emt.html#Emt.find_term_wi_level"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.Emt.find_term_wi_level" title="Link to this definition"></a></dt>
-<dd><p>Find all unique terms.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>terms</strong> (<em>list</em><em>, </em><em>optional</em>) – The specific SOC name(s) to filter the results. Defaults to an empty list.</p></li>
-<li><p><strong>ignore_case</strong> (<em>bool</em><em>, </em><em>optional</em>) – Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.</p></li>
-<li><p><strong>level</strong> (<em>int</em><em>, </em><em>optional</em>) – The level of the SOC hierarchy to consider. Defaults to 1.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A list of unique terms. If terms is provided, it returns the corresponding ids.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list</p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>AssertionError</strong> – If terms is not a list.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mtbp3.util.Emt.find_pt_given_soc">
-<span class="sig-name descname"><span class="pre">find_pt_given_soc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">soc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">primary_soc_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_case</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/emt.html#Emt.find_pt_given_soc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.Emt.find_pt_given_soc" title="Link to this definition"></a></dt>
-<dd><p>Find all PTs (Preferred Terms) given a SOC (System Organ Class) name.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>soc</strong> (<em>str</em><em> or </em><em>list</em>) – The name of the SOC or a list of SOC names.</p></li>
-<li><p><strong>primary_soc_only</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, only return PTs associated with the primary SOC.
-Defaults to False.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><dl class="simple">
-<dt>A DataFrame containing the PTs associated with the given SOC.</dt><dd><p>Each row represents a PT and contains the PT code and PT name.</p>
-</dd>
-</dl>
-</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>pandas.DataFrame</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mtbp3.util.Emt.find_llt_given_pt">
-<span class="sig-name descname"><span class="pre">find_llt_given_pt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_case</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">llt_current_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/emt.html#Emt.find_llt_given_pt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.Emt.find_llt_given_pt" title="Link to this definition"></a></dt>
-<dd><p>Find all LLTs (Lowest Level Terms) given a PT (Preferred Term) name or a list of PT names.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pt</strong> (<em>str</em><em> or </em><em>list</em>) – The name of the PT or a list of PT names.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><dl class="simple">
-<dt>A DataFrame containing the LLTs associated with the given PT(s).</dt><dd><p>Each row represents an LLT and contains the LLT code and LLT name.</p>
-</dd>
-</dl>
-</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>pandas.DataFrame</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mtbp3.util.Emt.find_llt_given_soc">
-<span class="sig-name descname"><span class="pre">find_llt_given_soc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">soc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">primary_soc_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_case</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">llt_current_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/emt.html#Emt.find_llt_given_soc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.Emt.find_llt_given_soc" title="Link to this definition"></a></dt>
-<dd><p>Find all LLTs (Lowest Level Terms) given a SOC (System Organ Class) name.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>soc_name</strong> (<em>str</em>) – The name of the SOC.</p></li>
-<li><p><strong>primary_soc_only</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, only return LLTs associated with the primary SOC.
-Defaults to False.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><dl class="simple">
-<dt>A DataFrame containing the LLTs associated with the given SOC.</dt><dd><p>Each row represents an LLT and contains the LLT code and LLT name.</p>
-</dd>
-</dl>
-</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>pandas.DataFrame</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mtbp3.util.Emt.find_soc_given_pt">
-<span class="sig-name descname"><span class="pre">find_soc_given_pt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">primary_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_case</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/emt.html#Emt.find_soc_given_pt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.Emt.find_soc_given_pt" title="Link to this definition"></a></dt>
-<dd><p>Find the SOC (System Organ Class) given a list of PT (Preferred Term) names.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pt</strong> (<em>list</em>) – A list of PT names.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The name of the primary SOC.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>AssertionError</strong> – If pt is not a list.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mtbp3.util.Emt.load_smq">
-<span class="sig-name descname"><span class="pre">load_smq</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/emt.html#Emt.load_smq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.Emt.load_smq" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mtbp3.util.Emt.find_smq">
-<span class="sig-name descname"><span class="pre">find_smq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">terms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_detail</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_case</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/emt.html#Emt.find_smq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.Emt.find_smq" title="Link to this definition"></a></dt>
-<dd><p>Find all unique SMQ (Standard MedDRA Queries) terms.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>terms</strong> (<em>list</em><em>, </em><em>optional</em>) – The specific SMQ name(s) to filter the results. Defaults to an empty list.</p></li>
-<li><p><strong>ignore_case</strong> (<em>bool</em><em>, </em><em>optional</em>) – Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A list of unique SMQ terms. If terms is provided, it returns the corresponding ids.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list</p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>AssertionError</strong> – If terms is not a list.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mtbp3.util.Emt.find_terms_given_smq">
-<span class="sig-name descname"><span class="pre">find_terms_given_smq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">smq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_case</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">active_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">narrow_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">llt_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">llt_current_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/emt.html#Emt.find_terms_given_smq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.Emt.find_terms_given_smq" title="Link to this definition"></a></dt>
-<dd><p>Find all terms related an SMQ (Standard MedDRA Query) name or a list of SMQ names.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>smq</strong> (<em>str</em><em> or </em><em>list</em>) – The name of the SMQ or a list of SMQ names.</p></li>
-<li><p><strong>ignore_case</strong> (<em>bool</em><em>, </em><em>optional</em>) – Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A DataFrame containing the terms associated with the given SMQ(s).</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>pandas.DataFrame</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mtbp3.util.Emt.find_terms_given_smq_sub">
-<span class="sig-name descname"><span class="pre">find_terms_given_smq_sub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subset_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_columns</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">llt_only</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">llt_current_only</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/emt.html#Emt.find_terms_given_smq_sub"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.Emt.find_terms_given_smq_sub" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mtbp3.util.Emt.load_fmq_default">
-<span class="sig-name descname"><span class="pre">load_fmq_default</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/emt.html#Emt.load_fmq_default"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.Emt.load_fmq_default" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mtbp3.util.Emt.load_fmq">
-<span class="sig-name descname"><span class="pre">load_fmq</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/emt.html#Emt.load_fmq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.Emt.load_fmq" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mtbp3.util.Emt.find_fmq_file">
-<span class="sig-name descname"><span class="pre">find_fmq_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/emt.html#Emt.find_fmq_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.Emt.find_fmq_file" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mtbp3.util.Emt.save_fmq_consolidated_list_csv">
-<span class="sig-name descname"><span class="pre">save_fmq_consolidated_list_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/emt.html#Emt.save_fmq_consolidated_list_csv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.Emt.save_fmq_consolidated_list_csv" title="Link to this definition"></a></dt>
-<dd><p>Save the CSV file in the specified folder.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>folder_path</strong> (<em>str</em>) – The path of the folder where the CSV file should be saved.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mtbp3.util.Emt.find_fmq">
-<span class="sig-name descname"><span class="pre">find_fmq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">narrow_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/emt.html#Emt.find_fmq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.Emt.find_fmq" title="Link to this definition"></a></dt>
-<dd><p>Find all unique FMQ (FDA Medical Queries) terms.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>fmq</strong> (<em>list</em><em>, </em><em>optional</em>) – The specific FMQ name(s) to filter the results. Defaults to an empty list.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A list of unique FMQ terms. If fmq is provided, it returns the corresponding ids.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list</p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>AssertionError</strong> – If fmq is not a list.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mtbp3.util.Emt.find_terms_given_fmq">
-<span class="sig-name descname"><span class="pre">find_terms_given_fmq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_case</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">narrow_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/emt.html#Emt.find_terms_given_fmq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.Emt.find_terms_given_fmq" title="Link to this definition"></a></dt>
-<dd><p>Find all terms related to an FMQ (FDA Medical Query) name or a list of FMQ names.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>fmq</strong> (<em>str</em><em> or </em><em>list</em>) – The name of the FMQ or a list of FMQ names.</p></li>
-<li><p><strong>ignore_case</strong> (<em>bool</em><em>, </em><em>optional</em>) – Flag to indicate whether to ignore case sensitivity when filtering terms. Defaults to False.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A DataFrame containing the terms associated with the given FMQ(s).</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>pandas.DataFrame</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py data">
-<dt class="sig sig-object py" id="mtbp3.util.emt">
-<span class="sig-prename descclassname"><span class="pre">mtbp3.util.</span></span><span class="sig-name descname"><span class="pre">emt</span></span><a class="headerlink" href="#mtbp3.util.emt" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
 <dl class="py function">
 <dt class="sig sig-object py" id="mtbp3.util.diff_2cols_in_1df">
 <span class="sig-prename descclassname"><span class="pre">mtbp3.util.</span></span><span class="sig-name descname"><span class="pre">diff_2cols_in_1df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ARM'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ACTARM'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_diff_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/cdt.html#diff_2cols_in_1df"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.diff_2cols_in_1df" title="Link to this definition"></a></dt>
@@ -912,6 +319,21 @@ If there is no difference between the two columns, the string “The two columns
 </dl>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="mtbp3.util.list_tree_df">
+<span class="sig-prename descclassname"><span class="pre">mtbp3.util.</span></span><span class="sig-name descname"><span class="pre">list_tree_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/cdt.html#list_tree_df"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.list_tree_df" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mtbp3.util.list_tree_pre">
+<span class="sig-prename descclassname"><span class="pre">mtbp3.util.</span></span><span class="sig-name descname"><span class="pre">list_tree_pre</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/cdt.html#list_tree_pre"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.list_tree_pre" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mtbp3.util.list_tree">
+<span class="sig-prename descclassname"><span class="pre">mtbp3.util.</span></span><span class="sig-name descname"><span class="pre">list_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/cdt.html#list_tree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.list_tree" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="mtbp3.util.catPlotter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mtbp3.util.</span></span><span class="sig-name descname"><span class="pre">catPlotter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_wrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pt_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_scale_base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_scale_base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_size_0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_size_1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'swarm'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_label_rotate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_kws</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/cdtg.html#catPlotter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.catPlotter" title="Link to this definition"></a></dt>
@@ -930,7 +352,7 @@ If there is no difference between the two columns, the string “The two columns
 - fig_size_1 (int, optional): The height of the figure. Default is 6.
 - grid_kws (dict, optional): Additional keyword arguments for the FacetGrid. Default is None.</p>
 <p>Methods:
-- update_parameters(<a href="#id7"><span class="problematic" id="id8">**</span></a>kwargs): Update the parameters of the catPlotter instance.
+- update_parameters(<a href="#id1"><span class="problematic" id="id2">**</span></a>kwargs): Update the parameters of the catPlotter instance.
 - boxplot(): Create a categorical box plot and strip plot.
 - lineplot(): Create a line plot by categorical group_col on the x-axis with grid option.
 - generate_example_dataset(): Generate an example dataset.</p>
@@ -986,7 +408,7 @@ If there is no difference between the two columns, the string “The two columns
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../index.html" class="btn btn-neutral float-left" title="mtbp3" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../health/emt/index.html" class="btn btn-neutral float-left" title="mtbp3.health.emt" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="cdt/index.html" class="btn btn-neutral float-right" title="mtbp3.util.cdt" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

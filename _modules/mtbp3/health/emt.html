@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mtbp3.util.emt &mdash; mtbp3  documentation</title>
+  <title>mtbp3.health.emt &mdash; mtbp3  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -45,8 +45,9 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../example_emt.html">MedDRA - Start with Distribution Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../example_emt2.html">MedDRA - work with SMQs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../example_emt3.html">MedDRA - work with FMQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../example_emt2.html">MedDRA Query - SMQs by ICH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../example_emt3.html">MedDRA Query - FMQs by FDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../example_emt4.html">MedDRA query - MLGs by CIOMS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../example_cdtg.html">Graph - Categorical Plots Using catPlotter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../example_files.html">System - List Folder Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
@@ -71,7 +72,7 @@
       <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
           <li class="breadcrumb-item"><a href="../../mtbp3.html">mtbp3</a></li>
-      <li class="breadcrumb-item active">mtbp3.util.emt</li>
+      <li class="breadcrumb-item active">mtbp3.health.emt</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -80,7 +81,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <h1>Source code for mtbp3.util.emt</h1><div class="highlight"><pre>
+  <h1>Source code for mtbp3.health.emt</h1><div class="highlight"><pre>
 <span></span><span class="c1">#  Copyright (C) 2023 Y Hsu &lt;yh202109@gmail.com&gt;</span>
 <span class="c1">#</span>
 <span class="c1">#  This program is free software: you can redistribute it and/or modify</span>
@@ -105,9 +106,8 @@
 <span class="kn">from</span> <span class="nn">mtbp3.util.lsr</span> <span class="kn">import</span> <span class="n">LsrTree</span>
 <span class="kn">import</span> <span class="nn">mtbp3</span>
 
-
 <div class="viewcode-block" id="Emt">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/health/index.html#mtbp3.health.emt.Emt">[docs]</a>
 <span class="k">class</span> <span class="nc">Emt</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A class representing MedDRA terms.</span>
 
@@ -121,7 +121,6 @@
 <span class="sd">        year (str): The year of the version published.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">folder_name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize a new Emt object.</span>
@@ -132,8 +131,10 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">folder_name</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">folder_name</span> <span class="o">=</span> <span class="n">folder_name</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">demo</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">folder_name</span> <span class="o">=</span> <span class="n">mtbp3</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s1">&#39;test_emt/MedDRA&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">demo</span> <span class="o">=</span> <span class="kc">True</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">version_number</span> <span class="o">=</span> <span class="s2">&quot;00.0&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">version_number_us</span> <span class="o">=</span> <span class="s2">&quot;00_0&quot;</span>
@@ -176,7 +177,7 @@
                     <span class="k">break</span>
 
 <div class="viewcode-block" id="Emt.expected_file_lists">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.expected_file_lists">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/health/index.html#mtbp3.health.emt.Emt.expected_file_lists">[docs]</a>
     <span class="k">def</span> <span class="nf">expected_file_lists</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the three lists of files associated with the Emt.</span>
@@ -209,7 +210,7 @@
 
 
 <div class="viewcode-block" id="Emt.find_files">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.find_files">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/health/index.html#mtbp3.health.emt.Emt.find_files">[docs]</a>
     <span class="k">def</span> <span class="nf">find_files</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Find all expected files associated with the Emt.</span>
@@ -237,7 +238,7 @@
 
 
 <div class="viewcode-block" id="Emt.load_llt">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.load_llt">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/health/index.html#mtbp3.health.emt.Emt.load_llt">[docs]</a>
     <span class="k">def</span> <span class="nf">load_llt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">llt</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">ids</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
@@ -249,7 +250,7 @@
 
 
 <div class="viewcode-block" id="Emt.list_files">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.list_files">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/health/index.html#mtbp3.health.emt.Emt.list_files">[docs]</a>
     <span class="k">def</span> <span class="nf">list_files</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List all files associated with the Emt.</span>
@@ -263,7 +264,7 @@
 
 
 <div class="viewcode-block" id="Emt.find_soc">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.find_soc">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/health/index.html#mtbp3.health.emt.Emt.find_soc">[docs]</a>
     <span class="k">def</span> <span class="nf">find_soc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">terms</span><span class="o">=</span><span class="p">[],</span> <span class="n">ignore_case</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            Find all unique SOC (System Organ Class) terms.</span>
@@ -282,7 +283,7 @@
 
 
 <div class="viewcode-block" id="Emt.find_hlgt">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.find_hlgt">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/health/index.html#mtbp3.health.emt.Emt.find_hlgt">[docs]</a>
     <span class="k">def</span> <span class="nf">find_hlgt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">terms</span><span class="o">=</span><span class="p">[],</span> <span class="n">ignore_case</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            Find all unique HLGT terms.</span>
@@ -301,7 +302,7 @@
 
 
 <div class="viewcode-block" id="Emt.find_hlt">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.find_hlt">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/health/index.html#mtbp3.health.emt.Emt.find_hlt">[docs]</a>
     <span class="k">def</span> <span class="nf">find_hlt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">terms</span><span class="o">=</span><span class="p">[],</span> <span class="n">ignore_case</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            Find all unique HLT terms.</span>
@@ -320,7 +321,7 @@
 
 
 <div class="viewcode-block" id="Emt.find_pt">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.find_pt">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/health/index.html#mtbp3.health.emt.Emt.find_pt">[docs]</a>
     <span class="k">def</span> <span class="nf">find_pt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">terms</span><span class="o">=</span><span class="p">[],</span> <span class="n">ignore_case</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            Find all unique PT terms.</span>
@@ -339,7 +340,7 @@
 
 
 <div class="viewcode-block" id="Emt.find_llt">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.find_llt">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/health/index.html#mtbp3.health.emt.Emt.find_llt">[docs]</a>
     <span class="k">def</span> <span class="nf">find_llt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">terms</span><span class="o">=</span><span class="p">[],</span> <span class="n">ignore_case</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">llt_current_only</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            Find all unique LLT terms.</span>
@@ -359,7 +360,7 @@
 
 
 <div class="viewcode-block" id="Emt.all_str_digit">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.all_str_digit">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/health/index.html#mtbp3.health.emt.Emt.all_str_digit">[docs]</a>
     <span class="k">def</span> <span class="nf">all_str_digit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lst</span><span class="o">=</span><span class="p">[]):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check if all elements in a given list are strings containing only digits.</span>
@@ -376,7 +377,7 @@
 
 
 <div class="viewcode-block" id="Emt.assert_terms">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.assert_terms">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/health/index.html#mtbp3.health.emt.Emt.assert_terms">[docs]</a>
     <span class="k">def</span> <span class="nf">assert_terms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">,</span> <span class="n">remove_none</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Assert that the input is either a string or a list.</span>
@@ -417,6 +418,7 @@
 
         <span class="n">len0</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
 
+
         <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">element</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">element</span> <span class="ow">is</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">):</span>
             <span class="n">out</span> <span class="o">=</span> <span class="p">[</span><span class="n">element</span> <span class="k">if</span> <span class="p">(</span><span class="n">range_8_int</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">element</span> <span class="o">&lt;=</span> <span class="n">range_8_int</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">else</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
@@ -432,7 +434,7 @@
 
 
 <div class="viewcode-block" id="Emt.find_term_wi_level">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.find_term_wi_level">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/health/index.html#mtbp3.health.emt.Emt.find_term_wi_level">[docs]</a>
     <span class="k">def</span> <span class="nf">find_term_wi_level</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">terms</span><span class="o">=</span><span class="p">[],</span> <span class="n">ignore_case</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">llt_current_only</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Find all unique terms.</span>
@@ -481,7 +483,7 @@
 
 
 <div class="viewcode-block" id="Emt.find_pt_given_soc">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.find_pt_given_soc">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/health/index.html#mtbp3.health.emt.Emt.find_pt_given_soc">[docs]</a>
     <span class="k">def</span> <span class="nf">find_pt_given_soc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">soc</span><span class="o">=</span><span class="p">[],</span> <span class="n">primary_soc_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ignore_case</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Find all PTs (Preferred Terms) given a SOC (System Organ Class) name.</span>
@@ -517,7 +519,7 @@
 
 
 <div class="viewcode-block" id="Emt.find_llt_given_pt">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.find_llt_given_pt">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/health/index.html#mtbp3.health.emt.Emt.find_llt_given_pt">[docs]</a>
     <span class="k">def</span> <span class="nf">find_llt_given_pt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pt</span><span class="o">=</span><span class="p">[],</span> <span class="n">ignore_case</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">llt_current_only</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Find all LLTs (Lowest Level Terms) given a PT (Preferred Term) name or a list of PT names.</span>
@@ -549,7 +551,7 @@
 
 
 <div class="viewcode-block" id="Emt.find_llt_given_soc">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.find_llt_given_soc">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/health/index.html#mtbp3.health.emt.Emt.find_llt_given_soc">[docs]</a>
     <span class="k">def</span> <span class="nf">find_llt_given_soc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">soc</span><span class="o">=</span><span class="p">[],</span> <span class="n">primary_soc_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ignore_case</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">llt_current_only</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Find all LLTs (Lowest Level Terms) given a SOC (System Organ Class) name.</span>
@@ -569,7 +571,7 @@
 
 
 <div class="viewcode-block" id="Emt.find_soc_given_pt">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.find_soc_given_pt">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/health/index.html#mtbp3.health.emt.Emt.find_soc_given_pt">[docs]</a>
     <span class="k">def</span> <span class="nf">find_soc_given_pt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pt</span><span class="o">=</span><span class="p">[],</span> <span class="n">primary_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ignore_case</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Find the SOC (System Organ Class) given a list of PT (Preferred Term) names.</span>
@@ -605,7 +607,7 @@
 
 
 <div class="viewcode-block" id="Emt.load_smq">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.load_smq">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/health/index.html#mtbp3.health.emt.Emt.load_smq">[docs]</a>
     <span class="k">def</span> <span class="nf">load_smq</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">smq_list</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
@@ -630,7 +632,7 @@
 
 
 <div class="viewcode-block" id="Emt.find_smq">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.find_smq">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/health/index.html#mtbp3.health.emt.Emt.find_smq">[docs]</a>
     <span class="k">def</span> <span class="nf">find_smq</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">terms</span><span class="o">=</span><span class="p">[],</span> <span class="n">with_detail</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ignore_case</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Find all unique SMQ (Standard MedDRA Queries) terms.</span>
@@ -677,7 +679,7 @@
 
 
 <div class="viewcode-block" id="Emt.find_terms_given_smq">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.find_terms_given_smq">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/health/index.html#mtbp3.health.emt.Emt.find_terms_given_smq">[docs]</a>
     <span class="k">def</span> <span class="nf">find_terms_given_smq</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">smq</span><span class="o">=</span><span class="p">[],</span> <span class="n">ignore_case</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">active_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">narrow_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">llt_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">llt_current_only</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Find all terms related an SMQ (Standard MedDRA Query) name or a list of SMQ names.</span>
@@ -746,7 +748,7 @@
 
 
 <div class="viewcode-block" id="Emt.find_terms_given_smq_sub">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.find_terms_given_smq_sub">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/health/index.html#mtbp3.health.emt.Emt.find_terms_given_smq_sub">[docs]</a>
     <span class="k">def</span> <span class="nf">find_terms_given_smq_sub</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subset_df</span><span class="p">,</span> <span class="n">keep_columns</span><span class="p">,</span> <span class="n">llt_only</span><span class="p">,</span> <span class="n">llt_current_only</span><span class="p">):</span>
         <span class="n">llt_df</span> <span class="o">=</span> <span class="n">subset_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">subset_df</span><span class="p">[</span><span class="s1">&#39;term_level&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;llt&#39;</span><span class="p">,</span> <span class="n">keep_columns</span><span class="p">]</span>
         <span class="n">llt_df</span><span class="p">[</span><span class="s1">&#39;term&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_llt</span><span class="p">(</span><span class="n">llt_df</span><span class="p">[</span><span class="s1">&#39;term_id&#39;</span><span class="p">])</span>
@@ -765,7 +767,7 @@
 
 
 <div class="viewcode-block" id="Emt.load_fmq_default">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.load_fmq_default">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/health/index.html#mtbp3.health.emt.Emt.load_fmq_default">[docs]</a>
     <span class="k">def</span> <span class="nf">load_fmq_default</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmq_list_default</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
@@ -778,7 +780,7 @@
 
 
 <div class="viewcode-block" id="Emt.load_fmq">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.load_fmq">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/health/index.html#mtbp3.health.emt.Emt.load_fmq">[docs]</a>
     <span class="k">def</span> <span class="nf">load_fmq</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmq_list</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">load_fmq_default</span><span class="p">()</span>
@@ -786,7 +788,7 @@
 
 
 <div class="viewcode-block" id="Emt.find_fmq_file">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.find_fmq_file">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/health/index.html#mtbp3.health.emt.Emt.find_fmq_file">[docs]</a>
     <span class="k">def</span> <span class="nf">find_fmq_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">file_path</span><span class="o">==</span><span class="s2">&quot;&quot;</span><span class="p">:</span> 
             <span class="bp">self</span><span class="o">.</span><span class="n">load_fmq_default</span><span class="p">()</span>
@@ -806,7 +808,7 @@
 
 
 <div class="viewcode-block" id="Emt.save_fmq_consolidated_list_csv">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.save_fmq_consolidated_list_csv">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/health/index.html#mtbp3.health.emt.Emt.save_fmq_consolidated_list_csv">[docs]</a>
     <span class="k">def</span> <span class="nf">save_fmq_consolidated_list_csv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">folder_path</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Save the CSV file in the specified folder.</span>
@@ -824,7 +826,7 @@
 
 
 <div class="viewcode-block" id="Emt.find_fmq">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.find_fmq">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/health/index.html#mtbp3.health.emt.Emt.find_fmq">[docs]</a>
     <span class="k">def</span> <span class="nf">find_fmq</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fmq</span><span class="o">=</span><span class="p">[],</span> <span class="n">narrow_only</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Find all unique FMQ (FDA Medical Queries) terms.</span>
@@ -850,7 +852,7 @@
 
 
 <div class="viewcode-block" id="Emt.find_terms_given_fmq">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.Emt.find_terms_given_fmq">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/health/index.html#mtbp3.health.emt.Emt.find_terms_given_fmq">[docs]</a>
     <span class="k">def</span> <span class="nf">find_terms_given_fmq</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fmq</span><span class="o">=</span><span class="p">[],</span> <span class="n">ignore_case</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">narrow_only</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Find all terms related to an FMQ (FDA Medical Query) name or a list of FMQ names.</span>
@@ -864,10 +866,14 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">load_fmq</span><span class="p">()</span>
         <span class="n">fmq0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">assert_terms</span><span class="p">(</span><span class="n">fmq</span><span class="p">)</span>
-        <span class="n">fmq</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">fmq0</span><span class="p">))</span>
-        
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">fmq</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">fmq0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">fmq0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">fmq</span> <span class="o">=</span> <span class="n">fmq0</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">fmq0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">fmq</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">fmq0</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;fmq0 should be a list&quot;</span><span class="p">)</span>
 
         <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmq_list</span>
         <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;fmq_pt&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -881,16 +887,51 @@
         <span class="k">if</span> <span class="n">narrow_only</span><span class="p">:</span>
             <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;classification&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Narrow&#39;</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">df</span></div>
+
+
+
+<div class="viewcode-block" id="Emt.show_fmq_tree">
+<a class="viewcode-back" href="../../../autoapi/mtbp3/health/index.html#mtbp3.health.emt.Emt.show_fmq_tree">[docs]</a>
+    <span class="k">def</span> <span class="nf">show_fmq_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fmq</span><span class="o">=</span><span class="p">[],</span> <span class="n">with_soc</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ignore_case</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="n">pt_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_terms_given_fmq</span><span class="p">(</span><span class="n">fmq</span><span class="o">=</span><span class="n">fmq</span><span class="p">,</span> <span class="n">narrow_only</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;ord0&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pt_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;fmq&#39;</span><span class="p">)[</span><span class="s1">&#39;fmq&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">factorize</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;ord2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pt_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;fmq&#39;</span><span class="p">])[</span><span class="s1">&#39;pt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">factorize</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;ord2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;ord2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;ord2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())))</span>
+
+        <span class="k">if</span> <span class="n">with_soc</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">demo</span><span class="p">:</span>
+                <span class="n">soc_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_soc</span><span class="p">()</span>
+                <span class="n">pt_given_soc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_pt_given_soc</span><span class="p">(</span><span class="n">soc</span><span class="o">=</span><span class="n">soc_list</span><span class="p">[:</span><span class="mi">3</span><span class="p">],</span> <span class="n">primary_soc_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="n">pt_given_soc_sample</span> <span class="o">=</span> <span class="n">pt_given_soc</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">pt_df</span><span class="p">),</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="n">soc_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_soc_given_pt</span><span class="p">(</span><span class="n">pt</span><span class="o">=</span><span class="n">pt_given_soc_sample</span><span class="p">[</span><span class="s1">&#39;pt&#39;</span><span class="p">],</span> <span class="n">primary_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ignore_case</span><span class="o">=</span><span class="n">ignore_case</span><span class="p">)</span>
+                <span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;soc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">soc_df</span><span class="p">[</span><span class="s1">&#39;soc&#39;</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">soc_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_soc_given_pt</span><span class="p">(</span><span class="n">pt</span><span class="o">=</span><span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;pt&#39;</span><span class="p">],</span> <span class="n">primary_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ignore_case</span><span class="o">=</span><span class="n">ignore_case</span><span class="p">)</span>
+                <span class="n">pt_df</span> <span class="o">=</span> <span class="n">pt_df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">soc_df</span><span class="p">[[</span><span class="s1">&#39;pt&#39;</span><span class="p">,</span><span class="s1">&#39;soc&#39;</span><span class="p">]],</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;pt&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+
+            <span class="n">list0</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;FMQ/</span><span class="si">{</span><span class="n">fmq</span><span class="si">}</span><span class="s2">/&quot;</span> <span class="k">for</span> <span class="n">fmq</span> <span class="ow">in</span> <span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;fmq&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()]</span>
+            <span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;fmq_class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;FMQ/&#39;</span><span class="o">+</span><span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;fmq&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/[Classification]&#39;</span> <span class="o">+</span> <span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;classification&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span>
+            <span class="n">list1</span> <span class="o">=</span> <span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;fmq_class&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+            <span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;fmq_class_soc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;FMQ/&#39;</span><span class="o">+</span><span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;fmq&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/[Classification]&#39;</span> <span class="o">+</span> <span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;classification&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/[SOC]&#39;</span> <span class="o">+</span> <span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;soc&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span>
+            <span class="n">lists</span> <span class="o">=</span> <span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;fmq_class_soc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+            <span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;fmq_class_soc_pt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;FMQ/&#39;</span><span class="o">+</span><span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;fmq&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/[Classification]&#39;</span> <span class="o">+</span> <span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;classification&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/[SOC]&#39;</span> <span class="o">+</span> <span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;soc&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/[PT&#39;</span> <span class="o">+</span> <span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;ord2&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span> <span class="o">+</span> <span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;pt&#39;</span><span class="p">]</span>
+            <span class="n">list2</span> <span class="o">=</span> <span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;fmq_class_soc_pt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">mtbp3</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">cdt</span><span class="o">.</span><span class="n">list_tree</span><span class="p">(</span><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;FMQ/&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">list0</span><span class="o">+</span><span class="n">list1</span><span class="o">+</span><span class="n">lists</span><span class="o">+</span><span class="n">list2</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">list0</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;FMQ/</span><span class="si">{</span><span class="n">fmq</span><span class="si">}</span><span class="s2">/&quot;</span> <span class="k">for</span> <span class="n">fmq</span> <span class="ow">in</span> <span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;fmq&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()]</span>
+            <span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;fmq_class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;FMQ/&#39;</span><span class="o">+</span><span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;fmq&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/[Classification]&#39;</span> <span class="o">+</span> <span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;classification&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span>
+            <span class="n">list1</span> <span class="o">=</span> <span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;fmq_class&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+            <span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;fmq_class_pt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;FMQ/&#39;</span><span class="o">+</span><span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;fmq&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/[Classification]&#39;</span> <span class="o">+</span> <span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;classification&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/[PT&#39;</span> <span class="o">+</span> <span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;ord2&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span> <span class="o">+</span> <span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;pt&#39;</span><span class="p">]</span>
+            <span class="n">list2</span> <span class="o">=</span> <span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;fmq_class_pt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">mtbp3</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">cdt</span><span class="o">.</span><span class="n">list_tree</span><span class="p">(</span><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;FMQ/&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">list0</span><span class="o">+</span><span class="n">list1</span><span class="o">+</span><span class="n">list2</span><span class="p">)</span></div>
 </div>
 
 
+
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="c1">#pass</span>
-    <span class="n">emt</span> <span class="o">=</span> <span class="n">Emt</span><span class="p">(</span><span class="n">folder_name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-    <span class="n">emt</span><span class="o">.</span><span class="n">find_fmq_file</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-    <span class="n">fmq_list</span> <span class="o">=</span> <span class="n">emt</span><span class="o">.</span><span class="n">find_fmq</span><span class="p">(</span><span class="n">fmq</span><span class="o">=</span><span class="p">[])</span>
-    <span class="n">pt_list</span> <span class="o">=</span> <span class="n">emt</span><span class="o">.</span><span class="n">find_terms_given_fmq</span><span class="p">(</span><span class="n">fmq</span><span class="o">=</span><span class="p">[</span><span class="n">fmq_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">narrow_only</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">pt_list</span><span class="p">[</span><span class="s1">&#39;classification&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+    <span class="k">pass</span>
+
 
 </pre></div>
 

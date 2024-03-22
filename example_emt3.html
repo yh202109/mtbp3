@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MedDRA - work with FMQs &mdash; mtbp3  documentation</title>
+  <title>MedDRA Query - FMQs by FDA &mdash; mtbp3  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -23,8 +23,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Graph - Categorical Plots Using catPlotter" href="example_cdtg.html" />
-    <link rel="prev" title="MedDRA - work with SMQs" href="example_emt2.html" /> 
+    <link rel="next" title="MedDRA query - MLGs by CIOMS" href="example_emt4.html" />
+    <link rel="prev" title="MedDRA Query - SMQs by ICH" href="example_emt2.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -48,13 +48,15 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="example_emt.html">MedDRA - Start with Distribution Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_emt2.html">MedDRA - work with SMQs</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">MedDRA - work with FMQs</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="example_emt2.html">MedDRA Query - SMQs by ICH</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MedDRA Query - FMQs by FDA</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#assign-fmq-file-path">Assign FMQ File Path</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#find-terms-given-a-fmq">Find Terms Given a FMQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#save-demo-fmq-list-to-local">Save Demo FMQ List to Local</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="example_emt4.html">MedDRA query - MLGs by CIOMS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_cdtg.html">Graph - Categorical Plots Using catPlotter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_files.html">System - List Folder Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
@@ -77,7 +79,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">MedDRA - work with FMQs</li>
+      <li class="breadcrumb-item active">MedDRA Query - FMQs by FDA</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/example_emt3.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -87,8 +89,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="meddra-work-with-fmqs">
-<h1>MedDRA - work with FMQs<a class="headerlink" href="#meddra-work-with-fmqs" title="Link to this heading"></a></h1>
+  <section id="meddra-query-fmqs-by-fda">
+<h1>MedDRA Query - FMQs by FDA<a class="headerlink" href="#meddra-query-fmqs-by-fda" title="Link to this heading"></a></h1>
 <p>The Medical Dictionary for Regulatory Activities (MedDRA) is a set of standardized terminologies commonly used in clinical safety recording, communicating, and reporting activities.  MedDRA is developed and maintained by the International Council for Harmonisation of Technical Requirements for Pharmaceuticals for Human Use (ICH)<a class="footnote-reference brackets" href="#id6" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a><sup>,</sup><a class="footnote-reference brackets" href="#id7" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
 <p>The FDA Medical Queries (FMQs) are groups of MedDRA terms used to describe conditions of interest published by FDA for the goal of improving transparency.
 FMQ is available in public domain <a class="footnote-reference brackets" href="#id8" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a><sup>,</sup><a class="footnote-reference brackets" href="#id9" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a><sup>,</sup><a class="footnote-reference brackets" href="#id10" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>. A consolidated list of FMQ is shipped with this module.
@@ -100,7 +102,7 @@ The author(s) can not provide warranty or promises for the correctness, complete
 <p>To find FMQ list file:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mtbp3.util.emt</span> <span class="kn">import</span> <span class="n">Emt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mtbp3.health.emt</span> <span class="kn">import</span> <span class="n">Emt</span>
 
 <span class="n">emt</span> <span class="o">=</span> <span class="n">Emt</span><span class="p">(</span><span class="n">folder_name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">emt</span><span class="o">.</span><span class="n">find_fmq_file</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">))</span>
@@ -137,7 +139,8 @@ The author(s) can not provide warranty or promises for the correctness, complete
 </section>
 <section id="find-terms-given-a-fmq">
 <h2>Find Terms Given a FMQ<a class="headerlink" href="#find-terms-given-a-fmq" title="Link to this heading"></a></h2>
-<p>There are currently 104 FMQs There are 8,839 PTs are utilized to define to either broad or narrow scope of FMQs.
+<p>There are currently 104 FMQs.
+There are 8,839 PTs are utilized to define to either broad or narrow scope of FMQs.
 Note that 4 of 104 FMQs are algorithm based.
 Algorithm based FMQs may utilize additional data sources, including labs, concomitant medication records, patient histories, etc.</p>
 <p>To find a list of PT related to the first FMQ on the list:</p>
@@ -157,6 +160,42 @@ Name: count, dtype: int64
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## FMQ Tree</span>
+
+<span class="n">To</span> <span class="nb">list</span> <span class="n">PT</span> <span class="n">under</span> <span class="n">selected</span> <span class="n">FMQs</span> <span class="n">by</span> <span class="n">classification</span><span class="p">:</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+    <span class="n">To</span> <span class="nb">list</span> <span class="n">PT</span> <span class="n">under</span> <span class="n">selected</span> <span class="n">FMQs</span> <span class="n">by</span> <span class="n">classification</span><span class="p">:</span>
+       <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">emt</span><span class="o">.</span><span class="n">show_fmq_tree</span><span class="p">(</span><span class="n">fmq_list</span><span class="p">[:</span><span class="mi">2</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">To</span> <span class="nb">list</span> <span class="n">PT</span> <span class="n">under</span> <span class="n">selected</span> <span class="n">FMQs</span> <span class="n">by</span> <span class="n">classification</span> <span class="ow">and</span> <span class="n">SOC</span><span class="p">:</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="save-demo-fmq-list-to-local">
+<h2>Save Demo FMQ List to Local<a class="headerlink" href="#save-demo-fmq-list-to-local" title="Link to this heading"></a></h2>
+<p>The FMQ list shipped with this module is for demonstrating purpose.
+The author(s) can not provide warranty or promises for the correctness, completeness, or usability of the list.</p>
 <p>To save the FMQ list shipped with this module to a local folder in CSV format:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -198,8 +237,8 @@ Name: count, dtype: int64
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="example_emt2.html" class="btn btn-neutral float-left" title="MedDRA - work with SMQs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="example_cdtg.html" class="btn btn-neutral float-right" title="Graph - Categorical Plots Using catPlotter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="example_emt2.html" class="btn btn-neutral float-left" title="MedDRA Query - SMQs by ICH" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="example_emt4.html" class="btn btn-neutral float-right" title="MedDRA query - MLGs by CIOMS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

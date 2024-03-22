@@ -4,7 +4,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "# MedDRA - work with FMQs\n",
+    "# MedDRA Query - FMQs by FDA\n",
     "\n",
     "The Medical Dictionary for Regulatory Activities (MedDRA) is a set of standardized terminologies commonly used in clinical safety recording, communicating, and reporting activities.  MedDRA is developed and maintained by the International Council for Harmonisation of Technical Requirements for Pharmaceuticals for Human Use (ICH)[^1]<sup>,</sup>[^2]. \n",
     "\n",
@@ -35,7 +35,7 @@
    },
    "outputs": [],
    "source": [
-    "from mtbp3.util.emt import Emt\n",
+    "from mtbp3.health.emt import Emt\n",
     "\n",
     "emt = Emt(folder_name='')\n",
     "print(emt.find_fmq_file(file_path=\"\"))"
@@ -87,7 +87,8 @@
    "source": [
     "## Find Terms Given a FMQ\n",
     "\n",
-    "There are currently 104 FMQs There are 8,839 PTs are utilized to define to either broad or narrow scope of FMQs.\n",
+    "There are currently 104 FMQs.\n",
+    "There are 8,839 PTs are utilized to define to either broad or narrow scope of FMQs.\n",
     "Note that 4 of 104 FMQs are algorithm based. \n",
     "Algorithm based FMQs may utilize additional data sources, including labs, concomitant medication records, patient histories, etc.\n"
    ]
@@ -114,9 +115,55 @@
    ]
   },
   {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "vscode": {
+     "languageId": "plaintext"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "## FMQ Tree\n",
+    "\n",
+    "To list PT under selected FMQs by classification:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "vscode": {
+     "languageId": "plaintext"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "print('\\n'.join(emt.show_fmq_tree(fmq_list[:2])))\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "vscode": {
+     "languageId": "plaintext"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "To list PT under selected FMQs by classification and SOC:"
+   ]
+  },
+  {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
+    "## Save Demo FMQ List to Local\n",
+    "\n",
+    "The FMQ list shipped with this module is for demonstrating purpose. \n",
+    "The author(s) can not provide warranty or promises for the correctness, completeness, or usability of the list.\n",
+    "\n",
     "To save the FMQ list shipped with this module to a local folder in CSV format:"
    ]
   },

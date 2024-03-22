@@ -1,7 +1,7 @@
-:py:mod:`mtbp3.util.emt`
-========================
+:py:mod:`mtbp3.health.emt`
+==========================
 
-.. py:module:: mtbp3.util.emt
+.. py:module:: mtbp3.health.emt
 
 
 Module Contents
@@ -12,17 +12,9 @@ Classes
 
 .. autoapisummary::
 
-   mtbp3.util.emt.Emt
+   mtbp3.health.emt.Emt
 
 
-
-
-Attributes
-~~~~~~~~~~
-
-.. autoapisummary::
-
-   mtbp3.util.emt.emt
 
 
 .. py:class:: Emt(folder_name='')
@@ -340,8 +332,7 @@ Attributes
       :rtype: pandas.DataFrame
 
 
+   .. py:method:: show_fmq_tree(fmq=[], with_soc=False, ignore_case=False)
 
-.. py:data:: emt
 
-   
 

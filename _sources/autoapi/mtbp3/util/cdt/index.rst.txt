@@ -16,6 +16,9 @@ Functions
    mtbp3.util.cdt.diff_2cols_in_1df
    mtbp3.util.cdt.diff_2cols_in_2df
    mtbp3.util.cdt.summarize_1nc_by_2group
+   mtbp3.util.cdt.list_tree_df
+   mtbp3.util.cdt.list_tree_pre
+   mtbp3.util.cdt.list_tree
 
 
 
@@ -77,5 +80,14 @@ Functions
    :raises ValueError: If the input is not a DataFrame or if the column is not a string or does not exist in the DataFrame.
    :raises ValueError: If the group_col0 or group_col1 is not a string or does not exist in the DataFrame.
    :raises ValueError: If the column is not a numerical column.
+
+
+.. py:function:: list_tree_df(lst=[])
+
+
+.. py:function:: list_tree_pre(lst)
+
+
+.. py:function:: list_tree(lst=[], reverse=False)
 
 
