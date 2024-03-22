@@ -21,8 +21,6 @@ import numpy as np
 import pandas as pd
 from mtbp3.util.lsr import LsrTree
 import mtbp3
-import networkx as nx
-import matplotlib.pyplot as plt
 
 class Emt:
     """A class representing MedDRA terms.
@@ -728,7 +726,7 @@ class Emt:
         return df
 
 
-    def show_fmq_tree(self, fmq=[], with_soc=False):
+    def show_fmq_tree(self, fmq=[], with_soc=False, ignore_case=False):
         pt_df = self.find_terms_given_fmq(fmq=fmq, narrow_only=False)
 
         pt_df['ord0'] = pt_df.groupby('fmq')['fmq'].transform(lambda x: x.factorize()[0] + 1)
@@ -740,10 +738,10 @@ class Emt:
                 soc_list = self.find_soc()
                 pt_given_soc = self.find_pt_given_soc(soc=soc_list[:3], primary_soc_only=True)
                 pt_given_soc_sample = pt_given_soc.sample(n=len(pt_df), replace=True)
-                soc_df = self.find_soc_given_pt(pt=pt_given_soc_sample['pt'], primary_only=True)
+                soc_df = self.find_soc_given_pt(pt=pt_given_soc_sample['pt'], primary_only=True, ignore_case=ignore_case)
                 pt_df['soc'] = soc_df['soc']
             else:
-                soc_df = self.find_soc_given_pt(pt=pt_df['pt'], primary_only=True)
+                soc_df = self.find_soc_given_pt(pt=pt_df['pt'], primary_only=True, ignore_case=ignore_case)
                 pt_df = pt_df.merge(soc_df[['pt','soc']], on='pt', how='left')
 
             list0 = [f"FMQ/{fmq}/" for fmq in pt_df['fmq'].unique().tolist()]
