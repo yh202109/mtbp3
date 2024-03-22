@@ -17,6 +17,14 @@ Classes
 
 
 
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   mtbp3.health.emt.emt
+
+
 .. py:class:: Emt(folder_name='')
 
 
@@ -332,7 +340,11 @@ Classes
       :rtype: pandas.DataFrame
 
 
-   .. py:method:: show_fmq_tree(fmq=[], with_soc=False, ignore_case=False)
+   .. py:method:: show_fmq_tree(fmq=[], with_soc=False, ignore_case=False, to_right=False)
 
 
+
+.. py:data:: emt
+
+   
 

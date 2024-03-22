@@ -178,10 +178,10 @@ Attributes
 .. py:function:: list_tree_df(lst=[])
 
 
-.. py:function:: list_tree_pre(lst)
+.. py:function:: list_tree_pre(lst, to_right=False)
 
 
-.. py:function:: list_tree(lst=[], reverse=False)
+.. py:function:: list_tree(lst=[], to_right=False)
 
 
 .. py:class:: catPlotter(df, y_col, group_col=None, grid_col=None, grid_wrap=None, x_col=None, pt_size=5, y_scale_base=0, x_scale_base=0, title='', fig_size_0=7, fig_size_1=6, point_position='swarm', x_label_rotate=None, grid_kws=None)

@@ -85,9 +85,9 @@ Functions
 .. py:function:: list_tree_df(lst=[])
 
 
-.. py:function:: list_tree_pre(lst)
+.. py:function:: list_tree_pre(lst, to_right=False)
 
 
-.. py:function:: list_tree(lst=[], reverse=False)
+.. py:function:: list_tree(lst=[], to_right=False)
 
 
