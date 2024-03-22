@@ -179,7 +179,7 @@ class Emt:
             Raises:
                 AssertionError: If terms is not a list.
             """
-            return self.find_term_wi_level(terms, ignore_case, level=1)
+            return self.find_term_wi_level(terms, ignore_case=ignore_case, level=1)
 
     def find_hlgt(self, terms=[], ignore_case=False):
             """
@@ -195,7 +195,7 @@ class Emt:
             Raises:
                 AssertionError: If terms is not a list.
             """
-            return self.find_term_wi_level(terms, ignore_case, level=2)
+            return self.find_term_wi_level(terms, ignore_case=ignore_case, level=2)
 
     def find_hlt(self, terms=[], ignore_case=False):
             """
@@ -211,7 +211,7 @@ class Emt:
             Raises:
                 AssertionError: If terms is not a list.
             """
-            return self.find_term_wi_level(terms, ignore_case, level=3)
+            return self.find_term_wi_level(terms, ignore_case=ignore_case, level=3)
 
     def find_pt(self, terms=[], ignore_case=False):
             """
@@ -227,7 +227,7 @@ class Emt:
             Raises:
                 AssertionError: If terms is not a list.
             """
-            return self.find_term_wi_level(terms, ignore_case, level=4)
+            return self.find_term_wi_level(terms, ignore_case=ignore_case, level=4)
 
     def find_llt(self, terms=[], ignore_case=False, llt_current_only=True):
             """
@@ -353,7 +353,9 @@ class Emt:
             else:
                 terms_df = pd.DataFrame(terms)
                 if ignore_case:
-                    out = pd.merge(terms_df, subset, left_on=terms_df[0].str.lower(), right_on=subset[id1].str.lower(), how='left', sort=False)[id0].tolist()
+                    terms_df['lower0'] = terms_df[0].str.lower()
+                    subset['lowerid1'] = subset[id1].str.lower()
+                    out = pd.merge(terms_df, subset, left_on='lower0', right_on='lowerid1', how='left', sort=False)[id0].tolist()
                 else:
                     out = pd.merge(terms_df, subset, left_on=0, right_on=id1, how='left', sort=False)[id0].tolist()
         else:
@@ -765,10 +767,11 @@ class Emt:
 
 
 if __name__ == "__main__":
-    emt = Emt()
-    print(emt.find_files())
-    print(emt.find_fmq_file(file_path=""))
-    fmq_list = emt.find_fmq()
-    emt.show_fmq_tree(fmq=fmq_list[:2], with_soc=True, ignore_case=False)
+    pass
+    #emt = Emt()
+    #print(emt.find_files())
+    #print(emt.find_fmq_file(file_path=""))
+    #fmq_list = emt.find_fmq()
+    #emt.show_fmq_tree(fmq=fmq_list[:2], with_soc=True, ignore_case=True)
 
 
