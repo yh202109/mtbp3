@@ -106,12 +106,14 @@ The author(s) can not provide warranty or promises for the correctness, complete
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mtbp3.health.emt</span> <span class="kn">import</span> <span class="n">Emt</span>
 
 <span class="n">emt</span> <span class="o">=</span> <span class="n">Emt</span><span class="p">(</span><span class="n">folder_name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">emt</span><span class="o">.</span><span class="n">find_files</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">emt</span><span class="o">.</span><span class="n">find_fmq_file</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Default FMQ table found. Table size: (11712, 4)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([], &#39;All files found. Version: 26.1; Year: 2023; Month: September; Language: English. N_SOC: 17.&#39;)
+Default FMQ table found. Table size: (11712, 4)
 </pre></div>
 </div>
 </div>
@@ -263,35 +265,80 @@ Name: count, dtype: int64
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/indexes/base.py:3805,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3804</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3805</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3806</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+
+<span class="nn">File index.pyx:167,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">File index.pyx:196,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">File pandas/_libs/hashtable_class_helper.pxi:7081,</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+
+<span class="nn">File pandas/_libs/hashtable_class_helper.pxi:7089,</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+
+<span class="ne">KeyError</span>: 0
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">emt</span><span class="o">.</span><span class="n">show_fmq_tree</span><span class="p">(</span><span class="n">fmq_list</span><span class="p">[:</span><span class="mi">2</span><span class="p">],</span> <span class="n">with_soc</span><span class="o">=</span><span class="kc">True</span><span class="p">)))</span>
 
-<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/health/emt.py:734,</span> in <span class="ni">Emt.show_fmq_tree</span><span class="nt">(self, fmq, with_soc, ignore_case)</span>
-<span class="g g-Whitespace">    </span><span class="mi">732</span> <span class="k">if</span> <span class="n">with_soc</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">733</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">demo</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">734</span>         <span class="n">soc_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_soc</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">735</span>         <span class="n">pt_given_soc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_pt_given_soc</span><span class="p">(</span><span class="n">soc</span><span class="o">=</span><span class="n">soc_list</span><span class="p">[:</span><span class="mi">3</span><span class="p">],</span> <span class="n">primary_soc_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">736</span>         <span class="n">pt_given_soc_sample</span> <span class="o">=</span> <span class="n">pt_given_soc</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">pt_df</span><span class="p">),</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/health/emt.py:737,</span> in <span class="ni">Emt.show_fmq_tree</span><span class="nt">(self, fmq, with_soc, ignore_case)</span>
+<span class="g g-Whitespace">    </span><span class="mi">735</span>     <span class="n">pt_given_soc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_pt_given_soc</span><span class="p">(</span><span class="n">soc</span><span class="o">=</span><span class="n">soc_list</span><span class="p">[:</span><span class="mi">3</span><span class="p">],</span> <span class="n">primary_soc_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">736</span>     <span class="n">pt_given_soc_sample</span> <span class="o">=</span> <span class="n">pt_given_soc</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">pt_df</span><span class="p">),</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">737</span>     <span class="n">soc_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_soc_given_pt</span><span class="p">(</span><span class="n">pt</span><span class="o">=</span><span class="n">pt_given_soc_sample</span><span class="p">[</span><span class="s1">&#39;pt&#39;</span><span class="p">],</span> <span class="n">primary_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ignore_case</span><span class="o">=</span><span class="n">ignore_case</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">738</span>     <span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;soc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">soc_df</span><span class="p">[</span><span class="s1">&#39;soc&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">739</span> <span class="k">else</span><span class="p">:</span>
 
-<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/health/emt.py:182,</span> in <span class="ni">Emt.find_soc</span><span class="nt">(self, terms, ignore_case)</span>
-<span class="g g-Whitespace">    </span><span class="mi">168</span> <span class="k">def</span> <span class="nf">find_soc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">terms</span><span class="o">=</span><span class="p">[],</span> <span class="n">ignore_case</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">169</span><span class="w">         </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">170</span><span class="sd">         Find all unique SOC (System Organ Class) terms.</span>
-<span class="g g-Whitespace">    </span><span class="mi">171</span><span class="sd"> </span>
+<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/health/emt.py:461,</span> in <span class="ni">Emt.find_soc_given_pt</span><span class="nt">(self, pt, primary_only, ignore_case)</span>
+<span class="g g-Whitespace">    </span><span class="mi">459</span>     <span class="n">pt_id</span> <span class="o">=</span> <span class="n">pt</span>
+<span class="g g-Whitespace">    </span><span class="mi">460</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">461</span>     <span class="n">pt_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_pt</span><span class="p">(</span><span class="n">pt</span><span class="p">,</span> <span class="n">ignore_case</span><span class="o">=</span><span class="n">ignore_case</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">463</span> <span class="n">pt_soc</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">]]</span>
+<span class="g g-Whitespace">    </span><span class="mi">464</span> <span class="n">pt_soc</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;pt_id&#39;</span><span class="p">,</span> <span class="s1">&#39;pt&#39;</span><span class="p">,</span> <span class="s1">&#39;soc_id&#39;</span><span class="p">,</span><span class="s1">&#39;soc&#39;</span><span class="p">,</span><span class="s1">&#39;primary&#39;</span><span class="p">]</span>
+
+<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/health/emt.py:230,</span> in <span class="ni">Emt.find_pt</span><span class="nt">(self, terms, ignore_case)</span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span> <span class="k">def</span> <span class="nf">find_pt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">terms</span><span class="o">=</span><span class="p">[],</span> <span class="n">ignore_case</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">217</span><span class="w">         </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">218</span><span class="sd">         Find all unique PT terms.</span>
+<span class="g g-Whitespace">    </span><span class="mi">219</span><span class="sd"> </span>
 <span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">180</span><span class="sd">             AssertionError: If terms is not a list.</span>
-<span class="g g-Whitespace">    </span><span class="mi">181</span><span class="sd">         &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">182</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_term_wi_level</span><span class="p">(</span><span class="n">terms</span><span class="p">,</span> <span class="n">ignore_case</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">228</span><span class="sd">             AssertionError: If terms is not a list.</span>
+<span class="g g-Whitespace">    </span><span class="mi">229</span><span class="sd">         &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">230</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_term_wi_level</span><span class="p">(</span><span class="n">terms</span><span class="p">,</span> <span class="n">ignore_case</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 
-<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/health/emt.py:338,</span> in <span class="ni">Emt.find_term_wi_level</span><span class="nt">(self, terms, ignore_case, level, llt_current_only)</span>
-<span class="g g-Whitespace">    </span><span class="mi">336</span>     <span class="n">id0</span> <span class="o">=</span> <span class="mi">4</span><span class="o">-</span><span class="n">level</span> 
-<span class="g g-Whitespace">    </span><span class="mi">337</span>     <span class="n">id1</span> <span class="o">=</span> <span class="mi">8</span><span class="o">-</span><span class="n">level</span>
-<span class="ne">--&gt; </span><span class="mi">338</span>     <span class="n">subset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mdhier</span><span class="p">[[</span><span class="n">id0</span><span class="p">,</span> <span class="n">id1</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">339</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">340</span>     <span class="n">id0</span> <span class="o">=</span> <span class="mi">0</span> 
+<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/health/emt.py:358,</span> in <span class="ni">Emt.find_term_wi_level</span><span class="nt">(self, terms, ignore_case, level, llt_current_only)</span>
+<span class="g g-Whitespace">    </span><span class="mi">356</span>             <span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">terms_df</span><span class="p">,</span> <span class="n">subset</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="n">terms_df</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="n">right_on</span><span class="o">=</span><span class="n">subset</span><span class="p">[</span><span class="n">id1</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="n">id0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">357</span>         <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">358</span>             <span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">terms_df</span><span class="p">,</span> <span class="n">subset</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="n">id1</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="n">id0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">359</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">360</span>     <span class="n">out</span> <span class="o">=</span> <span class="n">subset</span><span class="p">[</span><span class="n">id1</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 
-<span class="ne">TypeError</span>: &#39;NoneType&#39; object is not subscriptable
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/frame.py:4090,</span> in <span class="ni">DataFrame.__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4088</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">nlevels</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">4089</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_multilevel</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">4090</span> <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4091</span> <span class="k">if</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">indexer</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">4092</span>     <span class="n">indexer</span> <span class="o">=</span> <span class="p">[</span><span class="n">indexer</span><span class="p">]</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/indexes/base.py:3812,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3807</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">casted_key</span><span class="p">,</span> <span class="nb">slice</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">3808</span>         <span class="nb">isinstance</span><span class="p">(</span><span class="n">casted_key</span><span class="p">,</span> <span class="n">abc</span><span class="o">.</span><span class="n">Iterable</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3809</span>         <span class="ow">and</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">slice</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3810</span>     <span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">3811</span>         <span class="k">raise</span> <span class="n">InvalidIndexError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">3812</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
+<span class="g g-Whitespace">   </span><span class="mi">3813</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3814</span>     <span class="c1"># If we have a listlike key, _check_indexing_error will raise</span>
+<span class="g g-Whitespace">   </span><span class="mi">3815</span>     <span class="c1">#  InvalidIndexError. Otherwise we fall through and re-raise</span>
+<span class="g g-Whitespace">   </span><span class="mi">3816</span>     <span class="c1">#  the TypeError.</span>
+<span class="g g-Whitespace">   </span><span class="mi">3817</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_check_indexing_error</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+<span class="ne">KeyError</span>: 0
 </pre></div>
 </div>
 </div>

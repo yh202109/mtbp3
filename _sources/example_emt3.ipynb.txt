@@ -38,6 +38,7 @@
     "from mtbp3.health.emt import Emt\n",
     "\n",
     "emt = Emt(folder_name='')\n",
+    "print(emt.find_files())\n",
     "print(emt.find_fmq_file(file_path=\"\"))"
    ]
   },
