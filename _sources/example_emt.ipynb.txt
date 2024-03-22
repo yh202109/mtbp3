@@ -36,7 +36,7 @@
             "metadata": {},
             "outputs": [],
             "source": [
-                "from mtbp3.util.emt import Emt\n",
+                "from mtbp3.health.emt import Emt\n",
                 "\n",
                 "emt = Emt(folder_name='')\n",
                 "print(emt.find_files())"
