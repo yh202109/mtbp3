@@ -15,15 +15,39 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-## FMQ Tree
+print('\n'.join(emt.show_fmq_tree(fmq_list[:2], with_soc=True)))
 
-To list PT under selected FMQs by classification:
 ------------------
 
 
-[0;36m  Cell [0;32mIn[5], line 3[0;36m[0m
-[0;31m    To list PT under selected FMQs by classification:[0m
-[0m       ^[0m
-[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[6], line 1[0m
+[0;32m----> 1[0m [38;5;28mprint[39m([38;5;124m'[39m[38;5;130;01m\n[39;00m[38;5;124m'[39m[38;5;241m.[39mjoin([43memt[49m[38;5;241;43m.[39;49m[43mshow_fmq_tree[49m[43m([49m[43mfmq_list[49m[43m[[49m[43m:[49m[38;5;241;43m2[39;49m[43m][49m[43m,[49m[43m [49m[43mwith_soc[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m)[49m))
 
+File [0;32m~/work/mtbp3/mtbp3/mtbp3/health/emt.py:738[0m, in [0;36mEmt.show_fmq_tree[0;34m(self, fmq, with_soc, ignore_case)[0m
+[1;32m    736[0m [38;5;28;01mif[39;00m with_soc:
+[1;32m    737[0m     [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39mdemo:
+[0;32m--> 738[0m         soc_list [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mfind_soc[49m[43m([49m[43m)[49m
+[1;32m    739[0m         pt_given_soc [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mfind_pt_given_soc(soc[38;5;241m=[39msoc_list[:[38;5;241m3[39m], primary_soc_only[38;5;241m=[39m[38;5;28;01mTrue[39;00m)
+[1;32m    740[0m         pt_given_soc_sample [38;5;241m=[39m pt_given_soc[38;5;241m.[39msample(n[38;5;241m=[39m[38;5;28mlen[39m(pt_df), replace[38;5;241m=[39m[38;5;28;01mTrue[39;00m)
+
+File [0;32m~/work/mtbp3/mtbp3/mtbp3/health/emt.py:182[0m, in [0;36mEmt.find_soc[0;34m(self, terms, ignore_case)[0m
+[1;32m    168[0m [38;5;28;01mdef[39;00m [38;5;21mfind_soc[39m([38;5;28mself[39m, terms[38;5;241m=[39m[], ignore_case[38;5;241m=[39m[38;5;28;01mFalse[39;00m):
+[1;32m    169[0m [38;5;250m        [39m[38;5;124;03m"""[39;00m
+[1;32m    170[0m [38;5;124;03m        Find all unique SOC (System Organ Class) terms.[39;00m
+[1;32m    171[0m 
+[0;32m   (...)[0m
+[1;32m    180[0m [38;5;124;03m            AssertionError: If terms is not a list.[39;00m
+[1;32m    181[0m [38;5;124;03m        """[39;00m
+[0;32m--> 182[0m         [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mfind_term_wi_level[49m[43m([49m[43mterms[49m[43m,[49m[43m [49m[43mignore_case[49m[43m,[49m[43m [49m[43mlevel[49m[38;5;241;43m=[39;49m[38;5;241;43m1[39;49m[43m)[49m
+
+File [0;32m~/work/mtbp3/mtbp3/mtbp3/health/emt.py:338[0m, in [0;36mEmt.find_term_wi_level[0;34m(self, terms, ignore_case, level, llt_current_only)[0m
+[1;32m    336[0m     id0 [38;5;241m=[39m [38;5;241m4[39m[38;5;241m-[39mlevel 
+[1;32m    337[0m     id1 [38;5;241m=[39m [38;5;241m8[39m[38;5;241m-[39mlevel
+[0;32m--> 338[0m     subset [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mmdhier[49m[43m[[49m[43m[[49m[43mid0[49m[43m,[49m[43m [49m[43mid1[49m[43m][49m[43m][49m[38;5;241m.[39mdrop_duplicates()[38;5;241m.[39mreset_index(drop[38;5;241m=[39m[38;5;28;01mTrue[39;00m)
+[1;32m    339[0m [38;5;28;01melse[39;00m:
+[1;32m    340[0m     id0 [38;5;241m=[39m [38;5;241m0[39m 
+
+[0;31mTypeError[0m: 'NoneType' object is not subscriptable
 

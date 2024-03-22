@@ -115,14 +115,12 @@
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": null,
+   "cell_type": "markdown",
    "metadata": {
     "vscode": {
      "languageId": "plaintext"
     }
    },
-   "outputs": [],
    "source": [
     "## FMQ Tree\n",
     "\n",
@@ -143,6 +141,13 @@
    ]
   },
   {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "To list PT under selected FMQs by classification and SOC:"
+   ]
+  },
+  {
    "cell_type": "code",
    "execution_count": null,
    "metadata": {
@@ -152,7 +157,14 @@
    },
    "outputs": [],
    "source": [
-    "To list PT under selected FMQs by classification and SOC:"
+    "print('\\n'.join(emt.show_fmq_tree(fmq_list[:2], with_soc=True)))\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Note that when the simulated distribution files were used, the function generate random SOC for demonstration purpose. When a MedDRA folder is assigned, the function will search for SOCs matches PTs."
    ]
   },
   {
