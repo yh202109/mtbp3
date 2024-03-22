@@ -733,8 +733,9 @@ class Emt:
             if self.demo:
                 soc_list = self.find_soc()
                 pt_given_soc = self.find_pt_given_soc(soc=soc_list[:3], primary_soc_only=True)
-                pt_given_soc_sample = pt_given_soc.sample(n=len(pt_df), replace=True)
-                soc_df = self.find_soc_given_pt(pt=pt_given_soc_sample['pt'], primary_only=True, ignore_case=ignore_case)
+                pt_given_soc_sample = pt_given_soc.sample(n=len(pt_df), replace=True, axis=0)
+                pt_id = self.find_pt(pt_given_soc_sample['pt'], ignore_case=ignore_case)
+                soc_df = self.find_soc_given_pt(pt=pt_id, primary_only=True, ignore_case=ignore_case)
                 pt_df['soc'] = soc_df['soc']
             else:
                 soc_df = self.find_soc_given_pt(pt=pt_df['pt'], primary_only=True, ignore_case=ignore_case)
