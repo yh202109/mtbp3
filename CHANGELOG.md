@@ -1,8 +1,11 @@
 # Changelog
 
 <!--next-version-placeholder-->
-## v0.1.49 (2024-03-21)
+## v0.1.50 (2024-03-21)
 
+- update examples
+- fix bug in cdt
+- add right alignment tree
 - add emt fmq tree
 - add cdt show tree
 
