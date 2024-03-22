@@ -264,74 +264,96 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/indexes/base.py:3805,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3804</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">3805</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3806</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-
-<span class="nn">File index.pyx:167,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
-
-<span class="nn">File index.pyx:196,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
-
-<span class="nn">File pandas/_libs/hashtable_class_helper.pxi:7081,</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
-
-<span class="nn">File pandas/_libs/hashtable_class_helper.pxi:7089,</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
-
-<span class="ne">KeyError</span>: 0
-
-<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
-
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">emt</span><span class="o">.</span><span class="n">show_fmq_tree</span><span class="p">(</span><span class="n">fmq_list</span><span class="p">[:</span><span class="mi">2</span><span class="p">],</span> <span class="n">with_soc</span><span class="o">=</span><span class="kc">True</span><span class="p">)))</span>
-
-<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/health/emt.py:737,</span> in <span class="ni">Emt.show_fmq_tree</span><span class="nt">(self, fmq, with_soc, ignore_case)</span>
-<span class="g g-Whitespace">    </span><span class="mi">735</span> <span class="n">pt_given_soc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_pt_given_soc</span><span class="p">(</span><span class="n">soc</span><span class="o">=</span><span class="n">soc_list</span><span class="p">[:</span><span class="mi">3</span><span class="p">],</span> <span class="n">primary_soc_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">736</span> <span class="n">pt_given_soc_sample</span> <span class="o">=</span> <span class="n">pt_given_soc</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">pt_df</span><span class="p">),</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">737</span> <span class="n">pt_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_pt</span><span class="p">(</span><span class="n">pt_given_soc_sample</span><span class="p">[</span><span class="s1">&#39;pt&#39;</span><span class="p">],</span> <span class="n">ignore_case</span><span class="o">=</span><span class="n">ignore_case</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">738</span> <span class="n">soc_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_soc_given_pt</span><span class="p">(</span><span class="n">pt</span><span class="o">=</span><span class="n">pt_id</span><span class="p">,</span> <span class="n">primary_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ignore_case</span><span class="o">=</span><span class="n">ignore_case</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">739</span> <span class="n">pt_df</span><span class="p">[</span><span class="s1">&#39;soc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">soc_df</span><span class="p">[</span><span class="s1">&#39;soc&#39;</span><span class="p">]</span>
-
-<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/health/emt.py:230,</span> in <span class="ni">Emt.find_pt</span><span class="nt">(self, terms, ignore_case)</span>
-<span class="g g-Whitespace">    </span><span class="mi">216</span> <span class="k">def</span> <span class="nf">find_pt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">terms</span><span class="o">=</span><span class="p">[],</span> <span class="n">ignore_case</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">217</span><span class="w">         </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">218</span><span class="sd">         Find all unique PT terms.</span>
-<span class="g g-Whitespace">    </span><span class="mi">219</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">228</span><span class="sd">             AssertionError: If terms is not a list.</span>
-<span class="g g-Whitespace">    </span><span class="mi">229</span><span class="sd">         &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">230</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_term_wi_level</span><span class="p">(</span><span class="n">terms</span><span class="p">,</span> <span class="n">ignore_case</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-
-<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/health/emt.py:358,</span> in <span class="ni">Emt.find_term_wi_level</span><span class="nt">(self, terms, ignore_case, level, llt_current_only)</span>
-<span class="g g-Whitespace">    </span><span class="mi">356</span>             <span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">terms_df</span><span class="p">,</span> <span class="n">subset</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="n">terms_df</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="n">right_on</span><span class="o">=</span><span class="n">subset</span><span class="p">[</span><span class="n">id1</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="n">id0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">357</span>         <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">358</span>             <span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">terms_df</span><span class="p">,</span> <span class="n">subset</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="n">id1</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="n">id0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">359</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">360</span>     <span class="n">out</span> <span class="o">=</span> <span class="n">subset</span><span class="p">[</span><span class="n">id1</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-
-<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/frame.py:4090,</span> in <span class="ni">DataFrame.__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4088</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">nlevels</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">4089</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_multilevel</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">4090</span> <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4091</span> <span class="k">if</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">indexer</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">4092</span>     <span class="n">indexer</span> <span class="o">=</span> <span class="p">[</span><span class="n">indexer</span><span class="p">]</span>
-
-<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/indexes/base.py:3812,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3807</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">casted_key</span><span class="p">,</span> <span class="nb">slice</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">3808</span>         <span class="nb">isinstance</span><span class="p">(</span><span class="n">casted_key</span><span class="p">,</span> <span class="n">abc</span><span class="o">.</span><span class="n">Iterable</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3809</span>         <span class="ow">and</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">slice</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">casted_key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3810</span>     <span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">3811</span>         <span class="k">raise</span> <span class="n">InvalidIndexError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">3812</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
-<span class="g g-Whitespace">   </span><span class="mi">3813</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">3814</span>     <span class="c1"># If we have a listlike key, _check_indexing_error will raise</span>
-<span class="g g-Whitespace">   </span><span class="mi">3815</span>     <span class="c1">#  InvalidIndexError. Otherwise we fall through and re-raise</span>
-<span class="g g-Whitespace">   </span><span class="mi">3816</span>     <span class="c1">#  the TypeError.</span>
-<span class="g g-Whitespace">   </span><span class="mi">3817</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_check_indexing_error</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-
-<span class="ne">KeyError</span>: 0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    FMQ:
+    ├── Abdominal Pain:
+    │   ├── [Classification]Broad:
+    │   │   ├── [SOC]soc214dfxgAelhGHfEFFkgrAsFYzZBAFs:
+    │   │   │   ├── [PT01]Carnett&#39;s sign positive
+    │   │   │   ├── [PT02]Gastroenteritis escherichia coli
+    │   │   │   ├── [PT03]CRIA syndrome
+    │   │   │   ├── [PT04]Bauhin&#39;s valve syndrome
+    │   │   │   └── [PT05]Peritoneoplasty
+    │   │   ├── [SOC]soc360phgmkaCxrALPg:
+    │   │   │   ├── [PT06]Gastroenterostomy
+    │   │   │   ├── [PT07]Helicobacter duodenal ulcer
+    │   │   │   ├── [PT08]Large intestine infection
+    │   │   │   ├── [PT09]Peptic ulcer
+    │   │   │   └── [PT10]Yao syndrome
+    │   │   └── [SOC]soc972ZiuFsAfKKVWFbSZdYcgUoCiSTyEYKu:
+    │   │       ├── [PT11]Complicated appendicitis
+    │   │       ├── [PT12]Gastric irritation
+    │   │       ├── [PT13]Gastritis erosive
+    │   │       ├── [PT14]Gastroenteritis Escherichia coli
+    │   │       ├── [PT15]Gastro-enterostomy
+    │   │       ├── [PT16]Haemorrhagic erosive gastritis
+    │   │       ├── [PT17]Infantile colic
+    │   │       ├── [PT18]Ulcerative duodenitis
+    │   │       ├── [PT19]Visceral pain
+    │   │       └── [PT20]Segmental arterial mediolysis
+    │   └── [Classification]Narrow:
+    │       ├── [SOC]soc214dfxgAelhGHfEFFkgrAsFYzZBAFs:
+    │       │   ├── [PT21]Abdominal pain aggravated
+    │       │   ├── [PT22]Abdominal pain lower
+    │       │   ├── [PT23]Abdominal pain NOS
+    │       │   ├── [PT24]Abdominal pain upper
+    │       │   ├── [PT25]Abdominal rigidity
+    │       │   ├── [PT26]Abdominal tenderness
+    │       │   ├── [PT27]Enteric neuropathy
+    │       │   ├── [PT28]Gastrointestinal pain
+    │       │   ├── [PT29]Gastrointestinal pain NOS
+    │       │   ├── [PT30]Spleen pain
+    │       │   └── [PT31]Ilioinguinal neuralgia
+    │       ├── [SOC]soc360phgmkaCxrALPg:
+    │       │   ├── [PT32]Abdominal discomfort
+    │       │   ├── [PT33]Abdominal pain
+    │       │   ├── [PT34]Acute abdomen
+    │       │   ├── [PT35]Epigastric discomfort
+    │       │   ├── [PT36]Gastrointestinal discomfort
+    │       │   └── [PT37]Intestinal spasm
+    │       └── [SOC]soc972ZiuFsAfKKVWFbSZdYcgUoCiSTyEYKu:
+    │           ├── [PT38]Abdominal migraine
+    │           ├── [PT39]Abdominal rebound tenderness
+    │           ├── [PT40]Gastrointestinal upset
+    │           ├── [PT41]Perihepatic discomfort
+    │           ├── [PT42]Stomach discomfort
+    │           └── [PT43]Ulcer type pain
+    └── Abnormal Uterine Bleeding:
+        ├── [Classification]Broad:
+        │   ├── [SOC]soc214dfxgAelhGHfEFFkgrAsFYzZBAFs:
+        │   │   ├── [PT01]Bleeding anovulatory
+        │   │   └── [PT02]Menstrual disorder
+        │   ├── [SOC]soc360phgmkaCxrALPg:
+        │   │   ├── [PT03]Dysmenorrhoea
+        │   │   ├── [PT04]Follicle-stimulating hormone deficiency
+        │   │   ├── [PT05]Follicle stimulating hormone deficiency
+        │   │   └── [PT06]Uterine dehiscence
+        │   └── [SOC]soc972ZiuFsAfKKVWFbSZdYcgUoCiSTyEYKu:
+        │       ├── [PT07]Anovulatory cycle
+        │       ├── [PT08]Dysmenorrhea
+        │       └── [PT09]Ovarian dysfunction
+        └── [Classification]Narrow:
+            ├── [SOC]soc214dfxgAelhGHfEFFkgrAsFYzZBAFs:
+            │   ├── [PT10]Abnormal uterine bleeding
+            │   ├── [PT11]Heavy menstrual bleeding
+            │   ├── [PT12]Metrorrhagia
+            │   ├── [PT13]Polymenorrhoea
+            │   └── [PT14]Uterine haemorrhage
+            ├── [SOC]soc360phgmkaCxrALPg:
+            │   ├── [PT15]Cervix haemorrhage uterine
+            │   ├── [PT16]Menorrhagia
+            │   ├── [PT17]Menstruation delayed
+            │   ├── [PT18]Oligomenorrhoea
+            │   ├── [PT19]Postmenopausal haemorrhage
+            │   ├── [PT20]Uterine rupture
+            │   └── [PT21]Vaginal haemorrhage
+            └── [SOC]soc972ZiuFsAfKKVWFbSZdYcgUoCiSTyEYKu:
+                ├── [PT22]Abnormal withdrawal bleeding
+                ├── [PT23]Dysfunctional uterine bleeding
+                ├── [PT24]Hypomenorrhoea
+                ├── [PT25]Intermenstrual bleeding
+                ├── [PT26]Menometrorrhagia
+                ├── [PT27]Menstruation irregular
+                └── [PT28]Polymenorrhagia
 </pre></div>
 </div>
 </div>
