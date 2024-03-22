@@ -47,8 +47,10 @@ class Emt:
         """
         if folder_name:
             self.folder_name = folder_name
+            self.demo = False
         else:
             self.folder_name = mtbp3.get_data('test_emt/MedDRA')
+            self.demo = True
 
         self.version_number = "00.0"
         self.version_number_us = "00_0"
@@ -729,24 +731,39 @@ class Emt:
     def show_fmq_tree(self, fmq=[], with_soc=False):
         pt_df = self.find_terms_given_fmq(fmq=fmq, narrow_only=False)
 
-        #list0a = pt_df['fmq'].unique().tolist()
-        #max_length = len(str(len(list0a)))
-        #list0b = [str(i).zfill(max_length) for i in range(1, len(list0a)+1)]
-        #list0 = [f"[FMQ{list0b[i]}]{list0a[i]}" for i in range(len(list0a))]
-
         pt_df['ord0'] = pt_df.groupby('fmq')['fmq'].transform(lambda x: x.factorize()[0] + 1)
         pt_df['ord2'] = pt_df.groupby(['fmq'])['pt'].transform(lambda x: x.factorize()[0] + 1)
         pt_df['ord2'] = pt_df['ord2'].astype(str).str.zfill(len(str(pt_df['ord2'].max())))
 
-        list0 = [f"FMQ/{fmq}/" for fmq in pt_df['fmq'].unique().tolist()]
-        pt_df['fmq_class'] = 'FMQ/'+pt_df['fmq'] + '/[Classification]' + pt_df['classification'] + '/'
-        list1 = pt_df['fmq_class'].unique().tolist()
-        pt_df['fmq_class_pt'] = 'FMQ/'+pt_df['fmq'] + '/[Classification]' + pt_df['classification'] + '/[PT' + pt_df['ord2'] + ']' + pt_df['pt']
-        list2 = pt_df['fmq_class_pt'].unique().tolist()
+        if with_soc:
+            if self.demo:
+                soc_list = self.find_soc()
+                pt_given_soc = self.find_pt_given_soc(soc=soc_list[:3], primary_soc_only=True)
+                pt_given_soc_sample = pt_given_soc.sample(n=len(pt_df), replace=True)
+                soc_df = self.find_soc_given_pt(pt=pt_given_soc_sample['pt'], primary_only=True)
+                pt_df['soc'] = soc_df['soc']
+            else:
+                soc_df = self.find_soc_given_pt(pt=pt_df['pt'], primary_only=True)
+                pt_df = pt_df.merge(soc_df[['pt','soc']], on='pt', how='left')
 
-        return mtbp3.util.cdt.list_tree(lst = ['FMQ/']+list0+list1+list2)
+            list0 = [f"FMQ/{fmq}/" for fmq in pt_df['fmq'].unique().tolist()]
+            pt_df['fmq_class'] = 'FMQ/'+pt_df['fmq'] + '/[Classification]' + pt_df['classification'] + '/'
+            list1 = pt_df['fmq_class'].unique().tolist()
+            pt_df['fmq_class_soc'] = 'FMQ/'+pt_df['fmq'] + '/[Classification]' + pt_df['classification'] + '/[SOC]' + pt_df['soc'] + '/'
+            lists = pt_df['fmq_class_soc'].unique().tolist()
+            pt_df['fmq_class_soc_pt'] = 'FMQ/'+pt_df['fmq'] + '/[Classification]' + pt_df['classification'] + '/[SOC]' + pt_df['soc'] + '/[PT' + pt_df['ord2'] + ']' + pt_df['pt']
+            list2 = pt_df['fmq_class_soc_pt'].unique().tolist()
+            return mtbp3.util.cdt.list_tree(lst = ['FMQ/']+list0+list1+lists+list2)
+        else:
+            list0 = [f"FMQ/{fmq}/" for fmq in pt_df['fmq'].unique().tolist()]
+            pt_df['fmq_class'] = 'FMQ/'+pt_df['fmq'] + '/[Classification]' + pt_df['classification'] + '/'
+            list1 = pt_df['fmq_class'].unique().tolist()
+            pt_df['fmq_class_pt'] = 'FMQ/'+pt_df['fmq'] + '/[Classification]' + pt_df['classification'] + '/[PT' + pt_df['ord2'] + ']' + pt_df['pt']
+            list2 = pt_df['fmq_class_pt'].unique().tolist()
+            return mtbp3.util.cdt.list_tree(lst = ['FMQ/']+list0+list1+list2)
 
 
 if __name__ == "__main__":
     pass
+
 
