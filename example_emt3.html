@@ -172,41 +172,7 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/FMQ
-FMQ/Abdominal Pain
-FMQ/Abdominal Pain/[Classification]Broad
-FMQ/Abdominal Pain/[Classification]Narrow
-FMQ/Abnormal Uterine Bleeding
-FMQ/Abnormal Uterine Bleeding/[Classification]Broad
-FMQ/Abnormal Uterine Bleeding/[Classification]Narrow
-       0     1     2     3                                t0 property  \
-0                                                        FMQ            
-1         ├──                                 Abdominal Pain            
-2         │     ├──                    [Classification]Broad            
-3         │     │     ├──      [PT23]Carnett&#39;s sign positive            
-4         │     │     ├──     [PT24]Complicated appendicitis            
-..   ...   ...   ...   ...                               ...      ...   
-73                    ├──               [PT15]Polymenorrhoea            
-74                    ├──   [PT16]Postmenopausal haemorrhage            
-75                    ├──          [PT17]Uterine haemorrhage            
-76                    ├──              [PT18]Uterine rupture            
-77                    └──          [PT19]Vaginal haemorrhage            
-
-                                                   t1   type  level  row_index  
-0                                                       True      1          0  
-1                                                 FMQ   True      2          1  
-2                                  FMQ/Abdominal Pain   True      3          2  
-3            FMQ/Abdominal Pain/[Classification]Broad  False      4          3  
-4            FMQ/Abdominal Pain/[Classification]Broad  False      4          4  
-..                                                ...    ...    ...        ...  
-73  FMQ/Abnormal Uterine Bleeding/[Classification]...  False      4         73  
-74  FMQ/Abnormal Uterine Bleeding/[Classification]...  False      4         74  
-75  FMQ/Abnormal Uterine Bleeding/[Classification]...  False      4         75  
-76  FMQ/Abnormal Uterine Bleeding/[Classification]...  False      4         76  
-77  FMQ/Abnormal Uterine Bleeding/[Classification]...  False      4         77  
-
-[78 rows x 10 columns]
-    FMQ:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    FMQ:
     ├── Abdominal Pain:
     │   ├── [Classification]Broad:
     │   │   ├── [PT23]Carnett&#39;s sign positive
