@@ -202,13 +202,10 @@ def list_tree_df(lst=[]):
 
     return df
 
-def list_tree_pre(lst):
+def list_tree_pre(lst, to_right=False):
     df = list_tree_df(lst)
     if df.empty:
         return df
-
-    pre  = ['', '    ', '│   ', '├── ', '└── ', '  ']
-    #pre = ['', '    ', '   │', ' ──┤', ' ──┘', '  ']
 
     max_level = df['level'].max()
     prelst = pd.DataFrame("", index=df.index, columns=range(max_level))
@@ -217,15 +214,19 @@ def list_tree_pre(lst):
     prelst.reset_index(drop=True, inplace=True)
     prelst['row_index'] = prelst.index
 
-    t1_list = prelst[prelst['type'] == True][['t1','level','t0']]
+    if to_right:
+        pre = ['', '    ', '   │', ' ──┤', ' ──┘', '  ']
+        #prelst['level'] = max_level - prelst['level']
+    else:
+        pre  = ['', '    ', '│   ', '├── ', '└── ', '  ']
 
+    t1_list = prelst[prelst['type'] == True][['t1','level','t0']]
     if t1_list.empty:
         return df['lst']
 
     for index, row in prelst.iterrows():
         if row['level'] > 0:
             prelst.loc[index, :(row['level'] - 1)] = [pre[1]] * (row['level'])
-
 
     for index, row in t1_list.iterrows():
         index_set = prelst[prelst['t1'] == row['t1']+'/'+row['t0']]['row_index']
@@ -240,17 +241,26 @@ def list_tree_pre(lst):
             prelst.loc[index_set, row['level']] = [pre[3]] * len(index_set)
             prelst.loc[max_row_index, row['level']] = pre[4]
 
-    prelst['t0'] = prelst.apply(lambda row: row['t0'] + ':' if row['type'] == True else row['t0'], axis=1)
-    prelst = prelst.loc[:, :'property']
+
+    if to_right:
+        prelst['t0'] = prelst.apply(lambda row: row['t0'] if row['type'] == True else row['t0'], axis=1)
+        prelst = prelst.loc[:, :'property']
+        prelst = prelst.iloc[:, ::-1]
+    else:
+        prelst['t0'] = prelst.apply(lambda row: row['t0'] + ':' if row['type'] == True else row['t0'], axis=1)
+        prelst = prelst.loc[:, :'property']
 
     return prelst
 
-def list_tree(lst = [], reverse=False):
-    out = list_tree_pre(lst)
+def list_tree(lst = [], to_right=False):
+    out = list_tree_pre(lst, to_right=to_right)
     if out.empty:
         return []
 
     out_joined = out.apply(lambda row: ''.join(row), axis=1)
+    if to_right:
+        max_length = out_joined.str.len().max()
+        out_joined = out_joined.apply(lambda x: x.rjust(max_length))
     return out_joined
 
 if __name__ == "__main__":
