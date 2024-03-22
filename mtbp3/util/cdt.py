@@ -233,15 +233,12 @@ def list_tree_pre(lst):
             index_set = prelst[prelst['t1'] == row['t0']]['row_index']
         else:  
             index_set = prelst[prelst['t1'] == row['t1']+'/'+row['t0']]['row_index']
-        print(row['t1']+'/'+row['t0'])
         if not index_set.empty:
             min_row_index = index_set.min()
             max_row_index = index_set.max()
             prelst.loc[(min_row_index):(max_row_index), row['level']] = [pre[2]] * (max_row_index - min_row_index + 1)
             prelst.loc[index_set, row['level']] = [pre[3]] * len(index_set)
             prelst.loc[max_row_index, row['level']] = pre[4]
-
-    print(prelst)
 
     prelst['t0'] = prelst.apply(lambda row: row['t0'] + ':' if row['type'] == True else row['t0'], axis=1)
     prelst = prelst.loc[:, :'property']
