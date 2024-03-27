@@ -759,7 +759,8 @@ class Emt:
             list1 = pt_df['fmq_class'].unique().tolist()
             lists = pt_df['fmq_class_soc'].unique().tolist()
             list2 = pt_df['fmq_class_soc_pt'].unique().tolist()
-            return mtbp3.util.cdt.list_tree(lst = ['FMQ/']+list0+list1+lists+list2, to_right=to_right)
+            tree = mtbp3.util.cdt.ListTree(lst = ['FMQ/']+list0+list1+lists+list2)
+            return tree.list_tree(to_right=to_right)
         else:
             pt_df = pt_df.sort_values(by=['fmq', 'classification'])
             pt_df['ord2'] = pt_df.groupby(['fmq'])['pt'].transform(lambda x: x.factorize()[0] + 1)
