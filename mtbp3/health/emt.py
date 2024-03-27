@@ -749,7 +749,7 @@ class Emt:
             if to_right:
                 pt_df['fmq_class'] = 'FMQ/'+pt_df['fmq'] + '/' + pt_df['classification'] + ' [Classification]/'
                 pt_df['fmq_class_soc'] = 'FMQ/'+pt_df['fmq'] + '/' + pt_df['classification'] + ' [Classification]/' + pt_df['soc'] + ' [SOC]/'
-                pt_df['fmq_class_soc_pt'] = 'FMQ/'+pt_df['fmq'] + '/' + pt_df['classification'] + ' [Classification]/' + pt_df['soc'] + ' [SOC]/' + pt_df['pt'] + '[PT' + pt_df['ord2'] + '] '
+                pt_df['fmq_class_soc_pt'] = 'FMQ/'+pt_df['fmq'] + '/' + pt_df['classification'] + ' [Classification]/' + pt_df['soc'] + ' [SOC]/' + pt_df['pt'] + ' [PT' + pt_df['ord2'] + ']'
             else:
                 pt_df['fmq_class'] = 'FMQ/'+pt_df['fmq'] + '/[Classification] ' + pt_df['classification'] + '/'
                 pt_df['fmq_class_soc'] = 'FMQ/'+pt_df['fmq'] + '/[Classification] ' + pt_df['classification'] + '/[SOC] ' + pt_df['soc'] + '/'
@@ -768,23 +768,23 @@ class Emt:
 
             if to_right:
                 pt_df['fmq_class'] = 'FMQ/'+pt_df['fmq'] + '/' + pt_df['classification'] + ' [Classification]/'
-                pt_df['fmq_class_pt'] = 'FMQ/'+pt_df['fmq'] + '/' + pt_df['classification'] + ' [Classification]/' + pt_df['pt'] + '[PT' + pt_df['ord2'] + '] '
+                pt_df['fmq_class_pt'] = 'FMQ/'+pt_df['fmq'] + '/' + pt_df['classification'] + ' [Classification]/' + pt_df['pt'] + ' [PT' + pt_df['ord2'] + ']'
             else:
                 pt_df['fmq_class'] = 'FMQ/'+pt_df['fmq'] + '/[Classification] ' + pt_df['classification'] + '/'
                 pt_df['fmq_class_pt'] = 'FMQ/'+pt_df['fmq'] + '/[Classification] ' + pt_df['classification'] + '/[PT' + pt_df['ord2'] + '] ' + pt_df['pt']
 
             list1 = pt_df['fmq_class'].unique().tolist()
             list2 = pt_df['fmq_class_pt'].unique().tolist()
-            return mtbp3.util.cdt.list_tree(lst = ['FMQ/']+list0+list1+list2, to_right=to_right)
-
+            tree = mtbp3.util.cdt.ListTree(lst = ['FMQ/']+list0+list1+list2)
+            return tree.list_tree(to_right=to_right)
 
 if __name__ == "__main__":
-    #pass
-    emt = Emt()
-    print(emt.find_files())
-    print(emt.find_fmq_file(file_path=""))
-    fmq_list = emt.find_fmq()
-    out=emt.show_fmq_tree(fmq=fmq_list[:2], with_soc=True, ignore_case=True, to_right=True)
-    print('\n'.join(out))
+    pass
+    #emt = Emt()
+    #print(emt.find_files())
+    #print(emt.find_fmq_file(file_path=""))
+    #fmq_list = emt.find_fmq()
+    #out=emt.show_fmq_tree(fmq=fmq_list[:2], with_soc=True, ignore_case=True, to_right=True)
+    #print('\n'.join(out))
 
 

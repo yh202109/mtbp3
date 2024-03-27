@@ -165,103 +165,127 @@ def summarize_1nc_by_2group(df=None, column="", cutoff=None, group_col0="", grou
 
     return [out, tmp]
 
-def list_tree_df(lst=[]):
-    if not isinstance(lst, list):
-        return pd.DataFrame()
-    if not lst:
-        return pd.DataFrame()
-    if len(lst) <= 1:
-        return pd.DataFrame()
-    df0 = pd.DataFrame(lst, columns=['lst'])
-    df0['lst'] = df0['lst'].str.replace('^/', '', regex=True)
-    df0['type'] = df0['lst'].apply(lambda x: True if x.endswith('/') else False)
-    for index, row in df0.iterrows():
-        r0, r1 = row['lst'].rsplit('/', 1)
-        if r1=="":
-            if '/' in r0:
-                s0, s1 = r0.rsplit('/',1)
-                df0.loc[index, 't1'] = s0
-                df0.loc[index, 't0'] = s1
+class ListTree:
+    def __init__(self, lst=[]):
+        self.lst = lst
+        self.df = pd.DataFrame()
+        self.prelst = pd.DataFrame()
+        self.out = pd.DataFrame()
+    
+    def list_tree_df(self):
+        if not isinstance(self.lst, list):
+            print('Input should be a list.')
+            self.df = pd.DataFrame()
+            return
+        
+        if not self.lst:
+            print('Input should be a nonempty list.')
+            self.df = pd.DataFrame()
+            return
+        
+        if len(self.lst) <= 1:
+            self.df = pd.DataFrame(self.lst, columns=['lst'])
+            return
+        
+        df0 = pd.DataFrame(self.lst, columns=['lst'])
+        df0['lst'] = df0['lst'].str.replace('^/', '', regex=True)
+        df0['type'] = df0['lst'].apply(lambda x: True if x.endswith('/') else False)
+        
+        for index, row in df0.iterrows():
+            r0, r1 = row['lst'].rsplit('/', 1)
+            if r1 == "":
+                if '/' in r0:
+                    s0, s1 = r0.rsplit('/',1)
+                    df0.loc[index, 't1'] = s0
+                    df0.loc[index, 't0'] = s1
+                else:
+                    df0.loc[index, 't1'] = ""
+                    df0.loc[index, 't0'] = r0
             else:
-                df0.loc[index, 't1'] = ""
-                df0.loc[index, 't0'] = r0
+                df0.loc[index, 't1'] = r0
+                df0.loc[index, 't0'] = r1
+                
+        df0 = df0.sort_values(by=['lst']).reset_index(drop=True)
+        df0['level'] = df0['lst'].str.count('/') + 1
+        df0['level'] = df0['level'] - df0['type']
+        
+        if df0['level'].min() > 0:
+            df0['level'] = df0['level'] - df0['level'].min() + 1
+        
+        df0['row_index'] = df0.index
+        df0['property'] = ""
+        
+        self.df = df0.groupby(df0.columns.difference(['property', 'row_index']).tolist(), sort=False).agg({'row_index': 'max', 'property': lambda x: ''.join(x)}).reset_index().sort_values('row_index')
+    
+    def list_tree_pre(self, to_right=False):
+        self.list_tree_df()
+        if self.df.empty:
+            self.prelst = self.df
+            return self.prelst
+        
+        max_level = self.df['level'].max()
+        prelst = pd.DataFrame("", index=self.df.index, columns=range(max_level))
+        prelst = pd.DataFrame([['' for _ in range(self.df['level'].max())] for _ in range(len(self.df))])
+        prelst = pd.concat([prelst, self.df[['t0','property','t1','type','level','row_index']]], axis=1).sort_values('row_index')
+        prelst.reset_index(drop=True, inplace=True)
+        prelst['row_index'] = prelst.index
+        
+        if to_right:
+            pre = ['', '    ', '   │', ' ──┤', ' ──┘', '  ']
+            #prelst['level'] = max_level - prelst['level']
         else:
-            df0.loc[index, 't1'] = r0
-            df0.loc[index, 't0'] = r1
-
-    df0 = df0.sort_values(by=['lst']).reset_index(drop=True)
-    df0['level'] = df0['lst'].str.count('/') + 1
-    df0['level'] = df0['level'] - df0['type']
-    if df0['level'].min() > 0:
-        df0['level'] = df0['level'] - df0['level'].min() + 1
-    #if df0['lst'].str.endswith('/').any():
-        #df0.loc[df0['lst'].str.endswith('/'), 'level'] = df0['level'] - 1
-    df0['row_index'] = df0.index
-    df0['property'] = ""
-    df = df0.groupby(df0.columns.difference(['property', 'row_index']).tolist(), sort=False).agg({'row_index': 'max', 'property': lambda x: ''.join(x)}).reset_index().sort_values('row_index')
-
-    return df
-
-def list_tree_pre(lst, to_right=False):
-    df = list_tree_df(lst)
-    if df.empty:
-        return df
-
-    max_level = df['level'].max()
-    prelst = pd.DataFrame("", index=df.index, columns=range(max_level))
-    prelst = pd.DataFrame([['' for _ in range(df['level'].max())] for _ in range(len(df))])
-    prelst = pd.concat([prelst, df[['t0','property','t1','type','level','row_index']]], axis=1).sort_values('row_index')
-    prelst.reset_index(drop=True, inplace=True)
-    prelst['row_index'] = prelst.index
-
-    if to_right:
-        pre = ['', '    ', '   │', ' ──┤', ' ──┘', '  ']
-        #prelst['level'] = max_level - prelst['level']
-    else:
-        pre  = ['', '    ', '│   ', '├── ', '└── ', '  ']
-
-    t1_list = prelst[prelst['type'] == True][['t1','level','t0']]
-    if t1_list.empty:
-        return df['lst']
-
-    for index, row in prelst.iterrows():
-        if row['level'] > 0:
-            prelst.loc[index, :(row['level'] - 1)] = [pre[1]] * (row['level'])
-
-    for index, row in t1_list.iterrows():
-        index_set = prelst[prelst['t1'] == row['t1']+'/'+row['t0']]['row_index']
-        if row['t1']=="":
-            index_set = prelst[prelst['t1'] == row['t0']]['row_index']
-        else:  
+            pre  = ['', '    ', '│   ', '├── ', '└── ', '  ']
+        
+        t1_list = prelst[prelst['type'] == True][['t1','level','t0']]
+        
+        if t1_list.empty:
+            self.prelst = self.df['lst']
+            return self.prelst
+        
+        for index, row in prelst.iterrows():
+            if row['level'] > 0:
+                prelst.loc[index, :(row['level'] - 1)] = [pre[1]] * (row['level'])
+        
+        for index, row in t1_list.iterrows():
             index_set = prelst[prelst['t1'] == row['t1']+'/'+row['t0']]['row_index']
-        if not index_set.empty:
-            min_row_index = index_set.min()
-            max_row_index = index_set.max()
-            prelst.loc[(min_row_index):(max_row_index), row['level']] = [pre[2]] * (max_row_index - min_row_index + 1)
-            prelst.loc[index_set, row['level']] = [pre[3]] * len(index_set)
-            prelst.loc[max_row_index, row['level']] = pre[4]
-
-
-    if to_right:
-        prelst['t0'] = prelst.apply(lambda row: row['t0'] if row['type'] == True else row['t0'], axis=1)
-        prelst = prelst.loc[:, :'property']
-        prelst = prelst.iloc[:, ::-1]
-    else:
-        prelst['t0'] = prelst.apply(lambda row: row['t0'] + ':' if row['type'] == True else row['t0'], axis=1)
-        prelst = prelst.loc[:, :'property']
-
-    return prelst
-
-def list_tree(lst = [], to_right=False):
-    out = list_tree_pre(lst, to_right=to_right)
-    if out.empty:
-        return []
-
-    out_joined = out.apply(lambda row: ''.join(row), axis=1)
-    if to_right:
-        max_length = out_joined.str.len().max()
-        out_joined = out_joined.apply(lambda x: x.rjust(max_length))
-    return out_joined
+            
+            if row['t1'] == "":
+                index_set = prelst[prelst['t1'] == row['t0']]['row_index']
+            else:
+                index_set = prelst[prelst['t1'] == row['t1']+'/'+row['t0']]['row_index']
+            
+            if not index_set.empty:
+                min_row_index = index_set.min()
+                max_row_index = index_set.max()
+                prelst.loc[(min_row_index):(max_row_index), row['level']] = [pre[2]] * (max_row_index - min_row_index + 1)
+                prelst.loc[index_set, row['level']] = [pre[3]] * len(index_set)
+                prelst.loc[max_row_index, row['level']] = pre[4]
+        
+        if to_right:
+            prelst['t0'] = prelst.apply(lambda row: row['t0'] if row['type'] == True else row['t0'], axis=1)
+            prelst = prelst.loc[:, :'property']
+            prelst = prelst.iloc[:, ::-1]
+        else:
+            prelst['t0'] = prelst.apply(lambda row: row['t0'] + ':' if row['type'] == True else row['t0'], axis=1)
+            prelst = prelst.loc[:, :'property']
+        
+        self.prelst = prelst
+    
+    def list_tree(self, to_right=False):
+        self.list_tree_pre(to_right=to_right)
+        
+        if self.prelst.empty:
+            self.out = pd.DataFrame()
+            return self.out
+        
+        out_joined = self.prelst.apply(lambda row: ''.join(row), axis=1)
+        
+        if to_right:
+            max_length = out_joined.str.len().max()
+            out_joined = out_joined.apply(lambda x: x.rjust(max_length))
+        
+        self.out = out_joined
+        return self.out
 
 if __name__ == "__main__":
     pass
