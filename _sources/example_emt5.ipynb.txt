@@ -10,7 +10,7 @@
     "\n",
     "There are also collaborates between MedDRA and other CTs. Mapping files are available to be downloaded on MedDRA website after login[^3]<sup>,</sup>[^4]. \n",
     "\n",
-    "The module `emt` currently does not include functions for working with MLGs. This is a place holder for future uses."
+    "The module `emt` currently does not include functions for working with other CTs. This is a place holder for future uses."
    ]
   },
   {
