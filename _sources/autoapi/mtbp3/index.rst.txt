@@ -29,6 +29,7 @@ Classes
 .. autoapisummary::
 
    mtbp3.LsrTree
+   mtbp3.ListTree
    mtbp3.catPlotter
 
 
@@ -41,9 +42,6 @@ Functions
    mtbp3.diff_2cols_in_1df
    mtbp3.diff_2cols_in_2df
    mtbp3.summarize_1nc_by_2group
-   mtbp3.list_tree_df
-   mtbp3.list_tree_pre
-   mtbp3.list_tree
    mtbp3.get_data
 
 
@@ -175,13 +173,17 @@ Attributes
    :raises ValueError: If the column is not a numerical column.
 
 
-.. py:function:: list_tree_df(lst=[])
+.. py:class:: ListTree(lst=[])
 
 
-.. py:function:: list_tree_pre(lst, to_right=False)
+   .. py:method:: list_tree_df()
 
 
-.. py:function:: list_tree(lst=[], to_right=False)
+   .. py:method:: list_tree_pre(to_right=False)
+
+
+   .. py:method:: list_tree(to_right=False)
+
 
 
 .. py:class:: catPlotter(df, y_col, group_col=None, grid_col=None, grid_wrap=None, x_col=None, pt_size=5, y_scale_base=0, x_scale_base=0, title='', fig_size_0=7, fig_size_1=6, point_position='swarm', x_label_rotate=None, grid_kws=None)

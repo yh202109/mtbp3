@@ -7,6 +7,14 @@
 Module Contents
 ---------------
 
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   mtbp3.util.cdt.ListTree
+
+
 
 Functions
 ~~~~~~~~~
@@ -16,9 +24,6 @@ Functions
    mtbp3.util.cdt.diff_2cols_in_1df
    mtbp3.util.cdt.diff_2cols_in_2df
    mtbp3.util.cdt.summarize_1nc_by_2group
-   mtbp3.util.cdt.list_tree_df
-   mtbp3.util.cdt.list_tree_pre
-   mtbp3.util.cdt.list_tree
 
 
 
@@ -82,12 +87,16 @@ Functions
    :raises ValueError: If the column is not a numerical column.
 
 
-.. py:function:: list_tree_df(lst=[])
+.. py:class:: ListTree(lst=[])
 
 
-.. py:function:: list_tree_pre(lst, to_right=False)
+   .. py:method:: list_tree_df()
 
 
-.. py:function:: list_tree(lst=[], to_right=False)
+   .. py:method:: list_tree_pre(to_right=False)
+
+
+   .. py:method:: list_tree(to_right=False)
+
 
 
