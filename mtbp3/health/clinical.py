@@ -120,10 +120,6 @@ class summary_by_group:
 
             if not out0.empty:
                 if not out1.empty:
-                    out0.columns = [f"{col}_0" if col in out1.columns else col for col in out0.columns]
-                    out0.columns = [f"{col}_1" if col in out1.columns else col for col in out0.columns]
-                    if any(col in out1.columns for col in out0.columns):
-                        raise ValueError("Duplicated column names found in input data.")
                     out1 = out1.merge(out0, on=group_columns, how='outer')
                 else:
                     out1 = out0
