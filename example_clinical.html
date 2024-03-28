@@ -107,8 +107,8 @@ Clinical data include data collected at planning, executing, monitoring and post
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  study treatment subject   visit  meal  calorie
-0  STD1      TRT1  SUBJ01  VISIT1     1     1541
-1  STD1      TRT1  SUBJ01  VISIT1     2      605
+0  STD1      TRT1  SUBJ01  VISIT1     1     1269
+1  STD1      TRT1  SUBJ01  VISIT1     2     1264
 </pre></div>
 </div>
 </div>
@@ -125,12 +125,12 @@ Clinical data include data collected at planning, executing, monitoring and post
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  study treatment subject   visit  N(0&lt;=X&lt;500)  N(500&lt;=X&lt;1000)  \
-0  STD1      TRT1  SUBJ01  VISIT1            0               1   
+0  STD1      TRT1  SUBJ01  VISIT1            0               0   
 1  STD1      TRT1  SUBJ01  VISIT2            0               1   
 
    N(1000&lt;=V&lt;=2000)  N(all)  
-0                 2       3  
-1                 2       3  
+0                 3       3  
+1                 3       4  
 </pre></div>
 </div>
 </div>
@@ -138,15 +138,45 @@ Clinical data include data collected at planning, executing, monitoring and post
 <p>To count number of means at each visits by all subjects:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="n">summary</span><span class="o">.</span><span class="n">count_to_cate</span><span class="p">([</span><span class="s1">&#39;study&#39;</span><span class="p">,</span> <span class="s1">&#39;treatment&#39;</span><span class="p">,</span> <span class="s1">&#39;visit&#39;</span><span class="p">],</span> <span class="s1">&#39;N(all)&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">],</span> <span class="n">stats</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">,</span><span class="s1">&#39;total_count&#39;</span><span class="p">])</span> <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">summary1</span> <span class="o">=</span> <span class="n">summary_by_group</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">result</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">summary1</span><span class="o">.</span><span class="n">count_to_cate</span><span class="p">([</span><span class="s1">&#39;study&#39;</span><span class="p">,</span> <span class="s1">&#39;treatment&#39;</span><span class="p">,</span> <span class="s1">&#39;visit&#39;</span><span class="p">],</span> <span class="s1">&#39;N(all)&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">],</span> <span class="n">stats</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">,</span><span class="s1">&#39;total_count&#39;</span><span class="p">])</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   study treatment   visit  N(0&lt;=X&lt;3)  N(3&lt;=X&lt;5)  N(5&lt;=V&lt;=7)  N(all)
+0   STD1      TRT1  VISIT1          4         11           5      20
+1   STD1      TRT1  VISIT2          3          8           5      16
+2   STD1      TRT1  VISIT3          3          5           5      13
+3   STD1      TRT1  VISIT4          2          4           3       9
+4   STD1      TRT2  VISIT1          6         12           2      20
+5   STD1      TRT2  VISIT2          3          6           3      12
+6   STD1      TRT2  VISIT3          3          6           1      10
+7   STD1      TRT2  VISIT4          1          2           1       4
+8   STD2      TRT1  VISIT1          5         12           3      20
+9   STD2      TRT1  VISIT2          6          4           6      16
+10  STD2      TRT1  VISIT3          2          6           3      11
+11  STD2      TRT1  VISIT4          3          5           0       8
+12  STD2      TRT2  VISIT1          8         10           2      20
+13  STD2      TRT2  VISIT2          2         13           2      17
+14  STD2      TRT2  VISIT3          5          1           5      11
+15  STD2      TRT2  VISIT4          1          5           1       7
+</pre></div>
+</div>
+</div>
+</div>
+<p>To sum the total number of meals within subjects with low, median, or high numbers of meals:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="n">summary</span><span class="o">.</span><span class="n">count_to_cate</span><span class="p">([</span><span class="s1">&#39;study&#39;</span><span class="p">,</span> <span class="s1">&#39;treatment&#39;</span><span class="p">,</span> <span class="s1">&#39;visit&#39;</span><span class="p">],</span> <span class="s1">&#39;N(all)&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">],</span> <span class="n">stats</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span><span class="s1">&#39;total_sum&#39;</span><span class="p">])</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span> <span class="n">summary</span><span class="o">.</span><span class="n">count_to_cate</span><span class="p">([</span><span class="s1">&#39;study&#39;</span><span class="p">,</span> <span class="s1">&#39;treatment&#39;</span><span class="p">,</span> <span class="s1">&#39;visit&#39;</span><span class="p">],</span> <span class="s1">&#39;N(all)&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">],</span> <span class="n">stats</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">,</span><span class="s1">&#39;total_count&#39;</span><span class="p">])</span> <span class="p">)</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span> <span class="n">summary</span><span class="o">.</span><span class="n">count_to_cate</span><span class="p">([</span><span class="s1">&#39;study&#39;</span><span class="p">,</span> <span class="s1">&#39;treatment&#39;</span><span class="p">,</span> <span class="s1">&#39;visit&#39;</span><span class="p">],</span> <span class="s1">&#39;N(all)&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">],</span> <span class="n">stats</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span><span class="s1">&#39;total_sum&#39;</span><span class="p">])</span> <span class="p">)</span>
 
 <span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/health/clinical.py:82,</span> in <span class="ni">summary_by_group.count_to_cate</span><span class="nt">(self, group_columns, target_column, bins, stats)</span>
 <span class="g g-Whitespace">     </span><span class="mi">80</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;target_column should be a non-empty string.&quot;</span><span class="p">)</span>
@@ -156,14 +186,6 @@ Clinical data include data collected at planning, executing, monitoring and post
 <span class="g g-Whitespace">     </span><span class="mi">84</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Column &#39;</span><span class="si">{</span><span class="n">target_column</span><span class="si">}</span><span class="s2">&#39; is not a numerical column.&quot;</span><span class="p">)</span>
 
 <span class="ne">ValueError</span>: Column &#39;N(all)&#39; does not exist in the DataFrame.
-</pre></div>
-</div>
-</div>
-</div>
-<p>To sum the total number of meals within subjects with low, median, or high numbers of meals:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="n">summary</span><span class="o">.</span><span class="n">count_to_cate</span><span class="p">([</span><span class="s1">&#39;study&#39;</span><span class="p">,</span> <span class="s1">&#39;treatment&#39;</span><span class="p">,</span> <span class="s1">&#39;visit&#39;</span><span class="p">],</span> <span class="s1">&#39;N(all)&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">],</span> <span class="n">stats</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span><span class="s1">&#39;total_sum&#39;</span><span class="p">])</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div>
