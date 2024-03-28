@@ -107,8 +107,8 @@ Clinical data include data collected at planning, executing, monitoring and post
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  study treatment subject   visit  meal  calorie
-0  STD1      TRT1  SUBJ01  VISIT1     1     1042
-1  STD1      TRT1  SUBJ01  VISIT1     2     1755
+0  STD1      TRT1  SUBJ01  VISIT1     1     1541
+1  STD1      TRT1  SUBJ01  VISIT1     2      605
 </pre></div>
 </div>
 </div>
@@ -124,73 +124,13 @@ Clinical data include data collected at planning, executing, monitoring and post
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">/tmp/ipykernel_1929/366384368.py</span> in <span class="ni">?</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">result</span> <span class="o">=</span> <span class="n">summary</span><span class="o">.</span><span class="n">count_to_cate</span><span class="p">([</span><span class="s1">&#39;study&#39;</span><span class="p">,</span> <span class="s1">&#39;treatment&#39;</span><span class="p">,</span> <span class="s1">&#39;subject&#39;</span><span class="p">,</span> <span class="s1">&#39;visit&#39;</span><span class="p">],</span> <span class="s1">&#39;calorie&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">2000</span><span class="p">],</span> <span class="n">stats</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">,</span><span class="s1">&#39;total_count&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  study treatment subject   visit  N(0&lt;=X&lt;500)  N(500&lt;=X&lt;1000)  \
+0  STD1      TRT1  SUBJ01  VISIT1            0               1   
+1  STD1      TRT1  SUBJ01  VISIT2            0               1   
 
-<span class="nn">~/work/mtbp3/mtbp3/mtbp3/health/clinical.py</span> in <span class="ni">?</span><span class="nt">(self, group_columns, target_column, bins, stats)</span>
-<span class="g g-Whitespace">    </span><span class="mi">123</span>                     <span class="n">out0</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">_0&quot;</span> <span class="k">if</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">out1</span><span class="o">.</span><span class="n">columns</span> <span class="k">else</span> <span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">out0</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">124</span>                     <span class="n">out0</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">_1&quot;</span> <span class="k">if</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">out1</span><span class="o">.</span><span class="n">columns</span> <span class="k">else</span> <span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">out0</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">125</span>                     <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">col</span> <span class="ow">in</span> <span class="n">out1</span><span class="o">.</span><span class="n">columns</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">out0</span><span class="o">.</span><span class="n">columns</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">126</span>                         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Duplicated column names found in input data.&quot;</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">127</span>                     <span class="n">out1</span> <span class="o">=</span> <span class="n">out1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">out0</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="n">group_columns</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">128</span>                 <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">129</span>                     <span class="n">out1</span> <span class="o">=</span> <span class="n">out0</span>
-<span class="g g-Whitespace">    </span><span class="mi">130</span> 
-
-<span class="nn">~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/frame.py</span> in <span class="ni">?</span><span class="nt">(self, right, how, on, left_on, right_on, left_index, right_index, sort, suffixes, copy, indicator, validate)</span>
-<span class="g g-Whitespace">  </span><span class="mi">10815</span>         <span class="n">validate</span><span class="p">:</span> <span class="n">MergeValidate</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">10816</span>     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
-<span class="g g-Whitespace">  </span><span class="mi">10817</span>         <span class="kn">from</span> <span class="nn">pandas.core.reshape.merge</span> <span class="kn">import</span> <span class="n">merge</span>
-<span class="g g-Whitespace">  </span><span class="mi">10818</span> 
-<span class="ne">&gt; </span><span class="mi">10819</span>         <span class="k">return</span> <span class="n">merge</span><span class="p">(</span>
-<span class="g g-Whitespace">  </span><span class="mi">10820</span>             <span class="bp">self</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">10821</span>             <span class="n">right</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">10822</span>             <span class="n">how</span><span class="o">=</span><span class="n">how</span><span class="p">,</span>
-
-<span class="nn">~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/reshape/merge.py</span> in <span class="ni">?</span><span class="nt">(left, right, how, on, left_on, right_on, left_index, right_index, sort, suffixes, copy, indicator, validate)</span>
-<span class="g g-Whitespace">    </span><span class="mi">166</span>             <span class="n">validate</span><span class="o">=</span><span class="n">validate</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">167</span>             <span class="n">copy</span><span class="o">=</span><span class="n">copy</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">168</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">169</span>     <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">170</span>         <span class="n">op</span> <span class="o">=</span> <span class="n">_MergeOperation</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">171</span>             <span class="n">left_df</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">172</span>             <span class="n">right_df</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">173</span>             <span class="n">how</span><span class="o">=</span><span class="n">how</span><span class="p">,</span>
-
-<span class="nn">~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/reshape/merge.py</span> in <span class="ni">?</span><span class="nt">(self, left, right, how, on, left_on, right_on, left_index, right_index, sort, suffixes, indicator, validate)</span>
-<span class="g g-Whitespace">    </span><span class="mi">790</span>             <span class="bp">self</span><span class="o">.</span><span class="n">right_join_keys</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">791</span>             <span class="bp">self</span><span class="o">.</span><span class="n">join_names</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">792</span>             <span class="n">left_drop</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">793</span>             <span class="n">right_drop</span><span class="p">,</span>
-<span class="ne">--&gt; </span><span class="mi">794</span>         <span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_merge_keys</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">795</span> 
-<span class="g g-Whitespace">    </span><span class="mi">796</span>         <span class="k">if</span> <span class="n">left_drop</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">797</span>             <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">_drop_labels_or_levels</span><span class="p">(</span><span class="n">left_drop</span><span class="p">)</span>
-
-<span class="nn">~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/reshape/merge.py</span> in <span class="ni">?</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1293</span>                         <span class="c1"># Then we&#39;re either Hashable or a wrong-length arraylike,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1294</span>                         <span class="c1">#  the latter of which will raise</span>
-<span class="g g-Whitespace">   </span><span class="mi">1295</span>                         <span class="n">rk</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">Hashable</span><span class="p">,</span> <span class="n">rk</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1296</span>                         <span class="k">if</span> <span class="n">rk</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1297</span>                             <span class="n">right_keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">right</span><span class="o">.</span><span class="n">_get_label_or_level_values</span><span class="p">(</span><span class="n">rk</span><span class="p">))</span>
-<span class="g g-Whitespace">   </span><span class="mi">1298</span>                         <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1299</span>                             <span class="c1"># work-around for merge_asof(right_index=True)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1300</span>                             <span class="n">right_keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">right</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">_values</span><span class="p">)</span>
-
-<span class="nn">~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/generic.py</span> in <span class="ni">?</span><span class="nt">(self, key, axis)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1906</span>             <span class="n">values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">other_axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">_values</span>
-<span class="g g-Whitespace">   </span><span class="mi">1907</span>         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_level_reference</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1908</span>             <span class="n">values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="o">.</span><span class="n">_values</span>
-<span class="g g-Whitespace">   </span><span class="mi">1909</span>         <span class="k">else</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1910</span>             <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1911</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1912</span>         <span class="c1"># Check for duplicates</span>
-<span class="g g-Whitespace">   </span><span class="mi">1913</span>         <span class="k">if</span> <span class="n">values</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-
-<span class="ne">KeyError</span>: &#39;study&#39;
+   N(1000&lt;=V&lt;=2000)  N(all)  
+0                 2       3  
+1                 2       3  
 </pre></div>
 </div>
 </div>
@@ -199,6 +139,23 @@ Clinical data include data collected at planning, executing, monitoring and post
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="n">summary</span><span class="o">.</span><span class="n">count_to_cate</span><span class="p">([</span><span class="s1">&#39;study&#39;</span><span class="p">,</span> <span class="s1">&#39;treatment&#39;</span><span class="p">,</span> <span class="s1">&#39;visit&#39;</span><span class="p">],</span> <span class="s1">&#39;N(all)&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">],</span> <span class="n">stats</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">,</span><span class="s1">&#39;total_count&#39;</span><span class="p">])</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span> <span class="n">summary</span><span class="o">.</span><span class="n">count_to_cate</span><span class="p">([</span><span class="s1">&#39;study&#39;</span><span class="p">,</span> <span class="s1">&#39;treatment&#39;</span><span class="p">,</span> <span class="s1">&#39;visit&#39;</span><span class="p">],</span> <span class="s1">&#39;N(all)&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">],</span> <span class="n">stats</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">,</span><span class="s1">&#39;total_count&#39;</span><span class="p">])</span> <span class="p">)</span>
+
+<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/health/clinical.py:82,</span> in <span class="ni">summary_by_group.count_to_cate</span><span class="nt">(self, group_columns, target_column, bins, stats)</span>
+<span class="g g-Whitespace">     </span><span class="mi">80</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;target_column should be a non-empty string.&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">81</span> <span class="k">if</span> <span class="n">target_column</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">82</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Column &#39;</span><span class="si">{</span><span class="n">target_column</span><span class="si">}</span><span class="s2">&#39; does not exist in the DataFrame.&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">83</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">is_numeric_dtype</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">target_column</span><span class="p">]):</span>
+<span class="g g-Whitespace">     </span><span class="mi">84</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Column &#39;</span><span class="si">{</span><span class="n">target_column</span><span class="si">}</span><span class="s2">&#39; is not a numerical column.&quot;</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: Column &#39;N(all)&#39; does not exist in the DataFrame.
 </pre></div>
 </div>
 </div>
