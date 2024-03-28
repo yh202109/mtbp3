@@ -1,13 +1,17 @@
 # Changelog
 
 <!--next-version-placeholder-->
+## v0.2.1 (2024-03-28)
+
+- add clinical functions
+
 ## v0.1.50 (2024-03-21)
 
 - update examples
 - fix bug in cdt
 - add right alignment tree
 - add emt fmq tree
-- add cdt show tree
+- add cdt show tree, counts
 
 ## v0.1.48 (2024-03-15)
 

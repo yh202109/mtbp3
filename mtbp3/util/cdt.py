@@ -13,7 +13,7 @@
 #  You should have received a copy of the GNU General Public license
 #  along with this program. If not, see <https://www.gnu.org/license/>
 
-
+import numpy as np
 import pandas as pd
 
 def diff_2cols_in_1df(df, col1='ARM', col2='ACTARM', keep_diff_only=False):
@@ -45,7 +45,7 @@ def diff_2cols_in_1df(df, col1='ARM', col2='ACTARM', keep_diff_only=False):
     
     diff = df[col1].ne(df[col2]).any()
     if diff:
-        out = df.groupby([col1, col2], dropna=False).size().reset_index(name='count')
+        out = df.groupby([col1, col2], dropna=False, observed=False).size().reset_index(name='count')
         out['diff'] = (out[col1] != out[col2]).map(lambda x: "" if x==False else "True")
         if keep_diff_only:
             out = out[out['diff']=='True']
@@ -96,7 +96,7 @@ def diff_2cols_in_2df(df1, df2, col, gp):
 
     merged_df = pd.merge(df1, df2, on=col, how='outer', indicator=True)
     
-    summary = merged_df.groupby([f'{gp}1', f'{gp}2', 'source1', 'source2'], dropna=False).size().reset_index(name='count')
+    summary = merged_df.groupby([f'{gp}1', f'{gp}2', 'source1', 'source2'], dropna=False, observed=False).size().reset_index(name='count')
     summary.fillna('(missing)', inplace=True)
     return summary
 
@@ -148,17 +148,17 @@ def summarize_1nc_by_2group(df=None, column="", cutoff=None, group_col0="", grou
         if cutoff and cutoff > df[column].min() and cutoff < df[column].max() and df[column].max() != df[column].min():
             df['Ind'] = df.apply(lambda row: 1 if row[column] < cutoff else 0, axis=1)
             df['Indna'] = (~df[column].isna()).astype(int)
-            summary_df = pd.DataFrame({'Total': df.groupby([group_col0, group_col1], dropna=False)['Indna'].sum()})
-            summary_df['Count'] = df.groupby([group_col0, group_col1], dropna=False)['Ind'].sum()
+            summary_df = pd.DataFrame({'Total': df.groupby([group_col0, group_col1], dropna=False, observed=False)['Indna'].sum()})
+            summary_df['Count'] = df.groupby([group_col0, group_col1], dropna=False, observed=False)['Ind'].sum()
         else:
             df['Ind'] = df[column].isna().astype(int)
-            summary_df = pd.DataFrame({'Total': df.groupby([group_col0, group_col1], dropna=False)[column].size()})
-            summary_df['Count'] = df.groupby([group_col0, group_col1], dropna=False)['Ind'].sum()
+            summary_df = pd.DataFrame({'Total': df.groupby([group_col0, group_col1], dropna=False, observed=False)[column].size()})
+            summary_df['Count'] = df.groupby([group_col0, group_col1], dropna=False, observed=False)['Ind'].sum()
 
         summary_df['Percentage'] = summary_df.apply(lambda row: f"{row['Count']}/{row['Total']} ({(row['Count'] / row['Total']) * 100:.1f})", axis=1)
         out = summary_df.reset_index().pivot(index=group_col0, columns=group_col1, values='Percentage')
     else:
-        summary_df = df.groupby([group_col0, group_col1])[column].agg(['mean', 'std']) 
+        summary_df = df.groupby([group_col0, group_col1], observed=False)[column].agg(['mean', 'std']) 
         summary_df.columns = ['Mean', 'SD']
         summary_df['Mean_w_SD'] = summary_df.apply(lambda row: f"{row['Mean']:.1f} ({SD:.1f})", axis=1)
         out = summary_df.reset_index().pivot(index=group_col0, columns=group_col1, values='Mean_w_SD')
@@ -172,7 +172,7 @@ class ListTree:
         self.prelst = pd.DataFrame()
         self.out = pd.DataFrame()
     
-    def list_tree_df(self):
+    def __list_tree_df(self):
         if not isinstance(self.lst, list):
             print('Input should be a list.')
             self.df = pd.DataFrame()
@@ -215,10 +215,10 @@ class ListTree:
         df0['row_index'] = df0.index
         df0['property'] = ""
         
-        self.df = df0.groupby(df0.columns.difference(['property', 'row_index']).tolist(), sort=False).agg({'row_index': 'max', 'property': lambda x: ''.join(x)}).reset_index().sort_values('row_index')
+        self.df = df0.groupby(df0.columns.difference(['property', 'row_index'], observed=False).tolist(), sort=False).agg({'row_index': 'max', 'property': lambda x: ''.join(x)}).reset_index().sort_values('row_index')
     
-    def list_tree_pre(self, to_right=False):
-        self.list_tree_df()
+    def __list_tree_pre(self, to_right=False):
+        self.__list_tree_df()
         if self.df.empty:
             self.prelst = self.df
             return self.prelst
@@ -232,7 +232,6 @@ class ListTree:
         
         if to_right:
             pre = ['', '    ', '   │', ' ──┤', ' ──┘', '  ']
-            #prelst['level'] = max_level - prelst['level']
         else:
             pre  = ['', '    ', '│   ', '├── ', '└── ', '  ']
         
@@ -272,7 +271,7 @@ class ListTree:
         self.prelst = prelst
     
     def list_tree(self, to_right=False):
-        self.list_tree_pre(to_right=to_right)
+        self.__list_tree_pre(to_right=to_right)
         
         if self.prelst.empty:
             self.out = pd.DataFrame()
@@ -289,3 +288,4 @@ class ListTree:
 
 if __name__ == "__main__":
     pass
+
