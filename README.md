@@ -6,7 +6,7 @@
 
 My tool box in Python.
 
-Groups of functions include:
+Functions are grouped into:
 - MedDRA (drug labeling, safety reporting, pharmacovigilance, etc.)
 - Clinical trial data
 - Graphs
