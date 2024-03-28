@@ -57,7 +57,7 @@
             "cell_type": "markdown",
             "metadata": {},
             "source": [
-                "To count number of means at each visits by all subjects:"
+                "To count number of meals at each visits for all subjects:"
             ]
         },
         {
