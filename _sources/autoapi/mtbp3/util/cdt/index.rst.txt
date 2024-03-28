@@ -90,10 +90,10 @@ Functions
 .. py:class:: ListTree(lst=[])
 
 
-   .. py:method:: list_tree_df()
+   .. py:method:: __list_tree_df()
 
 
-   .. py:method:: list_tree_pre(to_right=False)
+   .. py:method:: __list_tree_pre(to_right=False)
 
 
    .. py:method:: list_tree(to_right=False)
