@@ -8,6 +8,7 @@ My tool box in Python.
 
 Functions are grouped into:
 - MedDRA (drug labeling, safety reporting, pharmacovigilance, etc.)
+- Clinical data standards (CDISC, etc.)
 - Clinical trial data
 - Graphs
 - System
