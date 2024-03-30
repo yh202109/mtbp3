@@ -17,14 +17,6 @@ Classes
 
 
 
-Attributes
-~~~~~~~~~~
-
-.. autoapisummary::
-
-   mtbp3.health.clinical.summary
-
-
 .. py:class:: summary_by_group(df)
 
 
@@ -46,8 +38,4 @@ Attributes
    .. py:method:: count_to_cate(group_columns, target_column, bins, stats)
 
 
-
-.. py:data:: summary
-
-   
 
