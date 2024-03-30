@@ -128,7 +128,4 @@ class summary_by_group:
 
 if __name__ == "__main__":
     pass
-    summary = summary_by_group(df=None)
-    result = summary.count_to_cate(['study', 'treatment', 'subject', 'visit'], 'calorie', [0,500,1000,2000], stats=['count','total_count'])
-    print(result)
 
