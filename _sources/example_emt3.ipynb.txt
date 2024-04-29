@@ -254,6 +254,8 @@
     "    fmq_tree_list.append(emt.show_fmq_tree([option]))\n",
     "\n",
     "def on_dropdown_change(change):\n",
+    "    print(1)\n",
+    "    print(dropdown.index)\n",
     "    print('\\n'.join(fmq_tree_list[dropdown.index]))\n",
     "\n",
     "dropdown.observe(on_dropdown_change, names='value')\n",
