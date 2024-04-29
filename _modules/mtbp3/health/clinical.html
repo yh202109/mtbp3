@@ -7,7 +7,7 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=eafc0fe6" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
 
   
   <!--[if lt IE 9]>
@@ -17,7 +17,7 @@
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -84,7 +84,7 @@
            <div itemprop="articleBody">
              
   <h1>Source code for mtbp3.health.clinical</h1><div class="highlight"><pre>
-<span></span><span class="c1">#  Copyright (C) 2023 Y Hsu &lt;yh202109@gmail.com&gt;</span>
+<span></span><span class="c1">#  Copyright (C) 2023-2024 Y Hsu &lt;yh202109@gmail.com&gt;</span>
 <span class="c1">#</span>
 <span class="c1">#  This program is free software: you can redistribute it and/or modify</span>
 <span class="c1">#  it under the terms of the GNU General Public license as published by</span>
@@ -101,15 +101,39 @@
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">random</span>
 
 <div class="viewcode-block" id="summary_by_group">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/health/clinical/index.html#mtbp3.health.clinical.summary_by_group">[docs]</a>
 <span class="k">class</span> <span class="nc">summary_by_group</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class for generating summary statistics and performing calculations on a DataFrame.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        df (pandas.DataFrame): The input DataFrame.</span>
+
+<span class="sd">    Methods:</span>
+<span class="sd">        __init__(self, df): Initializes the summary_by_group class.</span>
+<span class="sd">        generate_dataset(design=1): Generate an example dataset for clinical health.</span>
+<span class="sd">        count_by_group(columns): Count occurrences of unique combinations of values in the DataFrame.</span>
+<span class="sd">        count_to_cate(group_columns, target_column, bins, stats): Convert numerical data into categorical data based on specified bins and calculate statistics.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="summary_by_group.__init__">
+<a class="viewcode-back" href="../../../autoapi/mtbp3/health/clinical/index.html#mtbp3.health.clinical.summary_by_group.__init__">[docs]</a>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes the summary_by_group class.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            df (pandas.DataFrame): The input DataFrame.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If the input is not a DataFrame.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">df</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate_dataset</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span></div>
+
 
 <div class="viewcode-block" id="summary_by_group.generate_dataset">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/health/clinical/index.html#mtbp3.health.clinical.summary_by_group.generate_dataset">[docs]</a>
@@ -119,7 +143,7 @@
 <span class="sd">        Generate an example dataset for clinical health.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            type (int, optional): The type of dataset to generate. Defaults to 1.</span>
+<span class="sd">            design (int, optional): The type of dataset to generate. Defaults to 1.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            df (pandas.DataFrame): The generated example dataset.</span>
@@ -152,6 +176,18 @@
 <div class="viewcode-block" id="summary_by_group.count_by_group">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/health/clinical/index.html#mtbp3.health.clinical.summary_by_group.count_by_group">[docs]</a>
     <span class="k">def</span> <span class="nf">count_by_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">columns</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Count occurrences of unique combinations of values in the DataFrame.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            columns (list): The columns to group by.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            grouped_df (pandas.DataFrame): The grouped DataFrame with count.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If the input is not a DataFrame or columns is not a list or a column does not exist in the DataFrame.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input is not a DataFrame.&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">columns</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
@@ -166,6 +202,24 @@
 <div class="viewcode-block" id="summary_by_group.count_to_cate">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/health/clinical/index.html#mtbp3.health.clinical.summary_by_group.count_to_cate">[docs]</a>
     <span class="k">def</span> <span class="nf">count_to_cate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_columns</span><span class="p">,</span> <span class="n">target_column</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">stats</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert numerical data into categorical data based on specified bins and calculate statistics.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            group_columns (list): The columns to group by.</span>
+<span class="sd">            target_column (str): The column to convert and calculate statistics on.</span>
+<span class="sd">            bins (int or list or numpy.ndarray): The bin edges for converting the target_column.</span>
+<span class="sd">            stats (list): The statistics to calculate.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            out1 (pandas.DataFrame): The resulting DataFrame with calculated statistics.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If the input is not a DataFrame or group_columns is not a list or contains non-string elements,</span>
+<span class="sd">                        target_column is not a non-empty string or does not exist in the DataFrame,</span>
+<span class="sd">                        target_column is not a numerical column, bins is not an integer or a sequence of bin edges,</span>
+<span class="sd">                        or stats is not a list of strings or contains invalid statistics.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input is not a DataFrame.&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">group_columns</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
@@ -198,7 +252,7 @@
                 <span class="n">out0</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">target_column</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
             <span class="k">elif</span> <span class="n">stat</span> <span class="o">==</span> <span class="s1">&#39;sum&#39;</span><span class="p">:</span>
                 <span class="n">out0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">group_columns</span><span class="p">,</span> <span class="n">observed</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="n">target_column</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">x</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-                <span class="n">out0_columns</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;Sum(</span><span class="si">{</span><span class="n">bins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2">&lt;=X&lt;</span><span class="si">{</span><span class="n">bins</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nb</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)]</span><span class="o">+</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;S(</span><span class="si">{</span><span class="n">bins</span><span class="p">[</span><span class="n">nb</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">&lt;=V&lt;=</span><span class="si">{</span><span class="n">bins</span><span class="p">[</span><span class="n">nb</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">]</span>
+                <span class="n">out0_columns</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;Sum(</span><span class="si">{</span><span class="n">bins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2">&lt;=X&lt;</span><span class="si">{</span><span class="n">bins</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nb</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)]</span><span class="o">+</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;Sum(</span><span class="si">{</span><span class="n">bins</span><span class="p">[</span><span class="n">nb</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">&lt;=V&lt;=</span><span class="si">{</span><span class="n">bins</span><span class="p">[</span><span class="n">nb</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">]</span>
                 <span class="n">out0</span><span class="p">[</span><span class="n">out0_columns</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">out0</span><span class="p">[</span><span class="n">target_column</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">index</span><span class="o">=</span><span class="n">out0</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
                 <span class="n">out0</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">target_column</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
             <span class="k">elif</span> <span class="n">stat</span> <span class="o">==</span> <span class="s1">&#39;total_max&#39;</span><span class="p">:</span>

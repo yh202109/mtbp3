@@ -170,7 +170,7 @@
     "When the simulated distribution files were used, the function uses synthetic SOCs for the purpose of demonstrating the function usage. \n",
     "The reason of using synthetic SOCs is to simplify data sharing during module development.\n",
     "\n",
-    "**When a MedDRA distribution folder is assigned** by the user, the function will search list real SOCs in the output.\n",
+    "**When a MedDRA distribution folder is assigned** by the user, the function will list real SOCs in the output.\n",
     "\n",
     "To align the output to the right:"
    ]
@@ -225,6 +225,37 @@
     "[^3]: FDA. (2022). BIRRS FDA Medical Queries (FMQ) Project Update.([pdf](https://www.fda.gov/media/164639/download))\n",
     "[^4]: Duke Margolis Institute for Health Policy. (2022). Public Workshop Advancing Premarket Safety Analytics. ([web page](https://healthpolicy.duke.edu/events/advancing-premarket-safety-analytics))\n",
     "[^5]: Clio Wu. (2023) Why FDA Medical Queries (FMQs) for Adverse Events of Special Interest? Implementation and Case Study. PharmaSUG 2023 - Paper DS-036. ([pdf](https://www.lexjansen.com/pharmasug/2023/DS/PharmaSUG-2023-DS-036.pdf))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Appendix\n",
+    "\n",
+    "Select an FMQ below to see PTs included:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "vscode": {
+     "languageId": "plaintext"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "dropdown = widgets.Dropdown(options=fmq_list, description='Select FMQ List:', multiple=False)\n",
+    "fmq_tree_list = []\n",
+    "for option in dropdown.options:\n",
+    "    fmq_tree_list.append(emt.show_fmq_tree([option]))\n",
+    "\n",
+    "def on_dropdown_change(change):\n",
+    "    print('\\n'.join(fmq_tree_list[dropdown.index]))\n",
+    "\n",
+    "dropdown.observe(on_dropdown_change, names='value')\n",
+    "display(dropdown)\n"
    ]
   }
  ],

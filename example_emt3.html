@@ -8,7 +8,7 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=eafc0fe6" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
 
   
   <!--[if lt IE 9]>
@@ -18,7 +18,7 @@
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -55,6 +55,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#fmq-tree">FMQ Tree</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#save-demo-fmq-list-to-local">Save Demo FMQ List to Local</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#appendix">Appendix</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="example_emt4.html">MedDRA Query - MLGs by CIOMS</a></li>
@@ -270,92 +271,92 @@ Name: count, dtype: int64
     ├── Abdominal Pain:
     │   ├── [Classification] Broad:
     │   │   ├── [SOC] soc214dfxgAelhGHfEFFkgrAsFYzZBAFs:
-    │   │   │   ├── [PT01] Complicated appendicitis
-    │   │   │   ├── [PT02] Gastroenteritis Escherichia coli
-    │   │   │   ├── [PT03] Infantile colic
-    │   │   │   ├── [PT04] Ulcerative duodenitis
-    │   │   │   ├── [PT05] CRIA syndrome
-    │   │   │   └── [PT06] Yao syndrome
+    │   │   │   ├── [PT01] Gastritis erosive
+    │   │   │   ├── [PT02] Gastroenteritis escherichia coli
+    │   │   │   ├── [PT03] Gastroenterostomy
+    │   │   │   ├── [PT04] Gastro-enterostomy
+    │   │   │   ├── [PT05] Helicobacter duodenal ulcer
+    │   │   │   ├── [PT06] Peptic ulcer
+    │   │   │   └── [PT07] CRIA syndrome
     │   │   ├── [SOC] soc360phgmkaCxrALPg:
-    │   │   │   ├── [PT07] Carnett&#39;s sign positive
-    │   │   │   ├── [PT08] Gastritis erosive
-    │   │   │   ├── [PT09] Gastro-enterostomy
-    │   │   │   ├── [PT10] Helicobacter duodenal ulcer
-    │   │   │   ├── [PT11] Large intestine infection
-    │   │   │   ├── [PT12] Bauhin&#39;s valve syndrome
-    │   │   │   ├── [PT13] Peritoneoplasty
-    │   │   │   └── [PT14] Segmental arterial mediolysis
+    │   │   │   ├── [PT08] Large intestine infection
+    │   │   │   ├── [PT09] Visceral pain
+    │   │   │   ├── [PT10] Peritoneoplasty
+    │   │   │   └── [PT11] Segmental arterial mediolysis
     │   │   └── [SOC] soc972ZiuFsAfKKVWFbSZdYcgUoCiSTyEYKu:
-    │   │       ├── [PT15] Gastric irritation
-    │   │       ├── [PT16] Gastroenteritis escherichia coli
-    │   │       ├── [PT17] Gastroenterostomy
-    │   │       ├── [PT18] Haemorrhagic erosive gastritis
-    │   │       ├── [PT19] Peptic ulcer
-    │   │       └── [PT20] Visceral pain
+    │   │       ├── [PT12] Carnett&#39;s sign positive
+    │   │       ├── [PT13] Complicated appendicitis
+    │   │       ├── [PT14] Gastric irritation
+    │   │       ├── [PT15] Gastroenteritis Escherichia coli
+    │   │       ├── [PT16] Haemorrhagic erosive gastritis
+    │   │       ├── [PT17] Infantile colic
+    │   │       ├── [PT18] Ulcerative duodenitis
+    │   │       ├── [PT19] Bauhin&#39;s valve syndrome
+    │   │       └── [PT20] Yao syndrome
     │   └── [Classification] Narrow:
     │       ├── [SOC] soc214dfxgAelhGHfEFFkgrAsFYzZBAFs:
-    │       │   ├── [PT21] Abdominal discomfort
-    │       │   ├── [PT22] Abdominal tenderness
+    │       │   ├── [PT21] Abdominal pain lower
+    │       │   ├── [PT22] Abdominal rebound tenderness
     │       │   ├── [PT23] Epigastric discomfort
-    │       │   ├── [PT24] Gastrointestinal pain
-    │       │   ├── [PT25] Gastrointestinal upset
-    │       │   ├── [PT26] Spleen pain
-    │       │   ├── [PT27] Stomach discomfort
-    │       │   └── [PT28] Ilioinguinal neuralgia
+    │       │   ├── [PT24] Gastrointestinal pain NOS
+    │       │   ├── [PT25] Stomach discomfort
+    │       │   └── [PT26] Ilioinguinal neuralgia
     │       ├── [SOC] soc360phgmkaCxrALPg:
-    │       │   ├── [PT29] Abdominal pain
-    │       │   ├── [PT30] Abdominal pain upper
-    │       │   ├── [PT31] Abdominal rebound tenderness
-    │       │   ├── [PT32] Abdominal rigidity
-    │       │   ├── [PT33] Gastrointestinal discomfort
-    │       │   └── [PT34] Intestinal spasm
+    │       │   ├── [PT27] Abdominal migraine
+    │       │   ├── [PT28] Abdominal pain
+    │       │   ├── [PT29] Abdominal pain aggravated
+    │       │   ├── [PT30] Abdominal tenderness
+    │       │   ├── [PT31] Acute abdomen
+    │       │   ├── [PT32] Gastrointestinal pain
+    │       │   └── [PT33] Gastrointestinal upset
     │       └── [SOC] soc972ZiuFsAfKKVWFbSZdYcgUoCiSTyEYKu:
-    │           ├── [PT35] Abdominal migraine
-    │           ├── [PT36] Abdominal pain aggravated
-    │           ├── [PT37] Abdominal pain lower
-    │           ├── [PT38] Abdominal pain NOS
-    │           ├── [PT39] Acute abdomen
-    │           ├── [PT40] Enteric neuropathy
-    │           ├── [PT41] Gastrointestinal pain NOS
-    │           ├── [PT42] Perihepatic discomfort
+    │           ├── [PT34] Abdominal discomfort
+    │           ├── [PT35] Abdominal pain NOS
+    │           ├── [PT36] Abdominal pain upper
+    │           ├── [PT37] Abdominal rigidity
+    │           ├── [PT38] Enteric neuropathy
+    │           ├── [PT39] Gastrointestinal discomfort
+    │           ├── [PT40] Intestinal spasm
+    │           ├── [PT41] Perihepatic discomfort
+    │           ├── [PT42] Spleen pain
     │           └── [PT43] Ulcer type pain
     └── Abnormal Uterine Bleeding:
         ├── [Classification] Broad:
         │   ├── [SOC] soc214dfxgAelhGHfEFFkgrAsFYzZBAFs:
-        │   │   ├── [PT01] Anovulatory cycle
-        │   │   ├── [PT02] Dysmenorrhoea
-        │   │   ├── [PT03] Follicle stimulating hormone deficiency
-        │   │   └── [PT04] Menstrual disorder
+        │   │   ├── [PT01] Bleeding anovulatory
+        │   │   ├── [PT02] Dysmenorrhea
+        │   │   ├── [PT03] Follicle-stimulating hormone deficiency
+        │   │   ├── [PT04] Menstrual disorder
+        │   │   ├── [PT05] Uterine dehiscence
+        │   │   └── [PT06] Ovarian dysfunction
         │   ├── [SOC] soc360phgmkaCxrALPg:
-        │   │   ├── [PT05] Bleeding anovulatory
-        │   │   ├── [PT06] Uterine dehiscence
-        │   │   └── [PT07] Ovarian dysfunction
+        │   │   ├── [PT07] Dysmenorrhoea
+        │   │   └── [PT08] Follicle stimulating hormone deficiency
         │   └── [SOC] soc972ZiuFsAfKKVWFbSZdYcgUoCiSTyEYKu:
-        │       ├── [PT08] Dysmenorrhea
-        │       └── [PT09] Follicle-stimulating hormone deficiency
+        │       └── [PT09] Anovulatory cycle
         └── [Classification] Narrow:
             ├── [SOC] soc214dfxgAelhGHfEFFkgrAsFYzZBAFs:
-            │   ├── [PT10] Abnormal withdrawal bleeding
-            │   ├── [PT11] Heavy menstrual bleeding
-            │   ├── [PT12] Intermenstrual bleeding
-            │   ├── [PT13] Menometrorrhagia
-            │   ├── [PT14] Menorrhagia
-            │   ├── [PT15] Menstruation irregular
-            │   ├── [PT16] Oligomenorrhoea
-            │   ├── [PT17] Polymenorrhagia
-            │   └── [PT18] Uterine rupture
+            │   ├── [PT10] Abnormal uterine bleeding
+            │   ├── [PT11] Abnormal withdrawal bleeding
+            │   ├── [PT12] Cervix haemorrhage uterine
+            │   ├── [PT13] Dysfunctional uterine bleeding
+            │   ├── [PT14] Heavy menstrual bleeding
+            │   ├── [PT15] Metrorrhagia
+            │   ├── [PT16] Uterine rupture
+            │   └── [PT17] Vaginal haemorrhage
             ├── [SOC] soc360phgmkaCxrALPg:
-            │   ├── [PT19] Cervix haemorrhage uterine
-            │   ├── [PT20] Dysfunctional uterine bleeding
-            │   ├── [PT21] Hypomenorrhoea
-            │   ├── [PT22] Menstruation delayed
-            │   ├── [PT23] Uterine haemorrhage
-            │   └── [PT24] Vaginal haemorrhage
+            │   ├── [PT18] Hypomenorrhoea
+            │   ├── [PT19] Intermenstrual bleeding
+            │   ├── [PT20] Menometrorrhagia
+            │   ├── [PT21] Menorrhagia
+            │   ├── [PT22] Menstruation irregular
+            │   ├── [PT23] Oligomenorrhoea
+            │   ├── [PT24] Polymenorrhagia
+            │   └── [PT25] Postmenopausal haemorrhage
             └── [SOC] soc972ZiuFsAfKKVWFbSZdYcgUoCiSTyEYKu:
-                ├── [PT25] Abnormal uterine bleeding
-                ├── [PT26] Metrorrhagia
+                ├── [PT26] Menstruation delayed
                 ├── [PT27] Polymenorrhoea
-                └── [PT28] Postmenopausal haemorrhage
+                └── [PT28] Uterine haemorrhage
 </pre></div>
 </div>
 </div>
@@ -363,7 +364,7 @@ Name: count, dtype: int64
 <p>Please note that the SOCs involved in the output above are <strong>synthetic</strong>, and groupings may <strong>NOT</strong> make senses.
 When the simulated distribution files were used, the function uses synthetic SOCs for the purpose of demonstrating the function usage.
 The reason of using synthetic SOCs is to simplify data sharing during module development.</p>
-<p><strong>When a MedDRA distribution folder is assigned</strong> by the user, the function will search list real SOCs in the output.</p>
+<p><strong>When a MedDRA distribution folder is assigned</strong> by the user, the function will list real SOCs in the output.</p>
 <p>To align the output to the right:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -376,91 +377,91 @@ The reason of using synthetic SOCs is to simplify data sharing during module dev
                                             Abdominal Pain ──┤    
                                 Broad [Classification] ──┤   │    
            soc214dfxgAelhGHfEFFkgrAsFYzZBAFs [SOC] ──┤   │   │    
-                Bauhin&#39;s valve syndrome [PT10] ──┤   │   │   │    
-                          CRIA syndrome [PT09] ──┤   │   │   │    
                Complicated appendicitis [PT01] ──┤   │   │   │    
                      Gastric irritation [PT02] ──┤   │   │   │    
-       Gastroenteritis Escherichia coli [PT04] ──┤   │   │   │    
-       Gastroenteritis escherichia coli [PT03] ──┤   │   │   │    
-                      Gastroenterostomy [PT05] ──┤   │   │   │    
-              Large intestine infection [PT06] ──┤   │   │   │    
-                  Ulcerative duodenitis [PT07] ──┤   │   │   │    
-                          Visceral pain [PT08] ──┘   │   │   │    
+                      Gastritis erosive [PT03] ──┤   │   │   │    
+       Gastroenteritis escherichia coli [PT04] ──┤   │   │   │    
+            Helicobacter duodenal ulcer [PT05] ──┤   │   │   │    
+                           Yao syndrome [PT06] ──┘   │   │   │    
                          soc360phgmkaCxrALPg [SOC] ──┤   │   │    
-                Carnett&#39;s sign positive [PT11] ──┤   │   │   │    
-                      Gastritis erosive [PT12] ──┤   │   │   │    
-                        Infantile colic [PT13] ──┤   │   │   │    
-                           Peptic ulcer [PT14] ──┤   │   │   │    
-          Segmental arterial mediolysis [PT16] ──┤   │   │   │    
-                           Yao syndrome [PT15] ──┘   │   │   │    
+                          CRIA syndrome [PT11] ──┤   │   │   │    
+                     Gastro-enterostomy [PT09] ──┤   │   │   │    
+       Gastroenteritis Escherichia coli [PT07] ──┤   │   │   │    
+                      Gastroenterostomy [PT08] ──┤   │   │   │    
+                           Peptic ulcer [PT10] ──┤   │   │   │    
+                        Peritoneoplasty [PT12] ──┘   │   │   │    
         soc972ZiuFsAfKKVWFbSZdYcgUoCiSTyEYKu [SOC] ──┘   │   │    
-                     Gastro-enterostomy [PT17] ──┤       │   │    
-         Haemorrhagic erosive gastritis [PT18] ──┤       │   │    
-            Helicobacter duodenal ulcer [PT19] ──┤       │   │    
-                        Peritoneoplasty [PT20] ──┘       │   │    
+                Bauhin&#39;s valve syndrome [PT19] ──┤       │   │    
+                Carnett&#39;s sign positive [PT13] ──┤       │   │    
+         Haemorrhagic erosive gastritis [PT14] ──┤       │   │    
+                        Infantile colic [PT15] ──┤       │   │    
+              Large intestine infection [PT16] ──┤       │   │    
+          Segmental arterial mediolysis [PT20] ──┤       │   │    
+                  Ulcerative duodenitis [PT17] ──┤       │   │    
+                          Visceral pain [PT18] ──┘       │   │    
                                Narrow [Classification] ──┘   │    
            soc214dfxgAelhGHfEFFkgrAsFYzZBAFs [SOC] ──┤       │    
-                     Abdominal migraine [PT21] ──┤   │       │    
+                   Abdominal discomfort [PT21] ──┤   │       │    
+                     Abdominal pain NOS [PT23] ──┤   │       │    
               Abdominal pain aggravated [PT22] ──┤   │       │    
-           Abdominal rebound tenderness [PT23] ──┤   │       │    
                      Abdominal rigidity [PT24] ──┤   │       │    
-                     Stomach discomfort [PT25] ──┤   │       │    
-                        Ulcer type pain [PT26] ──┘   │       │    
+                          Acute abdomen [PT25] ──┤   │       │    
+                     Enteric neuropathy [PT26] ──┤   │       │    
+                 Ilioinguinal neuralgia [PT29] ──┤   │       │    
+                 Perihepatic discomfort [PT27] ──┤   │       │    
+                            Spleen pain [PT28] ──┘   │       │    
                          soc360phgmkaCxrALPg [SOC] ──┤       │    
-                   Abdominal discomfort [PT27] ──┤   │       │    
-                     Abdominal pain NOS [PT29] ──┤   │       │    
-                         Abdominal pain [PT28] ──┤   │       │    
-                          Acute abdomen [PT30] ──┤   │       │    
-                     Enteric neuropathy [PT31] ──┤   │       │    
-                  Gastrointestinal pain [PT32] ──┤   │       │    
-                 Ilioinguinal neuralgia [PT33] ──┘   │       │    
+                   Abdominal pain lower [PT30] ──┤   │       │    
+                   Abdominal pain upper [PT31] ──┤   │       │    
+           Abdominal rebound tenderness [PT32] ──┤   │       │    
+              Gastrointestinal pain NOS [PT33] ──┤   │       │    
+                 Gastrointestinal upset [PT34] ──┤   │       │    
+                       Intestinal spasm [PT35] ──┘   │       │    
         soc972ZiuFsAfKKVWFbSZdYcgUoCiSTyEYKu [SOC] ──┘       │    
-                   Abdominal pain lower [PT34] ──┤           │    
-                   Abdominal pain upper [PT35] ──┤           │    
-                   Abdominal tenderness [PT36] ──┤           │    
-                  Epigastric discomfort [PT37] ──┤           │    
-            Gastrointestinal discomfort [PT38] ──┤           │    
-              Gastrointestinal pain NOS [PT39] ──┤           │    
-                 Gastrointestinal upset [PT40] ──┤           │    
-                       Intestinal spasm [PT41] ──┤           │    
-                 Perihepatic discomfort [PT42] ──┤           │    
-                            Spleen pain [PT43] ──┘           │    
+                     Abdominal migraine [PT36] ──┤           │    
+                         Abdominal pain [PT37] ──┤           │    
+                   Abdominal tenderness [PT38] ──┤           │    
+                  Epigastric discomfort [PT39] ──┤           │    
+            Gastrointestinal discomfort [PT40] ──┤           │    
+                  Gastrointestinal pain [PT41] ──┤           │    
+                     Stomach discomfort [PT42] ──┤           │    
+                        Ulcer type pain [PT43] ──┘           │    
                                  Abnormal Uterine Bleeding ──┘    
                                 Broad [Classification] ──┤        
            soc214dfxgAelhGHfEFFkgrAsFYzZBAFs [SOC] ──┤   │        
-                           Dysmenorrhea [PT01] ──┤   │   │        
-                          Dysmenorrhoea [PT02] ──┘   │   │        
+                      Anovulatory cycle [PT01] ──┤   │   │        
+                   Bleeding anovulatory [PT02] ──┤   │   │        
+                     Uterine dehiscence [PT03] ──┘   │   │        
                          soc360phgmkaCxrALPg [SOC] ──┤   │        
-                      Anovulatory cycle [PT03] ──┤   │   │        
-                   Bleeding anovulatory [PT04] ──┤   │   │        
-Follicle stimulating hormone deficiency [PT05] ──┤   │   │        
-                     Uterine dehiscence [PT06] ──┘   │   │        
+                           Dysmenorrhea [PT04] ──┤   │   │        
+                          Dysmenorrhoea [PT05] ──┘   │   │        
         soc972ZiuFsAfKKVWFbSZdYcgUoCiSTyEYKu [SOC] ──┘   │        
-Follicle-stimulating hormone deficiency [PT07] ──┤       │        
+Follicle stimulating hormone deficiency [PT07] ──┤       │        
+Follicle-stimulating hormone deficiency [PT06] ──┤       │        
                      Menstrual disorder [PT08] ──┤       │        
                     Ovarian dysfunction [PT09] ──┘       │        
                                Narrow [Classification] ──┘        
            soc214dfxgAelhGHfEFFkgrAsFYzZBAFs [SOC] ──┤            
              Cervix haemorrhage uterine [PT10] ──┤   │            
-                         Hypomenorrhoea [PT11] ──┤   │            
-                            Menorrhagia [PT12] ──┤   │            
-                         Polymenorrhoea [PT13] ──┘   │            
+               Heavy menstrual bleeding [PT11] ──┤   │            
+                       Menometrorrhagia [PT12] ──┤   │            
+                 Menstruation irregular [PT13] ──┤   │            
+                           Metrorrhagia [PT14] ──┤   │            
+                        Oligomenorrhoea [PT15] ──┤   │            
+             Postmenopausal haemorrhage [PT16] ──┤   │            
+                    Uterine haemorrhage [PT17] ──┘   │            
                          soc360phgmkaCxrALPg [SOC] ──┤            
-               Heavy menstrual bleeding [PT14] ──┤   │            
-                       Menometrorrhagia [PT15] ──┤   │            
-                 Menstruation irregular [PT16] ──┤   │            
-                        Oligomenorrhoea [PT17] ──┤   │            
-                        Polymenorrhagia [PT18] ──┤   │            
-             Postmenopausal haemorrhage [PT19] ──┤   │            
-                    Vaginal haemorrhage [PT20] ──┘   │            
+              Abnormal uterine bleeding [PT18] ──┤   │            
+         Dysfunctional uterine bleeding [PT19] ──┤   │            
+                         Hypomenorrhoea [PT20] ──┤   │            
+                            Menorrhagia [PT21] ──┤   │            
+                   Menstruation delayed [PT22] ──┤   │            
+                    Vaginal haemorrhage [PT23] ──┘   │            
         soc972ZiuFsAfKKVWFbSZdYcgUoCiSTyEYKu [SOC] ──┘            
-              Abnormal uterine bleeding [PT21] ──┤                
-           Abnormal withdrawal bleeding [PT22] ──┤                
-         Dysfunctional uterine bleeding [PT23] ──┤                
-                Intermenstrual bleeding [PT24] ──┤                
-                   Menstruation delayed [PT25] ──┤                
-                           Metrorrhagia [PT26] ──┤                
-                    Uterine haemorrhage [PT27] ──┤                
+           Abnormal withdrawal bleeding [PT24] ──┤                
+                Intermenstrual bleeding [PT25] ──┤                
+                        Polymenorrhagia [PT26] ──┤                
+                         Polymenorrhoea [PT27] ──┤                
                         Uterine rupture [PT28] ──┘                
 </pre></div>
 </div>
@@ -482,6 +483,38 @@ The author(s) can not provide warranty or promises for the correctness, complete
 </section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>
+</section>
+<section id="appendix">
+<h2>Appendix<a class="headerlink" href="#appendix" title="Link to this heading"></a></h2>
+<p>Select an FMQ below to see PTs included:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dropdown</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">fmq_list</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Select FMQ List:&#39;</span><span class="p">,</span> <span class="n">multiple</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">fmq_tree_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">option</span> <span class="ow">in</span> <span class="n">dropdown</span><span class="o">.</span><span class="n">options</span><span class="p">:</span>
+    <span class="n">fmq_tree_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">emt</span><span class="o">.</span><span class="n">show_fmq_tree</span><span class="p">([</span><span class="n">option</span><span class="p">]))</span>
+
+<span class="k">def</span> <span class="nf">on_dropdown_change</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">fmq_tree_list</span><span class="p">[</span><span class="n">dropdown</span><span class="o">.</span><span class="n">index</span><span class="p">]))</span>
+
+<span class="n">dropdown</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">on_dropdown_change</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">dropdown</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dropdown</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">fmq_list</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Select FMQ List:&#39;</span><span class="p">,</span> <span class="n">multiple</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">fmq_tree_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">for</span> <span class="n">option</span> <span class="ow">in</span> <span class="n">dropdown</span><span class="o">.</span><span class="n">options</span><span class="p">:</span>
+
+<span class="ne">NameError</span>: name &#39;widgets&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
 <hr class="footnotes docutils" />
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="id6" role="doc-footnote">
