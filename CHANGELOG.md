@@ -1,6 +1,11 @@
 # Changelog
 
 <!--next-version-placeholder-->
+## v0.2.3 (2024-03-28)
+
+- add clinical data standard group (cda**)
+- add interactive documents
+
 ## v0.2.2 (2024-03-28)
 
 - add clinical functions
