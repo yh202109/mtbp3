@@ -3,13 +3,14 @@
 ![PyPI](https://img.shields.io/pypi/v/mtbp3?label=pypi%20package)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/mtbp3)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/yh202109/mtbp3supp/main?labpath=binder)
 
 My tool box in Python.
 
 Functions are grouped into:
 - MedDRA (drug labeling, safety reporting, pharmacovigilance, etc.)
 - Clinical data standards (CDISC, etc.)
-- Clinical trial data
+- Clinical trial data summary
 - Graphs
 - System
 
