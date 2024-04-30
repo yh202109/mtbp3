@@ -1,0 +1,57 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# MedDRA Query - FMQs by FDA\n",
+    "\n",
+    "This is the Appendix section of the module `emt` documentation for FMQs."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Appendix\n",
+    "\n",
+    "Select an FMQ below to see PTs included:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "vscode": {
+     "languageId": "plaintext"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "from mtbp3.health.emt import Emt\n",
+    "from ipywidgets import widgets\n",
+    "\n",
+    "emt = Emt(folder_name='')\n",
+    "fmq_list = emt.find_fmq(fmq=[])\n",
+    "\n",
+    "dropdown = widgets.Dropdown(options=fmq_list, description='Select FMQ List:', multiple=False)\n",
+    "fmq_tree_list = []\n",
+    "for option in dropdown.options:\n",
+    "    fmq_tree_list.append(emt.show_fmq_tree([option]))\n",
+    "\n",
+    "def on_dropdown_change(change):\n",
+    "    print('\\n'.join(fmq_tree_list[dropdown.index]))\n",
+    "\n",
+    "dropdown.observe(on_dropdown_change, names='value')\n",
+    "display(dropdown)\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "language_info": {
+   "name": "python"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
