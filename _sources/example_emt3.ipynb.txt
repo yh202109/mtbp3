@@ -218,19 +218,6 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Reference\n",
-    "\n",
-    "[^1]: ICH. (2013). Understanding MedDRA. ([pdf](https://admin.meddra.org/sites/default/files/page/documents_insert/meddra2013_0.pdf))\n",
-    "[^2]: Dutta, A. (2020). MedDRA - Terminologies & Coding. ([pdf](https://meddra.org/sites/default/files/page/documents_insert/meddra_-_terminologies_coding.pdf))\n",
-    "[^3]: FDA. (2022). BIRRS FDA Medical Queries (FMQ) Project Update.([pdf](https://www.fda.gov/media/164639/download))\n",
-    "[^4]: Duke Margolis Institute for Health Policy. (2022). Public Workshop Advancing Premarket Safety Analytics. ([web page](https://healthpolicy.duke.edu/events/advancing-premarket-safety-analytics))\n",
-    "[^5]: Clio Wu. (2023) Why FDA Medical Queries (FMQs) for Adverse Events of Special Interest? Implementation and Case Study. PharmaSUG 2023 - Paper DS-036. ([pdf](https://www.lexjansen.com/pharmasug/2023/DS/PharmaSUG-2023-DS-036.pdf))"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
     "## Appendix - View PTs Given Any FMQ\n",
     "\n",
     "This folder does not host interactive contents. \n",
@@ -239,6 +226,19 @@
     "Please visit the web page \n",
     "[here](https://hub.ovh2.mybinder.org/user/yh202109-mtbp3-sbnhwku8/notebooks/docs/example_emt3_appendix.ipynb).\n",
     "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Reference\n",
+    "\n",
+    "[^1]: ICH. (2013). Understanding MedDRA. ([pdf](https://admin.meddra.org/sites/default/files/page/documents_insert/meddra2013_0.pdf))\n",
+    "[^2]: Dutta, A. (2020). MedDRA - Terminologies & Coding. ([pdf](https://meddra.org/sites/default/files/page/documents_insert/meddra_-_terminologies_coding.pdf))\n",
+    "[^3]: FDA. (2022). BIRRS FDA Medical Queries (FMQ) Project Update.([pdf](https://www.fda.gov/media/164639/download))\n",
+    "[^4]: Duke Margolis Institute for Health Policy. (2022). Public Workshop Advancing Premarket Safety Analytics. ([web page](https://healthpolicy.duke.edu/events/advancing-premarket-safety-analytics))\n",
+    "[^5]: Clio Wu. (2023) Why FDA Medical Queries (FMQs) for Adverse Events of Special Interest? Implementation and Case Study. PharmaSUG 2023 - Paper DS-036. ([pdf](https://www.lexjansen.com/pharmasug/2023/DS/PharmaSUG-2023-DS-036.pdf))"
    ]
   }
  ],
