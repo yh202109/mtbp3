@@ -17,7 +17,8 @@
     "\n",
     "How to use:\n",
     "\n",
-    "- Step 1: click the rectangle \"&rtri; Run\" located above\n",
+    "\n",
+    "- Step 1: click the rectangle \"&#9654; Run\" located above **Three(3)** times\n",
     "- Step 2: Select an FMQ below to see PTs included:"
    ]
   },
@@ -37,7 +38,7 @@
     "\n",
     "emt = Emt(folder_name='')\n",
     "fmq_list = emt.find_fmq(fmq=[])\n",
-    "dropdown = widgets.Dropdown(options=fmq_list, description='Select an FMQ from the List:', multiple=False)\n",
+    "dropdown = widgets.Dropdown(options=fmq_list, description='Select:', multiple=False)\n",
     "\n",
     "def on_dropdown_change(change):\n",
     "    clear_output()\n",
@@ -45,7 +46,8 @@
     "    print('\\n'.join(emt.show_fmq_tree(fmq_list[dropdown.index])))\n",
     "\n",
     "dropdown.observe(on_dropdown_change, names='value')\n",
-    "display(dropdown)"
+    "display(dropdown)\n",
+    "print('\\n'.join(emt.show_fmq_tree(fmq_list[0])))"
    ]
   }
  ],
