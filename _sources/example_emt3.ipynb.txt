@@ -224,7 +224,7 @@
     "A web version notebook is provided for using an interactive drop-down menu, and viewing all related PTs without installation of Python.\n",
     "\n",
     "Please visit the web page \n",
-    "[here](https://hub.ovh2.mybinder.org/user/yh202109-mtbp3-sbnhwku8/notebooks/docs/example_emt3_appendix.ipynb).\n",
+    "[here](https://hub.ovh2.mybinder.org/user/yh202109-mtbp3-0nkt1m0e/notebooks/docs/example_emt3_appendix.ipynb).\n",
     "\n"
    ]
   },
