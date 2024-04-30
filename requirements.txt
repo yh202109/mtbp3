@@ -123,8 +123,8 @@ pybtex-docutils
 pycparser 
 pydata-sphinx-theme==0.15.2
 Pygments==2.17.2
-pyobjc-core 
-pyobjc-framework-Cocoa 
+#pyobjc-core 
+#pyobjc-framework-Cocoa 
 pyparsing==3.1.2
 PyPDF2==3.0.1
 pySankey==0.0.1
