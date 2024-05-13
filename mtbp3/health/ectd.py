@@ -22,13 +22,13 @@ class ctoc_by_fda:
     def __init__(self, version="2.3.3"):
         assert isinstance(version, str) and all(char.isdigit() or char == '.' for char in version), "Version must be a string with integers and dots"
         self.version = version
+        self.folder_name = mtbp3.get_data(f'supp_ectd/fda_ctoc_v{version}.txt')
         self.ctoc = self.__load_list()
-        self.folder_name = mtbp3.get_data(f'supp_ectd/fda_ctoc_v{self.version}.txt')
 
     def __load_list(self):
-        file_path = self.folder_name
         #file_path = f'./mtbp3/data/supp_ectd/fda_ctoc_v{self.version}.txt'
-        if os.path.exists(file_path):
+        file_path = self.folder_name
+        if os.path.isfile(file_path):
             with open(file_path, 'r') as file:
                 lines = file.readlines()
             lines = [line.strip() for line in lines if line.strip()]
