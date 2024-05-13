@@ -173,7 +173,7 @@ Attributes
    :raises ValueError: If the column is not a numerical column.
 
 
-.. py:class:: ListTree(lst=[])
+.. py:class:: ListTree(lst=[], label=[], infmt='path')
 
 
    .. py:method:: __list_tree_df()
