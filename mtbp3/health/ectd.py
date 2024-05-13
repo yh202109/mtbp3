@@ -16,15 +16,17 @@
 import pandas as pd
 import os
 from mtbp3.util.cdt import ListTree
+import mtbp3
     
 class ctoc_by_fda:
     def __init__(self, version="2.3.3"):
         assert isinstance(version, str) and all(char.isdigit() or char == '.' for char in version), "Version must be a string with integers and dots"
         self.version = version
         self.ctoc = self.__load_list()
+        self.folder_name = mtbp3.get_data(f'supp_ectd/fda_ctoc_v{self.version}.txt')
 
     def __load_list(self):
-        file_path = f'data/supp_ectd/fda_ctoc_v{self.version}.txt'
+        file_path = self.folder_name
         #file_path = f'./mtbp3/data/supp_ectd/fda_ctoc_v{self.version}.txt'
         if os.path.exists(file_path):
             with open(file_path, 'r') as file:
