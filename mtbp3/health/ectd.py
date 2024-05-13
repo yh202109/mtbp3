@@ -24,8 +24,8 @@ class ctoc_by_fda:
         self.ctoc = self.__load_list()
 
     def __load_list(self):
-        #file_path = f'data/supp_ectd/fda_ctoc_v{self.version}.txt'
-        file_path = f'./mtbp3/data/supp_ectd/fda_ctoc_v{self.version}.txt'
+        file_path = f'data/supp_ectd/fda_ctoc_v{self.version}.txt'
+        #file_path = f'./mtbp3/data/supp_ectd/fda_ctoc_v{self.version}.txt'
         if os.path.exists(file_path):
             with open(file_path, 'r') as file:
                 lines = file.readlines()
@@ -49,6 +49,4 @@ class ctoc_by_fda:
         return [row for row in self.ctoc if words in row]
 
 if __name__ == "__main__":
-    #pass
-    ctoc = ctoc_by_fda()
-    print(ctoc.find_section_given_words('REMS'))
+    pass
