@@ -19,10 +19,12 @@ from mtbp3.util.cdt import ListTree
 import mtbp3
     
 class ctoc_by_fda:
-    def __init__(self, version="2.3.3"):
-        assert isinstance(version, str) and all(char.isdigit() or char == '.' for char in version), "Version must be a string with integers and dots"
-        self.version = version
-        self.folder_name = mtbp3.get_data(f'supp_ectd/fda_ctoc_v{version}.txt')
+    def __init__(self, ectd_version="3.2.2", ctoc_version="2.3.3"):
+        assert isinstance(ectd_version, str) and all(char.isdigit() or char == '.' for char in ectd_version), "Version must be a string with integers and dots"
+        assert isinstance(ctoc_version, str) and all(char.isdigit() or char == '.' for char in ctoc_version), "Version must be a string with integers and dots"
+        self.ectd_version = ectd_version
+        self.ctoc_version = ctoc_version
+        self.folder_name = mtbp3.get_data(f'supp_ectd/fda_ectd{ectd_version}_ctocv{ctoc_version}.txt')
         self.ctoc = self.__load_list()
 
     def __load_list(self):
