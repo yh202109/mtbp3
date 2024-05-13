@@ -17,7 +17,7 @@ Classes
 
 
 
-.. py:class:: ctoc_by_fda(version='2.3.3')
+.. py:class:: ctoc_by_fda(ectd_version='3.2.2', ctoc_version='2.3.3')
 
 
    .. py:method:: __load_list()

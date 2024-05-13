@@ -18,7 +18,7 @@
     "## The Comprehensive Table of Contents Headings and Hierarchy (CTOC) by FDA \n",
     "\n",
     "The current FDA supporting version of eCTD standard is 2.3.3 and the newest testing version is 4.0 with base implementation package v1.5 [^2].\n",
-    "FDA has released guidance on heading hierarchy of eCTD [^3]. \n",
+    "FDA has released guidance on heading hierarchy of eCTD [^3]<sup>,</sup>[^4].\n",
     "The `ectd` module provides functions for listing and searching within the heading hierarchy.\n",
     "\n",
     "To view CTOC of Module 1:"
@@ -35,7 +35,7 @@
    "outputs": [],
    "source": [
     "from mtbp3.health import ectd\n",
-    "ctoc = ectd.ctoc_by_fda()\n",
+    "ctoc = ectd.ctoc_by_fda(ectd_version='3.2.2', ctoc_version='2.3.3')\n",
     "print('\\n'.join(ctoc.show_ctoc_tree(1)))\n"
    ]
   },
@@ -151,7 +151,8 @@
     "\n",
     "[^1]: FDA. (2023). Electronic Common Technical Document (eCTD). ([web page](https://www.fda.gov/drugs/electronic-regulatory-submission-and-review/electronic-common-technical-document-ectd))\n",
     "[^2]: FDA. (2023). Electronic Common Technical Document (eCTD) v4.0. ([web page](https://www.fda.gov/drugs/electronic-regulatory-submission-and-review/electronic-common-technical-document-ectd-v40))\n",
-    "[^3]: FDA. (2020). The Comprehensive Table of Contents Headings and Hierarchy Version 2.3.3. ([pdf](https://www.fda.gov/media/76444/download))"
+    "[^3]: FDA. (2020). The Comprehensive Table of Contents Headings and Hierarchy Version 2.3.3. ([pdf](https://www.fda.gov/media/76444/download))\n",
+    "[^4]: FDA. (2021). The Comprehensive Table of Contents Headings and Hierarchy Version 4.0. ([pdf](https://www.fda.gov/media/150309/download))"
    ]
   }
  ],
