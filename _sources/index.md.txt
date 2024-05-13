@@ -7,6 +7,7 @@
 
 example_clinical.ipynb
 example_ectd.ipynb
+example_ectd2.ipynb
 example_cdtg.ipynb
 example_emt.ipynb
 example_emt2.ipynb
