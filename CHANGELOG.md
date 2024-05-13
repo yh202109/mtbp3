@@ -1,10 +1,12 @@
 # Changelog
 
 <!--next-version-placeholder-->
-## v0.2.3 (2024-03-28)
+## v0.2.3 (2024-05-01)
 
+- add eCTD function group
 - add clinical data standard group (cda**)
-- add interactive documents
+- add interactive documents on binder
+- add sampling function group
 
 ## v0.2.2 (2024-03-28)
 
