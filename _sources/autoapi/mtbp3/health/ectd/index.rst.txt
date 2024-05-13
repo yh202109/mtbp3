@@ -17,14 +17,6 @@ Classes
 
 
 
-Attributes
-~~~~~~~~~~
-
-.. autoapisummary::
-
-   mtbp3.health.ectd.ctoc
-
-
 .. py:class:: ctoc_by_fda(version='2.3.3')
 
 
@@ -37,8 +29,4 @@ Attributes
    .. py:method:: find_section_given_words(words)
 
 
-
-.. py:data:: ctoc
-
-   
 
