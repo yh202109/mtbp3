@@ -104,31 +104,14 @@ The <code class="docutils literal notranslate"><span class="pre">ectd</span></co
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mtbp3.health</span> <span class="kn">import</span> <span class="n">ectd</span>
-<span class="n">ctoc</span> <span class="o">=</span> <span class="n">ectd</span><span class="o">.</span><span class="n">ctoc_by_fda</span><span class="p">(</span><span class="n">ectd_version</span><span class="o">=</span><span class="s1">&#39;3.2.2&#39;</span><span class="p">,</span> <span class="n">ctoc_version</span><span class="o">=</span><span class="s1">&#39;2.3.3&#39;</span><span class="p">)</span>
+<span class="n">ctoc</span> <span class="o">=</span> <span class="n">ectd</span><span class="o">.</span><span class="n">ctoc_by_fda</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ctoc</span><span class="o">.</span><span class="n">show_ctoc_tree</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">mtbp3.health</span> <span class="kn">import</span> <span class="n">ectd</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">ctoc</span> <span class="o">=</span> <span class="n">ectd</span><span class="o">.</span><span class="n">ctoc_by_fda</span><span class="p">(</span><span class="n">ectd_version</span><span class="o">=</span><span class="s1">&#39;3.2.2&#39;</span><span class="p">,</span> <span class="n">ctoc_version</span><span class="o">=</span><span class="s1">&#39;2.3.3&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ctoc</span><span class="o">.</span><span class="n">show_ctoc_tree</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span>
-
-<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/health/ectd.py:28,</span> in <span class="ni">ctoc_by_fda.__init__</span><span class="nt">(self, ectd_version, ctoc_version)</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="bp">self</span><span class="o">.</span><span class="n">ctoc_version</span> <span class="o">=</span> <span class="n">ctoc_version</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="bp">self</span><span class="o">.</span><span class="n">folder_name</span> <span class="o">=</span> <span class="n">mtbp3</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;supp_ectd/fda_ectd</span><span class="si">{</span><span class="n">ectd_version</span><span class="si">}</span><span class="s1">_ctocv</span><span class="si">{</span><span class="n">ctoc_version</span><span class="si">}</span><span class="s1">.txt&#39;</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">28</span> <span class="bp">self</span><span class="o">.</span><span class="n">ctoc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__load_list</span><span class="p">()</span>
-
-<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/health/ectd.py:39,</span> in <span class="ni">ctoc_by_fda.__load_list</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">     </span><span class="mi">37</span>     <span class="k">return</span> <span class="n">lines</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">39</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Version </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s2"> not found.&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">40</span>     <span class="k">return</span> <span class="p">[]</span>
-
-<span class="ne">AttributeError</span>: &#39;ctoc_by_fda&#39; object has no attribute &#39;version&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eCTD Version 3.2.2 with CTOC Version 2.3.3 not found.
+Input should be a nonempty list.
 </pre></div>
 </div>
 </div>
@@ -140,11 +123,21 @@ The <code class="docutils literal notranslate"><span class="pre">ectd</span></co
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Input should be a nonempty list.
+</pre></div>
+</div>
+</div>
 </div>
 <p>To view CTOC of Module 3:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ctoc</span><span class="o">.</span><span class="n">show_ctoc_tree</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Input should be a nonempty list.
 </pre></div>
 </div>
 </div>
@@ -156,6 +149,11 @@ The <code class="docutils literal notranslate"><span class="pre">ectd</span></co
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Input should be a nonempty list.
+</pre></div>
+</div>
+</div>
 </div>
 <p>To view CTOC of Module 5:</p>
 <div class="cell docutils container">
@@ -164,11 +162,21 @@ The <code class="docutils literal notranslate"><span class="pre">ectd</span></co
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Input should be a nonempty list.
+</pre></div>
+</div>
+</div>
 </div>
 <p>To search a word within the hierarchy:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ctoc</span><span class="o">.</span><span class="n">find_section_given_words</span><span class="p">(</span><span class="s1">&#39;REMS&#39;</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
