@@ -28,7 +28,7 @@ class ctoc_by_fda:
         self.ctoc = self.__load_list()
 
     def __load_list(self):
-        #file_path = f'./mtbp3/data/supp_ectd/fda_ctoc_v{self.version}.txt'
+        #file_path = f'./mtbp3/data/supp_ectd/fda_ectd{self.ectd_version}_ctocv{ctoc_version}.txt'
         file_path = self.folder_name
         if os.path.isfile(file_path):
             with open(file_path, 'r') as file:
@@ -36,7 +36,7 @@ class ctoc_by_fda:
             lines = [line.strip() for line in lines if line.strip()]
             return lines
         else:
-            print(f"Version {self.version} not found.")
+            print(f"eCTD Version {self.ectd_version} with CTOC Version {self.ctoc_version} not found.")
             return []
 
     def show_ctoc_tree(self, module=None, to_right=False):
