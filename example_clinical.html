@@ -24,7 +24,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Graph - Categorical Plots Using catPlotter" href="example_cdtg.html" />
-    <link rel="prev" title="MedDRA CT Mapping - ICD-10 and SNOMED CT" href="example_emt5.html" /> 
+    <link rel="prev" title="mtbp3" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,16 +47,17 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="example_emt.html">MedDRA - Start with Distribution Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_emt2.html">MedDRA Query - SMQs by ICH</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_emt3.html">MedDRA Query - FMQs by FDA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_emt4.html">MedDRA Query - MLGs by CIOMS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_emt5.html">MedDRA CT Mapping - ICD-10 and SNOMED CT</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Clinical - Grouped Summary</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#example-1">Example 1</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="example_cdtg.html">Graph - Categorical Plots Using catPlotter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_ectd.html">eCTD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_emt.html">MedDRA - Start with Distribution Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_emt2.html">MedDRA Query - SMQs by ICH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_emt3.html">MedDRA Query - FMQs by FDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_emt4.html">MedDRA Query - MLGs by CIOMS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_emt5.html">MedDRA CT Mapping - ICD-10 and SNOMED CT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_files.html">System - List Folder Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
@@ -107,8 +108,8 @@ Clinical data include data collected at planning, executing, monitoring and post
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  study treatment subject   visit  meal  calorie
-0  STD1      TRT1  SUBJ01  VISIT1     1      537
-1  STD1      TRT1  SUBJ01  VISIT1     2      672
+0  STD1      TRT1  SUBJ01  VISIT1     1     1841
+1  STD1      TRT1  SUBJ01  VISIT1     2      591
 </pre></div>
 </div>
 </div>
@@ -126,10 +127,10 @@ Clinical data include data collected at planning, executing, monitoring and post
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  study treatment subject   visit  N(0&lt;=X&lt;500)  N(500&lt;=X&lt;1000)  \
 0  STD1      TRT1  SUBJ01  VISIT1            0               2   
-1  STD1      TRT1  SUBJ02  VISIT1            1               1   
+1  STD1      TRT1  SUBJ01  VISIT2            1               1   
 
    N(1000&lt;=V&lt;=2000)  N(all)  
-0                 0       2  
+0                 1       3  
 1                 2       4  
 </pre></div>
 </div>
@@ -145,22 +146,22 @@ Clinical data include data collected at planning, executing, monitoring and post
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   study treatment   visit  N(0&lt;=X&lt;3)  N(3&lt;=X&lt;5)  N(5&lt;=V&lt;=7)  N(all)
-0   STD1      TRT1  VISIT1          5         10           5      20
-1   STD1      TRT1  VISIT2          4          8           5      17
-2   STD1      TRT1  VISIT3          4          2           4      10
-3   STD1      TRT1  VISIT4          2          2           1       5
-4   STD1      TRT2  VISIT1          3         11           6      20
-5   STD1      TRT2  VISIT2          4          7           2      13
-6   STD1      TRT2  VISIT3          3          4           1       8
-7   STD1      TRT2  VISIT4          1          2           1       4
-8   STD2      TRT1  VISIT1          3         13           4      20
-9   STD2      TRT1  VISIT2          4          6           9      19
-10  STD2      TRT1  VISIT3          4          9           0      13
-11  STD2      TRT1  VISIT4          1          5           0       6
-12  STD2      TRT2  VISIT1          4          8           8      20
-13  STD2      TRT2  VISIT2          4          6           6      16
-14  STD2      TRT2  VISIT3          3          8           1      12
-15  STD2      TRT2  VISIT4          1          5           0       6
+0   STD1      TRT1  VISIT1          2         16           2      20
+1   STD1      TRT1  VISIT2          6          7           3      16
+2   STD1      TRT1  VISIT3          3          7           2      12
+3   STD1      TRT1  VISIT4          0          2           1       3
+4   STD1      TRT2  VISIT1          1         12           7      20
+5   STD1      TRT2  VISIT2          8          3           4      15
+6   STD1      TRT2  VISIT3          2          6           4      12
+7   STD1      TRT2  VISIT4          0          3           3       6
+8   STD2      TRT1  VISIT1          5          9           6      20
+9   STD2      TRT1  VISIT2          3         10           5      18
+10  STD2      TRT1  VISIT3          4          5           3      12
+11  STD2      TRT1  VISIT4          1          3           2       6
+12  STD2      TRT2  VISIT1          2          8          10      20
+13  STD2      TRT2  VISIT2          4         11           3      18
+14  STD2      TRT2  VISIT3          1         10           2      13
+15  STD2      TRT2  VISIT4          2          2           2       6
 </pre></div>
 </div>
 </div>
@@ -174,22 +175,22 @@ Clinical data include data collected at planning, executing, monitoring and post
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   study treatment   visit  Sum(0&lt;=X&lt;3)  Sum(3&lt;=X&lt;5)  Sum(5&lt;=V&lt;=7)  Sum(all)
-0   STD1      TRT1  VISIT1           10           34            25        69
-1   STD1      TRT1  VISIT2            8           26            25        59
-2   STD1      TRT1  VISIT3            8            7            20        35
-3   STD1      TRT1  VISIT4            4            7             5        16
-4   STD1      TRT2  VISIT1            6           39            30        75
-5   STD1      TRT2  VISIT2            8           24            10        42
-6   STD1      TRT2  VISIT3            6           16             5        27
-7   STD1      TRT2  VISIT4            2            7             5        14
-8   STD2      TRT1  VISIT1            6           43            20        69
-9   STD2      TRT1  VISIT2            8           21            45        74
-10  STD2      TRT1  VISIT3            8           30             0        38
-11  STD2      TRT1  VISIT4            2           17             0        19
-12  STD2      TRT2  VISIT1            8           28            40        76
-13  STD2      TRT2  VISIT2            8           21            30        59
-14  STD2      TRT2  VISIT3            6           27             5        38
-15  STD2      TRT2  VISIT4            2           20             0        22
+0   STD1      TRT1  VISIT1            4           56            10        70
+1   STD1      TRT1  VISIT2           12           25            15        52
+2   STD1      TRT1  VISIT3            6           23            10        39
+3   STD1      TRT1  VISIT4            0            8             5        13
+4   STD1      TRT2  VISIT1            2           44            35        81
+5   STD1      TRT2  VISIT2           16           11            20        47
+6   STD1      TRT2  VISIT3            4           20            20        44
+7   STD1      TRT2  VISIT4            0            9            15        24
+8   STD2      TRT1  VISIT1           10           30            30        70
+9   STD2      TRT1  VISIT2            6           35            25        66
+10  STD2      TRT1  VISIT3            8           18            15        41
+11  STD2      TRT1  VISIT4            2           10            10        22
+12  STD2      TRT2  VISIT1            4           28            50        82
+13  STD2      TRT2  VISIT2            8           37            15        60
+14  STD2      TRT2  VISIT3            2           34            10        46
+15  STD2      TRT2  VISIT4            4            7            10        21
 </pre></div>
 </div>
 </div>
@@ -201,7 +202,7 @@ Clinical data include data collected at planning, executing, monitoring and post
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="example_emt5.html" class="btn btn-neutral float-left" title="MedDRA CT Mapping - ICD-10 and SNOMED CT" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="mtbp3" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="example_cdtg.html" class="btn btn-neutral float-right" title="Graph - Categorical Plots Using catPlotter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
