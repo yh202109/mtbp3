@@ -166,8 +166,10 @@ def summarize_1nc_by_2group(df=None, column="", cutoff=None, group_col0="", grou
     return [out, tmp]
 
 class ListTree:
-    def __init__(self, lst=[]):
+    def __init__(self, lst=[], label=[], infmt='path'):
         self.lst = lst
+        self.label = label
+        self.infmt = infmt
         self.df = pd.DataFrame()
         self.prelst = pd.DataFrame()
         self.out = pd.DataFrame()
@@ -187,7 +189,20 @@ class ListTree:
             self.df = pd.DataFrame(self.lst, columns=['lst'])
             return
         
-        df0 = pd.DataFrame(self.lst, columns=['lst'])
+        if self.infmt == 'dotspace':
+            df0 = pd.DataFrame([[line.split(' ', 1)[0]]+[line] for line in self.lst], columns=['c1', 'property'])
+            df0['lst'] = df0['c1'].str.replace('.', '/')
+            df0['lst'] = df0['lst'].apply(lambda x: '/'.join([part.zfill(3) for part in x.split('/')]))
+            df0['lst'] = df0['lst'].apply(lambda x: x + '/' if df0['lst'].str.contains(x+'/').any() else x)
+            df0 = df0.drop('c1', axis=1)
+            df0 = df0.sort_values('lst').reset_index(drop=True)
+        else:
+            df0 = pd.DataFrame(self.lst, columns=['lst'])
+            if len(self.label) > 0:
+                df0['property'] = self.label
+            else:
+                df0['property'] = ''
+
         df0['lst'] = df0['lst'].str.replace('^/', '', regex=True)
         df0['type'] = df0['lst'].apply(lambda x: True if x.endswith('/') else False)
         
@@ -213,7 +228,7 @@ class ListTree:
             df0['level'] = df0['level'] - df0['level'].min() + 1
         
         df0['row_index'] = df0.index
-        df0['property'] = ""
+        df0 = df0[['lst', 'type', 't1', 't0', 'level', 'row_index', 'property']]
         
         self.df = df0.groupby(df0.columns.difference(['property', 'row_index']).tolist(), sort=False).agg({'row_index': 'max', 'property': lambda x: ''.join(x)}).reset_index().sort_values('row_index')
     
@@ -233,7 +248,7 @@ class ListTree:
         if to_right:
             pre = ['', '    ', '   │', ' ──┤', ' ──┘', '  ']
         else:
-            pre  = ['', '    ', '│   ', '├── ', '└── ', '  ']
+            pre = ['', '    ', '│   ', '├── ', '└── ', '  ']
         
         t1_list = prelst[prelst['type'] == True][['t1','level','t0']]
         
@@ -267,6 +282,9 @@ class ListTree:
         else:
             prelst['t0'] = prelst.apply(lambda row: row['t0'] + ':' if row['type'] == True else row['t0'], axis=1)
             prelst = prelst.loc[:, :'property']
+
+        if self.infmt == 'dotspace':
+            prelst['t0'] = ''
         
         self.prelst = prelst
     

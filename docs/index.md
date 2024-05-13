@@ -6,8 +6,8 @@
 :hidden:
 
 example_clinical.ipynb
-example_cdtg.ipynb
 example_ectd.ipynb
+example_cdtg.ipynb
 example_emt.ipynb
 example_emt2.ipynb
 example_emt3.ipynb
