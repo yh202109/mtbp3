@@ -294,7 +294,7 @@
 5.3.5.1 Study reports and related information of controlled clinical studies pertinent to the claimed indication [type of control] [see 5.3.1.1.pseudo]
 5.3.5.2 Study reports and related information of uncontrolled clinical studies [see 5.3.1.1.pseudo]
 5.3.5.3 Reports of analyses of data from more than one study [see 5.3.5.3.pseudo]
-5.3.5.3.pseudo Study report [identification] and related information !!! numbers after pseudo are displaying orders on guidance document. do not use those numbers as section numbers !!!
+5.3.5.3.pseudo Study report [identification] and related information 
 5.3.5.3.pseudo.1 Integrated analysis of safety
 5.3.5.3.pseudo.1.1 Iss
 5.3.5.3.pseudo.1.2 Analysis datasets
@@ -310,7 +310,7 @@
 5.3.5.3.pseudo.2.2.3 Analysis program
 5.3.5.3.pseudo.2.2.4 Analysis data definition
 5.3.5.4 Other Study reports and related information [see 5.3.5.4.pseudo]
-5.3.5.4.pseudo Study report [identification] and related information !!! numbers after pseudo are displaying orders on guidance document. do not use those numbers as section numbers !!!
+5.3.5.4.pseudo Study report [identification] and related information 
 5.3.5.4.pseudo.1 Antibacterial microbiology reports
 5.3.5.4.pseudo.1.1 Antibacterial
 5.3.5.4.pseudo.2 Special pathogens (e.g., fungi, parasites, mycobacteria) and immune
@@ -325,11 +325,11 @@
 5.3.5.4.pseudo.6.2 HF-validation-report
 5.3.5.4.pseudo.6.3 HF-validation-other
 5.3.6 Reports of postmarketing experience
-5.3.6.pseudo !!! numbers after pseudo are displaying orders on guidance document. do not use those numbers as section numbers !!!
+5.3.6.pseudo (This line is added line by the software for displaying purpose)
 5.3.6.pseudo.1 Postmarketing periodic adverse event drug experience report
 5.3.6.pseudo.2 description
 5.4 Literature references
-4.2.1.1.pseudo Study report [identification] and related information !!! numbers after pseudo are displaying order on guidance document. do not use those numbers as section numbers !!!
+4.2.1.1.pseudo Study report [identification] and related information 
 4.2.1.1.pseudo.01 Legacy clinical study report
 4.2.1.1.pseudo.02 Pre clinical study report
 4.2.1.1.pseudo.03 Synopsis
@@ -370,7 +370,7 @@
 4.2.1.1.pseudo.29 PK PD relationship
 4.2.1.1.pseudo.30 Specialty report
 4.2.1.1.pseudo.31 Foreign clinical studies not under ind
-5.3.1.1.pseudo Study report [identification] and related information !!! numbers after pseudo are displaying order on guidance document. do not use those numbers as section numbers !!!
+5.3.1.1.pseudo Study report [identification] and related information 
 5.3.1.1.pseudo.01 Legacy clinical study report
 5.3.1.1.pseudo.02 Synopsis (ICH E3, section 2)
 5.3.1.1.pseudo.03 Study report body (E3 1, 3 to 15)

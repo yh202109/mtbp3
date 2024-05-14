@@ -241,7 +241,7 @@
 4.2 Study reports
 4.2.1 Pharmacology
 4.2.1.1 Primary pharmacodynamics
-4.2.1.1.pseudo [study id_study title (R)] !!! numbers after pseudo are displaying orders on guidance document. do not use those numbers as section numbers !!!    
+4.2.1.1.pseudo [study id_study title (R)] 
 4.2.1.1.pseudo.01 [document type (R)]
 4.2.1.1.pseudo.02 Legacy clinical study report
 4.2.1.1.pseudo.03 Pre clinical study report
@@ -325,7 +325,7 @@ duration(O)][document type (R)][see 4.2.1.1.pseudo]
 5.3 Clinical study reports and related information
 5.3.1 Reports of biopharmaceutic studies
 5.3.1.1 Bioavailability (BA) Study reports and related information
-5.3.1.1.pseudo [study id_study title (R)] !!! numbers after pseudo are displaying orders on guidance document. do not use those numbers as section numbers !!!
+5.3.1.1.pseudo [study id_study title (R)] 
 5.3.1.1.pseudo.01 [document type (R)]
 5.3.1.1.pseudo.02 Legacy clinical study report
 5.3.1.1.pseudo.03 Synopsis (ICH E3, section 2)
@@ -411,7 +411,7 @@ related information [study id_study title (R)][document type (R)][see 5.3.1.1.ps
 5.3.5.1 Study reports and related information of controlled clinical studies pertinent to the claimed indication [study id_study title (R), type of control (R)][document type (R)][see 5.3.1.1.pseudo]
 5.3.5.2 Study reports and related information of uncontrolled clinical studies [study id_study title (R)][document type (R)][see 5.3.1.1.pseudo]
 5.3.5.3 Reports of analyses of data from more than one study
-5.3.5.3.pseudo [study id_study title (R)] !!! numbers after pseudo are displaying orders on guidance document. do not use those numbers as section numbers !!!
+5.3.5.3.pseudo [study id_study title (R)] 
 5.3.5.3.pseudo.01 [document type (R)]
 5.3.5.3.pseudo.02 Integrated analysis of safety
 5.3.5.3.pseudo.02.1 Iss
@@ -444,7 +444,7 @@ related information [study id_study title (R)][document type (R)][see 5.3.1.1.ps
 5.3.5.4.pseudo.07.2 HF-validation-report
 5.3.5.4.pseudo.07.3 HF-validation-other
 5.3.6 Reports of postmarketingexperience
-5.3.6.pseudo !!! numbers after pseudo are displaying orders on guidance document. do not use those numbers as section numbers !!!
+5.3.6.pseudo (This line is added by the software for displaying purpose.)
 5.3.6.pseudo.01 Postmarketing periodic adverse event drug
 5.3.6.pseudo.02 experience report description
 5.4 Literature references
