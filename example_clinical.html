@@ -23,7 +23,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="eCTD 3.2 - Hierarchy" href="example_ectd.html" />
+    <link rel="next" title="eCTD 3.2 - Heading" href="example_ectd.html" />
     <link rel="prev" title="mtbp3" href="index.html" /> 
 </head>
 
@@ -51,8 +51,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#example-1">Example 1</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="example_ectd.html">eCTD 3.2 - Hierarchy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_ectd2.html">eCTD 4.0 - Hierarchy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_ectd.html">eCTD 3.2 - Heading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_ectd2.html">eCTD 4.0 - Heading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_cdtg.html">Graph - Categorical Plots Using catPlotter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_emt.html">MedDRA - Start with Distribution Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_emt2.html">MedDRA Query - SMQs by ICH</a></li>
@@ -109,8 +109,8 @@ Clinical data include data collected at planning, executing, monitoring and post
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  study treatment subject   visit  meal  calorie
-0  STD1      TRT1  SUBJ01  VISIT1     1     1005
-1  STD1      TRT1  SUBJ01  VISIT1     2      764
+0  STD1      TRT1  SUBJ01  VISIT1     1     1498
+1  STD1      TRT1  SUBJ01  VISIT1     2      403
 </pre></div>
 </div>
 </div>
@@ -127,12 +127,12 @@ Clinical data include data collected at planning, executing, monitoring and post
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  study treatment subject   visit  N(0&lt;=X&lt;500)  N(500&lt;=X&lt;1000)  \
-0  STD1      TRT1  SUBJ01  VISIT1            0               2   
-1  STD1      TRT1  SUBJ01  VISIT2            0               0   
+0  STD1      TRT1  SUBJ01  VISIT1            1               2   
+1  STD1      TRT1  SUBJ01  VISIT2            0               2   
 
    N(1000&lt;=V&lt;=2000)  N(all)  
-0                 2       4  
-1                 5       5  
+0                 1       4  
+1                 2       4  
 </pre></div>
 </div>
 </div>
@@ -148,21 +148,21 @@ Clinical data include data collected at planning, executing, monitoring and post
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   study treatment   visit  N(0&lt;=X&lt;3)  N(3&lt;=X&lt;5)  N(5&lt;=V&lt;=7)  N(all)
 0   STD1      TRT1  VISIT1          1         14           5      20
-1   STD1      TRT1  VISIT2          7          8           4      19
-2   STD1      TRT1  VISIT3          6          3           4      13
-3   STD1      TRT1  VISIT4          4          2           1       7
-4   STD1      TRT2  VISIT1          3          8           9      20
-5   STD1      TRT2  VISIT2          3          8           6      17
+1   STD1      TRT1  VISIT2          5          6           1      12
+2   STD1      TRT1  VISIT3          1          9           1      11
+3   STD1      TRT1  VISIT4          2          2           1       5
+4   STD1      TRT2  VISIT1          4         10           6      20
+5   STD1      TRT2  VISIT2          3         12           2      17
 6   STD1      TRT2  VISIT3          4          7           2      13
-7   STD1      TRT2  VISIT4          2          6           1       9
-8   STD2      TRT1  VISIT1          6          6           8      20
-9   STD2      TRT1  VISIT2          2         11           6      19
-10  STD2      TRT1  VISIT3          2          9           1      12
-11  STD2      TRT1  VISIT4          1          2           0       3
-12  STD2      TRT2  VISIT1          3          8           9      20
-13  STD2      TRT2  VISIT2          4          8           4      16
-14  STD2      TRT2  VISIT3          4          1           5      10
-15  STD2      TRT2  VISIT4          0          0           1       1
+7   STD1      TRT2  VISIT4          3          1           1       5
+8   STD2      TRT1  VISIT1          6         11           3      20
+9   STD2      TRT1  VISIT2          2          6           3      11
+10  STD2      TRT1  VISIT3          3          3           0       6
+11  STD2      TRT1  VISIT4          1          0           1       2
+12  STD2      TRT2  VISIT1          9          8           3      20
+13  STD2      TRT2  VISIT2          1          9           5      15
+14  STD2      TRT2  VISIT3          3          4           3      10
+15  STD2      TRT2  VISIT4          2          1           0       3
 </pre></div>
 </div>
 </div>
@@ -176,22 +176,22 @@ Clinical data include data collected at planning, executing, monitoring and post
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   study treatment   visit  Sum(0&lt;=X&lt;3)  Sum(3&lt;=X&lt;5)  Sum(5&lt;=V&lt;=7)  Sum(all)
-0   STD1      TRT1  VISIT1            2           48            25        75
-1   STD1      TRT1  VISIT2           14           28            20        62
-2   STD1      TRT1  VISIT3           12           11            20        43
-3   STD1      TRT1  VISIT4            8            7             5        20
-4   STD1      TRT2  VISIT1            6           28            45        79
-5   STD1      TRT2  VISIT2            6           26            30        62
-6   STD1      TRT2  VISIT3            8           23            10        41
-7   STD1      TRT2  VISIT4            4           21             5        30
-8   STD2      TRT1  VISIT1           12           23            40        75
-9   STD2      TRT1  VISIT2            4           37            30        71
-10  STD2      TRT1  VISIT3            4           34             5        43
-11  STD2      TRT1  VISIT4            2            7             0         9
-12  STD2      TRT2  VISIT1            6           28            45        79
-13  STD2      TRT2  VISIT2            8           28            20        56
-14  STD2      TRT2  VISIT3            8            3            25        36
-15  STD2      TRT2  VISIT4            0            0             5         5
+0   STD1      TRT1  VISIT1            2           47            25        74
+1   STD1      TRT1  VISIT2           10           21             5        36
+2   STD1      TRT1  VISIT3            2           31             5        38
+3   STD1      TRT1  VISIT4            4            8             5        17
+4   STD1      TRT2  VISIT1            8           37            30        75
+5   STD1      TRT2  VISIT2            6           43            10        59
+6   STD1      TRT2  VISIT3            8           25            10        43
+7   STD1      TRT2  VISIT4            6            3             5        14
+8   STD2      TRT1  VISIT1           12           37            15        64
+9   STD2      TRT1  VISIT2            4           23            15        42
+10  STD2      TRT1  VISIT3            6           10             0        16
+11  STD2      TRT1  VISIT4            2            0             5         7
+12  STD2      TRT2  VISIT1           18           32            15        65
+13  STD2      TRT2  VISIT2            2           28            25        55
+14  STD2      TRT2  VISIT3            6           15            15        36
+15  STD2      TRT2  VISIT4            4            4             0         8
 </pre></div>
 </div>
 </div>
@@ -204,7 +204,7 @@ Clinical data include data collected at planning, executing, monitoring and post
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="mtbp3" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="example_ectd.html" class="btn btn-neutral float-right" title="eCTD 3.2 - Hierarchy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="example_ectd.html" class="btn btn-neutral float-right" title="eCTD 3.2 - Heading" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
