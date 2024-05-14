@@ -191,7 +191,7 @@ class ListTree:
         
         if self.infmt == 'dotspace':
             df0 = pd.DataFrame([[line.split(' ', 1)[0]]+[line] for line in self.lst], columns=['c1', 'property'])
-            df0['property'] = df0['property'].apply(lambda x: x.split(' ', 1)[1] if '.pseudo.' in x else x)
+            df0['property'] = df0['property'].apply(lambda x: x.split(' ', 1)[1] if '.pseudo' in x else x)
             df0['lst'] = df0['c1'].str.replace('.', '/')
             df0['lst'] = df0['lst'].apply(lambda x: '/'.join([part.zfill(3) for part in x.split('/')]))
             df0['lst'] = df0['lst'].apply(lambda x: x + '/' if df0['lst'].str.contains(x+'/').any() else x)
