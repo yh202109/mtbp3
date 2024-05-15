@@ -101,6 +101,7 @@ The module <code class="docutils literal notranslate"><span class="pre">ectd</sp
 <p>The current FDA supporting version of eCTD standard is 3.2.2 and the newest testing version is 4.0 with base implementation package v1.5 <a class="footnote-reference brackets" href="#id6" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.
 FDA has released guidance on heading hierarchy of eCTD <a class="footnote-reference brackets" href="#id7" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a><sup>,</sup><a class="footnote-reference brackets" href="#id8" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>.
 The <code class="docutils literal notranslate"><span class="pre">ectd</span></code> module provides functions for listing and searching within the heading hierarchy.</p>
+<p><strong>Disclaimer</strong>: this module is shared for quick searching and preview headings with the intention to be helpful. The author can not guarantee the correctness of the heading. Please notify the author if any typos were found.</p>
 <p>To view CTOC of Module 1:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -116,14 +117,14 @@ The <code class="docutils literal notranslate"><span class="pre">ectd</span></co
     ├── 1.2 Cover letters
     ├── 1.3 Administrative information
     │   ├── 1.3.1 Contact/sponsor/applicant information
-    │   │   ├── 1.3.1.1 Change ofaddress or corporate name
+    │   │   ├── 1.3.1.1 Change of address or corporate name
     │   │   ├── 1.3.1.2 Change in contact/agent
     │   │   ├── 1.3.1.3 Change in sponsor
     │   │   ├── 1.3.1.4 Transfer of obligation
     │   │   └── 1.3.1.5 Change in ownership of an application or reissuance of license
     │   ├── 1.3.2 Field copy certification
     │   ├── 1.3.3 Debarment certification
-    │   ├── 1.3.4 Financial certification anddisclosure
+    │   ├── 1.3.4 Financial certification and disclosure
     │   ├── 1.3.5 Patent and exclusivity
     │   │   ├── 1.3.5.1 Patent information
     │   │   ├── 1.3.5.2 Patent certification
@@ -148,7 +149,7 @@ The <code class="docutils literal notranslate"><span class="pre">ectd</span></co
     │   └── 1.6.3 Correspondence regarding meetings
     ├── 1.7 Fast Track
     │   ├── 1.7.1 Fast track designation request
-    │   ├── 1.7.2 Fast track designation withdrawalrequest
+    │   ├── 1.7.2 Fast track designation withdrawal request
     │   ├── 1.7.3 Rolling review request
     │   └── 1.7.4 Correspondence regarding fast track/rolling review
     ├── 1.8 Special protocol assessment request
@@ -177,7 +178,7 @@ The <code class="docutils literal notranslate"><span class="pre">ectd</span></co
     │   ├── 1.12.4 Request for comments and advice
     │   ├── 1.12.5 Request for awaiver
     │   ├── 1.12.6 Exception from informed consent for emergency research
-    │   ├── 1.12.7 Public disclosure statement forexception from informed consent for emergency research
+    │   ├── 1.12.7 Public disclosure statement for exception from informed consent for emergency research
     │   ├── 1.12.8 Correspondence regarding exception from informed consent for emergency research
     │   ├── 1.12.9 Notification of discontinuation of clinical trial
     │   ├── 1.12.10 Generic drug enforcement act statement
@@ -190,15 +191,15 @@ The <code class="docutils literal notranslate"><span class="pre">ectd</span></co
     │   ├── 1.12.17 Orphan drug designation
     │   └── 1.12.18 Regenerative medicine advanced therapy (RMAT) designation
     ├── 1.13 Annual report
-    │   ├── 1.13.1 Summary for nonclinicalstudies
+    │   ├── 1.13.1 Summary for nonclinical studies
     │   ├── 1.13.2 Summary of clinical pharmacology information
-    │   ├── 1.13.3 Summary of safetyinformation
-    │   ├── 1.13.4 Summary of labelingchanges
-    │   ├── 1.13.5 Summary of manufacturingchanges
-    │   ├── 1.13.6 Summary of microbiologicalchanges
+    │   ├── 1.13.3 Summary of safety information
+    │   ├── 1.13.4 Summary of labeling changes
+    │   ├── 1.13.5 Summary of manufacturing changes
+    │   ├── 1.13.6 Summary of microbiological changes
     │   ├── 1.13.7 Summary of other significant new information
-    │   ├── 1.13.8 Individual studyinformation
-    │   ├── 1.13.9 General investigationalplan
+    │   ├── 1.13.8 Individual study information
+    │   ├── 1.13.9 General investigational plan
     │   ├── 1.13.10 Foreign marketing
     │   ├── 1.13.11 Distribution data
     │   ├── 1.13.12 Status of postmarketing study commitments and requirements
@@ -208,9 +209,9 @@ The <code class="docutils literal notranslate"><span class="pre">ectd</span></co
     ├── 1.14 Labeling
     │   ├── 1.14.1 Draft labeling
     │   │   ├── 1.14.1.1 Draft carton and container labels
-    │   │   ├── 1.14.1.2 Annotated draft labelingtext
+    │   │   ├── 1.14.1.2 Annotated draft labeling text
     │   │   ├── 1.14.1.3 Draft labeling text
-    │   │   ├── 1.14.1.4 Label comprehensionstudies
+    │   │   ├── 1.14.1.4 Label comprehension studies
     │   │   └── 1.14.1.5 Labeling history
     │   ├── 1.14.2 Final labeling
     │   │   ├── 1.14.2.1 Final carton or container labels
@@ -220,17 +221,17 @@ The <code class="docutils literal notranslate"><span class="pre">ectd</span></co
     │   │   ├── 1.14.3.1 Annotated comparison with listed drug
     │   │   ├── 1.14.3.2 Approved labeling text for listed drug
     │   │   └── 1.14.3.3 Labeling textfor reference listed drug
-    │   ├── 1.14.4 Investigational druglabeling
+    │   ├── 1.14.4 Investigational drug labeling
     │   │   ├── 1.14.4.1 Investigational brochure
     │   │   └── 1.14.4.2 Investigational drug labeling
     │   ├── 1.14.5 Foreign labeling
     │   └── 1.14.6 Product labeling for 2253 submissions
     ├── 1.15 Promotional material [promotional-material-audience-type (R)]
-    │   ├── 1.15.1 Correspondence relating to promotionalmaterials
+    │   ├── 1.15.1 Correspondence relating to promotional materials
     │   │   ├── 1.15.1.1 Request for advisory comments on launch materials
     │   │   ├── 1.15.1.2 Request for advisory comments on non-launch materials
-    │   │   ├── 1.15.1.3 Presubmission of launch promotional materials for accelerated approvalproducts
-    │   │   ├── 1.15.1.4 Presubmission of non-launch promotional materials for accelerated approvalproducts
+    │   │   ├── 1.15.1.3 Presubmission of launch promotional materials for accelerated approval products
+    │   │   ├── 1.15.1.4 Presubmission of non-launch promotional materials for accelerated approval products
     │   │   ├── 1.15.1.5 Pre-dissemination review of television ads
     │   │   ├── 1.15.1.6 Response to untitled letter or warning letter
     │   │   ├── 1.15.1.7 Response to information request
@@ -296,7 +297,7 @@ The <code class="docutils literal notranslate"><span class="pre">ectd</span></co
     │   └── 2.6.7 Toxicology tabulated summary
     └── 2.7 Clinical summary
         ├── 2.7.1 Summary of Biopharmaceutic Studies and Associated Analytical Methods
-        ├── 2.7.2 Summary of Clinical Pharmacologystudies
+        ├── 2.7.2 Summary of Clinical Pharmacology studies
         ├── 2.7.3 Summary of Clinical Efficacy [indication (R)]
         ├── 2.7.4 Summary of Clinical Safety
         ├── 2.7.5 References
@@ -335,7 +336,7 @@ The <code class="docutils literal notranslate"><span class="pre">ectd</span></co
     │   │   │   ├── 3.2.P.4.4 Justification of Specifications
     │   │   │   ├── 3.2.P.4.5 Excipients of Human or Animal Origin
     │   │   │   └── 3.2.P.4.6 Novel Excipients
-    │   │   ├── 3.2.P.5 Control of drugproduct
+    │   │   ├── 3.2.P.5 Control of drug product
     │   │   │   ├── 3.2.P.5.1 Specification(s)
     │   │   │   ├── 3.2.P.5.2 Analytical Procedures
     │   │   │   ├── 3.2.P.5.3 Validation of Analytical Procedures
@@ -359,9 +360,9 @@ The <code class="docutils literal notranslate"><span class="pre">ectd</span></co
     │       │   ├── 3.2.S.2.5 Process Validation and/or Evaluation
     │       │   └── 3.2.S.2.6 Manufacturing Process Development
     │       ├── 3.2.S.3 Characterization
-    │       │   ├── 3.2.S.3.1 Elucidation of Structure andother Characteristics
+    │       │   ├── 3.2.S.3.1 Elucidation of Structure and other Characteristics
     │       │   └── 3.2.S.3.2 Impurities
-    │       ├── 3.2.S.4 Control of drugsubstance
+    │       ├── 3.2.S.4 Control of drug substance
     │       │   ├── 3.2.S.4.1 Specification
     │       │   ├── 3.2.S.4.2 Analytical Procedures
     │       │   ├── 3.2.S.4.3 Validation of Analytical Procedures
@@ -451,7 +452,7 @@ The <code class="docutils literal notranslate"><span class="pre">ectd</span></co
     │       │   └── 4.2.3.3.2 In vivo [study id_study title (R)][document type (R)][see 4.2.1.1]
     │       ├── 4.2.3.4 Carcinogenicity
     │       │   ├── 4.2.3.4.1 Long term studies [study id_study title (R), species (R)][document type (R)][see 4.2.1.1]
-    │       │   ├── 4.2.3.4.2 Short or medium termstudies [study id_study title (R)][document type (R)][see 4.2.1.1]
+    │       │   ├── 4.2.3.4.2 Short or medium term studies [study id_study title (R)][document type (R)][see 4.2.1.1]
     │       │   └── 4.2.3.4.3 Other studies [study id_study title (R)][document type (R)][see 4.2.1.1]
     │       ├── 4.2.3.5 Reproductive and developmental toxicity
     │       │   ├── 4.2.3.5.1 Fertility and early embryonicdevelopment [study id_study title (R)][document type (R)][see 4.2.1.1]
@@ -566,7 +567,7 @@ The <code class="docutils literal notranslate"><span class="pre">ectd</span></co
     │   ├── 5.3.4 Reports of human pharmacodynamic (PD) studies
     │   │   ├── 5.3.4.1 Healthy subject PD and PK/PD Study reports and related information [study id_study title (R)][document type (R)][see 5.3.1.1]
     │   │   └── 5.3.4.2 Patient PD and PK/PD Study reports and related information [study id_study title (R)][document type (R)][see 5.3.1.1]
-    │   ├── 5.3.5 Reports of efficacy andsafety studies [indication (R)]
+    │   ├── 5.3.5 Reports of efficacy and safety studies [indication (R)]
     │   │   ├── 5.3.5.1 Study reports and related information of controlled clinical studies pertinent to the claimed indication [study id_study title (R), type of control (R)][document type (R)][see 5.3.1.1]
     │   │   ├── 5.3.5.2 Study reports and related information of uncontrolled clinical studies [study id_study title (R)][document type (R)][see 5.3.1.1]
     │   │   ├── 5.3.5.3 Reports of analyses of data from more than one study
@@ -586,7 +587,7 @@ The <code class="docutils literal notranslate"><span class="pre">ectd</span></co
     │   │   │               ├── Analysis dataset legacy
     │   │   │               ├── Analysis program
     │   │   │               └── Analysis data definition
-    │   │   └── 5.3.5.4 Other Study reports and relatedinformation
+    │   │   └── 5.3.5.4 Other Study reports and related information
     │   │       └── [study id_study title (R)]
     │   │           ├── [document type (R)]
     │   │           ├── Antibacterial microbiology reports
@@ -602,7 +603,7 @@ The <code class="docutils literal notranslate"><span class="pre">ectd</span></co
     │   │               ├── HF-validation-protocol
     │   │               ├── HF-validation-report
     │   │               └── HF-validation-other
-    │   └── 5.3.6 Reports of postmarketingexperience
+    │   └── 5.3.6 Reports of postmarketing experience
     │       └── (This line is added by the software for displaying purpose.)
     │           ├── Postmarketing periodic adverse event drug
     │           └── experience report description

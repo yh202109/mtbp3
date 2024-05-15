@@ -8,7 +8,7 @@
     "\n",
     "The Electronic Common Technical Document (eCTD) standard format is used by regulatory agencies for data and file submitted electronically [^1]. \n",
     "The standard format provides a structure to organize, tag, and link submitted datasets and documents.\n",
-    "The module `ectd` includes functions for working with the eCTD format. "
+    "The module `ectd` includes functions for working with the eCTD format. \n"
    ]
   },
   {
@@ -20,6 +20,8 @@
     "The current FDA supporting version of eCTD standard is 3.2.2 and the newest testing version is 4.0 with base implementation package v1.5 [^2].\n",
     "FDA has released guidance on heading hierarchy of eCTD [^3]<sup>,</sup>[^4].\n",
     "The `ectd` module provides functions for listing and searching within the heading hierarchy.\n",
+    "\n",
+    "**Disclaimer**: this module is shared for quick searching and preview headings with the intention to be helpful. The author can not guarantee the correctness of the heading. Please notify the author if any typos were found.\n",
     "\n",
     "To view CTOC of Module 1:"
    ]
