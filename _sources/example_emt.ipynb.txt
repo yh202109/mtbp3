@@ -5,7 +5,7 @@
             "metadata": {},
             "source": [
                 "\n",
-                "# MedDRA - Start with Distribution Files \n",
+                "# H/MedDRA/Basics\n",
                 "\n",
                 "\n",
                 "The Medical Dictionary for Regulatory Activities (MedDRA) is a set of standardized terminologies commonly used in clinical safety recording, communicating, and reporting activities.  MedDRA is developed and maintained by the International Council for Harmonisation of Technical Requirements for Pharmaceuticals for Human Use (ICH)[^1]<sup>,</sup>[^2]. The module `emt` includes basic functions for processing MedDRA distribution folder to get information of terms and processing data already coded in MedDRA to further use those data in analyses. \n",
@@ -29,6 +29,11 @@
                 "\n",
                 "To check if necessary files are found:"
             ]
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": []
         },
         {
             "cell_type": "code",

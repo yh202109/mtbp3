@@ -1,5 +1,5 @@
-:py:mod:`mtbp3`
-===============
+mtbp3
+=====
 
 .. py:module:: mtbp3
 
@@ -12,19 +12,25 @@
 
 Subpackages
 -----------
+
 .. toctree::
-   :titlesonly:
-   :maxdepth: 3
+   :maxdepth: 1
 
-   health/index.rst
-   util/index.rst
+   /autoapi/mtbp3/health/index
+   /autoapi/mtbp3/util/index
 
 
-Package Contents
-----------------
+Attributes
+----------
+
+.. autoapisummary::
+
+   mtbp3.__version__
+   mtbp3._ROOT
+
 
 Classes
-~~~~~~~
+-------
 
 .. autoapisummary::
 
@@ -33,9 +39,8 @@ Classes
    mtbp3.catPlotter
 
 
-
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
@@ -45,18 +50,10 @@ Functions
    mtbp3.get_data
 
 
-
-Attributes
-~~~~~~~~~~
-
-.. autoapisummary::
-
-   mtbp3.__version__
-   mtbp3._ROOT
-
+Package Contents
+----------------
 
 .. py:class:: LsrTree(path='', outfmt='list', with_counts=False, count_str='', with_file_label=False, label_str='')
-
 
    .. py:method:: list_files()
 
@@ -72,12 +69,14 @@ Attributes
       ['file1.txt', 'file2.txt', 'file3.txt']
 
 
+
    .. py:method:: list_files_json()
 
       List files in the specified directory and return the result as a JSON string.
 
       :returns: The JSON string representing the file list.
       :rtype: str
+
 
 
    .. py:method:: list_files_list()
@@ -88,6 +87,7 @@ Attributes
       :rtype: list
 
 
+
    .. py:method:: list_files_dataframe()
 
       List files in the specified directory and return the result as a pandas DataFrame.
@@ -96,12 +96,14 @@ Attributes
       :rtype: pd.DataFrame
 
 
+
    .. py:method:: list_files_string()
 
       List files in the specified directory using the default output format.
 
       :returns: The file list as a string.
       :rtype: str
+
 
 
    .. py:method:: list_files_tree()
@@ -175,7 +177,6 @@ Attributes
 
 .. py:class:: ListTree(lst=[], label=[], infmt='path')
 
-
    .. py:method:: __list_tree_df()
 
 
@@ -185,9 +186,7 @@ Attributes
    .. py:method:: list_tree(to_right=False)
 
 
-
 .. py:class:: catPlotter(df, y_col, group_col=None, grid_col=None, grid_wrap=None, x_col=None, pt_size=5, y_scale_base=0, x_scale_base=0, title='', fig_size_0=7, fig_size_1=6, point_position='swarm', x_label_rotate=None, grid_kws=None)
-
 
    A class for creating categorical box plots and strip plots.
 
@@ -214,6 +213,7 @@ Attributes
    Raises:
    - ValueError: If an invalid parameter is provided or if group_col, x_col, or y_col is not found in DataFrame columns.
 
+
    .. py:method:: update_parameters(**kwargs)
 
       Update the parameters.
@@ -225,6 +225,7 @@ Attributes
       - ValueError: If an invalid parameter is provided.
 
 
+
    .. py:method:: boxplot()
 
       Create a categorical box plot and strip plot.
@@ -233,13 +234,16 @@ Attributes
       - ValueError: If group_col or y_col is not found in DataFrame columns.
 
 
+
    .. py:method:: generate_example_dataset()
       :staticmethod:
+
 
       Generate an example dataset.
 
       :returns: The example dataset.
       :rtype: pandas.DataFrame
+
 
 
    .. py:method:: lineplot()
@@ -253,12 +257,7 @@ Attributes
 
 .. py:data:: __version__
 
-   
-
 .. py:data:: _ROOT
 
-   
-
 .. py:function:: get_data(path)
-
 

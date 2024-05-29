@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MedDRA CT Mapping - ICD-10 and SNOMED CT &mdash; mtbp3  documentation</title>
+  <title>H/MedDRA/CT Mapping &mdash; mtbp3  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -23,8 +23,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="System - List Folder Contents" href="example_files.html" />
-    <link rel="prev" title="MedDRA Query - MLGs by CIOMS" href="example_emt4.html" /> 
+    <link rel="next" title="Graph - Categorical Plots Using catPlotter" href="example_cdtg.html" />
+    <link rel="prev" title="H/MedDRA/MLGs by CIOMS" href="example_emt4.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,18 +47,18 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="example_clinical.html">Clinical - Grouped Summary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_ectd.html">eCTD 3.2 - Heading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_ectd2.html">eCTD 4.0 - Heading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_cdtg.html">Graph - Categorical Plots Using catPlotter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_emt.html">MedDRA - Start with Distribution Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_emt2.html">MedDRA Query - SMQs by ICH</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_emt3.html">MedDRA Query - FMQs by FDA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_emt4.html">MedDRA Query - MLGs by CIOMS</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">MedDRA CT Mapping - ICD-10 and SNOMED CT</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="example_ectd.html">H/eCTD/3.2/Heading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_ectd2.html">H/eCTD/4.0/Heading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_emt.html">H/MedDRA/Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_emt2.html">H/MedDRA/SMQs by ICH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_emt3.html">H/MedDRA/FMQs by FDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_emt4.html">H/MedDRA/MLGs by CIOMS</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">H/MedDRA/CT Mapping</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="example_cdtg.html">Graph - Categorical Plots Using catPlotter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_clinical.html">Clinical - Grouped Summary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_files.html">System - List Folder Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
@@ -80,7 +80,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">MedDRA CT Mapping - ICD-10 and SNOMED CT</li>
+      <li class="breadcrumb-item active">H/MedDRA/CT Mapping</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/example_emt5.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -90,8 +90,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="meddra-ct-mapping-icd-10-and-snomed-ct">
-<h1>MedDRA CT Mapping - ICD-10 and SNOMED CT<a class="headerlink" href="#meddra-ct-mapping-icd-10-and-snomed-ct" title="Link to this heading"></a></h1>
+  <section id="h-meddra-ct-mapping">
+<h1>H/MedDRA/CT Mapping<a class="headerlink" href="#h-meddra-ct-mapping" title="Link to this heading"></a></h1>
 <p>The Medical Dictionary for Regulatory Activities (MedDRA) is a set of standardized terminologies commonly used in clinical safety recording, communicating, and reporting activities.  MedDRA is developed and maintained by the International Council for Harmonisation of Technical Requirements for Pharmaceuticals for Human Use (ICH)<a class="footnote-reference brackets" href="#id5" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a><sup>,</sup><a class="footnote-reference brackets" href="#id6" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
 <p>There are also collaborates between MedDRA and other CTs. Mapping files are available to be downloaded on MedDRA website after login<a class="footnote-reference brackets" href="#id7" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a><sup>,</sup><a class="footnote-reference brackets" href="#id8" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>.</p>
 <p>The module <code class="docutils literal notranslate"><span class="pre">emt</span></code> currently does not include functions for working with other CTs. This is a place holder for future uses.</p>
@@ -123,8 +123,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="example_emt4.html" class="btn btn-neutral float-left" title="MedDRA Query - MLGs by CIOMS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="example_files.html" class="btn btn-neutral float-right" title="System - List Folder Contents" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="example_emt4.html" class="btn btn-neutral float-left" title="H/MedDRA/MLGs by CIOMS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="example_cdtg.html" class="btn btn-neutral float-right" title="Graph - Categorical Plots Using catPlotter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

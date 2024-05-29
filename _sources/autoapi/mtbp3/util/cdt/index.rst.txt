@@ -1,23 +1,19 @@
-:py:mod:`mtbp3.util.cdt`
-========================
+mtbp3.util.cdt
+==============
 
 .. py:module:: mtbp3.util.cdt
 
 
-Module Contents
----------------
-
 Classes
-~~~~~~~
+-------
 
 .. autoapisummary::
 
    mtbp3.util.cdt.ListTree
 
 
-
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
@@ -26,6 +22,8 @@ Functions
    mtbp3.util.cdt.summarize_1nc_by_2group
 
 
+Module Contents
+---------------
 
 .. py:function:: diff_2cols_in_1df(df, col1='ARM', col2='ACTARM', keep_diff_only=False)
 
@@ -89,7 +87,6 @@ Functions
 
 .. py:class:: ListTree(lst=[], label=[], infmt='path')
 
-
    .. py:method:: __list_tree_df()
 
 
@@ -97,6 +94,5 @@ Functions
 
 
    .. py:method:: list_tree(to_right=False)
-
 
 

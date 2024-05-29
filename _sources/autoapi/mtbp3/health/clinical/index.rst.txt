@@ -1,24 +1,21 @@
-:py:mod:`mtbp3.health.clinical`
-===============================
+mtbp3.health.clinical
+=====================
 
 .. py:module:: mtbp3.health.clinical
 
 
-Module Contents
----------------
-
 Classes
-~~~~~~~
+-------
 
 .. autoapisummary::
 
    mtbp3.health.clinical.summary_by_group
 
 
-
+Module Contents
+---------------
 
 .. py:class:: summary_by_group(df)
-
 
    A class for generating summary statistics and performing calculations on a DataFrame.
 
@@ -45,8 +42,10 @@ Classes
       Convert numerical data into categorical data based on specified bins and calculate statistics.
       
 
+
    .. py:method:: generate_dataset(design=1)
       :staticmethod:
+
 
       Generate an example dataset for clinical health.
 
@@ -55,6 +54,7 @@ Classes
 
       :returns: The generated example dataset.
       :rtype: df (pandas.DataFrame)
+
 
 
    .. py:method:: count_by_group(columns)
@@ -68,6 +68,7 @@ Classes
       :rtype: grouped_df (pandas.DataFrame)
 
       :raises ValueError: If the input is not a DataFrame or columns is not a list or a column does not exist in the DataFrame.
+
 
 
    .. py:method:: count_to_cate(group_columns, target_column, bins, stats)

@@ -1,24 +1,21 @@
-:py:mod:`mtbp3.util.cdtg`
-=========================
+mtbp3.util.cdtg
+===============
 
 .. py:module:: mtbp3.util.cdtg
 
 
-Module Contents
----------------
-
 Classes
-~~~~~~~
+-------
 
 .. autoapisummary::
 
    mtbp3.util.cdtg.catPlotter
 
 
-
+Module Contents
+---------------
 
 .. py:class:: catPlotter(df, y_col, group_col=None, grid_col=None, grid_wrap=None, x_col=None, pt_size=5, y_scale_base=0, x_scale_base=0, title='', fig_size_0=7, fig_size_1=6, point_position='swarm', x_label_rotate=None, grid_kws=None)
-
 
    A class for creating categorical box plots and strip plots.
 
@@ -45,6 +42,7 @@ Classes
    Raises:
    - ValueError: If an invalid parameter is provided or if group_col, x_col, or y_col is not found in DataFrame columns.
 
+
    .. py:method:: update_parameters(**kwargs)
 
       Update the parameters.
@@ -56,6 +54,7 @@ Classes
       - ValueError: If an invalid parameter is provided.
 
 
+
    .. py:method:: boxplot()
 
       Create a categorical box plot and strip plot.
@@ -64,13 +63,16 @@ Classes
       - ValueError: If group_col or y_col is not found in DataFrame columns.
 
 
+
    .. py:method:: generate_example_dataset()
       :staticmethod:
+
 
       Generate an example dataset.
 
       :returns: The example dataset.
       :rtype: pandas.DataFrame
+
 
 
    .. py:method:: lineplot()

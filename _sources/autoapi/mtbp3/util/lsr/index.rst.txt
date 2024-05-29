@@ -1,24 +1,21 @@
-:py:mod:`mtbp3.util.lsr`
-========================
+mtbp3.util.lsr
+==============
 
 .. py:module:: mtbp3.util.lsr
 
 
-Module Contents
----------------
-
 Classes
-~~~~~~~
+-------
 
 .. autoapisummary::
 
    mtbp3.util.lsr.LsrTree
 
 
-
+Module Contents
+---------------
 
 .. py:class:: LsrTree(path='', outfmt='list', with_counts=False, count_str='', with_file_label=False, label_str='')
-
 
    .. py:method:: list_files()
 
@@ -34,12 +31,14 @@ Classes
       ['file1.txt', 'file2.txt', 'file3.txt']
 
 
+
    .. py:method:: list_files_json()
 
       List files in the specified directory and return the result as a JSON string.
 
       :returns: The JSON string representing the file list.
       :rtype: str
+
 
 
    .. py:method:: list_files_list()
@@ -50,6 +49,7 @@ Classes
       :rtype: list
 
 
+
    .. py:method:: list_files_dataframe()
 
       List files in the specified directory and return the result as a pandas DataFrame.
@@ -58,12 +58,14 @@ Classes
       :rtype: pd.DataFrame
 
 
+
    .. py:method:: list_files_string()
 
       List files in the specified directory using the default output format.
 
       :returns: The file list as a string.
       :rtype: str
+
 
 
    .. py:method:: list_files_tree()

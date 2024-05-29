@@ -1,24 +1,84 @@
-:py:mod:`mtbp3.health.emt`
-==========================
+mtbp3.health.emt
+================
 
 .. py:module:: mtbp3.health.emt
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   mtbp3.health.emt.LsrTree
+   mtbp3.health.emt.Emt
 
 
 Module Contents
 ---------------
 
-Classes
-~~~~~~~
+.. py:class:: LsrTree(path='', outfmt='list', with_counts=False, count_str='', with_file_label=False, label_str='')
 
-.. autoapisummary::
+   .. py:method:: list_files()
 
-   mtbp3.health.emt.Emt
+      List files in the specified directory based on the output format.
 
+      :returns: The list of files, JSON string, or DataFrame based on the output format.
+      :rtype: list or str or pd.DataFrame
+
+      .. rubric:: Examples
+
+      >>> lsr = LsrTree("/path/to/directory", outfmt="list")
+      >>> lsr.list_files()
+      ['file1.txt', 'file2.txt', 'file3.txt']
+
+
+
+   .. py:method:: list_files_json()
+
+      List files in the specified directory and return the result as a JSON string.
+
+      :returns: The JSON string representing the file list.
+      :rtype: str
+
+
+
+   .. py:method:: list_files_list()
+
+      List files in the specified directory and return the result as a list.
+
+      :returns: The list of files.
+      :rtype: list
+
+
+
+   .. py:method:: list_files_dataframe()
+
+      List files in the specified directory and return the result as a pandas DataFrame.
+
+      :returns: The DataFrame representing the file list.
+      :rtype: pd.DataFrame
+
+
+
+   .. py:method:: list_files_string()
+
+      List files in the specified directory using the default output format.
+
+      :returns: The file list as a string.
+      :rtype: str
+
+
+
+   .. py:method:: list_files_tree()
+
+      List files in the specified directory and return the result as a tree structure.
+
+      :returns: The tree structure representing the file list.
+      :rtype: str
 
 
 
 .. py:class:: Emt(folder_name='')
-
 
    A class representing MedDRA terms.
 
@@ -49,6 +109,7 @@ Classes
 
       :type: str
 
+
    .. py:method:: expected_file_lists()
 
       Get the three lists of files associated with the Emt.
@@ -57,12 +118,14 @@ Classes
       :rtype: tuple
 
 
+
    .. py:method:: find_files()
 
       Find all expected files associated with the Emt.
 
       :returns: A list of missing file names.
       :rtype: list
+
 
 
    .. py:method:: load_llt(unique=True)
@@ -74,6 +137,7 @@ Classes
 
       :returns: A list of file names.
       :rtype: list
+
 
 
    .. py:method:: find_soc(terms=[], ignore_case=False)
@@ -91,6 +155,7 @@ Classes
       :raises AssertionError: If terms is not a list.
 
 
+
    .. py:method:: find_hlgt(terms=[], ignore_case=False)
 
       Find all unique HLGT terms.
@@ -104,6 +169,7 @@ Classes
       :rtype: list
 
       :raises AssertionError: If terms is not a list.
+
 
 
    .. py:method:: find_hlt(terms=[], ignore_case=False)
@@ -121,6 +187,7 @@ Classes
       :raises AssertionError: If terms is not a list.
 
 
+
    .. py:method:: find_pt(terms=[], ignore_case=False)
 
       Find all unique PT terms.
@@ -134,6 +201,7 @@ Classes
       :rtype: list
 
       :raises AssertionError: If terms is not a list.
+
 
 
    .. py:method:: find_llt(terms=[], ignore_case=False, llt_current_only=True)
@@ -151,6 +219,7 @@ Classes
       :raises AssertionError: If terms is not a list.
 
 
+
    .. py:method:: all_str_digit(lst=[])
 
       Check if all elements in a given list are strings containing only digits.
@@ -160,6 +229,7 @@ Classes
 
       :returns: True if all elements in the list are strings containing only digits, False otherwise.
       :rtype: bool
+
 
 
    .. py:method:: assert_terms(input, remove_none=False)
@@ -175,6 +245,7 @@ Classes
       :rtype: list
 
       :raises AssertionError: If the input is neither a string nor a list.
+
 
 
    .. py:method:: find_term_wi_level(terms=[], ignore_case=False, level=1, llt_current_only=True)
@@ -194,6 +265,7 @@ Classes
       :raises AssertionError: If terms is not a list.
 
 
+
    .. py:method:: find_pt_given_soc(soc=[], primary_soc_only=False, ignore_case=False)
 
       Find all PTs (Preferred Terms) given a SOC (System Organ Class) name.
@@ -211,6 +283,7 @@ Classes
       :rtype: pandas.DataFrame
 
 
+
    .. py:method:: find_llt_given_pt(pt=[], ignore_case=False, llt_current_only=True)
 
       Find all LLTs (Lowest Level Terms) given a PT (Preferred Term) name or a list of PT names.
@@ -223,6 +296,7 @@ Classes
                 A DataFrame containing the LLTs associated with the given PT(s).
                                     Each row represents an LLT and contains the LLT code and LLT name.
       :rtype: pandas.DataFrame
+
 
 
    .. py:method:: find_llt_given_soc(soc=[], primary_soc_only=False, ignore_case=False, llt_current_only=True)
@@ -242,6 +316,7 @@ Classes
       :rtype: pandas.DataFrame
 
 
+
    .. py:method:: find_soc_given_pt(pt=[], primary_only=True, ignore_case=False)
 
       Find the SOC (System Organ Class) given a list of PT (Preferred Term) names.
@@ -253,6 +328,7 @@ Classes
       :rtype: str
 
       :raises AssertionError: If pt is not a list.
+
 
 
    .. py:method:: load_smq()
@@ -273,6 +349,7 @@ Classes
       :raises AssertionError: If terms is not a list.
 
 
+
    .. py:method:: find_terms_given_smq(smq=[], ignore_case=False, active_only=True, narrow_only=True, llt_only=False, llt_current_only=True)
 
       Find all terms related an SMQ (Standard MedDRA Query) name or a list of SMQ names.
@@ -284,6 +361,7 @@ Classes
 
       :returns: A DataFrame containing the terms associated with the given SMQ(s).
       :rtype: pandas.DataFrame
+
 
 
    .. py:method:: find_terms_given_smq_sub(subset_df, keep_columns, llt_only, llt_current_only)
@@ -306,6 +384,7 @@ Classes
       :type folder_path: str
 
 
+
    .. py:method:: find_fmq(fmq=[], narrow_only=True)
 
       Find all unique FMQ (FDA Medical Queries) terms.
@@ -317,6 +396,7 @@ Classes
       :rtype: list
 
       :raises AssertionError: If fmq is not a list.
+
 
 
    .. py:method:: find_terms_given_fmq(fmq=[], ignore_case=False, narrow_only=True)
@@ -332,7 +412,7 @@ Classes
       :rtype: pandas.DataFrame
 
 
-   .. py:method:: show_fmq_tree(fmq=[], with_soc=False, ignore_case=False, to_right=False)
 
+   .. py:method:: show_fmq_tree(fmq=[], with_soc=False, ignore_case=False, to_right=False)
 
 
