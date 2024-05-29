@@ -1,6 +1,11 @@
 # Changelog
 
 <!--next-version-placeholder-->
+## v0.2.8 (2024-05-13)
+
+- add subtree function
+- add eCTD xml function
+
 ## v0.2.4 (2024-05-13)
 
 - add eCTD function group

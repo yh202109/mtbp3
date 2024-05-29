@@ -50,8 +50,8 @@
 1.9.4 Proposed pediatric study request and amendments
 1.9.6 Other correspondence regarding pediatric exclusivity or study plans
 1.10 Dispute resolution
-1.10.1 Request for disputeresolution
-1.10.2 Correspondence related to disputeresolution
+1.10.1 Request for dispute resolution
+1.10.2 Correspondence related to dispute resolution
 1.11 Information amendment: Information not covered under modules 2 to 5
 1.11.1 Quality information amendment
 1.11.2 Nonclinical information amendment
@@ -62,7 +62,7 @@
 1.12.2 Request to charge for clinical trial
 1.12.3 Request to charge for expanded access
 1.12.4 Request for comments and advice
-1.12.5 Request for awaiver
+1.12.5 Request for a waiver
 1.12.6 Exception from informed consent for emergency research
 1.12.7 Public disclosure statement for exception from informed consent for emergency research
 1.12.8 Correspondence regarding exception from informed consent for emergency research
@@ -106,7 +106,7 @@
 1.14.3 Listed drug labeling
 1.14.3.1 Annotated comparison with listed drug
 1.14.3.2 Approved labeling text for listed drug
-1.14.3.3 Labeling textfor reference listed drug
+1.14.3.3 Labeling text for reference listed drug
 1.14.4 Investigational drug labeling
 1.14.4.1 Investigational brochure
 1.14.4.2 Investigational drug labeling
@@ -133,7 +133,7 @@
 1.15.2.1.4 Annotated references
 1.16 Risk management plan
 1.16.1 Risk Management (Non-REMS)
-1.16.2 Risk Evaluation andMitigation Strategy (REMS)
+1.16.2 Risk Evaluation and Mitigation Strategy (REMS)
 1.16.2.1 Final REMS
 1.16.2.2 Draft REMS
 1.16.2.3 REMS Assessment
@@ -356,7 +356,7 @@
 4.2.3.4.3.pseudo.1 [document type (R)]
 4.2.3.4.3.pseudo.2 [see 4.2.1.1]
 4.2.3.5 Reproductive and developmental toxicity
-4.2.3.5.1 Fertility and early embryonicdevelopment 
+4.2.3.5.1 Fertility and early embryonic development 
 4.2.3.5.1.pseudo [study id_study title (R)]
 4.2.3.5.1.pseudo.1 [document type (R)]
 4.2.3.5.1.pseudo.2 [see 4.2.1.1]
@@ -497,7 +497,7 @@
 5.3.2.2.pseudo [study id_study title (R)]
 5.3.2.2.pseudo.1 [document type (R)]
 5.3.2.2.pseudo.2 [see 5.3.1.1]
-5.3.2.3 Reports of studies using otherhuman biomaterials 
+5.3.2.3 Reports of studies using other human biomaterials 
 5.3.2.3.pseudo [study id_study title (R)]
 5.3.2.3.pseudo.1 [document type (R)]
 5.3.2.3.pseudo.2 [see 5.3.1.1]
