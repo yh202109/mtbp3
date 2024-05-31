@@ -8,14 +8,17 @@
 My tool box in Python.
 
 Functions are grouped into:
-- CDISC standards 
-- Clinical study data summary
-- eCTD (including FDA CTOC, etc.)
-- FHIR data exchange standard
-- Graphs
-- MedDRA (for drug labeling, safety reporting, pharmacovigilance, etc.)
-- Sampling 
-- System
+
+- Health
+  - CDISC standards 
+  - Data summary: `health.clinical`
+  - eCTD: `health.ectd` 
+  - MedDRA : `health.emt` 
+- Util
+  - Data summary: `util.cdt`
+  - Graphs: `util.cdtg`
+  - Sampling 
+  - System: `util.lsr`
 
 ## Table of Contents
 
