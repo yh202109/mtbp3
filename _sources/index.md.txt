@@ -5,7 +5,6 @@
 :maxdepth: 1
 :hidden:
 
-example_c_cdisc.ipynb
 example_clinical.ipynb
 example_ectd.ipynb
 example_ectd2.ipynb
@@ -14,6 +13,7 @@ example_emt2.ipynb
 example_emt3.ipynb
 example_emt4.ipynb
 example_emt5.ipynb
+example_sc_cdisc.ipynb
 example_cdtg.ipynb
 example_files.ipynb
 
