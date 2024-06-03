@@ -4,7 +4,7 @@
             "cell_type": "markdown",
             "metadata": {},
             "source": [
-                "# Clinical - Grouped Summary\n",
+                "# H/Clinical/Grouped Summary\n",
                 "\n",
                 "The module `clinical` include basic functions for processing data generated from clinical trails.\n",
                 "Clinical data include data collected at planning, executing, monitoring and post-study reporting.\n",
