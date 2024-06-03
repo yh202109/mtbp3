@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>System - List Folder Contents &mdash; mtbp3  documentation</title>
+  <title>U/System/List Folder Contents &mdash; mtbp3  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -24,7 +24,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Changelog" href="changelog.html" />
-    <link rel="prev" title="Clinical - Grouped Summary" href="example_clinical.html" /> 
+    <link rel="prev" title="Graph - Categorical Plots Using catPlotter" href="example_cdtg.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,6 +47,8 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="example_c_cdisc.html">C/CDISC Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_clinical.html">Clinical - Grouped Summary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_ectd.html">H/eCTD/3.2/Heading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_ectd2.html">H/eCTD/4.0/Heading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_emt.html">H/MedDRA/Basics</a></li>
@@ -55,8 +57,7 @@
 <li class="toctree-l1"><a class="reference internal" href="example_emt4.html">H/MedDRA/MLGs by CIOMS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_emt5.html">H/MedDRA/CT Mapping</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_cdtg.html">Graph - Categorical Plots Using catPlotter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_clinical.html">Clinical - Grouped Summary</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">System - List Folder Contents</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">U/System/List Folder Contents</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#other-options">Other Options</a></li>
 </ul>
 </li>
@@ -80,7 +81,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">System - List Folder Contents</li>
+      <li class="breadcrumb-item active">U/System/List Folder Contents</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/example_files.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -90,8 +91,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="system-list-folder-contents">
-<h1>System - List Folder Contents<a class="headerlink" href="#system-list-folder-contents" title="Link to this heading"></a></h1>
+  <section id="u-system-list-folder-contents">
+<h1>U/System/List Folder Contents<a class="headerlink" href="#u-system-list-folder-contents" title="Link to this heading"></a></h1>
 <p>The module <code class="docutils literal notranslate"><span class="pre">lsr</span></code> returns a list, a DataFrame, or a string that describes the content of a given folder.
 The returned formats are designed to either present the information or to be used in further processing.</p>
 <p>To prepare an example for using <code class="docutils literal notranslate"><span class="pre">mtbp3</span></code>:</p>
@@ -131,7 +132,7 @@ The returned formats are designed to either present the information or to be use
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>testfolder_71/
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>testfolder_34/
 ├── subfolder1/
 └── subfolder2/
     └── testfile3
@@ -148,7 +149,7 @@ The returned formats are designed to either present the information or to be use
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>testfolder_71/  &lt;&lt;&lt;((( F=0; D=2 )))&gt;&gt;&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>testfolder_34/  &lt;&lt;&lt;((( F=0; D=2 )))&gt;&gt;&gt;
 ├── subfolder1/  &lt;&lt;&lt;((( Empty Folder )))&gt;&gt;&gt;
 └── subfolder2/  &lt;&lt;&lt;((( F=1; D=0 )))&gt;&gt;&gt;
     └── testfile3
@@ -171,7 +172,7 @@ The returned formats are designed to either present the information or to be use
 
                    modified                   created  file_type N_page  \
 0                      None                      None       None   None   
-1  Fri May 31 22:32:29 2024  Fri May 31 22:32:29 2024  testfile3   None   
+1  Mon Jun  3 11:13:23 2024  Mon Jun  3 11:13:23 2024  testfile3   None   
 
   N_column N_row  
 0     None  None  
@@ -204,7 +205,7 @@ tree
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="example_clinical.html" class="btn btn-neutral float-left" title="Clinical - Grouped Summary" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="example_cdtg.html" class="btn btn-neutral float-left" title="Graph - Categorical Plots Using catPlotter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="changelog.html" class="btn btn-neutral float-right" title="Changelog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

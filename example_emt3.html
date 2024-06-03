@@ -47,6 +47,8 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="example_c_cdisc.html">C/CDISC Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_clinical.html">Clinical - Grouped Summary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_ectd.html">H/eCTD/3.2/Heading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_ectd2.html">H/eCTD/4.0/Heading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_emt.html">H/MedDRA/Basics</a></li>
@@ -63,8 +65,7 @@
 <li class="toctree-l1"><a class="reference internal" href="example_emt4.html">H/MedDRA/MLGs by CIOMS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_emt5.html">H/MedDRA/CT Mapping</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_cdtg.html">Graph - Categorical Plots Using catPlotter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_clinical.html">Clinical - Grouped Summary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_files.html">System - List Folder Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_files.html">U/System/List Folder Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="conduct.html">Code of Conduct</a></li>
@@ -273,92 +274,92 @@ Name: count, dtype: int64
     ├── Abdominal Pain:
     │   ├── [Classification] Broad:
     │   │   ├── [SOC] soc214dfxgAelhGHfEFFkgrAsFYzZBAFs:
-    │   │   │   ├── [PT01] Carnett&#39;s sign positive
-    │   │   │   ├── [PT02] Complicated appendicitis
-    │   │   │   ├── [PT03] Gastric irritation
-    │   │   │   ├── [PT04] Gastro-enterostomy
-    │   │   │   ├── [PT05] Haemorrhagic erosive gastritis
+    │   │   │   ├── [PT01] Gastric irritation
+    │   │   │   ├── [PT02] Gastritis erosive
+    │   │   │   ├── [PT03] Gastroenteritis escherichia coli
+    │   │   │   ├── [PT04] Gastroenteritis Escherichia coli
+    │   │   │   ├── [PT05] Gastro-enterostomy
     │   │   │   ├── [PT06] Helicobacter duodenal ulcer
-    │   │   │   ├── [PT07] Peptic ulcer
-    │   │   │   ├── [PT08] Ulcerative duodenitis
-    │   │   │   ├── [PT09] CRIA syndrome
-    │   │   │   ├── [PT10] Yao syndrome
-    │   │   │   └── [PT11] Segmental arterial mediolysis
+    │   │   │   └── [PT07] Segmental arterial mediolysis
     │   │   ├── [SOC] soc360phgmkaCxrALPg:
-    │   │   │   ├── [PT12] Gastroenterostomy
-    │   │   │   ├── [PT13] Large intestine infection
-    │   │   │   ├── [PT14] Bauhin&#39;s valve syndrome
-    │   │   │   └── [PT15] Peritoneoplasty
+    │   │   │   ├── [PT08] Complicated appendicitis
+    │   │   │   ├── [PT09] Peptic ulcer
+    │   │   │   └── [PT10] Yao syndrome
     │   │   └── [SOC] soc972ZiuFsAfKKVWFbSZdYcgUoCiSTyEYKu:
-    │   │       ├── [PT16] Gastritis erosive
-    │   │       ├── [PT17] Gastroenteritis escherichia coli
-    │   │       ├── [PT18] Gastroenteritis Escherichia coli
-    │   │       ├── [PT19] Infantile colic
-    │   │       └── [PT20] Visceral pain
+    │   │       ├── [PT11] Carnett&#39;s sign positive
+    │   │       ├── [PT12] Gastroenterostomy
+    │   │       ├── [PT13] Haemorrhagic erosive gastritis
+    │   │       ├── [PT14] Infantile colic
+    │   │       ├── [PT15] Large intestine infection
+    │   │       ├── [PT16] Ulcerative duodenitis
+    │   │       ├── [PT17] Visceral pain
+    │   │       ├── [PT18] CRIA syndrome
+    │   │       ├── [PT19] Bauhin&#39;s valve syndrome
+    │   │       └── [PT20] Peritoneoplasty
     │   └── [Classification] Narrow:
     │       ├── [SOC] soc214dfxgAelhGHfEFFkgrAsFYzZBAFs:
-    │       │   ├── [PT21] Abdominal migraine
-    │       │   ├── [PT22] Abdominal pain
-    │       │   ├── [PT23] Abdominal pain lower
-    │       │   ├── [PT24] Abdominal pain upper
-    │       │   ├── [PT25] Acute abdomen
-    │       │   ├── [PT26] Enteric neuropathy
-    │       │   ├── [PT27] Gastrointestinal pain
-    │       │   ├── [PT28] Intestinal spasm
-    │       │   └── [PT29] Stomach discomfort
+    │       │   ├── [PT21] Abdominal pain
+    │       │   ├── [PT22] Abdominal pain lower
+    │       │   ├── [PT23] Abdominal pain upper
+    │       │   ├── [PT24] Epigastric discomfort
+    │       │   ├── [PT25] Gastrointestinal discomfort
+    │       │   ├── [PT26] Intestinal spasm
+    │       │   ├── [PT27] Perihepatic discomfort
+    │       │   ├── [PT28] Stomach discomfort
+    │       │   └── [PT29] Ulcer type pain
     │       ├── [SOC] soc360phgmkaCxrALPg:
-    │       │   ├── [PT30] Abdominal discomfort
-    │       │   ├── [PT31] Abdominal rebound tenderness
-    │       │   ├── [PT32] Abdominal tenderness
-    │       │   ├── [PT33] Gastrointestinal discomfort
-    │       │   ├── [PT34] Gastrointestinal pain NOS
-    │       │   ├── [PT35] Gastrointestinal upset
-    │       │   ├── [PT36] Perihepatic discomfort
-    │       │   ├── [PT37] Ulcer type pain
-    │       │   └── [PT38] Ilioinguinal neuralgia
+    │       │   ├── [PT30] Abdominal pain aggravated
+    │       │   ├── [PT31] Abdominal pain NOS
+    │       │   ├── [PT32] Abdominal rigidity
+    │       │   ├── [PT33] Acute abdomen
+    │       │   ├── [PT34] Enteric neuropathy
+    │       │   ├── [PT35] Spleen pain
+    │       │   └── [PT36] Ilioinguinal neuralgia
     │       └── [SOC] soc972ZiuFsAfKKVWFbSZdYcgUoCiSTyEYKu:
-    │           ├── [PT39] Abdominal pain aggravated
-    │           ├── [PT40] Abdominal pain NOS
-    │           ├── [PT41] Abdominal rigidity
-    │           ├── [PT42] Epigastric discomfort
-    │           └── [PT43] Spleen pain
+    │           ├── [PT37] Abdominal discomfort
+    │           ├── [PT38] Abdominal migraine
+    │           ├── [PT39] Abdominal rebound tenderness
+    │           ├── [PT40] Abdominal tenderness
+    │           ├── [PT41] Gastrointestinal pain
+    │           ├── [PT42] Gastrointestinal pain NOS
+    │           └── [PT43] Gastrointestinal upset
     └── Abnormal Uterine Bleeding:
         ├── [Classification] Broad:
         │   ├── [SOC] soc214dfxgAelhGHfEFFkgrAsFYzZBAFs:
-        │   │   ├── [PT01] Anovulatory cycle
-        │   │   └── [PT02] Menstrual disorder
+        │   │   ├── [PT01] Dysmenorrhoea
+        │   │   ├── [PT02] Follicle-stimulating hormone deficiency
+        │   │   ├── [PT03] Follicle stimulating hormone deficiency
+        │   │   ├── [PT04] Uterine dehiscence
+        │   │   └── [PT05] Ovarian dysfunction
         │   ├── [SOC] soc360phgmkaCxrALPg:
-        │   │   ├── [PT03] Dysmenorrhea
-        │   │   ├── [PT04] Dysmenorrhoea
-        │   │   ├── [PT05] Uterine dehiscence
-        │   │   └── [PT06] Ovarian dysfunction
+        │   │   └── [PT06] Menstrual disorder
         │   └── [SOC] soc972ZiuFsAfKKVWFbSZdYcgUoCiSTyEYKu:
-        │       ├── [PT07] Bleeding anovulatory
-        │       ├── [PT08] Follicle-stimulating hormone deficiency
-        │       └── [PT09] Follicle stimulating hormone deficiency
+        │       ├── [PT07] Anovulatory cycle
+        │       ├── [PT08] Bleeding anovulatory
+        │       └── [PT09] Dysmenorrhea
         └── [Classification] Narrow:
             ├── [SOC] soc214dfxgAelhGHfEFFkgrAsFYzZBAFs:
-            │   ├── [PT10] Abnormal withdrawal bleeding
+            │   ├── [PT10] Abnormal uterine bleeding
             │   ├── [PT11] Cervix haemorrhage uterine
-            │   ├── [PT12] Dysfunctional uterine bleeding
-            │   ├── [PT13] Hypomenorrhoea
-            │   ├── [PT14] Metrorrhagia
-            │   └── [PT15] Polymenorrhoea
+            │   ├── [PT12] Menorrhagia
+            │   ├── [PT13] Polymenorrhagia
+            │   ├── [PT14] Polymenorrhoea
+            │   └── [PT15] Vaginal haemorrhage
             ├── [SOC] soc360phgmkaCxrALPg:
-            │   ├── [PT16] Abnormal uterine bleeding
+            │   ├── [PT16] Abnormal withdrawal bleeding
             │   ├── [PT17] Intermenstrual bleeding
-            │   ├── [PT18] Menometrorrhagia
-            │   ├── [PT19] Oligomenorrhoea
-            │   ├── [PT20] Uterine rupture
-            │   └── [PT21] Vaginal haemorrhage
+            │   ├── [PT18] Menstruation delayed
+            │   ├── [PT19] Menstruation irregular
+            │   └── [PT20] Uterine haemorrhage
             └── [SOC] soc972ZiuFsAfKKVWFbSZdYcgUoCiSTyEYKu:
+                ├── [PT21] Dysfunctional uterine bleeding
                 ├── [PT22] Heavy menstrual bleeding
-                ├── [PT23] Menorrhagia
-                ├── [PT24] Menstruation delayed
-                ├── [PT25] Menstruation irregular
-                ├── [PT26] Polymenorrhagia
+                ├── [PT23] Hypomenorrhoea
+                ├── [PT24] Menometrorrhagia
+                ├── [PT25] Metrorrhagia
+                ├── [PT26] Oligomenorrhoea
                 ├── [PT27] Postmenopausal haemorrhage
-                └── [PT28] Uterine haemorrhage
+                └── [PT28] Uterine rupture
 </pre></div>
 </div>
 </div>
@@ -379,92 +380,91 @@ The reason of using synthetic SOCs is to simplify data sharing during module dev
                                             Abdominal Pain ──┤    
                                 Broad [Classification] ──┤   │    
            soc214dfxgAelhGHfEFFkgrAsFYzZBAFs [SOC] ──┤   │   │    
-                Carnett&#39;s sign positive [PT01] ──┤   │   │   │    
-         Haemorrhagic erosive gastritis [PT02] ──┤   │   │   │    
-                           Yao syndrome [PT03] ──┘   │   │   │    
+                      Gastritis erosive [PT01] ──┤   │   │   │    
+       Gastroenteritis Escherichia coli [PT02] ──┤   │   │   │    
+         Haemorrhagic erosive gastritis [PT03] ──┤   │   │   │    
+                           Peptic ulcer [PT04] ──┤   │   │   │    
+                          Visceral pain [PT05] ──┘   │   │   │    
                          soc360phgmkaCxrALPg [SOC] ──┤   │   │    
-               Complicated appendicitis [PT04] ──┤   │   │   │    
-                     Gastric irritation [PT05] ──┤   │   │   │    
-                      Gastritis erosive [PT06] ──┤   │   │   │    
-                     Gastro-enterostomy [PT08] ──┤   │   │   │    
-       Gastroenteritis escherichia coli [PT07] ──┤   │   │   │    
-              Large intestine infection [PT09] ──┤   │   │   │    
-                           Peptic ulcer [PT10] ──┤   │   │   │    
-                        Peritoneoplasty [PT12] ──┤   │   │   │    
-          Segmental arterial mediolysis [PT13] ──┤   │   │   │    
-                          Visceral pain [PT11] ──┘   │   │   │    
+                          CRIA syndrome [PT12] ──┤   │   │   │    
+                Carnett&#39;s sign positive [PT06] ──┤   │   │   │    
+               Complicated appendicitis [PT07] ──┤   │   │   │    
+                     Gastric irritation [PT08] ──┤   │   │   │    
+            Helicobacter duodenal ulcer [PT09] ──┤   │   │   │    
+                        Infantile colic [PT10] ──┤   │   │   │    
+                        Peritoneoplasty [PT13] ──┤   │   │   │    
+                  Ulcerative duodenitis [PT11] ──┘   │   │   │    
         soc972ZiuFsAfKKVWFbSZdYcgUoCiSTyEYKu [SOC] ──┘   │   │    
-                Bauhin&#39;s valve syndrome [PT20] ──┤       │   │    
-                          CRIA syndrome [PT19] ──┤       │   │    
-       Gastroenteritis Escherichia coli [PT14] ──┤       │   │    
+                Bauhin&#39;s valve syndrome [PT18] ──┤       │   │    
+                     Gastro-enterostomy [PT16] ──┤       │   │    
+       Gastroenteritis escherichia coli [PT14] ──┤       │   │    
                       Gastroenterostomy [PT15] ──┤       │   │    
-            Helicobacter duodenal ulcer [PT16] ──┤       │   │    
-                        Infantile colic [PT17] ──┤       │   │    
-                  Ulcerative duodenitis [PT18] ──┘       │   │    
+              Large intestine infection [PT17] ──┤       │   │    
+          Segmental arterial mediolysis [PT20] ──┤       │   │    
+                           Yao syndrome [PT19] ──┘       │   │    
                                Narrow [Classification] ──┘   │    
            soc214dfxgAelhGHfEFFkgrAsFYzZBAFs [SOC] ──┤       │    
-                     Abdominal pain NOS [PT21] ──┤   │       │    
-                          Acute abdomen [PT22] ──┤   │       │    
-                 Ilioinguinal neuralgia [PT26] ──┤   │       │    
-                 Perihepatic discomfort [PT23] ──┤   │       │    
-                     Stomach discomfort [PT24] ──┤   │       │    
-                        Ulcer type pain [PT25] ──┘   │       │    
+                   Abdominal discomfort [PT21] ──┤   │       │    
+                     Abdominal rigidity [PT22] ──┤   │       │    
+                  Gastrointestinal pain [PT23] ──┘   │       │    
                          soc360phgmkaCxrALPg [SOC] ──┤       │    
-                         Abdominal pain [PT27] ──┤   │       │    
-                   Abdominal pain lower [PT28] ──┤   │       │    
-                   Abdominal pain upper [PT29] ──┤   │       │    
-                     Abdominal rigidity [PT30] ──┤   │       │    
-                     Enteric neuropathy [PT31] ──┤   │       │    
-            Gastrointestinal discomfort [PT32] ──┤   │       │    
-                 Gastrointestinal upset [PT33] ──┤   │       │    
-                       Intestinal spasm [PT34] ──┤   │       │    
-                            Spleen pain [PT35] ──┘   │       │    
+                     Abdominal pain NOS [PT26] ──┤   │       │    
+              Abdominal pain aggravated [PT24] ──┤   │       │    
+                   Abdominal pain lower [PT25] ──┤   │       │    
+                   Abdominal tenderness [PT27] ──┤   │       │    
+            Gastrointestinal discomfort [PT28] ──┤   │       │    
+                 Gastrointestinal upset [PT29] ──┤   │       │    
+                 Ilioinguinal neuralgia [PT31] ──┤   │       │    
+                       Intestinal spasm [PT30] ──┘   │       │    
         soc972ZiuFsAfKKVWFbSZdYcgUoCiSTyEYKu [SOC] ──┘       │    
-                   Abdominal discomfort [PT36] ──┤           │    
-                     Abdominal migraine [PT37] ──┤           │    
-              Abdominal pain aggravated [PT38] ──┤           │    
-           Abdominal rebound tenderness [PT39] ──┤           │    
-                   Abdominal tenderness [PT40] ──┤           │    
-                  Epigastric discomfort [PT41] ──┤           │    
-              Gastrointestinal pain NOS [PT43] ──┤           │    
-                  Gastrointestinal pain [PT42] ──┘           │    
+                     Abdominal migraine [PT32] ──┤           │    
+                         Abdominal pain [PT33] ──┤           │    
+                   Abdominal pain upper [PT34] ──┤           │    
+           Abdominal rebound tenderness [PT35] ──┤           │    
+                          Acute abdomen [PT36] ──┤           │    
+                     Enteric neuropathy [PT37] ──┤           │    
+                  Epigastric discomfort [PT38] ──┤           │    
+              Gastrointestinal pain NOS [PT39] ──┤           │    
+                 Perihepatic discomfort [PT40] ──┤           │    
+                            Spleen pain [PT41] ──┤           │    
+                     Stomach discomfort [PT42] ──┤           │    
+                        Ulcer type pain [PT43] ──┘           │    
                                  Abnormal Uterine Bleeding ──┘    
                                 Broad [Classification] ──┤        
-           soc214dfxgAelhGHfEFFkgrAsFYzZBAFs [SOC] ──┤   │        
-                      Anovulatory cycle [PT01] ──┤   │   │        
-                     Uterine dehiscence [PT02] ──┘   │   │        
                          soc360phgmkaCxrALPg [SOC] ──┤   │        
-                   Bleeding anovulatory [PT03] ──┤   │   │        
-                          Dysmenorrhoea [PT04] ──┤   │   │        
-Follicle stimulating hormone deficiency [PT06] ──┤   │   │        
-Follicle-stimulating hormone deficiency [PT05] ──┤   │   │        
-                     Menstrual disorder [PT07] ──┤   │   │        
-                    Ovarian dysfunction [PT08] ──┘   │   │        
+                      Anovulatory cycle [PT01] ──┤   │   │        
+                   Bleeding anovulatory [PT02] ──┤   │   │        
+                    Ovarian dysfunction [PT04] ──┤   │   │        
+                     Uterine dehiscence [PT03] ──┘   │   │        
         soc972ZiuFsAfKKVWFbSZdYcgUoCiSTyEYKu [SOC] ──┘   │        
-                           Dysmenorrhea [PT09] ──┘       │        
+                           Dysmenorrhea [PT05] ──┤       │        
+                          Dysmenorrhoea [PT06] ──┤       │        
+Follicle stimulating hormone deficiency [PT08] ──┤       │        
+Follicle-stimulating hormone deficiency [PT07] ──┤       │        
+                     Menstrual disorder [PT09] ──┘       │        
                                Narrow [Classification] ──┘        
            soc214dfxgAelhGHfEFFkgrAsFYzZBAFs [SOC] ──┤            
-             Cervix haemorrhage uterine [PT10] ──┤   │            
-               Heavy menstrual bleeding [PT11] ──┤   │            
-                         Hypomenorrhoea [PT12] ──┤   │            
-                        Oligomenorrhoea [PT13] ──┤   │            
-                    Uterine haemorrhage [PT14] ──┘   │            
+              Abnormal uterine bleeding [PT10] ──┤   │            
+             Cervix haemorrhage uterine [PT11] ──┤   │            
+               Heavy menstrual bleeding [PT12] ──┤   │            
+                Intermenstrual bleeding [PT13] ──┤   │            
+                            Menorrhagia [PT14] ──┤   │            
+                         Polymenorrhoea [PT15] ──┤   │            
+                        Uterine rupture [PT16] ──┘   │            
                          soc360phgmkaCxrALPg [SOC] ──┤            
-              Abnormal uterine bleeding [PT15] ──┤   │            
-           Abnormal withdrawal bleeding [PT16] ──┤   │            
-                       Menometrorrhagia [PT17] ──┤   │            
-                   Menstruation delayed [PT18] ──┤   │            
-                           Metrorrhagia [PT19] ──┤   │            
-                         Polymenorrhoea [PT20] ──┤   │            
-             Postmenopausal haemorrhage [PT21] ──┤   │            
-                        Uterine rupture [PT22] ──┤   │            
-                    Vaginal haemorrhage [PT23] ──┘   │            
+           Abnormal withdrawal bleeding [PT17] ──┤   │            
+                           Metrorrhagia [PT18] ──┤   │            
+                        Oligomenorrhoea [PT19] ──┤   │            
+                    Uterine haemorrhage [PT20] ──┘   │            
         soc972ZiuFsAfKKVWFbSZdYcgUoCiSTyEYKu [SOC] ──┘            
-         Dysfunctional uterine bleeding [PT24] ──┤                
-                Intermenstrual bleeding [PT25] ──┤                
-                            Menorrhagia [PT26] ──┤                
-                 Menstruation irregular [PT27] ──┤                
-                        Polymenorrhagia [PT28] ──┘                
+         Dysfunctional uterine bleeding [PT21] ──┤                
+                         Hypomenorrhoea [PT22] ──┤                
+                       Menometrorrhagia [PT23] ──┤                
+                   Menstruation delayed [PT24] ──┤                
+                 Menstruation irregular [PT25] ──┤                
+                        Polymenorrhagia [PT26] ──┤                
+             Postmenopausal haemorrhage [PT27] ──┤                
+                    Vaginal haemorrhage [PT28] ──┘                
 </pre></div>
 </div>
 </div>
