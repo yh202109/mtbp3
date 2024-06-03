@@ -9,12 +9,12 @@ My tool box in Python.
 
 Functions are grouped into:
 
+- CDISC 
 - Health
-  - CDISC standards 
   - Data summary: `health.clinical`
   - eCTD: `health.ectd` 
   - MedDRA : `health.emt` 
-- Util
+- General 
   - Data summary: `util.cdt`
   - Graphs: `util.cdtg`
   - Sampling 
