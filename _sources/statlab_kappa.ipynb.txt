@@ -18,7 +18,7 @@
             "source": [
                 "## Notation\n",
                 "\n",
-                "For two categories rating, assume :math:`\\sigma_{1}` :math:`Y_{r,i} \\in \\{A,B\\}` for rater :math:`r=1,2` and sample index :math:`i = 1, \\ldots, n`.\n",
+                "For two categories rating, assume :math:`Y_{r,i} \\in \\{A,B\\}` for rater :math:`r=1,2` and sample index :math:`i = 1, \\ldots, n`.\n",
                 "\n",
                 "|     | R2: A | R2: B | Total |\n",
                 "| -------- | ------- | ------- | ------- |\n",
@@ -114,7 +114,7 @@
             "cell_type": "markdown",
             "metadata": {},
             "source": [
-                "## Example - Group 1"
+                "## Example - Group 1\n"
             ]
         },
         {
@@ -244,8 +244,8 @@
                 "\n",
                 "|     | R2: A | R2: B | Total |\n",
                 "| - | - | - | - |\n",
-                "| R1: A | 45 | 5 | 50 |\n",
-                "| R1: B | 5 | 45 | 50 |\n",
+                "| R1: A | 50 | 0 | 50 |\n",
+                "| R1: B | 0 | 50 | 50 |\n",
                 "| Total | 50 | 50 | 100 |"
             ]
         },
@@ -256,7 +256,7 @@
             "outputs": [],
             "source": [
                 "r1 = ['B'] * 50 + ['A'] * 50\n",
-                "r2 = ['A'] * 5 + ['B'] * 45 + ['A'] * 45 + ['B'] * 5\n",
+                "r2 = ['B'] * 50 + ['A'] * 50\n",
                 "\n",
                 "print(\"Cohen's kappa:\", cohen_kappa_score(r1, r2))"
             ]
@@ -265,10 +265,27 @@
             "cell_type": "markdown",
             "metadata": {},
             "source": [
-                "### Why?\n",
+                "### Ex-1.6\n",
                 "\n",
-                "These examples are created to emphasize the fact that Cohen's kappa is a type of correlation measurement. \n",
-                "In really, collected numbers won't be as perfectly \"uncorrelated\" as shown in these examples above."
+                "This is an example of marginal rates is the same as the previous example, (50,50), but agreement numbers changed.\n",
+                "\n",
+                "|     | R2: A | R2: B | Total |\n",
+                "| - | - | - | - |\n",
+                "| R1: A | 0 | 50 | 50 |\n",
+                "| R1: B | 50 | 0 | 50 |\n",
+                "| Total | 50 | 50 | 100 |"
+            ]
+        },
+        {
+            "cell_type": "code",
+            "execution_count": null,
+            "metadata": {},
+            "outputs": [],
+            "source": [
+                "r1 = ['B'] * 50 + ['A'] * 50\n",
+                "r2 = ['A'] * 50 + ['B'] * 50\n",
+                "\n",
+                "print(\"Cohen's kappa:\", cohen_kappa_score(r1, r2))"
             ]
         },
         {
