@@ -20,14 +20,14 @@ extensions = [
     "autoapi.extension",
     "sphinx.ext.napoleon",
     "sphinx.ext.viewcode",
-    "sphinx.ext.pngmath",
+    "sphinx.ext.mathjax"
 ]
 autoapi_dirs = ["../mtbp3"]
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", ".gitignore", ".nojekyll"]
 
 # -- Options for HTML output -------------------------------------------------
 
