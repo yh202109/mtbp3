@@ -22,6 +22,7 @@ matplotlib = { version = "*", optional = false }
 seaborn = { version = ">=0.13.2", optional = false }
 PyPDF2 = { version = "*", optional = false }
 ipywidgets = { version = "*", optional = false }
+sklearn = { version = "*", optional = false }
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
