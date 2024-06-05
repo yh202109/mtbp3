@@ -1,0 +1,19 @@
+kappa
+=====
+
+.. py:module:: kappa
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   kappa.calculate_kappa
+
+
+Module Contents
+---------------
+
+.. py:function:: calculate_kappa(y1, y2, remove_nan=False)
+
