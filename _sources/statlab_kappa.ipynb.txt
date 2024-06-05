@@ -18,7 +18,7 @@
             "source": [
                 "## Notation\n",
                 "\n",
-                "For two categories rating, assume :math:`Y_{r,i} \\in \\{A,B\\}` for rater :math:`r=1,2` and sample index :math:`i = 1, \\ldots, n`.\n",
+                "For two categories rating, assume :math:`\\sigma_{1}` :math:`Y_{r,i} \\in \\{A,B\\}` for rater :math:`r=1,2` and sample index :math:`i = 1, \\ldots, n`.\n",
                 "\n",
                 "|     | R2: A | R2: B | Total |\n",
                 "| -------- | ------- | ------- | ------- |\n",
