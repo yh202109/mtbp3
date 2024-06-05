@@ -20,7 +20,7 @@ extensions = [
     "autoapi.extension",
     "sphinx.ext.napoleon",
     "sphinx.ext.viewcode",
-    "sphinx.ext.mathjax",
+    "sphinx.ext.pngmath",
 ]
 autoapi_dirs = ["../mtbp3"]
 
