@@ -27,40 +27,7 @@ def calculate_kappa(y1, y2, remove_nan=False):
             y1 = np.array(y1)[~idx_nan]
             y2 = np.array(y2)[~idx_nan]
         else:
+            pass
 
 
-        observed = [[x, y] for x, y in zip(y1, y2)]
-
-        y1_observed = [x[0] for x in observed]
-        y2_observed = [x[1] for x in observed]
-
-        kappa = cohen_kappa_score(y1_observed, y2_observed)
-
-
-        from sklearn.metrics import cohen_kappa_score
-
-    import numpy as np
-    from sklearn.utils import resample
-
-    # Bootstrap resampling
-    n_iterations = 1000
-    kappa_values = []
-    for _ in range(n_iterations):
-        # Perform bootstrap resampling
-        r1_resampled = resample(r1)
-        r2_resampled = resample(r2)
-        
-        # Calculate kappa for resampled data
-        kappa = cohen_kappa_score(r1_resampled, r2_resampled)
-        kappa_values.append(kappa)
-
-    # Calculate confidence interval
-    confidence_level = 0.95
-    lower_percentile = (1 - confidence_level) / 2
-    upper_percentile = 1 - lower_percentile
-    lower_bound = np.percentile(kappa_values, lower_percentile * 100)
-    upper_bound = np.percentile(kappa_values, upper_percentile * 100)
-
-    print("Cohen's kappa:", cohen_kappa_score(r1, r2))
-    print("Confidence Interval ({}%): [{}, {}]".format(confidence_level * 100, lower_bound, upper_bound))k
     return kappa
