@@ -121,7 +121,7 @@
 </tr>
 </tbody>
 </table>
-<p>For three and more categories rating, assume :math:<code class="docutils literal notranslate"><span class="pre">Y_{r,i}</span> <span class="pre">\in</span> <span class="pre">\{A,B,C,</span> <span class="pre">\ldots</span> <span class="pre">\}</span></code> for rater $r=1,2$ and sample index :math:<code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">\ldots,</span> <span class="pre">n</span></code>.</p>
+<p>For three and more categories rating, assume :math:<code class="docutils literal notranslate"><span class="pre">Y_{r,i}</span> <span class="pre">\in</span> <span class="pre">\{A,B,C,</span> <span class="pre">\ldots</span> <span class="pre">\}</span></code> for rater <span class="math">r=1,2</span> and sample index :math:<code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">\ldots,</span> <span class="pre">n</span></code>.</p>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
@@ -134,82 +134,92 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>R1: A</p></td>
-<td><p>$N_{11}$</p></td>
-<td><p>$N_{12}$</p></td>
-<td><p>$N_{13}$</p></td>
-<td><p>$\ldots$</p></td>
-<td><p>$N_{1\bullet}$</p></td>
+<td><p><span class="math">N_{11}</span></p></td>
+<td><p><span class="math">N_{12}</span></p></td>
+<td><p><span class="math">N_{13}</span></p></td>
+<td><p><span class="math">\ldots</span></p></td>
+<td><p><span class="math">N_{1\bullet}</span></p></td>
 </tr>
 <tr class="row-odd"><td><p>R1: B</p></td>
-<td><p>$N_{21}$</p></td>
-<td><p>$N_{22}$</p></td>
-<td><p>$N_{23}$</p></td>
-<td><p>$\ldots$</p></td>
-<td><p>$N_{2\bullet}$</p></td>
+<td><p><span class="math">N_{21}</span></p></td>
+<td><p><span class="math">N_{22}</span></p></td>
+<td><p><span class="math">N_{23}</span></p></td>
+<td><p><span class="math">\ldots</span></p></td>
+<td><p><span class="math">N_{2\bullet}</span></p></td>
 </tr>
 <tr class="row-even"><td><p>R1: C</p></td>
-<td><p>$N_{31}$</p></td>
-<td><p>$N_{32}$</p></td>
-<td><p>$N_{33}$</p></td>
-<td><p>$\ldots$</p></td>
-<td><p>$N_{3\bullet}$</p></td>
+<td><p><span class="math">N_{31}</span></p></td>
+<td><p><span class="math">N_{32}</span></p></td>
+<td><p><span class="math">N_{33}</span></p></td>
+<td><p><span class="math">\ldots</span></p></td>
+<td><p><span class="math">N_{3\bullet}</span></p></td>
 </tr>
-<tr class="row-odd"><td><p>$\vdots$</p></td>
-<td><p>$\vdots$</p></td>
-<td><p>$\vdots$</p></td>
-<td><p>$\vdots$</p></td>
-<td><p>$\ddots$</p></td>
-<td><p>$\vdots$</p></td>
+<tr class="row-odd"><td><p><span class="math">\vdots</span></p></td>
+<td><p><span class="math">\vdots</span></p></td>
+<td><p><span class="math">\vdots</span></p></td>
+<td><p><span class="math">\vdots</span></p></td>
+<td><p><span class="math">\ddots</span></p></td>
+<td><p><span class="math">\vdots</span></p></td>
 </tr>
 <tr class="row-even"><td><p>Total</p></td>
-<td><p>$N_{\bullet 1}$</p></td>
-<td><p>$N_{\bullet 2}$</p></td>
-<td><p>$N_{\bullet 2}$</p></td>
-<td><p>$\ldots$</p></td>
-<td><p>$N_{\bullet\bullet}$</p></td>
+<td><p><span class="math">N_{\bullet 1}</span></p></td>
+<td><p><span class="math">N_{\bullet 2}</span></p></td>
+<td><p><span class="math">N_{\bullet 2}</span></p></td>
+<td><p><span class="math">\ldots</span></p></td>
+<td><p><span class="math">N_{\bullet\bullet}</span></p></td>
 </tr>
 </tbody>
 </table>
-<p>The observed raw percentage of agreement is defined as $$p_O = \sum_{j=1}^J N_{jj} / N_{\bullet\bullet}$$ where $J \geq 2$ is the size of value set.</p>
+<p>The observed raw percentage of agreement is defined as <div class="math">
+<p><span class="math">p_O = \sum_{j=1}^J N_{jj} / N_{\bullet\bullet}</span></p>
+</div> where <span class="math">J \geq 2</span> is the size of value set.</p>
 <p>Assume that
-$$(N_{1\bullet}, \ldots N_{J\bullet}) \sim multi(N_{\bullet \bullet}, (p_{r=1,1}, \ldots, p_{r=1,J})),$$
+<div class="math">
+<p><span class="math">(N_{1\bullet}, \ldots N_{J\bullet}) \sim multi(N_{\bullet \bullet}, (p_{r=1,1}, \ldots, p_{r=1,J})),</span></p>
+</div>
 and
-$$(N_{\bullet 1}, \ldots N_{\bullet J}) \sim multi(N_{\bullet \bullet}, (p_{r=2,1}, \ldots, p_{r=2,J})),$$
-with $\sum N_{j \bullet} = \sum N_{\bullet j} = N_{\bullet \bullet}$
-and $\sum p_{r=1,j} = \sum p_{r=2, j} = 1$.</p>
+<div class="math">
+<p><span class="math">(N_{\bullet 1}, \ldots N_{\bullet J}) \sim multi(N_{\bullet \bullet}, (p_{r=2,1}, \ldots, p_{r=2,J})),</span></p>
+</div>
+with <span class="math">\sum N_{j \bullet} = \sum N_{\bullet j} = N_{\bullet \bullet}</span>
+and <span class="math">\sum p_{r=1,j} = \sum p_{r=2, j} = 1</span>.</p>
 <p>Under independence assumption, the expected number of agreement is estimated by
 $$ \sum_{j=1}^J\hat{E}<em>{j} = \frac{1}{N</em>{\bullet \bullet}}\sum_{j=1}^J N_{\bullet j} N_{j\bullet} \equiv N_{\bullet \bullet}p_E $$</p>
-<p>The $\kappa$ statistic is calculated as
-$$\kappa = \frac{p_O - p_E}{1-p_E}$$
-The SE of $\kappa$ is calculated as
-$$\sqrt{\frac{p_O(1-p_O)}{N_{\bullet \bullet}(1-p_E)^2}}$$</p>
+<p>The <span class="math">\kappa</span> statistic is calculated as
+<div class="math">
+<p><span class="math">\kappa = \frac{p_O - p_E}{1-p_E}</span></p>
+</div>
+The SE of <span class="math">\kappa</span> is calculated as
+<div class="math">
+<p><span class="math">\sqrt{\frac{p_O(1-p_O)}{N_{\bullet \bullet}(1-p_E)^2}}</span></p>
+</div></p>
 </section>
 <section id="interpretation-in-literature">
 <h2>Interpretation in Literature<a class="headerlink" href="#interpretation-in-literature" title="Link to this heading"></a></h2>
 <p>Cohen (1960)<a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> suggested the Kappa result be interpreted as follows:</p>
 <table class="docutils align-default">
 <thead>
-<tr class="row-odd"><th class="head"><p>Value of $\kappa$</p></th>
+<tr class="row-odd"><th class="head"><p>Value of <span class="math">\kappa</span></p></th>
 <th class="head"><p>Interpretation</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>$\kappa \leq 0$</p></td>
+<tr class="row-even"><td><p><span class="math">\kappa \leq 0</span></p></td>
 <td><p>indicating no agreement</p></td>
 </tr>
-<tr class="row-odd"><td><p>$0 &lt; \kappa \leq 0.2$</p></td>
+<tr class="row-odd"><td><p><span class="math">0 &lt; \kappa \leq 0.2</span></p></td>
 <td><p>none to slight</p></td>
 </tr>
-<tr class="row-even"><td><p>$0.2 &lt; \kappa \leq 0.4$</p></td>
+<tr class="row-even"><td><p><span class="math">0.2 &lt; \kappa \leq 0.4</span></p></td>
 <td><p>fair</p></td>
 </tr>
-<tr class="row-odd"><td><p>$0.4 &lt; \kappa \leq 0.6$</p></td>
+<tr class="row-odd"><td><p><span class="math">0.4 &lt; \kappa \leq 0.6</span></p></td>
 <td><p>moderate</p></td>
 </tr>
-<tr class="row-even"><td><p>$0.6 &lt; \kappa \leq 0.8$</p></td>
+<tr class="row-even"><td><p><span class="math">0.6 &lt; \kappa \leq 0.8</span></p></td>
 <td><p>substantial</p></td>
 </tr>
-<tr class="row-odd"><td><p>$0.8 &lt; \kappa \leq 1$</p></td>
+<tr class="row-odd"><td><p><span class="math">0.8 &lt; \kappa \leq 1</span></p></td>
 <td><p>almost perfect agreement</p></td>
 </tr>
 </tbody>
@@ -217,7 +227,7 @@ $$\sqrt{\frac{p_O(1-p_O)}{N_{\bullet \bullet}(1-p_E)^2}}$$</p>
 <p>Interpretation suggested by McHugh (2012)<a class="footnote-reference brackets" href="#id4" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>:</p>
 <table class="docutils align-default">
 <thead>
-<tr class="row-odd"><th class="head"><p>Value of $\kappa$</p></th>
+<tr class="row-odd"><th class="head"><p>Value of <span class="math">\kappa</span></p></th>
 <th class="head"><p>Level of Agreement</p></th>
 <th class="head"><p>% of Data that are Reliable</p></th>
 </tr>
@@ -309,8 +319,8 @@ $$\sqrt{\frac{p_O(1-p_O)}{N_{\bullet \bullet}(1-p_E)^2}}$$</p>
 </section>
 <section id="ex-1-2">
 <h3>Ex-1.2<a class="headerlink" href="#ex-1-2" title="Link to this heading"></a></h3>
-<p>Note that $kappa$ is for nominal ratting values.
-Change the order of values does not have impact on $kappa$.</p>
+<p>Note that <span class="math">kappa</span> is for nominal ratting values.
+Change the order of values does not have impact on <span class="math">kappa</span>.</p>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
