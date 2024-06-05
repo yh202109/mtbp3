@@ -21,6 +21,8 @@ extensions = [
     "sphinx.ext.napoleon",
     "sphinx.ext.viewcode",
     "sphinx.ext.imgmath",
+    "sphinx.ext.mathjax",
+    "sphinx_math_dollar",
 ]
 autoapi_dirs = ["../mtbp3"]
 
@@ -35,3 +37,17 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", ".gitignore", ".nojekyll
 # a list of builtin themes.
 #
 html_theme = "sphinx_rtd_theme"
+
+mathjax_config = {
+    'tex2jax': {
+        'inlineMath': [ ["\\(","\\)"] ],
+        'displayMath': [["\\[","\\]"] ],
+    },
+}
+
+mathjax3_config = {
+  "tex": {
+    "inlineMath": [['\\(', '\\)']],
+    "displayMath": [["\\[", "\\]"]],
+  }
+}
