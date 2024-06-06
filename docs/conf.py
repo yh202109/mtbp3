@@ -20,10 +20,10 @@ extensions = [
     "autoapi.extension",
     "sphinx.ext.napoleon",
     "sphinx.ext.viewcode",
-    "sphinx.ext.imgmath",
+    "sphinx.ext.mathjax",
 ]
 autoapi_dirs = ["../mtbp3"]
-#mathjax_path = 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+mathjax_path = 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
 imgmath_image_format = 'svg'
 
 # List of patterns, relative to source directory, that match files and
