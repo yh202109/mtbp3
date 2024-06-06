@@ -50,8 +50,28 @@
             "cell_type": "markdown",
             "metadata": {},
             "source": [
-                "Assume that \n",
+                "Assume that \n"
+            ]
+        },
+        {
+            "cell_type": "raw",
+            "metadata": {
+                "vscode": {
+                    "languageId": "raw"
+                }
+            },
+            "source": [
+                ".. math:: \n",
                 "$$(N_{1\\bullet}, \\ldots N_{J\\bullet}) \\sim multi(N_{\\bullet \\bullet}, (p_{r=1,1}, \\ldots, p_{r=1,J})),$$ \n",
+                "   :label: njdot"
+            ]
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [
+                "\n",
+                "\n",
                 "and\n",
                 "$$(N_{\\bullet 1}, \\ldots N_{\\bullet J}) \\sim multi(N_{\\bullet \\bullet}, (p_{r=2,1}, \\ldots, p_{r=2,J})),$$ \n",
                 "with $\\sum N_{j \\bullet} = \\sum N_{\\bullet j} = N_{\\bullet \\bullet}$ \n",
