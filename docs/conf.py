@@ -20,9 +20,11 @@ extensions = [
     "autoapi.extension",
     "sphinx.ext.napoleon",
     "sphinx.ext.viewcode",
-    "sphinx.ext.mathjax",
+    "sphinx.ext.imgmath",
 ]
 autoapi_dirs = ["../mtbp3"]
+#mathjax_path = 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+imgmath_image_format = 'svg'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -35,17 +37,3 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", ".gitignore", ".nojekyll
 # a list of builtin themes.
 #
 html_theme = "sphinx_rtd_theme"
-
-mathjax_config = {
-    'tex2jax': {
-        'inlineMath': [ ["\\(","\\)"] ],
-        'displayMath': [["\\[","\\]"] ],
-    },
-}
-
-mathjax3_config = {
-  "tex": {
-    "inlineMath": [['\\(', '\\)']],
-    "displayMath": [["\\[", "\\]"]],
-  }
-}
