@@ -100,7 +100,9 @@
         {
             "cell_type": "markdown",
             "metadata": {},
-            "source": []
+            "source": [
+                "$\\alpha$"
+            ]
         },
         {
             "cell_type": "markdown",
