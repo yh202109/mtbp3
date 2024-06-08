@@ -68,7 +68,7 @@ for rater :math:`r=1,2` and sample index :math:`i = 1, \ldots, n`.
      - :math:`N_{33}` 
      - :math:`\ldots` 
      - :math:`N_{3\bullet}` 
-   * - R1: C 
+   * - :math:`\vdots` 
      - :math:`\vdots`
      - :math:`\vdots`
      - :math:`\vdots`
@@ -80,4 +80,12 @@ for rater :math:`r=1,2` and sample index :math:`i = 1, \ldots, n`.
      - :math:`N_{\bullet 3}` 
      - :math:`\ldots` 
      - :math:`N_{\bullet\bullet}` 
+
+The observed raw percentage of agreement is defined as 
+
+.. math::
+
+  p_O = \sum_{j=1}^J N_{jj} / N_{\bullet\bullet}
+
+where :math:`J \geq 2` is the size of value set.
 
