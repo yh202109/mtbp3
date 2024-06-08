@@ -97,7 +97,7 @@
 <h2>Notation<a class="headerlink" href="#notation" title="Link to this heading"></a></h2>
 <p>For two categories rating, assume <span class="math notranslate nohighlight">\(Y_{r,i} \in \{A,B\}\)</span> for rater <span class="math notranslate nohighlight">\(r=1,2\)</span> and sample index <span class="math notranslate nohighlight">\(i = 1, \ldots, n\)</span>.</p>
 <table class="docutils align-default" id="id1">
-<caption><span class="caption-text">counts</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<caption><span class="caption-text">Counts for 2 categories</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 25.0%" />
@@ -106,9 +106,9 @@
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"></th>
-<th class="head"><p>R2:A</p></th>
-<th class="head"><p>R2:B</p></th>
-<th class="head"><p>Total</p></th>
+<th class="head"><p>R2: A</p></th>
+<th class="head"><p>R2: B</p></th>
+<th class="head"><p>Row Total</p></th>
 </tr>
 </thead>
 <tbody>
@@ -122,38 +122,72 @@
 <td><p><span class="math notranslate nohighlight">\(N_{22}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{2\bullet}\)</span></p></td>
 </tr>
-<tr class="row-even"><td><p>Total</p></td>
+<tr class="row-even"><td><p>Column total</p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{\bullet 1}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{\bullet 2}\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(N_{\bullet \bullet}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(N_{\bullet\bullet}\)</span></p></td>
 </tr>
 </tbody>
 </table>
-<p>test1</p>
+<p>For three or more categories rating, assume <span class="math notranslate nohighlight">\(Y_{r,i} \in \{A,B,C, \ldots \}\)</span>
+for rater <span class="math notranslate nohighlight">\(r=1,2\)</span> and sample index <span class="math notranslate nohighlight">\(i = 1, \ldots, n\)</span>.</p>
 <table class="docutils align-default" id="id2">
-<caption><span class="caption-text">counts2</span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
+<caption><span class="caption-text">Counts for 3 or more categories</span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
 <colgroup>
-<col style="width: 25.0%" />
-<col style="width: 25.0%" />
-<col style="width: 25.0%" />
-<col style="width: 25.0%" />
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>R1: A</p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(N_{11}\)</span></p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(N_{12}\)</span></p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(N_{1\bullet}\)</span></p></th>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>R2: A</p></th>
+<th class="head"><p>R2: B</p></th>
+<th class="head"><p>R2: C</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\ldots\)</span></p></th>
+<th class="head"><p>Row Total</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>R1: A</p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{11}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{12}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(N_{13}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\ldots\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{1\bullet}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>R1: B</p></td>
+<td><p><span class="math notranslate nohighlight">\(N_{21}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(N_{22}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(N_{23}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\ldots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(N_{2\bullet}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>R1: C</p></td>
+<td><p><span class="math notranslate nohighlight">\(N_{31}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(N_{32}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(N_{33}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\ldots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(N_{3\bullet}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>R1: C</p></td>
+<td><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\ddots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Column total</p></td>
+<td><p><span class="math notranslate nohighlight">\(N_{\bullet 1}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(N_{\bullet 2}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(N_{\bullet 3}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\ldots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(N_{\bullet\bullet}\)</span></p></td>
 </tr>
 </tbody>
 </table>
-<p>test2</p>
 </section>
 </section>
 
