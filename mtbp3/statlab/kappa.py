@@ -31,3 +31,4 @@ def calculate_kappa(y1, y2, remove_nan=False):
 
 
     return kappa
+

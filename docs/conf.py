@@ -20,7 +20,9 @@ extensions = [
     "autoapi.extension",
     "sphinx.ext.napoleon",
     "sphinx.ext.viewcode",
+    "sphinx.ext.githubpages",
     "sphinx.ext.mathjax",
+    #"sphinx.ext.imgmath",
 ]
 autoapi_dirs = ["../mtbp3"]
 mathjax_path = 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
