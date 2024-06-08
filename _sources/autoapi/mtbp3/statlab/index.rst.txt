@@ -1,0 +1,28 @@
+mtbp3.statlab
+=============
+
+.. py:module:: mtbp3.statlab
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/mtbp3/statlab/kappa/index
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   mtbp3.statlab.calculate_kappa
+
+
+Package Contents
+----------------
+
+.. py:function:: calculate_kappa(y1, y2, remove_nan=False)
+

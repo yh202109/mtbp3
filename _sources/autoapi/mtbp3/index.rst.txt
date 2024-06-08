@@ -17,6 +17,7 @@ Subpackages
    :maxdepth: 1
 
    /autoapi/mtbp3/health/index
+   /autoapi/mtbp3/statlab/index
    /autoapi/mtbp3/util/index
 
 

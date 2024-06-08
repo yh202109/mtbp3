@@ -1,7 +1,7 @@
-kappa
-=====
+mtbp3.statlab.kappa
+===================
 
-.. py:module:: kappa
+.. py:module:: mtbp3.statlab.kappa
 
 
 Functions
@@ -9,7 +9,7 @@ Functions
 
 .. autoapisummary::
 
-   kappa.calculate_kappa
+   mtbp3.statlab.kappa.calculate_kappa
 
 
 Module Contents
