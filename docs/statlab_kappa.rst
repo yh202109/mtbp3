@@ -6,8 +6,8 @@ StatLab/Cohen's Kappa
 Background
 *************
 
-Cohen's kappa (:math:`\kappa`) is a statistic used for describing inter-ratter consistency. 
-
+Cohen's kappa (:math:`\kappa`) is a statistic used for describing inter-ratter consistency [1]_. 
+Please note that there are also concerns of the use :math:`kappa` for quantifying agreement [2]_ [3]_ [4]_.
 
 *************
 Notation
@@ -119,7 +119,7 @@ The SE of :math:`\kappa` is calculated as
 Interpretation of Kappa Suggested in Literature
 *************
 
-Cohen (1960) [1]_ suggested the Kappa result be interpreted as follows: 
+Cohen (1960) [5]_ suggested the Kappa result be interpreted as follows: 
 
 .. list-table:: Kappa Interpretation (Cohen, 1960)
    :widths: 10 10 
@@ -140,7 +140,7 @@ Cohen (1960) [1]_ suggested the Kappa result be interpreted as follows:
    * - :math:`0.8 < \kappa \leq 1`
      - almost perfect agreement 
 
-Interpretation suggested by McHugh (2012) [2]_:
+Interpretation suggested by McHugh (2012) [6]_:
 
 .. list-table:: Kappa Interpretation (McHugh, 2012)
    :widths: 10 10 10
@@ -306,7 +306,7 @@ Example - Group-1
 How-to 
 =============
 
-Use ``sklearn`` (stable):
+Use ``sklearn.metrics`` (stable):
 
 .. code:: python
    :number-lines:
@@ -327,11 +327,34 @@ Use ``mtbp3.statlab`` (testing):
    kappa = kappa.KappaCalculator(r1,r2)
    print("Cohen's kappa:", kappa.kappa)
 
+*************
+Bootstrap CI
+*************
+
+Use ``mtbp3.statlab`` (testing):
+
+.. testsetup:: *
+
+   from mtbp3.statlab import kappa
+   r1 = ['B'] * 70 + ['A'] * 30
+   r2 = ['A'] * 70 + ['B'] * 30
+   kappa = kappa.KappaCalculator(r1,r2)
+
+.. testcode::
+
+   kappa.bootstrap_ci(n_iterations=1000, confidence_level=0.95)
+
+.. testoutput::
+
+
 
 *************
 Reference
 *************
 
-.. [1] Cohen, J. (1960). A Coefficient of Agreement for Nominal Scales. Educational and Psychological Measurement, 20(1), 37-46. https://doi.org/10.1177/001316446002000104 
-.. [2] McHugh M. L. (2012). Interrater reliability: the kappa statistic. Biochemia medica, 22(3), 276-282. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3900052/
+.. [1] Wikipedia. (year). Cohen's kappa. https://en.wikipedia.org/wiki/Cohen%27s_kappa.
+.. [2] Uebersax, J. (year). Kappa Coefficients: A Critical Appraisal. https://www.john-uebersax.com/stat/kappa.htm#procon.
 .. [3] Brennan, R. L., & Prediger, D. J. (1981). Coefficient Kappa: Some Uses, Misuses, and Alternatives. Educational and Psychological Measurement, 41(3), 687-699. https://doi.org/10.1177/0013164481041003070
+.. [4] Sim, J., Wright, C. C. (2005). The Kappa Statistic in Reliability Studies: Use, Interpretation, and Sample Size Requirements, Physical Therapy, Volume 85, Issue 3, Pages 257-268, https://doi.org/10.1093/ptj/85.3.257
+.. [5] Cohen, J. (1960). A Coefficient of Agreement for Nominal Scales. Educational and Psychological Measurement, 20(1), 37-46. https://doi.org/10.1177/001316446002000104 
+.. [6] McHugh M. L. (2012). Interrater reliability: the kappa statistic. Biochemia medica, 22(3), 276-282. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3900052/
