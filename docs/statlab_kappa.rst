@@ -20,14 +20,14 @@ For two categories rating, assume :math:`Y_{r,i} \in \{A,B\}` for rater :math:`r
    :header-rows: 1
 
    * - 
-     - R2: A
-     - R2: B
+     - Ratter 2: A
+     - Ratter 2: B
      - Row Total
-   * - R1: A 
+   * - Ratter 1: A 
      - :math:`N_{11}`
      - :math:`N_{12}` 
      - :math:`N_{1\bullet}` 
-   * - R1: B 
+   * - Ratter 1: B 
      - :math:`N_{21}`
      - :math:`N_{22}` 
      - :math:`N_{2\bullet}` 
@@ -45,24 +45,24 @@ for rater :math:`r=1,2` and sample index :math:`i = 1, \ldots, n`.
    :header-rows: 1
 
    * - 
-     - R2: A
-     - R2: B
-     - R2: C
+     - Ratter 2: A
+     - Ratter 2: B
+     - Ratter 2: C
      - :math:`\ldots` 
      - Row Total
-   * - R1: A 
+   * - Ratter 1: A 
      - :math:`N_{11}`
      - :math:`N_{12}` 
      - :math:`N_{13}` 
      - :math:`\ldots` 
      - :math:`N_{1\bullet}` 
-   * - R1: B 
+   * - Ratter 1: B 
      - :math:`N_{21}`
      - :math:`N_{22}` 
      - :math:`N_{23}` 
      - :math:`\ldots` 
      - :math:`N_{2\bullet}` 
-   * - R1: C 
+   * - Ratter 1: C 
      - :math:`N_{31}`
      - :math:`N_{32}` 
      - :math:`N_{33}` 
@@ -117,3 +117,68 @@ The SE of :math:`\kappa` is calculated as
 
 
 
+## Interpretation in Literature
+
+Cohen (1960)[1]_ suggested the Kappa result be interpreted as follows: 
+
+.. list-table:: Kappa Interpretation
+   :widths: 10 10 
+   :header-rows: 1
+
+   * - Value of :math:`\kappa`
+     - Interpretation
+   * - :math:`-1 \leq \kappa \leq 0`
+     - indicating no agreement
+   * - :math:`$0 < \kappa \leq 0.2`
+     - none to slight
+   * - :math:`0.2 < \kappa \leq 0.4`
+     - fair
+   * - :math:`0.4 < \kappa \leq 0.6`
+     - moderate
+   * - :math:`$0.6 < \kappa \leq 0.8` 
+     - substantial
+   * - :math:`0.8 < \kappa \leq 1`
+     - almost perfect agreement 
+
+Interpretation suggested by McHugh (2012)[2]_:
+
+.. list-table:: Kappa Interpretation
+   :widths: 10 10 
+   :header-rows: 1
+
+   * - Value of :math:`\kappa`
+     - Level of Agreement
+     - % of Data That Are Reliable
+   * - :math:`-1 \leq \kappa \leq 0`
+     - Disagreement
+     - NA
+   * - :math:`0-.20`
+     - None
+     - :math:`0-4%`
+   * - :math:`.21-.39`
+     - Minimal
+     - :math:`4-15%`
+   * - :math:`.40-.59`
+     - Weak
+     - :math:`15-35%`
+   * - :math:`.60-.79`
+     - Moderate
+     - :math:`35-63%`
+   * - :math:`.80-.90`
+     - Strong
+     - :math:`64-81%`
+   * - Above.90
+     - Almost Perfect
+     - :math:`82-100%`
+
+*************
+Example - Group-1
+*************
+
+*************
+Reference
+*************
+
+.. [1] Cohen, J. (1960). A Coefficient of Agreement for Nominal Scales. Educational and Psychological Measurement, 20(1), 37-46. https://doi.org/10.1177/001316446002000104 ([web page]())
+.. [2] McHugh M. L. (2012). Interrater reliability: the kappa statistic. Biochemia medica, 22(3), 276–282.([web page](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3900052/))
+.. [3] Brennan, R. L., & Prediger, D. J. (1981). Coefficient Kappa: Some Uses, Misuses, and Alternatives. Educational and Psychological Measurement, 41(3), 687-699. https://doi.org/10.1177/0013164481041003070
