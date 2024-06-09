@@ -22,10 +22,10 @@ StatLab/Cohen's Kappa
 Background
 *************
 
-Cohen's kappa (:math:`\kappa`) is a statistic used for describing inter-ratter consistency of two ratters with categorical rating outcomes [1]_. 
+Cohen's kappa (:math:`\kappa`) is a statistic used for describing inter-ratter reliability of two ratters (or intra-rater) with categorical rating outcomes [1]_. 
 Please note that there are also concerns of the use of :math:`\kappa` for quantifying agreement [2]_ [3]_ [4]_.
 
-Fleiss' kappa is also a statistic used for inter-ratter consistency and that can be applied to cases with more then two ratters.
+Fleiss' kappa is also a statistic used for inter-ratter reliability and that can be applied to cases with more then two ratters.
 Fleiss' kappa is not yet being included in the ``statlab`` module.
 
 *************
