@@ -63,8 +63,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#background">Background</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#notation">Notation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#interpretation-of-kappa-suggested-in-literature">Interpretation of Kappa Suggested in Literature</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#example-group-1">Example - Group-1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#how-to">How-to</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-group-1">Example - Group-1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-to">How-to</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
@@ -102,7 +104,7 @@
 <h1>StatLab/Cohen’s Kappa for inter-rater reliability<a class="headerlink" href="#statlab-cohen-s-kappa-for-inter-rater-reliability" title="Link to this heading"></a></h1>
 <section id="background">
 <h2>Background<a class="headerlink" href="#background" title="Link to this heading"></a></h2>
-<p>Cohen’s kappa is a statistic used for describing, summarizing, estimating and testing inter-ratter consistency.</p>
+<p>Cohen’s kappa (<span class="math notranslate nohighlight">\(\kappa\)</span>) is a statistic used for describing inter-ratter consistency.</p>
 </section>
 <section id="notation">
 <h2>Notation<a class="headerlink" href="#notation" title="Link to this heading"></a></h2>
@@ -209,8 +211,8 @@ for rater <span class="math notranslate nohighlight">\(r=1,2\)</span> and sample
 <p>and</p>
 <div class="math notranslate nohighlight">
 \[(N_{\bullet 1}, \ldots N_{\bullet J}) \sim multi(N_{\bullet \bullet}, (p_{r=2,1}, \ldots, p_{r=2,J})),\]</div>
-<p>with <span class="math notranslate nohighlight">\(\sum N_{j \bullet} = \sum N_{\bullet j} = N_{\bullet \bullet}\)</span>
-and <span class="math notranslate nohighlight">\(\sum p_{r=1,j} = \sum p_{r=2, j} = 1\)</span>.</p>
+<p>with <span class="math notranslate nohighlight">\(\sum_j N_{j \bullet} = \sum_j N_{\bullet j} = N_{\bullet \bullet}\)</span>
+and <span class="math notranslate nohighlight">\(\sum_j p_{r=1,j} = \sum_j p_{r=2, j} = 1\)</span>.</p>
 <p>Under independence assumption, the expected number of agreement is estimated by
 <span class="math notranslate nohighlight">\(\sum_{j=1}^J\hat{E}_{j} = \frac{1}{N_{\bullet \bullet}}\sum_{j=1}^J N_{\bullet j} N_{j\bullet} \equiv N_{\bullet \bullet}p_E\)</span>.</p>
 <p>The <span class="math notranslate nohighlight">\(\kappa\)</span> statistic is calculated as</p>
@@ -501,15 +503,24 @@ and <span class="math notranslate nohighlight">\(\sum p_{r=1,j} = \sum p_{r=2, j
 </tr>
 </tbody>
 </table>
-</section>
 <section id="how-to">
-<h2>How-to<a class="headerlink" href="#how-to" title="Link to this heading"></a></h2>
+<h3>How-to<a class="headerlink" href="#how-to" title="Link to this heading"></a></h3>
+<p>Use <cite>sklearn</cite> (stable):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">cohen_kappa_score</span>
-<span class="linenos">2</span> <span class="n">r1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">70</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">30</span>
-<span class="linenos">3</span> <span class="n">r2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">70</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">30</span>
-<span class="linenos">4</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cohen&#39;s kappa:&quot;</span><span class="p">,</span> <span class="n">cohen_kappa_score</span><span class="p">(</span><span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">))</span>
+<span class="linenos">2</span><span class="n">r1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">70</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">30</span>
+<span class="linenos">3</span><span class="n">r2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">70</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">30</span>
+<span class="linenos">4</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cohen&#39;s kappa:&quot;</span><span class="p">,</span> <span class="n">cohen_kappa_score</span><span class="p">(</span><span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">))</span>
 </pre></div>
 </div>
+<p>Use <cite>mtbp3.statlab</cite> (testing):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">mtbp3.statlab</span> <span class="kn">import</span> <span class="n">KappaCalculator</span>
+<span class="linenos">2</span><span class="n">r1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">70</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">30</span>
+<span class="linenos">3</span><span class="n">r2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">70</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">30</span>
+<span class="linenos">4</span><span class="n">kappa</span> <span class="o">=</span> <span class="n">KappaCalculator</span><span class="p">(</span><span class="n">r1</span><span class="p">,</span><span class="n">r2</span><span class="p">)</span>
+<span class="linenos">5</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cohen&#39;s kappa:&quot;</span><span class="p">,</span> <span class="n">kappa</span><span class="o">.</span><span class="n">kappa</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>
