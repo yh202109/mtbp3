@@ -67,6 +67,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#how-to">How-to</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#bootstrap-ci">Bootstrap CI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
@@ -104,13 +105,14 @@
 <h1>StatLab/Cohen’s Kappa<a class="headerlink" href="#statlab-cohen-s-kappa" title="Link to this heading"></a></h1>
 <section id="background">
 <h2>Background<a class="headerlink" href="#background" title="Link to this heading"></a></h2>
-<p>Cohen’s kappa (<span class="math notranslate nohighlight">\(\kappa\)</span>) is a statistic used for describing inter-ratter consistency.</p>
+<p>Cohen’s kappa (<span class="math notranslate nohighlight">\(\kappa\)</span>) is a statistic used for describing inter-ratter consistency <a class="footnote-reference brackets" href="#id7" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.
+Please note that there are also concerns of the use <span class="math notranslate nohighlight">\(kappa\)</span> for quantifying agreement <a class="footnote-reference brackets" href="#id8" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#id9" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#id10" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>.</p>
 </section>
 <section id="notation">
 <h2>Notation<a class="headerlink" href="#notation" title="Link to this heading"></a></h2>
 <p>For two categories rating, assume <span class="math notranslate nohighlight">\(Y_{r,i} \in \{A,B\}\)</span> for rater <span class="math notranslate nohighlight">\(r=1,2\)</span> and sample index <span class="math notranslate nohighlight">\(i = 1, \ldots, n\)</span>.</p>
-<table class="docutils align-default" id="id6">
-<caption><span class="caption-text">Counts for 2 categories</span><a class="headerlink" href="#id6" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id13">
+<caption><span class="caption-text">Counts for 2 categories</span><a class="headerlink" href="#id13" title="Link to this table"></a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 25.0%" />
@@ -144,8 +146,8 @@
 </table>
 <p>For three or more categories rating, assume <span class="math notranslate nohighlight">\(Y_{r,i} \in \{A,B,C, \ldots \}\)</span>
 for rater <span class="math notranslate nohighlight">\(r=1,2\)</span> and sample index <span class="math notranslate nohighlight">\(i = 1, \ldots, n\)</span>.</p>
-<table class="docutils align-default" id="id7">
-<caption><span class="caption-text">Counts for 3 or more categories</span><a class="headerlink" href="#id7" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id14">
+<caption><span class="caption-text">Counts for 3 or more categories</span><a class="headerlink" href="#id14" title="Link to this table"></a></caption>
 <colgroup>
 <col style="width: 16.7%" />
 <col style="width: 16.7%" />
@@ -224,9 +226,9 @@ and <span class="math notranslate nohighlight">\(\sum_j p_{r=1,j} = \sum_j p_{r=
 </section>
 <section id="interpretation-of-kappa-suggested-in-literature">
 <h2>Interpretation of Kappa Suggested in Literature<a class="headerlink" href="#interpretation-of-kappa-suggested-in-literature" title="Link to this heading"></a></h2>
-<p>Cohen (1960) <a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> suggested the Kappa result be interpreted as follows:</p>
-<table class="docutils align-default" id="id8">
-<caption><span class="caption-text">Kappa Interpretation (Cohen, 1960)</span><a class="headerlink" href="#id8" title="Link to this table"></a></caption>
+<p>Cohen (1960) <a class="footnote-reference brackets" href="#id11" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a> suggested the Kappa result be interpreted as follows:</p>
+<table class="docutils align-default" id="id15">
+<caption><span class="caption-text">Kappa Interpretation (Cohen, 1960)</span><a class="headerlink" href="#id15" title="Link to this table"></a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -257,9 +259,9 @@ and <span class="math notranslate nohighlight">\(\sum_j p_{r=1,j} = \sum_j p_{r=
 </tr>
 </tbody>
 </table>
-<p>Interpretation suggested by McHugh (2012) <a class="footnote-reference brackets" href="#id4" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>:</p>
-<table class="docutils align-default" id="id9">
-<caption><span class="caption-text">Kappa Interpretation (McHugh, 2012)</span><a class="headerlink" href="#id9" title="Link to this table"></a></caption>
+<p>Interpretation suggested by McHugh (2012) <a class="footnote-reference brackets" href="#id12" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>:</p>
+<table class="docutils align-default" id="id16">
+<caption><span class="caption-text">Kappa Interpretation (McHugh, 2012)</span><a class="headerlink" href="#id16" title="Link to this table"></a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 33.3%" />
@@ -305,8 +307,8 @@ and <span class="math notranslate nohighlight">\(\sum_j p_{r=1,j} = \sum_j p_{r=
 </section>
 <section id="example-group-1">
 <h2>Example - Group-1<a class="headerlink" href="#example-group-1" title="Link to this heading"></a></h2>
-<table class="docutils align-default" id="id10">
-<caption><span class="caption-text"><span class="math notranslate nohighlight">\(\kappa = 0\)</span></span><a class="headerlink" href="#id10" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id17">
+<caption><span class="caption-text"><span class="math notranslate nohighlight">\(\kappa = 0\)</span></span><a class="headerlink" href="#id17" title="Link to this table"></a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 25.0%" />
@@ -338,8 +340,8 @@ and <span class="math notranslate nohighlight">\(\sum_j p_{r=1,j} = \sum_j p_{r=
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default" id="id11">
-<caption><span class="caption-text"><span class="math notranslate nohighlight">\(\kappa = 0\)</span></span><a class="headerlink" href="#id11" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id18">
+<caption><span class="caption-text"><span class="math notranslate nohighlight">\(\kappa = 0\)</span></span><a class="headerlink" href="#id18" title="Link to this table"></a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 25.0%" />
@@ -371,8 +373,8 @@ and <span class="math notranslate nohighlight">\(\sum_j p_{r=1,j} = \sum_j p_{r=
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default" id="id12">
-<caption><span class="caption-text"><span class="math notranslate nohighlight">\(\kappa = 1\)</span></span><a class="headerlink" href="#id12" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id19">
+<caption><span class="caption-text"><span class="math notranslate nohighlight">\(\kappa = 1\)</span></span><a class="headerlink" href="#id19" title="Link to this table"></a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 25.0%" />
@@ -404,8 +406,8 @@ and <span class="math notranslate nohighlight">\(\sum_j p_{r=1,j} = \sum_j p_{r=
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default" id="id13">
-<caption><span class="caption-text"><span class="math notranslate nohighlight">\(\kappa = 1\)</span></span><a class="headerlink" href="#id13" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id20">
+<caption><span class="caption-text"><span class="math notranslate nohighlight">\(\kappa = 1\)</span></span><a class="headerlink" href="#id20" title="Link to this table"></a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 25.0%" />
@@ -437,8 +439,8 @@ and <span class="math notranslate nohighlight">\(\sum_j p_{r=1,j} = \sum_j p_{r=
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default" id="id14">
-<caption><span class="caption-text"><span class="math notranslate nohighlight">\(\kappa = -1\)</span></span><a class="headerlink" href="#id14" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id21">
+<caption><span class="caption-text"><span class="math notranslate nohighlight">\(\kappa = -1\)</span></span><a class="headerlink" href="#id21" title="Link to this table"></a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 25.0%" />
@@ -470,8 +472,8 @@ and <span class="math notranslate nohighlight">\(\sum_j p_{r=1,j} = \sum_j p_{r=
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default" id="id15">
-<caption><span class="caption-text"><span class="math notranslate nohighlight">\(\kappa = -0.7241379310344827\)</span></span><a class="headerlink" href="#id15" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id22">
+<caption><span class="caption-text"><span class="math notranslate nohighlight">\(\kappa = -0.7241379310344827\)</span></span><a class="headerlink" href="#id22" title="Link to this table"></a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 25.0%" />
@@ -505,7 +507,7 @@ and <span class="math notranslate nohighlight">\(\sum_j p_{r=1,j} = \sum_j p_{r=
 </table>
 <section id="how-to">
 <h3>How-to<a class="headerlink" href="#how-to" title="Link to this heading"></a></h3>
-<p>Use <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> (stable):</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">sklearn.metrics</span></code> (stable):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">cohen_kappa_score</span>
 <span class="linenos">2</span><span class="n">r1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">70</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">30</span>
 <span class="linenos">3</span><span class="n">r2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">70</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">30</span>
@@ -522,20 +524,42 @@ and <span class="math notranslate nohighlight">\(\sum_j p_{r=1,j} = \sum_j p_{r=
 </div>
 </section>
 </section>
+<section id="bootstrap-ci">
+<h2>Bootstrap CI<a class="headerlink" href="#bootstrap-ci" title="Link to this heading"></a></h2>
+<p>Use <code class="docutils literal notranslate"><span class="pre">mtbp3.statlab</span></code> (testing):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">kappa</span><span class="o">.</span><span class="n">bootstrap_ci</span><span class="p">(</span><span class="n">n_iterations</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">confidence_level</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id3" role="doc-footnote">
+<aside class="footnote brackets" id="id7" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Wikipedia. (year). Cohen’s kappa. <a class="reference external" href="https://en.wikipedia.org/wiki/Cohen%27s_kappa">https://en.wikipedia.org/wiki/Cohen%27s_kappa</a>.</p>
+</aside>
+<aside class="footnote brackets" id="id8" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>Uebersax, J. (year). Kappa Coefficients: A Critical Appraisal. <a class="reference external" href="https://www.john-uebersax.com/stat/kappa.htm#procon">https://www.john-uebersax.com/stat/kappa.htm#procon</a>.</p>
+</aside>
+<aside class="footnote brackets" id="id9" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p>Brennan, R. L., &amp; Prediger, D. J. (1981). Coefficient Kappa: Some Uses, Misuses, and Alternatives. Educational and Psychological Measurement, 41(3), 687-699. <a class="reference external" href="https://doi.org/10.1177/0013164481041003070">https://doi.org/10.1177/0013164481041003070</a></p>
+</aside>
+<aside class="footnote brackets" id="id10" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
+<p>Sim, J., Wright, C. C. (2005). The Kappa Statistic in Reliability Studies: Use, Interpretation, and Sample Size Requirements, Physical Therapy, Volume 85, Issue 3, Pages 257-268, <a class="reference external" href="https://doi.org/10.1093/ptj/85.3.257">https://doi.org/10.1093/ptj/85.3.257</a></p>
+</aside>
+<aside class="footnote brackets" id="id11" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">5</a><span class="fn-bracket">]</span></span>
 <p>Cohen, J. (1960). A Coefficient of Agreement for Nominal Scales. Educational and Psychological Measurement, 20(1), 37-46. <a class="reference external" href="https://doi.org/10.1177/001316446002000104">https://doi.org/10.1177/001316446002000104</a></p>
 </aside>
-<aside class="footnote brackets" id="id4" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<aside class="footnote brackets" id="id12" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">6</a><span class="fn-bracket">]</span></span>
 <p>McHugh M. L. (2012). Interrater reliability: the kappa statistic. Biochemia medica, 22(3), 276-282. <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3900052/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3900052/</a></p>
-</aside>
-<aside class="footnote brackets" id="id5" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></span>
-<p>Brennan, R. L., &amp; Prediger, D. J. (1981). Coefficient Kappa: Some Uses, Misuses, and Alternatives. Educational and Psychological Measurement, 41(3), 687-699. <a class="reference external" href="https://doi.org/10.1177/0013164481041003070">https://doi.org/10.1177/0013164481041003070</a></p>
 </aside>
 </aside>
 </section>
