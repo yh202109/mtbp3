@@ -1,5 +1,5 @@
 #############
-StatLab/Cohen's Kappa for inter-rater reliability
+StatLab/Cohen's Kappa 
 #############
 
 *************
@@ -306,7 +306,7 @@ Example - Group-1
 How-to 
 =============
 
-Use `sklearn` (stable):
+Use ``sklearn`` (stable):
 
 .. code:: python
    :number-lines:
@@ -316,7 +316,7 @@ Use `sklearn` (stable):
    r2 = ['A'] * 70 + ['B'] * 30
    print("Cohen's kappa:", cohen_kappa_score(r1, r2))
 
-Use `mtbp3.statlab` (testing):
+Use ``mtbp3.statlab`` (testing):
 
 .. code:: python
    :number-lines:
