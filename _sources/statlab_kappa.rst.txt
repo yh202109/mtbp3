@@ -302,9 +302,9 @@ Example - Group-1
      - 100
 
 
-=============
+*************
 How-to 
-=============
+*************
 
 To use ``sklearn.metrics`` (stable):
 
@@ -327,11 +327,11 @@ To use ``mtbp3.statlab`` (testing):
    kappa = kappa.KappaCalculator(r1,r2)
    print("Cohen's kappa:", kappa.kappa)
 
-*************
+=============
 Bootstrap CI
-*************
+=============
 
-Use ``mtbp3.statlab`` (testing):
+To use ``mtbp3.statlab``:
 
 .. testsetup:: *
 
@@ -340,15 +340,12 @@ Use ``mtbp3.statlab`` (testing):
    r2 = ['A'] * 70 + ['B'] * 30
    kappa = kappa.KappaCalculator(r1,r2)
 
-.. doctest::
-
-   >>> print( kappa.bootstrap_ci(n_iterations=1000, confidence_level=0.95) )
-   Cohen's kappa: -0.724
-   Confidence Interval (95.0%): [-0.144, 0.135]
-
 .. testcode::
+   :number-lines:
 
    print( kappa.bootstrap_ci(n_iterations=1000, confidence_level=0.95) )
+
+Output:
 
 .. testoutput::
 
