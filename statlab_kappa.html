@@ -23,7 +23,9 @@
         <script async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Changelog" href="changelog.html" />
+    <link rel="prev" title="U/System/List Folder Contents" href="example_files.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -45,7 +47,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="example_clinical.html">H/Clinical/Grouped Summary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_ectd.html">H/eCTD/3.2/Heading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_ectd2.html">H/eCTD/4.0/Heading</a></li>
@@ -57,6 +59,14 @@
 <li class="toctree-l1"><a class="reference internal" href="example_sc_cdisc.html">S/C/CDISC Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_cdtg.html">U/Graph/Categorical Plots Using catPlotter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_files.html">U/System/List Folder Contents</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">StatLab/Cohen’s Kappa for inter-rater reliability</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#notation">Notation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#interpretation-of-kappa-suggested-in-literature">Interpretation of Kappa Suggested in Literature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-group-1">Example - Group-1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="conduct.html">Code of Conduct</a></li>
@@ -112,17 +122,17 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Ratter 1: A</p></td>
+<tr class="row-even"><td><p><strong>Ratter 1: A</strong></p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{11}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{12}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{1\bullet}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td><p>Ratter 1: B</p></td>
+<tr class="row-odd"><td><p><strong>Ratter 1: B</strong></p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{21}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{22}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{2\bullet}\)</span></p></td>
 </tr>
-<tr class="row-even"><td><p>Column total</p></td>
+<tr class="row-even"><td><p><strong>Column total</strong></p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{\bullet 1}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{\bullet 2}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{\bullet\bullet}\)</span></p></td>
@@ -151,21 +161,21 @@ for rater <span class="math notranslate nohighlight">\(r=1,2\)</span> and sample
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Ratter 1: A</p></td>
+<tr class="row-even"><td><p><strong>Ratter 1: A</strong></p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{11}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{12}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{13}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\ldots\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{1\bullet}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td><p>Ratter 1: B</p></td>
+<tr class="row-odd"><td><p><strong>Ratter 1: B</strong></p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{21}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{22}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{23}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\ldots\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{2\bullet}\)</span></p></td>
 </tr>
-<tr class="row-even"><td><p>Ratter 1: C</p></td>
+<tr class="row-even"><td><p><strong>Ratter 1: C</strong></p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{31}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{32}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{33}\)</span></p></td>
@@ -179,7 +189,7 @@ for rater <span class="math notranslate nohighlight">\(r=1,2\)</span> and sample
 <td><p><span class="math notranslate nohighlight">\(\ddots\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></td>
 </tr>
-<tr class="row-even"><td><p>Column total</p></td>
+<tr class="row-even"><td><p><strong>Column total</strong></p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{\bullet 1}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{\bullet 2}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{\bullet 3}\)</span></p></td>
@@ -308,17 +318,17 @@ and <span class="math notranslate nohighlight">\(\sum p_{r=1,j} = \sum p_{r=2, j
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Ratter 1: A</p></td>
+<tr class="row-even"><td><p><strong>Ratter 1: A</strong></p></td>
 <td><p>9</p></td>
 <td><p>21</p></td>
 <td><p>30</p></td>
 </tr>
-<tr class="row-odd"><td><p>Ratter 1: B</p></td>
+<tr class="row-odd"><td><p><strong>Ratter 1: B</strong></p></td>
 <td><p>21</p></td>
 <td><p>49</p></td>
 <td><p>70</p></td>
 </tr>
-<tr class="row-even"><td><p>Column total</p></td>
+<tr class="row-even"><td><p><strong>Column total</strong></p></td>
 <td><p>30</p></td>
 <td><p>70</p></td>
 <td><p>100</p></td>
@@ -341,17 +351,17 @@ and <span class="math notranslate nohighlight">\(\sum p_{r=1,j} = \sum p_{r=2, j
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Ratter 1: A</p></td>
+<tr class="row-even"><td><p><strong>Ratter 1: A</strong></p></td>
 <td><p>49</p></td>
 <td><p>21</p></td>
 <td><p>70</p></td>
 </tr>
-<tr class="row-odd"><td><p>Ratter 1: B</p></td>
+<tr class="row-odd"><td><p><strong>Ratter 1: B</strong></p></td>
 <td><p>21</p></td>
 <td><p>9</p></td>
 <td><p>30</p></td>
 </tr>
-<tr class="row-even"><td><p>Column total</p></td>
+<tr class="row-even"><td><p><strong>Column total</strong></p></td>
 <td><p>70</p></td>
 <td><p>30</p></td>
 <td><p>100</p></td>
@@ -374,17 +384,17 @@ and <span class="math notranslate nohighlight">\(\sum p_{r=1,j} = \sum p_{r=2, j
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Ratter 1: A</p></td>
+<tr class="row-even"><td><p><strong>Ratter 1: A</strong></p></td>
 <td><p>30</p></td>
 <td><p>0</p></td>
 <td><p>30</p></td>
 </tr>
-<tr class="row-odd"><td><p>Ratter 1: B</p></td>
+<tr class="row-odd"><td><p><strong>Ratter 1: B</strong></p></td>
 <td><p>0</p></td>
 <td><p>70</p></td>
 <td><p>70</p></td>
 </tr>
-<tr class="row-even"><td><p>Column total</p></td>
+<tr class="row-even"><td><p><strong>Column total</strong></p></td>
 <td><p>30</p></td>
 <td><p>70</p></td>
 <td><p>100</p></td>
@@ -407,17 +417,17 @@ and <span class="math notranslate nohighlight">\(\sum p_{r=1,j} = \sum p_{r=2, j
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Ratter 1: A</p></td>
+<tr class="row-even"><td><p><strong>Ratter 1: A</strong></p></td>
 <td><p>50</p></td>
 <td><p>0</p></td>
 <td><p>50</p></td>
 </tr>
-<tr class="row-odd"><td><p>Ratter 1: B</p></td>
+<tr class="row-odd"><td><p><strong>Ratter 1: B</strong></p></td>
 <td><p>0</p></td>
 <td><p>50</p></td>
 <td><p>50</p></td>
 </tr>
-<tr class="row-even"><td><p>Column total</p></td>
+<tr class="row-even"><td><p><strong>Column total</strong></p></td>
 <td><p>50</p></td>
 <td><p>50</p></td>
 <td><p>100</p></td>
@@ -440,17 +450,17 @@ and <span class="math notranslate nohighlight">\(\sum p_{r=1,j} = \sum p_{r=2, j
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Ratter 1: A</p></td>
+<tr class="row-even"><td><p><strong>Ratter 1: A</strong></p></td>
 <td><p>0</p></td>
 <td><p>50</p></td>
 <td><p>50</p></td>
 </tr>
-<tr class="row-odd"><td><p>Ratter 1: B</p></td>
+<tr class="row-odd"><td><p><strong>Ratter 1: B</strong></p></td>
 <td><p>50</p></td>
 <td><p>0</p></td>
 <td><p>50</p></td>
 </tr>
-<tr class="row-even"><td><p>Column total</p></td>
+<tr class="row-even"><td><p><strong>Column total</strong></p></td>
 <td><p>50</p></td>
 <td><p>50</p></td>
 <td><p>100</p></td>
@@ -473,17 +483,17 @@ and <span class="math notranslate nohighlight">\(\sum p_{r=1,j} = \sum p_{r=2, j
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Ratter 1: A</p></td>
+<tr class="row-even"><td><p><strong>Ratter 1: A</strong></p></td>
 <td><p>0</p></td>
 <td><p>30</p></td>
 <td><p>30</p></td>
 </tr>
-<tr class="row-odd"><td><p>Ratter 1: B</p></td>
+<tr class="row-odd"><td><p><strong>Ratter 1: B</strong></p></td>
 <td><p>70</p></td>
 <td><p>0</p></td>
 <td><p>70</p></td>
 </tr>
-<tr class="row-even"><td><p>Column total</p></td>
+<tr class="row-even"><td><p><strong>Column total</strong></p></td>
 <td><p>70</p></td>
 <td><p>30</p></td>
 <td><p>100</p></td>
@@ -500,7 +510,7 @@ and <span class="math notranslate nohighlight">\(\sum p_{r=1,j} = \sum p_{r=2, j
 </aside>
 <aside class="footnote brackets" id="id4" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
-<p>McHugh M. L. (2012). Interrater reliability: the kappa statistic. Biochemia medica, 22(3), 276–282.https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3900052/</p>
+<p>McHugh M. L. (2012). Interrater reliability: the kappa statistic. Biochemia medica, 22(3), 276-282. <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3900052/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3900052/</a></p>
 </aside>
 <aside class="footnote brackets" id="id5" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></span>
@@ -513,7 +523,10 @@ and <span class="math notranslate nohighlight">\(\sum p_{r=1,j} = \sum p_{r=2, j
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="example_files.html" class="btn btn-neutral float-left" title="U/System/List Folder Contents" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="changelog.html" class="btn btn-neutral float-right" title="Changelog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 
