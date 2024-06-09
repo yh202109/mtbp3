@@ -62,7 +62,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">StatLab/Cohen’s Kappa</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#background">Background</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#notation">Notation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#interpretation-of-kappa-suggested-in-literature">Interpretation of Kappa Suggested in Literature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#interpretation-of-cohen-s-kappa-suggested-in-literature">Interpretation of Cohen’s Kappa Suggested in Literature</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#example-group-1">Example - Group-1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-to">How-to</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#bootstrap-ci">Bootstrap CI</a></li>
@@ -105,12 +105,15 @@
 <h1>StatLab/Cohen’s Kappa<a class="headerlink" href="#statlab-cohen-s-kappa" title="Link to this heading"></a></h1>
 <section id="background">
 <h2>Background<a class="headerlink" href="#background" title="Link to this heading"></a></h2>
-<p>Cohen’s kappa (<span class="math notranslate nohighlight">\(\kappa\)</span>) is a statistic used for describing inter-ratter consistency <a class="footnote-reference brackets" href="#id7" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.
+<p>Cohen’s kappa (<span class="math notranslate nohighlight">\(\kappa\)</span>) is a statistic used for describing inter-ratter consistency of two ratters with categorical rating outcomes <a class="footnote-reference brackets" href="#id7" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.
 Please note that there are also concerns of the use of <span class="math notranslate nohighlight">\(\kappa\)</span> for quantifying agreement <a class="footnote-reference brackets" href="#id8" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#id9" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#id10" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>.</p>
+<p>Fleiss’ kappa is also a statistic used for inter-ratter consistency and that can be applied to cases with more then two ratters.
+Fleiss’ kappa is not yet being included in the <code class="docutils literal notranslate"><span class="pre">statlab</span></code> module.</p>
 </section>
 <section id="notation">
 <h2>Notation<a class="headerlink" href="#notation" title="Link to this heading"></a></h2>
-<p>For two categories rating, assume <span class="math notranslate nohighlight">\(Y_{r,i} \in \{A,B\}\)</span> for rater <span class="math notranslate nohighlight">\(r=1,2\)</span> and sample index <span class="math notranslate nohighlight">\(i = 1, \ldots, n\)</span>.</p>
+<p>For two ratters and two categories rating, let <span class="math notranslate nohighlight">\(Y_{r,i} \in \{A,B\}\)</span> represent rate
+for rater <span class="math notranslate nohighlight">\(r=1,2\)</span> and sample index <span class="math notranslate nohighlight">\(i = 1, \ldots, n\)</span>.</p>
 <table class="docutils align-default" id="id13">
 <caption><span class="caption-text">Counts for 2 categories</span><a class="headerlink" href="#id13" title="Link to this table"></a></caption>
 <colgroup>
@@ -144,7 +147,7 @@ Please note that there are also concerns of the use of <span class="math notrans
 </tr>
 </tbody>
 </table>
-<p>For three or more categories rating, assume <span class="math notranslate nohighlight">\(Y_{r,i} \in \{A,B,C, \ldots \}\)</span>
+<p>For two ratters and three or more categories rating, let <span class="math notranslate nohighlight">\(Y_{r,i} \in \{A,B,C, \ldots \}\)</span> represent rate
 for rater <span class="math notranslate nohighlight">\(r=1,2\)</span> and sample index <span class="math notranslate nohighlight">\(i = 1, \ldots, n\)</span>.</p>
 <table class="docutils align-default" id="id14">
 <caption><span class="caption-text">Counts for 3 or more categories</span><a class="headerlink" href="#id14" title="Link to this table"></a></caption>
@@ -217,18 +220,18 @@ for rater <span class="math notranslate nohighlight">\(r=1,2\)</span> and sample
 and <span class="math notranslate nohighlight">\(\sum_j p_{r=1,j} = \sum_j p_{r=2, j} = 1\)</span>.</p>
 <p>Under independence assumption, the expected number of agreement is estimated by
 <span class="math notranslate nohighlight">\(\sum_{j=1}^J\hat{E}_{j} = \frac{1}{N_{\bullet \bullet}}\sum_{j=1}^J N_{\bullet j} N_{j\bullet} \equiv N_{\bullet \bullet}p_E\)</span>.</p>
-<p>The <span class="math notranslate nohighlight">\(\kappa\)</span> statistic is calculated as</p>
+<p>The Cohen’s <span class="math notranslate nohighlight">\(\kappa\)</span> statistic is calculated as</p>
 <div class="math notranslate nohighlight">
 \[\kappa = \frac{p_O - p_E}{1-p_E}.\]</div>
 <p>The SE of <span class="math notranslate nohighlight">\(\kappa\)</span> is calculated as</p>
 <div class="math notranslate nohighlight">
 \[\sqrt{\frac{p_O(1-p_O)}{N_{\bullet \bullet}(1-p_E)^2}}.\]</div>
 </section>
-<section id="interpretation-of-kappa-suggested-in-literature">
-<h2>Interpretation of Kappa Suggested in Literature<a class="headerlink" href="#interpretation-of-kappa-suggested-in-literature" title="Link to this heading"></a></h2>
+<section id="interpretation-of-cohen-s-kappa-suggested-in-literature">
+<h2>Interpretation of Cohen’s Kappa Suggested in Literature<a class="headerlink" href="#interpretation-of-cohen-s-kappa-suggested-in-literature" title="Link to this heading"></a></h2>
 <p>Cohen (1960) <a class="footnote-reference brackets" href="#id11" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a> suggested the Kappa result be interpreted as follows:</p>
 <table class="docutils align-default" id="id15">
-<caption><span class="caption-text">Kappa Interpretation (Cohen, 1960)</span><a class="headerlink" href="#id15" title="Link to this table"></a></caption>
+<caption><span class="caption-text">Cohen’s Kappa Interpretation (Cohen, 1960)</span><a class="headerlink" href="#id15" title="Link to this table"></a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -261,7 +264,7 @@ and <span class="math notranslate nohighlight">\(\sum_j p_{r=1,j} = \sum_j p_{r=
 </table>
 <p>Interpretation suggested by McHugh (2012) <a class="footnote-reference brackets" href="#id12" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>:</p>
 <table class="docutils align-default" id="id16">
-<caption><span class="caption-text">Kappa Interpretation (McHugh, 2012)</span><a class="headerlink" href="#id16" title="Link to this table"></a></caption>
+<caption><span class="caption-text">Cohen’s Kappa Interpretation (McHugh, 2012)</span><a class="headerlink" href="#id16" title="Link to this table"></a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 33.3%" />
@@ -308,7 +311,7 @@ and <span class="math notranslate nohighlight">\(\sum_j p_{r=1,j} = \sum_j p_{r=
 <section id="example-group-1">
 <h2>Example - Group-1<a class="headerlink" href="#example-group-1" title="Link to this heading"></a></h2>
 <table class="docutils align-default" id="id17">
-<caption><span class="caption-text"><span class="math notranslate nohighlight">\(\kappa = 0\)</span></span><a class="headerlink" href="#id17" title="Link to this table"></a></caption>
+<caption><span class="caption-text">Cohen’s <span class="math notranslate nohighlight">\(\kappa = 0\)</span></span><a class="headerlink" href="#id17" title="Link to this table"></a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 25.0%" />
@@ -341,7 +344,7 @@ and <span class="math notranslate nohighlight">\(\sum_j p_{r=1,j} = \sum_j p_{r=
 </tbody>
 </table>
 <table class="docutils align-default" id="id18">
-<caption><span class="caption-text"><span class="math notranslate nohighlight">\(\kappa = 0\)</span></span><a class="headerlink" href="#id18" title="Link to this table"></a></caption>
+<caption><span class="caption-text">Cohen’s <span class="math notranslate nohighlight">\(\kappa = 0\)</span></span><a class="headerlink" href="#id18" title="Link to this table"></a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 25.0%" />
@@ -374,7 +377,7 @@ and <span class="math notranslate nohighlight">\(\sum_j p_{r=1,j} = \sum_j p_{r=
 </tbody>
 </table>
 <table class="docutils align-default" id="id19">
-<caption><span class="caption-text"><span class="math notranslate nohighlight">\(\kappa = 1\)</span></span><a class="headerlink" href="#id19" title="Link to this table"></a></caption>
+<caption><span class="caption-text">Cohen’s <span class="math notranslate nohighlight">\(\kappa = 1\)</span></span><a class="headerlink" href="#id19" title="Link to this table"></a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 25.0%" />
@@ -407,7 +410,7 @@ and <span class="math notranslate nohighlight">\(\sum_j p_{r=1,j} = \sum_j p_{r=
 </tbody>
 </table>
 <table class="docutils align-default" id="id20">
-<caption><span class="caption-text"><span class="math notranslate nohighlight">\(\kappa = 1\)</span></span><a class="headerlink" href="#id20" title="Link to this table"></a></caption>
+<caption><span class="caption-text">Cohen’s <span class="math notranslate nohighlight">\(\kappa = 1\)</span></span><a class="headerlink" href="#id20" title="Link to this table"></a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 25.0%" />
@@ -440,7 +443,7 @@ and <span class="math notranslate nohighlight">\(\sum_j p_{r=1,j} = \sum_j p_{r=
 </tbody>
 </table>
 <table class="docutils align-default" id="id21">
-<caption><span class="caption-text"><span class="math notranslate nohighlight">\(\kappa = -1\)</span></span><a class="headerlink" href="#id21" title="Link to this table"></a></caption>
+<caption><span class="caption-text">Cohen’s <span class="math notranslate nohighlight">\(\kappa = -1\)</span></span><a class="headerlink" href="#id21" title="Link to this table"></a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 25.0%" />
@@ -473,7 +476,7 @@ and <span class="math notranslate nohighlight">\(\sum_j p_{r=1,j} = \sum_j p_{r=
 </tbody>
 </table>
 <table class="docutils align-default" id="id22">
-<caption><span class="caption-text"><span class="math notranslate nohighlight">\(\kappa = -0.7241379310344827\)</span></span><a class="headerlink" href="#id22" title="Link to this table"></a></caption>
+<caption><span class="caption-text">Cohen’s <span class="math notranslate nohighlight">\(\kappa = -0.7241379310344827\)</span></span><a class="headerlink" href="#id22" title="Link to this table"></a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 25.0%" />
@@ -519,14 +522,14 @@ and <span class="math notranslate nohighlight">\(\sum_j p_{r=1,j} = \sum_j p_{r=
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mtbp3.statlab</span> <span class="kn">import</span> <span class="n">kappa</span>
 <span class="n">r1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">70</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">30</span>
 <span class="n">r2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">70</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">30</span>
-<span class="n">kappa</span> <span class="o">=</span> <span class="n">kappa</span><span class="o">.</span><span class="n">KappaCalculator</span><span class="p">(</span><span class="n">r1</span><span class="p">,</span><span class="n">r2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cohen&#39;s kappa:&quot;</span><span class="p">,</span> <span class="n">kappa</span><span class="o">.</span><span class="n">kappa</span><span class="p">)</span>
+<span class="n">kappa</span> <span class="o">=</span> <span class="n">kappa</span><span class="o">.</span><span class="n">KappaCalculator</span><span class="p">([</span><span class="n">r1</span><span class="p">,</span><span class="n">r2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cohen&#39;s kappa:&quot;</span><span class="p">,</span> <span class="n">kappa</span><span class="o">.</span><span class="n">cohen_kappa</span><span class="p">)</span>
 </pre></div>
 </div>
 <section id="bootstrap-ci">
 <h3>Bootstrap CI<a class="headerlink" href="#bootstrap-ci" title="Link to this heading"></a></h3>
 <p>To use <code class="docutils literal notranslate"><span class="pre">mtbp3.statlab</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="n">kappa</span><span class="o">.</span><span class="n">bootstrap_ci</span><span class="p">(</span><span class="n">n_iterations</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">confidence_level</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span> <span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="n">kappa</span><span class="o">.</span><span class="n">bootstrap_cohen_ci</span><span class="p">(</span><span class="n">n_iterations</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">confidence_level</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;cohen&#39;</span><span class="p">)</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
