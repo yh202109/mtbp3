@@ -309,7 +309,6 @@ How-to
 To use ``sklearn.metrics`` (stable):
 
 .. code:: python
-   :number-lines:
 
    from sklearn.metrics import cohen_kappa_score
    r1 = ['B'] * 70 + ['A'] * 30
@@ -319,7 +318,6 @@ To use ``sklearn.metrics`` (stable):
 To use ``mtbp3.statlab`` (testing):
 
 .. code:: python
-   :number-lines:
 
    from mtbp3.statlab import kappa
    r1 = ['B'] * 70 + ['A'] * 30
