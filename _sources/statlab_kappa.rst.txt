@@ -175,8 +175,47 @@ Interpretation suggested by McHugh (2012) [2]_:
 Example - Group-1
 *************
 
+.. list-table:: :math:`\kappa = 0`
+   :widths: 10 10 10 10
+   :header-rows: 1
 
+   * - 
+     - Ratter 2: A
+     - Ratter 2: B
+     - Row Total
+   * - Ratter 1: A 
+     - 9
+     - 21
+     - 30
+   * - Ratter 1: B 
+     - 21
+     - 49
+     - 70
+   * - Column total
+     - 30
+     - 70
+     - 100
 
+.. list-table:: :math:`\kappa = 0`
+   :widths: 10 10 10 10
+   :header-rows: 1
+
+   * - 
+     - Ratter 2: A
+     - Ratter 2: B
+     - Row Total
+   * - Ratter 1: A 
+     - 49
+     - 21
+     - 70
+   * - Ratter 1: B 
+     - 21
+     - 9
+     - 30
+   * - Column total
+     - 70
+     - 30
+     - 100
 
 *************
 Reference
