@@ -64,6 +64,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#notation">Notation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#interpretation-of-kappa-suggested-in-literature">Interpretation of Kappa Suggested in Literature</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#example-group-1">Example - Group-1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to">How-to</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
@@ -500,6 +501,15 @@ and <span class="math notranslate nohighlight">\(\sum p_{r=1,j} = \sum p_{r=2, j
 </tr>
 </tbody>
 </table>
+</section>
+<section id="how-to">
+<h2>How-to<a class="headerlink" href="#how-to" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">cohen_kappa_score</span>
+<span class="linenos">2</span> <span class="n">r1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">70</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">30</span>
+<span class="linenos">3</span> <span class="n">r2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">70</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">30</span>
+<span class="linenos">4</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cohen&#39;s kappa:&quot;</span><span class="p">,</span> <span class="n">cohen_kappa_score</span><span class="p">(</span><span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">))</span>
+</pre></div>
+</div>
 </section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>
