@@ -202,16 +202,12 @@ for rater <span class="math notranslate nohighlight">\(r=1,2\)</span> and sample
 and <span class="math notranslate nohighlight">\(\sum p_{r=1,j} = \sum p_{r=2, j} = 1\)</span>.</p>
 <p>Under independence assumption, the expected number of agreement is estimated by
 <span class="math notranslate nohighlight">\(\sum_{j=1}^J\hat{E}_{j} = \frac{1}{N_{\bullet \bullet}}\sum_{j=1}^J N_{\bullet j} N_{j\bullet} \equiv N_{\bullet \bullet}p_E\)</span>.</p>
-<p>The <span class="math notranslate nohighlight">\(\kappa\)</span> statistic is calculated as
-.. math:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>\<span class="n">kappa</span> <span class="o">=</span> \<span class="n">frac</span><span class="p">{</span><span class="n">p_O</span> <span class="o">-</span> <span class="n">p_E</span><span class="p">}{</span><span class="mi">1</span><span class="o">-</span><span class="n">p_E</span><span class="p">}</span><span class="o">.</span>
-</pre></div>
-</div>
-<p>The SE of <span class="math notranslate nohighlight">\(\kappa\)</span> is calculated as
-.. math:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>\<span class="n">sqrt</span><span class="p">{</span>\<span class="n">frac</span><span class="p">{</span><span class="n">p_O</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p_O</span><span class="p">)}{</span><span class="n">N_</span><span class="p">{</span>\<span class="n">bullet</span> \<span class="n">bullet</span><span class="p">}(</span><span class="mi">1</span><span class="o">-</span><span class="n">p_E</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">}}</span><span class="o">.</span>
-</pre></div>
-</div>
+<p>The <span class="math notranslate nohighlight">\(\kappa\)</span> statistic is calculated as</p>
+<div class="math notranslate nohighlight">
+\[\kappa = \frac{p_O - p_E}{1-p_E}.\]</div>
+<p>The SE of <span class="math notranslate nohighlight">\(\kappa\)</span> is calculated as</p>
+<div class="math notranslate nohighlight">
+\[\sqrt{\frac{p_O(1-p_O)}{N_{\bullet \bullet}(1-p_E)^2}}.\]</div>
 </section>
 </section>
 

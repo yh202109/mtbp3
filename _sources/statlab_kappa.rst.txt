@@ -106,10 +106,12 @@ Under independence assumption, the expected number of agreement is estimated by
 :math:`\sum_{j=1}^J\hat{E}_{j} = \frac{1}{N_{\bullet \bullet}}\sum_{j=1}^J N_{\bullet j} N_{j\bullet} \equiv N_{\bullet \bullet}p_E`.
 
 The :math:`\kappa` statistic is calculated as
+
 .. math::
   \kappa = \frac{p_O - p_E}{1-p_E}.
 
 The SE of :math:`\kappa` is calculated as
+
 .. math::
   \sqrt{\frac{p_O(1-p_O)}{N_{\bullet \bullet}(1-p_E)^2}}.
 
