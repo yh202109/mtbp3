@@ -116,7 +116,6 @@ The SE of :math:`\kappa` is calculated as
   \sqrt{\frac{p_O(1-p_O)}{N_{\bullet \bullet}(1-p_E)^2}}.
 
 
-
 *************
 Interpretation of Kappa Suggested in Literature
 *************
@@ -304,7 +303,17 @@ Example - Group-1
      - 100
 
 
+*************
+How-to 
+*************
 
+.. code:: python
+   :number-lines:
+
+   from sklearn.metrics import cohen_kappa_score
+    r1 = ['B'] * 70 + ['A'] * 30
+    r2 = ['A'] * 70 + ['B'] * 30
+    print("Cohen's kappa:", cohen_kappa_score(r1, r2))
 
 *************
 Reference
