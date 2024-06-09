@@ -1,5 +1,5 @@
 ..
-    #  Copyright (C) 2023 Y Hsu <yh202109@gmail.com>
+    #  Copyright (C) 2023-2024 Y Hsu <yh202109@gmail.com>
     #
     #  This program is free software: you can redistribute it and/or modify
     #  it under the terms of the GNU General Public license as published by
@@ -22,14 +22,18 @@ StatLab/Cohen's Kappa
 Background
 *************
 
-Cohen's kappa (:math:`\kappa`) is a statistic used for describing inter-ratter consistency [1]_. 
+Cohen's kappa (:math:`\kappa`) is a statistic used for describing inter-ratter consistency of two ratters with categorical rating outcomes [1]_. 
 Please note that there are also concerns of the use of :math:`\kappa` for quantifying agreement [2]_ [3]_ [4]_.
 
+Fleiss' kappa is also a statistic used for inter-ratter consistency and that can be applied to cases with more then two ratters.
+Fleiss' kappa is not yet being included in the ``statlab`` module.
+
 *************
-Notation
+Notation 
 *************
 
-For two categories rating, assume :math:`Y_{r,i} \in \{A,B\}` for rater :math:`r=1,2` and sample index :math:`i = 1, \ldots, n`.
+For two ratters and two categories rating, let :math:`Y_{r,i} \in \{A,B\}` represent rate
+for rater :math:`r=1,2` and sample index :math:`i = 1, \ldots, n`.
 
 .. list-table:: Counts for 2 categories
    :widths: 10 10 10 10
@@ -52,8 +56,7 @@ For two categories rating, assume :math:`Y_{r,i} \in \{A,B\}` for rater :math:`r
      - :math:`N_{\bullet 2}` 
      - :math:`N_{\bullet\bullet}` 
 
-
-For three or more categories rating, assume :math:`Y_{r,i} \in \{A,B,C, \ldots \}` 
+For two ratters and three or more categories rating, let :math:`Y_{r,i} \in \{A,B,C, \ldots \}` represent rate 
 for rater :math:`r=1,2` and sample index :math:`i = 1, \ldots, n`.
 
 .. list-table:: Counts for 3 or more categories
@@ -121,7 +124,7 @@ and :math:`\sum_j p_{r=1,j} = \sum_j p_{r=2, j} = 1`.
 Under independence assumption, the expected number of agreement is estimated by
 :math:`\sum_{j=1}^J\hat{E}_{j} = \frac{1}{N_{\bullet \bullet}}\sum_{j=1}^J N_{\bullet j} N_{j\bullet} \equiv N_{\bullet \bullet}p_E`.
 
-The :math:`\kappa` statistic is calculated as
+The Cohen's :math:`\kappa` statistic is calculated as
 
 .. math::
   \kappa = \frac{p_O - p_E}{1-p_E}.
@@ -132,12 +135,12 @@ The SE of :math:`\kappa` is calculated as
   \sqrt{\frac{p_O(1-p_O)}{N_{\bullet \bullet}(1-p_E)^2}}.
 
 *************
-Interpretation of Kappa Suggested in Literature
+Interpretation of Cohen's Kappa Suggested in Literature
 *************
 
 Cohen (1960) [5]_ suggested the Kappa result be interpreted as follows: 
 
-.. list-table:: Kappa Interpretation (Cohen, 1960)
+.. list-table:: Cohen's Kappa Interpretation (Cohen, 1960)
    :widths: 10 10 
    :header-rows: 1
 
@@ -158,7 +161,7 @@ Cohen (1960) [5]_ suggested the Kappa result be interpreted as follows:
 
 Interpretation suggested by McHugh (2012) [6]_:
 
-.. list-table:: Kappa Interpretation (McHugh, 2012)
+.. list-table:: Cohen's Kappa Interpretation (McHugh, 2012)
    :widths: 10 10 10
    :header-rows: 1
 
@@ -191,7 +194,7 @@ Interpretation suggested by McHugh (2012) [6]_:
 Example - Group-1
 *************
 
-.. list-table:: :math:`\kappa = 0`
+.. list-table:: Cohen's :math:`\kappa = 0`
    :widths: 10 10 10 10
    :header-rows: 1
 
@@ -212,7 +215,7 @@ Example - Group-1
      - 70
      - 100
 
-.. list-table:: :math:`\kappa = 0`
+.. list-table:: Cohen's :math:`\kappa = 0`
    :widths: 10 10 10 10
    :header-rows: 1
 
@@ -233,7 +236,7 @@ Example - Group-1
      - 30
      - 100
 
-.. list-table:: :math:`\kappa = 1`
+.. list-table:: Cohen's :math:`\kappa = 1`
    :widths: 10 10 10 10
    :header-rows: 1
 
@@ -254,7 +257,7 @@ Example - Group-1
      - 70
      - 100
 
-.. list-table:: :math:`\kappa = 1`
+.. list-table:: Cohen's :math:`\kappa = 1`
    :widths: 10 10 10 10
    :header-rows: 1
 
@@ -275,7 +278,7 @@ Example - Group-1
      - 50
      - 100
 
-.. list-table:: :math:`\kappa = -1`
+.. list-table:: Cohen's :math:`\kappa = -1`
    :widths: 10 10 10 10
    :header-rows: 1
 
@@ -296,7 +299,7 @@ Example - Group-1
      - 50
      - 100
 
-.. list-table:: :math:`\kappa = -0.7241379310344827`
+.. list-table:: Cohen's :math:`\kappa = -0.7241379310344827`
    :widths: 10 10 10 10
    :header-rows: 1
 
@@ -338,8 +341,8 @@ To use ``mtbp3.statlab`` (testing):
    from mtbp3.statlab import kappa
    r1 = ['B'] * 70 + ['A'] * 30
    r2 = ['A'] * 70 + ['B'] * 30
-   kappa = kappa.KappaCalculator(r1,r2)
-   print("Cohen's kappa:", kappa.kappa)
+   kappa = kappa.KappaCalculator([r1,r2])
+   print("Cohen's kappa:", kappa.cohen_kappa)
 
 =============
 Bootstrap CI
@@ -356,7 +359,7 @@ To use ``mtbp3.statlab``:
 
 .. testcode::
 
-   print( kappa.bootstrap_ci(n_iterations=1000, confidence_level=0.95) )
+   print( kappa.bootstrap_cohen_ci(n_iterations=1000, confidence_level=0.95, type='cohen') )
 
 Output:
 
@@ -364,6 +367,9 @@ Output:
 
    Cohen's kappa: -0.724
    Confidence Interval (95.0%): [-0.144, 0.135]
+
+
+
 
 *************
 Reference
