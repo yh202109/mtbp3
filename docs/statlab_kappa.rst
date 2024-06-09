@@ -117,7 +117,9 @@ The SE of :math:`\kappa` is calculated as
 
 
 
-## Interpretation of Kappa Suggested in Literature
+*************
+Interpretation of Kappa Suggested in Literature
+*************
 
 Cohen (1960) [1]_ suggested the Kappa result be interpreted as follows: 
 
@@ -217,10 +219,95 @@ Example - Group-1
      - 30
      - 100
 
+.. list-table:: :math:`\kappa = 1`
+   :widths: 10 10 10 10
+   :header-rows: 1
+
+   * - 
+     - Ratter 2: A
+     - Ratter 2: B
+     - Row Total
+   * - Ratter 1: A 
+     - 30
+     - 0
+     - 30
+   * - Ratter 1: B 
+     - 0
+     - 70
+     - 70
+   * - Column total
+     - 30
+     - 70
+     - 100
+
+.. list-table:: :math:`\kappa = 1`
+   :widths: 10 10 10 10
+   :header-rows: 1
+
+   * - 
+     - Ratter 2: A
+     - Ratter 2: B
+     - Row Total
+   * - Ratter 1: A 
+     - 50
+     - 0
+     - 50
+   * - Ratter 1: B 
+     - 0
+     - 50
+     - 50
+   * - Column total
+     - 50
+     - 50
+     - 100
+
+.. list-table:: :math:`\kappa = -1`
+   :widths: 10 10 10 10
+   :header-rows: 1
+
+   * - 
+     - Ratter 2: A
+     - Ratter 2: B
+     - Row Total
+   * - Ratter 1: A 
+     - 0
+     - 50
+     - 50
+   * - Ratter 1: B 
+     - 50
+     - 0
+     - 50
+   * - Column total
+     - 50
+     - 50
+     - 100
+
+.. list-table:: :math:`\kappa = -0.7241379310344827`
+   :widths: 10 10 10 10
+   :header-rows: 1
+
+   * - 
+     - Ratter 2: A
+     - Ratter 2: B
+     - Row Total
+   * - Ratter 1: A 
+     - 0
+     - 30
+     - 30
+   * - Ratter 1: B 
+     - 70
+     - 0
+     - 70
+   * - Column total
+     - 70
+     - 30
+     - 100
+
+
 *************
 Reference
 *************
 
-.. [1] Cohen, J. (1960). A Coefficient of Agreement for Nominal Scales. Educational and Psychological Measurement, 20(1), 37-46. https://doi.org/10.1177/001316446002000104 ([web page]())
-.. [2] McHugh M. L. (2012). Interrater reliability: the kappa statistic. Biochemia medica, 22(3), 276–282.([web page](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3900052/))
+.. [1] Cohen, J. (1960). A Coefficient of Agreement for Nominal Scales. Educational and Psychological Measurement, 20(1), 37-46. https://doi.org/10.1177/001316446002000104 
+.. [2] McHugh M. L. (2012). Interrater reliability: the kappa statistic. Biochemia medica, 22(3), 276–282.https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3900052/
 .. [3] Brennan, R. L., & Prediger, D. J. (1981). Coefficient Kappa: Some Uses, Misuses, and Alternatives. Educational and Psychological Measurement, 41(3), 687-699. https://doi.org/10.1177/0013164481041003070
