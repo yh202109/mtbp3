@@ -3,4 +3,4 @@ sphinx-autoapi
 sphinx-rtd-theme
 sphinx.ext.githubpages
 sphinx.ext.mathjax
-sphinx.ext.imgmath
+sphinx.ext.doctest

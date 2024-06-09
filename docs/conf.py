@@ -22,6 +22,7 @@ extensions = [
     "sphinx.ext.viewcode",
     "sphinx.ext.githubpages",
     "sphinx.ext.mathjax",
+    "sphinx.ext.doctest",
     #"sphinx.ext.imgmath",
 ]
 autoapi_dirs = ["../mtbp3"]

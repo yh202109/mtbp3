@@ -6,7 +6,7 @@ StatLab/Cohen's Kappa for inter-rater reliability
 Background
 *************
 
-Cohen's kappa is a statistic used for describing, summarizing, estimating and testing inter-ratter consistency. 
+Cohen's kappa (:math:`\kappa`) is a statistic used for describing inter-ratter consistency. 
 
 
 *************
@@ -99,8 +99,8 @@ and
 .. math::
   (N_{\bullet 1}, \ldots N_{\bullet J}) \sim multi(N_{\bullet \bullet}, (p_{r=2,1}, \ldots, p_{r=2,J})), 
 
-with :math:`\sum N_{j \bullet} = \sum N_{\bullet j} = N_{\bullet \bullet}` 
-and :math:`\sum p_{r=1,j} = \sum p_{r=2, j} = 1`.
+with :math:`\sum_j N_{j \bullet} = \sum_j N_{\bullet j} = N_{\bullet \bullet}` 
+and :math:`\sum_j p_{r=1,j} = \sum_j p_{r=2, j} = 1`.
 
 Under independence assumption, the expected number of agreement is estimated by
 :math:`\sum_{j=1}^J\hat{E}_{j} = \frac{1}{N_{\bullet \bullet}}\sum_{j=1}^J N_{\bullet j} N_{j\bullet} \equiv N_{\bullet \bullet}p_E`.
@@ -114,7 +114,6 @@ The SE of :math:`\kappa` is calculated as
 
 .. math::
   \sqrt{\frac{p_O(1-p_O)}{N_{\bullet \bullet}(1-p_E)^2}}.
-
 
 *************
 Interpretation of Kappa Suggested in Literature
@@ -303,17 +302,31 @@ Example - Group-1
      - 100
 
 
-*************
+=============
 How-to 
-*************
+=============
+
+Use `sklearn` (stable):
 
 .. code:: python
    :number-lines:
 
    from sklearn.metrics import cohen_kappa_score
-    r1 = ['B'] * 70 + ['A'] * 30
-    r2 = ['A'] * 70 + ['B'] * 30
-    print("Cohen's kappa:", cohen_kappa_score(r1, r2))
+   r1 = ['B'] * 70 + ['A'] * 30
+   r2 = ['A'] * 70 + ['B'] * 30
+   print("Cohen's kappa:", cohen_kappa_score(r1, r2))
+
+Use `mtbp3.statlab` (testing):
+
+.. code:: python
+   :number-lines:
+
+   from mtbp3.statlab import KappaCalculator
+   r1 = ['B'] * 70 + ['A'] * 30
+   r2 = ['A'] * 70 + ['B'] * 30
+   kappa = KappaCalculator(r1,r2)
+   print("Cohen's kappa:", kappa.kappa)
+
 
 *************
 Reference
