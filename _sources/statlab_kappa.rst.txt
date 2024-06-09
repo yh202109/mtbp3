@@ -117,11 +117,11 @@ The SE of :math:`\kappa` is calculated as
 
 
 
-## Interpretation in Literature
+## Interpretation of Kappa Suggested in Literature
 
-Cohen (1960)[1]_ suggested the Kappa result be interpreted as follows: 
+Cohen (1960) [1]_ suggested the Kappa result be interpreted as follows: 
 
-.. list-table:: Kappa Interpretation
+.. list-table:: Kappa Interpretation (Cohen, 1960)
    :widths: 10 10 
    :header-rows: 1
 
@@ -129,21 +129,21 @@ Cohen (1960)[1]_ suggested the Kappa result be interpreted as follows:
      - Interpretation
    * - :math:`-1 \leq \kappa \leq 0`
      - indicating no agreement
-   * - :math:`$0 < \kappa \leq 0.2`
+   * - :math:`0 < \kappa \leq 0.2`
      - none to slight
    * - :math:`0.2 < \kappa \leq 0.4`
      - fair
    * - :math:`0.4 < \kappa \leq 0.6`
      - moderate
-   * - :math:`$0.6 < \kappa \leq 0.8` 
+   * - :math:`0.6 < \kappa \leq 0.8` 
      - substantial
    * - :math:`0.8 < \kappa \leq 1`
      - almost perfect agreement 
 
-Interpretation suggested by McHugh (2012)[2]_:
+Interpretation suggested by McHugh (2012) [2]_:
 
-.. list-table:: Kappa Interpretation
-   :widths: 10 10 
+.. list-table:: Kappa Interpretation (McHugh, 2012)
+   :widths: 10 10 10
    :header-rows: 1
 
    * - Value of :math:`\kappa`
@@ -174,6 +174,9 @@ Interpretation suggested by McHugh (2012)[2]_:
 *************
 Example - Group-1
 *************
+
+
+
 
 *************
 Reference
