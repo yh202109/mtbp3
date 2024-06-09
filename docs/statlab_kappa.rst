@@ -341,7 +341,6 @@ To use ``mtbp3.statlab``:
    kappa = kappa.KappaCalculator(r1,r2)
 
 .. testcode::
-   :number-lines:
 
    print( kappa.bootstrap_ci(n_iterations=1000, confidence_level=0.95) )
 
