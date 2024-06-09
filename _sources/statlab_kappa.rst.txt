@@ -7,7 +7,7 @@ Background
 *************
 
 Cohen's kappa (:math:`\kappa`) is a statistic used for describing inter-ratter consistency [1]_. 
-Please note that there are also concerns of the use :math:`kappa` for quantifying agreement [2]_ [3]_ [4]_.
+Please note that there are also concerns of the use :math:`\kappa` for quantifying agreement [2]_ [3]_ [4]_.
 
 *************
 Notation
