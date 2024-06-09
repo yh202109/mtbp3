@@ -321,10 +321,10 @@ Use `mtbp3.statlab` (testing):
 .. code:: python
    :number-lines:
 
-   from mtbp3.statlab import KappaCalculator
+   from mtbp3.statlab import kappa
    r1 = ['B'] * 70 + ['A'] * 30
    r2 = ['A'] * 70 + ['B'] * 30
-   kappa = KappaCalculator(r1,r2)
+   kappa = kappa.KappaCalculator(r1,r2)
    print("Cohen's kappa:", kappa.kappa)
 
 
