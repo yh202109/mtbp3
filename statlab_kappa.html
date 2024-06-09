@@ -507,14 +507,14 @@ and <span class="math notranslate nohighlight">\(\sum_j p_{r=1,j} = \sum_j p_{r=
 </table>
 <section id="how-to">
 <h3>How-to<a class="headerlink" href="#how-to" title="Link to this heading"></a></h3>
-<p>Use <code class="docutils literal notranslate"><span class="pre">sklearn.metrics</span></code> (stable):</p>
+<p>To use <code class="docutils literal notranslate"><span class="pre">sklearn.metrics</span></code> (stable):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">cohen_kappa_score</span>
 <span class="linenos">2</span><span class="n">r1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">70</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">30</span>
 <span class="linenos">3</span><span class="n">r2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">70</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">30</span>
 <span class="linenos">4</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cohen&#39;s kappa:&quot;</span><span class="p">,</span> <span class="n">cohen_kappa_score</span><span class="p">(</span><span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Use <code class="docutils literal notranslate"><span class="pre">mtbp3.statlab</span></code> (testing):</p>
+<p>To use <code class="docutils literal notranslate"><span class="pre">mtbp3.statlab</span></code> (testing):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">mtbp3.statlab</span> <span class="kn">import</span> <span class="n">kappa</span>
 <span class="linenos">2</span><span class="n">r1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">70</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">30</span>
 <span class="linenos">3</span><span class="n">r2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">70</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">30</span>
@@ -527,10 +527,16 @@ and <span class="math notranslate nohighlight">\(\sum_j p_{r=1,j} = \sum_j p_{r=
 <section id="bootstrap-ci">
 <h2>Bootstrap CI<a class="headerlink" href="#bootstrap-ci" title="Link to this heading"></a></h2>
 <p>Use <code class="docutils literal notranslate"><span class="pre">mtbp3.statlab</span></code> (testing):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">kappa</span><span class="o">.</span><span class="n">bootstrap_ci</span><span class="p">(</span><span class="n">n_iterations</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">confidence_level</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span> <span class="n">kappa</span><span class="o">.</span><span class="n">bootstrap_ci</span><span class="p">(</span><span class="n">n_iterations</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">confidence_level</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span> <span class="p">)</span>
+<span class="go">Cohen&#39;s kappa: -0.724</span>
+<span class="go">Confidence Interval (95.0%): [-0.144, 0.135]</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="n">kappa</span><span class="o">.</span><span class="n">bootstrap_ci</span><span class="p">(</span><span class="n">n_iterations</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">confidence_level</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Cohen&#39;s kappa: -0.724
+Confidence Interval (95.0%): [-0.144, 0.135]
 </pre></div>
 </div>
 </section>

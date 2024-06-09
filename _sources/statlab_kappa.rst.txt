@@ -306,7 +306,7 @@ Example - Group-1
 How-to 
 =============
 
-Use ``sklearn.metrics`` (stable):
+To use ``sklearn.metrics`` (stable):
 
 .. code:: python
    :number-lines:
@@ -316,7 +316,7 @@ Use ``sklearn.metrics`` (stable):
    r2 = ['A'] * 70 + ['B'] * 30
    print("Cohen's kappa:", cohen_kappa_score(r1, r2))
 
-Use ``mtbp3.statlab`` (testing):
+To use ``mtbp3.statlab`` (testing):
 
 .. code:: python
    :number-lines:
@@ -340,13 +340,20 @@ Use ``mtbp3.statlab`` (testing):
    r2 = ['A'] * 70 + ['B'] * 30
    kappa = kappa.KappaCalculator(r1,r2)
 
+.. doctest::
+
+   >>> print( kappa.bootstrap_ci(n_iterations=1000, confidence_level=0.95) )
+   Cohen's kappa: -0.724
+   Confidence Interval (95.0%): [-0.144, 0.135]
+
 .. testcode::
 
-   kappa.bootstrap_ci(n_iterations=1000, confidence_level=0.95)
+   print( kappa.bootstrap_ci(n_iterations=1000, confidence_level=0.95) )
 
 .. testoutput::
 
-
+   Cohen's kappa: -0.724
+   Confidence Interval (95.0%): [-0.144, 0.135]
 
 *************
 Reference
