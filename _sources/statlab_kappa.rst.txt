@@ -20,6 +20,7 @@
     <style> .red-b {color:#aa0060; font-weight:bold} .red {color:#aa0060} </style>
 
 .. role:: red-b
+
 .. role:: red
 
 #############
@@ -27,7 +28,7 @@ StatLab/Cohen's Kappa
 #############
 
 :red-b:`Disclaimer:`
-:red:` This page is for study purpose. The author does not intend to promote or advocate any particular method or software.`
+:red:`This page is for study purpose. The author does not intend to promote or advocate any particular method or software.`
 
 *************
 Background
