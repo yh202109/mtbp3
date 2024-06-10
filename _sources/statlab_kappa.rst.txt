@@ -18,6 +18,8 @@
 StatLab/Cohen's Kappa 
 #############
 
+**Disclaimer: This page is for study purpose. The author does not intend to promote or advocate any particular method or software.** 
+
 *************
 Background
 *************

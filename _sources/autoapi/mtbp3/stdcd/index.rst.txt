@@ -1,0 +1,6 @@
+mtbp3.stdcd
+===========
+
+.. py:module:: mtbp3.stdcd
+
+
