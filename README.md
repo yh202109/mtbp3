@@ -9,7 +9,6 @@ My tool box in Python.
 
 Functions are grouped into:
 
-- CDISC 
 - Health
   - Data summary: `health.clinical`
   - eCTD: `health.ectd` 
@@ -19,6 +18,9 @@ Functions are grouped into:
   - Graphs: `util.cdtg`
   - Sampling 
   - System: `util.lsr`
+- Standard: CDISC 
+  - API: `stdcd.api`
+- StatLab: `statlab.kappa`
 
 ## Table of Contents
 
