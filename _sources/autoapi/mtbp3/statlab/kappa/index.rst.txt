@@ -4,16 +4,34 @@ mtbp3.statlab.kappa
 .. py:module:: mtbp3.statlab.kappa
 
 
-Functions
----------
+Attributes
+----------
 
 .. autoapisummary::
 
-   mtbp3.statlab.kappa.calculate_kappa
+   mtbp3.statlab.kappa.y1
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   mtbp3.statlab.kappa.KappaCalculator
 
 
 Module Contents
 ---------------
 
-.. py:function:: calculate_kappa(y1, y2, remove_nan=False)
+.. py:class:: KappaCalculator(y)
+
+   .. py:method:: __calculate_cohen_kappa(y1, y2)
+      :staticmethod:
+
+
+
+   .. py:method:: bootstrap_cohen_ci(n_iterations=1000, confidence_level=0.95, outfmt='string', out_digits=3)
+
+
+.. py:data:: y1
 
