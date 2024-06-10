@@ -14,11 +14,18 @@
     #  You should have received a copy of the GNU General Public license
     #  along with this program. If not, see <https://www.gnu.org/license/>
    
+
+.. raw:: html
+
+    <style> .red {color:#aa0060; font-weight:bold; font-size:16px} </style>
+
+.. role:: red
+
 #############
 StatLab/Cohen's Kappa 
 #############
 
-**Disclaimer: This page is for study purpose. The author does not intend to promote or advocate any particular method or software.** 
+:red:`**Disclaimer**: This page is for study purpose. The author does not intend to promote or advocate any particular method or software.`
 
 *************
 Background
