@@ -359,7 +359,7 @@ To use ``mtbp3.statlab``:
 
 .. testcode::
 
-   print( kappa.bootstrap_cohen_ci(n_iterations=1000, confidence_level=0.95, type='cohen') )
+   print( kappa.bootstrap_cohen_ci(n_iterations=1000, confidence_level=0.95) )
 
 Output:
 
