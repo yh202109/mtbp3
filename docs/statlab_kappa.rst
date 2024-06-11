@@ -44,22 +44,23 @@ Fleiss' kappa is not yet being included in the ``statlab`` module.
 Notation 
 *************
 
-For two ratters and two categories rating, let :math:`Y_{r,i} \in \{A,B\}` represent rate
+For two ratters and two categories rating, let :math:`Y_{r,i} \in \{v_j; j=1,2\}` represent rate
 for rater :math:`r=1,2` and sample index :math:`i = 1, \ldots, n`.
+Let :math:`N_{j1,j2}` represent the total number of sample received ratings :math:`(v_{j1}, v_{j2})`.
 
 .. list-table:: Counts for 2 categories
    :widths: 10 10 10 10
    :header-rows: 1
 
    * - 
-     - Ratter 2: A
-     - Ratter 2: B
+     - Ratter 2: :math:`v_1`
+     - Ratter 2: :math:`v_2`
      - Row Total
-   * - **Ratter 1: A** 
+   * - **Ratter 1:** :math:`v_1`
      - :math:`N_{11}`
      - :math:`N_{12}` 
      - :math:`N_{1\bullet}` 
-   * - **Ratter 1: B** 
+   * - **Ratter 1:**  :math:`v_2`
      - :math:`N_{21}`
      - :math:`N_{22}` 
      - :math:`N_{2\bullet}` 
@@ -68,32 +69,33 @@ for rater :math:`r=1,2` and sample index :math:`i = 1, \ldots, n`.
      - :math:`N_{\bullet 2}` 
      - :math:`N_{\bullet\bullet}` 
 
-For two ratters and three or more categories rating, let :math:`Y_{r,i} \in \{A,B,C, \ldots \}` represent rate 
+For two ratters and three or more categories rating, let :math:`Y_{r,i} \in \{v_1,v_2,v_3, \ldots, v_J \}` represent rate 
 for rater :math:`r=1,2` and sample index :math:`i = 1, \ldots, n`.
+Let :math:`N_{j1,j2}` represent the total number of sample received ratings :math:`(v_{j1}, v_{j2})` where :math:`j1,j2 \in \{1,\ldots,J\}`.
 
 .. list-table:: Counts for 3 or more categories
    :widths: 10 10 10 10 10 10
    :header-rows: 1
 
    * - 
-     - Ratter 2: A
-     - Ratter 2: B
-     - Ratter 2: C
+     - Ratter 2: :math:`v_1`
+     - Ratter 2: :math:`v_2`
+     - Ratter 2: :math:`v_3`
      - :math:`\ldots` 
      - Row Total
-   * - **Ratter 1: A**
+   * - **Ratter 1:** :math:`v_1`
      - :math:`N_{11}`
      - :math:`N_{12}` 
      - :math:`N_{13}` 
      - :math:`\ldots` 
      - :math:`N_{1\bullet}` 
-   * - **Ratter 1: B**
+   * - **Ratter 1:** :math:`v_2`
      - :math:`N_{21}`
      - :math:`N_{22}` 
      - :math:`N_{23}` 
      - :math:`\ldots` 
      - :math:`N_{2\bullet}` 
-   * - **Ratter 1: C**
+   * - **Ratter 1:** :math:`v_3`
      - :math:`N_{31}`
      - :math:`N_{32}` 
      - :math:`N_{33}` 
@@ -211,14 +213,14 @@ Example - Group-1
    :header-rows: 1
 
    * - 
-     - Ratter 2: A
-     - Ratter 2: B
+     - Ratter 2: :math:`v_1`
+     - Ratter 2: :math:`v_2`
      - Row Total
-   * - **Ratter 1: A**
+   * - **Ratter 1:** :math:`v_1`
      - 9
      - 21
      - 30
-   * - **Ratter 1: B** 
+   * - **Ratter 1:** :math:`v_2`
      - 21
      - 49
      - 70
@@ -232,14 +234,14 @@ Example - Group-1
    :header-rows: 1
 
    * - 
-     - Ratter 2: A
-     - Ratter 2: B
+     - Ratter 2: :math:`v_1`
+     - Ratter 2: :math:`v_2`
      - Row Total
-   * - **Ratter 1: A**
+   * - **Ratter 1:** :math:`v_1`
      - 49
      - 21
      - 70
-   * - **Ratter 1: B**
+   * - **Ratter 1:** :math:`v_2`
      - 21
      - 9
      - 30
@@ -253,20 +255,20 @@ Example - Group-1
    :header-rows: 1
 
    * - 
-     - Ratter 2: A
-     - Ratter 2: B
+     - Ratter 2: :math:`v_1`
+     - Ratter 2: :math:`v_2`
      - Row Total
-   * - **Ratter 1: A**
+   * - **Ratter 1:** :math:`v_1`
      - 30
      - 0
      - 30
-   * - **Ratter 1: B**
-     - 0
+   * - **Ratter 1:** :math:`v_2`
+     - :math:`v_1`
      - 70
      - 70
    * - **Column total**
      - 30
-     - 70
+     - 7:math:`v_1`
      - 100
 
 .. list-table:: Cohen's :math:`\kappa = 1`
@@ -274,15 +276,15 @@ Example - Group-1
    :header-rows: 1
 
    * - 
-     - Ratter 2: A
-     - Ratter 2: B
+     - Ratter 2: :math:`v_1`
+     - Ratter 2: :math:`v_2`
      - Row Total
-   * - **Ratter 1: A**
+   * - **Ratter 1** :math:`v_1`
      - 50
      - 0
      - 50
-   * - **Ratter 1: B**
-     - 0
+   * - **Ratter 1:** :math:`v_2`
+     - :math:`v_1`
      - 50
      - 50
    * - **Column total**
@@ -291,18 +293,18 @@ Example - Group-1
      - 100
 
 .. list-table:: Cohen's :math:`\kappa = -1`
-   :widths: 10 10 10 10
+   :widths: 10 101:math:`v_1`0 10
    :header-rows: 1
 
    * - 
-     - Ratter 2: A
-     - Ratter 2: B
+     - Ratter 2: :math:`v_1` 
+     - Ratter 2: :math:`v_2`
      - Row Total
-   * - **Ratter 1: A** 
+   * - **Ratter 1:** :math:`v_1`
      - 0
      - 50
      - 50
-   * - **Ratter 1: B**
+   * - **Ratter 1:** :math:`v_2`
      - 50
      - 0
      - 50
@@ -312,18 +314,18 @@ Example - Group-1
      - 100
 
 .. list-table:: Cohen's :math:`\kappa = -0.7241379310344827`
-   :widths: 10 10 10 10
+   :widths: 10 101:math:`v_1`0 10
    :header-rows: 1
 
    * - 
-     - Ratter 2: A
-     - Ratter 2: B
+     - Ratter 2: :math:`v_1`
+     - Ratter 2: :math:`v_2`
      - Row Total
-   * - **Ratter 1: A**
+   * - **Ratter 1:** :math:`v_1`
      - 0
      - 30
      - 30
-   * - **Ratter 1: B**
+   * - **Ratter 1:** :math:`v_2`
      - 70
      - 0
      - 70
@@ -342,8 +344,8 @@ To use ``sklearn.metrics`` (stable):
 .. code:: python
 
    from sklearn.metrics import cohen_kappa_score
-   r1 = ['B'] * 70 + ['A'] * 30
-   r2 = ['A'] * 70 + ['B'] * 30
+   r1 = ['v2'] * 70 + ['v1'] * 30
+   r2 = ['v1'] * 70 + ['v2'] * 30
    print("Cohen's kappa:", cohen_kappa_score(r1, r2))
 
 To use ``mtbp3.statlab`` (testing):
@@ -351,8 +353,8 @@ To use ``mtbp3.statlab`` (testing):
 .. code:: python
 
    from mtbp3.statlab import kappa
-   r1 = ['B'] * 70 + ['A'] * 30
-   r2 = ['A'] * 70 + ['B'] * 30
+   r1 = ['v2'] * 70 + ['v1'] * 30
+   r2 = ['v1'] * 70 + ['v2'] * 30
    kappa = kappa.KappaCalculator([r1,r2])
    print("Cohen's kappa:", kappa.cohen_kappa)
 
@@ -365,8 +367,8 @@ To use ``mtbp3.statlab``:
 .. testsetup:: *
 
    from mtbp3.statlab import kappa
-   r1 = ['B'] * 70 + ['A'] * 30
-   r2 = ['A'] * 70 + ['B'] * 30
+   r1 = ['v2'] * 70 + ['v1'] * 30
+   r2 = ['v1'] * 70 + ['v2'] * 30
    kappa = kappa.KappaCalculator(r1,r2)
 
 .. testcode::
@@ -382,7 +384,6 @@ Output:
 
 
 
-
 *************
 Reference
 *************
@@ -393,3 +394,4 @@ Reference
 .. [4] Sim, J., Wright, C. C. (2005). The Kappa Statistic in Reliability Studies: Use, Interpretation, and Sample Size Requirements, Physical Therapy, Volume 85, Issue 3, Pages 257-268, https://doi.org/10.1093/ptj/85.3.257
 .. [5] Cohen, J. (1960). A Coefficient of Agreement for Nominal Scales. Educational and Psychological Measurement, 20(1), 37-46. https://doi.org/10.1177/001316446002000104 
 .. [6] McHugh M. L. (2012). Interrater reliability: the kappa statistic. Biochemia medica, 22(3), 276-282. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3900052/
+.. [7] Basu, S., Banerjee, M., & Sen, A. (2000). Bayesian inference for kappa from single and multiple studies. Biometrics, 56(2), 577–582. https://doi.org/10.1111/j.0006-341x.2000.00577.x
