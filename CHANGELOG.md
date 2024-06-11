@@ -1,10 +1,15 @@
 # Changelog
 
 <!--next-version-placeholder-->
+## v0.2.9 (2024-06-11)
+
+- update statlab.kappa
+
 ## v0.2.8 (2024-05-13)
 
 - add subtree function
 - add eCTD xml function
+- add StatLab kappa function and page
 
 ## v0.2.4 (2024-05-13)
 
