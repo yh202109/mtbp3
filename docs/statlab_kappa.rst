@@ -37,16 +37,13 @@ Background
 Cohen's kappa (:math:`\kappa`) is a statistic used for describing inter-ratter reliability of two ratters (or intra-rater) with categorical rating outcomes [1]_. 
 Please note that there are also concerns of the use of :math:`\kappa` for quantifying agreement [2]_ [3]_ [4]_.
 
-Fleiss' kappa is also a statistic used for inter-ratter reliability and that can be applied to cases with more then two ratters.
-Fleiss' kappa is not yet being included in the ``statlab`` module.
-
 *************
 Notation 
 *************
 
 For two ratters and two categories rating, let :math:`Y_{r,i} \in \{v_j; j=1,2\}` represent rate
 for rater :math:`r=1,2` and sample index :math:`i = 1, \ldots, n`.
-Let :math:`N_{j1,j2}` represent the total number of sample received ratings :math:`(v_{j1}, v_{j2})`.
+Let :math:`N_{j1,j2}` represent the total number of sample received ratings :math:`(v_{j1}, v_{j2})` from two raters, where :math:`j1,j2 \in \{1,2\}`.
 
 .. list-table:: Counts for 2 categories
    :widths: 10 10 10 10
@@ -71,7 +68,7 @@ Let :math:`N_{j1,j2}` represent the total number of sample received ratings :mat
 
 For two ratters and three or more categories rating, let :math:`Y_{r,i} \in \{v_1,v_2,v_3, \ldots, v_J \}` represent rate 
 for rater :math:`r=1,2` and sample index :math:`i = 1, \ldots, n`.
-Let :math:`N_{j1,j2}` represent the total number of sample received ratings :math:`(v_{j1}, v_{j2})` where :math:`j1,j2 \in \{1,\ldots,J\}`.
+Let :math:`N_{j1,j2}` represent the total number of sample received ratings :math:`(v_{j1}, v_{j2})` from two raters, where :math:`j1,j2 \in \{1,\ldots,J\}`.
 
 .. list-table:: Counts for 3 or more categories
    :widths: 10 10 10 10 10 10
@@ -263,12 +260,12 @@ Example - Group-1
      - 0
      - 30
    * - **Ratter 1:** :math:`v_2`
-     - :math:`v_1`
+     - 0
      - 70
      - 70
    * - **Column total**
      - 30
-     - 7:math:`v_1`
+     - 70
      - 100
 
 .. list-table:: Cohen's :math:`\kappa = 1`
@@ -284,7 +281,7 @@ Example - Group-1
      - 0
      - 50
    * - **Ratter 1:** :math:`v_2`
-     - :math:`v_1`
+     - 0
      - 50
      - 50
    * - **Column total**
