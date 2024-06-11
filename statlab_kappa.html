@@ -109,14 +109,12 @@
 <h2>Background<a class="headerlink" href="#background" title="Link to this heading"></a></h2>
 <p>Cohen’s kappa (<span class="math notranslate nohighlight">\(\kappa\)</span>) is a statistic used for describing inter-ratter reliability of two ratters (or intra-rater) with categorical rating outcomes <a class="footnote-reference brackets" href="#id7" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.
 Please note that there are also concerns of the use of <span class="math notranslate nohighlight">\(\kappa\)</span> for quantifying agreement <a class="footnote-reference brackets" href="#id8" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#id9" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#id10" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>.</p>
-<p>Fleiss’ kappa is also a statistic used for inter-ratter reliability and that can be applied to cases with more then two ratters.
-Fleiss’ kappa is not yet being included in the <code class="docutils literal notranslate"><span class="pre">statlab</span></code> module.</p>
 </section>
 <section id="notation">
 <h2>Notation<a class="headerlink" href="#notation" title="Link to this heading"></a></h2>
 <p>For two ratters and two categories rating, let <span class="math notranslate nohighlight">\(Y_{r,i} \in \{v_j; j=1,2\}\)</span> represent rate
 for rater <span class="math notranslate nohighlight">\(r=1,2\)</span> and sample index <span class="math notranslate nohighlight">\(i = 1, \ldots, n\)</span>.
-Let <span class="math notranslate nohighlight">\(N_{j1,j2}\)</span> represent the total number of sample received ratings <span class="math notranslate nohighlight">\((v_{j1}, v_{j2})\)</span>.</p>
+Let <span class="math notranslate nohighlight">\(N_{j1,j2}\)</span> represent the total number of sample received ratings <span class="math notranslate nohighlight">\((v_{j1}, v_{j2})\)</span> from two raters, where <span class="math notranslate nohighlight">\(j1,j2 \in \{1,2\}\)</span>.</p>
 <table class="docutils align-default" id="id14">
 <caption><span class="caption-text">Counts for 2 categories</span><a class="headerlink" href="#id14" title="Link to this table"></a></caption>
 <colgroup>
@@ -152,7 +150,7 @@ Let <span class="math notranslate nohighlight">\(N_{j1,j2}\)</span> represent th
 </table>
 <p>For two ratters and three or more categories rating, let <span class="math notranslate nohighlight">\(Y_{r,i} \in \{v_1,v_2,v_3, \ldots, v_J \}\)</span> represent rate
 for rater <span class="math notranslate nohighlight">\(r=1,2\)</span> and sample index <span class="math notranslate nohighlight">\(i = 1, \ldots, n\)</span>.
-Let <span class="math notranslate nohighlight">\(N_{j1,j2}\)</span> represent the total number of sample received ratings <span class="math notranslate nohighlight">\((v_{j1}, v_{j2})\)</span> where <span class="math notranslate nohighlight">\(j1,j2 \in \{1,\ldots,J\}\)</span>.</p>
+Let <span class="math notranslate nohighlight">\(N_{j1,j2}\)</span> represent the total number of sample received ratings <span class="math notranslate nohighlight">\((v_{j1}, v_{j2})\)</span> from two raters, where <span class="math notranslate nohighlight">\(j1,j2 \in \{1,\ldots,J\}\)</span>.</p>
 <table class="docutils align-default" id="id15">
 <caption><span class="caption-text">Counts for 3 or more categories</span><a class="headerlink" href="#id15" title="Link to this table"></a></caption>
 <colgroup>
@@ -402,13 +400,13 @@ and <span class="math notranslate nohighlight">\(\sum_j p_{r=1,j} = \sum_j p_{r=
 <td><p>30</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Ratter 1:</strong> <span class="math notranslate nohighlight">\(v_2\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(v_1\)</span></p></td>
+<td><p>0</p></td>
 <td><p>70</p></td>
 <td><p>70</p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Column total</strong></p></td>
 <td><p>30</p></td>
-<td><p>7:math:<cite>v_1</cite></p></td>
+<td><p>70</p></td>
 <td><p>100</p></td>
 </tr>
 </tbody>
@@ -435,7 +433,7 @@ and <span class="math notranslate nohighlight">\(\sum_j p_{r=1,j} = \sum_j p_{r=
 <td><p>50</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Ratter 1:</strong> <span class="math notranslate nohighlight">\(v_2\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(v_1\)</span></p></td>
+<td><p>0</p></td>
 <td><p>50</p></td>
 <td><p>50</p></td>
 </tr>
