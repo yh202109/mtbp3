@@ -293,7 +293,7 @@ Example - Group-1
      - 100
 
 .. list-table:: Cohen's :math:`\kappa = -1`
-   :widths: 10 101:math:`v_1`0 10
+   :widths: 10 10 10 10
    :header-rows: 1
 
    * - 
@@ -314,7 +314,7 @@ Example - Group-1
      - 100
 
 .. list-table:: Cohen's :math:`\kappa = -0.7241379310344827`
-   :widths: 10 101:math:`v_1`0 10
+   :widths: 10 10 10 10
    :header-rows: 1
 
    * - 
