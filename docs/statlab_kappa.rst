@@ -52,7 +52,7 @@ Let :math:`N_{j1,j2}` represent the total number of sample received ratings :mat
    * - 
      - Ratter 2: :math:`v_1`
      - Ratter 2: :math:`v_2`
-     - :bg-ltsteelblue:`Row Total`
+     - Row Total
    * - **Ratter 1:** :math:`v_1`
      - :math:`N_{11}`
      - :math:`N_{12}` 
@@ -64,7 +64,7 @@ Let :math:`N_{j1,j2}` represent the total number of sample received ratings :mat
    * - **Column total**
      - :math:`N_{\bullet 1}`
      - :math:`N_{\bullet 2}` 
-     - :bg-ltsteelblue:`:math:`N_{\bullet\bullet}``
+     - :math:`N_{\bullet\bullet}`
 
 For two ratters and three or more categories rating, let :math:`Y_{r,i} \in \{v_1,v_2,v_3, \ldots, v_J \}` represent rate 
 for rater :math:`r=1,2` and sample index :math:`i = 1, \ldots, n`.
