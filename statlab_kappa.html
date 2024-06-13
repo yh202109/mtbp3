@@ -9,6 +9,7 @@
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
       <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=cfc40687" />
 
   
   <!--[if lt IE 9]>
@@ -101,7 +102,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <style> .red-b {color:#aa0060; font-weight:bold} .red {color:#aa0060} </style><section id="statlab-cohen-s-kappa">
+  <section id="statlab-cohen-s-kappa">
 <h1>StatLab/Cohen’s Kappa<a class="headerlink" href="#statlab-cohen-s-kappa" title="Link to this heading"></a></h1>
 <p><span class="red-b">Disclaimer:</span>
 <span class="red">This page is provided only for study purposes. The author does not intend to promote or advocate any particular analysis method or software.</span></p>
@@ -127,7 +128,7 @@ Let <span class="math notranslate nohighlight">\(N_{j1,j2}\)</span> represent th
 <tr class="row-odd"><th class="head"></th>
 <th class="head"><p>Ratter 2: <span class="math notranslate nohighlight">\(v_1\)</span></p></th>
 <th class="head"><p>Ratter 2: <span class="math notranslate nohighlight">\(v_2\)</span></p></th>
-<th class="head"><p>Row Total</p></th>
+<th class="head"><p><span class="bg-ltsteelblue">Row Total</span></p></th>
 </tr>
 </thead>
 <tbody>
@@ -144,7 +145,7 @@ Let <span class="math notranslate nohighlight">\(N_{j1,j2}\)</span> represent th
 <tr class="row-even"><td><p><strong>Column total</strong></p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{\bullet 1}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{\bullet 2}\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(N_{\bullet\bullet}\)</span></p></td>
+<td><p><span class="bg-ltsteelblue">:math:`N_{bulletbullet}`</span></p></td>
 </tr>
 </tbody>
 </table>
@@ -515,16 +516,16 @@ and <span class="math notranslate nohighlight">\(\sum_j p_{r=1,j} = \sum_j p_{r=
 <h2>How-to<a class="headerlink" href="#how-to" title="Link to this heading"></a></h2>
 <p>To use <code class="docutils literal notranslate"><span class="pre">sklearn.metrics</span></code> (stable):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">cohen_kappa_score</span>
-<span class="n">r1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;v2&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">70</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;v1&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">30</span>
-<span class="n">r2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;v1&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">70</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;v2&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">30</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cohen&#39;s kappa:&quot;</span><span class="p">,</span> <span class="n">cohen_kappa_score</span><span class="p">(</span><span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">))</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;v2&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">70</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;v1&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">30</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;v1&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">70</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;v2&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">30</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cohen&#39;s kappa:&quot;</span><span class="p">,</span> <span class="n">cohen_kappa_score</span><span class="p">(</span><span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>To use <code class="docutils literal notranslate"><span class="pre">mtbp3.statlab</span></code> (testing):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mtbp3.statlab</span> <span class="kn">import</span> <span class="n">kappa</span>
-<span class="n">r1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;v2&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">70</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;v1&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">30</span>
-<span class="n">r2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;v1&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">70</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;v2&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">30</span>
-<span class="n">kappa</span> <span class="o">=</span> <span class="n">kappa</span><span class="o">.</span><span class="n">KappaCalculator</span><span class="p">([</span><span class="n">r1</span><span class="p">,</span><span class="n">r2</span><span class="p">])</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;v2&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">70</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;v1&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">30</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;v1&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">70</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;v2&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">30</span>
+<span class="n">kappa</span> <span class="o">=</span> <span class="n">kappa</span><span class="o">.</span><span class="n">KappaCalculator</span><span class="p">([</span><span class="n">y1</span><span class="p">,</span><span class="n">y2</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cohen&#39;s kappa:&quot;</span><span class="p">,</span> <span class="n">kappa</span><span class="o">.</span><span class="n">cohen_kappa</span><span class="p">)</span>
 </pre></div>
 </div>
