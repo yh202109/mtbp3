@@ -23,7 +23,6 @@ extensions = [
     "sphinx.ext.githubpages",
     "sphinx.ext.mathjax",
     "sphinx.ext.doctest",
-    #"sphinx.ext.imgmath",
 ]
 autoapi_dirs = ["../mtbp3"]
 mathjax_path = 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
@@ -40,3 +39,6 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", ".gitignore", ".nojekyll
 # a list of builtin themes.
 #
 html_theme = "sphinx_rtd_theme"
+
+html_static_path = ['_static']
+html_css_files = [ 'css/custom.css']

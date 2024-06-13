@@ -12,15 +12,19 @@ Functions are grouped into:
 - Health
   - Data summary: `health.clinical`
   - eCTD: `health.ectd` 
-  - MedDRA : `health.emt` 
+  - MedDRA: `health.emt` 
 - General 
   - Data summary: `util.cdt`
   - Graphs: `util.cdtg`
-  - Sampling 
   - System: `util.lsr`
-- Standard: CDISC 
-  - API: `stdcd.api`
-- StatLab: `statlab.kappa`
+- Standard: 
+  - CDISC 
+    - Library: `stdcd.api`
+  - WHO
+    - B3/C3
+- StatLab: 
+  - Reliability: `statlab.kappa`
+  - Sampling 
 
 ## Table of Contents
 

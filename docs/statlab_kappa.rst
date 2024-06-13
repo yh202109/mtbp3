@@ -15,13 +15,13 @@
     #  along with this program. If not, see <https://www.gnu.org/license/>
    
 
-.. raw:: html
-
-    <style> .red-b {color:#aa0060; font-weight:bold} .red {color:#aa0060} </style>
-
 .. role:: red-b
 
 .. role:: red
+
+.. role:: bg-ltsteelblue
+
+
 
 #############
 StatLab/Cohen's Kappa 
@@ -52,7 +52,7 @@ Let :math:`N_{j1,j2}` represent the total number of sample received ratings :mat
    * - 
      - Ratter 2: :math:`v_1`
      - Ratter 2: :math:`v_2`
-     - Row Total
+     - :bg-ltsteelblue:`Row Total`
    * - **Ratter 1:** :math:`v_1`
      - :math:`N_{11}`
      - :math:`N_{12}` 
@@ -64,7 +64,7 @@ Let :math:`N_{j1,j2}` represent the total number of sample received ratings :mat
    * - **Column total**
      - :math:`N_{\bullet 1}`
      - :math:`N_{\bullet 2}` 
-     - :math:`N_{\bullet\bullet}` 
+     - :bg-ltsteelblue:`:math:`N_{\bullet\bullet}``
 
 For two ratters and three or more categories rating, let :math:`Y_{r,i} \in \{v_1,v_2,v_3, \ldots, v_J \}` represent rate 
 for rater :math:`r=1,2` and sample index :math:`i = 1, \ldots, n`.
@@ -341,18 +341,18 @@ To use ``sklearn.metrics`` (stable):
 .. code:: python
 
    from sklearn.metrics import cohen_kappa_score
-   r1 = ['v2'] * 70 + ['v1'] * 30
-   r2 = ['v1'] * 70 + ['v2'] * 30
-   print("Cohen's kappa:", cohen_kappa_score(r1, r2))
+   y1 = ['v2'] * 70 + ['v1'] * 30
+   y2 = ['v1'] * 70 + ['v2'] * 30
+   print("Cohen's kappa:", cohen_kappa_score(y1, y2))
 
 To use ``mtbp3.statlab`` (testing):
 
 .. code:: python
 
    from mtbp3.statlab import kappa
-   r1 = ['v2'] * 70 + ['v1'] * 30
-   r2 = ['v1'] * 70 + ['v2'] * 30
-   kappa = kappa.KappaCalculator([r1,r2])
+   y1 = ['v2'] * 70 + ['v1'] * 30
+   y2 = ['v1'] * 70 + ['v2'] * 30
+   kappa = kappa.KappaCalculator([y1,y2])
    print("Cohen's kappa:", kappa.cohen_kappa)
 
 =============
@@ -364,9 +364,9 @@ To use ``mtbp3.statlab``:
 .. testsetup:: *
 
    from mtbp3.statlab import kappa
-   r1 = ['v2'] * 70 + ['v1'] * 30
-   r2 = ['v1'] * 70 + ['v2'] * 30
-   kappa = kappa.KappaCalculator(r1,r2)
+   y1 = ['v2'] * 70 + ['v1'] * 30
+   y2 = ['v1'] * 70 + ['v2'] * 30
+   kappa = kappa.KappaCalculator(y1,y2)
 
 .. testcode::
 
