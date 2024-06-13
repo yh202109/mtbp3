@@ -41,8 +41,8 @@ Please note that there are also concerns of the use of :math:`\kappa` for quanti
 Notation 
 *************
 
-For two ratters and two categories rating, let :math:`Y_{r,i} \in \{v_j; j=1,2\}` represent rate
-for rater :math:`r=1,2` and sample index :math:`i = 1, \ldots, n`.
+For two ratters and two categories rating, let :math:`Y_{r,i} \in \{v_j; j=1,2\}` represent rating
+from rater :math:`r=1,2` for sample :math:`i = 1, \ldots, n`.
 Let :math:`N_{j1,j2}` represent the total number of sample received ratings :math:`(v_{j1}, v_{j2})` from two raters, where :math:`j1,j2 \in \{1,2\}`.
 
 .. list-table:: Counts for 2 categories
@@ -59,15 +59,15 @@ Let :math:`N_{j1,j2}` represent the total number of sample received ratings :mat
      - :math:`N_{1\bullet}` 
    * - **Ratter 1:**  :math:`v_2`
      - :math:`N_{21}`
-     - :math:`\color{blue}N_{22}` 
+     - :math:`N_{22}` 
      - :math:`N_{2\bullet}` 
    * - **Column total**
      - :math:`N_{\bullet 1}`
      - :math:`N_{\bullet 2}` 
-     - :math:`\color{blue}{N_{\bullet\bullet}}`
+     - :math:`N`
 
-For two ratters and three or more categories rating, let :math:`Y_{r,i} \in \{v_1,v_2,v_3, \ldots, v_J \}` represent rate 
-for rater :math:`r=1,2` and sample index :math:`i = 1, \ldots, n`.
+For two ratters and three or more categories rating, let :math:`Y_{r,i} \in \{v_1,v_2,v_3, \ldots, v_J \}` represent rating 
+from rater :math:`r=1,2` for sample :math:`i = 1, \ldots, n`.
 Let :math:`N_{j1,j2}` represent the total number of sample received ratings :math:`(v_{j1}, v_{j2})` from two raters, where :math:`j1,j2 \in \{1,\ldots,J\}`.
 
 .. list-table:: Counts for 3 or more categories
@@ -109,31 +109,31 @@ Let :math:`N_{j1,j2}` represent the total number of sample received ratings :mat
      - :math:`N_{\bullet 2}` 
      - :math:`N_{\bullet 3}` 
      - :math:`\ldots` 
-     - :math:`N_{\bullet\bullet}` 
+     - :math:`N` 
 
 The observed raw percentage of agreement is defined as 
 
 .. math::
 
-  p_O = \sum_{j=1}^J N_{jj} / N_{\bullet\bullet}
+  p_O = \sum_{j=1}^J N_{jj} / N
 
 where :math:`J \geq 2` is the size of value set.
 
 Assume that 
 
 .. math::
-  (N_{1\bullet}, \ldots N_{J\bullet}) \sim multi(N_{\bullet \bullet}, (p_{r=1,1}, \ldots, p_{r=1,J})), 
+  (N_{1\bullet}, \ldots N_{J\bullet}) \sim multi(N, (p_{r=1,1}, \ldots, p_{r=1,J})), 
 
 and
 
 .. math::
-  (N_{\bullet 1}, \ldots N_{\bullet J}) \sim multi(N_{\bullet \bullet}, (p_{r=2,1}, \ldots, p_{r=2,J})), 
+  (N_{\bullet 1}, \ldots N_{\bullet J}) \sim multi(N, (p_{r=2,1}, \ldots, p_{r=2,J})), 
 
-with :math:`\sum_j N_{j \bullet} = \sum_j N_{\bullet j} = N_{\bullet \bullet}` 
+with :math:`\sum_j N_{j \bullet} = \sum_j N_{\bullet j} = N` 
 and :math:`\sum_j p_{r=1,j} = \sum_j p_{r=2, j} = 1`.
 
 Under independence assumption, the expected number of agreement is estimated by
-:math:`\sum_{j=1}^J\hat{E}_{j} = \frac{1}{N_{\bullet \bullet}}\sum_{j=1}^J N_{\bullet j} N_{j\bullet} \equiv N_{\bullet \bullet}p_E`.
+:math:`\sum_{j=1}^J\hat{E}_{j} = \frac{1}{N}\sum_{j=1}^J N_{\bullet j} N_{j\bullet} \equiv N p_E`.
 
 The Cohen's :math:`\kappa` statistic is calculated as
 
@@ -392,3 +392,4 @@ Reference
 .. [5] Cohen, J. (1960). A Coefficient of Agreement for Nominal Scales. Educational and Psychological Measurement, 20(1), 37-46. https://doi.org/10.1177/001316446002000104 
 .. [6] McHugh M. L. (2012). Interrater reliability: the kappa statistic. Biochemia medica, 22(3), 276-282. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3900052/
 .. [7] Basu, S., Banerjee, M., & Sen, A. (2000). Bayesian inference for kappa from single and multiple studies. Biometrics, 56(2), 577–582. https://doi.org/10.1111/j.0006-341x.2000.00577.x
+.. [8] Hallgren K. A. (2012). Computing Inter-Rater Reliability for Observational Data: An Overview and Tutorial. Tutorials in quantitative methods for psychology, 8(1), 23–34. https://doi.org/10.20982/tqmp.08.1.p023
