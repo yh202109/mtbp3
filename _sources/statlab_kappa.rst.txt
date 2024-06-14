@@ -35,7 +35,7 @@ Background
 *************
 
 Cohen's kappa (:math:`\kappa`) is a statistic used for describing inter-ratter reliability of two ratters (or intra-rater) with categorical rating outcomes [1]_. 
-Please note that there are also concerns of the use of :math:`\kappa` for quantifying agreement [2]_ [3]_ [4]_.
+Please note that there are also concerns of the use of :math:`\kappa` for quantifying agreement [2]_ [3]_ .
 
 *************
 Notation 
@@ -43,7 +43,7 @@ Notation
 
 For two ratters and two categories rating, let :math:`Y_{r,i} \in \{v_j; j=1,2\}` represent rating
 from rater :math:`r=1,2` for sample :math:`i = 1, \ldots, n`.
-Let :math:`N_{j1,j2}` represent the total number of sample received ratings :math:`(v_{j1}, v_{j2})` from two raters, where :math:`j1,j2 \in \{1,2\}`.
+Let :math:`N_{j_1,j_2}` represent the total number of sample received ratings :math:`(v_{j_1}, v_{j_2})` from two raters, where :math:`j_1,j_2 \in \{1,2\}`.
 
 .. list-table:: Counts for 2 categories
    :widths: 10 10 10 10
@@ -61,14 +61,14 @@ Let :math:`N_{j1,j2}` represent the total number of sample received ratings :mat
      - :math:`N_{21}`
      - :math:`N_{22}` 
      - :math:`N_{2\bullet}` 
-   * - **Column total**
+   * - **Column Total**
      - :math:`N_{\bullet 1}`
      - :math:`N_{\bullet 2}` 
      - :math:`N`
 
 For two ratters and three or more categories rating, let :math:`Y_{r,i} \in \{v_1,v_2,v_3, \ldots, v_J \}` represent rating 
 from rater :math:`r=1,2` for sample :math:`i = 1, \ldots, n`.
-Let :math:`N_{j1,j2}` represent the total number of sample received ratings :math:`(v_{j1}, v_{j2})` from two raters, where :math:`j1,j2 \in \{1,\ldots,J\}`.
+Let :math:`N_{j_1,j_2}` represent the total number of sample received ratings :math:`(v_{j_1}, v_{j_2})` from two raters, where :math:`j_1,j_2 \in \{1,\ldots,J\}`.
 
 .. list-table:: Counts for 3 or more categories
    :widths: 10 10 10 10 10 10
@@ -104,7 +104,7 @@ Let :math:`N_{j1,j2}` represent the total number of sample received ratings :mat
      - :math:`\vdots`
      - :math:`\ddots` 
      - :math:`\vdots` 
-   * - **Column total**
+   * - **Column Total**
      - :math:`N_{\bullet 1}`
      - :math:`N_{\bullet 2}` 
      - :math:`N_{\bullet 3}` 
@@ -149,7 +149,8 @@ The SE of :math:`\kappa` is calculated as
 Interpretation of Cohen's Kappa Suggested in Literature
 *************
 
-Cohen (1960) [5]_ suggested the Kappa result be interpreted as follows: 
+
+Cohen (1960) [4]_ suggested the Kappa result be interpreted as follows: 
 
 .. list-table:: Cohen's Kappa Interpretation (Cohen, 1960)
    :widths: 10 10 
@@ -170,7 +171,7 @@ Cohen (1960) [5]_ suggested the Kappa result be interpreted as follows:
    * - :math:`0.8 < \kappa \leq 1`
      - almost perfect agreement 
 
-Interpretation suggested by McHugh (2012) [6]_:
+Interpretation suggested by McHugh (2012) [5]_:
 
 .. list-table:: Cohen's Kappa Interpretation (McHugh, 2012)
    :widths: 10 10 10
@@ -201,6 +202,9 @@ Interpretation suggested by McHugh (2012) [6]_:
      - Almost Perfect
      - :math:`82-100%`
 
+As discussed by Sim and Wright [6]_ , the breaks of magnitude is "inevitably arbitrary",
+and biases and other factors could have impact on the interpretation.
+
 *************
 Example - Group-1
 *************
@@ -221,7 +225,7 @@ Example - Group-1
      - 21
      - 49
      - 70
-   * - **Column total**
+   * - **Column Total**
      - 30
      - 70
      - 100
@@ -242,7 +246,7 @@ Example - Group-1
      - 21
      - 9
      - 30
-   * - **Column total**
+   * - **Column Total**
      - 70
      - 30
      - 100
@@ -263,7 +267,7 @@ Example - Group-1
      - 0
      - 70
      - 70
-   * - **Column total**
+   * - **Column Total**
      - 30
      - 70
      - 100
@@ -284,7 +288,7 @@ Example - Group-1
      - 0
      - 50
      - 50
-   * - **Column total**
+   * - **Column Total**
      - 50
      - 50
      - 100
@@ -305,7 +309,7 @@ Example - Group-1
      - 50
      - 0
      - 50
-   * - **Column total**
+   * - **Column Total**
      - 50
      - 50
      - 100
@@ -326,7 +330,7 @@ Example - Group-1
      - 70
      - 0
      - 70
-   * - **Column total**
+   * - **Column Total**
      - 70
      - 30
      - 100
@@ -380,6 +384,25 @@ Output:
    Confidence Interval (95.0%): [-0.144, 0.135]
 
 
+Note that examples of using ``SAS/PROC FREQ`` and ``R`` package ``vcd`` for calculating :math:`kappa` can be found in reference [7]_ .
+
+*************
+Variations
+*************
+
+Some scenarios discussed by Hallgren (2012) [9]_ include:
+
+- the **prevalence** problem: one category has much higher percentage than other categories and cause kappa value to be low.
+- the **bias** problem: there are substantial differences in marginal distributions and cause kappa value to be high.
+- unequal importance of off-diagonal counts
+
+(Please note that this is not an exhaustive list.)
+
+*************
+Weighted Cohen's :math:`\kappa`
+*************
+
+TBA
 
 *************
 Reference
@@ -388,8 +411,10 @@ Reference
 .. [1] Wikipedia. (year). Cohen's kappa. https://en.wikipedia.org/wiki/Cohen%27s_kappa.
 .. [2] Uebersax, J. (year). Kappa Coefficients: A Critical Appraisal. https://www.john-uebersax.com/stat/kappa.htm#procon.
 .. [3] Brennan, R. L., & Prediger, D. J. (1981). Coefficient Kappa: Some Uses, Misuses, and Alternatives. Educational and Psychological Measurement, 41(3), 687-699. https://doi.org/10.1177/0013164481041003070
-.. [4] Sim, J., Wright, C. C. (2005). The Kappa Statistic in Reliability Studies: Use, Interpretation, and Sample Size Requirements, Physical Therapy, Volume 85, Issue 3, Pages 257-268, https://doi.org/10.1093/ptj/85.3.257
-.. [5] Cohen, J. (1960). A Coefficient of Agreement for Nominal Scales. Educational and Psychological Measurement, 20(1), 37-46. https://doi.org/10.1177/001316446002000104 
-.. [6] McHugh M. L. (2012). Interrater reliability: the kappa statistic. Biochemia medica, 22(3), 276-282. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3900052/
-.. [7] Basu, S., Banerjee, M., & Sen, A. (2000). Bayesian inference for kappa from single and multiple studies. Biometrics, 56(2), 577–582. https://doi.org/10.1111/j.0006-341x.2000.00577.x
-.. [8] Hallgren K. A. (2012). Computing Inter-Rater Reliability for Observational Data: An Overview and Tutorial. Tutorials in quantitative methods for psychology, 8(1), 23–34. https://doi.org/10.20982/tqmp.08.1.p023
+.. [4] Cohen, J. (1960). A Coefficient of Agreement for Nominal Scales. Educational and Psychological Measurement, 20(1), 37-46. https://doi.org/10.1177/001316446002000104 
+.. [5] McHugh M. L. (2012). Interrater reliability: the kappa statistic. Biochemia medica, 22(3), 276-282. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3900052/
+.. [6] Sim, J., Wright, C. C. (2005). The Kappa Statistic in Reliability Studies: Use, Interpretation, and Sample Size Requirements, Physical Therapy, Volume 85, Issue 3, Pages 257-268, https://doi.org/10.1093/ptj/85.3.257
+.. [7] PSU. STAT504: Measure of Agreement: Kappa. https://online.stat.psu.edu/stat504/lesson/11/11.2/11.2.4
+.. [8] Basu, S., Banerjee, M., & Sen, A. (2000). Bayesian inference for kappa from single and multiple studies. Biometrics, 56(2), 577–582. https://doi.org/10.1111/j.0006-341x.2000.00577.x
+.. [9] Hallgren K. A. (2012). Computing Inter-Rater Reliability for Observational Data: An Overview and Tutorial. Tutorials in quantitative methods for psychology, 8(1), 23–34. https://doi.org/10.20982/tqmp.08.1.p023
+.. [10] Landis, J. R., & Koch, G. G. (1977). The measurement of observer agreement for categorical data. Biometrics, 33(1), 159–174.
