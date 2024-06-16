@@ -64,7 +64,7 @@ Let :math:`N_{j_1,j_2}` represent the total number of sample received ratings :m
    * - **Column Total**
      - :math:`N_{\bullet 1}`
      - :math:`N_{\bullet 2}` 
-     - :math:`N`
+     - :math:`n`
 
 For two ratters and three or more categories rating, let :math:`Y_{r,i} \in \{v_1,v_2,v_3, \ldots, v_J \}` represent rating 
 from rater :math:`r=1,2` for sample :math:`i = 1, \ldots, n`.
@@ -109,31 +109,31 @@ Let :math:`N_{j_1,j_2}` represent the total number of sample received ratings :m
      - :math:`N_{\bullet 2}` 
      - :math:`N_{\bullet 3}` 
      - :math:`\ldots` 
-     - :math:`N` 
+     - :math:`n` 
 
 The observed raw percentage of agreement is defined as 
 
 .. math::
 
-  p_O = \sum_{j=1}^J N_{jj} / N
+  p_O = \sum_{j=1}^J N_{jj} / n
 
 where :math:`J \geq 2` is the size of value set.
 
 Assume that 
 
 .. math::
-  (N_{1\bullet}, \ldots N_{J\bullet}) \sim multi(N, (p_{r=1,1}, \ldots, p_{r=1,J})), 
+  (N_{1\bullet}, \ldots N_{J\bullet}) \sim multi(n, (p_{r=1,1}, \ldots, p_{r=1,J})), 
 
 and
 
 .. math::
-  (N_{\bullet 1}, \ldots N_{\bullet J}) \sim multi(N, (p_{r=2,1}, \ldots, p_{r=2,J})), 
+  (N_{\bullet 1}, \ldots N_{\bullet J}) \sim multi(n, (p_{r=2,1}, \ldots, p_{r=2,J})), 
 
-with :math:`\sum_j N_{j \bullet} = \sum_j N_{\bullet j} = N` 
+with :math:`\sum_j N_{j \bullet} = \sum_j N_{\bullet j} = n` 
 and :math:`\sum_j p_{r=1,j} = \sum_j p_{r=2, j} = 1`.
 
 Under independence assumption, the expected number of agreement is estimated by
-:math:`\sum_{j=1}^J\hat{E}_{j} = \frac{1}{N}\sum_{j=1}^J N_{\bullet j} N_{j\bullet} \equiv N p_E`.
+:math:`\sum_{j=1}^J\hat{E}_{j} = \frac{1}{n}\sum_{j=1}^J N_{\bullet j} N_{j\bullet} \equiv n p_E`.
 
 The Cohen's :math:`\kappa` statistic is calculated as
 
@@ -383,7 +383,7 @@ Output:
    Confidence Interval (95.0%): [-0.144, 0.135]
 
 
-Note that examples of using ``SAS/PROC FREQ`` and ``R`` package ``vcd`` for calculating :math:`kappa` can be found in reference [7]_ .
+Note that examples of using ``SAS/PROC FREQ`` and ``R`` package ``vcd`` for calculating :math:`\kappa` can be found in reference [7]_ .
 
 *************
 Extensions

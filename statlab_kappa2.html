@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>H/MedDRA/CT Mapping &mdash; mtbp3  documentation</title>
+  <title>StatLab/ Fleiss’s Kappa &mdash; mtbp3  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -21,11 +21,12 @@
         <script src="_static/documentation_options.js?v=5929fcd5"></script>
         <script src="_static/doctools.js?v=9a2dae69"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="S/C/CDISC Basics" href="example_sc_cdisc.html" />
-    <link rel="prev" title="H/MedDRA/MLGs by CIOMS" href="example_emt4.html" /> 
+    <link rel="next" title="Changelog" href="changelog.html" />
+    <link rel="prev" title="StatLab/Cohen’s Kappa" href="statlab_kappa.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -55,15 +56,19 @@
 <li class="toctree-l1"><a class="reference internal" href="example_emt2.html">H/MedDRA/SMQs by ICH</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_emt3.html">H/MedDRA/FMQs by FDA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_emt4.html">H/MedDRA/MLGs by CIOMS</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">H/MedDRA/CT Mapping</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="example_emt5.html">H/MedDRA/CT Mapping</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_sc_cdisc.html">S/C/CDISC Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_cdtg.html">U/Graph/Categorical Plots Using catPlotter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_files.html">U/System/List Folder Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="statlab_kappa.html">StatLab/Cohen’s Kappa</a></li>
-<li class="toctree-l1"><a class="reference internal" href="statlab_kappa2.html">StatLab/ Fleiss’s Kappa</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">StatLab/ Fleiss’s Kappa</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#notation">Notation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to">How-to</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="conduct.html">Code of Conduct</a></li>
@@ -84,9 +89,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">H/MedDRA/CT Mapping</li>
+      <li class="breadcrumb-item active">StatLab/ Fleiss’s Kappa</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/example_emt5.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/statlab_kappa2.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -94,30 +99,53 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="h-meddra-ct-mapping">
-<h1>H/MedDRA/CT Mapping<a class="headerlink" href="#h-meddra-ct-mapping" title="Link to this heading"></a></h1>
-<p>The Medical Dictionary for Regulatory Activities (MedDRA) is a set of standardized terminologies commonly used in clinical safety recording, communicating, and reporting activities.  MedDRA is developed and maintained by the International Council for Harmonisation of Technical Requirements for Pharmaceuticals for Human Use (ICH)<a class="footnote-reference brackets" href="#id5" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a><sup>,</sup><a class="footnote-reference brackets" href="#id6" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
-<p>There are also collaborates between MedDRA and other CTs. Mapping files are available to be downloaded on MedDRA website after login<a class="footnote-reference brackets" href="#id7" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a><sup>,</sup><a class="footnote-reference brackets" href="#id8" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>.</p>
-<p>The module <code class="docutils literal notranslate"><span class="pre">emt</span></code> currently does not include functions for working with other CTs. This is a place holder for future uses.</p>
+  <section id="statlab-fleiss-s-kappa">
+<h1>StatLab/ Fleiss’s Kappa<a class="headerlink" href="#statlab-fleiss-s-kappa" title="Link to this heading"></a></h1>
+<p><span class="red-b">Disclaimer:</span>
+<span class="red">This page is provided only for study purposes. The author does not intend to promote or advocate any particular analysis method or software.</span></p>
+<section id="background">
+<h2>Background<a class="headerlink" href="#background" title="Link to this heading"></a></h2>
+<p>Fleiss’s kappa (<span class="math notranslate nohighlight">\(\kappa\)</span>) is a statistic used for describing inter-ratter reliability of multiple independent ratters
+with categorical rating outcomes <a class="footnote-reference brackets" href="#id5" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#id6" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
+</section>
+<section id="notation">
+<h2>Notation<a class="headerlink" href="#notation" title="Link to this heading"></a></h2>
+<p>Assume there are the same <span class="math notranslate nohighlight">\(R+N_0 \geq 2+N_0\)</span> raters and each of <span class="math notranslate nohighlight">\(n\)</span> samples were rated by <span class="math notranslate nohighlight">\(R\)</span> randomly selected raters and were not rated by the rest of <span class="math notranslate nohighlight">\(N_0\)</span> raters.
+For <span class="math notranslate nohighlight">\(J\)</span> categories rating, let <span class="math notranslate nohighlight">\(Y_{r,i} \in \{v_0, v_1,v_2,\ldots, v_J \}\)</span> represent rating
+from rater <span class="math notranslate nohighlight">\(r=1,2,\ldots,R+N_0\)</span> for sample <span class="math notranslate nohighlight">\(i = 1, \ldots, n\)</span>.
+Let <span class="math notranslate nohighlight">\(N_{ij}\)</span> represent the total number of raters gave rating <span class="math notranslate nohighlight">\((v_j)\)</span> to sample <span class="math notranslate nohighlight">\(i\)</span>, where <span class="math notranslate nohighlight">\(j \in \{0, 1,\ldots,J\}\)</span>.
+The value <span class="math notranslate nohighlight">\(v_0\)</span> represent raters did not rate the sample <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(N_{i0}=N_0\)</span> is a fixed number for all <span class="math notranslate nohighlight">\(i\)</span>.
+Therefore, <span class="math notranslate nohighlight">\(v_0\)</span> will not be included in the discussion below.</p>
+<p>The observed averaged agreement is calculated as</p>
+<div class="math notranslate nohighlight">
+\[\bar{p}_O = \frac{1}{n} \sum_{i=1}^N p_{O,i},\]</div>
+<p>where <span class="math notranslate nohighlight">\(p_{O,i} = \frac{1}{R(R-1)} \left(\sum_{j=1}^J N_{ij}(N_{ij}-1)\right)= \frac{1}{R(R-1)} \left(\sum_{j=1}^J N_{ij}^2 - R\right)\)</span>.</p>
+<p>The expected agreement category <span class="math notranslate nohighlight">\(j\)</span> is calculated as</p>
+<div class="math notranslate nohighlight">
+\[\bar{p}_E = \sum_{j=1}^J p_{E,j}^2,\]</div>
+<p>where <span class="math notranslate nohighlight">\(p_{E,j} = \frac{N_{\bullet j}}{nR}\)</span></p>
+<p>The Fleiss’s <span class="math notranslate nohighlight">\(\kappa\)</span> statistic is calculated as</p>
+<div class="math notranslate nohighlight">
+\[\kappa = \frac{\bar{p}_O - \bar{p}_E}{1-\bar{p}_E}.\]</div>
+</section>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
+<p>TBA</p>
+</section>
+<section id="how-to">
+<h2>How-to<a class="headerlink" href="#how-to" title="Link to this heading"></a></h2>
+<p>TBA</p>
+</section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>
-<hr class="footnotes docutils" />
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="id5" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
-<p>ICH. (2013). Understanding MedDRA. (<a class="reference external" href="https://admin.meddra.org/sites/default/files/page/documents_insert/meddra2013_0.pdf">pdf</a>)</p>
+<p>Wikipedia. (year). Fleiss’s kappa. <a class="reference external" href="https://en.wikipedia.org/wiki/Fleiss%27_kappa">https://en.wikipedia.org/wiki/Fleiss%27_kappa</a></p>
 </aside>
 <aside class="footnote brackets" id="id6" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
-<p>Dutta, A. (2020). MedDRA - Terminologies &amp; Coding. (<a class="reference external" href="https://meddra.org/sites/default/files/page/documents_insert/meddra_-_terminologies_coding.pdf">pdf</a>)</p>
-</aside>
-<aside class="footnote brackets" id="id7" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
-<p>ICH. (2024). MedDRA Mapping. (<a class="reference external" href="https://www.meddra.org/mapping">web page</a>)</p>
-</aside>
-<aside class="footnote brackets" id="id8" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
-<p>ICH. (2024). SNOMED CT/MedDRA Maps. (<a class="reference external" href="https://admin.meddra.org/sites/default/files/page/documents_insert/MedDRA%20-%20SNOMED%20CT%20Mapping%20Final.pdf">pdf</a>)</p>
+<p>Fleiss, J. L. (1971). Measuring nominal scale agreement among many raters. Psychological Bulletin, 76(5), 378-382. <a class="reference external" href="https://doi.org/10.1037/h0031619">https://doi.org/10.1037/h0031619</a></p>
 </aside>
 </aside>
 </section>
@@ -127,8 +155,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="example_emt4.html" class="btn btn-neutral float-left" title="H/MedDRA/MLGs by CIOMS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="example_sc_cdisc.html" class="btn btn-neutral float-right" title="S/C/CDISC Basics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="statlab_kappa.html" class="btn btn-neutral float-left" title="StatLab/Cohen’s Kappa" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="changelog.html" class="btn btn-neutral float-right" title="Changelog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

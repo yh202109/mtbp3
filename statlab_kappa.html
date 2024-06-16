@@ -9,7 +9,7 @@
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
       <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
-      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=cfc40687" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=ce7ddcad" />
 
   
   <!--[if lt IE 9]>
@@ -25,7 +25,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Changelog" href="changelog.html" />
+    <link rel="next" title="StatLab/ Fleiss’s Kappa" href="statlab_kappa2.html" />
     <link rel="prev" title="U/System/List Folder Contents" href="example_files.html" /> 
 </head>
 
@@ -74,6 +74,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="statlab_kappa2.html">StatLab/ Fleiss’s Kappa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="conduct.html">Code of Conduct</a></li>
@@ -147,7 +148,7 @@ Let <span class="math notranslate nohighlight">\(N_{j_1,j_2}\)</span> represent 
 <tr class="row-even"><td><p><strong>Column Total</strong></p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{\bullet 1}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{\bullet 2}\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(N\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(n\)</span></p></td>
 </tr>
 </tbody>
 </table>
@@ -207,24 +208,24 @@ Let <span class="math notranslate nohighlight">\(N_{j_1,j_2}\)</span> represent 
 <td><p><span class="math notranslate nohighlight">\(N_{\bullet 2}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(N_{\bullet 3}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\ldots\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(N\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(n\)</span></p></td>
 </tr>
 </tbody>
 </table>
 <p>The observed raw percentage of agreement is defined as</p>
 <div class="math notranslate nohighlight">
-\[p_O = \sum_{j=1}^J N_{jj} / N\]</div>
+\[p_O = \sum_{j=1}^J N_{jj} / n\]</div>
 <p>where <span class="math notranslate nohighlight">\(J \geq 2\)</span> is the size of value set.</p>
 <p>Assume that</p>
 <div class="math notranslate nohighlight">
-\[(N_{1\bullet}, \ldots N_{J\bullet}) \sim multi(N, (p_{r=1,1}, \ldots, p_{r=1,J})),\]</div>
+\[(N_{1\bullet}, \ldots N_{J\bullet}) \sim multi(n, (p_{r=1,1}, \ldots, p_{r=1,J})),\]</div>
 <p>and</p>
 <div class="math notranslate nohighlight">
-\[(N_{\bullet 1}, \ldots N_{\bullet J}) \sim multi(N, (p_{r=2,1}, \ldots, p_{r=2,J})),\]</div>
-<p>with <span class="math notranslate nohighlight">\(\sum_j N_{j \bullet} = \sum_j N_{\bullet j} = N\)</span>
+\[(N_{\bullet 1}, \ldots N_{\bullet J}) \sim multi(n, (p_{r=2,1}, \ldots, p_{r=2,J})),\]</div>
+<p>with <span class="math notranslate nohighlight">\(\sum_j N_{j \bullet} = \sum_j N_{\bullet j} = n\)</span>
 and <span class="math notranslate nohighlight">\(\sum_j p_{r=1,j} = \sum_j p_{r=2, j} = 1\)</span>.</p>
 <p>Under independence assumption, the expected number of agreement is estimated by
-<span class="math notranslate nohighlight">\(\sum_{j=1}^J\hat{E}_{j} = \frac{1}{N}\sum_{j=1}^J N_{\bullet j} N_{j\bullet} \equiv N p_E\)</span>.</p>
+<span class="math notranslate nohighlight">\(\sum_{j=1}^J\hat{E}_{j} = \frac{1}{n}\sum_{j=1}^J N_{\bullet j} N_{j\bullet} \equiv n p_E\)</span>.</p>
 <p>The Cohen’s <span class="math notranslate nohighlight">\(\kappa\)</span> statistic is calculated as</p>
 <div class="math notranslate nohighlight">
 \[\kappa = \frac{p_O - p_E}{1-p_E}.\]</div>
@@ -543,7 +544,7 @@ and <span class="math notranslate nohighlight">\(\sum_j p_{r=1,j} = \sum_j p_{r=
 Confidence Interval (95.0%): [-0.144, 0.135]
 </pre></div>
 </div>
-<p>Note that examples of using <code class="docutils literal notranslate"><span class="pre">SAS/PROC</span> <span class="pre">FREQ</span></code> and <code class="docutils literal notranslate"><span class="pre">R</span></code> package <code class="docutils literal notranslate"><span class="pre">vcd</span></code> for calculating <span class="math notranslate nohighlight">\(kappa\)</span> can be found in reference <a class="footnote-reference brackets" href="#id15" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a> .</p>
+<p>Note that examples of using <code class="docutils literal notranslate"><span class="pre">SAS/PROC</span> <span class="pre">FREQ</span></code> and <code class="docutils literal notranslate"><span class="pre">R</span></code> package <code class="docutils literal notranslate"><span class="pre">vcd</span></code> for calculating <span class="math notranslate nohighlight">\(\kappa\)</span> can be found in reference <a class="footnote-reference brackets" href="#id15" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a> .</p>
 </section>
 </section>
 <section id="extensions">
@@ -615,7 +616,7 @@ The weighted <span class="math notranslate nohighlight">\(\kappa\)</span> is cal
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="example_files.html" class="btn btn-neutral float-left" title="U/System/List Folder Contents" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="changelog.html" class="btn btn-neutral float-right" title="Changelog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="statlab_kappa2.html" class="btn btn-neutral float-right" title="StatLab/ Fleiss’s Kappa" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
