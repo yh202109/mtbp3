@@ -69,8 +69,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#bootstrap-ci">Bootstrap CI</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#variations">Variations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#weighted-cohen-s-kappa">Weighted Cohen’s <span class="math notranslate nohighlight">\(\kappa\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#extensions">Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#weighted-kappa">Weighted <span class="math notranslate nohighlight">\(\kappa\)</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
@@ -111,7 +111,7 @@
 <section id="background">
 <h2>Background<a class="headerlink" href="#background" title="Link to this heading"></a></h2>
 <p>Cohen’s kappa (<span class="math notranslate nohighlight">\(\kappa\)</span>) is a statistic used for describing inter-ratter reliability of two ratters (or intra-rater) with categorical rating outcomes <a class="footnote-reference brackets" href="#id9" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.
-Please note that there are also concerns of the use of <span class="math notranslate nohighlight">\(\kappa\)</span> for quantifying agreement <a class="footnote-reference brackets" href="#id10" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#id11" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> .</p>
+Please note that there are also additional considerations for the use of <span class="math notranslate nohighlight">\(\kappa\)</span> for quantifying agreement <a class="footnote-reference brackets" href="#id10" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#id11" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> .</p>
 </section>
 <section id="notation">
 <h2>Notation<a class="headerlink" href="#notation" title="Link to this heading"></a></h2>
@@ -312,8 +312,7 @@ and <span class="math notranslate nohighlight">\(\sum_j p_{r=1,j} = \sum_j p_{r=
 </tr>
 </tbody>
 </table>
-<p>As discussed by Sim and Wright <a class="footnote-reference brackets" href="#id14" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a> , the breaks of magnitude is “inevitably arbitrary”,
-and biases and other factors could have impact on the interpretation.</p>
+<p>As discussed by Sim and Wright <a class="footnote-reference brackets" href="#id14" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a> , biases and other factors could have impact on the interpretation.</p>
 </section>
 <section id="example-group-1">
 <h2>Example - Group-1<a class="headerlink" href="#example-group-1" title="Link to this heading"></a></h2>
@@ -547,19 +546,22 @@ Confidence Interval (95.0%): [-0.144, 0.135]
 <p>Note that examples of using <code class="docutils literal notranslate"><span class="pre">SAS/PROC</span> <span class="pre">FREQ</span></code> and <code class="docutils literal notranslate"><span class="pre">R</span></code> package <code class="docutils literal notranslate"><span class="pre">vcd</span></code> for calculating <span class="math notranslate nohighlight">\(kappa\)</span> can be found in reference <a class="footnote-reference brackets" href="#id15" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a> .</p>
 </section>
 </section>
-<section id="variations">
-<h2>Variations<a class="headerlink" href="#variations" title="Link to this heading"></a></h2>
+<section id="extensions">
+<h2>Extensions<a class="headerlink" href="#extensions" title="Link to this heading"></a></h2>
 <p>Some scenarios discussed by Hallgren (2012) <a class="footnote-reference brackets" href="#id17" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>9<span class="fn-bracket">]</span></a> include:</p>
 <ul class="simple">
-<li><p>the <strong>prevalence</strong> problem: one category has much higher percentage than other categories and cause kappa value to be low.</p></li>
-<li><p>the <strong>bias</strong> problem: there are substantial differences in marginal distributions and cause kappa value to be high.</p></li>
-<li><p>unequal importance of off-diagonal counts</p></li>
+<li><p>the <strong>prevalence</strong> problem: one category has much higher percentage than other categories and causes <span class="math notranslate nohighlight">\(\kappa\)</span> to be low.</p></li>
+<li><p>the <strong>bias</strong> problem: there are substantial differences in marginal distributions and causes <span class="math notranslate nohighlight">\(\kappa\)</span> tend to be high.</p></li>
+<li><p>unequal importance</p></li>
 </ul>
 <p>(Please note that this is not an exhaustive list.)</p>
 </section>
-<section id="weighted-cohen-s-kappa">
-<h2>Weighted Cohen’s <span class="math notranslate nohighlight">\(\kappa\)</span><a class="headerlink" href="#weighted-cohen-s-kappa" title="Link to this heading"></a></h2>
-<p>TBA</p>
+<section id="weighted-kappa">
+<h2>Weighted <span class="math notranslate nohighlight">\(\kappa\)</span><a class="headerlink" href="#weighted-kappa" title="Link to this heading"></a></h2>
+<p>Let <span class="math notranslate nohighlight">\(w_{j_1,j_2}\)</span> represent the weight given to total number of sample received ratings <span class="math notranslate nohighlight">\((v_{j_1}, v_{j_2})\)</span> from two raters, where <span class="math notranslate nohighlight">\(j_1,j_2 \in \{1,\ldots,J\}\)</span>.
+The weighted <span class="math notranslate nohighlight">\(\kappa\)</span> is calculated as</p>
+<div class="math notranslate nohighlight">
+\[\kappa = 1- \frac{\sum_{j_1=1}^J\sum_{j_2=1}^J w_{j_1,j_2}N_{j_1,j_2}}{\sum_{j_1=1}^J\sum_{j_2=1}^J w_{j_1,j_2}\hat{E}_{j_1, j_2}}.\]</div>
 </section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>
