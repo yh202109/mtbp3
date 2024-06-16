@@ -60,6 +60,7 @@ Therefore, :math:`v_0` will not be included in the discussion below.
      - :math:`N_{1J}` 
      - :math:`R` 
    * - **Sample:** 2
+     - :math:`N_{21}` 
      - :math:`N_{22}` 
      - :math:`\ldots` 
      - :math:`N_{2J}` 
@@ -88,12 +89,6 @@ Therefore, :math:`v_0` will not be included in the discussion below.
      - :math:`\ldots` 
      - :math:`N_{\bullet J}` 
      - :math:`nR` 
-   * - **Ratio to ** :math:`nR`
-     - :math:`p_1 = \frac{N_{\bullet 1}}{nR}`
-     - :math:`p_2 = \frac{N_{\bullet 2}}{nR}` 
-     - :math:`\ldots` 
-     - :math:`p_J = \frac{N_{\bullet J}}{nR}` 
-     - :math:`1` 
 
 The observed averaged agreement is calculated as 
 
