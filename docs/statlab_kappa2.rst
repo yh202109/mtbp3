@@ -98,7 +98,7 @@ The observed averaged agreement is calculated as
 
 where :math:`p_{O,i} = \frac{1}{R(R-1)} \left(\sum_{j=1}^J N_{ij}(N_{ij}-1)\right)= \frac{1}{R(R-1)} \left(\sum_{j=1}^J N_{ij}^2 - R\right)`.
 
-The expected agreement category :math:`j` is calculated as 
+The expected agreement is calculated as 
 
 .. math::
 
@@ -111,17 +111,24 @@ The Fleiss's :math:`\kappa` statistic is calculated as
 .. math::
   \kappa = \frac{\bar{p}_O - \bar{p}_E}{1-\bar{p}_E}.
 
-*************
-Example 
-*************
-
-TBA
 
 *************
 How-to 
 *************
 
-TBA
+To use ``mtbp3.statlab``:
+
+.. code:: python
+
+   import pandas as pd
+   from mtbp3.statlab import kappa
+
+   df = pdf.DataFrame({
+     'v1': [0, 9, 0, 3, 3, 4, 3, 3, 4, 3],
+     'v2': [1, 1, 10, 4, 3, 3, 4, 3, 3, 4],
+     'v3': [9, 0, 0, 3, 4, 3, 3, 4, 3, 3]
+   })
+   kappa = kappa.KappaCalculator(df, infmt='count_df')
 
 *************
 Reference
