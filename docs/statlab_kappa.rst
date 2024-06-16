@@ -35,7 +35,7 @@ Background
 *************
 
 Cohen's kappa (:math:`\kappa`) is a statistic used for describing inter-ratter reliability of two ratters (or intra-rater) with categorical rating outcomes [1]_. 
-Please note that there are also concerns of the use of :math:`\kappa` for quantifying agreement [2]_ [3]_ .
+Please note that there are also additional considerations for the use of :math:`\kappa` for quantifying agreement [2]_ [3]_ .
 
 *************
 Notation 
@@ -202,8 +202,7 @@ Interpretation suggested by McHugh (2012) [5]_:
      - Almost Perfect
      - :math:`82-100%`
 
-As discussed by Sim and Wright [6]_ , the breaks of magnitude is "inevitably arbitrary",
-and biases and other factors could have impact on the interpretation.
+As discussed by Sim and Wright [6]_ , biases and other factors could have impact on the interpretation.
 
 *************
 Example - Group-1
@@ -387,22 +386,26 @@ Output:
 Note that examples of using ``SAS/PROC FREQ`` and ``R`` package ``vcd`` for calculating :math:`kappa` can be found in reference [7]_ .
 
 *************
-Variations
+Extensions
 *************
 
 Some scenarios discussed by Hallgren (2012) [9]_ include:
 
-- the **prevalence** problem: one category has much higher percentage than other categories and cause kappa value to be low.
-- the **bias** problem: there are substantial differences in marginal distributions and cause kappa value to be high.
-- unequal importance of off-diagonal counts
+- the **prevalence** problem: one category has much higher percentage than other categories and causes :math:`\kappa` to be low.
+- the **bias** problem: there are substantial differences in marginal distributions and causes :math:`\kappa` tend to be high.
+- unequal importance
 
 (Please note that this is not an exhaustive list.)
 
 *************
-Weighted Cohen's :math:`\kappa`
+Weighted :math:`\kappa`
 *************
 
-TBA
+Let :math:`w_{j_1,j_2}` represent the weight given to total number of sample received ratings :math:`(v_{j_1}, v_{j_2})` from two raters, where :math:`j_1,j_2 \in \{1,\ldots,J\}`.
+The weighted :math:`\kappa` is calculated as
+
+.. math::
+  \kappa = 1- \frac{\sum_{j_1=1}^J\sum_{j_2=1}^J w_{j_1,j_2}N_{j_1,j_2}}{\sum_{j_1=1}^J\sum_{j_2=1}^J w_{j_1,j_2}\hat{E}_{j_1, j_2}}.
 
 *************
 Reference
