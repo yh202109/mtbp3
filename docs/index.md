@@ -17,6 +17,7 @@ example_sc_cdisc.ipynb
 example_cdtg.ipynb
 example_files.ipynb
 statlab_kappa.rst
+statlab_kappa2.rst
 
 changelog.md
 contributing.md
