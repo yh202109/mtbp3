@@ -19,7 +19,7 @@
 .. role:: red
 
 #############
-StatLab/ Fleiss's Kappa  
+StatLab/Fleiss's Kappa  
 #############
 
 :red-b:`Disclaimer:`
@@ -44,7 +44,7 @@ The value :math:`v_0` represent raters did not rate the sample :math:`i` and :ma
 Therefore, :math:`v_0` will not be included in the discussion below.
 
 .. list-table:: Count of Ratings
-   :widths: 10 10 10 10 10 10
+   :widths: 10 10 10 10 10 10 10
    :header-rows: 1
 
    * - 
@@ -96,8 +96,6 @@ Therefore, :math:`v_0` will not be included in the discussion below.
      - :math:`p_J = \frac{N_{\bullet J}}{nR}` 
      - :math:`1` 
 
-
-
 The observed averaged agreement is calculated as 
 
 .. math::
@@ -113,7 +111,6 @@ The expected agreement category :math:`j` is calculated as
   \bar{p}_E = \sum_{j=1}^J p_{E,j}^2,
 
 where :math:`p_{E,j} = \frac{N_{\bullet j}}{nR}`
-
 
 The Fleiss's :math:`\kappa` statistic is calculated as
 
