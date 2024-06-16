@@ -44,7 +44,7 @@ The value :math:`v_0` represent raters did not rate the sample :math:`i` and :ma
 Therefore, :math:`v_0` will not be included in the discussion below.
 
 .. list-table:: Count of Ratings
-   :widths: 10 10 10 10 10 10 10
+   :widths: 10 10 10 10 10 10
    :header-rows: 1
 
    * - 
@@ -54,7 +54,6 @@ Therefore, :math:`v_0` will not be included in the discussion below.
      - :math:`v_J`
      - Row Total
    * - **Sample:** 1
-     - :math:`N_{0}`
      - :math:`N_{11}`
      - :math:`N_{12}` 
      - :math:`\ldots` 
