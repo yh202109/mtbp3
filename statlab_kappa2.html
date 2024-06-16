@@ -64,7 +64,6 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">StatLab/Fleiss’s Kappa</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#background">Background</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#notation">Notation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-to">How-to</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
@@ -184,7 +183,7 @@ Therefore, <span class="math notranslate nohighlight">\(v_0\)</span> will not be
 <div class="math notranslate nohighlight">
 \[\bar{p}_O = \frac{1}{n} \sum_{i=1}^N p_{O,i},\]</div>
 <p>where <span class="math notranslate nohighlight">\(p_{O,i} = \frac{1}{R(R-1)} \left(\sum_{j=1}^J N_{ij}(N_{ij}-1)\right)= \frac{1}{R(R-1)} \left(\sum_{j=1}^J N_{ij}^2 - R\right)\)</span>.</p>
-<p>The expected agreement category <span class="math notranslate nohighlight">\(j\)</span> is calculated as</p>
+<p>The expected agreement is calculated as</p>
 <div class="math notranslate nohighlight">
 \[\bar{p}_E = \sum_{j=1}^J p_{E,j}^2,\]</div>
 <p>where <span class="math notranslate nohighlight">\(p_{E,j} = \frac{N_{\bullet j}}{nR}\)</span></p>
@@ -192,13 +191,20 @@ Therefore, <span class="math notranslate nohighlight">\(v_0\)</span> will not be
 <div class="math notranslate nohighlight">
 \[\kappa = \frac{\bar{p}_O - \bar{p}_E}{1-\bar{p}_E}.\]</div>
 </section>
-<section id="example">
-<h2>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
-<p>TBA</p>
-</section>
 <section id="how-to">
 <h2>How-to<a class="headerlink" href="#how-to" title="Link to this heading"></a></h2>
-<p>TBA</p>
+<p>To use <code class="docutils literal notranslate"><span class="pre">mtbp3.statlab</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">mtbp3.statlab</span> <span class="kn">import</span> <span class="n">kappa</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pdf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+  <span class="s1">&#39;v1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+  <span class="s1">&#39;v2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+  <span class="s1">&#39;v3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="n">kappa</span> <span class="o">=</span> <span class="n">kappa</span><span class="o">.</span><span class="n">KappaCalculator</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">infmt</span><span class="o">=</span><span class="s1">&#39;count_df&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>
