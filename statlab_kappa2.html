@@ -159,8 +159,8 @@ Therefore, <span class="math notranslate nohighlight">\(v_0\)</span> will not be
 <tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\ddots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Sample:</strong> <span class="math notranslate nohighlight">\(n\)</span></p></td>
@@ -181,7 +181,7 @@ Therefore, <span class="math notranslate nohighlight">\(v_0\)</span> will not be
 </table>
 <p>The observed averaged agreement is calculated as</p>
 <div class="math notranslate nohighlight">
-\[\bar{p}_O = \frac{1}{n} \sum_{i=1}^N p_{O,i},\]</div>
+\[\bar{p}_O = \frac{1}{n} \sum_{i=1}^n p_{O,i},\]</div>
 <p>where <span class="math notranslate nohighlight">\(p_{O,i} = \frac{1}{R(R-1)} \left(\sum_{j=1}^J N_{ij}(N_{ij}-1)\right)= \frac{1}{R(R-1)} \left(\sum_{j=1}^J N_{ij}^2 - R\right)\)</span>.</p>
 <p>The expected agreement is calculated as</p>
 <div class="math notranslate nohighlight">
@@ -193,16 +193,17 @@ Therefore, <span class="math notranslate nohighlight">\(v_0\)</span> will not be
 </section>
 <section id="how-to">
 <h2>How-to<a class="headerlink" href="#how-to" title="Link to this heading"></a></h2>
-<p>To use <code class="docutils literal notranslate"><span class="pre">mtbp3.statlab</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">mtbp3.statlab</span> <span class="kn">import</span> <span class="n">kappa</span>
+<p>To create a dataset:</p>
+<p>To use <code class="docutils literal notranslate"><span class="pre">statsmodels.stats.inter_rater</span></code> and <code class="docutils literal notranslate"><span class="pre">mtbp3.statlab</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.stats.inter_rater</span> <span class="k">as</span> <span class="nn">ir</span>
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pdf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-  <span class="s1">&#39;v1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
-  <span class="s1">&#39;v2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-  <span class="s1">&#39;v3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="p">})</span>
-<span class="n">kappa</span> <span class="o">=</span> <span class="n">kappa</span><span class="o">.</span><span class="n">KappaCalculator</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">infmt</span><span class="o">=</span><span class="s1">&#39;count_df&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fleiss&#39;s kappa (stasmodels.stats.inter_rater): &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">ir</span><span class="o">.</span><span class="n">fleiss_kappa</span><span class="p">(</span><span class="n">kappa</span><span class="o">.</span><span class="n">y_count</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fleiss&#39;s kappa (mtbp3.statlab): &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">kappa</span><span class="o">.</span><span class="n">fleiss_kappa</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Fleiss&#39;s kappa (stasmodels.stats.inter_rater): 0.6012759170653912
+Fleiss&#39;s kappa (mtbp3.statlab): 0.6012759170653912
 </pre></div>
 </div>
 </section>

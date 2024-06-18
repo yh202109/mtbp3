@@ -74,8 +74,8 @@ Therefore, :math:`v_0` will not be included in the discussion below.
    * - :math:`\vdots` 
      - :math:`\vdots`
      - :math:`\vdots`
-     - :math:`\vdots`
      - :math:`\ddots` 
+     - :math:`\vdots`
      - :math:`\vdots` 
    * - **Sample:** :math:`n`
      - :math:`N_{N1}`
@@ -94,7 +94,7 @@ The observed averaged agreement is calculated as
 
 .. math::
 
-  \bar{p}_O = \frac{1}{n} \sum_{i=1}^N p_{O,i},
+  \bar{p}_O = \frac{1}{n} \sum_{i=1}^n p_{O,i},
 
 where :math:`p_{O,i} = \frac{1}{R(R-1)} \left(\sum_{j=1}^J N_{ij}(N_{ij}-1)\right)= \frac{1}{R(R-1)} \left(\sum_{j=1}^J N_{ij}^2 - R\right)`.
 
@@ -116,19 +116,36 @@ The Fleiss's :math:`\kappa` statistic is calculated as
 How-to 
 *************
 
-To use ``mtbp3.statlab``:
+To create a dataset:
 
-.. code:: python
+.. testsetup:: 
 
-   import pandas as pd
    from mtbp3.statlab import kappa
 
-   df = pdf.DataFrame({
-     'v1': [0, 9, 0, 3, 3, 4, 3, 3, 4, 3],
-     'v2': [1, 1, 10, 4, 3, 3, 4, 3, 3, 4],
-     'v3': [9, 0, 0, 3, 4, 3, 3, 4, 3, 3]
-   })
-   kappa = kappa.KappaCalculator(df, infmt='count_df')
+   y1 = ['B'] * 70 + ['A'] * 30
+   y2 = ['A'] * 70 + ['B'] * 30
+   y3 = ['A'] * 80 + ['B'] * 10 + ['C'] * 10
+   y4 = ['B'] * 80 + ['C'] * 10 + ['A'] * 10
+   y5 = ['C'] * 80 + ['A'] * 10 + ['B'] * 10
+   data = [y1, y2, y3, y4, y5]
+   kappa = KappaCalculator(data)
+
+
+To use ``statsmodels.stats.inter_rater`` and ``mtbp3.statlab``:
+
+.. testcode::
+
+   import statsmodels.stats.inter_rater as ir
+
+   print("Fleiss's kappa (stasmodels.stats.inter_rater): "+str(ir.fleiss_kappa(kappa.y_count)))
+   print("Fleiss's kappa (mtbp3.statlab): "+str(kappa.fleiss_kappa))
+
+Output:
+
+.. testoutput::
+
+   Fleiss's kappa (stasmodels.stats.inter_rater): 0.6012759170653912
+   Fleiss's kappa (mtbp3.statlab): 0.6012759170653912
 
 *************
 Reference

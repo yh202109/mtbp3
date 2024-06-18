@@ -13,14 +13,6 @@ Submodules
    /autoapi/mtbp3/statlab/kappa/index
 
 
-Attributes
-----------
-
-.. autoapisummary::
-
-   mtbp3.statlab.y1
-
-
 Classes
 -------
 
@@ -32,7 +24,7 @@ Classes
 Package Contents
 ----------------
 
-.. py:class:: KappaCalculator(y, infmt='sample_list', stringna='')
+.. py:class:: KappaCalculator(y, infmt='sample_list', stringna='stringna')
 
    A class for calculating Cohen's kappa and Fleiss' kappa.
 
@@ -63,6 +55,4 @@ Package Contents
 
    .. py:method:: bootstrap_cohen_ci(n_iterations=1000, confidence_level=0.95, outfmt='string', out_digits=6)
 
-
-.. py:data:: y1
 
