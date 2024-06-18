@@ -156,8 +156,8 @@ Example - Group-1
      - 12
 
 
-.. list-table:: Fleiss's :math:`\kappa = -0.0909090909090909`
-   :widths: 10 10 10 10
+.. list-table:: Fleiss's :math:`\kappa` = -0.0909090909090909
+   :widths: 10 10 10 10 10
    :header-rows: 1
 
    * - 
@@ -224,6 +224,12 @@ Output:
 
    Fleiss's kappa (stasmodels.stats.inter_rater): 0.6012759170653912
    Fleiss's kappa (mtbp3.statlab): 0.6012759170653912
+
+*************
+Exercise
+*************
+
+1. Find Bootstrap CI of Fleiss's kappa.
 
 *************
 Reference
