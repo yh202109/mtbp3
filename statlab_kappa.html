@@ -231,7 +231,7 @@ and <span class="math notranslate nohighlight">\(\sum_j p_{r=1,j} = \sum_j p_{r=
 \[\kappa = \frac{p_O - p_E}{1-p_E}.\]</div>
 <p>The SE of <span class="math notranslate nohighlight">\(\kappa\)</span> is calculated as</p>
 <div class="math notranslate nohighlight">
-\[\sqrt{\frac{p_O(1-p_O)}{N_{\bullet \bullet}(1-p_E)^2}}.\]</div>
+\[\sqrt{\frac{p_O(1-p_O)}{n(1-p_E)^2}}.\]</div>
 </section>
 <section id="interpretation-of-cohen-s-kappa-suggested-in-literature">
 <h2>Interpretation of Cohen’s Kappa Suggested in Literature<a class="headerlink" href="#interpretation-of-cohen-s-kappa-suggested-in-literature" title="Link to this heading"></a></h2>
@@ -536,12 +536,12 @@ and <span class="math notranslate nohighlight">\(\sum_j p_{r=1,j} = \sum_j p_{r=
 <section id="bootstrap-ci">
 <h3>Bootstrap CI<a class="headerlink" href="#bootstrap-ci" title="Link to this heading"></a></h3>
 <p>To use <code class="docutils literal notranslate"><span class="pre">mtbp3.statlab</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="n">kappa</span><span class="o">.</span><span class="n">bootstrap_cohen_ci</span><span class="p">(</span><span class="n">n_iterations</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">confidence_level</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span> <span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="n">kappa</span><span class="o">.</span><span class="n">bootstrap_cohen_ci</span><span class="p">(</span><span class="n">n_iterations</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">confidence_level</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">out_digits</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Cohen&#39;s kappa: -0.724
-Confidence Interval (95.0%): [-0.144, 0.135]
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Cohen&#39;s kappa: -0.724138
+Confidence Interval (95.0%): [-0.907669, -0.496558]
 </pre></div>
 </div>
 <p>Note that examples of using <code class="docutils literal notranslate"><span class="pre">SAS/PROC</span> <span class="pre">FREQ</span></code> and <code class="docutils literal notranslate"><span class="pre">R</span></code> package <code class="docutils literal notranslate"><span class="pre">vcd</span></code> for calculating <span class="math notranslate nohighlight">\(\kappa\)</span> can be found in reference <a class="footnote-reference brackets" href="#id15" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a> .</p>
