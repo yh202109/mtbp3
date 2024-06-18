@@ -4,6 +4,7 @@
 ## v0.2.9 (2024-06-11)
 
 - update statlab.kappa
+- add Fleiss kappa function and example
 
 ## v0.2.8 (2024-05-13)
 
