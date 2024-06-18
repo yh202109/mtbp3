@@ -31,7 +31,7 @@ class KappaCalculator:
 
     """
 
-    def __init__(self, y, infmt='sample_list', stringna=""):
+    def __init__(self, y, infmt='sample_list', stringna="stringna"):
         """
         Initializes the KappaCalculator object.
 
@@ -62,7 +62,7 @@ class KappaCalculator:
         if infmt == 'sample_list' or infmt == 'sample_df':
             if infmt == 'sample_list':
                 self.y_list = self.__convert_2dlist_to_string(y, stringna=stringna)
-                self.y_df = pd.DataFrame(self.y_list)
+                self.y_df = pd.DataFrame(self.y_list).T
             else:
                 self.y_df = y.replace({np.nan: stringna, None: stringna})
                 self.y_df = self.y_df.applymap(lambda x: str(x) if isinstance(x, (int, float)) else x)
@@ -154,16 +154,14 @@ class KappaCalculator:
 
     @staticmethod
     def __calculate_fleiss_kappa(y):
-        tmp = np.sum(y, axis=0)
-        pEj = np.divide(tmp, np.sum(tmp))
-        Pbar_E = np.sum(pEj ** 2)
 
-        R = np.sum(y, axis=1)
-        pOi = np.divide(np.sum(y ** 2, axis=1) - R,R*(R-1))
-        Pbar_O = np.divide(np.sum(pOi), y.shape[1])
-        kappa = (Pbar_O - Pbar_E) / (1 - Pbar_E)
+        nR = y.values.sum()
+        p = y.values.sum(axis = 0)/nR
+        Pbar_E = (p ** 2).sum()
+        R = y.values.sum(axis = 1)[0]
+        Pbar_O = (((y ** 2).sum(axis=1) - R) / (R * (R - 1))).mean()
 
-        return kappa
+        return (Pbar_O - Pbar_E) / (1 - Pbar_E)
 
     def bootstrap_cohen_ci(self, n_iterations=1000, confidence_level=0.95, outfmt='string', out_digits=6):
         assert isinstance(n_iterations, int) and n_iterations > 1, "n_iterations must be an integer greater than 1"
@@ -194,7 +192,4 @@ class KappaCalculator:
             return [self.cohen_kappa, n_iterations, confidence_level, lower_bound, upper_bound]
 
 if __name__ == "__main__":
-    y1 = ['B'] * 70 + ['A'] * 30
-    y2 = ['A'] * 70 + ['B'] * 30
-    calculator = KappaCalculator([y1, y2])
-    print(calculator.bootstrap_cohen_ci(n_iterations=1000, confidence_level=0.95, out_digits=6))
+    pass
