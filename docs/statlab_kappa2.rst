@@ -111,15 +111,100 @@ The Fleiss's :math:`\kappa` statistic is calculated as
 .. math::
   \kappa = \frac{\bar{p}_O - \bar{p}_E}{1-\bar{p}_E}.
 
+*************
+Example - Group-1
+*************
+
+.. list-table:: Fleiss's :math:`\kappa = 1.0`
+   :widths: 10 10 10 10
+   :header-rows: 1
+
+   * - 
+     - :math:`v_1`
+     - :math:`v_2`
+     - :math:`v_3`
+     - :math:`v_4`
+   * - **Sample 1**
+     - 12
+     - 0
+     - 0
+     - 0
+   * - **Sample 2**
+     - 0
+     - 12
+     - 0
+     - 0
+   * - **Sample 3**
+     - 0
+     - 0
+     - 12 
+     - 0
+   * - **Sample 4**
+     - 0
+     - 0
+     - 12 
+     - 0
+   * - **Sample 5**
+     - 0
+     - 0
+     - 0
+     - 12 
+   * - **Column Total**
+     - 12 
+     - 12 
+     - 24 
+     - 12
+
+
+.. list-table:: Fleiss's :math:`\kappa = -0.0909090909090909`
+   :widths: 10 10 10 10
+   :header-rows: 1
+
+   * - 
+     - :math:`v_1`
+     - :math:`v_2`
+     - :math:`v_3`
+     - :math:`v_4`
+   * - **Sample 1**
+     - 3
+     - 3
+     - 3
+     - 3
+   * - **Sample 2**
+     - 3
+     - 3
+     - 3
+     - 3
+   * - **Sample 3**
+     - 3
+     - 3
+     - 3 
+     - 3
+   * - **Sample 4**
+     - 3
+     - 3
+     - 3 
+     - 3
+   * - **Sample 5**
+     - 3
+     - 3
+     - 3
+     - 3 
+   * - **Column Total**
+     - 15 
+     - 15 
+     - 15
+     - 15
 
 *************
 How-to 
 *************
 
-To create a dataset:
+To use both ``statsmodels.stats.inter_rater`` and ``mtbp3.statlab``:
 
-.. testsetup:: 
+.. testcode::
 
+   import statsmodels.stats.inter_rater as ir
    from mtbp3.statlab import kappa
 
    y1 = ['B'] * 70 + ['A'] * 30
@@ -129,13 +214,6 @@ To create a dataset:
    y5 = ['C'] * 80 + ['A'] * 10 + ['B'] * 10
    data = [y1, y2, y3, y4, y5]
    kappa = KappaCalculator(data)
-
-
-To use ``statsmodels.stats.inter_rater`` and ``mtbp3.statlab``:
-
-.. testcode::
-
-   import statsmodels.stats.inter_rater as ir
 
    print("Fleiss's kappa (stasmodels.stats.inter_rater): "+str(ir.fleiss_kappa(kappa.y_count)))
    print("Fleiss's kappa (mtbp3.statlab): "+str(kappa.fleiss_kappa))
