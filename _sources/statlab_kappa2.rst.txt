@@ -116,7 +116,7 @@ Example - Group-1
 *************
 
 .. list-table:: Fleiss's :math:`\kappa = 1.0`
-   :widths: 10 10 10 10
+   :widths: 10 10 10 10 10
    :header-rows: 1
 
    * - 
