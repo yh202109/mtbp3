@@ -143,7 +143,7 @@ The Cohen's :math:`\kappa` statistic is calculated as
 The SE of :math:`\kappa` is calculated as
 
 .. math::
-  \sqrt{\frac{p_O(1-p_O)}{N_{\bullet \bullet}(1-p_E)^2}}.
+  \sqrt{\frac{p_O(1-p_O)}{n(1-p_E)^2}}.
 
 *************
 Interpretation of Cohen's Kappa Suggested in Literature
@@ -373,14 +373,14 @@ To use ``mtbp3.statlab``:
 
 .. testcode::
 
-   print( kappa.bootstrap_cohen_ci(n_iterations=1000, confidence_level=0.95) )
+   print( kappa.bootstrap_cohen_ci(n_iterations=1000, confidence_level=0.95, out_digits=6) )
 
 Output:
 
 .. testoutput::
 
-   Cohen's kappa: -0.724
-   Confidence Interval (95.0%): [-0.144, 0.135]
+   Cohen's kappa: -0.724138
+   Confidence Interval (95.0%): [-0.907669, -0.496558]
 
 
 Note that examples of using ``SAS/PROC FREQ`` and ``R`` package ``vcd`` for calculating :math:`\kappa` can be found in reference [7]_ .
