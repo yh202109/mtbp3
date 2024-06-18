@@ -64,6 +64,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">StatLab/Fleiss’s Kappa</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#background">Background</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#notation">Notation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-group-1">Example - Group-1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-to">How-to</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
@@ -191,11 +192,22 @@ Therefore, <span class="math notranslate nohighlight">\(v_0\)</span> will not be
 <div class="math notranslate nohighlight">
 \[\kappa = \frac{\bar{p}_O - \bar{p}_E}{1-\bar{p}_E}.\]</div>
 </section>
+<section id="example-group-1">
+<h2>Example - Group-1<a class="headerlink" href="#example-group-1" title="Link to this heading"></a></h2>
+</section>
 <section id="how-to">
 <h2>How-to<a class="headerlink" href="#how-to" title="Link to this heading"></a></h2>
-<p>To create a dataset:</p>
-<p>To use <code class="docutils literal notranslate"><span class="pre">statsmodels.stats.inter_rater</span></code> and <code class="docutils literal notranslate"><span class="pre">mtbp3.statlab</span></code>:</p>
+<p>To use both <code class="docutils literal notranslate"><span class="pre">statsmodels.stats.inter_rater</span></code> and <code class="docutils literal notranslate"><span class="pre">mtbp3.statlab</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.stats.inter_rater</span> <span class="k">as</span> <span class="nn">ir</span>
+<span class="kn">from</span> <span class="nn">mtbp3.statlab</span> <span class="kn">import</span> <span class="n">kappa</span>
+
+<span class="n">y1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">70</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">30</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">70</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">30</span>
+<span class="n">y3</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">80</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">10</span>
+<span class="n">y4</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">80</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">10</span>
+<span class="n">y5</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">80</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">10</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">y3</span><span class="p">,</span> <span class="n">y4</span><span class="p">,</span> <span class="n">y5</span><span class="p">]</span>
+<span class="n">kappa</span> <span class="o">=</span> <span class="n">KappaCalculator</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fleiss&#39;s kappa (stasmodels.stats.inter_rater): &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">ir</span><span class="o">.</span><span class="n">fleiss_kappa</span><span class="p">(</span><span class="n">kappa</span><span class="o">.</span><span class="n">y_count</span><span class="p">)))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fleiss&#39;s kappa (mtbp3.statlab): &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">kappa</span><span class="o">.</span><span class="n">fleiss_kappa</span><span class="p">))</span>
