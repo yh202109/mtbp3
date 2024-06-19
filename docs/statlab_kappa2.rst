@@ -261,6 +261,9 @@ The equation :eq:`eq_kappa1` can be expressed as [2]_ :sup:`(Eq. 9)`,
 
 
 Note that reference [2]_ assumed large $n$ and fixed $p_j$ while deriving the variance of kappa.
+Below is a brief summary for the purpose of variance calculation. 
+Please see the reference for more detailed explanation.
+
 The variance of :math:`\kappa` under the assumption of no agreement beyond chance is:
 
 .. math::
