@@ -93,20 +93,32 @@ Therefore, :math:`v_0` will not be included in the discussion below.
 The observed averaged agreement is calculated as 
 
 .. math::
+  :label: eq_obs1
 
   \bar{p}_O = \frac{1}{n} \sum_{i=1}^n p_{O,i},
 
-where :math:`p_{O,i} = \frac{1}{R(R-1)} \left(\sum_{j=1}^J N_{ij}(N_{ij}-1)\right)= \frac{1}{R(R-1)} \left(\sum_{j=1}^J N_{ij}^2 - R\right)`.
+where 
+
+.. math::
+  :label: eq_obs2
+
+  p_{O,i} = \frac{1}{R(R-1)} \left(\sum_{j=1}^J N_{ij}(N_{ij}-1)\right)= \frac{1}{R(R-1)} \left(\sum_{j=1}^J N_{ij}^2 - R\right).
 
 The expected agreement is calculated as 
 
 .. math::
+  :label: eq_exp1
 
   \bar{p}_E = \sum_{j=1}^J p_{E,j}^2,
 
-where :math:`p_{E,j} = \frac{N_{\bullet j}}{nR}`
+where 
 
-The Fleiss's :math:`\kappa` statistic is calculated as
+.. math::
+  :label: eq_exp2
+
+  p_{E,j} = \frac{N_{\bullet j}}{nR}.
+
+The Fleiss's :math:`\kappa` statistic is calculated from :eq:`eq_obs1` and :eq:`eq_exp1` as
 
 .. math::
   \kappa = \frac{\bar{p}_O - \bar{p}_E}{1-\bar{p}_E}.
@@ -230,6 +242,7 @@ Exercise
 *************
 
 1. Find Bootstrap CI of Fleiss's kappa.
+2. Describe the relationship between :eq:`eq_exp2` and :eq:`eq_obs2`.
 
 *************
 Reference
