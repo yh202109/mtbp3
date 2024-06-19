@@ -260,9 +260,9 @@ The equation :eq:`eq_kappa1` can be expressed as [2]_ :sup:`(Eq. 9)`,
   \kappa = \frac{\sum_{i=1}^{n}\sum_{j=1}^J N_{ij}^2 - nR\left(1+(R-1)\sum_{j=1}^J p_j^2\right)}{nR(R-1)(1-\sum_{j=1}^J p_j^2)}
 
 
-Note that reference [2]_ assumed large $n$ and fixed $p_j$ while deriving the variance of kappa.
+Note that Fleiss (1971) assumed large $n$ and fixed $p_j$ while deriving the variance of kappa.
 Below is a brief summary for the purpose of variance calculation. 
-Please see the reference for more detailed explanation.
+Please see the Fleiss (1971) for more detailed explanation.
 
 The variance of :math:`\kappa` under the assumption of no agreement beyond chance is:
 
