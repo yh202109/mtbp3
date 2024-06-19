@@ -268,15 +268,14 @@ The variance of :math:`\kappa` under the assumption of no agreement beyond chanc
 
 .. math::
 
-  var(\kappa) = \frac{\sum_{i=1}{n}var\left(\sum_{j=1}^J N_{ij}^2 \right)}{(nR(R-1)(1-\sum_{j=1}^J p_j^2))^2}
+  var(\kappa) = \frac{\sum_{i=1}^n var\left(\sum_{j=1}^J N_{ij}^2 \right)}{(nR(R-1)(1-\sum_{j=1}^J p_j^2))^2}
 
 where
 
 .. math::
   :label: eq_kappa2
 
-var\left(\sum_{j=1}^J N_{ij}^2 \right)
- = E\left(\left(\sum_{j=1}^J N_{ij}^2\right)^2\right) - \left(E\left(\sum_{j=1}^J N_{ij}^2\right)\right)^2
+  var\left(\sum_{j=1}^J N_{ij}^2 \right) = E\left(\left(\sum_{j=1}^J N_{ij}^2\right)^2\right) - \left(E\left(\sum_{j=1}^J N_{ij}^2\right)\right)^2
 
 *************
 Reference
