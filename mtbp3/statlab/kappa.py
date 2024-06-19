@@ -17,6 +17,7 @@ import numpy as np
 from sklearn.utils import resample
 import pandas as pd
 
+
 class KappaCalculator:
     """
     A class for calculating Cohen's kappa and Fleiss' kappa.
@@ -144,6 +145,17 @@ class KappaCalculator:
             
     @staticmethod
     def __convert_2dlist_to_string(y=[], stringna=""):
+        """
+        Converts a 2-dimensional list to a string representation.
+
+        Parameters:
+        - y: The input list.
+        - stringna: The string representation of missing values.
+
+        Returns:
+        - The converted list.
+
+        """
         for i in range(len(y)):
             if any(isinstance(x, (int)) for x in y[i]):
                 y[i] = [str(x) if x is not None else stringna for x in y[i]]
@@ -151,6 +163,17 @@ class KappaCalculator:
 
     @staticmethod
     def __calculate_cohen_kappa(y1, y2):
+        """
+        Calculates Cohen's kappa.
+
+        Parameters:
+        - y1: The first rater's ratings.
+        - y2: The second rater's ratings.
+
+        Returns:
+        - The calculated Cohen's kappa value.
+
+        """
         total_pairs = len(y1)
         observed_agreement = sum(1 for i in range(total_pairs) if y1[i] == y2[i]) / total_pairs
         unique_labels = set(y1 + y2)
@@ -159,7 +182,16 @@ class KappaCalculator:
 
     @staticmethod
     def __calculate_fleiss_kappa(y):
+        """
+        Calculates Fleiss' kappa.
 
+        Parameters:
+        - y: The count matrix.
+
+        Returns:
+        - The calculated Fleiss' kappa value.
+
+        """
         nR = y.values.sum()
         p = y.values.sum(axis = 0)/nR
         Pbar_E = (p ** 2).sum()
@@ -169,6 +201,20 @@ class KappaCalculator:
         return (Pbar_O - Pbar_E) / (1 - Pbar_E)
 
     def bootstrap_cohen_ci(self, n_iterations=1000, confidence_level=0.95, outfmt='string', out_digits=6):
+        """
+        Calculates the bootstrap confidence interval for Cohen's kappa.
+
+        Parameters:
+        - n_iterations: The number of bootstrap iterations.
+        - confidence_level: The desired confidence level.
+        - outfmt: The output format. Allowed values are 'string' and 'list'.
+        - out_digits: The number of digits to round the output values.
+
+        Returns:
+        - If outfmt is 'string', returns a string representation of the result.
+        - If outfmt is 'list', returns a list containing the result values.
+
+        """
         assert isinstance(n_iterations, int) and n_iterations > 1, "n_iterations must be an integer greater than 1"
         assert isinstance(confidence_level, (float)) and 0 < confidence_level < 1, "confidence_level must be a number between 0 and 1"
 

@@ -1,10 +1,13 @@
 # Changelog
 
 <!--next-version-placeholder-->
-## v0.2.10 (2024-06-18)
+## v0.2.11 (2024-06-18)
 
-- bug fixed statlab.kappa
-- add Fleiss kappa function and example
+- bug fixed for statlab.kappa
+- update Fleiss kappa function and example
+- update kappa documentation
+- update na option
+- update kappa tests
 
 ## v0.2.9 (2024-06-11)
 
