@@ -108,7 +108,7 @@
 <section id="background">
 <h2>Background<a class="headerlink" href="#background" title="Link to this heading"></a></h2>
 <p>Fleiss’s kappa (<span class="math notranslate nohighlight">\(\kappa\)</span>) is a statistic used for describing inter-ratter reliability of multiple independent ratters
-with categorical rating outcomes <a class="footnote-reference brackets" href="#id6" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#id7" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
+with categorical rating outcomes <a class="footnote-reference brackets" href="#id5" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#id6" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
 </section>
 <section id="notation">
 <h2>Notation<a class="headerlink" href="#notation" title="Link to this heading"></a></h2>
@@ -196,8 +196,8 @@ Therefore, <span class="math notranslate nohighlight">\(v_0\)</span> will not be
 </section>
 <section id="example-group-1">
 <h2>Example - Group-1<a class="headerlink" href="#example-group-1" title="Link to this heading"></a></h2>
-<table class="docutils align-default" id="id8">
-<caption><span class="caption-number">Table 12 </span><span class="caption-text">Fleiss’s <span class="math notranslate nohighlight">\(\kappa = 1.0\)</span></span><a class="headerlink" href="#id8" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id7">
+<caption><span class="caption-number">Table 12 </span><span class="caption-text">Fleiss’s <span class="math notranslate nohighlight">\(\kappa = 1.0\)</span></span><a class="headerlink" href="#id7" title="Link to this table"></a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 20.0%" />
@@ -252,8 +252,8 @@ Therefore, <span class="math notranslate nohighlight">\(v_0\)</span> will not be
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default" id="id9">
-<caption><span class="caption-number">Table 13 </span><span class="caption-text">Fleiss’s <span class="math notranslate nohighlight">\(\kappa\)</span> = -0.0909090909090909</span><a class="headerlink" href="#id9" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id8">
+<caption><span class="caption-number">Table 13 </span><span class="caption-text">Fleiss’s <span class="math notranslate nohighlight">\(\kappa\)</span> = -0.0909090909090909</span><a class="headerlink" href="#id8" title="Link to this table"></a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 20.0%" />
@@ -351,17 +351,17 @@ Number of sample: 100
 probability of having agreement for a sample from two randomly selected raters estimated from <a class="reference internal" href="#tbl-count1"><span class="std std-numref">Tabel 11</span></a>.
 <a class="reference internal" href="#equation-eq-exp1">Eq. (2)</a> corresponds to the expected
 probability of having agreement for a sample from two randomly selected raters under the assumption of no agreement,
-which corresponds to the assumption of <span class="math notranslate nohighlight">\((N_{i1},\ldots, N_{iJ}) \sim multi(n, (p_1,\ldots, p_J))\)</span> <a class="footnote-reference brackets" href="#id7" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> .
+which corresponds to the assumption of <span class="math notranslate nohighlight">\((N_{i1},\ldots, N_{iJ}) \sim multi(n, (p_1,\ldots, p_J))\)</span>.
 Note that the notations in this page did not use conventional ‘hat’ to represent estimated $p_j$.</p>
-<p>The equation <a class="reference internal" href="#equation-eq-kappa1">Eq. (3)</a> can be expressed as <a class="footnote-reference brackets" href="#id7" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> <sup>(Eq. 9)</sup>,</p>
+<p>The equation <a class="reference internal" href="#equation-eq-kappa1">Eq. (3)</a> can be expressed as <a class="footnote-reference brackets" href="#id6" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> <sup>(Eq. 9)</sup>,</p>
 <div class="math notranslate nohighlight">
-\[\kappa = \frac{\sum_{i=1}{n}\sum_{j=1}^J N_{ij}^2 - nR\left(1+(R-1)\sum_{j=1}^J p_j^2\right)}{nR(R-1(1-\sum_{j=1}^J p_j^2))\]</div>
-<p>Note that reference <a class="footnote-reference brackets" href="#id7" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> assumed large $n$ and fixed $p_j$ while deriving the variance of kappa.
+\[\kappa = \frac{\sum_{i=1}^{n}\sum_{j=1}^J N_{ij}^2 - nR\left(1+(R-1)\sum_{j=1}^J p_j^2\right)}{nR(R-1)(1-\sum_{j=1}^J p_j^2)}\]</div>
+<p>Note that reference <a class="footnote-reference brackets" href="#id6" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> assumed large $n$ and fixed $p_j$ while deriving the variance of kappa.
 Below is a brief summary for the purpose of variance calculation.
 Please see the reference for more detailed explanation.</p>
 <p>The variance of <span class="math notranslate nohighlight">\(\kappa\)</span> under the assumption of no agreement beyond chance is:</p>
 <div class="math notranslate nohighlight">
-\[var(\kappa) = \frac{\sum_{i=1}^n var\left(\sum_{j=1}^J N_{ij}^2 \right)}{(nR(R-1)(1-\sum_{j=1}^J p_j^2))^2}\]</div>
+\[var(\kappa) = \frac{\sum_{i=1}^n var\left(\sum_{j=1}^J N_{ij}^2 \right)}{\left(nR(R-1)(1-\sum_{j=1}^J p_j^2)\right)^2}\]</div>
 <p>where</p>
 <div class="math notranslate nohighlight" id="equation-eq-kappa2">
 <span class="eqno">(4)<a class="headerlink" href="#equation-eq-kappa2" title="Link to this equation"></a></span>\[var\left(\sum_{j=1}^J N_{ij}^2 \right) = E\left(\left(\sum_{j=1}^J N_{ij}^2\right)^2\right) - \left(E\left(\sum_{j=1}^J N_{ij}^2\right)\right)^2\]</div>
@@ -369,13 +369,13 @@ Please see the reference for more detailed explanation.</p>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id6" role="doc-footnote">
+<aside class="footnote brackets" id="id5" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p>Wikipedia. (year). Fleiss’s kappa. <a class="reference external" href="https://en.wikipedia.org/wiki/Fleiss%27_kappa">https://en.wikipedia.org/wiki/Fleiss%27_kappa</a></p>
 </aside>
-<aside class="footnote brackets" id="id7" role="doc-footnote">
+<aside class="footnote brackets" id="id6" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id3">2</a>,<a role="doc-backlink" href="#id4">3</a>,<a role="doc-backlink" href="#id5">4</a>)</span>
+<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id3">2</a>,<a role="doc-backlink" href="#id4">3</a>)</span>
 <p>Fleiss, J. L. (1971). Measuring nominal scale agreement among many raters. Psychological Bulletin, 76(5), 378-382. <a class="reference external" href="https://doi.org/10.1037/h0031619">https://doi.org/10.1037/h0031619</a></p>
 </aside>
 </aside>
