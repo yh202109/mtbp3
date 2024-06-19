@@ -242,7 +242,7 @@ Exercise
 *************
 
 1. Find Bootstrap CI of Fleiss's kappa.
-2. Describe the relationship between :eq:`eq_exp2` and :eq:`eq_obs2`.
+2. Explain :eq:`eq_exp2` and :eq:`eq_obs2`.
 
 *************
 Reference
