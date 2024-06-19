@@ -261,8 +261,8 @@ The equation :eq:`eq_kappa1` can be expressed as [2]_ :sup:`(Eq. 9)`,
 
 
 Note that Fleiss (1971) assumed large :math:`n` and fixed :math:`p_j` while deriving the variance of kappa.
-Below is a brief summary for the purpose of variance calculation. 
-Please see the Fleiss (1971) for more detailed explanation.
+Below is a brief summary of variance calculation. 
+Please see the Fleiss (1971) for more discussions.
 
 The variance of :math:`\kappa` under the assumption of no agreement beyond chance is:
 
@@ -275,7 +275,8 @@ where
 .. math::
   :label: eq_kappa2
 
-  var\left(\sum_{j=1}^J N_{ij}^2 \right) = E\left(\left(\sum_{j=1}^J N_{ij}^2\right)^2\right) - \left(E\left(\sum_{j=1}^J N_{ij}^2\right)\right)^2
+  var\left(\sum_{j} N_{ij}^2 \right) &= E\left(\left(\sum_{j} N_{ij}^2\right)^2\right) - \left(E\left(\sum_{j} N_{ij}^2\right)\right)^2 \\
+  &= E\left(\sum_{j} N_{ij}^4 + \sum_j\sum_k N_{ij}^2 N_{ik}^2 \right) - \left(E\left(\sum_{j} N_{ij}^2\right)\right)^2
 
 *************
 Reference
