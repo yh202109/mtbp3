@@ -27,6 +27,10 @@ extensions = [
 autoapi_dirs = ["../mtbp3"]
 mathjax_path = 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
 imgmath_image_format = 'svg'
+numfig = True
+math_numfig = True
+numfig_secnum_depth = 2
+math_eqref_format = "Eq.{number}"
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
