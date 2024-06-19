@@ -46,6 +46,7 @@ Therefore, :math:`v_0` will not be included in the discussion below.
 .. list-table:: Count of Ratings
    :widths: 10 10 10 10 10 10
    :header-rows: 1
+   :name: tbl_count1
 
    * - 
      - :math:`v_1`
@@ -100,6 +101,7 @@ The observed averaged agreement is calculated as
 where 
 
 .. math::
+  :label: eq_obs2
 
   p_{O,i} = \frac{1}{R(R-1)} \left(\sum_{j=1}^J N_{ij}(N_{ij}-1)\right)= \frac{1}{R(R-1)} \left(\sum_{j=1}^J N_{ij}^2 - R\right).
 
@@ -113,12 +115,15 @@ The expected agreement is calculated as
 where 
 
 .. math::
+  :label: eq_exp2
 
   p_{E,j} = \frac{N_{\bullet j}}{nR}.
 
 The Fleiss's :math:`\kappa` statistic is calculated from :eq:`eq_obs1` and :eq:`eq_exp1` as
 
 .. math::
+  :label: eq_kappa1
+
   \kappa = \frac{\bar{p}_O - \bar{p}_E}{1-\bar{p}_E}.
 
 *************
@@ -248,8 +253,22 @@ Exercise
 1. Find Bootstrap CI of Fleiss's kappa.
 
 *************
+More Details
+*************
+
+The equations in :eq:`eq_obs2` and :eq:`eq_exp2` describe the observed and expected
+probability of having agreement for a sample from two randomly selected raters estimated from :numref:`(Tabel %s) <tbl_count1>`.
+The equation :eq:`eq_kappa1` can be expressed as [2]_ 
+
+.. math::
+  :label: eq_kappa1
+
+  \kappa = \frac{\bar{p}_O - \bar{p}_E}{1-\bar{p}_E}.
+
+*************
 Reference
 *************
 
 .. [1] Wikipedia. (year). Fleiss's kappa. https://en.wikipedia.org/wiki/Fleiss%27_kappa 
 .. [2] Fleiss, J. L. (1971). Measuring nominal scale agreement among many raters. Psychological Bulletin, 76(5), 378-382. https://doi.org/10.1037/h0031619
+
