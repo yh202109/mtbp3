@@ -69,9 +69,15 @@ class KappaCalculator:
                 self.y_list = self.y_df.values.tolist()
 
             self.y_count = self.y_df.apply(pd.Series.value_counts, axis=1).fillna(0)
+            if stringna in self.y_count.columns:
+                column_values = self.y_count[stringna].unique()
+                assert len(column_values) == 1, f"Total number in value '{stringna}' must be the same for all sample"
+                self.y_count.drop(columns=stringna, inplace=True)
+            tmp_row_sum = self.y_count.sum(axis=1) 
+            assert tmp_row_sum.eq(tmp_row_sum[0]).all(), "Total number of raters per sample must be equal"
             self.category = self.y_count.columns
-            self.n_rater = len(self.y_list)
             self.n_category = len(self.category)
+            self.n_rater = tmp_row_sum[0]
 
             if self.n_category == 2:
                 self.y_count_sq = pd.crosstab(self.y_list[0], self.y_list[1], margins = False, dropna=False)
@@ -93,12 +99,16 @@ class KappaCalculator:
             self.y_count = self.y_df.apply(pd.Series.value_counts, axis=1).fillna(0)
 
         elif infmt == 'count_df':
-            tmp_row_sum = y.sum(axis=1) 
-            assert tmp_row_sum.eq(tmp_row_sum[0]).all(), "Row sums of y must be equal"
             self.y_count = y
-            self.category = y.columns
-            self.n_rater = tmp_row_sum[0]
+            if stringna in self.y_count.columns:
+                column_values = self.y_count[stringna].unique()
+                assert len(column_values) == 1, f"All values in column '{stringna}' must be the same"
+                self.y_count.drop(columns=stringna, inplace=True)
+            tmp_row_sum = self.y_count.sum(axis=1) 
+            assert tmp_row_sum.eq(tmp_row_sum[0]).all(), "Row sums of y must be equal"
+            self.category = self.y_count.columns
             self.n_category = len(self.category)
+            self.n_rater = tmp_row_sum[0]
             self.y_count_sq= None
             self.y_list = None
             self.y_df = None
@@ -113,11 +123,6 @@ class KappaCalculator:
             self.n_category = None
             return
 
-        if self.y_count is not None:
-            if stringna in self.y_count.columns:
-                column_values = self.y_count[stringna].unique()
-                assert len(column_values) == 1, f"All values in column '{stringna}' must be the same"
-                self.y_count.drop(columns=stringna, inplace=True)
 
         if self.n_rater == 2:
             if self.y_list is not None:
@@ -192,4 +197,19 @@ class KappaCalculator:
             return [self.cohen_kappa, n_iterations, confidence_level, lower_bound, upper_bound]
 
 if __name__ == "__main__":
-    pass
+
+    import statsmodels.stats.inter_rater as ir
+
+    r1 = ['NA'] * 20 + ['B'] * 50 + ['A'] * 30
+    r2 = ['A'] * 20 + ['NA'] * 20 + ['B'] * 60
+    r3 = ['A'] * 40 + ['NA'] * 20 + ['B'] * 30 + ['C'] * 10
+    r4 = ['B'] * 60 + ['NA'] * 20 + ['C'] * 10 + ['A'] * 10
+    r5 = ['C'] * 60 + ['A'] * 10 + ['B'] * 10 + ['NA'] * 20
+    data = [r1, r2, r3, r4, r5]
+    kappa = KappaCalculator(data, stringna='NA')
+
+    print("Fleiss's kappa (stasmodels.stats.inter_rater): "+str(ir.fleiss_kappa(kappa.y_count)))
+    print("Fleiss's kappa (mtbp3.statlab): "+str(kappa.fleiss_kappa))
+    print("Number of raters per sample: "+str(kappa.n_rater))
+    print("Number of rating categories: "+str(kappa.n_category))
+    print("Number of sample: "+str(kappa.y_count.shape[0]))
