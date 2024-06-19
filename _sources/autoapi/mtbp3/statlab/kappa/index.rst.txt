@@ -4,6 +4,14 @@ mtbp3.statlab.kappa
 .. py:module:: mtbp3.statlab.kappa
 
 
+Attributes
+----------
+
+.. autoapisummary::
+
+   mtbp3.statlab.kappa.r1
+
+
 Classes
 -------
 
@@ -46,4 +54,6 @@ Module Contents
 
    .. py:method:: bootstrap_cohen_ci(n_iterations=1000, confidence_level=0.95, outfmt='string', out_digits=6)
 
+
+.. py:data:: r1
 

@@ -13,6 +13,14 @@ Submodules
    /autoapi/mtbp3/statlab/kappa/index
 
 
+Attributes
+----------
+
+.. autoapisummary::
+
+   mtbp3.statlab.r1
+
+
 Classes
 -------
 
@@ -55,4 +63,6 @@ Package Contents
 
    .. py:method:: bootstrap_cohen_ci(n_iterations=1000, confidence_level=0.95, outfmt='string', out_digits=6)
 
+
+.. py:data:: r1
 
