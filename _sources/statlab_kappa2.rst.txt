@@ -98,12 +98,7 @@ The observed averaged agreement is calculated as
 
   \bar{p}_O = \frac{1}{n} \sum_{i=1}^n p_{O,i},
 
-where 
-
-.. math::
-  :label: eq_obs2
-
-  p_{O,i} = \frac{1}{R(R-1)} \left(\sum_{j=1}^J N_{ij}(N_{ij}-1)\right)= \frac{1}{R(R-1)} \left(\sum_{j=1}^J N_{ij}^2 - R\right).
+where :math:`p_{O,i} = \frac{1}{R(R-1)} \left(\sum_{j=1}^J N_{ij}(N_{ij}-1)\right)= \frac{1}{R(R-1)} \left(\sum_{j=1}^J N_{ij}^2 - R\right)`.
 
 The expected agreement is calculated as 
 
@@ -112,12 +107,7 @@ The expected agreement is calculated as
 
   \bar{p}_E = \sum_{j=1}^J p_{E,j}^2,
 
-where 
-
-.. math::
-  :label: eq_exp2
-
-  p_{E,j} = \frac{N_{\bullet j}}{nR}.
+where :math:`p_{E,j} = \frac{N_{\bullet j}}{nR}`.
 
 The Fleiss's :math:`\kappa` statistic is calculated from :eq:`eq_obs1` and :eq:`eq_exp1` as
 
@@ -252,6 +242,38 @@ Exercise
 
 1. Find Bootstrap CI of Fleiss's kappa.
 
+*************
+More Details
+*************
+
+:eq:`eq_obs1` corresponds to the observed 
+probability of having agreement for a sample from two randomly selected raters estimated from :numref:`Tabel %s <tbl_count1>`.
+:eq:`eq_exp1` corresponds to the expected 
+probability of having agreement for a sample from two randomly selected raters under the assumption of no agreement, 
+which corresponds to the assumption of :math:`(N_{i1},\ldots, N_{iJ}) \sim multi(n, (p_1,\ldots, p_J))` [2]_ .
+Note that the notations in this page did not use conventional 'hat' to represent estimated $p_j$.
+
+The equation :eq:`eq_kappa1` can be expressed as [2]_ :sup:`(Eq. 9)`,
+
+.. math::
+
+  \kappa = \frac{\sum_{i=1}{n}\sum_{j=1}^J N_{ij}^2 - nR\left(1+(R-1)\sum_{j=1}^J p_j^2\right)}{nR(R-1(1-\sum_{j=1}^J p_j^2))
+
+
+Note that reference [2]_ assumed large $n$ and fixed $p_j$ while deriving the variance of kappa.
+The variance of :math:`\kappa` under the assumption of no agreement beyond chance is:
+
+.. math::
+
+  var(\kappa) = \frac{\sum_{i=1}{n}var\left(\sum_{j=1}^J N_{ij}^2 \right)}{(nR(R-1)(1-\sum_{j=1}^J p_j^2))^2}
+
+where
+
+.. math::
+  :label: eq_kappa2
+
+var\left(\sum_{j=1}^J N_{ij}^2 \right)
+ = E\left(\left(\sum_{j=1}^J N_{ij}^2\right)^2\right) - \left(E\left(\sum_{j=1}^J N_{ij}^2\right)\right)^2
 
 *************
 Reference
