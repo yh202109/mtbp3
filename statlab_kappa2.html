@@ -182,14 +182,18 @@ Therefore, <span class="math notranslate nohighlight">\(v_0\)</span> will not be
 </tbody>
 </table>
 <p>The observed averaged agreement is calculated as</p>
-<div class="math notranslate nohighlight">
-\[\bar{p}_O = \frac{1}{n} \sum_{i=1}^n p_{O,i},\]</div>
-<p>where <span class="math notranslate nohighlight">\(p_{O,i} = \frac{1}{R(R-1)} \left(\sum_{j=1}^J N_{ij}(N_{ij}-1)\right)= \frac{1}{R(R-1)} \left(\sum_{j=1}^J N_{ij}^2 - R\right)\)</span>.</p>
+<div class="math notranslate nohighlight" id="equation-eq-obs1">
+<span class="eqno">(1)<a class="headerlink" href="#equation-eq-obs1" title="Link to this equation"></a></span>\[\bar{p}_O = \frac{1}{n} \sum_{i=1}^n p_{O,i},\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight" id="equation-eq-obs2">
+<span class="eqno">(2)<a class="headerlink" href="#equation-eq-obs2" title="Link to this equation"></a></span>\[p_{O,i} = \frac{1}{R(R-1)} \left(\sum_{j=1}^J N_{ij}(N_{ij}-1)\right)= \frac{1}{R(R-1)} \left(\sum_{j=1}^J N_{ij}^2 - R\right).\]</div>
 <p>The expected agreement is calculated as</p>
-<div class="math notranslate nohighlight">
-\[\bar{p}_E = \sum_{j=1}^J p_{E,j}^2,\]</div>
-<p>where <span class="math notranslate nohighlight">\(p_{E,j} = \frac{N_{\bullet j}}{nR}\)</span></p>
-<p>The Fleiss’s <span class="math notranslate nohighlight">\(\kappa\)</span> statistic is calculated as</p>
+<div class="math notranslate nohighlight" id="equation-eq-exp1">
+<span class="eqno">(3)<a class="headerlink" href="#equation-eq-exp1" title="Link to this equation"></a></span>\[\bar{p}_E = \sum_{j=1}^J p_{E,j}^2,\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight" id="equation-eq-exp2">
+<span class="eqno">(4)<a class="headerlink" href="#equation-eq-exp2" title="Link to this equation"></a></span>\[p_{E,j} = \frac{N_{\bullet j}}{nR}.\]</div>
+<p>The Fleiss’s <span class="math notranslate nohighlight">\(\kappa\)</span> statistic is calculated from <a class="reference internal" href="#equation-eq-obs1">(1)</a> and <a class="reference internal" href="#equation-eq-exp1">(3)</a> as</p>
 <div class="math notranslate nohighlight">
 \[\kappa = \frac{\bar{p}_O - \bar{p}_E}{1-\bar{p}_E}.\]</div>
 </section>
@@ -336,6 +340,7 @@ Fleiss&#39;s kappa (mtbp3.statlab): 0.6012759170653912
 <h2>Exercise<a class="headerlink" href="#exercise" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>Find Bootstrap CI of Fleiss’s kappa.</p></li>
+<li><p>Describe the relationship between <a class="reference internal" href="#equation-eq-exp2">(4)</a> and <a class="reference internal" href="#equation-eq-obs2">(2)</a>.</p></li>
 </ol>
 </section>
 <section id="reference">
