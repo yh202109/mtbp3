@@ -100,7 +100,6 @@ The observed averaged agreement is calculated as
 where 
 
 .. math::
-  :label: eq_obs2
 
   p_{O,i} = \frac{1}{R(R-1)} \left(\sum_{j=1}^J N_{ij}(N_{ij}-1)\right)= \frac{1}{R(R-1)} \left(\sum_{j=1}^J N_{ij}^2 - R\right).
 
@@ -114,7 +113,6 @@ The expected agreement is calculated as
 where 
 
 .. math::
-  :label: eq_exp2
 
   p_{E,j} = \frac{N_{\bullet j}}{nR}.
 
@@ -242,7 +240,6 @@ Exercise
 *************
 
 1. Find Bootstrap CI of Fleiss's kappa.
-2. Explain :eq:`eq_exp2` and :eq:`eq_obs2`.
 
 *************
 Reference
