@@ -109,6 +109,7 @@
 <span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">resample</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
+
 <div class="viewcode-block" id="KappaCalculator">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/statlab/kappa/index.html#mtbp3.statlab.KappaCalculator">[docs]</a>
 <span class="k">class</span> <span class="nc">KappaCalculator</span><span class="p">:</span>
@@ -238,6 +239,17 @@
             
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">__convert_2dlist_to_string</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="p">[],</span> <span class="n">stringna</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Converts a 2-dimensional list to a string representation.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        - y: The input list.</span>
+<span class="sd">        - stringna: The string representation of missing values.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        - The converted list.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)):</span>
             <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]):</span>
                 <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">stringna</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
@@ -245,6 +257,17 @@
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">__calculate_cohen_kappa</span><span class="p">(</span><span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculates Cohen&#39;s kappa.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        - y1: The first rater&#39;s ratings.</span>
+<span class="sd">        - y2: The second rater&#39;s ratings.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        - The calculated Cohen&#39;s kappa value.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">total_pairs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y1</span><span class="p">)</span>
         <span class="n">observed_agreement</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">total_pairs</span><span class="p">)</span> <span class="k">if</span> <span class="n">y1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">y2</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">/</span> <span class="n">total_pairs</span>
         <span class="n">unique_labels</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">y1</span> <span class="o">+</span> <span class="n">y2</span><span class="p">)</span>
@@ -253,7 +276,16 @@
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">__calculate_fleiss_kappa</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculates Fleiss&#39; kappa.</span>
 
+<span class="sd">        Parameters:</span>
+<span class="sd">        - y: The count matrix.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        - The calculated Fleiss&#39; kappa value.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">nR</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
         <span class="n">p</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">nR</span>
         <span class="n">Pbar_E</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -265,6 +297,20 @@
 <div class="viewcode-block" id="KappaCalculator.bootstrap_cohen_ci">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/statlab/kappa/index.html#mtbp3.statlab.KappaCalculator.bootstrap_cohen_ci">[docs]</a>
     <span class="k">def</span> <span class="nf">bootstrap_cohen_ci</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_iterations</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">confidence_level</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="n">out_digits</span><span class="o">=</span><span class="mi">6</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculates the bootstrap confidence interval for Cohen&#39;s kappa.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        - n_iterations: The number of bootstrap iterations.</span>
+<span class="sd">        - confidence_level: The desired confidence level.</span>
+<span class="sd">        - outfmt: The output format. Allowed values are &#39;string&#39; and &#39;list&#39;.</span>
+<span class="sd">        - out_digits: The number of digits to round the output values.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        - If outfmt is &#39;string&#39;, returns a string representation of the result.</span>
+<span class="sd">        - If outfmt is &#39;list&#39;, returns a list containing the result values.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n_iterations</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="n">n_iterations</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;n_iterations must be an integer greater than 1&quot;</span>
         <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">confidence_level</span><span class="p">,</span> <span class="p">(</span><span class="nb">float</span><span class="p">))</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">confidence_level</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;confidence_level must be a number between 0 and 1&quot;</span>
 

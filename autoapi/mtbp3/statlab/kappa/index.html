@@ -147,22 +147,48 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="mtbp3.statlab.kappa.KappaCalculator.__convert_2dlist_to_string">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__convert_2dlist_to_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stringna</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mtbp3.statlab.kappa.KappaCalculator.__convert_2dlist_to_string" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Converts a 2-dimensional list to a string representation.</p>
+<p>Parameters:
+- y: The input list.
+- stringna: The string representation of missing values.</p>
+<p>Returns:
+- The converted list.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mtbp3.statlab.kappa.KappaCalculator.__calculate_cohen_kappa">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__calculate_cohen_kappa</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mtbp3.statlab.kappa.KappaCalculator.__calculate_cohen_kappa" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Calculates Cohen’s kappa.</p>
+<p>Parameters:
+- y1: The first rater’s ratings.
+- y2: The second rater’s ratings.</p>
+<p>Returns:
+- The calculated Cohen’s kappa value.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mtbp3.statlab.kappa.KappaCalculator.__calculate_fleiss_kappa">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__calculate_fleiss_kappa</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mtbp3.statlab.kappa.KappaCalculator.__calculate_fleiss_kappa" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Calculates Fleiss’ kappa.</p>
+<p>Parameters:
+- y: The count matrix.</p>
+<p>Returns:
+- The calculated Fleiss’ kappa value.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mtbp3.statlab.kappa.KappaCalculator.bootstrap_cohen_ci">
 <span class="sig-name descname"><span class="pre">bootstrap_cohen_ci</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_iterations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confidence_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.95</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'string'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_digits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/statlab/kappa.html#KappaCalculator.bootstrap_cohen_ci"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.statlab.kappa.KappaCalculator.bootstrap_cohen_ci" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Calculates the bootstrap confidence interval for Cohen’s kappa.</p>
+<p>Parameters:
+- n_iterations: The number of bootstrap iterations.
+- confidence_level: The desired confidence level.
+- outfmt: The output format. Allowed values are ‘string’ and ‘list’.
+- out_digits: The number of digits to round the output values.</p>
+<p>Returns:
+- If outfmt is ‘string’, returns a string representation of the result.
+- If outfmt is ‘list’, returns a list containing the result values.</p>
+</dd></dl>
 
 </dd></dl>
 
