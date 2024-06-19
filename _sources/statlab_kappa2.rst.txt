@@ -252,18 +252,6 @@ Exercise
 
 1. Find Bootstrap CI of Fleiss's kappa.
 
-*************
-More Details
-*************
-
-The equations in :eq:`eq_obs2` and :eq:`eq_exp2` describe the observed and expected
-probability of having agreement for a sample from two randomly selected raters estimated from :numref:`(Tabel %s) <tbl_count1>`.
-The equation :eq:`eq_kappa1` can be expressed as [2]_ 
-
-.. math::
-  :label: eq_kappa1
-
-  \kappa = \frac{\bar{p}_O - \bar{p}_E}{1-\bar{p}_E}.
 
 *************
 Reference
