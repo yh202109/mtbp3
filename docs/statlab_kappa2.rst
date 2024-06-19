@@ -217,23 +217,29 @@ To use both ``statsmodels.stats.inter_rater`` and ``mtbp3.statlab``:
    import statsmodels.stats.inter_rater as ir
    from mtbp3.statlab import kappa
 
-   y1 = ['B'] * 70 + ['A'] * 30
-   y2 = ['A'] * 70 + ['B'] * 30
-   y3 = ['A'] * 80 + ['B'] * 10 + ['C'] * 10
-   y4 = ['B'] * 80 + ['C'] * 10 + ['A'] * 10
-   y5 = ['C'] * 80 + ['A'] * 10 + ['B'] * 10
-   data = [y1, y2, y3, y4, y5]
-   kappa = KappaCalculator(data)
+   r1 = ['NA'] * 20 + ['B'] * 50 + ['A'] * 30
+   r2 = ['A'] * 20 + ['NA'] * 20 + ['B'] * 60
+   r3 = ['A'] * 40 + ['NA'] * 20 + ['B'] * 30 + ['C'] * 10
+   r4 = ['B'] * 60 + ['NA'] * 20 + ['C'] * 10 + ['A'] * 10
+   r5 = ['C'] * 60 + ['A'] * 10 + ['B'] * 10 + ['NA'] * 20
+   data = [r1, r2, r3, r4, r5]
+   kappa = KappaCalculator(data, stringna='NA')
 
    print("Fleiss's kappa (stasmodels.stats.inter_rater): "+str(ir.fleiss_kappa(kappa.y_count)))
    print("Fleiss's kappa (mtbp3.statlab): "+str(kappa.fleiss_kappa))
+   print("Number of raters per sample: "+str(kappa.n_rater))
+   print("Number of rating categories: "+str(kappa.n_category))
+   print("Number of sample: "+str(kappa.y_count.shape[0]))
 
 Output:
 
 .. testoutput::
 
-   Fleiss's kappa (stasmodels.stats.inter_rater): 0.6012759170653912
-   Fleiss's kappa (mtbp3.statlab): 0.6012759170653912
+   Fleiss's kappa (stasmodels.stats.inter_rater): -0.14989733059548255
+   Fleiss's kappa (mtbp3.statlab): -0.14989733059548255
+   Number of raters per sample: 4.0
+   Number of rating categories: 3
+   Number of sample: 100
 
 *************
 Exercise
