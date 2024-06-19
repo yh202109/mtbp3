@@ -251,7 +251,7 @@ probability of having agreement for a sample from two randomly selected raters e
 :eq:`eq_exp1` corresponds to the expected 
 probability of having agreement for a sample from two randomly selected raters under the assumption of no agreement, 
 which corresponds to the assumption of :math:`(N_{i1},\ldots, N_{iJ}) \sim multi(n, (p_1,\ldots, p_J))`.
-Note that the notations in this page did not use conventional 'hat' to represent estimated $p_j$.
+Note that the notations in this page did not use conventional 'hat' to represent estimated :math:`p_j`.
 
 The equation :eq:`eq_kappa1` can be expressed as [2]_ :sup:`(Eq. 9)`,
 
