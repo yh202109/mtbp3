@@ -272,7 +272,7 @@ where
 
 .. math::
 
-  c(n,R,\{p_j\}) = \frac{1}{n\left(R(R-1)(1-\sum_{j=1}^J p_j^2)\right)^2} \\
+  c(n,R,\{p_j\}) = n^{-1}\left(R(R-1)(1-\sum_{j=1}^J p_j^2)\right)^{-2}
 
 and 
 
