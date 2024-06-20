@@ -280,7 +280,7 @@ and
   :label: eq_kappa2
 
   var\left(\sum_{j} N_{ij}^2 \right) &= E\left(\left(\sum_{j} N_{ij}^2\right)^2\right) - \left(E\left(\sum_{j} N_{ij}^2\right)\right)^2 \\
-  &= E\left(\sum_{j} N_{ij}^4 + \sum_j\sum_k N_{ij}^2 N_{ik}^2 \right) - \left(E\left(\sum_{j} N_{ij}^2\right)\right)^2 \\
+  &= E\left(\sum_{j} N_{ij}^4\right) + E\left(\sum_j\sum_k N_{ij}^2 N_{ik}^2 \right) - \left(E\left(\sum_{j} N_{ij}^2\right)\right)^2 \\
 
 *************
 Lab Exercise
