@@ -282,7 +282,8 @@ and
   var\left(\sum_{j} N_{ij}^2 \right) 
   =& E\left(\sum_{j} N_{ij}^4\right) + E\left(\sum_j\sum_k N_{ij}^2 N_{ik}^2 \right) - \left(E\left(\sum_{j} N_{ij}^2\right)\right)^2 \\
   =&  R + R(R-1)\left(7\sum_j p_j^2 + 6(R-2)\sum_j p_j^3 + (R-2)(R-3)\sum_j p_j^4\right) \\
-   & + R(R-1) + R(R-1)\left((2R-5)\sum_jp_j^2+(R-2)(R-3)\left(\sum_j p_j^2\right)^2 -2(R-1)\sum_jp_j^2 - (R-2)(R-3)\sum_jp_j^4\right) \\
+   & + R(R-1)  \\
+   & + R(R-1)\left((2R-5)\sum_jp_j^2+(R-2)(R-3)\left(\sum_j p_j^2\right)^2 -2(R-1)\sum_jp_j^2 - (R-2)(R-3)\sum_jp_j^4\right) \\
    & + R^2 + R(R-1)\left(2R\sum_j p_j^2 + R(R-1)\left(\sum_jp_j^2\right)^2\right) \\
   =& 2R(R-1)\left(\sum_j p_j^2 - (2R-3)(\sum_j p_j^2)^2 + 2(R-2)\sum_j p_j^3\right).
 
