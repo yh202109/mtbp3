@@ -266,21 +266,21 @@ The variance of :math:`\kappa` under the assumption of no agreement beyond chanc
 
 .. math::
 
-  var(\kappa) = c(n,R,p_j) var\left(\sum_{j=1}^J N_{1j}^2 \right)
+  var(\kappa) = c(n,R,\{p_j\}) var\left(\sum_{j=1}^J N_{1j}^2 \right)
 
 where
 
 .. math::
 
-  c(n,R,\{p_j\}) = n^{-1}\left(R(R-1)(1-\sum_{j=1}^J p_j^2)\right)^{-2}
+  c(n,R,\{p_j\}) = n^{-1}\left(R(R-1)\left(1-\sum_{j=1}^J p_j^2\right)\right)^{-2}
 
 and 
 
 .. math::
   :label: eq_kappa2
 
-  var\left(\sum_{j} N_{ij}^2 \right) &= E\left(\left(\sum_{j} N_{ij}^2\right)^2\right) - \left(E\left(\sum_{j} N_{ij}^2\right)\right)^2 \\
-  &= E\left(\sum_{j} N_{ij}^4\right) + E\left(\sum_j\sum_k N_{ij}^2 N_{ik}^2 \right) - \left(E\left(\sum_{j} N_{ij}^2\right)\right)^2 \\
+  var\left(\sum_{j} N_{ij}^2 \right) 
+  =& E\left(\sum_{j} N_{ij}^4\right) + E\left(\sum_j\sum_k N_{ij}^2 N_{ik}^2 \right) - \left(E\left(\sum_{j} N_{ij}^2\right)\right)^2 \\
 
 *************
 Lab Exercise
