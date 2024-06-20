@@ -284,14 +284,14 @@ and
   =&  R + R(R-1)\left(7\sum_j p_j^2 + 6(R-2)\sum_j p_j^3 + (R-2)(R-3)\sum_j p_j^4\right) \\
    & + R(R-1)  \\
    & + R(R-1)\left((2R-5)\sum_jp_j^2+(R-2)(R-3)\left(\sum_j p_j^2\right)^2 -2(R-1)\sum_jp_j^2 - (R-2)(R-3)\sum_jp_j^4\right) \\
-   & + R^2 + R(R-1)\left(2R\sum_j p_j^2 + R(R-1)\left(\sum_jp_j^2\right)^2\right) \\
+   & - R^2 + R(R-1)\left(2R\sum_j p_j^2 + R(R-1)\left(\sum_jp_j^2\right)^2\right) \\
   =& 2R(R-1)\left(\sum_j p_j^2 - (2R-3)\left(\sum_j p_j^2\right)^2 + 2(R-2)\sum_j p_j^3\right).
 
 *************
 Lab Exercise
 *************
 
-2. Find :math:`Cov(y_{i1},y_{i2})` under no agreement assumption.
+2. Find :math:`Cov(N_{i1},N_{i2})` under no agreement assumption.
 
 *************
 Reference
