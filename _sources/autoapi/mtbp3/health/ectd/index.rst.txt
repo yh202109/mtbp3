@@ -9,23 +9,11 @@ Classes
 
 .. autoapisummary::
 
-   mtbp3.health.ectd.ListTree
    mtbp3.health.ectd.ctoc_by_fda
 
 
 Module Contents
 ---------------
-
-.. py:class:: ListTree(lst=[], label=[], infmt='path')
-
-   .. py:method:: __list_tree_df()
-
-
-   .. py:method:: __list_tree_pre(to_right=False)
-
-
-   .. py:method:: list_tree(to_right=False)
-
 
 .. py:class:: ctoc_by_fda(ectd_version='3.2.2', ctoc_version='2.3.3')
 

@@ -109,7 +109,7 @@
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <div class="viewcode-block" id="diff_2cols_in_1df">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.health.ectd.diff_2cols_in_1df">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.diff_2cols_in_1df">[docs]</a>
 <span class="k">def</span> <span class="nf">diff_2cols_in_1df</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">col1</span><span class="o">=</span><span class="s1">&#39;ARM&#39;</span><span class="p">,</span> <span class="n">col2</span><span class="o">=</span><span class="s1">&#39;ACTARM&#39;</span><span class="p">,</span> <span class="n">keep_diff_only</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculate the difference between two columns in a DataFrame.</span>
@@ -153,7 +153,7 @@
 
         
 <div class="viewcode-block" id="diff_2cols_in_2df">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.health.ectd.diff_2cols_in_2df">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.diff_2cols_in_2df">[docs]</a>
 <span class="k">def</span> <span class="nf">diff_2cols_in_2df</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">gp</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Check if a column exists in both dataframes.</span>
@@ -199,7 +199,7 @@
 
 
 <div class="viewcode-block" id="summarize_1nc_by_2group">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.health.ectd.summarize_1nc_by_2group">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.summarize_1nc_by_2group">[docs]</a>
 <span class="k">def</span> <span class="nf">summarize_1nc_by_2group</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">group_col0</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">group_col1</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">to_cat</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Create a summary dataframe that shows the percentage of NaN values and values less than a cutoff point in a numerical column.</span>
@@ -267,7 +267,7 @@
 
 
 <div class="viewcode-block" id="ListTree">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.health.ectd.ListTree">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.ListTree">[docs]</a>
 <span class="k">class</span> <span class="nc">ListTree</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lst</span><span class="o">=</span><span class="p">[],</span> <span class="n">label</span><span class="o">=</span><span class="p">[],</span> <span class="n">infmt</span><span class="o">=</span><span class="s1">&#39;path&#39;</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">lst</span> <span class="o">=</span> <span class="n">lst</span>
@@ -393,7 +393,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">prelst</span> <span class="o">=</span> <span class="n">prelst</span>
     
 <div class="viewcode-block" id="ListTree.list_tree">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.health.ectd.ListTree.list_tree">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.ListTree.list_tree">[docs]</a>
     <span class="k">def</span> <span class="nf">list_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">to_right</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__list_tree_pre</span><span class="p">(</span><span class="n">to_right</span><span class="o">=</span><span class="n">to_right</span><span class="p">)</span>
         
