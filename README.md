@@ -4,6 +4,7 @@
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/mtbp3)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Tests Status](./_static/reports/junit/tests-badge.svg?dummy=8484744)](./_static/reports/junit/report.html)
+[![Coverage Status](./_static/reports/coverage/coverage-badge.svg?dummy=8484744)](./_static/reports/coverage/coverage.xml)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/yh202109/mtbp3supp/main?filepath=binder/example_emt3_appendix.ipynb)
 
 My tool box in Python.
