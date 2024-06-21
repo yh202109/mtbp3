@@ -19,6 +19,7 @@ sphinx-autoapi = { version = "*", optional = false }
 sphinx_rtd_theme = { version = "*", optional = false }
 pytest = { version = "*", optional = false }
 pytest-html = { version = "*", optional = false }
+coverage = { version = "*", optional = false }
 genbadge = { version = "*", optional = false }
 matplotlib = { version = "*", optional = false }
 seaborn = { version = ">=0.13.2", optional = false }
