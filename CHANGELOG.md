@@ -1,6 +1,10 @@
 # Changelog
 
 <!--next-version-placeholder-->
+## v0.2.12 (2024-06-00)
+
+- add proof of kappa variance
+
 ## v0.2.11 (2024-06-18)
 
 - bug fixed for statlab.kappa
