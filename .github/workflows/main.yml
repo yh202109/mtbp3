@@ -39,7 +39,7 @@ jobs:
 
       - name: Tests badge
         run: |
-          genbadge tests -i _static/reports/junit/junit.xml -o _static/reports/junit/tests-badge.svg
+          poetry run genbadge tests -i _static/reports/junit/junit.xml -o _static/reports/junit/tests-badge.svg
           cp _static/reports/junit/tests-badge.svg docs/_static/reports/junit
           cp _static/reports/junit/report.html docs/_static/reports/junit
 
