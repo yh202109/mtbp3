@@ -35,7 +35,7 @@ Kendall's tau (:math:`\tau`) is a statistic used for measuring rank correlation 
 Notation 
 *************
 
-Let :math:`Y_{i1}` and :math:`Y_{i2}` be a pair of random variables corresponding to the :math:`i` th sample where :math:`i = 1, \ldots, n`.
+Let :math:`(Y_{i1}, Y_{i2})` be a pair of random variables corresponding to the :math:`i` th sample where :math:`i = 1, \ldots, n`.
 
 .. list-table:: Observed Value
    :widths: 10 10 10 
@@ -63,9 +63,25 @@ The coefficient :math:`\tau` (tau-a) can be calculated as
 .. math::
   :label: eq_tau1
 
-  \tau =& \frac{2}{n(n-1)} \left( \sum_{i=1}^n \sum_{j < n} sign(Y_{i1}-Y_{j1})sign(Y_{i2}-Y_{j2}) \right) \\
-  =& \frac{2}{n(n-1)} \left( 2\sum_{i=1}^n \sum_{j < n} I(sign(Y_{i1}-Y_{j1})sign(Y_{i2}-Y_{j2})=1)-\frac{n(n-1)}{2} \right).
+  \tau = \frac{2}{n(n-1)} \left( \sum_{i=1}^n \sum_{j < n} sign(Y_{i1}-Y_{j1})sign(Y_{i2}-Y_{j2}) \right),
 
+Let :math:`c = \sum_{i=1}^n \sum_{j < n} I(sign(Y_{i1}-Y_{j1})sign(Y_{i2}-Y_{j2})=1)`,
+:math:`d = \sum_{i=1}^n \sum_{j < n} I(sign(Y_{i1}-Y_{j1})sign(Y_{i2}-Y_{j2})=-1)`
+and :math:`t = \frac{n(n-1)}{2}`.
+:eq:`eq_tau1` can be expressed as 
+
+.. math::
+  :label: eq_tau2
+
+  \tau = \frac{ c - d }{t}.
+
+If there were no ties, :eq:`eq_tau2` can be expressed as 
+
+.. math::
+
+  \tau = \frac{ 2c - t }{t}.
+
+The maximum value of :eq:`eq_tau1` is 1 at :math:`c=t`, and the minimum is -1 at :math:`d=t`
 
 
 *************
