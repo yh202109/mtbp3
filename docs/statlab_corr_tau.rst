@@ -53,7 +53,7 @@ Let :math:`Y_{i1}` and :math:`Y_{i2}` be a pair of independent random variables 
    * - **Sample:** 2
      - :math:`Y_{21}` 
      - :math:`Y_{22}` 
-     - :math:`Z_2 = \sum_{j \ln 2} sign(Y_{21}-Y_{j1})sign(Y_{22}-Y_{j2})`
+     - :math:`Z_2 = \sum_{j < 2} sign(Y_{21}-Y_{j1})sign(Y_{22}-Y_{j2})`
    * - :math:`\vdots` 
      - :math:`\vdots`
      - :math:`\vdots`
@@ -61,7 +61,7 @@ Let :math:`Y_{i1}` and :math:`Y_{i2}` be a pair of independent random variables 
    * - **Sample:** :math:`n`
      - :math:`Y_{n1}`
      - :math:`Y_{n2}` 
-     - :math:`Z_2 = \sum_{j \ln n} sign(Y_{21}-Y_{j1})sign(Y_{22}-Y_{j2})`
+     - :math:`Z_2 = \sum_{j < n} sign(Y_{21}-Y_{j1})sign(Y_{22}-Y_{j2})`
 
 The coefficient tau is calculated as 
 
