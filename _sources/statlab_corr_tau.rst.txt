@@ -29,7 +29,7 @@ StatLab/Corr/Kendall's tau
 Background
 *************
 
-Kendall's tau (:math:`\tau`) is a statistic used for measuring rank correlation [1]_. 
+Kendall's tau (:math:`\tau`) is a statistic used for measuring rank correlation [1]_ [2]_. 
 
 *************
 Notation 
@@ -63,7 +63,9 @@ The coefficient :math:`\tau` (tau-a) can be calculated as
 .. math::
   :label: eq_tau1
 
-  \tau = \frac{2}{n(n-1)} \left( \sum_{i=1}^n \sum_{j < n} sign(Y_{i1}-Y_{j1})sign(Y_{i2}-Y_{j2}) \right).
+  \tau =& \frac{2}{n(n-1)} \left( \sum_{i=1}^n \sum_{j < n} sign(Y_{i1}-Y_{j1})sign(Y_{i2}-Y_{j2}) \right) \\
+  =& \frac{2}{n(n-1)} \left( 2\sum_{i=1}^n \sum_{j < n} I(sign(Y_{i1}-Y_{j1})sign(Y_{i2}-Y_{j2})=1)-\frac{n(n-1)}{2} \right).
+
 
 
 *************
@@ -110,7 +112,7 @@ Example - Group-1
 How-to 
 *************
 
-To use ``scipy.stats`` [2]_:
+To use ``scipy.stats`` [3]_:
 
 .. code:: python
 
@@ -126,5 +128,6 @@ Reference
 *************
 
 .. [1] Wikipedia. (year). Kendall rank correlation coefficient. https://en.wikipedia.org/wiki/Kendall_rank_correlation_coefficient
+.. [2] Encyclopedia of Mathematics. (yeawr). Kendall tau metric. https://encyclopediaofmath.org/index.php?title=Kendall_tau_metric
 .. [2] Scipy. (year). kendalltau. https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kendalltau.html
 
