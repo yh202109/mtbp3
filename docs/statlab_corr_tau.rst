@@ -54,7 +54,7 @@ Note that we assume data are sorted, and the conventional "()" is not used in th
    * - **Sample:** 2
      - :math:`Y_{21}` 
      - :math:`Y_{22}` 
-     - :math:`Z_2 = \sum_{i<2} I(sign(Y_{21}-Y_{11})sign(Y_{22}-Y_{12)=1)`
+     - :math:`Z_2 = \sum_{i<2} sign(Y_{21}-Y_{11})sign(Y_{22}-Y_{12)`
    * - :math:`\vdots` 
      - :math:`\vdots`
      - :math:`\vdots`
@@ -62,7 +62,7 @@ Note that we assume data are sorted, and the conventional "()" is not used in th
    * - **Sample:** :math:`n`
      - :math:`Y_{n1}`
      - :math:`Y_{n2}` 
-     - :math:`Z_2 = \sum_{i<n} I(sign(Y_{21}-Y_{11})sign(Y_{22}-Y_{12)=1)`
+     - :math:`Z_2 = \sum_{i<n} sign(Y_{21}-Y_{11})sign(Y_{22}-Y_{12)=1`
 
 The coefficient tau is calculated as 
 
