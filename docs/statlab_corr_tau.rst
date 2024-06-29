@@ -29,7 +29,7 @@ StatLab/Corr/Kendall's tau
 Background
 *************
 
-Kendall's tau (:math:`\tau`) is a statistic used for measuring rank correlation [1]_ [2]_. 
+Kendall's tau (:math:`\tau`) is a statistic used for measuring rank correlation [1]_ [2]_ . 
 
 *************
 Notation 
@@ -72,7 +72,6 @@ The coefficient :math:`\tau` (tau-a) can be calculated as
 :eq:`eq_tau1` can also be expressed as 
 
 .. math::
-  :label: eq_tau2
 
   \tau = \frac{2}{n(n-1)} \left( \sum_{i=1}^n \sum_{j < n} Z_{ij} \right),
 
