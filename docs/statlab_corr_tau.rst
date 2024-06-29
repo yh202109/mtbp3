@@ -69,7 +69,7 @@ The coefficient :math:`\tau` (tau-a) can be calculated as
 
   \tau = \frac{ c - d }{t}.
 
-:eq:`eq_tau1` can be calculated as 
+:eq:`eq_tau1` can also be expressed as 
 
 .. math::
   :label: eq_tau2
@@ -77,13 +77,7 @@ The coefficient :math:`\tau` (tau-a) can be calculated as
   \tau = \frac{2}{n(n-1)} \left( \sum_{i=1}^n \sum_{j < n} Z_{ij} \right),
 
 
-If there were no ties, :eq:`eq_tau1` can be expressed as 
-
-.. math::
-
-  \tau = \frac{ 2c - t }{t}.
-
-The maximum value of :eq:`eq_tau1` is 1 at :math:`c=t`, and the minimum is -1 at :math:`d=t`
+If there were no ties, the maximum value of :eq:`eq_tau1` is 1 at :math:`c=t`, and the minimum is -1 at :math:`d=t`
 
 
 *************
