@@ -58,7 +58,7 @@ Let :math:`Y_{i1}` and :math:`Y_{i2}` be a pair of independent random variables 
      - :math:`Y_{n1}`
      - :math:`Y_{n2}` 
 
-The coefficient :math:`\tau` can be calculated as 
+The coefficient :math:`\tau` (tau-a) can be calculated as 
 
 .. math::
   :label: eq_tau1
@@ -110,7 +110,7 @@ Example - Group-1
 How-to 
 *************
 
-To use ``scipy.stats``:
+To use ``scipy.stats`` [2]_:
 
 .. code:: python
 
@@ -126,4 +126,5 @@ Reference
 *************
 
 .. [1] Wikipedia. (year). Kendall rank correlation coefficient. https://en.wikipedia.org/wiki/Kendall_rank_correlation_coefficient
+.. [2] Scipy. (year). kendalltau. https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kendalltau.html
 
