@@ -29,7 +29,7 @@ StatLab/Corr/Kendall's tau
 Background
 *************
 
-Kendall's tau (:math:`\tau`) is a statistic used for measuring rank correlation [1]_ [2]_ . 
+Kendall's tau (:math:`\tau`) is a statistic used for measuring rank correlation [1]_ [2]_. 
 
 *************
 Notation 
@@ -130,7 +130,7 @@ Example - Group-1
 How-to 
 *************
 
-To use ``scipy.stats`` [3]_ :
+To use ``scipy.stats`` [3]_:
 
 .. code:: python
 
@@ -147,5 +147,5 @@ Reference
 
 .. [1] Wikipedia. (year). Kendall rank correlation coefficient. https://en.wikipedia.org/wiki/Kendall_rank_correlation_coefficient
 .. [2] Encyclopedia of Mathematics. (yeawr). Kendall tau metric. https://encyclopediaofmath.org/index.php?title=Kendall_tau_metric
-.. [2] Scipy. (year). kendalltau. https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kendalltau.html
+.. [3] Scipy. (year). kendalltau. https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kendalltau.html
 
