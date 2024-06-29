@@ -85,7 +85,7 @@ Under independent sample assumption, we know that
 :math:`Var(Z_{ij1})=Var(Z_{ij2})=1-\frac{1}{n}`. 
 From :eq:`eq_tau2`, we can see that :math:`\tau` is a rank correlation coefficient.
 
-If there are no ties, the maximum value of :eq:`eq_tau1` becomes less then 1. 
+If there are ties, the maximum value of :eq:`eq_tau1` becomes less then 1. 
 Consider the scenario that there are :math:`n_{t1}` ties in :math:`\{Y_{i1}\}`,
 and there are :math:`n_{t2}` ties in :math:`\{Y_{i2}\}`.
 
