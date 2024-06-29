@@ -19,7 +19,7 @@
 .. role:: red
 
 #############
-StatLab/Corr/Kendall's tau coefficient 
+StatLab/Corr/Kendall's tau 
 #############
 
 :red-b:`Disclaimer:`
@@ -35,7 +35,7 @@ Kendall's tau (:math:`\tau`) is a statistic used for measuring rank correlation 
 Notation 
 *************
 
-Let :math:`Y_{i1}` and :math:`Y_{i2}` be a pair of independent random variables corresponding to the :math:`i` th sample where :math:`i = 1, \ldots, n`.
+Let :math:`Y_{i1}` and :math:`Y_{i2}` be a pair of random variables corresponding to the :math:`i` th sample where :math:`i = 1, \ldots, n`.
 
 .. list-table:: Observed Value
    :widths: 10 10 10 
