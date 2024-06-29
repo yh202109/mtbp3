@@ -59,8 +59,8 @@ Let :math:`(Y_{i1}, Y_{i2})` be a pair of random variables corresponding to the 
      - :math:`Y_{n2}` 
 
 Let :math:`Z_{ij1} \equiv sign(Y_{i1}-Y_{j1})`, :math:`Z_{ij2} \equiv sign(Y_{i2}-Y_{j2})`,
-:math:`c = \sum_{i=1}^n \sum_{j < n} I(Z_{ij1}Z_{ij2}=1)`,
-:math:`d = \sum_{i=1}^n \sum_{j < n} I(Z_{ij1}Z_{ij2}=-1)`
+:math:`c = \sum_{i=1}^n \sum_{j < i} I(Z_{ij1}Z_{ij2}=1)`,
+:math:`d = \sum_{i=1}^n \sum_{j < i} I(Z_{ij1}Z_{ij2}=-1)`
 and :math:`t = \frac{n(n-1)}{2}`.
 The coefficient :math:`\tau` (tau-a) can be calculated as 
 
@@ -85,6 +85,9 @@ Under independent sample assumption, we know that
 :math:`Var(Z_{ij1})=Var(Z_{ij2})=1-\frac{1}{n}`. 
 From :eq:`eq_tau2`, we can see that :math:`\tau` is a rank correlation coefficient.
 
+If there are no ties, the maximum value of :eq:`eq_tau1` becomes less then 1. 
+Consider the scenario that there are :math:`n_{t1}` ties in :math:`\{Y_{i1}\}`,
+and there are :math:`n_{t2}` ties in :math:`\{Y_{i2}\}`.
 
 
 *************
