@@ -69,7 +69,8 @@ The coefficient :math:`\tau` (tau-a) can be calculated as
 
   \tau = \frac{ c - d }{t}.
 
-If there were no ties, the maximum value of :eq:`eq_tau1` is 1 at :math:`c=t`, and the minimum is -1 at :math:`d=t`
+If there are no ties, the maximum value of :eq:`eq_tau1` is 1 at :math:`c=t`, 
+and the minimum is -1 at :math:`d=t`.
 
 :eq:`eq_tau1` can also be expressed as 
 
@@ -82,7 +83,7 @@ If there were no ties, the maximum value of :eq:`eq_tau1` is 1 at :math:`c=t`, a
 Under independent sample assumption, we know that 
 :math:`E(Z_{ij1})=E(Z_{ij2})=0` and 
 :math:`Var(Z_{ij1})=Var(Z_{ij2})=1-\frac{1}{n}`. 
-Therefore, we can see that :eq:`eq_tau1` is a rank correlation coefficient.
+From :eq:`eq_tau2`, we can see that :math:`\tau` is a rank correlation coefficient.
 
 
 
