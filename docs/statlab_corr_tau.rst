@@ -77,7 +77,7 @@ If there were no ties, the maximum value of :eq:`eq_tau1` is 1 at :math:`c=t`, a
   :label: eq_tau2
 
   \tau =& \frac{2}{n(n-1)} \left( \sum_{i=1}^n \sum_{j < i} Z_{ij1}Z_{ij2} \right) \\
-  =& \frac{1}{n(n-1)} \left( \sum_{i=1}^n \sum_{j=1}^n Z_{ij} \right).
+  =& \frac{1}{n(n-1)} \left( \sum_{i=1}^n \sum_{j=1}^n Z_{ij1}Z_{ij2} \right).
 
 Under independent sample assumption, we know that 
 :math:`E(Z_{ij1})=E(Z_{ij2})=0` and 
