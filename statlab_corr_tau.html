@@ -65,6 +65,8 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">StatLab/Corr/Kendall’s tau coefficient</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#background">Background</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#notation">Notation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-group-1">Example - Group-1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to">How-to</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
@@ -104,13 +106,13 @@
 <span class="red">This page is provided only for studying and practicing. The author does not intend to promote or advocate any particular analysis method or software.</span></p>
 <section id="background">
 <h2>Background<a class="headerlink" href="#background" title="Link to this heading"></a></h2>
-<p>Kendall’s tau (<span class="math notranslate nohighlight">\(\tau\)</span>) is a statistic used for measuring rank correlation <a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+<p>Kendall’s tau (<span class="math notranslate nohighlight">\(\tau\)</span>) is a statistic used for measuring rank correlation <a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
 </section>
 <section id="notation">
 <h2>Notation<a class="headerlink" href="#notation" title="Link to this heading"></a></h2>
 <p>Let <span class="math notranslate nohighlight">\(Y_{i1}\)</span> and <span class="math notranslate nohighlight">\(Y_{i2}\)</span> be a pair of independent random variables corresponding to the <span class="math notranslate nohighlight">\(i\)</span> th sample where <span class="math notranslate nohighlight">\(i = 1, \ldots, n\)</span>.</p>
 <table class="docutils align-default" id="tbl-count1">
-<caption><span class="caption-number">Table 14 </span><span class="caption-text">Count of Ratings</span><a class="headerlink" href="#tbl-count1" title="Link to this table"></a></caption>
+<caption><span class="caption-number">Table 14 </span><span class="caption-text">Observed Value</span><a class="headerlink" href="#tbl-count1" title="Link to this table"></a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 33.3%" />
@@ -143,12 +145,83 @@
 </table>
 <p>The coefficient <span class="math notranslate nohighlight">\(\tau\)</span> can be calculated as</p>
 <div class="math notranslate nohighlight" id="equation-eq-tau1">
-<span class="eqno">(5)<a class="headerlink" href="#equation-eq-tau1" title="Link to this equation"></a></span>\[\tau = \frac{2}{n(n-1)} \left(2\sum_{i=1}^n \sum_{j &lt; n} sign(Y_{i1}-Y_{j1})sign(Y_{i2}-Y_{j2}) \right).\]</div>
+<span class="eqno">(5)<a class="headerlink" href="#equation-eq-tau1" title="Link to this equation"></a></span>\[\tau = \frac{2}{n(n-1)} \left( \sum_{i=1}^n \sum_{j &lt; n} sign(Y_{i1}-Y_{j1})sign(Y_{i2}-Y_{j2}) \right).\]</div>
+</section>
+<section id="example-group-1">
+<h2>Example - Group-1<a class="headerlink" href="#example-group-1" title="Link to this heading"></a></h2>
+<table class="docutils align-default" id="tbl-ex1">
+<caption><span class="caption-number">Table 15 </span><span class="caption-text">Kendall’s <span class="math notranslate nohighlight">\(\tau = 1.0\)</span></span><a class="headerlink" href="#tbl-ex1" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 33.3%" />
+<col style="width: 33.3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(Y_{i1}\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(Y_{i2}\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Sample:</strong> 1</p></td>
+<td><p>1</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Sample:</strong> 2</p></td>
+<td><p>3</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Sample:</strong> 3</p></td>
+<td><p>2</p></td>
+<td><p>5</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-number">Table 16 </span><span class="caption-text">Kendall’s <span class="math notranslate nohighlight">\(\tau = -1.0\)</span></span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 33.3%" />
+<col style="width: 33.3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(Y_{i1}\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(Y_{i2}\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Sample:</strong> 1</p></td>
+<td><p>1</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Sample:</strong> 2</p></td>
+<td><p>3</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Sample:</strong> 3</p></td>
+<td><p>2</p></td>
+<td><p>5</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="how-to">
+<h2>How-to<a class="headerlink" href="#how-to" title="Link to this heading"></a></h2>
+<p>To use <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">kendalltau</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+
+<span class="n">tau</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">kendalltau</span><span class="p">(</span><span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Kendall&#39;s tau:&quot;</span><span class="p">,</span> <span class="n">tau</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id2" role="doc-footnote">
+<aside class="footnote brackets" id="id3" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p>Wikipedia. (year). Kendall rank correlation coefficient. <a class="reference external" href="https://en.wikipedia.org/wiki/Kendall_rank_correlation_coefficient">https://en.wikipedia.org/wiki/Kendall_rank_correlation_coefficient</a></p>
 </aside>
