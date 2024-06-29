@@ -35,8 +35,7 @@ Kendall's tau (:math:`\tau`) is a statistic used for measuring rank correlation 
 Notation 
 *************
 
-Let :math:`Y_{i1}` and :math:`Y_{i2}` be a pair of random variables corresponding to 
-independent ranks of the :math:`i`th sample where :math:`i = 1, \ldots, n`.
+Let :math:`Y_{i1}` and :math:`Y_{i2}` be a pair of independent random variables corresponding to the :math:`i`th sample where :math:`i = 1, \ldots, n`.
 Note that we assume data are sorted, and the conventional "()" is not used in this document.
 
 .. list-table:: Count of Ratings
