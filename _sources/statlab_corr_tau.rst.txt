@@ -63,10 +63,10 @@ Let :math:`Y_{i1}` and :math:`Y_{i2}` be a pair of independent random variables 
      - :math:`Y_{n2}` 
      - :math:`Z_2 = \sum_{j < n} sign(Y_{21}-Y_{j1})sign(Y_{22}-Y_{j2})`
 
-The coefficient tau is calculated as 
+The coefficient :math:`\tau` can be calculated as 
 
 .. math::
-  :label: eq_obs1
+  :label: eq_tau1
 
   \tau = \frac{2}{n(n-1)} \left(2\sum_{i=1}^n Z_i - \frac{n(n-1)}{2}\right).
 
