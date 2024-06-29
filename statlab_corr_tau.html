@@ -106,7 +106,7 @@
 <span class="red">This page is provided only for studying and practicing. The author does not intend to promote or advocate any particular analysis method or software.</span></p>
 <section id="background">
 <h2>Background<a class="headerlink" href="#background" title="Link to this heading"></a></h2>
-<p>Kendall’s tau (<span class="math notranslate nohighlight">\(\tau\)</span>) is a statistic used for measuring rank correlation <a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+<p>Kendall’s tau (<span class="math notranslate nohighlight">\(\tau\)</span>) is a statistic used for measuring rank correlation <a class="footnote-reference brackets" href="#id4" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
 </section>
 <section id="notation">
 <h2>Notation<a class="headerlink" href="#notation" title="Link to this heading"></a></h2>
@@ -143,7 +143,7 @@
 </tr>
 </tbody>
 </table>
-<p>The coefficient <span class="math notranslate nohighlight">\(\tau\)</span> can be calculated as</p>
+<p>The coefficient <span class="math notranslate nohighlight">\(\tau\)</span> (tau-a) can be calculated as</p>
 <div class="math notranslate nohighlight" id="equation-eq-tau1">
 <span class="eqno">(5)<a class="headerlink" href="#equation-eq-tau1" title="Link to this equation"></a></span>\[\tau = \frac{2}{n(n-1)} \left( \sum_{i=1}^n \sum_{j &lt; n} sign(Y_{i1}-Y_{j1})sign(Y_{i2}-Y_{j2}) \right).\]</div>
 </section>
@@ -208,7 +208,7 @@
 </section>
 <section id="how-to">
 <h2>How-to<a class="headerlink" href="#how-to" title="Link to this heading"></a></h2>
-<p>To use <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>:</p>
+<p>To use <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> <a class="footnote-reference brackets" href="#id5" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">kendalltau</span>
 <span class="n">y1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
 <span class="n">y2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
@@ -221,9 +221,13 @@
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id3" role="doc-footnote">
+<aside class="footnote brackets" id="id4" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p>Wikipedia. (year). Kendall rank correlation coefficient. <a class="reference external" href="https://en.wikipedia.org/wiki/Kendall_rank_correlation_coefficient">https://en.wikipedia.org/wiki/Kendall_rank_correlation_coefficient</a></p>
+</aside>
+<aside class="footnote brackets" id="id5" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">2</a><span class="fn-bracket">]</span></span>
+<p>Scipy. (year). kendalltau. <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kendalltau.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kendalltau.html</a></p>
 </aside>
 </aside>
 </section>
