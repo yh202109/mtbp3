@@ -58,9 +58,9 @@ Let :math:`(Y_{i1}, Y_{i2})` be a pair of random variables corresponding to the 
      - :math:`Y_{n1}`
      - :math:`Y_{n2}` 
 
-Let :math:`Z_{ij} \equiv sign(Y_{i1}-Y_{j1})sign(Y_{i2}-Y_{j2})`,
-:math:`c = \sum_{i=1}^n \sum_{j < n} I(Z_{ij}=1)`,
-:math:`d = \sum_{i=1}^n \sum_{j < n} I(Z_{ij}=-1)`
+Let :math:`Z_{ij1} \equiv sign(Y_{i1}-Y_{j1})`, :math:`Z_{ij2} \equiv sign(Y_{i2}-Y_{j2})`,
+:math:`c = \sum_{i=1}^n \sum_{j < n} I(Z_{ij1}Z_{ij2}=1)`,
+:math:`d = \sum_{i=1}^n \sum_{j < n} I(Z_{ij1}Z_{ij2}=-1)`
 and :math:`t = \frac{n(n-1)}{2}`.
 The coefficient :math:`\tau` (tau-a) can be calculated as 
 
@@ -69,14 +69,21 @@ The coefficient :math:`\tau` (tau-a) can be calculated as
 
   \tau = \frac{ c - d }{t}.
 
+If there were no ties, the maximum value of :eq:`eq_tau1` is 1 at :math:`c=t`, and the minimum is -1 at :math:`d=t`
+
 :eq:`eq_tau1` can also be expressed as 
 
 .. math::
+  :label: eq_tau2
 
-  \tau = \frac{2}{n(n-1)} \left( \sum_{i=1}^n \sum_{j < n} Z_{ij} \right),
+  \tau =& \frac{2}{n(n-1)} \left( \sum_{i=1}^n \sum_{j < i} Z_{ij1}Z_{ij2} \right) \\
+  =& \frac{1}{n(n-1)} \left( \sum_{i=1}^n \sum_{j=1}^n Z_{ij} \right).
 
+Under independent sample assumption, we know that 
+:math:`E(Z_{ij1})=E(Z_{ij2})=0` and 
+:math:`Var(Z_{ij1})=Var(Z_{ij2})=1-\frac{1}{n}`. 
+Therefore, we can see that :eq:`eq_tau1` is a rank correlation coefficient.
 
-If there were no ties, the maximum value of :eq:`eq_tau1` is 1 at :math:`c=t`, and the minimum is -1 at :math:`d=t`
 
 
 *************
@@ -123,7 +130,7 @@ Example - Group-1
 How-to 
 *************
 
-To use ``scipy.stats`` [3]_:
+To use ``scipy.stats`` [3]_ :
 
 .. code:: python
 
