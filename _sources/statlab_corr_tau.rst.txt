@@ -58,24 +58,26 @@ Let :math:`(Y_{i1}, Y_{i2})` be a pair of random variables corresponding to the 
      - :math:`Y_{n1}`
      - :math:`Y_{n2}` 
 
+Let :math:`Z_{ij} \equiv sign(Y_{i1}-Y_{j1})sign(Y_{i2}-Y_{j2})`,
+:math:`c = \sum_{i=1}^n \sum_{j < n} I(Z_{ij}=1)`,
+:math:`d = \sum_{i=1}^n \sum_{j < n} I(Z_{ij}=-1)`
+and :math:`t = \frac{n(n-1)}{2}`.
 The coefficient :math:`\tau` (tau-a) can be calculated as 
 
 .. math::
   :label: eq_tau1
 
-  \tau = \frac{2}{n(n-1)} \left( \sum_{i=1}^n \sum_{j < n} sign(Y_{i1}-Y_{j1})sign(Y_{i2}-Y_{j2}) \right),
+  \tau = \frac{ c - d }{t}.
 
-Let :math:`c = \sum_{i=1}^n \sum_{j < n} I(sign(Y_{i1}-Y_{j1})sign(Y_{i2}-Y_{j2})=1)`,
-:math:`d = \sum_{i=1}^n \sum_{j < n} I(sign(Y_{i1}-Y_{j1})sign(Y_{i2}-Y_{j2})=-1)`
-and :math:`t = \frac{n(n-1)}{2}`.
-:eq:`eq_tau1` can be expressed as 
+:eq:`eq_tau1` can be calculated as 
 
 .. math::
   :label: eq_tau2
 
-  \tau = \frac{ c - d }{t}.
+  \tau = \frac{2}{n(n-1)} \left( \sum_{i=1}^n \sum_{j < n} Z_{ij} \right),
 
-If there were no ties, :eq:`eq_tau2` can be expressed as 
+
+If there were no ties, :eq:`eq_tau1` can be expressed as 
 
 .. math::
 

@@ -143,16 +143,17 @@
 </tr>
 </tbody>
 </table>
-<p>The coefficient <span class="math notranslate nohighlight">\(\tau\)</span> (tau-a) can be calculated as</p>
-<div class="math notranslate nohighlight" id="equation-eq-tau1">
-<span class="eqno">(5)<a class="headerlink" href="#equation-eq-tau1" title="Link to this equation"></a></span>\[\tau = \frac{2}{n(n-1)} \left( \sum_{i=1}^n \sum_{j &lt; n} sign(Y_{i1}-Y_{j1})sign(Y_{i2}-Y_{j2}) \right),\]</div>
-<p>Let <span class="math notranslate nohighlight">\(c = \sum_{i=1}^n \sum_{j &lt; n} I(sign(Y_{i1}-Y_{j1})sign(Y_{i2}-Y_{j2})=1)\)</span>,
-<span class="math notranslate nohighlight">\(d = \sum_{i=1}^n \sum_{j &lt; n} I(sign(Y_{i1}-Y_{j1})sign(Y_{i2}-Y_{j2})=-1)\)</span>
+<p>Let <span class="math notranslate nohighlight">\(Z_{ij} \equiv sign(Y_{i1}-Y_{j1})sign(Y_{i2}-Y_{j2})\)</span>,
+<span class="math notranslate nohighlight">\(c = \sum_{i=1}^n \sum_{j &lt; n} I(Z_{ij}=1)\)</span>,
+<span class="math notranslate nohighlight">\(d = \sum_{i=1}^n \sum_{j &lt; n} I(Z_{ij}=-1)\)</span>
 and <span class="math notranslate nohighlight">\(t = \frac{n(n-1)}{2}\)</span>.
-<a class="reference internal" href="#equation-eq-tau1">Eq. (5)</a> can be expressed as</p>
+The coefficient <span class="math notranslate nohighlight">\(\tau\)</span> (tau-a) can be calculated as</p>
+<div class="math notranslate nohighlight" id="equation-eq-tau1">
+<span class="eqno">(5)<a class="headerlink" href="#equation-eq-tau1" title="Link to this equation"></a></span>\[\tau = \frac{ c - d }{t}.\]</div>
+<p><a class="reference internal" href="#equation-eq-tau1">Eq. (5)</a> can be calculated as</p>
 <div class="math notranslate nohighlight" id="equation-eq-tau2">
-<span class="eqno">(6)<a class="headerlink" href="#equation-eq-tau2" title="Link to this equation"></a></span>\[\tau = \frac{ c - d }{t}.\]</div>
-<p>If there were no ties, <a class="reference internal" href="#equation-eq-tau2">Eq. (6)</a> can be expressed as</p>
+<span class="eqno">(6)<a class="headerlink" href="#equation-eq-tau2" title="Link to this equation"></a></span>\[\tau = \frac{2}{n(n-1)} \left( \sum_{i=1}^n \sum_{j &lt; n} Z_{ij} \right),\]</div>
+<p>If there were no ties, <a class="reference internal" href="#equation-eq-tau1">Eq. (5)</a> can be expressed as</p>
 <div class="math notranslate nohighlight">
 \[\tau = \frac{ 2c - t }{t}.\]</div>
 <p>The maximum value of <a class="reference internal" href="#equation-eq-tau1">Eq. (5)</a> is 1 at <span class="math notranslate nohighlight">\(c=t\)</span>, and the minimum is -1 at <span class="math notranslate nohighlight">\(d=t\)</span></p>
