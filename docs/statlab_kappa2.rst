@@ -23,13 +23,13 @@ StatLab/Fleiss's Kappa
 #############
 
 :red-b:`Disclaimer:`
-:red:`This page is provided only for study purposes. The author does not intend to promote or advocate any particular analysis method or software.`
+:red:`This page is provided only for studying and practicing. The author does not intend to promote or advocate any particular analysis method or software.`
 
 *************
 Background
 *************
 
-Fleiss's kappa (:math:`\kappa`) is a statistic used for describing inter-ratter reliability of multiple independent ratters 
+Fleiss's kappa (:math:`\kappa`) is a statistic used for describing inter-rater reliability of multiple independent raters 
 with categorical rating outcomes [1]_ [2]_. 
 
 *************
@@ -79,10 +79,10 @@ Therefore, :math:`v_0` will not be included in the discussion below.
      - :math:`\vdots`
      - :math:`\vdots` 
    * - **Sample:** :math:`n`
-     - :math:`N_{N1}`
-     - :math:`N_{N2}` 
+     - :math:`N_{n1}`
+     - :math:`N_{n2}` 
      - :math:`\ldots` 
-     - :math:`N_{NJ}` 
+     - :math:`N_{nJ}` 
      - :math:`R` 
    * - **Column total**
      - :math:`N_{\bullet 1}`
@@ -266,13 +266,13 @@ The variance of :math:`\kappa` under the assumption of no agreement beyond chanc
 
 .. math::
 
-  var(\kappa) = c(n,R,\{p_j\}) var\left(\sum_{j=1}^J N_{1j}^2 \right)
+  var(\kappa) = c(n,R,\{p_j\}) var\left(\sum_{j=1}^J N_{1j}^2 \right),
 
 where
 
 .. math::
 
-  c(n,R,\{p_j\}) = n^{-1}\left(R(R-1)\left(1-\sum_{j=1}^J p_j^2\right)\right)^{-2}
+  c(n,R,\{p_j\}) = n^{-1}\left(R(R-1)\left(1-\sum_{j=1}^J p_j^2\right)\right)^{-2},
 
 and 
 
