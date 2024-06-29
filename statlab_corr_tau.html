@@ -106,7 +106,7 @@
 <span class="red">This page is provided only for studying and practicing. The author does not intend to promote or advocate any particular analysis method or software.</span></p>
 <section id="background">
 <h2>Background<a class="headerlink" href="#background" title="Link to this heading"></a></h2>
-<p>Kendall’s tau (<span class="math notranslate nohighlight">\(\tau\)</span>) is a statistic used for measuring rank correlation <a class="footnote-reference brackets" href="#id5" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> <a href="#id8"><span class="problematic" id="id2">[2]_</span></a> .</p>
+<p>Kendall’s tau (<span class="math notranslate nohighlight">\(\tau\)</span>) is a statistic used for measuring rank correlation <a class="footnote-reference brackets" href="#id5" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#id6" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
 </section>
 <section id="notation">
 <h2>Notation<a class="headerlink" href="#notation" title="Link to this heading"></a></h2>
@@ -154,7 +154,7 @@ The coefficient <span class="math notranslate nohighlight">\(\tau\)</span> (tau-
 <p><a class="reference internal" href="#equation-eq-tau1">Eq. (5)</a> can also be expressed as</p>
 <div class="math notranslate nohighlight" id="equation-eq-tau2">
 <span class="eqno">(6)<a class="headerlink" href="#equation-eq-tau2" title="Link to this equation"></a></span>\[\begin{split}\tau =&amp; \frac{2}{n(n-1)} \left( \sum_{i=1}^n \sum_{j &lt; i} Z_{ij1}Z_{ij2} \right) \\
-=&amp; \frac{1}{n(n-1)} \left( \sum_{i=1}^n \sum_{j=1}^n Z_{ij} \right).\end{split}\]</div>
+=&amp; \frac{1}{n(n-1)} \left( \sum_{i=1}^n \sum_{j=1}^n Z_{ij1}Z_{ij2} \right).\end{split}\]</div>
 <p>Under independent sample assumption, we know that
 <span class="math notranslate nohighlight">\(E(Z_{ij1})=E(Z_{ij2})=0\)</span> and
 <span class="math notranslate nohighlight">\(Var(Z_{ij1})=Var(Z_{ij2})=1-\frac{1}{n}\)</span>.
@@ -221,7 +221,7 @@ Therefore, we can see that <a class="reference internal" href="#equation-eq-tau1
 </section>
 <section id="how-to">
 <h2>How-to<a class="headerlink" href="#how-to" title="Link to this heading"></a></h2>
-<p>To use <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> <a href="#id9"><span class="problematic" id="id4">[3]_</span></a> :</p>
+<p>To use <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> <a class="footnote-reference brackets" href="#id7" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">kendalltau</span>
 <span class="n">y1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
 <span class="n">y2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
@@ -239,11 +239,11 @@ Therefore, we can see that <a class="reference internal" href="#equation-eq-tau1
 <p>Wikipedia. (year). Kendall rank correlation coefficient. <a class="reference external" href="https://en.wikipedia.org/wiki/Kendall_rank_correlation_coefficient">https://en.wikipedia.org/wiki/Kendall_rank_correlation_coefficient</a></p>
 </aside>
 <aside class="footnote brackets" id="id6" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
 <p>Encyclopedia of Mathematics. (yeawr). Kendall tau metric. <a class="reference external" href="https://encyclopediaofmath.org/index.php?title=Kendall_tau_metric">https://encyclopediaofmath.org/index.php?title=Kendall_tau_metric</a></p>
 </aside>
 <aside class="footnote brackets" id="id7" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">3</a><span class="fn-bracket">]</span></span>
 <p>Scipy. (year). kendalltau. <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kendalltau.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kendalltau.html</a></p>
 </aside>
 </aside>
