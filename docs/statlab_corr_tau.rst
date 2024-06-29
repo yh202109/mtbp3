@@ -37,7 +37,7 @@ Notation
 
 Let :math:`Y_{i1}` and :math:`Y_{i2}` be a pair of independent random variables corresponding to the :math:`i` th sample where :math:`i = 1, \ldots, n`.
 
-.. list-table:: Count of Ratings
+.. list-table:: Observed Value
    :widths: 10 10 10 
    :header-rows: 1
    :name: tbl_count1
@@ -63,7 +63,63 @@ The coefficient :math:`\tau` can be calculated as
 .. math::
   :label: eq_tau1
 
-  \tau = \frac{2}{n(n-1)} \left(2\sum_{i=1}^n \sum_{j < n} sign(Y_{i1}-Y_{j1})sign(Y_{i2}-Y_{j2}) \right).
+  \tau = \frac{2}{n(n-1)} \left( \sum_{i=1}^n \sum_{j < n} sign(Y_{i1}-Y_{j1})sign(Y_{i2}-Y_{j2}) \right).
+
+
+*************
+Example - Group-1
+*************
+
+.. list-table:: Kendall's :math:`\tau = 1.0`
+   :widths: 10 10 10 
+   :header-rows: 1
+   :name: tbl_ex1
+
+   * - 
+     - :math:`Y_{i1}`
+     - :math:`Y_{i2}`
+   * - **Sample:** 1
+     - 1
+     - 4
+   * - **Sample:** 2
+     - 3
+     - 6
+   * - **Sample:** 3
+     - 2
+     - 5
+
+.. list-table:: Kendall's :math:`\tau = -1.0`
+   :widths: 10 10 10 
+   :header-rows: 1
+   :name: tbl_ex1
+
+   * - 
+     - :math:`Y_{i1}`
+     - :math:`Y_{i2}`
+   * - **Sample:** 1
+     - 1
+     - 6
+   * - **Sample:** 2
+     - 3
+     - 4
+   * - **Sample:** 3
+     - 2
+     - 5
+
+*************
+How-to 
+*************
+
+To use ``scipy.stats``:
+
+.. code:: python
+
+  from scipy.stats import kendalltau 
+  y1 = [1,3,2]
+  y2 = [4,6,5]
+
+  tau, p_value = kendalltau(y1, y2)
+  print("Kendall's tau:", tau)
 
 *************
 Reference
