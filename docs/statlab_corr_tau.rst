@@ -43,8 +43,8 @@ Let :math:`Y_{i1}` and :math:`Y_{i2}` be a pair of independent random variables 
    :name: tbl_count1
 
    * - 
-     - First Rank (:math:`Y_{i1}`)
-     - Second Rank (:math:`Y_{i2}`)
+     - :math:`Y_{i1}`
+     - :math:`Y_{i2}`
    * - **Sample:** 1
      - :math:`Y_{11}`
      - :math:`Y_{12}` 
