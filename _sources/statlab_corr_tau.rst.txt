@@ -63,7 +63,7 @@ The coefficient :math:`\tau` can be calculated as
 .. math::
   :label: eq_tau1
 
-  \tau = \frac{2}{n(n-1)} \left(2\sum_{i=1}^n \sum_{j < n} I(sign(Y_{i1}-Y_{j1})sign(Y_{i2}-Y_{j2})==1) - \frac{n(n-1)}{2}\right).
+  \tau = \frac{2}{n(n-1)} \left(2\sum_{i=1}^n \sum_{j < n} sign(Y_{i1}-Y_{j1})sign(Y_{i2}-Y_{j2}) \right).
 
 *************
 Reference
