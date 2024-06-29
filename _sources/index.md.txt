@@ -18,6 +18,7 @@ example_cdtg.ipynb
 example_files.ipynb
 statlab_kappa.rst
 statlab_kappa2.rst
+statlab_corr_tau.rst
 
 changelog.md
 contributing.md

@@ -25,7 +25,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Changelog" href="changelog.html" />
+    <link rel="next" title="StatLab/Corr/Kendall’s tau coefficient" href="statlab_corr_tau.html" />
     <link rel="prev" title="StatLab/Cohen’s Kappa" href="statlab_kappa.html" /> 
 </head>
 
@@ -72,6 +72,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="statlab_corr_tau.html">StatLab/Corr/Kendall’s tau coefficient</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="conduct.html">Code of Conduct</a></li>
@@ -105,10 +106,10 @@
   <section id="statlab-fleiss-s-kappa">
 <h1>StatLab/Fleiss’s Kappa<a class="headerlink" href="#statlab-fleiss-s-kappa" title="Link to this heading"></a></h1>
 <p><span class="red-b">Disclaimer:</span>
-<span class="red">This page is provided only for study purposes. The author does not intend to promote or advocate any particular analysis method or software.</span></p>
+<span class="red">This page is provided only for studying and practicing. The author does not intend to promote or advocate any particular analysis method or software.</span></p>
 <section id="background">
 <h2>Background<a class="headerlink" href="#background" title="Link to this heading"></a></h2>
-<p>Fleiss’s kappa (<span class="math notranslate nohighlight">\(\kappa\)</span>) is a statistic used for describing inter-ratter reliability of multiple independent ratters
+<p>Fleiss’s kappa (<span class="math notranslate nohighlight">\(\kappa\)</span>) is a statistic used for describing inter-rater reliability of multiple independent raters
 with categorical rating outcomes <a class="footnote-reference brackets" href="#id5" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#id6" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
 </section>
 <section id="notation">
@@ -168,10 +169,10 @@ Therefore, <span class="math notranslate nohighlight">\(v_0\)</span> will not be
 <td><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Sample:</strong> <span class="math notranslate nohighlight">\(n\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(N_{N1}\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(N_{N2}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(N_{n1}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(N_{n2}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\ldots\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(N_{NJ}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(N_{nJ}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(R\)</span></p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Column total</strong></p></td>
@@ -361,10 +362,10 @@ Note that the notations in this page did not use conventional ‘hat’ to repre
 Please see the Fleiss (1971) for more discussions.
 The variance of <span class="math notranslate nohighlight">\(\kappa\)</span> under the assumption of no agreement beyond chance can be approximated as:</p>
 <div class="math notranslate nohighlight">
-\[var(\kappa) = c(n,R,\{p_j\}) var\left(\sum_{j=1}^J N_{1j}^2 \right)\]</div>
+\[var(\kappa) = c(n,R,\{p_j\}) var\left(\sum_{j=1}^J N_{1j}^2 \right),\]</div>
 <p>where</p>
 <div class="math notranslate nohighlight">
-\[c(n,R,\{p_j\}) = n^{-1}\left(R(R-1)\left(1-\sum_{j=1}^J p_j^2\right)\right)^{-2}\]</div>
+\[c(n,R,\{p_j\}) = n^{-1}\left(R(R-1)\left(1-\sum_{j=1}^J p_j^2\right)\right)^{-2},\]</div>
 <p>and</p>
 <div class="math notranslate nohighlight" id="equation-eq-kappa2">
 <span class="eqno">(4)<a class="headerlink" href="#equation-eq-kappa2" title="Link to this equation"></a></span>\[\begin{split}var\left(\sum_{j} N_{ij}^2 \right)
@@ -398,7 +399,7 @@ The variance of <span class="math notranslate nohighlight">\(\kappa\)</span> und
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="statlab_kappa.html" class="btn btn-neutral float-left" title="StatLab/Cohen’s Kappa" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="changelog.html" class="btn btn-neutral float-right" title="Changelog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="statlab_corr_tau.html" class="btn btn-neutral float-right" title="StatLab/Corr/Kendall’s tau coefficient" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

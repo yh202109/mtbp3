@@ -28,7 +28,7 @@ StatLab/Cohen's Kappa
 #############
 
 :red-b:`Disclaimer:`
-:red:`This page is provided only for study purposes. The author does not intend to promote or advocate any particular analysis method or software.`
+:red:`This page is provided only for studying and practicing. The author does not intend to promote or advocate any particular analysis method or software.`
 
 *************
 Background
