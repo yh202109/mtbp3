@@ -86,9 +86,12 @@ Under independent sample assumption, we know that
 From :eq:`eq_tau2`, we can see that :math:`\tau` is a rank correlation coefficient.
 
 If there are ties, the maximum value of :eq:`eq_tau1` becomes less then 1. 
-Consider the scenario that there are :math:`n_{t1}` ties in :math:`\{Y_{i1}\}`,
-and there are :math:`n_{t2}` ties in :math:`\{Y_{i2}\}`.
-
+Consider the scenario that there are :math:`n_{t1}` groups of ties in :math:`\{Y_{i1}\}`,
+and there are :math:`n_{t2}` groups of ties in :math:`\{Y_{i2}\}`.
+Let :math:`n_{t1,k}` be the number of ties within the :math:`k` th group of ties in :math:`\{Y_{i1}\}`,
+and :math:`n_{t2,k}` be the number of ties within the :math:`k` th group of ties in :math:`\{Y_{i2}\}`
+The adjusted :math:`\tau` is calculated by replacing :math:`t` with 
+:math:`t^* = \sqrt{\frac{1}{2}n(n-1)-\sum_{k=1}^{n_{t1}} \frac{1}{2}n_{t1,k}(n_{t1,k}-1)}\sqrt{\frac{1}{2}n(n-1)-\sum_{k=1}^{n_{t2}} \frac{1}{2}n_{t2,k}(n_{t2,k}-1)}`
 
 *************
 Example - Group-1
