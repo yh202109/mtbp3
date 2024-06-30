@@ -161,8 +161,12 @@ and the minimum is -1 at <span class="math notranslate nohighlight">\(d=t\)</spa
 <span class="math notranslate nohighlight">\(Var(Z_{ij1})=Var(Z_{ij2})=1-\frac{1}{n}\)</span>.
 From <a class="reference internal" href="#equation-eq-tau2">Eq. (6)</a>, we can see that <span class="math notranslate nohighlight">\(\tau\)</span> is a rank correlation coefficient.</p>
 <p>If there are ties, the maximum value of <a class="reference internal" href="#equation-eq-tau1">Eq. (5)</a> becomes less then 1.
-Consider the scenario that there are <span class="math notranslate nohighlight">\(n_{t1}\)</span> ties in <span class="math notranslate nohighlight">\(\{Y_{i1}\}\)</span>,
-and there are <span class="math notranslate nohighlight">\(n_{t2}\)</span> ties in <span class="math notranslate nohighlight">\(\{Y_{i2}\}\)</span>.</p>
+Consider the scenario that there are <span class="math notranslate nohighlight">\(n_{t1}\)</span> groups of ties in <span class="math notranslate nohighlight">\(\{Y_{i1}\}\)</span>,
+and there are <span class="math notranslate nohighlight">\(n_{t2}\)</span> groups of ties in <span class="math notranslate nohighlight">\(\{Y_{i2}\}\)</span>.
+Let <span class="math notranslate nohighlight">\(n_{t1,k}\)</span> be the number of ties within the <span class="math notranslate nohighlight">\(k\)</span> th group of ties in <span class="math notranslate nohighlight">\(\{Y_{i1}\}\)</span>,
+and <span class="math notranslate nohighlight">\(n_{t2,k}\)</span> be the number of ties within the <span class="math notranslate nohighlight">\(k\)</span> th group of ties in <span class="math notranslate nohighlight">\(\{Y_{i2}\}\)</span>
+The adjusted <span class="math notranslate nohighlight">\(\tau\)</span> is calculated by replacing <span class="math notranslate nohighlight">\(t\)</span> with
+<span class="math notranslate nohighlight">\(t^* = \sqrt{\frac{1}{2}n(n-1)-\sum_{k=1}^{n_{t1}} \frac{1}{2}n_{t1,k}(n_{t1,k}-1)}\sqrt{\frac{1}{2}n(n-1)-\sum_{k=1}^{n_{t2}} \frac{1}{2}n_{t2,k}(n_{t2,k}-1)}\)</span></p>
 </section>
 <section id="example-group-1">
 <h2>Example - Group-1<a class="headerlink" href="#example-group-1" title="Link to this heading"></a></h2>
