@@ -194,7 +194,7 @@ To use ``mtbp3.corr``:
   y1 = np.random.randint(1, size+1, size=size).tolist()
   y2 = np.subtract(np.random.randint(1, size+1, size=size),y1).tolist()
   t = CorrCalculator([y1,y2])
-  print("Kendall's tau (mtbp3.corr):", c.calculate_kendall_tau())
+  print("Kendall's tau (mtbp3.corr):", t.calculate_kendall_tau())
 
 To create a scatter plot of ``y1`` and ``y2``:
 
