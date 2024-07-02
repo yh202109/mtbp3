@@ -200,7 +200,7 @@ To create a scatter plot of ``y1`` and ``y2``:
 
 .. code:: python
 
-  c.plot_y_list(axis_label=['y1','y2'])
+  t.plot_y_list(axis_label=['y1','y2'])
 
 *************
 Reference
