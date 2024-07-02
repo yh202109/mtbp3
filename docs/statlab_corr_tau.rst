@@ -189,6 +189,7 @@ To use ``mtbp3.corr``:
 .. code:: python
 
   import numpy as np
+  from mtbp3.corr import CorrCalculator
 
   size = 100
   y1 = np.random.randint(1, size+1, size=size).tolist()

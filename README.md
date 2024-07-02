@@ -15,18 +15,17 @@ Functions are grouped into:
   - Data summary: `health.clinical`
   - eCTD: `health.ectd` 
   - MedDRA: `health.emt` 
+  - WhoDrug: 
+  - ISO: 
 - General 
   - Data summary: `util.cdt`
   - Graphs: `util.cdtg`
   - System: `util.lsr`
 - Standard: 
-  - CDISC 
-    - Library: `stdcd.api`
-  - WHO
-    - B3/C3
+  - CDISC: 
 - StatLab: 
+  - Correlation: `statlab.corr` 
   - Reliability: `statlab.kappa`
-  - Sampling 
 
 ## Table of Contents
 
