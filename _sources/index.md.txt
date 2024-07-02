@@ -12,7 +12,7 @@ example_emt.ipynb
 example_emt2.ipynb
 example_emt3.ipynb
 example_emt4.ipynb
-example_sc_cdisc.ipynb
+std_cdisc.ipynb
 example_cdtg.ipynb
 example_files.ipynb
 statlab_kappa.rst

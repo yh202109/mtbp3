@@ -10,6 +10,7 @@ Submodules
 .. toctree::
    :maxdepth: 1
 
+   /autoapi/mtbp3/statlab/corr/index
    /autoapi/mtbp3/statlab/kappa/index
 
 

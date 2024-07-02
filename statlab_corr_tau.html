@@ -56,7 +56,7 @@
 <li class="toctree-l1"><a class="reference internal" href="example_emt2.html">H/MedDRA/SMQs by ICH</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_emt3.html">H/MedDRA/FMQs by FDA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_emt4.html">H/MedDRA/(MLGs by CIOMS)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_sc_cdisc.html">S/C/CDISC Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="std_cdisc.html">S/C/CDISC Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_cdtg.html">U/Graph/Categorical Plots Using catPlotter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_files.html">U/System/List Folder Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="statlab_kappa.html">StatLab/Cohen’s Kappa</a></li>
@@ -66,6 +66,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#notation">Notation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#example-group-1">Example - Group-1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-to">How-to</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lab-exercise">Lab Exercise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#algorithm">Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">How-to</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
@@ -105,7 +108,7 @@
 <span class="red">This page is provided only for studying and practicing. The author does not intend to promote or advocate any particular analysis method or software.</span></p>
 <section id="background">
 <h2>Background<a class="headerlink" href="#background" title="Link to this heading"></a></h2>
-<p>Kendall’s tau (<span class="math notranslate nohighlight">\(\tau\)</span>) is a statistic used for measuring rank correlation <a class="footnote-reference brackets" href="#id5" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#id6" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
+<p>Kendall’s tau (<span class="math notranslate nohighlight">\(\tau\)</span>) is a statistic used for measuring rank correlation <a class="footnote-reference brackets" href="#id6" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#id7" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
 </section>
 <section id="notation">
 <h2>Notation<a class="headerlink" href="#notation" title="Link to this heading"></a></h2>
@@ -155,16 +158,16 @@ and the minimum is -1 at <span class="math notranslate nohighlight">\(d=t\)</spa
 <div class="math notranslate nohighlight" id="equation-eq-tau2">
 <span class="eqno">(6)<a class="headerlink" href="#equation-eq-tau2" title="Link to this equation"></a></span>\[\begin{split}\tau =&amp; \frac{2}{n(n-1)} \left( \sum_{i=1}^n \sum_{j &lt; i} Z_{ij1}Z_{ij2} \right) \\
 =&amp; \frac{1}{n(n-1)} \left( \sum_{i=1}^n \sum_{j=1}^n Z_{ij1}Z_{ij2} \right).\end{split}\]</div>
-<p>Under independent sample assumption, we know that
+<p>Under independent sample assumption, for a fixed <span class="math notranslate nohighlight">\(n\)</span>, we know that
 <span class="math notranslate nohighlight">\(E(Z_{ij1})=E(Z_{ij2})=0\)</span> and
 <span class="math notranslate nohighlight">\(Var(Z_{ij1})=Var(Z_{ij2})=1-\frac{1}{n}\)</span>.
-From <a class="reference internal" href="#equation-eq-tau2">Eq. (6)</a>, we can see that <span class="math notranslate nohighlight">\(\tau\)</span> is a rank correlation coefficient.</p>
+From <a class="reference internal" href="#equation-eq-tau2">Eq. (6)</a>, we can see that <span class="math notranslate nohighlight">\(\tau\)</span> is a type of correlation coefficient.</p>
 <p>If there are ties, the maximum value of <a class="reference internal" href="#equation-eq-tau1">Eq. (5)</a> becomes less then 1.
 Consider the scenario that there are <span class="math notranslate nohighlight">\(n_{t1}\)</span> groups of ties in <span class="math notranslate nohighlight">\(\{Y_{i1}\}\)</span>,
 and there are <span class="math notranslate nohighlight">\(n_{t2}\)</span> groups of ties in <span class="math notranslate nohighlight">\(\{Y_{i2}\}\)</span>.
 Let <span class="math notranslate nohighlight">\(n_{t1,k}\)</span> be the number of ties within the <span class="math notranslate nohighlight">\(k\)</span> th group of ties in <span class="math notranslate nohighlight">\(\{Y_{i1}\}\)</span>,
 and <span class="math notranslate nohighlight">\(n_{t2,k}\)</span> be the number of ties within the <span class="math notranslate nohighlight">\(k\)</span> th group of ties in <span class="math notranslate nohighlight">\(\{Y_{i2}\}\)</span>
-The adjusted <span class="math notranslate nohighlight">\(\tau\)</span> is calculated by replacing <span class="math notranslate nohighlight">\(t\)</span> with
+The adjusted <span class="math notranslate nohighlight">\(\tau\)</span> (tau-b) is calculated by replacing <span class="math notranslate nohighlight">\(t\)</span> in <a class="reference internal" href="#equation-eq-tau1">Eq. (5)</a> with
 <span class="math notranslate nohighlight">\(t^* = \sqrt{\frac{1}{2}n(n-1)-\sum_{k=1}^{n_{t1}} \frac{1}{2}n_{t1,k}(n_{t1,k}-1)}\sqrt{\frac{1}{2}n(n-1)-\sum_{k=1}^{n_{t2}} \frac{1}{2}n_{t2,k}(n_{t2,k}-1)}\)</span></p>
 </section>
 <section id="example-group-1">
@@ -228,7 +231,7 @@ The adjusted <span class="math notranslate nohighlight">\(\tau\)</span> is calcu
 </section>
 <section id="how-to">
 <h2>How-to<a class="headerlink" href="#how-to" title="Link to this heading"></a></h2>
-<p>To use <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> <a class="footnote-reference brackets" href="#id7" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>:</p>
+<p>To use <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> <a class="footnote-reference brackets" href="#id8" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">kendalltau</span>
 <span class="n">y1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
 <span class="n">y2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
@@ -238,18 +241,63 @@ The adjusted <span class="math notranslate nohighlight">\(\tau\)</span> is calcu
 </pre></div>
 </div>
 </section>
+<section id="lab-exercise">
+<h2>Lab Exercise<a class="headerlink" href="#lab-exercise" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Show <span class="math notranslate nohighlight">\(E(Z_{ij})=0\)</span>.</p></li>
+</ol>
+</section>
+<section id="algorithm">
+<h2>Algorithm<a class="headerlink" href="#algorithm" title="Link to this heading"></a></h2>
+<p><strong>WARNING: FOR SMALL SAMPLE SIZES ONLY</strong></p>
+<p>Note that the algorithm in this section is implement in <code class="docutils literal notranslate"><span class="pre">mtbp3.stalab</span></code> for demonstration only.
+Although the matrix presentation is easier to understand,
+the calculation time increases greatly when the sample size increases.
+More practical algorithms can be found in references.</p>
+<p>Let <span class="math notranslate nohighlight">\(Y_{1} = (Y_{11}, \ldots, Y_{n1})\)</span> and <span class="math notranslate nohighlight">\(Y_{2} = (Y_{12}, \ldots, Y_{n2})\)</span>.
+Let <span class="math notranslate nohighlight">\(\times\)</span> represent the matrix product,
+<span class="math notranslate nohighlight">\(\times_{car}\)</span> represent the Cartesian product,
+<span class="math notranslate nohighlight">\(\times_{ele}\)</span> represent the element-wise product,
+<span class="math notranslate nohighlight">\(g([(a,b)]) = [sign(a-b)]\)</span>.
+and <span class="math notranslate nohighlight">\(h(X_n) = 1_n \times X_n \times 1_n^T\)</span>
+where <span class="math notranslate nohighlight">\(X_n\)</span> is a size <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrix, and <span class="math notranslate nohighlight">\(1_n\)</span> is a length <span class="math notranslate nohighlight">\(n\)</span> one vector.
+Both tau-a and tau-b can be calculated as</p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\tau_1 = g(Y_{1} \times_{car} Y_{1})
+\tau_2 = g(Y_{2} \times_{car} Y_{2})
+\tau = \frac{h(\tau_1 \times_{ele} \tau_2) }{ sqrt{h(abs(\tau_1))}sqrt{h(abs(\tau_2))} }\]</div>
+</div></blockquote>
+</section>
+<section id="id5">
+<h2>How-to<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
+<p>To use <code class="docutils literal notranslate"><span class="pre">mtbp3.corr</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">size</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">),</span><span class="n">y1</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">CorrCalculator</span><span class="p">([</span><span class="n">y1</span><span class="p">,</span><span class="n">y2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Kendall&#39;s tau (mtbp3.corr):&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">calculate_kendall_tau</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>To create a scatter plot of <code class="docutils literal notranslate"><span class="pre">y1</span></code> and <code class="docutils literal notranslate"><span class="pre">y2</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">plot_y_list</span><span class="p">(</span><span class="n">axis_label</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;y1&#39;</span><span class="p">,</span><span class="s1">&#39;y2&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id5" role="doc-footnote">
+<aside class="footnote brackets" id="id6" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p>Wikipedia. (year). Kendall rank correlation coefficient. <a class="reference external" href="https://en.wikipedia.org/wiki/Kendall_rank_correlation_coefficient">https://en.wikipedia.org/wiki/Kendall_rank_correlation_coefficient</a></p>
 </aside>
-<aside class="footnote brackets" id="id6" role="doc-footnote">
+<aside class="footnote brackets" id="id7" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
 <p>Encyclopedia of Mathematics. (yeawr). Kendall tau metric. <a class="reference external" href="https://encyclopediaofmath.org/index.php?title=Kendall_tau_metric">https://encyclopediaofmath.org/index.php?title=Kendall_tau_metric</a></p>
 </aside>
-<aside class="footnote brackets" id="id7" role="doc-footnote">
+<aside class="footnote brackets" id="id8" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">3</a><span class="fn-bracket">]</span></span>
 <p>Scipy. (year). kendalltau. <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kendalltau.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kendalltau.html</a></p>
 </aside>
