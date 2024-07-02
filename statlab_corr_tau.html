@@ -264,9 +264,9 @@ where <span class="math notranslate nohighlight">\(X_n\)</span> is a size <span 
 Both tau-a and tau-b can be calculated as</p>
 <blockquote>
 <div><div class="math notranslate nohighlight">
-\[\tau_1 = g(Y_{1} \times_{car} Y_{1})
-\tau_2 = g(Y_{2} \times_{car} Y_{2})
-\tau = \frac{h(\tau_1 \times_{ele} \tau_2) }{ sqrt{h(abs(\tau_1))}sqrt{h(abs(\tau_2))} }\]</div>
+\[\begin{split}\tau_1 &amp;= g(Y_{1} \times_{car} Y_{1}) \\
+\tau_2 &amp;= g(Y_{2} \times_{car} Y_{2}) \\
+\tau &amp;= \frac{h(\tau_1 \times_{ele} \tau_2) }{ \sqrt{h(abs(\tau_1))}\sqrt{h(abs(\tau_2))} }\end{split}\]</div>
 </div></blockquote>
 </section>
 <section id="id5">
@@ -282,7 +282,7 @@ Both tau-a and tau-b can be calculated as</p>
 </pre></div>
 </div>
 <p>To create a scatter plot of <code class="docutils literal notranslate"><span class="pre">y1</span></code> and <code class="docutils literal notranslate"><span class="pre">y2</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">plot_y_list</span><span class="p">(</span><span class="n">axis_label</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;y1&#39;</span><span class="p">,</span><span class="s1">&#39;y2&#39;</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="o">.</span><span class="n">plot_y_list</span><span class="p">(</span><span class="n">axis_label</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;y1&#39;</span><span class="p">,</span><span class="s1">&#39;y2&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </section>

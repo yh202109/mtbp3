@@ -175,9 +175,9 @@ where :math:`X_n` is a size :math:`n` by :math:`n` matrix, and :math:`1_n` is a 
 Both tau-a and tau-b can be calculated as 
 
   .. math::
-    \tau_1 = g(Y_{1} \times_{car} Y_{1})
-    \tau_2 = g(Y_{2} \times_{car} Y_{2})
-    \tau = \frac{h(\tau_1 \times_{ele} \tau_2) }{ sqrt{h(abs(\tau_1))}sqrt{h(abs(\tau_2))} }
+    \tau_1 &= g(Y_{1} \times_{car} Y_{1}) \\
+    \tau_2 &= g(Y_{2} \times_{car} Y_{2}) \\
+    \tau &= \frac{h(\tau_1 \times_{ele} \tau_2) }{ \sqrt{h(abs(\tau_1))}\sqrt{h(abs(\tau_2))} }
 
 
 *************
@@ -200,7 +200,7 @@ To create a scatter plot of ``y1`` and ``y2``:
 
 .. code:: python
 
-  c.plot_y_list(axis_label=['y1','y2'])
+  t.plot_y_list(axis_label=['y1','y2'])
 
 *************
 Reference
