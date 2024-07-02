@@ -273,6 +273,7 @@ Both tau-a and tau-b can be calculated as</p>
 <h2>How-to<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
 <p>To use <code class="docutils literal notranslate"><span class="pre">mtbp3.corr</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">mtbp3.corr</span> <span class="kn">import</span> <span class="n">CorrCalculator</span>
 
 <span class="n">size</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">y1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
