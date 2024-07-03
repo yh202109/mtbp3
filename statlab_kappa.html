@@ -66,6 +66,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#example-group-1">Example - Group-1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-to">How-to</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#bootstrap-ci">Bootstrap CI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bubble-plot">Bubble Plot</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#extensions">Extensions</a></li>
@@ -545,6 +546,28 @@ Confidence Interval (95.0%): [-0.907669, -0.496558]
 </pre></div>
 </div>
 <p>Note that examples of using <code class="docutils literal notranslate"><span class="pre">SAS/PROC</span> <span class="pre">FREQ</span></code> and <code class="docutils literal notranslate"><span class="pre">R</span></code> package <code class="docutils literal notranslate"><span class="pre">vcd</span></code> for calculating <span class="math notranslate nohighlight">\(\kappa\)</span> can be found in reference <a class="footnote-reference brackets" href="#id15" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a> .</p>
+</section>
+<section id="bubble-plot">
+<h3>Bubble Plot<a class="headerlink" href="#bubble-plot" title="Link to this heading"></a></h3>
+<p>To use <code class="docutils literal notranslate"><span class="pre">mtbp3.statlab</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mtbp3.statlab</span> <span class="kn">import</span> <span class="n">kappa</span>
+
+ <span class="n">r1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Apple&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;Orange&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">50</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;Pear&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">40</span>
+ <span class="n">r2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Apple&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">20</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;Pear&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;Orange&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">20</span>
+
+ <span class="n">kappa</span> <span class="o">=</span> <span class="n">KappaCalculator</span><span class="p">([</span><span class="n">r1</span><span class="p">,</span><span class="n">r2</span><span class="p">],</span> <span class="n">stringna</span><span class="o">=</span><span class="s1">&#39;NA&#39;</span><span class="p">)</span>
+
+ <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cohen&#39;s kappa (mtbp3.statlab): &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">kappa</span><span class="o">.</span><span class="n">cohen_kappa</span><span class="p">))</span>
+ <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of raters per sample: &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">kappa</span><span class="o">.</span><span class="n">n_rater</span><span class="p">))</span>
+ <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of rating categories: &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">kappa</span><span class="o">.</span><span class="n">n_category</span><span class="p">))</span>
+ <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of sample: &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">kappa</span><span class="o">.</span><span class="n">y_count</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+ <span class="n">kappa</span><span class="o">.</span><span class="n">create_bubble_plot</span><span class="p">(</span><span class="n">out_path</span><span class="o">=</span><span class="s1">&#39;statlab_kappa_fig1.svg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/statlab_kappa_fig1.svg"><img alt="bubble plot" height="3870" src="_images/statlab_kappa_fig1.svg" width="5160" /></a>
+</figure>
 </section>
 </section>
 <section id="extensions">
