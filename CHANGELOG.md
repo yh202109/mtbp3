@@ -1,9 +1,11 @@
 # Changelog
 
 <!--next-version-placeholder-->
-## v0.2.12 (2024-06-00)
+## v0.2.12 (2024-07-03)
 
-- add proof of kappa variance
+- add Fleiss's kappa variance
+- add Kendall's tau algorithm
+- add Cohen's kappa bubble plot
 
 ## v0.2.11 (2024-06-18)
 

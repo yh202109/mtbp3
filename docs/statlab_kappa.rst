@@ -385,6 +385,33 @@ Output:
 
 Note that examples of using ``SAS/PROC FREQ`` and ``R`` package ``vcd`` for calculating :math:`\kappa` can be found in reference [7]_ .
 
+=============
+Bubble Plot
+=============
+
+To use ``mtbp3.statlab``:
+
+.. code:: python
+
+   from mtbp3.statlab import kappa
+
+    r1 = ['Apple'] * 10 + ['Orange'] * 50 + ['Pear'] * 40
+    r2 = ['Apple'] * 20 + ['Pear'] * 60 + ['Orange'] * 20
+
+    kappa = KappaCalculator([r1,r2], stringna='NA')
+
+    print("Cohen's kappa (mtbp3.statlab): "+str(kappa.cohen_kappa))
+    print("Number of raters per sample: "+str(kappa.n_rater))
+    print("Number of rating categories: "+str(kappa.n_category))
+    print("Number of sample: "+str(kappa.y_count.shape[0]))
+
+    kappa.create_bubble_plot(out_path='statlab_kappa_fig1.svg')
+
+.. figure:: /_static/fig/statlab_kappa_fig1.svg
+    :scale: 70%
+    :align: center
+    :alt: bubble plot
+
 *************
 Extensions
 *************

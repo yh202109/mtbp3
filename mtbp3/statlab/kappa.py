@@ -4,7 +4,7 @@
 #  it under the terms of the GNU General Public license as published by
 #  the Free software Foundation, either version 3 of the License, or
 #  any later version.
-#
+#j
 #  This program is distributed in the hope that it will be useful,
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
 #  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
@@ -14,8 +14,11 @@
 #  along with this program. If not, see <https://www.gnu.org/license/>
 
 import numpy as np
-from sklearn.utils import resample
 import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.utils import resample
+import os
+import seaborn as sns
 
 
 class KappaCalculator:
@@ -80,7 +83,7 @@ class KappaCalculator:
             self.n_category = len(self.category)
             self.n_rater = tmp_row_sum[0]
 
-            if self.n_category == 2:
+            if self.n_rater == 2:
                 self.y_count_sq = pd.crosstab(self.y_list[0], self.y_list[1], margins = False, dropna=False)
                 i = self.y_count_sq.index.union(self.y_count_sq.columns, sort=True)
                 self.y_count_sq.reindex(index=i, columns=i, fill_value=0)
@@ -242,20 +245,75 @@ class KappaCalculator:
         else:
             return [self.cohen_kappa, n_iterations, confidence_level, lower_bound, upper_bound]
 
+    def create_bubble_plot(self, out_path="", title="", axis_label=[]):
+        """
+        Creates a bubble plot based on the y_count_sq matrix.
+
+        Parameters:
+        - out_path (str): The output path to save the plot. If not provided, the plot will be displayed.
+        - title (str): The title of the plot. If not provided, the default title is 'Bubble Plot'.
+        - axis_label (list): A list of two strings representing the labels for the x-axis and y-axis. 
+                             If not provided, the default labels are ['Rater 1', 'Rater 2'].
+
+        Returns:
+        - None
+
+        Raises:
+        - None
+
+        """
+
+        if self.n_rater == 2 and self.y_count_sq is not None and self.y_count_sq.shape[0] == self.y_count_sq.shape[1] and self.y_count_sq.shape[0] > 0:
+            categories = self.y_count_sq.columns
+            n_categories = len(categories)
+            r1 = []
+            r2 = []
+            sizes = []
+            for i1, c1 in enumerate(categories):
+                for i2, c2 in enumerate(categories):
+                    r1.append(c1)
+                    r2.append(c2)
+                    sizes.append(self.y_count_sq.iloc[i1, i2])
+            data = pd.DataFrame({'r1': r1, 'r2': r2, 'sizes': sizes})
+            sns.scatterplot(data=data, x="r1", y="r2", size="sizes", sizes=(min(sizes), max(sizes)*100), legend=False)
+            for i in range(len(data)):
+                plt.text(data['r1'][i], data['r2'][i], data['sizes'][i], ha='center', va='center')
+            if not axis_label:
+                axis_label = ['Rater 1', 'Rater 2']
+            plt.xlabel(axis_label[0])
+            plt.ylabel(axis_label[1])
+            if not title:
+                title = 'Bubble Plot'
+            plt.title(title)
+            tmp1 = plt.xlim()
+            tmp1d = ((tmp1[1] - tmp1[0])/n_categories)
+            plt.xlim(tmp1[0] - tmp1d, tmp1[1] + tmp1d)
+            plt.ylim(tmp1[0] - tmp1d, tmp1[1] + tmp1d)
+            plt.tight_layout()
+            if out_path:
+                try:
+                    if os.path.isdir(out_path):
+                        plt.savefig(os.path.join(out_path, "bubble_plot.svg"))
+                    else:
+                        plt.savefig(out_path)
+                except Exception as e:
+                    print("Error saving the figure:", str(e))
+            else:
+                plt.show()
+        else:
+            print("Cannot create bubble plot. y_count_sq is not a square non-empty matrix.")
+
 if __name__ == "__main__":
 
-    import statsmodels.stats.inter_rater as ir
+    r1 = ['Apple'] * 10 + ['Orange'] * 50 + ['Pear'] * 40
+    r2 = ['Apple'] * 20 + ['Pear'] * 60 + ['Orange'] * 20
 
-    r1 = ['NA'] * 20 + ['B'] * 50 + ['A'] * 30
-    r2 = ['A'] * 20 + ['NA'] * 20 + ['B'] * 60
-    r3 = ['A'] * 40 + ['NA'] * 20 + ['B'] * 30 + ['C'] * 10
-    r4 = ['B'] * 60 + ['NA'] * 20 + ['C'] * 10 + ['A'] * 10
-    r5 = ['C'] * 60 + ['A'] * 10 + ['B'] * 10 + ['NA'] * 20
-    data = [r1, r2, r3, r4, r5]
-    kappa = KappaCalculator(data, stringna='NA')
+    kappa = KappaCalculator([r1,r2], stringna='NA')
 
-    print("Fleiss's kappa (stasmodels.stats.inter_rater): "+str(ir.fleiss_kappa(kappa.y_count)))
-    print("Fleiss's kappa (mtbp3.statlab): "+str(kappa.fleiss_kappa))
+    print("Cohen's kappa (mtbp3.statlab): "+str(kappa.cohen_kappa))
     print("Number of raters per sample: "+str(kappa.n_rater))
     print("Number of rating categories: "+str(kappa.n_category))
     print("Number of sample: "+str(kappa.y_count.shape[0]))
+
+    kappa.create_bubble_plot(out_path='statlab_kappa_fig1.svg')
+
