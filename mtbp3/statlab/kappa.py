@@ -245,7 +245,7 @@ class KappaCalculator:
         else:
             return [self.cohen_kappa, n_iterations, confidence_level, lower_bound, upper_bound]
 
-    def create_bubble_plot(self, out_path="", title="", axis_label=[]):
+    def create_bubble_plot(self, out_path="", title="", axis_label=[], max_size_ratio=100):
         """
         Creates a bubble plot based on the y_count_sq matrix.
 
@@ -254,6 +254,9 @@ class KappaCalculator:
         - title (str): The title of the plot. If not provided, the default title is 'Bubble Plot'.
         - axis_label (list): A list of two strings representing the labels for the x-axis and y-axis. 
                              If not provided, the default labels are ['Rater 1', 'Rater 2'].
+        - max_size_ratio (int): The maximum size ratio for the bubbles. The size of the bubbles is determined by the values in the y_count_sq matrix. 
+                                The maximum size of the bubbles will be max_size_ratio times the maximum value in the matrix. 
+                                If not provided, the default value is 100.
 
         Returns:
         - None
@@ -262,7 +265,6 @@ class KappaCalculator:
         - None
 
         """
-
         if self.n_rater == 2 and self.y_count_sq is not None and self.y_count_sq.shape[0] == self.y_count_sq.shape[1] and self.y_count_sq.shape[0] > 0:
             categories = self.y_count_sq.columns
             n_categories = len(categories)
@@ -275,7 +277,7 @@ class KappaCalculator:
                     r2.append(c2)
                     sizes.append(self.y_count_sq.iloc[i1, i2])
             data = pd.DataFrame({'r1': r1, 'r2': r2, 'sizes': sizes})
-            sns.scatterplot(data=data, x="r1", y="r2", size="sizes", sizes=(min(sizes), max(sizes)*100), legend=False)
+            sns.scatterplot(data=data, x="r1", y="r2", size="sizes", sizes=(min(sizes), max(sizes)*max_size_ratio), legend=False)
             for i in range(len(data)):
                 plt.text(data['r1'][i], data['r2'][i], data['sizes'][i], ha='center', va='center')
             if not axis_label:
