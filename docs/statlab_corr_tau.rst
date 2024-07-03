@@ -160,10 +160,10 @@ Algorithm
 
 **WARNING: FOR SMALL SAMPLE SIZES ONLY**
 
-Note that the algorithm in this section is implement in ``mtbp3.stalab`` for demonstration only.
+Note that the algorithm in this section is implement in ``mtbp3.stalab`` for illustration purpose.
 Although the matrix presentation is easier to understand, 
 the calculation time increases greatly when the sample size increases.
-More practical algorithms can be found in references.
+Other algorithms can be found in references.
 
 Let :math:`Y_{1} = (Y_{11}, \ldots, Y_{n1})` and :math:`Y_{2} = (Y_{12}, \ldots, Y_{n2})`.
 Let :math:`\times` represent the matrix product, 
