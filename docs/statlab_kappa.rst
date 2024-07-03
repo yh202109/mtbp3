@@ -405,7 +405,7 @@ To use ``mtbp3.statlab``:
     print("Number of rating categories: "+str(kappa.n_category))
     print("Number of sample: "+str(kappa.y_count.shape[0]))
 
-    kappa.create_bubble_plot(out_path='statlab_kappa_fig1.svg')
+    kappa.create_bubble_plot()
 
 Output:
 
