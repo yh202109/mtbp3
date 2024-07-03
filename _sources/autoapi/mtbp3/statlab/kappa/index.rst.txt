@@ -101,7 +101,7 @@ Module Contents
 
 
 
-   .. py:method:: create_bubble_plot(out_path='', title='', axis_label=[])
+   .. py:method:: create_bubble_plot(out_path='', title='', axis_label=[], max_size_ratio=100)
 
       Creates a bubble plot based on the y_count_sq matrix.
 
@@ -110,6 +110,9 @@ Module Contents
       - title (str): The title of the plot. If not provided, the default title is 'Bubble Plot'.
       - axis_label (list): A list of two strings representing the labels for the x-axis and y-axis.
                            If not provided, the default labels are ['Rater 1', 'Rater 2'].
+      - max_size_ratio (int): The maximum size ratio for the bubbles. The size of the bubbles is determined by the values in the y_count_sq matrix.
+                              The maximum size of the bubbles will be max_size_ratio times the maximum value in the matrix.
+                              If not provided, the default value is 100.
 
       Returns:
       - None

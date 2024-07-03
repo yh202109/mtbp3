@@ -389,7 +389,7 @@ Note that examples of using ``SAS/PROC FREQ`` and ``R`` package ``vcd`` for calc
 Bubble Plot
 =============
 
-To use ``mtbp3.statlab``:
+To create a bubble plot using ``mtbp3.statlab``:
 
 .. code:: python
 
@@ -420,6 +420,17 @@ Output:
     :scale: 70%
     :align: center
     :alt: bubble plot
+
+To create a bubble plot within individual raters summary using ``mtbp3.statlab``:
+
+.. code:: python
+
+    kappa.create_bubble_plot(hist=True)
+
+.. figure:: /_static/fig/statlab_kappa_fig2.svg
+    :scale: 70%
+    :align: center
+    :alt: bubble plot with hist
 
 *************
 Extensions
