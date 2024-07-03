@@ -421,6 +421,7 @@ Output:
     :align: center
     :alt: bubble plot
 
+Sometimes monitoring individual raters rates might be needed for the interpretation of :math:`\kappa`.
 To create a bubble plot within individual raters summary using ``mtbp3.statlab``:
 
 .. code:: python
