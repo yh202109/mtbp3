@@ -6,8 +6,9 @@
 - add Fleiss's kappa variance
 - add Kendall's tau algorithm
 - add Cohen's kappa bubble plot
-- add Cohen's kappa bubble plot with hist 
-- adjust y-axis order of Cohen's kappa bubble plot with hist 
+    - add hist
+    - adjust y-axis order 
+    - adjust color
 
 ## v0.2.11 (2024-06-18)
 
