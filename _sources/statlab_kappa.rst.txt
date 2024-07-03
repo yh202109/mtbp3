@@ -407,6 +407,15 @@ To use ``mtbp3.statlab``:
 
     kappa.create_bubble_plot(out_path='statlab_kappa_fig1.svg')
 
+Output:
+
+.. testoutput::
+
+    Cohen's kappa (mtbp3.statlab): -0.09375
+    Number of raters per sample: 2.0
+    Number of rating categories: 3
+    Number of sample: 100
+
 .. figure:: /_static/fig/statlab_kappa_fig1.svg
     :scale: 70%
     :align: center
