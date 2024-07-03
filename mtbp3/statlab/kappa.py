@@ -268,7 +268,6 @@ class KappaCalculator:
         if self.n_rater == 2 and self.y_count_sq is not None and self.y_count_sq.shape[0] == self.y_count_sq.shape[1] and self.y_count_sq.shape[0] > 0:
             categories = self.y_count_sq.columns
             n_categories = len(categories)
-            max_size_ratio = max_size_ratio if max_size_ratio >= 1 else max(1,int(150 / n_categories))
 
             r1 = [] 
             r2 = []
@@ -279,6 +278,7 @@ class KappaCalculator:
                     r2.append(c2)
                     sizes.append(self.y_count_sq.iloc[i1, i2])
             df0 = pd.DataFrame({'r1': r1, 'r2': r2, 'sizes': sizes})
+            max_size_ratio = max_size_ratio if max_size_ratio >= 1 else max(1,int((6000/max(sizes)) / n_categories))
             if hist:
                 sns.jointplot(
                     data=df0, x="r1", y="r2", kind="scatter", 
