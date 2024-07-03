@@ -278,15 +278,18 @@ class KappaCalculator:
                     r2.append(c2)
                     sizes.append(self.y_count_sq.iloc[i1, i2])
             df0 = pd.DataFrame({'r1': r1, 'r2': r2, 'sizes': sizes})
+            df0['r1'] = pd.Categorical(df0['r1'])
+            df0['r2'] = pd.Categorical(df0['r2'])
             max_size_ratio = max_size_ratio if max_size_ratio >= 1 else max(1,int((6000/max(sizes)) / n_categories))
             if hist:
                 sns.jointplot(
                     data=df0, x="r1", y="r2", kind="scatter", 
                     height=5, ratio=3, marginal_ticks=True,
-                    marginal_kws={"weights": sizes, "shrink":.5}, 
+                    marginal_kws={"weights": sizes, "shrink":.5, "legend": False}, 
                     joint_kws={"size": sizes, "legend": False, "sizes":(min(sizes), max(sizes)*max_size_ratio)}
                     ) 
-                #sns.jointplot(data=df0, x="r1", y="r2", size="sizes", kind="scatter") 
+                tmp1 = plt.ylim()
+                plt.ylim(tmp1[1], tmp1[0])
             else:
                 sns.scatterplot(data=df0, x="r1", y="r2", size="sizes", sizes=(min(sizes), max(sizes)*max_size_ratio), legend=False)
                 tmp1 = plt.xlim()
