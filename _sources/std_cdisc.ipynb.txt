@@ -4,13 +4,13 @@
             "cell_type": "markdown",
             "metadata": {},
             "source": [
-                "# S/C/CDISC Basics\n",
+                "# STD/CDISC/Basics\n",
                 "\n",
                 "CDISC stands for Clinical Data Interchange Standards Consortium. \n",
                 "As the name indicated, the organization engages with clinical data community and creates and maintains data standards for clinical developments, \n",
                 "such that the planning, creating, storing, using and exchanging of information and records can be processed at a higher level of consistency [^1].\n",
                 "\n",
-                "The modules started with `cdisc` include basic functions for processing data prepared with CDISC standards. "
+                "The modules started with `stdcd` include basic functions for processing data prepared with CDISC standards. "
             ]
         },
         {
@@ -75,33 +75,13 @@
             "cell_type": "markdown",
             "metadata": {},
             "source": [
+                "## CDISC Resource\n",
                 "\n",
-                "Some digital resources are available for implementation:\n",
+                "To access CDISC library and documents, follow steps here to create cdiscID: https://www.cdisc.org/cdiscid-sign-insign-instructions\n",
                 "\n",
-                "- CDISC resources\n",
-                "    - Library (API available)\n",
-                "    - Wiki\n",
-                "- Community Projects\n",
-                "    - COSA\n",
-                "    - pharmaverse (R)\n",
-                "- Validation tools\n",
-                "    - P21 community version\n",
-                "    "
-            ]
-        },
-        {
-            "cell_type": "markdown",
-            "metadata": {},
-            "source": [
-                "## CDISC Library\n",
-                "\n"
-            ]
-        },
-        {
-            "cell_type": "markdown",
-            "metadata": {},
-            "source": [
-                "$\\alpha$"
+                "Resource Links:\n",
+                "\n",
+                "- CDISC knowledge base: https://www.cdisc.org/kb"
             ]
         },
         {
