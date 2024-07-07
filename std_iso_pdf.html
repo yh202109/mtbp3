@@ -99,11 +99,11 @@
 <h1>STD/ISO/PDF<a class="headerlink" href="#std-iso-pdf" title="Link to this heading"></a></h1>
 <p>PDF stands for Portable Document Format, which was created by Adobe<a class="footnote-reference brackets" href="#id7" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>,
 and currently maintained by the International Organization for Standardization (ISO) as an open source international standard <a class="footnote-reference brackets" href="#id8" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
-<p>Some commonly used specialized PDF types<a class="footnote-reference brackets" href="#id9" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>:</p>
+<p>Some commonly used specialized PDF types include:</p>
 <ul class="simple">
-<li><p>ISO 14289/PDF/UA  for accessible PDF documents and processors.</p></li>
-<li><p>ISO 15930/PDF/X  for printing.</p></li>
-<li><p>ISO 19005/PDF/A  for long-term archiving .</p>
+<li><p>ISO 14289/PDF/UA  for accessible PDF documents and processors</p></li>
+<li><p>ISO 15930/PDF/X  for printing</p></li>
+<li><p>ISO 19005/PDF/<strong>A  for long-term archiving</strong> <a class="footnote-reference brackets" href="#id9" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></p>
 <ul>
 <li><p>Sub-parts:</p>
 <ul>
@@ -130,12 +130,14 @@ The module <code class="docutils literal notranslate"><span class="pre">stdiso.p
 <span class="n">pfr</span> <span class="o">=</span> <span class="n">pdfSummary</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File size:&quot;</span><span class="p">,</span> <span class="n">pfr</span><span class="o">.</span><span class="n">file_size</span><span class="p">,</span> <span class="s2">&quot; bytes&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of pages:&quot;</span><span class="p">,</span> <span class="n">pfr</span><span class="o">.</span><span class="n">n_page</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of figures within individual pages:&quot;</span><span class="p">,</span> <span class="n">pfr</span><span class="o">.</span><span class="n">n_image_in_page</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File size: 2215244  bytes
 Number of pages: 15
+Number of figures within individual pages: [0, 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 </pre></div>
 </div>
 </div>
