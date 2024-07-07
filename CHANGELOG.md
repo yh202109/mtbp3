@@ -1,6 +1,13 @@
 # Changelog
 
 <!--next-version-placeholder-->
+## v0.2.15 (2024-07-00)
+
+## v0.2.14 (2024-07-07)
+
+- add pdf functions
+- add pdf examples
+
 ## v0.2.13 (2024-07-03)
 
 - add Fleiss's kappa variance
