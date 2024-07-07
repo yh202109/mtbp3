@@ -4,3 +4,12 @@ mtbp3.stdiso
 .. py:module:: mtbp3.stdiso
 
 
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/mtbp3/stdiso/pdfsummary/index
+
+

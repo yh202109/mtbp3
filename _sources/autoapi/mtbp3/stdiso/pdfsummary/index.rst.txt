@@ -1,0 +1,29 @@
+mtbp3.stdiso.pdfsummary
+=======================
+
+.. py:module:: mtbp3.stdiso.pdfsummary
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   mtbp3.stdiso.pdfsummary.pdf_obj
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   mtbp3.stdiso.pdfsummary.pdfSummary
+
+
+Module Contents
+---------------
+
+.. py:class:: pdfSummary(path=None)
+
+.. py:data:: pdf_obj
+
