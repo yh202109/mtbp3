@@ -170,7 +170,7 @@ class LsrTree:
                     elif file_type == "pdf":
                         with open(file_path, "rb") as f:
                             pdf = pypdf.PdfReader(f, strict=False)
-                            num_pages = pdf.get_num_pages
+                            num_pages = pdf.get_num_pages()
 
                     data.append((s1, level + 1, "file", f1, str(file_size), file_modified, file_created, file_type, str(num_pages), str(num_columns), str(num_rows)))
             elif len(d0) == 0:

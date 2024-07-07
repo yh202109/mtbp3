@@ -33,7 +33,7 @@ class pdfSummary:
         except FileNotFoundError:
             raise ValueError("File not found")
 
-        self.n_page = self.pp.get_num_pages
+        self.n_page = self.pp.get_num_pages()
         self.file_size = os.path.getsize(self.pdf_path)
 
 if __name__ == "__main__":
