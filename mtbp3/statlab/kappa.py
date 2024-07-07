@@ -19,6 +19,7 @@ import matplotlib.pyplot as plt
 from sklearn.utils import resample
 import os
 import seaborn as sns
+import random
 
 
 class KappaCalculator:
@@ -245,7 +246,7 @@ class KappaCalculator:
         else:
             return [self.cohen_kappa, n_iterations, confidence_level, lower_bound, upper_bound]
 
-    def create_bubble_plot(self, out_path="", axis_label=[], max_size_ratio=0, hist=False):
+    def create_bubble_plot(self, out_path="", axis_label=[], max_size_ratio=0, hist=False, reverse_y=True):
         """
         Creates a bubble plot based on the y_count_sq matrix.
 
@@ -289,8 +290,9 @@ class KappaCalculator:
                     marginal_kws={"hue": df0['agree'], "multiple": "stack", "weights": sizes, "shrink":.5, "legend": False}, 
                     joint_kws={"hue": df0['agree'], "size": sizes, "legend": False, "sizes":(min(sizes), max(sizes)*max_size_ratio)}
                     ) 
-                tmp1 = plt.ylim()
-                plt.ylim(tmp1[1], tmp1[0])
+                if reverse_y:
+                    tmp1 = plt.ylim()
+                    plt.ylim(tmp1[1], tmp1[0])
             else:
                 sns.scatterplot(data=df0, x="r1", y="r2", size="sizes", sizes=(min(sizes), max(sizes)*max_size_ratio), legend=False)
                 tmp1 = plt.xlim()
@@ -322,15 +324,17 @@ class KappaCalculator:
 
 if __name__ == "__main__":
 
-    r1 = ['Apple'] * 10 + ['Orange'] * 50 + ['Pear'] * 40
-    r2 = ['Apple'] * 20 + ['Pear'] * 60 + ['Orange'] * 20
+    fruits = ['Apple', 'Orange', 'Pear']
+    r1 = random.choices(fruits, k=100)
+    r2 = random.choices(fruits, k=100)
 
     kappa = KappaCalculator([r1,r2], stringna='NA')
-
     print("Cohen's kappa (mtbp3.statlab): "+str(kappa.cohen_kappa))
     print("Number of raters per sample: "+str(kappa.n_rater))
     print("Number of rating categories: "+str(kappa.n_category))
     print("Number of sample: "+str(kappa.y_count.shape[0]))
-
-    kappa.create_bubble_plot(hist=True)
+    p1 = '/Users/yh2020/dt2/proj/mtbp3/docs/_static/fig/'
+    kappa.create_bubble_plot(out_path=p1+'statlab_kappa_fig1.svg')
+    kappa.create_bubble_plot(hist=True, out_path=p1+'statlab_kappa_fig2.svg')
+    kappa.create_bubble_plot(hist=True, reverse_y=False, out_path=p1+'statlab_kappa_fig3.svg')
 

@@ -53,7 +53,7 @@ class CorrCalculator:
             else:
                 if y.isna().any().any():
                     raise ValueError("Input data contains missing values (NA)")
-            self.y_shape0, self.y_shape1 = self.y_df.shape()
+            self.y_shape0, self.y_shape1 = self.y_df.shape
             self.y_list = self.y_df.values.tolist()
         else:
             assert isinstance(y, list) and len(y) >= 2, "y must be a list with at least 2 elements"

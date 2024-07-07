@@ -393,13 +393,12 @@ To create a bubble plot using ``mtbp3.statlab``:
 
 .. code:: python
 
-   from mtbp3.statlab import kappa
+    from mtbp3.statlab import kappa
 
-    r1 = ['Apple'] * 10 + ['Orange'] * 50 + ['Pear'] * 40
-    r2 = ['Apple'] * 20 + ['Pear'] * 60 + ['Orange'] * 20
+    r1 = random.choices(fruits, k=100)
+    r2 = random.choices(fruits, k=100)
 
     kappa = KappaCalculator([r1,r2], stringna='NA')
-
     print("Cohen's kappa (mtbp3.statlab): "+str(kappa.cohen_kappa))
     print("Number of raters per sample: "+str(kappa.n_rater))
     print("Number of rating categories: "+str(kappa.n_category))
@@ -411,7 +410,7 @@ Output:
 
 .. testoutput::
 
-    Cohen's kappa (mtbp3.statlab): -0.09375
+    Cohen's kappa (mtbp3.statlab): -0.07283167119975827
     Number of raters per sample: 2.0
     Number of rating categories: 3
     Number of sample: 100
@@ -432,6 +431,32 @@ To create a bubble plot with individual raters summary using ``mtbp3.statlab``:
     :scale: 70%
     :align: center
     :alt: bubble plot with hist
+
+Note that the agreed counts are on the 45 degree line.
+To put agreed counts on the -45 degree line:
+
+.. code:: python
+
+    kappa.create_bubble_plot(hist=True, reverse_y=False)
+
+.. figure:: /_static/fig/statlab_kappa_fig3.svg
+    :scale: 70%
+    :align: center
+    :alt: bubble plot with hist - reverse
+
+*************
+Lab Exercise
+*************
+
+Assume that there are two raters responsible to rate 2 studies with 100 sample size for each.
+
+For the first study, the rater-1 marginal rates follow :math:`multi(100, (1/3,1/3,1/3))`.
+However, the second rater's cat hacked into the computer and filled first :math:`0<r<1` portion of the sample's rate with exactly the same rating from the first rater, and fill out the rest with random ratings with the same rating distribution.
+
+For the second study, the rater-2 marginal rates follow :math:`multi(100, (0.9,0.05,0.05))`.
+However, the first rater's dog hacked into the computer and filled first :math:`0<r<1` portion of the sample's rate with exactly the same rating from the second rater, and fill out the rest with random ratings with the same rating distribution.
+
+Find the relationship between :math:`r` and :math:`\kappa`.
 
 *************
 Extensions
