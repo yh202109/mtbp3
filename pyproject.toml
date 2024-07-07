@@ -23,7 +23,7 @@ coverage = { version = "*", optional = false }
 genbadge = { version = "*", optional = false }
 matplotlib = { version = "*", optional = false }
 seaborn = { version = ">=0.13.2", optional = false }
-PyPDF2 = { version = "*", optional = false }
+pypdf = { version = "*", optional = false }
 ipywidgets = { version = "*", optional = false }
 scikit-learn = { version = "*", optional = false }
 statsmodels = { version = "*", optional = false }
