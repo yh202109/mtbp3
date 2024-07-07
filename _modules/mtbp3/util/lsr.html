@@ -113,7 +113,7 @@
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">PyPDF2</span> 
+<span class="kn">import</span> <span class="nn">pypdf</span> 
 
 <div class="viewcode-block" id="LsrTree">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/util/lsr/index.html#mtbp3.health.LsrTree">[docs]</a>
@@ -275,8 +275,8 @@
                             <span class="n">num_rows</span> <span class="o">=</span> <span class="mi">0</span>
                     <span class="k">elif</span> <span class="n">file_type</span> <span class="o">==</span> <span class="s2">&quot;pdf&quot;</span><span class="p">:</span>
                         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-                            <span class="n">pdf</span> <span class="o">=</span> <span class="n">PyPDF2</span><span class="o">.</span><span class="n">PdfFileReader</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-                            <span class="n">num_pages</span> <span class="o">=</span> <span class="n">pdf</span><span class="o">.</span><span class="n">getNumPages</span><span class="p">()</span>
+                            <span class="n">pdf</span> <span class="o">=</span> <span class="n">pypdf</span><span class="o">.</span><span class="n">PdfReader</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                            <span class="n">num_pages</span> <span class="o">=</span> <span class="n">pdf</span><span class="o">.</span><span class="n">get_num_pages</span>
 
                     <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">s1</span><span class="p">,</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;file&quot;</span><span class="p">,</span> <span class="n">f1</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">file_size</span><span class="p">),</span> <span class="n">file_modified</span><span class="p">,</span> <span class="n">file_created</span><span class="p">,</span> <span class="n">file_type</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">num_pages</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">num_columns</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">num_rows</span><span class="p">)))</span>
             <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">d0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>

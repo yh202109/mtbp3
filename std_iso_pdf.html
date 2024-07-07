@@ -99,10 +99,10 @@
 <h1>STD/ISO/PDF<a class="headerlink" href="#std-iso-pdf" title="Link to this heading"></a></h1>
 <p>PDF stands for Portable Document Format, which was created by Adobe<a class="footnote-reference brackets" href="#id7" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>,
 and currently maintained by the International Organization for Standardization (ISO) as an open source international standard <a class="footnote-reference brackets" href="#id8" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
-<p>Some commonly used specialized PDF types:</p>
+<p>Some commonly used specialized PDF types<a class="footnote-reference brackets" href="#id9" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>:</p>
 <p>— ISO 14289/PDF/UA  for accessible PDF documents and processors.
 — ISO 15930/PDF/X  for printing.
-— ISO 19005/PDF/<strong>A</strong>  for <strong>long-term archiving</strong> <a class="footnote-reference brackets" href="#id9" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.
+— ISO 19005/PDF/A  for long-term archiving .
 - Sub-parts:
 - ISO 19005-1:2005/PDF/A-1 (based on PDF v1.4)
 - ISO 19005-2:2011/PDF/A-2 (based on PDF v1.7)
@@ -126,25 +126,8 @@ The module <code class="docutils literal notranslate"><span class="pre">stdiso.p
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">mtbp3.stdiso.pdfsummary</span> <span class="kn">import</span> <span class="n">pdfSummary</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">pfr</span> <span class="o">=</span> <span class="n">pdfSummary</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File size:&quot;</span><span class="p">,</span> <span class="n">pfr</span><span class="o">.</span><span class="n">file_size</span><span class="p">,</span> <span class="s2">&quot; bytes&quot;</span><span class="p">)</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">work</span><span class="o">/</span><span class="n">mtbp3</span><span class="o">/</span><span class="n">mtbp3</span><span class="o">/</span><span class="n">mtbp3</span><span class="o">/</span><span class="n">stdiso</span><span class="o">/</span><span class="n">pdfsummary</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">16</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#  Copyright (C) 2023-2024 Y Hsu &lt;yh202109@gmail.com&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1">#</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#  This program is free software: you can redistribute it and/or modify</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="c1">#  You should have received a copy of the GNU General Public license</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="c1">#  along with this program. If not, see &lt;https://www.gnu.org/license/&gt;</span>
-<span class="ne">---&gt; </span><span class="mi">16</span> <span class="kn">import</span> <span class="nn">pypdf</span> 
-<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="kn">import</span> <span class="nn">mtbp3</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="kn">import</span> <span class="nn">os</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;pypdf&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File size: 2215244  bytes
+Number of pages: &lt;bound method PdfDocCommon.get_num_pages of &lt;pypdf._reader.PdfReader object at 0x7f1e58d6af80&gt;&gt;
 </pre></div>
 </div>
 </div>
