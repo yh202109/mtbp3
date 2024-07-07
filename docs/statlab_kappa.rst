@@ -439,7 +439,7 @@ To put agreed counts on the -45 degree line:
 
 .. code:: python
 
-    kappa.create_bubble_plot(hist=True, reverse_y=False)
+    kappa.create_bubble_plot(hist=True, reverse_y=True)
 
 .. figure:: /_static/fig/statlab_kappa_fig3.svg
     :scale: 70%

@@ -246,7 +246,7 @@ class KappaCalculator:
         else:
             return [self.cohen_kappa, n_iterations, confidence_level, lower_bound, upper_bound]
 
-    def create_bubble_plot(self, out_path="", axis_label=[], max_size_ratio=0, hist=False, reverse_y=True):
+    def create_bubble_plot(self, out_path="", axis_label=[], max_size_ratio=0, hist=False, reverse_y=False):
         """
         Creates a bubble plot based on the y_count_sq matrix.
 
@@ -290,15 +290,18 @@ class KappaCalculator:
                     marginal_kws={"hue": df0['agree'], "multiple": "stack", "weights": sizes, "shrink":.5, "legend": False}, 
                     joint_kws={"hue": df0['agree'], "size": sizes, "legend": False, "sizes":(min(sizes)*max_size_ratio, max(sizes)*max_size_ratio)}
                     ) 
-                if reverse_y:
+                if not reverse_y:
                     tmp1 = plt.ylim()
                     plt.ylim(tmp1[1], tmp1[0])
             else:
-                sns.scatterplot(data=df0, x="r1", y="r2", size="sizes", sizes=(min(sizes)*max_size_ratio, max(sizes)*max_size_ratio), legend=False)
+                sns.scatterplot(data=df0, x="r1", y="r2", size="sizes", hue="agree", sizes=(min(sizes)*max_size_ratio, max(sizes)*max_size_ratio), legend=False)
                 tmp1 = plt.xlim()
                 tmp1d = ((tmp1[1] - tmp1[0])/n_categories)
                 plt.xlim(tmp1[0] - tmp1d, tmp1[1] + tmp1d)
                 plt.ylim(tmp1[0] - tmp1d, tmp1[1] + tmp1d)
+                if reverse_y:
+                    tmp1 = plt.ylim()
+                    plt.ylim(tmp1[1], tmp1[0])
 
             for i in range(len(df0)):
                 plt.text(df0['r1'][i], df0['r2'][i], df0['sizes'][i], ha='center', va='center')
@@ -325,5 +328,3 @@ class KappaCalculator:
 if __name__ == "__main__":
 
     pass
-
-
