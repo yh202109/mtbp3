@@ -35,6 +35,8 @@ class pdfSummary:
 
         self.n_page = self.pp.get_num_pages()
         self.file_size = os.path.getsize(self.pdf_path)
+        self.n_image_in_page = [len(self.pp.pages[i].images) for i in range(self.n_page)]
+
 
 if __name__ == "__main__":
 
