@@ -450,13 +450,13 @@ Lab Exercise
 
 Assume that there are two raters responsible to rate 2 studies with 100 sample size for each.
 
-For the first study, the rater-1 marginal rates follow :math:`multi(100, (1/3,1/3,1/3))`.
+For the first study, the first rater completed rating with marginal rates follow :math:`multi(100, (1/3,1/3,1/3))`.
 However, the second rater's cat hacked into the computer and filled first :math:`0<r<1` portion of the sample's rate with exactly the same rating from the first rater, and fill out the rest with random ratings with the same rating distribution.
 
-For the second study, the rater-2 marginal rates follow :math:`multi(100, (0.9,0.05,0.05))`.
+For the second study, the second rater completed rating with marginal rates follow :math:`multi(100, (0.9,0.05,0.05))`.
 However, the first rater's dog hacked into the computer and filled first :math:`0<r<1` portion of the sample's rate with exactly the same rating from the second rater, and fill out the rest with random ratings with the same rating distribution.
 
-Find the relationship between :math:`r` and :math:`\kappa`.
+Find the relationship between :math:`r` and :math:`\kappa` for these two studies.
 
 *************
 Extensions
