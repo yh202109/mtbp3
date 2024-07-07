@@ -97,13 +97,13 @@
              
   <section id="std-iso-pdf">
 <h1>STD/ISO/PDF<a class="headerlink" href="#std-iso-pdf" title="Link to this heading"></a></h1>
-<p>PDF stands for Portable Document Format, which was created by Adobe<a class="footnote-reference brackets" href="#id7" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>,
-and currently maintained by the International Organization for Standardization (ISO) as an open source international standard <a class="footnote-reference brackets" href="#id8" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
+<p>PDF stands for Portable Document Format, which was created by Adobe<a class="footnote-reference brackets" href="#id8" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>,
+and currently maintained by the International Organization for Standardization (ISO) as an open source international standard <a class="footnote-reference brackets" href="#id9" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
 <p>Some commonly used specialized PDF types include:</p>
 <ul class="simple">
 <li><p>ISO 14289/PDF/UA  for accessible PDF documents and processors</p></li>
 <li><p>ISO 15930/PDF/X  for printing</p></li>
-<li><p>ISO 19005/PDF/<strong>A  for long-term archiving</strong> <a class="footnote-reference brackets" href="#id9" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></p>
+<li><p>ISO 19005/PDF/<strong>A  for long-term archiving</strong> <a class="footnote-reference brackets" href="#id10" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></p>
 <ul>
 <li><p>Sub-parts:</p>
 <ul>
@@ -113,14 +113,14 @@ and currently maintained by the International Organization for Standardization (
 </ul>
 </li>
 <li><p>Not allow: audio, video, 3d objects, JS, certain actions, encryption, non-standard metadata</p></li>
-<li><p>Require: embed font with proper license</p></li>
+<li><p>Require: embedding font with proper license</p></li>
 </ul>
 </li>
 <li><p>ISO 24517/PDF/E  for representing engineering documents.</p></li>
 </ul>
-<p>For regulatory submission, FDA currently support “PDF versions 1.4 through 1.7, PDF/A-1 and PDF/A-2”<a class="footnote-reference brackets" href="#id10" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>.
-Steps for <strong>creating and validating</strong> PDF/A files can be found in reference <a class="footnote-reference brackets" href="#id11" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>.</p>
-<p>The module <code class="docutils literal notranslate"><span class="pre">stdiso.pdfsummary</span></code> depends on package <code class="docutils literal notranslate"><span class="pre">pypdf</span></code> <a class="footnote-reference brackets" href="#id12" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>.
+<p>For regulatory submission, FDA currently support “PDF versions 1.4 through 1.7, PDF/A-1 and PDF/A-2”<a class="footnote-reference brackets" href="#id11" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>.
+Steps for <strong>creating and validating</strong> PDF/A files can be found in reference <a class="footnote-reference brackets" href="#id12" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a><a class="footnote-reference brackets" href="#id13" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>.</p>
+<p>The module <code class="docutils literal notranslate"><span class="pre">stdiso.pdfsummary</span></code> depends on package <code class="docutils literal notranslate"><span class="pre">pypdf</span></code> <a class="footnote-reference brackets" href="#id14" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>.
 The module <code class="docutils literal notranslate"><span class="pre">stdiso.pdfsummary</span></code> include functions for creating summaries about a specified PDF file.</p>
 <p>To use <code class="docutils literal notranslate"><span class="pre">mtbp3.stdiso</span></code>:</p>
 <div class="cell docutils container">
@@ -129,6 +129,7 @@ The module <code class="docutils literal notranslate"><span class="pre">stdiso.p
 
 <span class="n">pfr</span> <span class="o">=</span> <span class="n">pdfSummary</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File size:&quot;</span><span class="p">,</span> <span class="n">pfr</span><span class="o">.</span><span class="n">file_size</span><span class="p">,</span> <span class="s2">&quot; bytes&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Creation date:&quot;</span><span class="p">,</span> <span class="n">pfr</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">creation_date</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of pages:&quot;</span><span class="p">,</span> <span class="n">pfr</span><span class="o">.</span><span class="n">n_page</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of figures within individual pages:&quot;</span><span class="p">,</span> <span class="n">pfr</span><span class="o">.</span><span class="n">n_image_in_page</span><span class="p">)</span>
 </pre></div>
@@ -136,6 +137,7 @@ The module <code class="docutils literal notranslate"><span class="pre">stdiso.p
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File size: 2215244  bytes
+Creation date: 2024-04-10 21:11:43+00:00
 Number of pages: 15
 Number of figures within individual pages: [0, 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 </pre></div>
@@ -147,28 +149,32 @@ Number of figures within individual pages: [0, 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>
 <hr class="footnotes docutils" />
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id7" role="doc-footnote">
+<aside class="footnote brackets" id="id8" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p>Adobe. (2024). Everything you need to know about the PDF. (<a class="reference external" href="https://www.adobe.com/acrobat/about-adobe-pdf.html">web page</a>)</p>
 </aside>
-<aside class="footnote brackets" id="id8" role="doc-footnote">
+<aside class="footnote brackets" id="id9" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
 <p>ISO. (2021). The standard for PDF is revised. (<a class="reference external" href="https://www.iso.org/news/ref2608.html">web page</a>)</p>
 </aside>
-<aside class="footnote brackets" id="id9" role="doc-footnote">
+<aside class="footnote brackets" id="id10" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
 <p>pdfa.org. (2013). PDF/A in a Nutshell 2.0. (<a class="reference external" href="https://pdfa.org/resource/pdfa-in-a-nutshell-2-0/">web page</a>)</p>
 </aside>
-<aside class="footnote brackets" id="id10" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">5</a><span class="fn-bracket">]</span></span>
+<aside class="footnote brackets" id="id11" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
 <p>FDA. (2016). Portable Document Format (PDF) Specifications. (<a class="reference external" href="https://www.fda.gov/files/drugs/published/Portable-Document-Format-Specifications.pdf">pdf</a>)</p>
 </aside>
-<aside class="footnote brackets" id="id11" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">4</a><span class="fn-bracket">]</span></span>
-<p>Adobe. (2023). PDF/X-, PDF/A-, and PDF/E-compliant files (Acrobat Pro). (<a class="reference external" href="https://helpx.adobe.com/acrobat/using/pdf-x-pdf-a-pdf.htm">web page</a>)</p>
-</aside>
 <aside class="footnote brackets" id="id12" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">5</a><span class="fn-bracket">]</span></span>
+<p>Adobe. (2023). PDF/X-, PDF/A-, and PDF/E-compliant files (Acrobat Pro). (<a class="reference external" href="https://helpx.adobe.com/acrobat/using/pdf-x-pdf-a-pdf.html">web page</a>)</p>
+</aside>
+<aside class="footnote brackets" id="id13" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">6</a><span class="fn-bracket">]</span></span>
+<p>pypdf Contributors. (2024). PDF/A Compliance. (<a class="reference external" href="https://pypdf.readthedocs.io/en/stable/user/pdfa-compliance.html">web page</a>)</p>
+</aside>
+<aside class="footnote brackets" id="id14" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">7</a><span class="fn-bracket">]</span></span>
 <p>pypdf Contributors. (2024). pypdf. (<a class="reference external" href="https://pypdf.readthedocs.io/en/stable/index.html">web page</a>)</p>
 </aside>
 </aside>
