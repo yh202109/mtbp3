@@ -16,12 +16,12 @@ Functions are grouped into:
   - eCTD: `health.ectd` 
   - MedDRA: `health.emt` 
   - WhoDrug: 
-  - ISO: 
 - General 
   - Data summary: `util.cdt`
   - Graphs: `util.cdtg`
   - System: `util.lsr`
 - Standard: 
+  - ISO: `stdiso.pdfsummary` 
   - CDISC: 
 - StatLab: 
   - Correlation: `statlab.corr` 
