@@ -9,7 +9,7 @@ Attributes
 
 .. autoapisummary::
 
-   mtbp3.statlab.kappa.r1
+   mtbp3.statlab.kappa.fruits
 
 
 Classes
@@ -101,7 +101,7 @@ Module Contents
 
 
 
-   .. py:method:: create_bubble_plot(out_path='', axis_label=[], max_size_ratio=0, hist=False)
+   .. py:method:: create_bubble_plot(out_path='', axis_label=[], max_size_ratio=0, hist=False, reverse_y=True)
 
       Creates a bubble plot based on the y_count_sq matrix.
 
@@ -123,5 +123,7 @@ Module Contents
 
 
 
-.. py:data:: r1
+.. py:data:: fruits
+   :value: ['Apple', 'Orange', 'Pear']
+
 
