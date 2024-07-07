@@ -103,7 +103,7 @@ Package Contents
 
 
 
-   .. py:method:: create_bubble_plot(out_path='', axis_label=[], max_size_ratio=0, hist=False, reverse_y=True)
+   .. py:method:: create_bubble_plot(out_path='', axis_label=[], max_size_ratio=0, hist=False, reverse_y=False)
 
       Creates a bubble plot based on the y_count_sq matrix.
 
