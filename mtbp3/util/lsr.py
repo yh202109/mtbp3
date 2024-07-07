@@ -20,7 +20,7 @@ import json
 import pandas as pd
 import time
 import numpy as np
-import PyPDF2 
+import pypdf 
 
 class LsrTree:
     def __init__(self, path="", outfmt="list", with_counts=False, count_str="", with_file_label=False, label_str=""):
@@ -169,8 +169,8 @@ class LsrTree:
                             num_rows = 0
                     elif file_type == "pdf":
                         with open(file_path, "rb") as f:
-                            pdf = PyPDF2.PdfFileReader(f, strict=False)
-                            num_pages = pdf.getNumPages()
+                            pdf = pypdf.PdfReader(f, strict=False)
+                            num_pages = pdf.get_num_pages
 
                     data.append((s1, level + 1, "file", f1, str(file_size), file_modified, file_created, file_type, str(num_pages), str(num_columns), str(num_rows)))
             elif len(d0) == 0:
