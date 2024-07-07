@@ -100,16 +100,24 @@
 <p>PDF stands for Portable Document Format, which was created by Adobe<a class="footnote-reference brackets" href="#id7" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>,
 and currently maintained by the International Organization for Standardization (ISO) as an open source international standard <a class="footnote-reference brackets" href="#id8" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
 <p>Some commonly used specialized PDF types<a class="footnote-reference brackets" href="#id9" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>:</p>
-<p>— ISO 14289/PDF/UA  for accessible PDF documents and processors.
-— ISO 15930/PDF/X  for printing.
-— ISO 19005/PDF/A  for long-term archiving .
-- Sub-parts:
-- ISO 19005-1:2005/PDF/A-1 (based on PDF v1.4)
-- ISO 19005-2:2011/PDF/A-2 (based on PDF v1.7)
-- ISO 19005-3:2012/PDF/A-3 (add file)
-- Not allow: audio, video, 3d objects, JS, certain actions, encryption, non-standard metadata
-- Require: embed font with proper license
-— ISO 24517/PDF/E  for representing engineering documents.</p>
+<ul class="simple">
+<li><p>ISO 14289/PDF/UA  for accessible PDF documents and processors.</p></li>
+<li><p>ISO 15930/PDF/X  for printing.</p></li>
+<li><p>ISO 19005/PDF/A  for long-term archiving .</p>
+<ul>
+<li><p>Sub-parts:</p>
+<ul>
+<li><p>ISO 19005-1:2005/PDF/A-1 (based on PDF v1.4)</p></li>
+<li><p>ISO 19005-2:2011/PDF/A-2 (based on PDF v1.7)</p></li>
+<li><p>ISO 19005-3:2012/PDF/A-3 (add file)</p></li>
+</ul>
+</li>
+<li><p>Not allow: audio, video, 3d objects, JS, certain actions, encryption, non-standard metadata</p></li>
+<li><p>Require: embed font with proper license</p></li>
+</ul>
+</li>
+<li><p>ISO 24517/PDF/E  for representing engineering documents.</p></li>
+</ul>
 <p>For regulatory submission, FDA currently support “PDF versions 1.4 through 1.7, PDF/A-1 and PDF/A-2”<a class="footnote-reference brackets" href="#id10" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>.
 Steps for <strong>creating and validating</strong> PDF/A files can be found in reference <a class="footnote-reference brackets" href="#id11" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>.</p>
 <p>The module <code class="docutils literal notranslate"><span class="pre">stdiso.pdfsummary</span></code> depends on package <code class="docutils literal notranslate"><span class="pre">pypdf</span></code> <a class="footnote-reference brackets" href="#id12" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>.
@@ -127,7 +135,7 @@ The module <code class="docutils literal notranslate"><span class="pre">stdiso.p
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File size: 2215244  bytes
-Number of pages: &lt;bound method PdfDocCommon.get_num_pages of &lt;pypdf._reader.PdfReader object at 0x7fcfc454efb0&gt;&gt;
+Number of pages: 15
 </pre></div>
 </div>
 </div>
