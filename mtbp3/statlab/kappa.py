@@ -288,13 +288,13 @@ class KappaCalculator:
                     data=df0, x="r1", y="r2", kind="scatter", 
                     height=5, ratio=3, marginal_ticks=True, 
                     marginal_kws={"hue": df0['agree'], "multiple": "stack", "weights": sizes, "shrink":.5, "legend": False}, 
-                    joint_kws={"hue": df0['agree'], "size": sizes, "legend": False, "sizes":(min(sizes), max(sizes)*max_size_ratio)}
+                    joint_kws={"hue": df0['agree'], "size": sizes, "legend": False, "sizes":(min(sizes)*max_size_ratio, max(sizes)*max_size_ratio)}
                     ) 
                 if reverse_y:
                     tmp1 = plt.ylim()
                     plt.ylim(tmp1[1], tmp1[0])
             else:
-                sns.scatterplot(data=df0, x="r1", y="r2", size="sizes", sizes=(min(sizes), max(sizes)*max_size_ratio), legend=False)
+                sns.scatterplot(data=df0, x="r1", y="r2", size="sizes", sizes=(min(sizes)*max_size_ratio, max(sizes)*max_size_ratio), legend=False)
                 tmp1 = plt.xlim()
                 tmp1d = ((tmp1[1] - tmp1[0])/n_categories)
                 plt.xlim(tmp1[0] - tmp1d, tmp1[1] + tmp1d)

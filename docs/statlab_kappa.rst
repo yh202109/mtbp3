@@ -410,7 +410,7 @@ Output:
 
 .. testoutput::
 
-    Cohen's kappa (mtbp3.statlab): -0.07283167119975827
+    Cohen's kappa (mtbp3.statlab): 0.06864954183566166
     Number of raters per sample: 2.0
     Number of rating categories: 3
     Number of sample: 100
