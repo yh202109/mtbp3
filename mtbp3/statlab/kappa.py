@@ -324,17 +324,6 @@ class KappaCalculator:
 
 if __name__ == "__main__":
 
-    fruits = ['Apple', 'Orange', 'Pear']
-    r1 = random.choices(fruits, k=100)
-    r2 = random.choices(fruits, k=100)
+    pass
 
-    kappa = KappaCalculator([r1,r2], stringna='NA')
-    print("Cohen's kappa (mtbp3.statlab): "+str(kappa.cohen_kappa))
-    print("Number of raters per sample: "+str(kappa.n_rater))
-    print("Number of rating categories: "+str(kappa.n_category))
-    print("Number of sample: "+str(kappa.y_count.shape[0]))
-    p1 = '/Users/yh2020/dt2/proj/mtbp3/docs/_static/fig/'
-    kappa.create_bubble_plot(out_path=p1+'statlab_kappa_fig1.svg')
-    kappa.create_bubble_plot(hist=True, out_path=p1+'statlab_kappa_fig2.svg')
-    kappa.create_bubble_plot(hist=True, reverse_y=False, out_path=p1+'statlab_kappa_fig3.svg')
 
