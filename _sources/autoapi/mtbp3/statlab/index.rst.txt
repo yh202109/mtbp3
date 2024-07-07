@@ -14,14 +14,6 @@ Submodules
    /autoapi/mtbp3/statlab/kappa/index
 
 
-Attributes
-----------
-
-.. autoapisummary::
-
-   mtbp3.statlab.fruits
-
-
 Classes
 -------
 
@@ -131,9 +123,5 @@ Package Contents
       - None
 
 
-
-
-.. py:data:: fruits
-   :value: ['Apple', 'Orange', 'Pear']
 
 

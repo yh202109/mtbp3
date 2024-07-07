@@ -395,8 +395,10 @@ To create a bubble plot using ``mtbp3.statlab``:
 
     from mtbp3.statlab import kappa
 
-    r1 = random.choices(fruits, k=100)
-    r2 = random.choices(fruits, k=100)
+    fruits = ['Apple', 'Orange', 'Pear']
+    np.random.seed(100)
+    r1 = np.random.choice(fruits, size=100).tolist()
+    r2 = np.random.choice(fruits, size=100).tolist()
 
     kappa = KappaCalculator([r1,r2], stringna='NA')
     print("Cohen's kappa (mtbp3.statlab): "+str(kappa.cohen_kappa))
@@ -410,10 +412,10 @@ Output:
 
 .. testoutput::
 
-    Cohen's kappa (mtbp3.statlab): 0.06864954183566166
-    Number of raters per sample: 2.0
-    Number of rating categories: 3
-    Number of sample: 100
+Cohen's kappa (mtbp3.statlab): 0.06513872135102527
+Number of raters per sample: 2.0
+Number of rating categories: 3
+Number of sample: 100
 
 .. figure:: /_static/fig/statlab_kappa_fig1.svg
     :scale: 70%
