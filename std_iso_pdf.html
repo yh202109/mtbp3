@@ -131,25 +131,19 @@ The module <code class="docutils literal notranslate"><span class="pre">stdiso.p
 <p>To use <code class="docutils literal notranslate"><span class="pre">mtbp3.stdiso</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mtbp3.stdiso.pdfsummary</span> <span class="kn">import</span> <span class="n">pdfSummary</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mtbp3.stiso.pdfsummary</span> <span class="kn">import</span> <span class="n">pdfSummary</span>
 
 <span class="n">pfr</span> <span class="o">=</span> <span class="n">pdfSummary</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File size:&quot;</span><span class="p">,</span> <span class="n">pfr</span><span class="o">.</span><span class="n">file_size</span><span class="p">,</span> <span class="s2">&quot; bytes&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Creation date:&quot;</span><span class="p">,</span> <span class="n">pfr</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">creation_date</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of pages:&quot;</span><span class="p">,</span> <span class="n">pfr</span><span class="o">.</span><span class="n">n_page</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of figures within individual pages:&quot;</span><span class="p">,</span> <span class="n">pfr</span><span class="o">.</span><span class="n">n_image_in_page</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pfr</span><span class="o">.</span><span class="n">get_summary_string</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">mtbp3.stdiso.pdfsummary</span> <span class="kn">import</span> <span class="n">pdfSummary</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">pfr</span> <span class="o">=</span> <span class="n">pdfSummary</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File size:&quot;</span><span class="p">,</span> <span class="n">pfr</span><span class="o">.</span><span class="n">file_size</span><span class="p">,</span> <span class="s2">&quot; bytes&quot;</span><span class="p">)</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;mtbp3.stdiso&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PDF version: 1.5
+Number of pages: : 15
+File size (byte): : 2215244
+Number of images in individual pages: : [0, 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Number of images total: : 3
 </pre></div>
 </div>
 </div>
@@ -204,6 +198,7 @@ The module <code class="docutils literal notranslate"><span class="pre">stdiso.p
 <ul>
 <li><p>Define: N+ NN- obj\n…\nendobj</p></li>
 <li><p>Reference: N+ NN- R</p></li>
+<li><p>Stream Define: dictionary\nstream\n\r…\nendstream or dictionary\n\rstream\n\r…\n\rendstream</p></li>
 </ul>
 </li>
 <li><p>Direct</p>
