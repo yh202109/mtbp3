@@ -21,7 +21,7 @@ Functions are grouped into:
   - Graphs: `util.cdtg`
   - System: `util.lsr`
 - Standard: 
-  - ISO: `stdiso.pdfsummary` 
+  - ISO: `stiso.pdfsummary` 
   - CDISC: 
 - StatLab: 
   - Correlation: `statlab.corr` 
