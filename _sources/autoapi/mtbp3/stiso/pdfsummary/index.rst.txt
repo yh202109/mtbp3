@@ -1,0 +1,35 @@
+mtbp3.stiso.pdfsummary
+======================
+
+.. py:module:: mtbp3.stiso.pdfsummary
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   mtbp3.stiso.pdfsummary.pfr
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   mtbp3.stiso.pdfsummary.pdfSummary
+
+
+Module Contents
+---------------
+
+.. py:class:: pdfSummary(path=None)
+
+   .. py:method:: get_summary_string()
+
+
+   .. py:method:: get_summary_df()
+
+
+.. py:data:: pfr
+

@@ -1,0 +1,6 @@
+mtbp3.stcdisc
+=============
+
+.. py:module:: mtbp3.stcdisc
+
+

@@ -16,7 +16,7 @@ statlab_kappa.rst
 statlab_kappa2.rst
 statlab_corr_tau.rst
 std_iso_pdf.ipynb
-st_cdisc.ipynb
+stcdisc.ipynb
 example_cdtg.ipynb
 example_files.ipynb
 

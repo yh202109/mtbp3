@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mtbp3.stdiso.pdfsummary &mdash; mtbp3  documentation</title>
+  <title>mtbp3.stiso.pdfsummary &mdash; mtbp3  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -56,7 +56,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../statlab_kappa2.html">StatLab/Fleiss’s Kappa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../statlab_corr_tau.html">StatLab/Corr/Kendall’s tau</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../std_iso_pdf.html">ST/ISO/PDF</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../st_cdisc.html">ST/CDISC/Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../stcdisc.html">ST/CDISC/Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../example_cdtg.html">U/Graph/Categorical Plots Using catPlotter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../example_files.html">U/System/List Folder Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
@@ -81,7 +81,7 @@
       <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
           <li class="breadcrumb-item"><a href="../../mtbp3.html">mtbp3</a></li>
-      <li class="breadcrumb-item active">mtbp3.stdiso.pdfsummary</li>
+      <li class="breadcrumb-item active">mtbp3.stiso.pdfsummary</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -90,7 +90,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <h1>Source code for mtbp3.stdiso.pdfsummary</h1><div class="highlight"><pre>
+  <h1>Source code for mtbp3.stiso.pdfsummary</h1><div class="highlight"><pre>
 <span></span><span class="c1">#  Copyright (C) 2023-2024 Y Hsu &lt;yh202109@gmail.com&gt;</span>
 <span class="c1">#</span>
 <span class="c1">#  This program is free software: you can redistribute it and/or modify</span>
@@ -106,12 +106,13 @@
 <span class="c1">#  You should have received a copy of the GNU General Public license</span>
 <span class="c1">#  along with this program. If not, see &lt;https://www.gnu.org/license/&gt;</span>
 
-<span class="kn">import</span> <span class="nn">pypdf</span> 
+<span class="kn">from</span> <span class="nn">pypdf</span> <span class="kn">import</span> <span class="n">PdfReader</span>
 <span class="kn">import</span> <span class="nn">mtbp3</span>
 <span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <div class="viewcode-block" id="pdfSummary">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/stdiso/pdfsummary/index.html#mtbp3.stdiso.pdfsummary.pdfSummary">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/stiso/pdfsummary/index.html#mtbp3.stiso.pdfsummary.pdfSummary">[docs]</a>
 <span class="k">class</span> <span class="nc">pdfSummary</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
         
@@ -124,21 +125,49 @@
 
         <span class="k">try</span><span class="p">:</span>
             <span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pdf_path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">pp</span> <span class="o">=</span> <span class="n">pypdf</span><span class="o">.</span><span class="n">PdfReader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pp</span> <span class="o">=</span> <span class="n">PdfReader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;File not found&quot;</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">n_page</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">get_num_pages</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">file_size</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pdf_path</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">n_image_in_page</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">pages</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">images</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_page</span><span class="p">)]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">n_image</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_image_in_page</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">meta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">metadata</span></div>
+        <span class="n">tmp0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">get_num_pages</span><span class="p">()</span>
+        <span class="n">tmp1</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">pages</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">images</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">tmp0</span><span class="p">)]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">summary</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;pdf_version&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">pdf_header</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">],</span>
+            <span class="s1">&#39;n_page&#39;</span><span class="p">:</span> <span class="n">tmp0</span><span class="p">,</span>
+            <span class="s1">&#39;file_size&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pdf_path</span><span class="p">),</span>
+            <span class="s1">&#39;n_image_in_page&#39;</span><span class="p">:</span> <span class="n">tmp1</span><span class="p">,</span>
+            <span class="s1">&#39;n_image_in_file&#39;</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">tmp1</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">summary_label</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;pdf_version&#39;</span><span class="p">:</span> <span class="s2">&quot;PDF version&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;n_page&#39;</span><span class="p">:</span> <span class="s2">&quot;Number of pages: &quot;</span><span class="p">,</span>
+            <span class="s1">&#39;file_size&#39;</span><span class="p">:</span> <span class="s2">&quot;File size (byte): &quot;</span><span class="p">,</span>
+            <span class="s1">&#39;n_image_in_page&#39;</span><span class="p">:</span> <span class="s2">&quot;Number of images in individual pages: &quot;</span><span class="p">,</span>
+            <span class="s1">&#39;n_image_in_file&#39;</span><span class="p">:</span> <span class="s2">&quot;Number of images total: &quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+
+<div class="viewcode-block" id="pdfSummary.get_summary_string">
+<a class="viewcode-back" href="../../../autoapi/mtbp3/stiso/pdfsummary/index.html#mtbp3.stiso.pdfsummary.pdfSummary.get_summary_string">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_summary_string</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">summary_label</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">summary</span><span class="p">[</span><span class="n">key</span><span class="p">])</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span></div>
+
+
+<div class="viewcode-block" id="pdfSummary.get_summary_df">
+<a class="viewcode-back" href="../../../autoapi/mtbp3/stiso/pdfsummary/index.html#mtbp3.stiso.pdfsummary.pdfSummary.get_summary_df">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_summary_df</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;Summary Label&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">summary_label</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span>
+            <span class="s1">&#39;Summary Value&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+        <span class="p">}</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">df</span></div>
+</div>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
 
-    <span class="n">pdf_obj</span> <span class="o">=</span> <span class="n">pdfSummary</span><span class="p">(</span><span class="s2">&quot;/Users/yh2020/dt2/proj/mtbp3/mtbp3/data/attention.pdf&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">pdf_obj</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">creation_date</span><span class="p">)</span>
+    <span class="n">pfr</span> <span class="o">=</span> <span class="n">pdfSummary</span><span class="p">(</span><span class="s2">&quot;/Users/yh2020/dt2/proj/mtbp3/mtbp3/data/attention.pdf&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;outline&#39;</span><span class="p">,</span><span class="n">pfr</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">outline</span><span class="p">)</span>
 
 </pre></div>
 
