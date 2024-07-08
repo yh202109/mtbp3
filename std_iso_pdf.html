@@ -60,7 +60,8 @@
 <li class="toctree-l1"><a class="reference internal" href="statlab_corr_tau.html">StatLab/Corr/Kendall’s tau</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">ST/ISO/PDF</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#iso-32000-1-2008-pdf-1-7">ISO 32000-1:2008/PDF 1.7</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#character-classes">Character Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#character">Character</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#objects">Objects</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
@@ -152,8 +153,9 @@ Number of figures within individual pages: [0, 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 
 <p>If the path left as empty, an example pdf file will be loaded for illustration.</p>
 <section id="iso-32000-1-2008-pdf-1-7">
 <h2>ISO 32000-1:2008/PDF 1.7<a class="headerlink" href="#iso-32000-1-2008-pdf-1-7" title="Link to this heading"></a></h2>
-<section id="character-classes">
-<h3>Character Classes<a class="headerlink" href="#character-classes" title="Link to this heading"></a></h3>
+<section id="character">
+<h3>Character<a class="headerlink" href="#character" title="Link to this heading"></a></h3>
+<p>Classes</p>
 <ul class="simple">
 <li><p>Regular</p>
 <ul>
@@ -187,6 +189,27 @@ Number of figures within individual pages: [0, 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 
 <li><p>0Dh0Ah: crlf</p></li>
 </ul>
 </li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="objects">
+<h3>Objects<a class="headerlink" href="#objects" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Indirect</p>
+<ul>
+<li><p>Define: N+ NN- obj\n…\nendobj</p></li>
+<li><p>Reference: N+ NN- R</p></li>
+</ul>
+</li>
+<li><p>Direct</p>
+<ul>
+<li><p>if not indirect</p></li>
+</ul>
+</li>
+<li><p>Name</p>
+<ul>
+<li><p>Define: 2Fh(/)name(atomic)</p></li>
 </ul>
 </li>
 </ul>
