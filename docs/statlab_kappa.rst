@@ -454,14 +454,14 @@ Assume that there are two raters responsible for rating 2 studies with a sample 
 
 For the first study, the first rater completed the rating with marginal rates 
 following a multinomial distribution (100, (1/3, 1/3, 1/3)).
-However, the second rater's cat hacked into the computer and filled 
-a portion (:math:`0 < r < 1`) of the sample's ratings with exactly the same rating as the first rater, 
+Afterwards, the second rater's cat hacked into the computer and filled 
+a portion (:math:`0 < r < 1`) of the sample's ratings from the second rater with exactly the same rating as the first rater, 
 and filled out the rest with random ratings following the same distribution. 
 
 For the second study, the second rater completed the rating with marginal rates 
 following a multinomial distribution (100, (0.9, 0.05, 0.05)). 
-However, the first rater's dog hacked into the computer and filled 
-a portion (:math:`0 < r < 1`) of the sample's ratings with exactly the same rating as the second rater, 
+Afterwards, the first rater's dog hacked into the computer and filled 
+a portion (:math:`0 < r < 1`) of the sample's ratings from the first rater with exactly the same rating as the second rater, 
 and filled out the rest with random ratings following the same distribution. 
 
 Find the relationship between :math:`r` and :math:`\kappa` for these two studies.
