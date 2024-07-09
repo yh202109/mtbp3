@@ -1,7 +1,10 @@
 # Changelog
 
 <!--next-version-placeholder-->
-## v0.2.15 (2024-07-00)
+## v0.2.15 (2024-07-09)
+
+- add pdf outline tree
+- add ectd search tree 
 
 ## v0.2.14 (2024-07-07)
 

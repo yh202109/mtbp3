@@ -47,10 +47,29 @@ class ctoc_by_fda:
         tree = ListTree(lst=filtered_ctoc, infmt='dotspace')
         return tree.list_tree(to_right=to_right)
 
-    def find_section_given_words(self, words):
+    def find_section_given_words(self, words, outfmt='simple', include='up', to_right=False):
         if not isinstance(words, str) or not words:
             raise ValueError("str must be a nonempty string")
-        return [row for row in self.ctoc if words in row]
+        if include not in ['up', 'both']:
+            raise ValueError("Invalid value for include. Supported values are 'up' and 'both'.")
+
+        out = [row for row in self.ctoc if words in row]
+        if outfmt == 'simple':
+            return out
+        elif outfmt == 'tree':
+            out1 = []
+            for out0 in out:
+                out0_str = out0.split(' ', 1)[0]
+                out0_str0 = out0_str.split(".")
+                for str0 in range(len(out0_str0)):
+                    out0_str1 = ".".join(out0_str0[:str0])
+                    out2 = [item for item in self.ctoc if item.startswith(out0_str1 + " ")]
+                    out1 = out1+out2
+            out = out + list(set(out1))
+            out_tree = ListTree(lst=out, infmt='dotspace')
+            return out_tree.list_tree(to_right=to_right)
+        else:
+            raise ValueError("Invalid value for outfmt. Supported values are 'simple' and 'tree'.")
 
 if __name__ == "__main__":
     pass
