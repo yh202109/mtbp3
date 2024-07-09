@@ -61,8 +61,8 @@
 <li class="toctree-l1"><a class="reference internal" href="example_emt4.html">H/MedDRA/(MLGs by CIOMS)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="statlab_kappa.html">StatLab/Cohen’s Kappa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="statlab_kappa2.html">StatLab/Fleiss’s Kappa</a></li>
-<li class="toctree-l1"><a class="reference internal" href="statlab_corr_tau.html">StatLab/Corr/Kendall’s tau</a></li>
-<li class="toctree-l1"><a class="reference internal" href="std_iso_pdf.html">ST/ISO/PDF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statlab_corr_tau.html">StatLab/Corr/NP/Kendall’s Tau</a></li>
+<li class="toctree-l1"><a class="reference internal" href="std_iso_pdf.html">St/ISO/PDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stcdisc.html">ST/CDISC/Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_cdtg.html">U/Graph/Categorical Plots Using catPlotter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_files.html">U/System/List Folder Contents</a></li>
@@ -563,9 +563,6 @@ The <code class="docutils literal notranslate"><span class="pre">ectd</span></co
     └── 4.3 Literature references
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 <p>To view CTOC of Module 5:</p>
@@ -771,6 +768,28 @@ The <code class="docutils literal notranslate"><span class="pre">ectd</span></co
 1.16.2.4 REMS Assessment Methodology
 1.16.2.5 REMS Correspondence
 1.16.2.6 REMS Modification History
+</pre></div>
+</div>
+</div>
+</div>
+<p>To include the upper CTOC sections that include search results:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ctoc</span><span class="o">.</span><span class="n">find_section_given_words</span><span class="p">(</span><span class="s2">&quot;REMS&quot;</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    1 Module 1 Administrative information
+    └── 1.16 Risk management plan
+        ├── 1.16.1 Risk Management (Non-REMS)
+        └── 1.16.2 Risk Evaluation and Mitigation Strategy (REMS)1.16.2 Risk Evaluation and Mitigation Strategy (REMS)
+            ├── 1.16.2.1 Final REMS
+            ├── 1.16.2.2 Draft REMS
+            ├── 1.16.2.3 REMS Assessment
+            ├── 1.16.2.4 REMS Assessment Methodology
+            ├── 1.16.2.5 REMS Correspondence
+            └── 1.16.2.6 REMS Modification History
 </pre></div>
 </div>
 </div>

@@ -54,8 +54,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../example_emt4.html">H/MedDRA/(MLGs by CIOMS)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../statlab_kappa.html">StatLab/Cohen’s Kappa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../statlab_kappa2.html">StatLab/Fleiss’s Kappa</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../statlab_corr_tau.html">StatLab/Corr/Kendall’s tau</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../std_iso_pdf.html">ST/ISO/PDF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../statlab_corr_tau.html">StatLab/Corr/NP/Kendall’s Tau</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../std_iso_pdf.html">St/ISO/PDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../stcdisc.html">ST/CDISC/Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../example_cdtg.html">U/Graph/Categorical Plots Using catPlotter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../example_files.html">U/System/List Folder Contents</a></li>
@@ -147,10 +147,29 @@
 
 <div class="viewcode-block" id="ctoc_by_fda.find_section_given_words">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/health/ectd/index.html#mtbp3.health.ectd.ctoc_by_fda.find_section_given_words">[docs]</a>
-    <span class="k">def</span> <span class="nf">find_section_given_words</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">words</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">find_section_given_words</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">words</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;simple&#39;</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="n">to_right</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">words</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;str must be a nonempty string&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="p">[</span><span class="n">row</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ctoc</span> <span class="k">if</span> <span class="n">words</span> <span class="ow">in</span> <span class="n">row</span><span class="p">]</span></div>
+        <span class="k">if</span> <span class="n">include</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="s1">&#39;both&#39;</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid value for include. Supported values are &#39;up&#39; and &#39;both&#39;.&quot;</span><span class="p">)</span>
+
+        <span class="n">out</span> <span class="o">=</span> <span class="p">[</span><span class="n">row</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ctoc</span> <span class="k">if</span> <span class="n">words</span> <span class="ow">in</span> <span class="n">row</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">outfmt</span> <span class="o">==</span> <span class="s1">&#39;simple&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">out</span>
+        <span class="k">elif</span> <span class="n">outfmt</span> <span class="o">==</span> <span class="s1">&#39;tree&#39;</span><span class="p">:</span>
+            <span class="n">out1</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">out0</span> <span class="ow">in</span> <span class="n">out</span><span class="p">:</span>
+                <span class="n">out0_str</span> <span class="o">=</span> <span class="n">out0</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">out0_str0</span> <span class="o">=</span> <span class="n">out0_str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">str0</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">out0_str0</span><span class="p">)):</span>
+                    <span class="n">out0_str1</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out0_str0</span><span class="p">[:</span><span class="n">str0</span><span class="p">])</span>
+                    <span class="n">out2</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ctoc</span> <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">out0_str1</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span><span class="p">)]</span>
+                    <span class="n">out1</span> <span class="o">=</span> <span class="n">out1</span><span class="o">+</span><span class="n">out2</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">out</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">out1</span><span class="p">))</span>
+            <span class="n">out_tree</span> <span class="o">=</span> <span class="n">ListTree</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">out</span><span class="p">,</span> <span class="n">infmt</span><span class="o">=</span><span class="s1">&#39;dotspace&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">out_tree</span><span class="o">.</span><span class="n">list_tree</span><span class="p">(</span><span class="n">to_right</span><span class="o">=</span><span class="n">to_right</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid value for outfmt. Supported values are &#39;simple&#39; and &#39;tree&#39;.&quot;</span><span class="p">)</span></div>
 </div>
 
 

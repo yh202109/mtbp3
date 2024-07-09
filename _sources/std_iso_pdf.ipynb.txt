@@ -8,14 +8,14 @@
                 }
             },
             "source": [
-                "# ST/ISO/PDF \n",
+                "# St/ISO/PDF \n",
                 "\n",
                 "PDF stands for Portable Document Format, which was created by Adobe[^1], \n",
                 "and currently maintained by the International Organization for Standardization (ISO) as an open source international standard [^2]. \n",
                 "\n",
                 "Some commonly used specialized PDF types include: \n",
                 "\n",
-                "- ISO 14289/PDF/UA  for accessible PDF documents and processors \n",
+                "- ISO 14289/PDF/UA  for accessible PDF documents and processors (extends PDF/A conformance level A) \n",
                 "- ISO 15930/PDF/X  for printing \n",
                 "- ISO 19005/PDF/**A  for long-term archiving** [^3] \n",
                 "    - Sub-parts:\n",
@@ -25,13 +25,13 @@
                 "        - ISO 19005-4:2020/PDF/A-4 (based on PDF v2.0)\n",
                 "    - Not allow: audio, video, 3d objects, JS, certain actions, encryption, non-standard metadata\n",
                 "    - Require: embedding font with proper license \n",
-                "- ISO 24517/PDF/E  for representing engineering documents.\n",
+                "- ISO 24517/PDF/E  for representing engineering documents (CAD, etc.).\n",
                 "\n",
                 "For regulatory submission, FDA currently support \"PDF versions 1.4 through 1.7, PDF/A-1 and PDF/A-2\"[^4].\n",
                 "Steps for **creating and validating** PDF/A files can be found in reference [^5]<sup>,</sup>[^6].\n",
                 "\n",
-                "The module `stdiso.pdfsummary` depends on package `pypdf` [^7].\n",
-                "The module `stdiso.pdfsummary` include functions for creating summaries about a specified PDF file.\n"
+                "The module `stiso.pdfsummary` depends on package `pypdf` [^7].\n",
+                "The module `stiso.pdfsummary` include functions for creating summaries about a specified PDF file.\n"
             ]
         },
         {
@@ -42,7 +42,7 @@
                 }
             },
             "source": [
-                "To use `mtbp3.stdiso`:"
+                "To use `mtbp3.stiso`:"
             ]
         },
         {
@@ -66,6 +66,26 @@
             "metadata": {},
             "source": [
                 "If the path left as empty, an example pdf file will be loaded for illustration."
+            ]
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [
+                "To view the outline tree:"
+            ]
+        },
+        {
+            "cell_type": "code",
+            "execution_count": null,
+            "metadata": {
+                "vscode": {
+                    "languageId": "plaintext"
+                }
+            },
+            "outputs": [],
+            "source": [
+                "print(pfr.show_outline_tree())"
             ]
         },
         {
@@ -106,7 +126,7 @@
                 "- Indirect \n",
                 "    - Define: N+ NN- obj\\n...\\nendobj\n",
                 "    - Reference: N+ NN- R\n",
-                "    - Stream Define: dictionary\\nstream\\n\\r...\\nendstream or dictionary\\n\\rstream\\n\\r...\\n\\rendstream\n",
+                "    - Stream Define: dictionary\\nstream\\n...\\nendstream or dictionary\\n\\rstream\\n\\r...\\n\\rendstream\n",
                 "- Direct\n",
                 "    - if not indirect\n",
                 "- Name\n",

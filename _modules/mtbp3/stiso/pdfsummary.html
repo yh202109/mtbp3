@@ -54,8 +54,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../example_emt4.html">H/MedDRA/(MLGs by CIOMS)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../statlab_kappa.html">StatLab/Cohen’s Kappa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../statlab_kappa2.html">StatLab/Fleiss’s Kappa</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../statlab_corr_tau.html">StatLab/Corr/Kendall’s tau</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../std_iso_pdf.html">ST/ISO/PDF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../statlab_corr_tau.html">StatLab/Corr/NP/Kendall’s Tau</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../std_iso_pdf.html">St/ISO/PDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../stcdisc.html">ST/CDISC/Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../example_cdtg.html">U/Graph/Categorical Plots Using catPlotter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../example_files.html">U/System/List Folder Contents</a></li>
@@ -110,6 +110,7 @@
 <span class="kn">import</span> <span class="nn">mtbp3</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">mtbp3.util.cdt</span> <span class="kn">import</span> <span class="n">ListTree</span>
 
 <div class="viewcode-block" id="pdfSummary">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/stiso/pdfsummary/index.html#mtbp3.stiso.pdfsummary.pdfSummary">[docs]</a>
@@ -132,19 +133,26 @@
         <span class="n">tmp0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">get_num_pages</span><span class="p">()</span>
         <span class="n">tmp1</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">pages</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">images</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">tmp0</span><span class="p">)]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">summary</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;file_name&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pdf_path</span><span class="p">),</span>
             <span class="s1">&#39;pdf_version&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">pdf_header</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">],</span>
+            <span class="s1">&#39;pdf_creationdate&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">creation_date</span><span class="p">,</span>
+            <span class="s1">&#39;pdf_moddate&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">modification_date</span><span class="p">,</span>
             <span class="s1">&#39;n_page&#39;</span><span class="p">:</span> <span class="n">tmp0</span><span class="p">,</span>
             <span class="s1">&#39;file_size&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pdf_path</span><span class="p">),</span>
             <span class="s1">&#39;n_image_in_page&#39;</span><span class="p">:</span> <span class="n">tmp1</span><span class="p">,</span>
             <span class="s1">&#39;n_image_in_file&#39;</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">tmp1</span><span class="p">)</span>
         <span class="p">}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">summary_label</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;file_name&#39;</span><span class="p">:</span> <span class="s2">&quot;File name&quot;</span><span class="p">,</span> 
             <span class="s1">&#39;pdf_version&#39;</span><span class="p">:</span> <span class="s2">&quot;PDF version&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;pdf_creationdate&#39;</span><span class="p">:</span> <span class="s2">&quot;PDF creation date&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;pdf_moddate&#39;</span><span class="p">:</span> <span class="s2">&quot;PDF modification date&quot;</span><span class="p">,</span>
             <span class="s1">&#39;n_page&#39;</span><span class="p">:</span> <span class="s2">&quot;Number of pages: &quot;</span><span class="p">,</span>
             <span class="s1">&#39;file_size&#39;</span><span class="p">:</span> <span class="s2">&quot;File size (byte): &quot;</span><span class="p">,</span>
             <span class="s1">&#39;n_image_in_page&#39;</span><span class="p">:</span> <span class="s2">&quot;Number of images in individual pages: &quot;</span><span class="p">,</span>
-            <span class="s1">&#39;n_image_in_file&#39;</span><span class="p">:</span> <span class="s2">&quot;Number of images total: &quot;</span><span class="p">,</span>
+            <span class="s1">&#39;n_image_in_file&#39;</span><span class="p">:</span> <span class="s2">&quot;Total number of images: &quot;</span><span class="p">,</span>
         <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">outline_list</span> <span class="o">=</span> <span class="p">[]</span>
 
 <div class="viewcode-block" id="pdfSummary.get_summary_string">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/stiso/pdfsummary/index.html#mtbp3.stiso.pdfsummary.pdfSummary.get_summary_string">[docs]</a>
@@ -161,13 +169,77 @@
         <span class="p">}</span>
         <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">df</span></div>
+
+    
+<div class="viewcode-block" id="pdfSummary.get_outline_list">
+<a class="viewcode-back" href="../../../autoapi/mtbp3/stiso/pdfsummary/index.html#mtbp3.stiso.pdfsummary.pdfSummary.get_outline_list">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_outline_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_itr</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">max_itr</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="n">max_itr</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">max_itr</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;max_itr must be an integer between 1 and 20&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">pp</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">outline</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="n">in_source</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">outline</span>
+        <span class="n">in_source_label</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">summary</span><span class="p">[</span><span class="s1">&#39;file_name&#39;</span><span class="p">]]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">in_source</span><span class="p">)</span>
+        <span class="n">out_list</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">summary</span><span class="p">[</span><span class="s1">&#39;file_name&#39;</span><span class="p">]]</span>
+        <span class="n">not_processed</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">digits1</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">max_itr</span><span class="p">))</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_itr</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">len_remain</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">in_source</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">len_remain</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="n">digits2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">len_remain</span><span class="p">))</span>
+            <span class="n">remaining_in_source</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">remaining_in_source_label</span> <span class="o">=</span> <span class="p">[]</span>
+
+            <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">element</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">in_source</span><span class="p">):</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                    <span class="n">tmp</span> <span class="o">=</span> <span class="s2">&quot;Sec&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="n">digits1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;-&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="n">digits2</span><span class="p">)</span>
+                    <span class="n">out_list</span> <span class="o">=</span> <span class="n">out_list</span> <span class="o">+</span> <span class="p">[</span><span class="n">in_source_label</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">tmp</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">element</span><span class="p">[</span><span class="s1">&#39;/Title&#39;</span><span class="p">]]</span>
+                <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                    <span class="n">tmp</span> <span class="o">=</span> <span class="s2">&quot;Sec&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="n">digits1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;-&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="n">digits2</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">max_itr</span><span class="p">:</span>
+                        <span class="n">remaining_in_source</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+                        <span class="n">remaining_in_source_label</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">in_source_label</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;.&quot;</span><span class="o">+</span><span class="n">tmp</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">element</span><span class="p">))</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">out_list</span> <span class="o">=</span> <span class="n">out_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">in_source_label</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">tmp</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">element</span><span class="p">[</span><span class="s1">&#39;/Title&#39;</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;sub sections&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">not_processed</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+
+            <span class="n">in_source</span> <span class="o">=</span> <span class="n">remaining_in_source</span>
+            <span class="n">in_source_label</span> <span class="o">=</span> <span class="n">remaining_in_source_label</span>
+
+        <span class="k">return</span> <span class="p">[</span><span class="n">out_list</span><span class="p">,</span> <span class="n">not_processed</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="pdfSummary.show_outline_tree">
+<a class="viewcode-back" href="../../../autoapi/mtbp3/stiso/pdfsummary/index.html#mtbp3.stiso.pdfsummary.pdfSummary.show_outline_tree">[docs]</a>
+    <span class="k">def</span> <span class="nf">show_outline_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_itr</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">to_right</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">max_itr</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">max_itr</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">):</span>
+            <span class="n">max_itr</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">outline_list</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">outline_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_outline_list</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">outline_list</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;no outline available&quot;</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">outline_list</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;self.outline_list should be a length 2 list&quot;</span><span class="p">)</span>
+
+        <span class="n">tree</span> <span class="o">=</span> <span class="n">ListTree</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">outline_list</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">infmt</span><span class="o">=</span><span class="s1">&#39;dotspace&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">list_tree</span><span class="p">(</span><span class="n">to_right</span><span class="o">=</span><span class="n">to_right</span><span class="p">))</span></div>
 </div>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
 
     <span class="n">pfr</span> <span class="o">=</span> <span class="n">pdfSummary</span><span class="p">(</span><span class="s2">&quot;/Users/yh2020/dt2/proj/mtbp3/mtbp3/data/attention.pdf&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;outline&#39;</span><span class="p">,</span><span class="n">pfr</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">outline</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pfr</span><span class="o">.</span><span class="n">show_outline_tree</span><span class="p">()))</span>
 
 </pre></div>
 

@@ -149,6 +149,26 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
+    "To include the upper CTOC sections that include search results:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "vscode": {
+     "languageId": "plaintext"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "print(\"\\n\".join(ctoc.find_section_given_words(\"REMS\", outfmt='tree')))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
     "## Reference\n",
     "\n",
     "[^1]: FDA. (2023). Electronic Common Technical Document (eCTD). ([web page](https://www.fda.gov/drugs/electronic-regulatory-submission-and-review/electronic-common-technical-document-ectd))\n",

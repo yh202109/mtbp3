@@ -31,5 +31,11 @@ Module Contents
    .. py:method:: get_summary_df()
 
 
+   .. py:method:: get_outline_list(max_itr=5)
+
+
+   .. py:method:: show_outline_tree(max_itr=5, to_right=False)
+
+
 .. py:data:: pfr
 

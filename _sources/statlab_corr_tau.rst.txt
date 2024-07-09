@@ -19,7 +19,7 @@
 .. role:: red
 
 #############
-StatLab/Corr/Kendall's tau 
+StatLab/Corr/NP/Kendall's Tau 
 #############
 
 :red-b:`Disclaimer:`
