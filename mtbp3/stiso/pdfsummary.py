@@ -39,21 +39,21 @@ class pdfSummary:
         tmp1 = [len(self.pp.pages[i].images) for i in range(tmp0)]
         self.summary = {
             'file_name': os.path.basename(self.pdf_path),
-            'pdf_version': self.pp.pdf_header.split('-')[1],
-            'pdf_creationdate': self.pp.metadata.creation_date,
-            'pdf_moddate': self.pp.metadata.modification_date,
-            'n_page': tmp0,
             'file_size': os.path.getsize(self.pdf_path),
+            'file_creationdate': self.pp.metadata.creation_date,
+            'file_moddate': self.pp.metadata.modification_date,
+            'pdf_version': self.pp.pdf_header.split('-')[1],
+            'n_page': tmp0,
             'n_image_in_page': tmp1,
             'n_image_in_file': sum(tmp1)
         }
         self.summary_label = {
             'file_name': "File name", 
-            'pdf_version': "PDF version",
-            'pdf_creationdate': "PDF creation date",
-            'pdf_moddate': "PDF modification date",
-            'n_page': "Number of pages: ",
             'file_size': "File size (byte): ",
+            'file_creationdate': "File creation date",
+            'file_moddate': "File modification date",
+            'pdf_version': "PDF version",
+            'n_page': "Number of pages: ",
             'n_image_in_page': "Number of images in individual pages: ",
             'n_image_in_file': "Total number of images: ",
         }

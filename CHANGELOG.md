@@ -1,6 +1,8 @@
 # Changelog
 
 <!--next-version-placeholder-->
+## v0.2.16 (2024-07-00)
+
 ## v0.2.15 (2024-07-09)
 
 - add pdf outline tree
