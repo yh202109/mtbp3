@@ -59,11 +59,6 @@
 <li class="toctree-l1"><a class="reference internal" href="statlab_kappa2.html">StatLab/Fleiss’s Kappa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="statlab_corr_tau.html">StatLab/Corr/NP/Kendall’s Tau</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">St/ISO/PDF</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#iso-32000-1-2008-pdf-1-7">ISO 32000-1:2008/PDF 1.7</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#character">Character</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#objects">Objects</a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
@@ -187,71 +182,6 @@ Total number of images: : 3
 </div>
 </div>
 </div>
-<section id="iso-32000-1-2008-pdf-1-7">
-<h2>ISO 32000-1:2008/PDF 1.7<a class="headerlink" href="#iso-32000-1-2008-pdf-1-7" title="Link to this heading"></a></h2>
-<section id="character">
-<h3>Character<a class="headerlink" href="#character" title="Link to this heading"></a></h3>
-<p>Classes</p>
-<ul class="simple">
-<li><p>Regular</p>
-<ul>
-<li><p>hex outside 21h to 7Eh (! to ~)</p></li>
-</ul>
-</li>
-<li><p>Delimiter</p>
-<ul>
-<li><p>28h: ‘(’ (literal string)</p></li>
-<li><p>29h: ‘)’</p></li>
-<li><p>3Ch: ‘&lt;’ (hex string)</p></li>
-<li><p>3Eh: ‘&gt;’</p></li>
-<li><p>5Bh: ‘[’ (array)</p></li>
-<li><p>5Dh: ‘]’</p></li>
-<li><p>7Bh: ‘{’</p></li>
-<li><p>7Dh: ‘}’</p></li>
-<li><p>2Fh: ‘/’</p></li>
-<li><p>25h: ‘%’ (comment; other than %PDF-n.m and %%EOF)</p></li>
-</ul>
-</li>
-<li><p>White space</p>
-<ul>
-<li><p>00h: null</p></li>
-<li><p>09h: tab</p></li>
-<li><p>0Ch: form feed</p></li>
-<li><p>20h: space</p></li>
-<li><p>newline</p>
-<ul>
-<li><p>0Dh: cr</p></li>
-<li><p>0Ah: lf</p></li>
-<li><p>0Dh0Ah: crlf</p></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</section>
-<section id="objects">
-<h3>Objects<a class="headerlink" href="#objects" title="Link to this heading"></a></h3>
-<ul class="simple">
-<li><p>Indirect</p>
-<ul>
-<li><p>Define: N+ NN- obj\n…\nendobj</p></li>
-<li><p>Reference: N+ NN- R</p></li>
-<li><p>Stream Define: dictionary\nstream\n…\nendstream or dictionary\n\rstream\n\r…\n\rendstream</p></li>
-</ul>
-</li>
-<li><p>Direct</p>
-<ul>
-<li><p>if not indirect</p></li>
-</ul>
-</li>
-<li><p>Name</p>
-<ul>
-<li><p>Define: 2Fh(/)name(atomic)</p></li>
-</ul>
-</li>
-</ul>
-</section>
-</section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>
 <hr class="footnotes docutils" />
