@@ -94,10 +94,10 @@ class pdfSummary:
 
             for index, element in enumerate(in_source):
                 if isinstance(element, dict):
-                    tmp = "Sec"+str(i).zfill(digits1) + "-" + str(index).zfill(digits2)
+                    tmp = "pseudo"+str(i).zfill(digits1) + "-" + str(index).zfill(digits2)
                     out_list = out_list + [in_source_label[index] + "." + tmp + " " + element['/Title']]
                 elif isinstance(element, list):
-                    tmp = "Sec"+str(i).zfill(digits1) + "-" + str(index-1).zfill(digits2)
+                    tmp = "pseudo"+str(i).zfill(digits1) + "-" + str(index-1).zfill(digits2)
                     if i < max_itr:
                         remaining_in_source.extend(element)
                         remaining_in_source_label.extend([in_source_label[index]+"."+tmp] * len(element))
@@ -131,5 +131,5 @@ class pdfSummary:
 if __name__ == "__main__":
 
     pfr = pdfSummary("/Users/yh2020/dt2/proj/mtbp3/mtbp3/data/attention.pdf")
-    print('\n'.join(pfr.show_outline_tree()))
+    print(pfr.show_outline_tree())
 
