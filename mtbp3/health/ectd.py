@@ -65,7 +65,7 @@ class ctoc_by_fda:
                     out0_str1 = ".".join(out0_str0[:str0])
                     out2 = [item for item in self.ctoc if item.startswith(out0_str1 + " ")]
                     out1 = out1+out2
-            out = out + list(set(out1))
+            out = list(set(out+out1))
             out_tree = ListTree(lst=out, infmt='dotspace')
             return out_tree.list_tree(to_right=to_right)
         else:
