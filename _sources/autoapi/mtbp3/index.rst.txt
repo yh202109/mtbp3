@@ -18,8 +18,8 @@ Subpackages
 
    /autoapi/mtbp3/health/index
    /autoapi/mtbp3/statlab/index
-   /autoapi/mtbp3/stcdisc/index
-   /autoapi/mtbp3/stiso/index
+   /autoapi/mtbp3/stdcdisc/index
+   /autoapi/mtbp3/stdiso/index
    /autoapi/mtbp3/util/index
 
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mtbp3.stiso.pdfsummary &mdash; mtbp3  documentation</title>
+  <title>mtbp3.stdiso.pdfsummary &mdash; mtbp3  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -81,7 +81,7 @@
       <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
           <li class="breadcrumb-item"><a href="../../mtbp3.html">mtbp3</a></li>
-      <li class="breadcrumb-item active">mtbp3.stiso.pdfsummary</li>
+      <li class="breadcrumb-item active">mtbp3.stdiso.pdfsummary</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -90,7 +90,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <h1>Source code for mtbp3.stiso.pdfsummary</h1><div class="highlight"><pre>
+  <h1>Source code for mtbp3.stdiso.pdfsummary</h1><div class="highlight"><pre>
 <span></span><span class="c1">#  Copyright (C) 2023-2024 Y Hsu &lt;yh202109@gmail.com&gt;</span>
 <span class="c1">#</span>
 <span class="c1">#  This program is free software: you can redistribute it and/or modify</span>
@@ -113,7 +113,7 @@
 <span class="kn">from</span> <span class="nn">mtbp3.util.cdt</span> <span class="kn">import</span> <span class="n">ListTree</span>
 
 <div class="viewcode-block" id="pdfSummary">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/stiso/pdfsummary/index.html#mtbp3.stiso.pdfsummary.pdfSummary">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/stdiso/pdfsummary/index.html#mtbp3.stdiso.pdfsummary.pdfSummary">[docs]</a>
 <span class="k">class</span> <span class="nc">pdfSummary</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
         
@@ -155,13 +155,13 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">outline_list</span> <span class="o">=</span> <span class="p">[]</span>
 
 <div class="viewcode-block" id="pdfSummary.get_summary_string">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/stiso/pdfsummary/index.html#mtbp3.stiso.pdfsummary.pdfSummary.get_summary_string">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/stdiso/pdfsummary/index.html#mtbp3.stdiso.pdfsummary.pdfSummary.get_summary_string">[docs]</a>
     <span class="k">def</span> <span class="nf">get_summary_string</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">summary_label</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">summary</span><span class="p">[</span><span class="n">key</span><span class="p">])</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span></div>
 
 
 <div class="viewcode-block" id="pdfSummary.get_summary_df">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/stiso/pdfsummary/index.html#mtbp3.stiso.pdfsummary.pdfSummary.get_summary_df">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/stdiso/pdfsummary/index.html#mtbp3.stdiso.pdfsummary.pdfSummary.get_summary_df">[docs]</a>
     <span class="k">def</span> <span class="nf">get_summary_df</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s1">&#39;Summary Label&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">summary_label</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span>
@@ -172,7 +172,7 @@
 
     
 <div class="viewcode-block" id="pdfSummary.get_outline_list">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/stiso/pdfsummary/index.html#mtbp3.stiso.pdfsummary.pdfSummary.get_outline_list">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/stdiso/pdfsummary/index.html#mtbp3.stdiso.pdfsummary.pdfSummary.get_outline_list">[docs]</a>
     <span class="k">def</span> <span class="nf">get_outline_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_itr</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">max_itr</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="n">max_itr</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">max_itr</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;max_itr must be an integer between 1 and 20&quot;</span><span class="p">)</span>
@@ -217,7 +217,7 @@
 
 
 <div class="viewcode-block" id="pdfSummary.show_outline_tree">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/stiso/pdfsummary/index.html#mtbp3.stiso.pdfsummary.pdfSummary.show_outline_tree">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/mtbp3/stdiso/pdfsummary/index.html#mtbp3.stdiso.pdfsummary.pdfSummary.show_outline_tree">[docs]</a>
     <span class="k">def</span> <span class="nf">show_outline_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_itr</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">to_right</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">max_itr</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">max_itr</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">):</span>

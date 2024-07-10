@@ -1,7 +1,7 @@
-mtbp3.stiso.pdfsummary
-======================
+mtbp3.stdiso.pdfsummary
+=======================
 
-.. py:module:: mtbp3.stiso.pdfsummary
+.. py:module:: mtbp3.stdiso.pdfsummary
 
 
 Attributes
@@ -9,7 +9,7 @@ Attributes
 
 .. autoapisummary::
 
-   mtbp3.stiso.pdfsummary.pfr
+   mtbp3.stdiso.pdfsummary.pfr
 
 
 Classes
@@ -17,7 +17,7 @@ Classes
 
 .. autoapisummary::
 
-   mtbp3.stiso.pdfsummary.pdfSummary
+   mtbp3.stdiso.pdfsummary.pdfSummary
 
 
 Module Contents

@@ -121,9 +121,9 @@ and currently maintained by the International Organization for Standardization (
 </ul>
 <p>For regulatory submission, FDA currently support “PDF versions 1.4 through 1.7, PDF/A-1 and PDF/A-2”<a class="footnote-reference brackets" href="#id11" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>.
 Steps for <strong>creating and validating</strong> PDF/A files can be found in reference <a class="footnote-reference brackets" href="#id12" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a><sup>,</sup><a class="footnote-reference brackets" href="#id13" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>.</p>
-<p>The module <code class="docutils literal notranslate"><span class="pre">stiso.pdfsummary</span></code> depends on package <code class="docutils literal notranslate"><span class="pre">pypdf</span></code> <a class="footnote-reference brackets" href="#id14" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>.
-The module <code class="docutils literal notranslate"><span class="pre">stiso.pdfsummary</span></code> include functions for creating summaries about a specified PDF file.</p>
-<p>To use <code class="docutils literal notranslate"><span class="pre">mtbp3.stiso</span></code>:</p>
+<p>The module <code class="docutils literal notranslate"><span class="pre">stdiso.pdfsummary</span></code> depends on package <code class="docutils literal notranslate"><span class="pre">pypdf</span></code> <a class="footnote-reference brackets" href="#id14" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>.
+The module <code class="docutils literal notranslate"><span class="pre">stdiso.pdfsummary</span></code> include functions for creating summaries about a specified PDF file.</p>
+<p>To use <code class="docutils literal notranslate"><span class="pre">mtbp3.stdiso</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mtbp3.stiso.pdfsummary</span> <span class="kn">import</span> <span class="n">pdfSummary</span>
@@ -134,14 +134,14 @@ The module <code class="docutils literal notranslate"><span class="pre">stiso.pd
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File name: attention.pdf
-File size (byte): : 2215244
-File creation date: 2024-04-10 21:11:43+00:00
-File modification date: 2024-04-10 21:11:43+00:00
-PDF version: 1.5
-Number of pages: : 15
-Number of images in individual pages: : [0, 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-Total number of images: : 3
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">mtbp3.stiso.pdfsummary</span> <span class="kn">import</span> <span class="n">pdfSummary</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">pfr</span> <span class="o">=</span> <span class="n">pdfSummary</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="n">pfr</span><span class="o">.</span><span class="n">get_summary_string</span><span class="p">())</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;mtbp3.stiso&#39;
 </pre></div>
 </div>
 </div>
@@ -151,33 +151,6 @@ Total number of images: : 3
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">pfr</span><span class="o">.</span><span class="n">show_outline_tree</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    attention.pdf
-    ├── Introduction
-    ├── Background
-    ├── Model Architecture
-    │   ├── Encoder and Decoder Stacks
-    │   ├── Attention
-    │   │   ├── Scaled Dot-Product Attention
-    │   │   ├── Multi-Head Attention
-    │   │   └── Applications of Attention in our Model
-    │   ├── Position-wise Feed-Forward Networks
-    │   ├── Embeddings and Softmax
-    │   └── Positional Encoding
-    ├── Why Self-Attention
-    ├── Training
-    │   ├── Training Data and Batching
-    │   ├── Hardware and Schedule
-    │   ├── Optimizer
-    │   └── Regularization
-    ├── Results
-    │   ├── Machine Translation
-    │   ├── Model Variations
-    │   └── English Constituency Parsing
-    └── Conclusion
 </pre></div>
 </div>
 </div>
