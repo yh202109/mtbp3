@@ -4,6 +4,14 @@ mtbp3.stiso.pdfsummary
 .. py:module:: mtbp3.stiso.pdfsummary
 
 
+Attributes
+----------
+
+.. autoapisummary::
+
+   mtbp3.stiso.pdfsummary.pfr
+
+
 Classes
 -------
 
@@ -28,4 +36,6 @@ Module Contents
 
    .. py:method:: show_outline_tree(max_itr=5, to_right=False)
 
+
+.. py:data:: pfr
 
