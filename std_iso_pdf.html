@@ -126,7 +126,7 @@ The module <code class="docutils literal notranslate"><span class="pre">stdiso.p
 <p>To use <code class="docutils literal notranslate"><span class="pre">mtbp3.stdiso</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mtbp3.stiso.pdfsummary</span> <span class="kn">import</span> <span class="n">pdfSummary</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mtbp3.stdiso.pdfsummary</span> <span class="kn">import</span> <span class="n">pdfSummary</span>
 
 <span class="n">pfr</span> <span class="o">=</span> <span class="n">pdfSummary</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">pfr</span><span class="o">.</span><span class="n">get_summary_string</span><span class="p">())</span>
@@ -134,14 +134,14 @@ The module <code class="docutils literal notranslate"><span class="pre">stdiso.p
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">mtbp3.stiso.pdfsummary</span> <span class="kn">import</span> <span class="n">pdfSummary</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">pfr</span> <span class="o">=</span> <span class="n">pdfSummary</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="n">pfr</span><span class="o">.</span><span class="n">get_summary_string</span><span class="p">())</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;mtbp3.stiso&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File name: attention.pdf
+File size (byte): : 2215244
+File creation date: 2024-04-10 21:11:43+00:00
+File modification date: 2024-04-10 21:11:43+00:00
+PDF version: 1.5
+Number of pages: : 15
+Number of images in individual pages: : [0, 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Total number of images: : 3
 </pre></div>
 </div>
 </div>
@@ -151,6 +151,33 @@ The module <code class="docutils literal notranslate"><span class="pre">stdiso.p
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">pfr</span><span class="o">.</span><span class="n">show_outline_tree</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    attention.pdf
+    ├── Introduction
+    ├── Background
+    ├── Model Architecture
+    │   ├── Encoder and Decoder Stacks
+    │   ├── Attention
+    │   │   ├── Scaled Dot-Product Attention
+    │   │   ├── Multi-Head Attention
+    │   │   └── Applications of Attention in our Model
+    │   ├── Position-wise Feed-Forward Networks
+    │   ├── Embeddings and Softmax
+    │   └── Positional Encoding
+    ├── Why Self-Attention
+    ├── Training
+    │   ├── Training Data and Batching
+    │   ├── Hardware and Schedule
+    │   ├── Optimizer
+    │   └── Regularization
+    ├── Results
+    │   ├── Machine Translation
+    │   ├── Model Variations
+    │   └── English Constituency Parsing
+    └── Conclusion
 </pre></div>
 </div>
 </div>
