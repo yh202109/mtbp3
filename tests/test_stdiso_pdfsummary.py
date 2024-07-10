@@ -1,7 +1,7 @@
 import unittest
 import pandas as pd
 import mtbp3
-from mtbp3.stiso.pdfsummary import pdfSummary
+from mtbp3.stdiso.pdfsummary import pdfSummary
 
 class TestPdfSummary(unittest.TestCase):
 
