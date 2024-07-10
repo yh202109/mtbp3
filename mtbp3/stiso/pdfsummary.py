@@ -102,7 +102,8 @@ class pdfSummary:
                         remaining_in_source.extend(element)
                         remaining_in_source_label.extend([in_source_label[index]+"."+tmp] * len(element))
                     else:
-                        out_list = out_list + [in_source_label[index] + "." + tmp + ".sub " + str(len(element)) + " sub-sections"]
+                        tmp1 = sum(isinstance(elem, dict) for elem in element)
+                        out_list = out_list + [in_source_label[index] + "." + tmp + ".sub " + str(tmp1) + " sub-sections"]
                 else:
                     not_processed.append(element)
 
@@ -130,5 +131,6 @@ class pdfSummary:
 
 if __name__ == "__main__":
 
-    pass
+    pfr = pdfSummary("/Users/yh2020/dt2/proj/mtbp3/mtbp3/data/attention.pdf")
+    print(pfr.get_outline_list(max_itr=1))
 

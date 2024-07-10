@@ -20,7 +20,7 @@ class TestPdfSummary(unittest.TestCase):
                 'attention.pdf.pseudo1-00 Introduction', 
                 'attention.pdf.pseudo1-01 Background', 
                 'attention.pdf.pseudo1-02 Model Architecture', 
-                'attention.pdf.pseudo1-02.sub 6 sub-sections', 
+                'attention.pdf.pseudo1-02.sub 5 sub-sections', 
                 'attention.pdf.pseudo1-04 Why Self-Attention', 
                 'attention.pdf.pseudo1-05 Training', 
                 'attention.pdf.pseudo1-05.sub 4 sub-sections', 
@@ -39,7 +39,7 @@ class TestPdfSummary(unittest.TestCase):
     ├── Introduction
     ├── Background
     ├── Model Architecture
-    │   └── 6 sub-sections
+    │   └── 5 sub-sections
     ├── Why Self-Attention
     ├── Training
     │   └── 4 sub-sections
