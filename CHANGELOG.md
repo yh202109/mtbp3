@@ -1,7 +1,8 @@
 # Changelog
 
 <!--next-version-placeholder-->
-## v0.2.18 (2024-07-09)
+
+## v0.2.19 (2024-07-09)
 
 - add ectd search tree 
 - pdfsummary
