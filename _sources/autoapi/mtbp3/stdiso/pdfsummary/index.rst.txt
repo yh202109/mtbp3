@@ -25,16 +25,111 @@ Module Contents
 
 .. py:class:: pdfSummary(path=None)
 
+   A class to summarize information about a PDF file.
+
+   .. attribute:: pdf_path
+
+      The path to the PDF file.
+
+      :type: str
+
+   .. attribute:: demo
+
+      A flag indicating whether the PDF file is a demo file.
+
+      :type: bool
+
+   .. attribute:: pp
+
+      A PdfReader object representing the PDF file.
+
+      :type: PdfReader
+
+   .. attribute:: summary
+
+      A dictionary containing summary information about the PDF file.
+
+      :type: dict
+
+   .. attribute:: summary_label
+
+      A dictionary mapping summary keys to their corresponding labels.
+
+      :type: dict
+
+   .. attribute:: outline_list
+
+      A list containing the outline structure of the PDF file.
+
+      :type: list
+
+   .. method:: get_summary_string()
+
+      Returns a string representation of the summary information.
+
+   .. method:: get_summary_df()
+
+      Returns a pandas DataFrame of the summary information.
+
+   .. method:: get_outline_list(max_itr)
+
+      Returns the outline structure of the PDF file.
+
+   .. method:: show_outline_tree(max_itr, to_right)
+
+      Returns a formatted string representation of the outline structure.
+      
+
+
    .. py:method:: get_summary_string()
+
+      Returns a string representation of the summary information.
+
+      :returns: A string representation of the summary information.
+      :rtype: str
+
 
 
    .. py:method:: get_summary_df()
 
+      Returns a pandas DataFrame of the summary information.
+
+      :returns: A DataFrame of the summary information.
+      :rtype: pandas.DataFrame
+
+
 
    .. py:method:: get_outline_list(max_itr=5)
 
+      Returns the outline structure of the PDF file.
+
+      :param max_itr: The maximum number of iterations to traverse the outline structure. Defaults to 5.
+      :type max_itr: int, optional
+
+      :returns: A list containing the outline structure and any unprocessed elements.
+      :rtype: list
+
+      :raises ValueError: If max_itr is not an integer between 1 and 20.
+
+      .. note::
+
+         The outline structure is obtained from the `outline` attribute of the `pp` object.
+         The returned list contains the outline structure in a hierarchical format, along with any unprocessed elements.
+
+
 
    .. py:method:: show_outline_tree(max_itr=5, to_right=False)
+
+      Returns a formatted string representation of the outline structure.
+
+      :param max_itr: The maximum number of iterations to traverse the outline structure. Defaults to 5.
+      :type max_itr: int, optional
+      :param to_right: A flag indicating whether the tree should be displayed to the right. Defaults to False.
+      :type to_right: bool, optional
+
+      :returns: A formatted string representation of the outline structure.
+      :rtype: str
+
 
 
 .. py:data:: pfr

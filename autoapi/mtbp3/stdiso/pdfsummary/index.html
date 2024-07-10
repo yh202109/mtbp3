@@ -129,7 +129,7 @@
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mtbp3.stdiso.pdfsummary.pdfSummary" title="mtbp3.stdiso.pdfsummary.pdfSummary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pdfSummary</span></code></a></p></td>
-<td><p></p></td>
+<td><p>A class to summarize information about a PDF file.</p></td>
 </tr>
 </tbody>
 </table>
@@ -139,25 +139,169 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="mtbp3.stdiso.pdfsummary.pdfSummary">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mtbp3.stdiso.pdfsummary.</span></span><span class="sig-name descname"><span class="pre">pdfSummary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/stdiso/pdfsummary.html#pdfSummary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.stdiso.pdfsummary.pdfSummary" title="Link to this definition"></a></dt>
-<dd><dl class="py method">
+<dd><p>A class to summarize information about a PDF file.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mtbp3.stdiso.pdfsummary.pdfSummary.pdf_path">
+<span class="sig-name descname"><span class="pre">pdf_path</span></span><a class="headerlink" href="#mtbp3.stdiso.pdfsummary.pdfSummary.pdf_path" title="Link to this definition"></a></dt>
+<dd><p>The path to the PDF file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mtbp3.stdiso.pdfsummary.pdfSummary.demo">
+<span class="sig-name descname"><span class="pre">demo</span></span><a class="headerlink" href="#mtbp3.stdiso.pdfsummary.pdfSummary.demo" title="Link to this definition"></a></dt>
+<dd><p>A flag indicating whether the PDF file is a demo file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mtbp3.stdiso.pdfsummary.pdfSummary.pp">
+<span class="sig-name descname"><span class="pre">pp</span></span><a class="headerlink" href="#mtbp3.stdiso.pdfsummary.pdfSummary.pp" title="Link to this definition"></a></dt>
+<dd><p>A PdfReader object representing the PDF file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>PdfReader</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mtbp3.stdiso.pdfsummary.pdfSummary.summary">
+<span class="sig-name descname"><span class="pre">summary</span></span><a class="headerlink" href="#mtbp3.stdiso.pdfsummary.pdfSummary.summary" title="Link to this definition"></a></dt>
+<dd><p>A dictionary containing summary information about the PDF file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mtbp3.stdiso.pdfsummary.pdfSummary.summary_label">
+<span class="sig-name descname"><span class="pre">summary_label</span></span><a class="headerlink" href="#mtbp3.stdiso.pdfsummary.pdfSummary.summary_label" title="Link to this definition"></a></dt>
+<dd><p>A dictionary mapping summary keys to their corresponding labels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mtbp3.stdiso.pdfsummary.pdfSummary.outline_list">
+<span class="sig-name descname"><span class="pre">outline_list</span></span><a class="headerlink" href="#mtbp3.stdiso.pdfsummary.pdfSummary.outline_list" title="Link to this definition"></a></dt>
+<dd><p>A list containing the outline structure of the PDF file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="mtbp3.stdiso.pdfsummary.pdfSummary.get_summary_string">
 <span class="sig-name descname"><span class="pre">get_summary_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/stdiso/pdfsummary.html#pdfSummary.get_summary_string"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.stdiso.pdfsummary.pdfSummary.get_summary_string" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Returns a string representation of the summary information.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mtbp3.stdiso.pdfsummary.pdfSummary.get_summary_df">
 <span class="sig-name descname"><span class="pre">get_summary_df</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/stdiso/pdfsummary.html#pdfSummary.get_summary_df"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.stdiso.pdfsummary.pdfSummary.get_summary_df" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Returns a pandas DataFrame of the summary information.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mtbp3.stdiso.pdfsummary.pdfSummary.get_outline_list">
-<span class="sig-name descname"><span class="pre">get_outline_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_itr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/stdiso/pdfsummary.html#pdfSummary.get_outline_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.stdiso.pdfsummary.pdfSummary.get_outline_list" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">get_outline_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_itr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/stdiso/pdfsummary.html#pdfSummary.get_outline_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.stdiso.pdfsummary.pdfSummary.get_outline_list" title="Link to this definition"></a></dt>
+<dd><p>Returns the outline structure of the PDF file.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mtbp3.stdiso.pdfsummary.pdfSummary.show_outline_tree">
-<span class="sig-name descname"><span class="pre">show_outline_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_itr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_right</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/stdiso/pdfsummary.html#pdfSummary.show_outline_tree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.stdiso.pdfsummary.pdfSummary.show_outline_tree" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">show_outline_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_itr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_right</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/stdiso/pdfsummary.html#pdfSummary.show_outline_tree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.stdiso.pdfsummary.pdfSummary.show_outline_tree" title="Link to this definition"></a></dt>
+<dd><p>Returns a formatted string representation of the outline structure.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">get_summary_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/stdiso/pdfsummary.html#pdfSummary.get_summary_string"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<dd><p>Returns a string representation of the summary information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A string representation of the summary information.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">get_summary_df</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/stdiso/pdfsummary.html#pdfSummary.get_summary_df"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id1" title="Link to this definition"></a></dt>
+<dd><p>Returns a pandas DataFrame of the summary information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A DataFrame of the summary information.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">get_outline_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_itr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/stdiso/pdfsummary.html#pdfSummary.get_outline_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id2" title="Link to this definition"></a></dt>
+<dd><p>Returns the outline structure of the PDF file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>max_itr</strong> (<em>int</em><em>, </em><em>optional</em>) – The maximum number of iterations to traverse the outline structure. Defaults to 5.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list containing the outline structure and any unprocessed elements.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If max_itr is not an integer between 1 and 20.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The outline structure is obtained from the <cite>outline</cite> attribute of the <cite>pp</cite> object.
+The returned list contains the outline structure in a hierarchical format, along with any unprocessed elements.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">show_outline_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_itr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_right</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/stdiso/pdfsummary.html#pdfSummary.show_outline_tree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id3" title="Link to this definition"></a></dt>
+<dd><p>Returns a formatted string representation of the outline structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>max_itr</strong> (<em>int</em><em>, </em><em>optional</em>) – The maximum number of iterations to traverse the outline structure. Defaults to 5.</p></li>
+<li><p><strong>to_right</strong> (<em>bool</em><em>, </em><em>optional</em>) – A flag indicating whether the tree should be displayed to the right. Defaults to False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A formatted string representation of the outline structure.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 

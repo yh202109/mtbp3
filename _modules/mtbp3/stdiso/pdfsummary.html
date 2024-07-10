@@ -115,8 +115,31 @@
 <div class="viewcode-block" id="pdfSummary">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/stdiso/pdfsummary/index.html#mtbp3.stdiso.pdfsummary.pdfSummary">[docs]</a>
 <span class="k">class</span> <span class="nc">pdfSummary</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-        
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class to summarize information about a PDF file.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        pdf_path (str): The path to the PDF file.</span>
+<span class="sd">        demo (bool): A flag indicating whether the PDF file is a demo file.</span>
+<span class="sd">        pp (PdfReader): A PdfReader object representing the PDF file.</span>
+<span class="sd">        summary (dict): A dictionary containing summary information about the PDF file.</span>
+<span class="sd">        summary_label (dict): A dictionary mapping summary keys to their corresponding labels.</span>
+<span class="sd">        outline_list (list): A list containing the outline structure of the PDF file.</span>
+
+<span class="sd">    Methods:</span>
+<span class="sd">        get_summary_string(): Returns a string representation of the summary information.</span>
+<span class="sd">        get_summary_df(): Returns a pandas DataFrame of the summary information.</span>
+<span class="sd">        get_outline_list(max_itr): Returns the outline structure of the PDF file.</span>
+<span class="sd">        show_outline_tree(max_itr, to_right): Returns a formatted string representation of the outline structure.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a pdfSummary object.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            path (str, optional): The path to the PDF file. If not provided, a demo file will be used.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">pdf_path</span> <span class="o">=</span> <span class="n">mtbp3</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s1">&#39;attention.pdf&#39;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">demo</span> <span class="o">=</span> <span class="kc">True</span>
@@ -143,7 +166,7 @@
             <span class="s1">&#39;n_image_in_file&#39;</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">tmp1</span><span class="p">)</span>
         <span class="p">}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">summary_label</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">&#39;file_name&#39;</span><span class="p">:</span> <span class="s2">&quot;File name&quot;</span><span class="p">,</span> 
+            <span class="s1">&#39;file_name&#39;</span><span class="p">:</span> <span class="s2">&quot;File name&quot;</span><span class="p">,</span>
             <span class="s1">&#39;file_size&#39;</span><span class="p">:</span> <span class="s2">&quot;File size (byte): &quot;</span><span class="p">,</span>
             <span class="s1">&#39;file_creationdate&#39;</span><span class="p">:</span> <span class="s2">&quot;File creation date&quot;</span><span class="p">,</span>
             <span class="s1">&#39;file_moddate&#39;</span><span class="p">:</span> <span class="s2">&quot;File modification date&quot;</span><span class="p">,</span>
@@ -157,23 +180,52 @@
 <div class="viewcode-block" id="pdfSummary.get_summary_string">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/stdiso/pdfsummary/index.html#mtbp3.stdiso.pdfsummary.pdfSummary.get_summary_string">[docs]</a>
     <span class="k">def</span> <span class="nf">get_summary_string</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a string representation of the summary information.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A string representation of the summary information.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">summary_label</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">summary</span><span class="p">[</span><span class="n">key</span><span class="p">])</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span></div>
 
 
 <div class="viewcode-block" id="pdfSummary.get_summary_df">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/stdiso/pdfsummary/index.html#mtbp3.stdiso.pdfsummary.pdfSummary.get_summary_df">[docs]</a>
     <span class="k">def</span> <span class="nf">get_summary_df</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a pandas DataFrame of the summary information.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pandas.DataFrame: A DataFrame of the summary information.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">keys</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
         <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">&#39;Summary Label&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">summary_label</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span>
-            <span class="s1">&#39;Summary Value&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+            <span class="s1">&#39;Summary Label&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">summary_label</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">],</span>
+            <span class="s1">&#39;Summary Value&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">summary</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">]</span>
         <span class="p">}</span>
         <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">df</span></div>
 
-    
+
 <div class="viewcode-block" id="pdfSummary.get_outline_list">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/stdiso/pdfsummary/index.html#mtbp3.stdiso.pdfsummary.pdfSummary.get_outline_list">[docs]</a>
     <span class="k">def</span> <span class="nf">get_outline_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_itr</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the outline structure of the PDF file.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            max_itr (int, optional): The maximum number of iterations to traverse the outline structure. Defaults to 5.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            list: A list containing the outline structure and any unprocessed elements.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If max_itr is not an integer between 1 and 20.</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            The outline structure is obtained from the `outline` attribute of the `pp` object.</span>
+<span class="sd">            The returned list contains the outline structure in a hierarchical format, along with any unprocessed elements.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">max_itr</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="n">max_itr</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">max_itr</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;max_itr must be an integer between 1 and 20&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">pp</span><span class="p">:</span>
@@ -219,7 +271,16 @@
 <div class="viewcode-block" id="pdfSummary.show_outline_tree">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/stdiso/pdfsummary/index.html#mtbp3.stdiso.pdfsummary.pdfSummary.show_outline_tree">[docs]</a>
     <span class="k">def</span> <span class="nf">show_outline_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_itr</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">to_right</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a formatted string representation of the outline structure.</span>
 
+<span class="sd">        Args:</span>
+<span class="sd">            max_itr (int, optional): The maximum number of iterations to traverse the outline structure. Defaults to 5.</span>
+<span class="sd">            to_right (bool, optional): A flag indicating whether the tree should be displayed to the right. Defaults to False.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A formatted string representation of the outline structure.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">max_itr</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">max_itr</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">):</span>
             <span class="n">max_itr</span> <span class="o">=</span> <span class="mi">1</span>
 
@@ -238,7 +299,6 @@
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-
     <span class="n">pfr</span> <span class="o">=</span> <span class="n">pdfSummary</span><span class="p">(</span><span class="s2">&quot;/Users/yh2020/dt2/proj/mtbp3/mtbp3/data/attention.pdf&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">pfr</span><span class="o">.</span><span class="n">get_outline_list</span><span class="p">(</span><span class="n">max_itr</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 
