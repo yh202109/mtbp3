@@ -193,7 +193,7 @@ and <span class="math notranslate nohighlight">\(s_2 = \sum_i Y_{i2}^2 - \frac{1
 </tbody>
 </table>
 <table class="docutils align-default" id="id4">
-<caption><span class="caption-number">Table 19 </span><span class="caption-text">Kendall’s <span class="math notranslate nohighlight">\(\tau = -1.0\)</span></span><a class="headerlink" href="#id4" title="Link to this table"></a></caption>
+<caption><span class="caption-number">Table 19 </span><span class="caption-text">Spearman’s <span class="math notranslate nohighlight">\(\rho = -1.0\)</span></span><a class="headerlink" href="#id4" title="Link to this table"></a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 33.3%" />
@@ -223,12 +223,16 @@ and <span class="math notranslate nohighlight">\(s_2 = \sum_i Y_{i2}^2 - \frac{1
 </section>
 <section id="how-to">
 <h2>How-to<a class="headerlink" href="#how-to" title="Link to this heading"></a></h2>
-<p>To use <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> <a href="#id8"><span class="problematic" id="id5">[3]_</span></a>:</p>
-<p>from scipy.stats import spearmanr</p>
-<p>y1 = [1, 3, 2]
-y2 = [4, 6, 5]</p>
-<p>rho, p_value = spearmanr(y1, y2)
-print(“Spearman’s rho:”, rho)</p>
+<p>To use <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> <a class="footnote-reference brackets" href="#id8" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">spearmanr</span>
+
+<span class="n">y1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="n">rho</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">spearmanr</span><span class="p">(</span><span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Spearman&#39;s rho:&quot;</span><span class="p">,</span> <span class="n">rho</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>
@@ -241,6 +245,10 @@ print(“Spearman’s rho:”, rho)</p>
 <span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
 <span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id3">2</a>)</span>
 <p><a class="reference external" href="https://discourse.julialang.org">https://discourse.julialang.org</a>. (2022). Ranking of elements of a vector. <a class="reference external" href="https://discourse.julialang.org/t/ranking-of-elements-of-a-vector/88293/4">https://discourse.julialang.org/t/ranking-of-elements-of-a-vector/88293/4</a></p>
+</aside>
+<aside class="footnote brackets" id="id8" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">3</a><span class="fn-bracket">]</span></span>
+<p>scipy.org. (year). spearmanr. <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.spearmanr.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.spearmanr.html</a></p>
 </aside>
 </aside>
 </section>
