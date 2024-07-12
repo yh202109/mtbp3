@@ -147,20 +147,20 @@
 <p>Let <span class="math notranslate nohighlight">\((R_{i1}, R_{i2})\)</span> be the rank of <span class="math notranslate nohighlight">\(Y_{i1}\)</span> and the rank of <span class="math notranslate nohighlight">\(Y_{i2}\)</span>.
 In the case of ties, one method is to assign the tied group with the average of unique ranks corresponding the tied group.
 For the <span class="math notranslate nohighlight">\(i\)</span> th sample, let
-<span class="math notranslate nohighlight">\(s_1\)</span> be the number of observed values less than <span class="math notranslate nohighlight">\(Y_{i1}\)</span>,
-<span class="math notranslate nohighlight">\(s_2\)</span> be the number of observed values equal to <span class="math notranslate nohighlight">\(Y_{i1}\)</span>,
-and <span class="math notranslate nohighlight">\(s_3\)</span> be the number of observed values greater to <span class="math notranslate nohighlight">\(Y_{i1}\)</span>.
+<span class="math notranslate nohighlight">\(S_1\)</span> be the number of observed values less than <span class="math notranslate nohighlight">\(Y_{i1}\)</span>,
+<span class="math notranslate nohighlight">\(S_2\)</span> be the number of observed values equal to <span class="math notranslate nohighlight">\(Y_{i1}\)</span>,
+and <span class="math notranslate nohighlight">\(S_3\)</span> be the number of observed values greater to <span class="math notranslate nohighlight">\(Y_{i1}\)</span>.
 We can calculate the rank of a single sample as</p>
 <div class="math notranslate nohighlight" id="equation-eq-rank">
-<span class="eqno">(7)<a class="headerlink" href="#equation-eq-rank" title="Link to this equation"></a></span>\[R_{i^*1} = s_1 + \frac{s_2+1}{2} = n - s3 - \frac{s_2-1}{2}.\]</div>
+<span class="eqno">(7)<a class="headerlink" href="#equation-eq-rank" title="Link to this equation"></a></span>\[R_{i^*1} = S_1 + \frac{S_2+1}{2} = n - S_3 - \frac{S_2-1}{2}.\]</div>
 <p>For a vector, <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> has the <code class="docutils literal notranslate"><span class="pre">rank</span></code> function with <code class="docutils literal notranslate"><span class="pre">method='average'</span></code> option to calculate rank as defined in <a class="reference internal" href="#equation-eq-rank">Eq. (7)</a>.
 In <code class="docutils literal notranslate"><span class="pre">R</span></code>, that can be calculated using the <code class="docutils literal notranslate"><span class="pre">rank</span></code> function with <code class="docutils literal notranslate"><span class="pre">ties.method='average'</span></code> option.
 See reference <a class="footnote-reference brackets" href="#id7" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> for ranking in <code class="docutils literal notranslate"><span class="pre">Julia</span></code>.</p>
 <p>The Spearman’s <span class="math notranslate nohighlight">\(\rho\)</span> can be calculated as:</p>
 <div class="math notranslate nohighlight" id="equation-eq-rho">
-<span class="eqno">(8)<a class="headerlink" href="#equation-eq-rho" title="Link to this equation"></a></span>\[\rho = \frac{\frac{1}{n}\sum_i R_{i1}R_{i2} - \frac{1}{4}(n+1)^2}{t_1 t_2},\]</div>
-<p>where <span class="math notranslate nohighlight">\(t_1 = \sum_i Y_{i1}^2 - \frac{1}{4}(n+1)^2\)</span>,
-and <span class="math notranslate nohighlight">\(t_2 = \sum_i Y_{i2}^2 - \frac{1}{4}(n+1)^2\)</span>.</p>
+<span class="eqno">(8)<a class="headerlink" href="#equation-eq-rho" title="Link to this equation"></a></span>\[\rho = \frac{\frac{1}{n}\sum_i R_{i1}R_{i2} - \frac{1}{4}(n+1)^2}{s_1 s_2},\]</div>
+<p>where <span class="math notranslate nohighlight">\(s_1 = \sum_i Y_{i1}^2 - \frac{1}{4}(n+1)^2\)</span>,
+and <span class="math notranslate nohighlight">\(s_2 = \sum_i Y_{i2}^2 - \frac{1}{4}(n+1)^2\)</span>.</p>
 </section>
 <section id="example-group-1">
 <h2>Example - Group-1<a class="headerlink" href="#example-group-1" title="Link to this heading"></a></h2>
