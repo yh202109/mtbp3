@@ -60,7 +60,7 @@ Let :math:`(Y_{i1}, Y_{i2})` be a pair of random variables corresponding to the 
 
 Let :math:`(R_{i1}, R_{i2})` be the rank of :math:`Y_{i1}` and the rank of :math:`Y_{i2}`.
 In the case of ties, one method is to assign the tied group with the average of unique ranks corresponding the tied group.
-For the :math:`i`th sample, let 
+For the :math:`i` th sample, let 
 :math:`s_1` be the number of observed values less than :math:`Y_{i1}`,
 :math:`s_2` be the number of observed values equal to :math:`Y_{i1}`,
 and :math:`s_3` be the number of observed values greater to :math:`Y_{i1}`.
