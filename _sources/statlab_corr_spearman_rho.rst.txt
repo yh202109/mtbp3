@@ -78,7 +78,7 @@ See reference [2]_ for ranking in `Julia`.
 The Spearman's :math:`\rho` can be calculated as:
 
 .. math::
-  :label: eq_rank
+  :label: eq_rho
 
   \rho = \frac{\frac{1}{n}\sum_i R_{i1}R_{i2} - \frac{1}{4}(n+1)^2}{s_1 s_2},
 
