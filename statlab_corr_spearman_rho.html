@@ -107,7 +107,7 @@
 <span class="red">This page is provided only for studying and practicing. The author does not intend to promote or advocate any particular analysis method or software.</span></p>
 <section id="background">
 <h2>Background<a class="headerlink" href="#background" title="Link to this heading"></a></h2>
-<p>Spearman’s rho (<span class="math notranslate nohighlight">\(\rho\)</span>) is a statistic used for measuring rank correlation <a class="footnote-reference brackets" href="#id6" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#id7" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
+<p>Spearman’s rho (<span class="math notranslate nohighlight">\(\rho\)</span>) is a statistic used for measuring rank correlation <a class="footnote-reference brackets" href="#id5" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> .</p>
 </section>
 <section id="notation">
 <h2>Notation<a class="headerlink" href="#notation" title="Link to this heading"></a></h2>
@@ -147,15 +147,15 @@
 <p>Let <span class="math notranslate nohighlight">\((R_{i1}, R_{i2})\)</span> be the rank of <span class="math notranslate nohighlight">\(Y_{i1}\)</span> and the rank of <span class="math notranslate nohighlight">\(Y_{i2}\)</span>.
 In the case of ties, one method is to assign the tied group with the average of unique ranks corresponding the tied group.
 For the <span class="math notranslate nohighlight">\(i\)</span> th sample, let
-<span class="math notranslate nohighlight">\(S_1\)</span> be the number of observed values less than <span class="math notranslate nohighlight">\(Y_{i1}\)</span>,
-<span class="math notranslate nohighlight">\(S_2\)</span> be the number of observed values equal to <span class="math notranslate nohighlight">\(Y_{i1}\)</span>,
-and <span class="math notranslate nohighlight">\(S_3\)</span> be the number of observed values greater to <span class="math notranslate nohighlight">\(Y_{i1}\)</span>.
+<span class="math notranslate nohighlight">\(S_{i1}\)</span> be the number of observed values less than <span class="math notranslate nohighlight">\(Y_{i1}\)</span>,
+<span class="math notranslate nohighlight">\(S_{i2}\)</span> be the number of observed values equal to <span class="math notranslate nohighlight">\(Y_{i1}\)</span>,
+and <span class="math notranslate nohighlight">\(S_{i3}\)</span> be the number of observed values greater to <span class="math notranslate nohighlight">\(Y_{i1}\)</span>.
 We can calculate the rank of a single sample as</p>
 <div class="math notranslate nohighlight" id="equation-eq-rank">
-<span class="eqno">(7)<a class="headerlink" href="#equation-eq-rank" title="Link to this equation"></a></span>\[R_{i^*1} = S_1 + \frac{S_2+1}{2} = n - S_3 - \frac{S_2-1}{2}.\]</div>
+<span class="eqno">(7)<a class="headerlink" href="#equation-eq-rank" title="Link to this equation"></a></span>\[R_{i1} = S_{i1} + \frac{S_{i2}+1}{2} = n - S_{i3} - \frac{S_{i2}-1}{2}.\]</div>
 <p>For a vector, <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> has the <code class="docutils literal notranslate"><span class="pre">rank</span></code> function with <code class="docutils literal notranslate"><span class="pre">method='average'</span></code> option to calculate rank as defined in <a class="reference internal" href="#equation-eq-rank">Eq. (7)</a>.
 In <code class="docutils literal notranslate"><span class="pre">R</span></code>, that can be calculated using the <code class="docutils literal notranslate"><span class="pre">rank</span></code> function with <code class="docutils literal notranslate"><span class="pre">ties.method='average'</span></code> option.
-See reference <a class="footnote-reference brackets" href="#id7" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> for ranking in <code class="docutils literal notranslate"><span class="pre">Julia</span></code>.</p>
+See reference <a class="footnote-reference brackets" href="#id6" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> for ranking in <code class="docutils literal notranslate"><span class="pre">Julia</span></code>.</p>
 <p>The Spearman’s <span class="math notranslate nohighlight">\(\rho\)</span> can be calculated as:</p>
 <div class="math notranslate nohighlight" id="equation-eq-rho">
 <span class="eqno">(8)<a class="headerlink" href="#equation-eq-rho" title="Link to this equation"></a></span>\[\rho = \frac{\frac{1}{n}\sum_i R_{i1}R_{i2} - \frac{1}{4}(n+1)^2}{s_1 s_2},\]</div>
@@ -192,8 +192,8 @@ and <span class="math notranslate nohighlight">\(s_2 = \sum_i Y_{i2}^2 - \frac{1
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default" id="id4">
-<caption><span class="caption-number">Table 19 </span><span class="caption-text">Spearman’s <span class="math notranslate nohighlight">\(\rho = -1.0\)</span></span><a class="headerlink" href="#id4" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id3">
+<caption><span class="caption-number">Table 19 </span><span class="caption-text">Spearman’s <span class="math notranslate nohighlight">\(\rho = -1.0\)</span></span><a class="headerlink" href="#id3" title="Link to this table"></a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 33.3%" />
@@ -223,7 +223,7 @@ and <span class="math notranslate nohighlight">\(s_2 = \sum_i Y_{i2}^2 - \frac{1
 </section>
 <section id="how-to">
 <h2>How-to<a class="headerlink" href="#how-to" title="Link to this heading"></a></h2>
-<p>To use <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> <a class="footnote-reference brackets" href="#id8" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>:</p>
+<p>To use <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> <a class="footnote-reference brackets" href="#id7" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">spearmanr</span>
 
 <span class="n">y1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
@@ -237,17 +237,16 @@ and <span class="math notranslate nohighlight">\(s_2 = \sum_i Y_{i2}^2 - \frac{1
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id6" role="doc-footnote">
+<aside class="footnote brackets" id="id5" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p>Wikipedia. (year). Spearman’s rank correlation coefficient. <a class="reference external" href="https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient">https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient</a></p>
 </aside>
-<aside class="footnote brackets" id="id7" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id3">2</a>)</span>
+<aside class="footnote brackets" id="id6" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
 <p>julialang.org. (2022). Ranking of elements of a vector. <a class="reference external" href="https://discourse.julialang.org/t/ranking-of-elements-of-a-vector/88293/4">https://discourse.julialang.org/t/ranking-of-elements-of-a-vector/88293/4</a></p>
 </aside>
-<aside class="footnote brackets" id="id8" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">3</a><span class="fn-bracket">]</span></span>
+<aside class="footnote brackets" id="id7" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">3</a><span class="fn-bracket">]</span></span>
 <p>scipy.org. (year). spearmanr. <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.spearmanr.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.spearmanr.html</a></p>
 </aside>
 </aside>
