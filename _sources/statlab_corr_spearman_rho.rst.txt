@@ -71,9 +71,9 @@ We can calculate the rank of a single sample as
 
   R_{i^*1} = s1 + \frac{s2+1}{2} = n - s3 - \frac{s-1}{2}.
 
-For a vector, `pandas.DataFrame` has the `rank` function with `method='average'` option to calculate rank as defined in :eq:`eq_rank`. 
-In `R`, that can be calculated using the `rank` function with `ties.method='average'` option.
-See reference [2]_ for ranking in `Julia`.
+For a vector, ``pandas.DataFrame`` has the ``rank`` function with ``method='average'`` option to calculate rank as defined in :eq:`eq_rank`. 
+In ``R``, that can be calculated using the ``rank`` function with ``ties.method='average'`` option.
+See reference [2]_ for ranking in ``Julia``.
 
 The Spearman's :math:`\rho` can be calculated as:
 
@@ -140,6 +140,8 @@ To use ``scipy.stats`` [3]_:
 
   rho, p_value = spearmanr(y1, y2)
   print("Spearman's rho:", rho)
+
+
 
 *************
 Reference
