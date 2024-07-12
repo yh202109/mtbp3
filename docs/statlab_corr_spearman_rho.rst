@@ -82,8 +82,8 @@ The Spearman's :math:`\rho` can be calculated as:
 
   \rho = \frac{\frac{1}{n}\sum_i R_{i1}R_{i2} - \frac{1}{4}(n+1)^2}{s_1 s_2},
 
-where :math:`s_1 = \sum_i Y_{i1}^2 - \frac{1}{4}(n+1)^2`,
-and :math:`s_2 = \sum_i Y_{i2}^2 - \frac{1}{4}(n+1)^2`.
+where :math:`s_1^2 = \sum_i Y_{i1}^2 - \frac{1}{4}(n+1)^2`,
+and :math:`s_2^2 = \sum_i Y_{i2}^2 - \frac{1}{4}(n+1)^2`.
 
 *************
 Example - Group-1
