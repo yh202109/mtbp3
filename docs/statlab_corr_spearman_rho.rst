@@ -107,7 +107,7 @@ Example - Group-1
      - 2
      - 5
 
-.. list-table:: Kendall's :math:`\tau = -1.0`
+.. list-table:: Spearman's :math:`\rho = -1.0`
    :widths: 10 10 10 
    :header-rows: 1
    :name: tbl_ex1
@@ -133,13 +133,13 @@ To use ``scipy.stats`` [3]_:
 
 .. code:: python
 
-from scipy.stats import spearmanr
+  from scipy.stats import spearmanr
 
-y1 = [1, 3, 2]
-y2 = [4, 6, 5]
+  y1 = [1, 3, 2]
+  y2 = [4, 6, 5]
 
-rho, p_value = spearmanr(y1, y2)
-print("Spearman's rho:", rho)
+  rho, p_value = spearmanr(y1, y2)
+  print("Spearman's rho:", rho)
 
 *************
 Reference
@@ -147,4 +147,5 @@ Reference
 
 .. [1] Wikipedia. (year). Spearman's rank correlation coefficient. https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient
 .. [2] https://discourse.julialang.org. (2022). Ranking of elements of a vector. https://discourse.julialang.org/t/ranking-of-elements-of-a-vector/88293/4
+.. [3] scipy.org. (year). spearmanr. https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.spearmanr.html
 
