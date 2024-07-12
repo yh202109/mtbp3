@@ -69,7 +69,7 @@ We can calculate the rank of a single sample as
 .. math::
   :label: eq_rank
 
-  R_{i^*1} = s1 + \frac{s2+1}{2} = n - s3 - \frac{s-1}{2}.
+  R_{i^*1} = s_1 + \frac{s_2+1}{2} = n - s3 - \frac{s_2-1}{2}.
 
 For a vector, ``pandas.DataFrame`` has the ``rank`` function with ``method='average'`` option to calculate rank as defined in :eq:`eq_rank`. 
 In ``R``, that can be calculated using the ``rank`` function with ``ties.method='average'`` option.
@@ -80,10 +80,10 @@ The Spearman's :math:`\rho` can be calculated as:
 .. math::
   :label: eq_rho
 
-  \rho = \frac{\frac{1}{n}\sum_i R_{i1}R_{i2} - \frac{1}{4}(n+1)^2}{s_1 s_2},
+  \rho = \frac{\frac{1}{n}\sum_i R_{i1}R_{i2} - \frac{1}{4}(n+1)^2}{t_1 t_2},
 
-where :math:`s_1 = \sum_i Y_{i1}^2 - \frac{1}{4}(n+1)^2`,
-and :math:`s_2 = \sum_i Y_{i2}^2 - \frac{1}{4}(n+1)^2`.
+where :math:`t_1 = \sum_i Y_{i1}^2 - \frac{1}{4}(n+1)^2`,
+and :math:`t_2 = \sum_i Y_{i2}^2 - \frac{1}{4}(n+1)^2`.
 
 *************
 Example - Group-1
