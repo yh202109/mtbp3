@@ -29,7 +29,7 @@ StatLab/Corr/NP/Spearman's Rho
 Background
 *************
 
-Spearman's rho (:math:`\rho`) is a statistic used for measuring rank correlation [1]_ [2]_. 
+Spearman's rho (:math:`\rho`) is a statistic used for measuring rank correlation [1]_ . 
 
 *************
 Notation 
@@ -61,15 +61,15 @@ Let :math:`(Y_{i1}, Y_{i2})` be a pair of random variables corresponding to the 
 Let :math:`(R_{i1}, R_{i2})` be the rank of :math:`Y_{i1}` and the rank of :math:`Y_{i2}`.
 In the case of ties, one method is to assign the tied group with the average of unique ranks corresponding the tied group.
 For the :math:`i` th sample, let 
-:math:`S_1` be the number of observed values less than :math:`Y_{i1}`,
-:math:`S_2` be the number of observed values equal to :math:`Y_{i1}`,
-and :math:`S_3` be the number of observed values greater to :math:`Y_{i1}`.
+:math:`S_{i1}` be the number of observed values less than :math:`Y_{i1}`,
+:math:`S_{i2}` be the number of observed values equal to :math:`Y_{i1}`,
+and :math:`S_{i3}` be the number of observed values greater to :math:`Y_{i1}`.
 We can calculate the rank of a single sample as 
 
 .. math::
   :label: eq_rank
 
-  R_{i^*1} = S_1 + \frac{S_2+1}{2} = n - S_3 - \frac{S_2-1}{2}.
+  R_{i1} = S_{i1} + \frac{S_{i2}+1}{2} = n - S_{i3} - \frac{S_{i2}-1}{2}.
 
 For a vector, ``pandas.DataFrame`` has the ``rank`` function with ``method='average'`` option to calculate rank as defined in :eq:`eq_rank`. 
 In ``R``, that can be calculated using the ``rank`` function with ``ties.method='average'`` option.
