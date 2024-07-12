@@ -148,6 +148,6 @@ Reference
 *************
 
 .. [1] Wikipedia. (year). Spearman's rank correlation coefficient. https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient
-.. [2] https://discourse.julialang.org. (2022). Ranking of elements of a vector. https://discourse.julialang.org/t/ranking-of-elements-of-a-vector/88293/4
+.. [2] julialang.org. (2022). Ranking of elements of a vector. https://discourse.julialang.org/t/ranking-of-elements-of-a-vector/88293/4
 .. [3] scipy.org. (year). spearmanr. https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.spearmanr.html
 
