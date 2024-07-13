@@ -148,27 +148,26 @@
     
 <div class="viewcode-block" id="ctoc_by_fda.color_output">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/health/ectd/index.html#mtbp3.health.ectd.ctoc_by_fda.color_output">[docs]</a>
-    <span class="k">def</span> <span class="nf">color_output</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">words</span><span class="o">=</span><span class="p">[],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">):</span>
-        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="nb">str</span><span class="p">),</span> <span class="s2">&quot;out must be a string&quot;</span>
-        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="nb">list</span><span class="p">),</span> <span class="s2">&quot;words must be a list&quot;</span>
-        <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">),</span> <span class="s2">&quot;Elements in the list must be strings&quot;</span>
-        <span class="k">assert</span> <span class="n">out</span><span class="p">,</span> <span class="s2">&quot;out cannot be empty&quot;</span>
-        <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">words</span><span class="p">),</span> <span class="s2">&quot;All elements in words must be non-empty&quot;</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">color_output</span><span class="p">(</span><span class="n">out</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">words</span><span class="o">=</span><span class="p">[],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">out</span><span class="p">,</span> <span class="s2">&quot;out must be a string&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">words</span><span class="p">:</span>
+            <span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">words</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="n">words</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">),</span> <span class="s2">&quot;Elements in the list must be strings&quot;</span>
 
-        <span class="n">out_colored</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">out</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
-                <span class="k">try</span><span class="p">:</span>
-                    <span class="n">start</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
-                    <span class="n">end</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
-                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-                    <span class="k">continue</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="n">out</span>
+        <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
                 <span class="n">start</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
                 <span class="n">end</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
-                <span class="n">row</span> <span class="o">=</span> <span class="n">row</span><span class="p">[:</span><span class="n">start</span><span class="p">]</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;&lt;font color=&#39;&quot;</span> <span class="o">+</span> <span class="n">color</span> <span class="o">+</span> <span class="s2">&quot;&#39;&gt; row[start:end]&lt;/font&gt;&quot;</span> <span class="o">+</span> <span class="n">row</span><span class="p">[</span><span class="n">end</span><span class="p">:]</span>
-            <span class="n">out_colored</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+            <span class="n">row</span> <span class="o">=</span> <span class="n">row</span><span class="p">[:</span><span class="n">start</span><span class="p">]</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;&lt;font color=&#39;&quot;</span> <span class="o">+</span> <span class="n">color</span> <span class="o">+</span> <span class="s2">&quot;&#39;&gt;&quot;</span> <span class="o">+</span> <span class="n">row</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;&lt;/font&gt;&quot;</span> <span class="o">+</span> <span class="n">row</span><span class="p">[</span><span class="n">end</span><span class="p">:]</span>
         
-        <span class="k">return</span> <span class="n">out_colored</span></div>
+        <span class="k">return</span> <span class="n">row</span></div>
 
 
 <div class="viewcode-block" id="ctoc_by_fda.find_section_given_words">
@@ -209,7 +208,7 @@
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">out_colored</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
 
-            <span class="n">out_tree</span> <span class="o">=</span> <span class="n">ListTree</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">out</span><span class="p">,</span> <span class="n">infmt</span><span class="o">=</span><span class="s1">&#39;dotspace&#39;</span><span class="p">)</span>
+            <span class="n">out_tree</span> <span class="o">=</span> <span class="n">ListTree</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">out_colored</span><span class="p">,</span> <span class="n">infmt</span><span class="o">=</span><span class="s1">&#39;dotspace&#39;</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">out_tree</span><span class="o">.</span><span class="n">list_tree</span><span class="p">(</span><span class="n">to_right</span><span class="o">=</span><span class="n">to_right</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid value for outfmt. Supported values are &#39;simple&#39; and &#39;tree&#39;.&quot;</span><span class="p">)</span></div>
@@ -218,6 +217,10 @@
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="k">pass</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;rems&#39;</span><span class="p">,</span> <span class="s1">&#39;dsur&#39;</span><span class="p">]</span>
+    <span class="n">ctoc</span> <span class="o">=</span> <span class="n">ctoc_by_fda</span><span class="p">()</span>
+    <span class="n">sections</span> <span class="o">=</span> <span class="n">ctoc</span><span class="o">.</span><span class="n">find_section_given_words</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">sections</span><span class="p">)</span>
 </pre></div>
 
            </div>

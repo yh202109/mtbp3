@@ -4,6 +4,14 @@ mtbp3.health.ectd
 .. py:module:: mtbp3.health.ectd
 
 
+Attributes
+----------
+
+.. autoapisummary::
+
+   mtbp3.health.ectd.words
+
+
 Classes
 -------
 
@@ -23,9 +31,15 @@ Module Contents
    .. py:method:: show_ctoc_tree(module=None, to_right=False)
 
 
-   .. py:method:: color_output(words=[], color='red')
+   .. py:method:: color_output(out='', words=[], color='red')
+      :staticmethod:
+
 
 
    .. py:method:: find_section_given_words(words, outfmt='simple', include='up', to_right=False)
+
+
+.. py:data:: words
+   :value: ['rems', 'dsur']
 
 
