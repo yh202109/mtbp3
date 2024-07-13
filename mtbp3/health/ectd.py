@@ -59,6 +59,14 @@ class ctoc_by_fda:
             raise ValueError("Invalid value for include. Supported values are 'up' and 'both'.")
 
         out = [row for row in self.ctoc if any(word.lower() in row.lower() for word in words)]
+        out_colored = []
+        for row in out:
+            for word in words:
+                start = row.lower().index(word.lower())
+                end = start + len(word)
+                row = row[:start] + f"\033[91m{row[start:end]}\033[0m" + row[end:]
+            out_colored.append(row)
+        out = out_colored
         if outfmt == 'simple':
             return out
         elif outfmt == 'tree':
