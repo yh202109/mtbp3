@@ -100,7 +100,7 @@ class ctoc_by_fda:
                 if len(split_row) > 1:
                     first_part = split_row[0]
                     second_part = split_row[1]
-                    colored_second_part = self.color_output(second_part, words, "red")
+                    colored_second_part = self.color_output(second_part, words=words, color="red")
                     out_colored.append(f"{first_part} {colored_second_part}")
                 else:
                     out_colored.append(row)
