@@ -146,11 +146,11 @@ More Details
 *************
 
 Assume that :math:`Y_{i1} \sim \mathcal{D}`.
-In :eq:`eq_rank`, we defined :math:`R_{i1} = S_{i1} + \frac{S_{i2}+1}{2}`.
+For continuous :math:`Y_{i1}`, if we can assume that :math:`P(S_{i2}=0)=1`, 
+then :eq:`eq_rank` can be simplified as :math:`R_{i1} = S_{i1}`.
+For a given sample size :math:`n`, and :math:`r \in \{1, \ldots, n\}`, the PMF of :math:`R_{i1}` is 
+:math:`P(R_{i1} = r) = \frac{1}{n}`, which does not depend on :math:`\mathcal{D}` [4]_.
 
-For continuous :math:`Y_{i1}`, if we can assume that :math:`P(S_{i2}=0)=1`, then :math:`R_{i1} = S_{i1}`.
-For a given sample size :math:`n`, and :math:`r \in \{1, \ldots, n\}`, the pmf of :math:`R_{i1}` is 
-:math:`P(R_{i1} = r) = \frac{1}{n}`, which does not depend on :math:`\mathcal{D}`.
 
 *************
 Reference
@@ -159,4 +159,5 @@ Reference
 .. [1] Wikipedia. (year). Spearman's rank correlation coefficient. https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient
 .. [2] julialang.org. (2022). Ranking of elements of a vector. https://discourse.julialang.org/t/ranking-of-elements-of-a-vector/88293/4
 .. [3] scipy.org. (year). spearmanr. https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.spearmanr.html
+.. [4] John Borkowski. (2014). Introduction to the Theory of Order Statistics and Rank Statistics. https://math.montana.edu/jobo/thainp/rankstat.pdf
 
