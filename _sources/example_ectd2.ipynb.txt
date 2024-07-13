@@ -145,7 +145,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Find Titles Using Keywords\n",
+    "## Find Sections Using Keywords\n",
     "\n",
     "Please note that keywords are not case sensitive, but titles are case sensitive. \n",
     "\n",
