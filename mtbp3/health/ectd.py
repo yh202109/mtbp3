@@ -48,12 +48,17 @@ class ctoc_by_fda:
         return tree.list_tree(to_right=to_right)
 
     def find_section_given_words(self, words, outfmt='simple', include='up', to_right=False):
-        if not isinstance(words, str) or not words:
-            raise ValueError("str must be a nonempty string")
+        if isinstance(words, str) and words:
+            words = [words]
+        elif isinstance(words, list) and len(words)>0:
+            assert all(isinstance(word, str) for word in words), "Elements in the list must be strings"
+        else:
+            raise ValueError("words must be a string or a list")
+        
         if include not in ['up', 'both']:
             raise ValueError("Invalid value for include. Supported values are 'up' and 'both'.")
 
-        out = [row for row in self.ctoc if words.lower() in row.lower()]
+        out = [row for row in self.ctoc if any(word.lower() in row.lower() for word in words)]
         if outfmt == 'simple':
             return out
         elif outfmt == 'tree':
