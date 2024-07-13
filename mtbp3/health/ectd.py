@@ -64,7 +64,7 @@ class ctoc_by_fda:
                 continue
             start = row.lower().index(word.lower())
             end = start + len(word)
-            row = row[:start] + f"<font color='" + color + "'>" + row[start:end] + "</font>" + row[end:]
+            row = row[:start] + f"\x1b[31m" + row[start:end] + "\x1b[0m" + row[end:]
         
         return row
 
