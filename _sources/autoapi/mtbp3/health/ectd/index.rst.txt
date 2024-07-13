@@ -36,7 +36,7 @@ Module Contents
 
 
 
-   .. py:method:: find_section_given_words(words, outfmt='simple', include='up', to_right=False)
+   .. py:method:: find_section_given_words(words, outfmt='simple', include='up', to_right=False, colored=None)
 
 
 .. py:data:: words
