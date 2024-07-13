@@ -54,6 +54,11 @@ class ctoc_by_fda:
             words = [words]
         elif isinstance(words, list) and words:
             assert all(isinstance(word, str) and word for word in words), "Elements in the list must be strings"
+        color_dic = {'red': 31, 'green': 32, 'yellow': 33, 'blue': 34, 'magenta': 35, 'cyan': 36}
+        if color in color_dic.keys():
+            color_str = f"\x1b[{color_dic[color]}m"
+        else:
+            color_str = "\x1b[31m"
 
         row = out
         for word in words:
@@ -64,7 +69,7 @@ class ctoc_by_fda:
                 continue
             start = row.lower().index(word.lower())
             end = start + len(word)
-            row = row[:start] + f"\x1b[31m" + row[start:end] + "\x1b[0m" + row[end:]
+            row = row[:start] + color_str + row[start:end] + "\x1b[0m" + row[end:]
         
         return row
 
@@ -101,7 +106,7 @@ class ctoc_by_fda:
                     if len(split_row) > 1:
                         first_part = split_row[0]
                         second_part = split_row[1]
-                        colored_second_part = self.color_output(second_part, words=words, color="red")
+                        colored_second_part = self.color_output(second_part, words=words, color="blue")
                         out_colored.append(f"{first_part} {colored_second_part}")
                     else:
                         out_colored.append(row)
