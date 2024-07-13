@@ -62,6 +62,11 @@ class ctoc_by_fda:
         out_colored = []
         for row in out:
             for word in words:
+                try:
+                    start = row.lower().index(word.lower())
+                    end = start + len(word)
+                except ValueError:
+                    continue
                 start = row.lower().index(word.lower())
                 end = start + len(word)
                 row = row[:start] + f"\033[91m{row[start:end]}\033[0m" + row[end:]
