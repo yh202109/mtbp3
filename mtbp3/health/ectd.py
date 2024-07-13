@@ -46,6 +46,28 @@ class ctoc_by_fda:
         filtered_ctoc = [item for item in self.ctoc if item.startswith(str(module))]
         tree = ListTree(lst=filtered_ctoc, infmt='dotspace')
         return tree.list_tree(to_right=to_right)
+    
+    def color_output(out, words=[], color='red'):
+        assert isinstance(out, str), "out must be a string"
+        assert isinstance(words, list), "words must be a list"
+        assert all(isinstance(word, str) for word in words), "Elements in the list must be strings"
+        assert out, "out cannot be empty"
+        assert all(words), "All elements in words must be non-empty"
+
+        out_colored = []
+        for row in out:
+            for word in words:
+                try:
+                    start = row.lower().index(word.lower())
+                    end = start + len(word)
+                except ValueError:
+                    continue
+                start = row.lower().index(word.lower())
+                end = start + len(word)
+                row = row[:start] + f"<font color='" + color + "'> row[start:end]</font>" + row[end:]
+            out_colored.append(row)
+        
+        return out_colored
 
     def find_section_given_words(self, words, outfmt='simple', include='up', to_right=False):
         if isinstance(words, str) and words:
@@ -59,19 +81,7 @@ class ctoc_by_fda:
             raise ValueError("Invalid value for include. Supported values are 'up' and 'both'.")
 
         out = [row for row in self.ctoc if any(word.lower() in row.lower() for word in words)]
-        out_colored = []
-        for row in out:
-            for word in words:
-                try:
-                    start = row.lower().index(word.lower())
-                    end = start + len(word)
-                except ValueError:
-                    continue
-                start = row.lower().index(word.lower())
-                end = start + len(word)
-                row = row[:start] + f"\033[91m{row[start:end]}\033[0m" + row[end:]
-            out_colored.append(row)
-        out = out_colored
+
         if outfmt == 'simple':
             return out
         elif outfmt == 'tree':
@@ -84,6 +94,17 @@ class ctoc_by_fda:
                     out2 = [item for item in self.ctoc if item.startswith(out0_str1 + " ")]
                     out1 = out1+out2
             out = list(set(out+out1))
+            out_colored=[]
+            for row in out: 
+                split_row = row.split(' ', 1)
+                if len(split_row) > 1:
+                    first_part = split_row[0]
+                    second_part = split_row[1]
+                    colored_second_part = self.color_output(second_part, words, "red")
+                    out_colored.append(f"{first_part} {colored_second_part}")
+                else:
+                    out_colored.append(row)
+
             out_tree = ListTree(lst=out, infmt='dotspace')
             return out_tree.list_tree(to_right=to_right)
         else:
