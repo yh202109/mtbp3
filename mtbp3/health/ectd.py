@@ -68,7 +68,7 @@ class ctoc_by_fda:
         
         return row
 
-    def find_section_given_words(self, words, outfmt='simple', include='up', to_right=False):
+    def find_section_given_words(self, words, outfmt='simple', include='up', to_right=False, colored=None):
         if isinstance(words, str) and words:
             words = [words]
         elif isinstance(words, list) and len(words)>0:
@@ -93,18 +93,21 @@ class ctoc_by_fda:
                     out2 = [item for item in self.ctoc if item.startswith(out0_str1 + " ")]
                     out1 = out1+out2
             out = list(set(out+out1))
-            out_colored=[]
-            for row in out: 
-                split_row = row.split(' ', 1)
-                if len(split_row) > 1:
-                    first_part = split_row[0]
-                    second_part = split_row[1]
-                    colored_second_part = self.color_output(second_part, words=words, color="red")
-                    out_colored.append(f"{first_part} {colored_second_part}")
-                else:
-                    out_colored.append(row)
 
-            out_tree = ListTree(lst=out_colored, infmt='dotspace')
+            if colored == "nb":
+                out_colored=[]
+                for row in out: 
+                    split_row = row.split(' ', 1)
+                    if len(split_row) > 1:
+                        first_part = split_row[0]
+                        second_part = split_row[1]
+                        colored_second_part = self.color_output(second_part, words=words, color="red")
+                        out_colored.append(f"{first_part} {colored_second_part}")
+                    else:
+                        out_colored.append(row)
+                out_tree = ListTree(lst=out_colored, infmt='dotspace')
+            else:
+                out_tree = ListTree(lst=out, infmt='dotspace')
             return out_tree.list_tree(to_right=to_right)
         else:
             raise ValueError("Invalid value for outfmt. Supported values are 'simple' and 'tree'.")
