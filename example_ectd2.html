@@ -52,6 +52,12 @@
 <li class="toctree-l1"><a class="reference internal" href="example_ectd.html">H/eCTD/3.2/Heading</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">H/eCTD/4.0/Heading</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#the-comprehensive-table-of-contents-headings-and-hierarchy-ctoc-by-fda">The Comprehensive Table of Contents Headings and Hierarchy (CTOC) by FDA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-1">Module 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-2">Module 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-3">Module 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-4">Module 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-5">Module 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#find-titles-using-keywords">Find Titles using Keywords</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
@@ -108,6 +114,9 @@ The module <code class="docutils literal notranslate"><span class="pre">ectd</sp
 FDA has released guidance on heading hierarchy of eCTD <a class="footnote-reference brackets" href="#id7" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a><sup>,</sup><a class="footnote-reference brackets" href="#id8" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>.
 The <code class="docutils literal notranslate"><span class="pre">ectd</span></code> module provides functions for listing and searching within the heading hierarchy.</p>
 <p><strong>Disclaimer</strong>: this module is shared for quick searching and preview headings with the intention to be helpful. The author can not guarantee the correctness of the heading. Please notify the author if any typos were found.</p>
+</section>
+<section id="module-1">
+<h2>Module 1<a class="headerlink" href="#module-1" title="Link to this heading"></a></h2>
 <p>To view CTOC of Module 1:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -272,6 +281,9 @@ The <code class="docutils literal notranslate"><span class="pre">ectd</span></co
 </div>
 </div>
 </div>
+</section>
+<section id="module-2">
+<h2>Module 2<a class="headerlink" href="#module-2" title="Link to this heading"></a></h2>
 <p>To view CTOC of Module 2:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -312,6 +324,9 @@ The <code class="docutils literal notranslate"><span class="pre">ectd</span></co
 </div>
 </div>
 </div>
+</section>
+<section id="module-3">
+<h2>Module 3<a class="headerlink" href="#module-3" title="Link to this heading"></a></h2>
 <p>To view CTOC of Module 3:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -385,6 +400,9 @@ The <code class="docutils literal notranslate"><span class="pre">ectd</span></co
 </div>
 </div>
 </div>
+</section>
+<section id="module-4">
+<h2>Module 4<a class="headerlink" href="#module-4" title="Link to this heading"></a></h2>
 <p>To view CTOC of Module 4:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -566,6 +584,9 @@ The <code class="docutils literal notranslate"><span class="pre">ectd</span></co
 </div>
 </div>
 </div>
+</section>
+<section id="module-5">
+<h2>Module 5<a class="headerlink" href="#module-5" title="Link to this heading"></a></h2>
 <p>To view CTOC of Module 5:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -750,6 +771,10 @@ The <code class="docutils literal notranslate"><span class="pre">ectd</span></co
 </div>
 </div>
 </div>
+</section>
+<section id="find-titles-using-keywords">
+<h2>Find Titles using Keywords<a class="headerlink" href="#find-titles-using-keywords" title="Link to this heading"></a></h2>
+<p>Please note that keywords are not case sensitive, but titles are case sensitive.</p>
 <p>To search a word within the hierarchy:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -788,6 +813,31 @@ The <code class="docutils literal notranslate"><span class="pre">ectd</span></co
             ├── 1.16.2.4 REMS Assessment Methodology
             ├── 1.16.2.5 REMS Correspondence
             └── 1.16.2.6 REMS Modification History
+</pre></div>
+</div>
+</div>
+</div>
+<p>To search multiple keywords:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ctoc</span><span class="o">.</span><span class="n">find_section_given_words</span><span class="p">([</span><span class="s2">&quot;REMS&quot;</span><span class="p">,</span><span class="s2">&quot;isE&quot;</span><span class="p">],</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ctoc</span><span class="o">.</span><span class="n">find_section_given_words</span><span class="p">([</span><span class="s2">&quot;REMS&quot;</span><span class="p">,</span><span class="s2">&quot;isE&quot;</span><span class="p">],</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">)))</span>
+
+<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/health/ectd.py:52,</span> in <span class="ni">ctoc_by_fda.find_section_given_words</span><span class="nt">(self, words, outfmt, include, to_right)</span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span> <span class="k">def</span> <span class="nf">find_section_given_words</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">words</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;simple&#39;</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="n">to_right</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">51</span>     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">words</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">52</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;str must be a nonempty string&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">53</span>     <span class="k">if</span> <span class="n">include</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="s1">&#39;both&#39;</span><span class="p">]:</span>
+<span class="g g-Whitespace">     </span><span class="mi">54</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid value for include. Supported values are &#39;up&#39; and &#39;both&#39;.&quot;</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: str must be a nonempty string
 </pre></div>
 </div>
 </div>

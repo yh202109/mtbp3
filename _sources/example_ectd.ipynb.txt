@@ -21,7 +21,14 @@
     "FDA has released guidance on heading hierarchy of eCTD [^3]<sup>,</sup>[^4].\n",
     "The `ectd` module provides functions for listing and searching within the heading hierarchy.\n",
     "\n",
-    "**Disclaimer**: this module is shared for quick searching and preview headings with the intention to be helpful. The author can not guarantee the correctness of the heading. Please notify the author if any typos were found.\n",
+    "**Disclaimer**: this module is shared for quick searching and preview headings with the intention to be helpful. The author can not guarantee the correctness of the heading. Please notify the author if any typos were found."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Module 1\n",
     "\n",
     "To view CTOC of Module 1:"
    ]
@@ -49,6 +56,8 @@
     }
    },
    "source": [
+    "## Module 2\n",
+    "\n",
     "To view CTOC of Module 2:"
    ]
   },
@@ -69,6 +78,8 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
+    "## Module 3\n",
+    "\n",
     "To view CTOC of Module 3:"
    ]
   },
@@ -89,6 +100,8 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
+    "## Module 4\n",
+    "\n",
     "To view CTOC of Module 4:"
    ]
   },
@@ -109,6 +122,8 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
+    "## Module 5 \n",
+    "\n",
     "To view CTOC of Module 5:"
    ]
   },
@@ -129,6 +144,10 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
+    "## Find Titles using Keywords\n",
+    "\n",
+    "Please note that keywords are not case sensitive, but titles are case sensitive. \n",
+    "\n",
     "To search a word within the hierarchy:"
    ]
   },
