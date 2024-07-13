@@ -769,9 +769,6 @@ The <code class="docutils literal notranslate"><span class="pre">ectd</span></co
     └── 5.4 Literature references
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 </section>
@@ -828,26 +825,18 @@ The <code class="docutils literal notranslate"><span class="pre">ectd</span></co
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">UnboundLocalError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ctoc</span><span class="o">.</span><span class="n">find_section_given_words</span><span class="p">(</span><span class="n">words</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;REMS&quot;</span><span class="p">,</span><span class="s2">&quot;dsur&quot;</span><span class="p">],</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">,</span> <span class="n">colored</span><span class="o">=</span><span class="s1">&#39;nb&#39;</span><span class="p">)))</span>
-
-<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/health/ectd.py:109,</span> in <span class="ni">ctoc_by_fda.find_section_given_words</span><span class="nt">(self, words, outfmt, include, to_right, colored)</span>
-<span class="g g-Whitespace">    </span><span class="mi">107</span>     <span class="n">first_part</span> <span class="o">=</span> <span class="n">split_row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">108</span>     <span class="n">second_part</span> <span class="o">=</span> <span class="n">split_row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="ne">--&gt; </span><span class="mi">109</span>     <span class="n">colored_second_part</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">color_output</span><span class="p">(</span><span class="n">second_part</span><span class="p">,</span> <span class="n">words</span><span class="o">=</span><span class="n">words</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colored</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">110</span>     <span class="n">out_colored</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">first_part</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">colored_second_part</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">111</span> <span class="k">else</span><span class="p">:</span>
-
-<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/health/ectd.py:59,</span> in <span class="ni">ctoc_by_fda.color_output</span><span class="nt">(out, words, color)</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span> <span class="n">color_dic</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;red&#39;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">:</span> <span class="mi">33</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">:</span> <span class="mi">34</span><span class="p">,</span> <span class="s1">&#39;magenta&#39;</span><span class="p">:</span> <span class="mi">35</span><span class="p">,</span> <span class="s1">&#39;cyan&#39;</span><span class="p">:</span> <span class="mi">36</span><span class="p">}</span>
-<span class="g g-Whitespace">     </span><span class="mi">58</span> <span class="k">if</span> <span class="n">color</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">color_dic</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-<span class="ne">---&gt; </span><span class="mi">59</span>     <span class="k">return</span> <span class="n">row</span>
-<span class="g g-Whitespace">     </span><span class="mi">60</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">61</span>     <span class="n">color_str</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\x1b</span><span class="s2">[</span><span class="si">{</span><span class="n">color_dic</span><span class="p">[</span><span class="n">color</span><span class="p">]</span><span class="si">}</span><span class="s2">m&quot;</span>
-
-<span class="ne">UnboundLocalError</span>: local variable &#39;row&#39; referenced before assignment
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    1 Module 1 Administrative information
+    ├── 1.13 Annual report
+    │   └── 1.13.15 Development safety update report (DSUR)
+    └── 1.16 Risk management plan
+        ├── 1.16.1 Risk Management (Non-REMS)
+        └── 1.16.2 Risk Evaluation and Mitigation Strategy (REMS)
+            ├── 1.16.2.1 Final REMS
+            ├── 1.16.2.2 Draft REMS
+            ├── 1.16.2.3 REMS Assessment
+            ├── 1.16.2.4 REMS Assessment Methodology
+            ├── 1.16.2.5 REMS Correspondence
+            └── 1.16.2.6 REMS Modification History
 </pre></div>
 </div>
 </div>
