@@ -19,7 +19,7 @@
 .. role:: red
 
 #############
-StatLab/Corr/NP/Spearman's Rho  
+StatLab/Corr/NP/Spearman's Rho 
 #############
 
 :red-b:`Disclaimer:`
@@ -82,8 +82,8 @@ The Spearman's :math:`\rho` can be calculated as:
 
   \rho = \frac{\frac{1}{n}\sum_i R_{i1}R_{i2} - \frac{1}{4}(n+1)^2}{s_1 s_2},
 
-where :math:`s_1^2 = \sum_i Y_{i1}^2 - \frac{1}{4}(n+1)^2`,
-and :math:`s_2^2 = \sum_i Y_{i2}^2 - \frac{1}{4}(n+1)^2`.
+where :math:`s_1^2 = \sum_i R_{i1}^2 - \frac{1}{4}(n+1)^2`,
+and :math:`s_2^2 = \sum_i R_{i2}^2 - \frac{1}{4}(n+1)^2`.
 
 *************
 Example - Group-1
@@ -141,7 +141,16 @@ To use ``scipy.stats`` [3]_:
   rho, p_value = spearmanr(y1, y2)
   print("Spearman's rho:", rho)
 
+*************
+More Details
+*************
 
+Assume that :math:`Y_{i1} \sim \mathcal{D}`.
+In :eq:`eq_rank`, we defined :math:`R_{i1} = S_{i1} + \frac{S_{i2}+1}{2}`.
+
+For continuous :math:`Y_{i1}`, if we can assume that :math:`P(S_{i2}=0)=1`, then :math:`R_{i1} = S_{i1}`.
+For a given sample size :math:`n`, and :math:`r \in \{1, \ldots, n\}`, the pmf of :math:`R_{i1}` is 
+:math:`P(R_{i1} = r) = \frac{1}{n}`, which does not depend on :math:`\mathcal{D}`.
 
 *************
 Reference
