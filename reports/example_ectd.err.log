@@ -27,9 +27,9 @@ Cell [0;32mIn[7], line 1[0m
 File [0;32m~/work/mtbp3/mtbp3/mtbp3/health/ectd.py:103[0m, in [0;36mctoc_by_fda.find_section_given_words[0;34m(self, words, outfmt, include, to_right)[0m
 [1;32m    101[0m     first_part [38;5;241m=[39m split_row[[38;5;241m0[39m]
 [1;32m    102[0m     second_part [38;5;241m=[39m split_row[[38;5;241m1[39m]
-[0;32m--> 103[0m     colored_second_part [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mcolor_output[49m[43m([49m[43msecond_part[49m[43m,[49m[43m [49m[43mwords[49m[43m,[49m[43m [49m[38;5;124;43m"[39;49m[38;5;124;43mred[39;49m[38;5;124;43m"[39;49m[43m)[49m
+[0;32m--> 103[0m     colored_second_part [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mcolor_output[49m[43m([49m[43msecond_part[49m[43m,[49m[43m [49m[43mwords[49m[38;5;241;43m=[39;49m[43mwords[49m[43m,[49m[43m [49m[43mcolor[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43mred[39;49m[38;5;124;43m"[39;49m[43m)[49m
 [1;32m    104[0m     out_colored[38;5;241m.[39mappend([38;5;124mf[39m[38;5;124m"[39m[38;5;132;01m{[39;00mfirst_part[38;5;132;01m}[39;00m[38;5;124m [39m[38;5;132;01m{[39;00mcolored_second_part[38;5;132;01m}[39;00m[38;5;124m"[39m)
 [1;32m    105[0m [38;5;28;01melse[39;00m:
 
-[0;31mTypeError[0m: ctoc_by_fda.color_output() takes from 1 to 3 positional arguments but 4 were given
+[0;31mTypeError[0m: ctoc_by_fda.color_output() got multiple values for argument 'words'
 

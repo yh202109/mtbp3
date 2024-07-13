@@ -761,11 +761,11 @@ The <code class="docutils literal notranslate"><span class="pre">ectd</span></co
 <span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/health/ectd.py:103,</span> in <span class="ni">ctoc_by_fda.find_section_given_words</span><span class="nt">(self, words, outfmt, include, to_right)</span>
 <span class="g g-Whitespace">    </span><span class="mi">101</span>     <span class="n">first_part</span> <span class="o">=</span> <span class="n">split_row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="g g-Whitespace">    </span><span class="mi">102</span>     <span class="n">second_part</span> <span class="o">=</span> <span class="n">split_row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="ne">--&gt; </span><span class="mi">103</span>     <span class="n">colored_second_part</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">color_output</span><span class="p">(</span><span class="n">second_part</span><span class="p">,</span> <span class="n">words</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">103</span>     <span class="n">colored_second_part</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">color_output</span><span class="p">(</span><span class="n">second_part</span><span class="p">,</span> <span class="n">words</span><span class="o">=</span><span class="n">words</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">104</span>     <span class="n">out_colored</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">first_part</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">colored_second_part</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">105</span> <span class="k">else</span><span class="p">:</span>
 
-<span class="ne">TypeError</span>: ctoc_by_fda.color_output() takes from 1 to 3 positional arguments but 4 were given
+<span class="ne">TypeError</span>: ctoc_by_fda.color_output() got multiple values for argument &#39;words&#39;
 </pre></div>
 </div>
 </div>
