@@ -201,7 +201,7 @@
    },
    "outputs": [],
    "source": [
-    "print(\"\\n\".join(ctoc.find_section_given_words(words=[\"REMS\",\"dsur\"], outfmt='tree', colored='nb')))"
+    "print(\"\\n\".join(ctoc.find_section_given_words(words=[\"REMS\",\"dsur\"], outfmt='tree', colored='green')))"
    ]
   },
   {
