@@ -148,8 +148,8 @@ More Details
 Assume that :math:`Y_{i1} \sim \mathcal{D}`.
 For continuous :math:`Y_{i1}`, if we can assume that :math:`P(S_{i1}=0)=1`, 
 then :eq:`eq_rank` can be simplified as :math:`R_{i1} = S_{i1}`.
-For a given sample size :math:`n`, and :math:`r \in \{1, \ldots, n\}`, the PMF of :math:`R_{i1}` is 
-:math:`P(R_{i1} = r) = \frac{1}{n}`, which does not depend on :math:`\mathcal{D}` [4]_.
+For a given sample size :math:`n`, and :math:`r \in \{1, \ldots, n\}`, the pmf of :math:`R_{i1}` is 
+:math:`P(R_{i1} = r) = \frac{1}{n}`, which does not depend on :math:`r` or :math:`\mathcal{D}` [4]_.
 
 
 *************
