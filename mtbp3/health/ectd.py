@@ -56,7 +56,7 @@ class ctoc_by_fda:
             assert all(isinstance(word, str) and word for word in words), "Elements in the list must be strings"
         color_dic = {'red': 31, 'green': 32, 'yellow': 33, 'blue': 34, 'magenta': 35, 'cyan': 36}
         if color not in color_dic.keys():
-            return row
+            return out
         else:
             color_str = f"\x1b[{color_dic[color]}m"
 
