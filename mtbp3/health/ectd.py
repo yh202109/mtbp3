@@ -53,7 +53,7 @@ class ctoc_by_fda:
         if include not in ['up', 'both']:
             raise ValueError("Invalid value for include. Supported values are 'up' and 'both'.")
 
-        out = [row for row in self.ctoc if words in row]
+        out = [row for row in self.ctoc if words.lower() in row.lower()]
         if outfmt == 'simple':
             return out
         elif outfmt == 'tree':
