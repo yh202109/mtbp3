@@ -722,7 +722,7 @@ The <code class="docutils literal notranslate"><span class="pre">ectd</span></co
 <section id="find-titles-using-keywords">
 <h2>Find Titles Using Keywords<a class="headerlink" href="#find-titles-using-keywords" title="Link to this heading"></a></h2>
 <p>Please note that keywords are not case sensitive, but titles are case sensitive.</p>
-<p>To search a word within the hierarchy:</p>
+<p>To search for a word within the hierarchy:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ctoc</span><span class="o">.</span><span class="n">find_section_given_words</span><span class="p">(</span><span class="s1">&#39;REMS&#39;</span><span class="p">)))</span>
@@ -764,7 +764,7 @@ The <code class="docutils literal notranslate"><span class="pre">ectd</span></co
 </div>
 </div>
 </div>
-<p>To search multiple keywords:</p>
+<p>To search for multiple keywords:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ctoc</span><span class="o">.</span><span class="n">find_section_given_words</span><span class="p">(</span><span class="n">words</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;REMS&quot;</span><span class="p">,</span><span class="s2">&quot;dsur&quot;</span><span class="p">],</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">)))</span>
