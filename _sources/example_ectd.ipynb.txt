@@ -144,7 +144,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Find Titles using Keywords\n",
+    "## Find Titles Using Keywords\n",
     "\n",
     "Please note that keywords are not case sensitive, but titles are case sensitive. \n",
     "\n",
@@ -182,6 +182,26 @@
    "outputs": [],
    "source": [
     "print(\"\\n\".join(ctoc.find_section_given_words(\"REMS\", outfmt='tree')))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "To search multiple keywords:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "vscode": {
+     "languageId": "plaintext"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "print(\"\\n\".join(ctoc.find_section_given_words(words=[\"REMS\",\"dsur\"], outfmt='tree')))"
    ]
   },
   {
