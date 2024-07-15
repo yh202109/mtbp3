@@ -61,10 +61,9 @@
 <li class="toctree-l1"><a class="reference internal" href="statlab_corr_spearman_rho.html">StatLab/Corr/NP/Spearman’s Rho</a></li>
 <li class="toctree-l1"><a class="reference internal" href="std_iso_pdf.html">Std/ISO/PDF</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Std/CDISC/Basics</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#cdisc-foundational-standards">CDISC Foundational Standards</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#select-cdisc-version">Select CDISC Version</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#resources">Resources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cdisc-resource">CDISC Resource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cdisc-library-resource">CDISC Library Resource</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
@@ -100,25 +99,56 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="std-cdisc-basics">
+  <!-- 
+    #  Copyright (C) 2023-2024 Y Hsu <yh202109@gmail.com>
+    #
+    #  This program is free software: you can redistribute it and/or modify
+    #  it under the terms of the GNU General Public license as published by
+    #  the Free software Foundation, either version 3 of the License, or
+    #  any later version.
+    #
+    #  This program is distributed in the hope that it will be useful,
+    #  but WITHOUT ANY WARRANTY; without even the implied warranty of
+    #  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    #  GNU General Public License for more details
+    #
+    #  You should have received a copy of the GNU General Public license
+    #  along with this program. If not, see <https://www.gnu.org/license/> 
+--><section id="std-cdisc-basics">
 <h1>Std/CDISC/Basics<a class="headerlink" href="#std-cdisc-basics" title="Link to this heading"></a></h1>
 <p>CDISC stands for Clinical Data Interchange Standards Consortium.
 As the name indicated, the organization engages with clinical data community and creates and maintains data standards for clinical developments,
 such that the planning, creating, storing, using and exchanging of information and records can be processed at a higher level of consistency <a class="footnote-reference brackets" href="#id5" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
-<p>The modules started with <code class="docutils literal notranslate"><span class="pre">stdcd</span></code> include basic functions for processing data prepared with CDISC standards.</p>
-<section id="cdisc-foundational-standards">
-<h2>CDISC Foundational Standards<a class="headerlink" href="#cdisc-foundational-standards" title="Link to this heading"></a></h2>
-<p>CDISC standards are used through medicinal product development processes, including nonclinical and clinical data collection, processing, reporting, analyzing and more.
-CDSIC foundational standards include:</p>
-<ul class="simple">
-<li><p>Standard for Exchange of Nonclinical Data (SEND),</p></li>
-<li><p>Clinical Data Acquisition Standards Harmonization (CDASH),</p></li>
-<li><p>Study Data Tabulation Model (SDTM),</p></li>
-<li><p>Study Data Tabulation Model Implementation Guide (SDTMIG),</p></li>
-<li><p>Analysis Data Model (ADaM),</p></li>
-<li><p>Questionnaires, Ratings and Scales (QRS), etc.</p></li>
-</ul>
-</section>
+<p>The modules <code class="docutils literal notranslate"><span class="pre">stcdisc</span></code> include basic functions for processing data already prepared with CDISC standards.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## CDISC Foundational Standards</span>
+
+<span class="n">CDISC</span> <span class="n">standards</span> <span class="n">are</span> <span class="n">used</span> <span class="n">through</span> <span class="n">medicinal</span> <span class="n">product</span> <span class="n">development</span> <span class="n">processes</span><span class="p">,</span> <span class="n">including</span> <span class="n">nonclinical</span> <span class="ow">and</span> <span class="n">clinical</span> <span class="n">data</span> <span class="n">collection</span><span class="p">,</span> <span class="n">processing</span><span class="p">,</span> <span class="n">reporting</span><span class="p">,</span> <span class="n">analyzing</span> <span class="ow">and</span> <span class="n">more</span><span class="o">.</span>
+<span class="n">CDSIC</span> <span class="n">foundational</span> <span class="n">standards</span> <span class="n">include</span><span class="p">:</span> 
+
+<span class="o">-</span> <span class="n">Data</span> <span class="n">collection</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">Clinical</span> <span class="n">Data</span> <span class="n">Acquisition</span> <span class="n">Standards</span> <span class="n">Harmonization</span> <span class="p">(</span><span class="n">CDASH</span><span class="p">),</span>
+    <span class="o">-</span> <span class="n">Clinical</span> <span class="n">Data</span> <span class="n">Acquisition</span> <span class="n">Standards</span> <span class="n">Harmonization</span> <span class="n">Implementation</span> <span class="n">Guide</span> <span class="p">(</span><span class="n">CDASHIG</span><span class="p">),</span>
+<span class="o">-</span> <span class="n">Data</span> <span class="n">Tabulation</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">Standard</span> <span class="k">for</span> <span class="n">Exchange</span> <span class="n">of</span> <span class="n">Nonclinical</span> <span class="n">Data</span> <span class="p">(</span><span class="n">SEND</span><span class="p">),</span>
+    <span class="o">-</span> <span class="n">Standard</span> <span class="k">for</span> <span class="n">Exchange</span> <span class="n">of</span> <span class="n">Nonclinical</span> <span class="n">Data</span> <span class="n">Implementation</span> <span class="n">Guide</span> <span class="p">(</span><span class="n">SENDIG</span><span class="p">),</span>
+    <span class="o">-</span> <span class="n">Study</span> <span class="n">Data</span> <span class="n">Tabulation</span> <span class="n">Model</span> <span class="p">(</span><span class="n">SDTM</span><span class="p">),</span>
+    <span class="o">-</span> <span class="n">Study</span> <span class="n">Data</span> <span class="n">Tabulation</span> <span class="n">Model</span> <span class="n">Implementation</span> <span class="n">Guide</span> <span class="p">(</span><span class="n">SDTMIG</span><span class="p">),</span>
+<span class="o">-</span> <span class="n">Analysis</span> <span class="n">Data</span> <span class="n">Model</span> <span class="p">(</span><span class="n">ADaM</span><span class="p">),</span>
+<span class="o">-</span> <span class="n">Questionnaires</span><span class="p">,</span> <span class="n">Ratings</span> <span class="ow">and</span> <span class="n">Scales</span> <span class="p">(</span><span class="n">QRS</span><span class="p">),</span> <span class="n">etc</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+    <span class="n">CDISC</span> <span class="n">standards</span> <span class="n">are</span> <span class="n">used</span> <span class="n">through</span> <span class="n">medicinal</span> <span class="n">product</span> <span class="n">development</span> <span class="n">processes</span><span class="p">,</span> <span class="n">including</span> <span class="n">nonclinical</span> <span class="ow">and</span> <span class="n">clinical</span> <span class="n">data</span> <span class="n">collection</span><span class="p">,</span> <span class="n">processing</span><span class="p">,</span> <span class="n">reporting</span><span class="p">,</span> <span class="n">analyzing</span> <span class="ow">and</span> <span class="n">more</span><span class="o">.</span>
+          <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
 <section id="select-cdisc-version">
 <h2>Select CDISC Version<a class="headerlink" href="#select-cdisc-version" title="Link to this heading"></a></h2>
 <p>CDISC standards SEND, SDTM, and ADaM are required for electronic study data submitted to CDER and CBER of FDA.<br />
@@ -142,13 +172,11 @@ the implementation of data standards needs considerable time and effort.</p>
 <li><p>community white papers</p></li>
 </ul>
 </section>
-<section id="cdisc-resource">
-<h2>CDISC Resource<a class="headerlink" href="#cdisc-resource" title="Link to this heading"></a></h2>
+<section id="cdisc-library-resource">
+<h2>CDISC Library Resource<a class="headerlink" href="#cdisc-library-resource" title="Link to this heading"></a></h2>
 <p>To access CDISC library and documents, follow steps here to create cdiscID: https://www.cdisc.org/cdiscid-sign-insign-instructions</p>
-<p>Resource Links:</p>
-<ul class="simple">
-<li><p>CDISC knowledge base: https://www.cdisc.org/kb</p></li>
-</ul>
+<p>After login, show API key and save that to local accessible to environment.</p>
+<p>Please see API Reference for functions included in <code class="docutils literal notranslate"><span class="pre">stdcdisc.lib</span></code>.</p>
 </section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>

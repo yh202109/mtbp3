@@ -17,7 +17,7 @@
                 "\n",
                 "- ISO 14289/PDF/UA  for accessible PDF documents and processors (extends PDF/A conformance level A) \n",
                 "- ISO 15930/PDF/X  for printing \n",
-                "- ISO 19005/PDF/**A  for long-term archiving** [^3] \n",
+                "- ISO 19005/**PDF/A  for long-term archiving** [^3] \n",
                 "    - Sub-parts:\n",
                 "        - ISO 19005-1:2005/PDF/A-1 (based on PDF v1.4)\n",
                 "        - ISO 19005-2:2011/PDF/A-2 (based on PDF v1.7)\n",
