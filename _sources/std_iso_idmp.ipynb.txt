@@ -28,10 +28,11 @@
             "source": [
                 "# St/ISO/(IDMP)\n",
                 "\n",
-                "IDMP stands for Identification of Medicinal Products which consists five identification standards developed \n",
-                "within the International Organization for Standardization (ISO)[^1] \n",
-                "and utilized by FDA[^2] and required by EMA (mandated by the EU legislation, 2012) [^3]<sup>,</sup>[^4]. \n",
-                "\n",
+                "IDMP stands for Identification of Medicinal Products, \n",
+                "which consists five standards related to data elements, formats, and structures \n",
+                "for communicating information related to medicinal products during development, clinical trials, regulatory submission, post approval monitoring, etc. \n",
+                "ISO IDMP standards are maintained by the International Organization for Standardization (ISO)[^1] \n",
+                "and utilized by FDA[^2] and required by EMA  [^3]<sup>,</sup>[^4]. \n",
                 "\n",
                 "ISO IDMP includes five standards:\n",
                 " \n",
@@ -41,15 +42,26 @@
                 "- ISO 11239 / ISO TS20440 / Dosage Form and Route of Administration\n",
                 "- ISO 11240 / Units of Measurement (UoM)\n",
                 "\n",
-                "The two ISO numbers above are the main standard and technical specification guide. \n",
-                "Note that the exchange of IDMP messages based on HL7 message specifications.\n"
+                "The two ISO numbers above are the main standard and technical specification guide. \n"
             ]
         },
         {
             "cell_type": "markdown",
             "metadata": {},
             "source": [
-                "## MPID"
+                "## EMA Implementation of IDMP\n",
+                "\n",
+                "The EMA implements IDMB through the SPOR (Substances, products, organisations and referentials) data system.\n",
+                "\n",
+                "IDMP, mandated by the EU legislation (Commission Implementing Regulation Article 25 Use of internationally agreed terminology and 26 Use of internationally agreed formats and standards of 520/2012), \n",
+                "will replace Extended EudraVigilance medicinal product dictionary (xEVMPD), \n",
+                "which is based on Extended EudraVigilance Product Report Message (xEVPRM) Format,\n",
+                "and required for submission to EMA by Article 57(2) of Regulation 726/2004.\n",
+                "\n",
+                "### UNICOM project\n",
+                "\n",
+                "UNICOM is a four years project (2019-2023) that generated discussions and resources for implementation of IDMP standards,\n",
+                "testing, regulatory uses of data standards, and harmonizing data formats [^6]. \n"
             ]
         },
         {
@@ -63,10 +75,7 @@
                 "[^3]: EMA. (year). Data on medicines (ISO IDMP standards): Overview. ([web page](https://www.ema.europa.eu/en/human-regulatory-overview/research-development/data-medicines-iso-idmp-standards-overview))\n",
                 "[^4]: EMA. (2016). Introduction to ISO Identification of Medicinal Products, SPOR programme. ([pdf](https://www.ema.europa.eu/en/documents/other/introduction-iso-identification-medicinal-products-spor-programme_en.pdf))\n",
                 "[^5]: EMA. (year). SPOR. ([web page](https://spor.ema.europa.eu/sporwi/))\n",
-                "\n",
-                "\n",
-                "\n",
-                "\n"
+                "[^6]: UNICOM. (2024). About Unicom. ([web page](https://unicom-project.eu/about/))\n"
             ]
         }
     ],
