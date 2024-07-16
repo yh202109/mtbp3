@@ -55,7 +55,7 @@
                 "\n",
                 "IDMP, mandated by the EU legislation (Commission Implementing Regulation Article 25 Use of internationally agreed terminology and 26 Use of internationally agreed formats and standards of 520/2012), \n",
                 "will replace Extended EudraVigilance medicinal product dictionary (xEVMPD), \n",
-                "which is based on Extended EudraVigilance Product Report Message (xEVPRM) Format,\n",
+                "which is based on Extended EudraVigilance Product Report Message (xEVPRM) format,\n",
                 "and required for submission to EMA by Article 57(2) of Regulation 726/2004.\n",
                 "\n",
                 "### UNICOM project\n",
