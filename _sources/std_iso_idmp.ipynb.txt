@@ -26,7 +26,7 @@
             "cell_type": "markdown",
             "metadata": {},
             "source": [
-                "# Std/ISO/(IDMP)\n",
+                "# Std/ISO/IDMP\n",
                 "\n",
                 "IDMP stands for Identification of Medicinal Products, \n",
                 "which consists five standards related to data elements, formats, and structures \n",
@@ -48,11 +48,6 @@
         {
             "cell_type": "markdown",
             "metadata": {},
-            "source": []
-        },
-        {
-            "cell_type": "markdown",
-            "metadata": {},
             "source": [
                 "## EMA Implementation of IDMP\n",
                 "\n",
@@ -67,10 +62,16 @@
                 "\n",
                 "UNICOM is a four years project (2019-2023) that generated discussions and resources for implementation of IDMP standards,\n",
                 "testing, regulatory uses of data standards, and harmonizing data formats [^6]. \n",
+                "\n"
+            ]
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [
+                "## The IDMP Ontology Project Pistoia Alliance \n",
                 "\n",
-                "### The IDMP Ontology Project Pistoia Alliance \n",
-                "\n",
-                "The IDMP Ontology project focus on implementation resources and provides digital access of IDMP standards data model [^7]<sup>,</sup>[^8].\n"
+                "The IDMP Ontology project focus on implementation resources and provides digital access of IDMP standards data model [^7]<sup>,</sup>[^8]."
             ]
         },
         {
