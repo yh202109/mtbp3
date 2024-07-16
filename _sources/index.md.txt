@@ -17,6 +17,7 @@ statlab_kappa2.rst
 statlab_corr_tau.rst
 statlab_corr_spearman_rho.rst
 std_iso_pdf.ipynb
+std_iso_idmp.ipynb
 std_cdisc.ipynb
 example_cdtg.ipynb
 example_files.ipynb

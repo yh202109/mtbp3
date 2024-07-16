@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Std/CDISC/Basics &mdash; mtbp3  documentation</title>
+  <title>St/ISO/(IDMP) &mdash; mtbp3  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -24,8 +24,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="U/Graph/Categorical Plots Using catPlotter" href="example_cdtg.html" />
-    <link rel="prev" title="St/ISO/(IDMP)" href="std_iso_idmp.html" /> 
+    <link rel="next" title="Std/CDISC/Basics" href="std_cdisc.html" />
+    <link rel="prev" title="Std/ISO/PDF" href="std_iso_pdf.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -60,15 +60,12 @@
 <li class="toctree-l1"><a class="reference internal" href="statlab_corr_tau.html">StatLab/Corr/NP/Kendall’s Tau</a></li>
 <li class="toctree-l1"><a class="reference internal" href="statlab_corr_spearman_rho.html">StatLab/Corr/NP/Spearman’s Rho</a></li>
 <li class="toctree-l1"><a class="reference internal" href="std_iso_pdf.html">Std/ISO/PDF</a></li>
-<li class="toctree-l1"><a class="reference internal" href="std_iso_idmp.html">St/ISO/(IDMP)</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Std/CDISC/Basics</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#cdisc-foundational-standards">CDISC Foundational Standards</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#select-cdisc-version">Select CDISC Version</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#resources">Resources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cdisc-library-resource">CDISC Library Resource</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">St/ISO/(IDMP)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#mpid">MPID</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="std_cdisc.html">Std/CDISC/Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_cdtg.html">U/Graph/Categorical Plots Using catPlotter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_files.html">U/System/List Folder Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
@@ -91,9 +88,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Std/CDISC/Basics</li>
+      <li class="breadcrumb-item active">St/ISO/(IDMP)</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/std_cdisc.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/std_iso_idmp.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -116,63 +113,23 @@
     #
     #  You should have received a copy of the GNU General Public license
     #  along with this program. If not, see <https://www.gnu.org/license/> 
---><section id="std-cdisc-basics">
-<h1>Std/CDISC/Basics<a class="headerlink" href="#std-cdisc-basics" title="Link to this heading"></a></h1>
-<p>CDISC stands for Clinical Data Interchange Standards Consortium.
-As the name indicated, the organization engages with clinical data community and creates and maintains data standards for clinical developments,
-such that the planning, creating, storing, using and exchanging of information and records can be processed at a higher level of consistency <a class="footnote-reference brackets" href="#id5" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
-<p>The modules <code class="docutils literal notranslate"><span class="pre">stcdisc</span></code> include basic functions for processing data already prepared with CDISC standards.</p>
-<section id="cdisc-foundational-standards">
-<h2>CDISC Foundational Standards<a class="headerlink" href="#cdisc-foundational-standards" title="Link to this heading"></a></h2>
-<p>CDISC standards are used through medicinal product development processes, including nonclinical and clinical data collection, processing, reporting, analyzing and more.
-CDSIC foundational standards include:</p>
+--><section id="st-iso-idmp">
+<h1>St/ISO/(IDMP)<a class="headerlink" href="#st-iso-idmp" title="Link to this heading"></a></h1>
+<p>IDMP stands for Identification of Medicinal Products which consists five identification standards developed
+within the International Organization for Standardization (ISO)<a class="footnote-reference brackets" href="#id5" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>
+and utilized by FDA<a class="footnote-reference brackets" href="#id6" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> and required by EMA (mandated by the EU legislation, 2012) <a class="footnote-reference brackets" href="#id7" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a><sup>,</sup><a class="footnote-reference brackets" href="#id8" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>.</p>
+<p>ISO IDMP includes five standards:</p>
 <ul class="simple">
-<li><p>Data collection:</p>
-<ul>
-<li><p>Clinical Data Acquisition Standards Harmonization (CDASH),</p></li>
-<li><p>Clinical Data Acquisition Standards Harmonization Implementation Guide (CDASHIG),</p></li>
+<li><p>ISO 11615 / ISO TS20443 / Medicinal Product Identification (MPID)</p></li>
+<li><p>ISO 11616 / ISO TS20451 / Pharmaceutical Product Identifier (PhPID)</p></li>
+<li><p>ISO 11238 / ISO TS19844 / Substance Identification (SubID)</p></li>
+<li><p>ISO 11239 / ISO TS20440 / Dosage Form and Route of Administration</p></li>
+<li><p>ISO 11240 / Units of Measurement (UoM)</p></li>
 </ul>
-</li>
-<li><p>Data Tabulation:</p>
-<ul>
-<li><p>Standard for Exchange of Nonclinical Data (SEND),</p></li>
-<li><p>Standard for Exchange of Nonclinical Data Implementation Guide (SENDIG),</p></li>
-<li><p>Study Data Tabulation Model (SDTM),</p></li>
-<li><p>Study Data Tabulation Model Implementation Guide (SDTMIG),</p></li>
-</ul>
-</li>
-<li><p>Analysis Data Model (ADaM),</p></li>
-<li><p>Questionnaires, Ratings and Scales (QRS), etc.</p></li>
-</ul>
-</section>
-<section id="select-cdisc-version">
-<h2>Select CDISC Version<a class="headerlink" href="#select-cdisc-version" title="Link to this heading"></a></h2>
-<p>CDISC standards SEND, SDTM, and ADaM are required for electronic study data submitted to CDER and CBER of FDA.<br />
-A full list of FDA supported version for CDISC models and IGs is available online <a class="footnote-reference brackets" href="#id6" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.
-Please note that data model standard and IG versions supported by FDA are determined by
-comparing the “study starting date” with “Date Support Begins” and “Date Support Ends” within data standard catalog <a class="footnote-reference brackets" href="#id7" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.
-Please see FDA technical conformance guidance and study data standards catalog for more details <a class="footnote-reference brackets" href="#id8" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>.</p>
-</section>
-<section id="resources">
-<h2>Resources<a class="headerlink" href="#resources" title="Link to this heading"></a></h2>
-<p>The development of data standards is necessary for utilizing data efficiently.
-While the standards continuously improving and evolving,
-the implementation of data standards needs considerable time and effort.</p>
-<p>Some <strong>must have</strong> documents are available to start with including:</p>
-<ul class="simple">
-<li><p>CDISC model main documents</p></li>
-<li><p>CDISC model IGs</p></li>
-<li><p>CDSIC model conformance rules</p></li>
-<li><p>regulatory agencies technical conformance guide</p></li>
-<li><p>regulatory agencies validation rules (conformance rules and business rules)</p></li>
-<li><p>community white papers</p></li>
-</ul>
-</section>
-<section id="cdisc-library-resource">
-<h2>CDISC Library Resource<a class="headerlink" href="#cdisc-library-resource" title="Link to this heading"></a></h2>
-<p>To access CDISC library and documents, follow steps here to create cdiscID: https://www.cdisc.org/cdiscid-sign-insign-instructions</p>
-<p>After login, show API key and save that to local accessible to environment.</p>
-<p>Please see API Reference for functions included in <code class="docutils literal notranslate"><span class="pre">stdcdisc.lib</span></code>.</p>
+<p>The two ISO numbers above are the main standard and technical specification guide.
+Note that the exchange of IDMP messages based on HL7 message specifications.</p>
+<section id="mpid">
+<h2>MPID<a class="headerlink" href="#mpid" title="Link to this heading"></a></h2>
 </section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>
@@ -180,19 +137,19 @@ the implementation of data standards needs considerable time and effort.</p>
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="id5" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
-<p>CDISC. (year). CDISC Standards. (<a class="reference external" href="https://www.cdisc.org/standards">web page</a>)</p>
+<p>ISO. (2017). Revised IDMP standards to improve description of medicinal products worldwide. (<a class="reference external" href="https://www.iso.org/news/ref2234.html">web page</a>)</p>
 </aside>
 <aside class="footnote brackets" id="id6" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
-<p>FDA. (year). Data Standards Resource. (<a class="reference external" href="https://www.fda.gov/industry/fda-data-standards-advisory-board/study-data-standards-resources">web page</a>)</p>
+<p>FDA. (year). Identification of Medicinal Products (IDMP). (<a class="reference external" href="https://www.fda.gov/industry/fda-data-standards-advisory-board/identification-medicinal-products-idmp">web page</a>)</p>
 </aside>
 <aside class="footnote brackets" id="id7" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
-<p>FDA. (year). Data Standards Catalog. (<a class="reference external" href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/data-standards-catalog">web page</a>)</p>
+<p>EMA. (year). Data on medicines (ISO IDMP standards): Overview. (<a class="reference external" href="https://www.ema.europa.eu/en/human-regulatory-overview/research-development/data-medicines-iso-idmp-standards-overview">web page</a>)</p>
 </aside>
 <aside class="footnote brackets" id="id8" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
-<p>FDA. (year). Study Data Technical Conformance Guide. (<a class="reference external" href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/study-data-technical-conformance-guide-technical-specifications-document">web page</a>)</p>
+<p>EMA. (2016). Introduction to ISO Identification of Medicinal Products, SPOR programme. (<a class="reference external" href="https://www.ema.europa.eu/en/documents/other/introduction-iso-identification-medicinal-products-spor-programme_en.pdf">pdf</a>)</p>
 </aside>
 </aside>
 </section>
@@ -202,8 +159,8 @@ the implementation of data standards needs considerable time and effort.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="std_iso_idmp.html" class="btn btn-neutral float-left" title="St/ISO/(IDMP)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="example_cdtg.html" class="btn btn-neutral float-right" title="U/Graph/Categorical Plots Using catPlotter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="std_iso_pdf.html" class="btn btn-neutral float-left" title="Std/ISO/PDF" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="std_cdisc.html" class="btn btn-neutral float-right" title="Std/CDISC/Basics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
