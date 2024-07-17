@@ -155,13 +155,13 @@ Lab Exercise
 1. Show :math:`E(Z_{ij})=0`.
 
 *************
-Algorithm 
+Algorithm - 1
 *************
 
 **WARNING: FOR SMALL SAMPLE SIZES ONLY**
 
 Note that the algorithm in this section is implement in ``mtbp3.stalab`` for illustration purpose.
-Although the matrix presentation is easier to understand, 
+Although the matrix form is closely represent :eq:`eq_tau2`, 
 the calculation time increases greatly when the sample size increases.
 Other algorithms can be found in references.
 
@@ -174,15 +174,13 @@ and :math:`h(X_n) = 1_n \times X_n \times 1_n^T`
 where :math:`X_n` is a size :math:`n` by :math:`n` matrix, and :math:`1_n` is a length :math:`n` one vector.
 Both tau-a and tau-b can be calculated as 
 
-  .. math::
-    \tau_1 &= g(Y_{1} \times_{car} Y_{1}) \\
-    \tau_2 &= g(Y_{2} \times_{car} Y_{2}) \\
-    \tau &= \frac{h(\tau_1 \times_{ele} \tau_2) }{ \sqrt{h(abs(\tau_1))}\sqrt{h(abs(\tau_2))} }
+1. :math:`\tau_1 = g(Y_{1} \times_{car} Y_{1})`
+2. :math:`\tau_2 = g(Y_{2} \times_{car} Y_{2})`
+3. :math:`\tau = \frac{h(\tau_1 \times_{ele} \tau_2) }{ \sqrt{h(abs(\tau_1))}\sqrt{h(abs(\tau_2))} }`
 
-
-*************
+=============
 How-to 
-*************
+=============
 
 To use ``mtbp3.corr``:
 
@@ -202,6 +200,7 @@ To create a scatter plot of ``y1`` and ``y2``:
 .. code:: python
 
   t.plot_y_list(axis_label=['y1','y2'])
+
 
 *************
 Reference

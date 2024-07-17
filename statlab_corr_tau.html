@@ -69,8 +69,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#example-group-1">Example - Group-1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-to">How-to</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lab-exercise">Lab Exercise</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#algorithm">Algorithm</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">How-to</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#algorithm-1">Algorithm - 1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">How-to</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
@@ -250,11 +252,11 @@ The adjusted <span class="math notranslate nohighlight">\(\tau\)</span> (tau-b) 
 <li><p>Show <span class="math notranslate nohighlight">\(E(Z_{ij})=0\)</span>.</p></li>
 </ol>
 </section>
-<section id="algorithm">
-<h2>Algorithm<a class="headerlink" href="#algorithm" title="Link to this heading"></a></h2>
+<section id="algorithm-1">
+<h2>Algorithm - 1<a class="headerlink" href="#algorithm-1" title="Link to this heading"></a></h2>
 <p><strong>WARNING: FOR SMALL SAMPLE SIZES ONLY</strong></p>
 <p>Note that the algorithm in this section is implement in <code class="docutils literal notranslate"><span class="pre">mtbp3.stalab</span></code> for illustration purpose.
-Although the matrix presentation is easier to understand,
+Although the matrix form is closely represent <a class="reference internal" href="#equation-eq-tau2">Eq. (6)</a>,
 the calculation time increases greatly when the sample size increases.
 Other algorithms can be found in references.</p>
 <p>Let <span class="math notranslate nohighlight">\(Y_{1} = (Y_{11}, \ldots, Y_{n1})\)</span> and <span class="math notranslate nohighlight">\(Y_{2} = (Y_{12}, \ldots, Y_{n2})\)</span>.
@@ -265,15 +267,13 @@ Let <span class="math notranslate nohighlight">\(\times\)</span> represent the m
 and <span class="math notranslate nohighlight">\(h(X_n) = 1_n \times X_n \times 1_n^T\)</span>
 where <span class="math notranslate nohighlight">\(X_n\)</span> is a size <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrix, and <span class="math notranslate nohighlight">\(1_n\)</span> is a length <span class="math notranslate nohighlight">\(n\)</span> one vector.
 Both tau-a and tau-b can be calculated as</p>
-<blockquote>
-<div><div class="math notranslate nohighlight">
-\[\begin{split}\tau_1 &amp;= g(Y_{1} \times_{car} Y_{1}) \\
-\tau_2 &amp;= g(Y_{2} \times_{car} Y_{2}) \\
-\tau &amp;= \frac{h(\tau_1 \times_{ele} \tau_2) }{ \sqrt{h(abs(\tau_1))}\sqrt{h(abs(\tau_2))} }\end{split}\]</div>
-</div></blockquote>
-</section>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(\tau_1 = g(Y_{1} \times_{car} Y_{1})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\tau_2 = g(Y_{2} \times_{car} Y_{2})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\tau = \frac{h(\tau_1 \times_{ele} \tau_2) }{ \sqrt{h(abs(\tau_1))}\sqrt{h(abs(\tau_2))} }\)</span></p></li>
+</ol>
 <section id="id5">
-<h2>How-to<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
+<h3>How-to<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
 <p>To use <code class="docutils literal notranslate"><span class="pre">mtbp3.corr</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">mtbp3.corr</span> <span class="kn">import</span> <span class="n">CorrCalculator</span>
@@ -289,6 +289,7 @@ Both tau-a and tau-b can be calculated as</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="o">.</span><span class="n">plot_y_list</span><span class="p">(</span><span class="n">axis_label</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;y1&#39;</span><span class="p">,</span><span class="s1">&#39;y2&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
+</section>
 </section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>
