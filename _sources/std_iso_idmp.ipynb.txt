@@ -51,17 +51,24 @@
             "source": [
                 "## EMA Implementation of IDMP\n",
                 "\n",
-                "The EMA implements IDMP through the SPOR (Substances, products, organisations and referentials) data system.\n",
+                "IDMP is mandated by the EU legislation \n",
+                "(Article 25 *Use of internationally agreed terminology* and \n",
+                "26 *Use of internationally agreed formats and standards* of \n",
+                "Implementing Regulation (EU) No 520/2012), \n",
+                "The implementation of IDMP required for submission to EMA is through the SPOR (Substances, products, organisations and referentials) data system.\n",
                 "\n",
-                "IDMP, mandated by the EU legislation (Commission Implementing Regulation Article 25 Use of internationally agreed terminology and 26 Use of internationally agreed formats and standards of 520/2012), \n",
-                "will replace Extended EudraVigilance medicinal product dictionary (xEVMPD), \n",
-                "which is based on Extended EudraVigilance Product Report Message (xEVPRM) format,\n",
-                "and required for submission to EMA by Article 57(2) of Regulation 726/2004.\n",
+                "### xEVMPD\n",
+                "\n",
+                "The currently required medicinal product dictionary is implemented in \n",
+                "Extended EudraVigilance medicinal product dictionary (xEVMPD), \n",
+                "which is based on Extended EudraVigilance Product Report Message (xEVPRM) format [^6],\n",
+                "xEVMPD is required for submission to EMA by Article 81(3) of Clinical Trial Regulation (EU) No 536/2014.\n",
+                "\n",
                 "\n",
                 "### UNICOM project\n",
                 "\n",
                 "UNICOM is a four years project (2019-2023) that generated discussions and resources for implementation of IDMP standards,\n",
-                "testing, regulatory uses of data standards, and harmonizing data formats [^6]. \n",
+                "testing, regulatory uses of data standards, and harmonizing data formats [^7]. \n",
                 "\n"
             ]
         },
@@ -71,7 +78,7 @@
             "source": [
                 "## The IDMP Ontology Project Pistoia Alliance \n",
                 "\n",
-                "The IDMP Ontology project focus on implementation resources and provides digital access of IDMP standards data model [^7]<sup>,</sup>[^8]."
+                "The IDMP Ontology project focus on implementation resources and provides digital access of IDMP standards data model [^8]<sup>,</sup>[^9]."
             ]
         },
         {
@@ -85,9 +92,10 @@
                 "[^3]: EMA. (year). Data on medicines (ISO IDMP standards): Overview. ([web page](https://www.ema.europa.eu/en/human-regulatory-overview/research-development/data-medicines-iso-idmp-standards-overview))\n",
                 "[^4]: EMA. (2016). Introduction to ISO Identification of Medicinal Products, SPOR programme. ([pdf](https://www.ema.europa.eu/en/documents/other/introduction-iso-identification-medicinal-products-spor-programme_en.pdf))\n",
                 "[^5]: EMA. (year). SPOR. ([web page](https://spor.ema.europa.eu/sporwi/))\n",
-                "[^6]: UNICOM. (2024). About Unicom. ([web page](https://unicom-project.eu/about/))\n",
-                "[^7]: Pistoia Alliance. (2024). The IDMP Ontology. ([pdf](https://marketing.pistoiaalliance.org/hubfs/Projects-Innovation/Ontology/PA_IDMP-Ontology_Executive-Project-Summary.pdf))\n",
-                "[^8]: Pistoia Alliance. (2024). ([web page](https://spec.edmcouncil.org/idmp/ontology))"
+                "[^6]: EMA. (2024). Guidance on the electronic submission of information on investigational medicinal products for human use in the Extended EudraVigilance medicinal product dictionary (XEVMPD). ([pdf](https://www.ema.europa.eu/en/documents/other/guidance-electronic-submission-information-investigational-medicinal-products-human-use-extended-eudravigilance-medicinal-product-dictionary-xevmpd_en.pdf))\n",
+                "[^7]: UNICOM. (2024). About Unicom. ([web page](https://unicom-project.eu/about/))\n",
+                "[^8]: Pistoia Alliance. (2024). The IDMP Ontology. ([pdf](https://marketing.pistoiaalliance.org/hubfs/Projects-Innovation/Ontology/PA_IDMP-Ontology_Executive-Project-Summary.pdf))\n",
+                "[^9]: Pistoia Alliance. (2024). ([web page](https://spec.edmcouncil.org/idmp/ontology))"
             ]
         }
     ],
