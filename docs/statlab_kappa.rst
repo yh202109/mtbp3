@@ -418,7 +418,6 @@ Output:
     Number of sample: 100
 
 .. figure:: /_static/fig/statlab_kappa_fig1.svg
-    :scale: 70%
     :align: center
     :alt: bubble plot
 
@@ -430,7 +429,6 @@ To create a bubble plot with individual raters summary using ``mtbp3.statlab``:
     kappa.create_bubble_plot(hist=True)
 
 .. figure:: /_static/fig/statlab_kappa_fig2.svg
-    :scale: 70%
     :align: center
     :alt: bubble plot with hist
 
@@ -442,7 +440,6 @@ To put agreed counts on the -45 degree line:
     kappa.create_bubble_plot(hist=True, reverse_y=True)
 
 .. figure:: /_static/fig/statlab_kappa_fig3.svg
-    :scale: 70%
     :align: center
     :alt: bubble plot with hist - reverse
 
