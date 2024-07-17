@@ -11,21 +11,23 @@ My tool box in Python.
 
 Functions are grouped into:
 
-- Health
-  - Data summary: `health.clinical`
-  - eCTD: `health.ectd` 
-  - MedDRA: `health.emt` 
-  - WhoDrug: 
 - General 
   - Data summary: `util.cdt`
   - Graphs: `util.cdtg`
   - System: `util.lsr`
+- Health
+  - Data summary: `health.clinical`
+  - eCTD: `health.ectd` 
+  - MedDRA: `health.emt` 
+  - WHODrug: 
 - Standard: 
+  - CDISC<sup>*</sup>: 
   - ISO: `stdiso.pdfsummary` 
-  - CDISC: 
-- StatLab: 
+- StatLab<sup>*</sup>: 
   - Correlation: `statlab.corr` 
   - Reliability: `statlab.kappa`
+
+<sup>*</sup> Documents related to theses topics are not executed while building.
 
 ## Table of Contents
 
