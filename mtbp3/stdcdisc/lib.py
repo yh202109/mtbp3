@@ -18,6 +18,17 @@ import os
 import pandas as pd
 
 class accessLib:
+    """
+    A class for accessing the CDISC library using an input file and API key.
+
+    Attributes:
+        input_file (str): The path to the input file containing the API key.
+
+    Raises:
+        FileNotFoundError: If the input file is not found.
+        ValueError: If the API key is empty.
+    """
+
     def __init__(self, input_file):
         self.input_file = input_file
         if not os.path.isfile(self.input_file):
@@ -30,6 +41,12 @@ class accessLib:
         self.baseURL = "https://library.cdisc.org/api"
 
     def get_ct_df(self):
+        """
+        Retrieves a DataFrame containing information about CDISC library packages.
+
+        Returns:
+            pandas.DataFrame: The DataFrame containing package information.
+        """
         # Code to access the CDISC library using the input file and API key
         ep = "/mdr/products"
         pp = "/Terminology"
@@ -50,7 +67,6 @@ class accessLib:
         return df
 
 if __name__ == "__main__":
-    input_file = "/Users/yh2020/cdisc.txt"
-    cl = accessLib(input_file)
-    out = cl.test_connection()
+    cl = accessLib("/Users/yh2020/cdisc.txt")
+    out = cl.get_ct_df()
     print(out)

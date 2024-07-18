@@ -17,8 +17,8 @@ Functions are grouped into:
   - System: `util.lsr`
 - Health
   - Data summary: `health.clinical`
-  - eCTD: `health.ectd` 
-  - MedDRA: `health.emt` 
+  - ICH/eCTD: `health.ectd` 
+  - ICH/MedDRA: `health.emt` 
   - WHODrug: 
 - Standard: 
   - CDISC<sup>*</sup>: `stdcdisc.lib`
