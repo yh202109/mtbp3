@@ -448,19 +448,19 @@ Lab Exercise
 *************
 
 Assume that there are two raters responsible for rating 2 studies with a sample size of 100 for each study. 
-Assume that the you are tasked with study the characteristics of :math:`\kappa`.
+Assume that the you are tasked with studying the characteristics of :math:`\kappa`.
 
 For the first study, the first rater completed the rating with marginal rates 
 following a multinomial distribution (100, (1/3, 1/3, 1/3)).
 Afterwards, assume that you filled 
 a portion (:math:`0 < r < 1`) of the sample's ratings as a second rater with exactly the same rating as the first rater, 
-and filled out the rest with random ratings following the same distribution. 
+and filled out the rest with random ratings following the same distribution as the first rater. 
 
 For the second study, the first rater completed the rating with marginal rates 
 following a multinomial distribution (100, (0.9, 0.05, 0.05)). 
 Afterwards, assume that you filled 
-a portion (:math:`0 < r < 1`) of the sample's ratings as a second rater with exactly the same rating as the second rater, 
-and filled out the rest with random ratings following the same distribution. 
+a portion (:math:`0 < r < 1`) of the sample's ratings as a second rater with exactly the same rating as the first rater, 
+and filled out the rest with random ratings following the same distribution as the first rater. 
 
 1. Find the relationship between :math:`r` and :math:`\kappa` for these two studies.
 
