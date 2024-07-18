@@ -15,8 +15,8 @@ Functions are grouped into:
   - Data summary: `util.cdt`
   - Graphs: `util.cdtg`
   - System: `util.lsr`
-- Geospecial
-  - Data summary:
+- Geo-spatial
+  - Data summary: 
 - Health
   - Data summary: `health.clinical`
   - ICH/eCTD: `health.ectd` 
