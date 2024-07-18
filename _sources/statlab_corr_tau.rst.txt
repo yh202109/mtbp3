@@ -161,7 +161,7 @@ Algorithm - 1
 **WARNING: FOR SMALL SAMPLE SIZES ONLY**
 
 Note that the algorithm in this section is implement in ``mtbp3.stalab`` for illustration purpose.
-Although the matrix form is closely represent :eq:`eq_tau2`, 
+Although the matrix form is closely representing :eq:`eq_tau2`, 
 the calculation time increases greatly when the sample size increases.
 Other algorithms can be found in references.
 
@@ -172,11 +172,10 @@ Let :math:`\times` represent the matrix product,
 :math:`g([(a,b)]) = [sign(a-b)]`.
 and :math:`h(X_n) = 1_n \times X_n \times 1_n^T`
 where :math:`X_n` is a size :math:`n` by :math:`n` matrix, and :math:`1_n` is a length :math:`n` one vector.
-Both tau-a and tau-b can be calculated as 
+Both tau-a and tau-b can be calculated using the following steps:
 
-1. :math:`\tau_1 = g(Y_{1} \times_{car} Y_{1})`
-2. :math:`\tau_2 = g(Y_{2} \times_{car} Y_{2})`
-3. :math:`\tau = \frac{h(\tau_1 \times_{ele} \tau_2) }{ \sqrt{h(abs(\tau_1))}\sqrt{h(abs(\tau_2))} }`
+1. calculate components :math:`\tau_1 = g(Y_{1} \times_{car} Y_{1})` and :math:`\tau_2 = g(Y_{2} \times_{car} Y_{2})`
+2. calculate :math:`\tau` as :math:`\tau = \frac{h(\tau_1 \times_{ele} \tau_2) }{ \sqrt{h(abs(\tau_1))}\sqrt{h(abs(\tau_2))} }`
 
 =============
 How-to 

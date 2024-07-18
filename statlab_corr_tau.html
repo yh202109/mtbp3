@@ -52,8 +52,8 @@
 <li class="toctree-l1"><a class="reference internal" href="example_cdtg.html">U/Graph/Categorical Plots Using catPlotter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_files.html">U/System/List Folder Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_clinical.html">H/Clinical/Grouped Summary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_ectd.html">H/eCTD/3.2/Heading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_ectd2.html">H/eCTD/4.0/Heading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_ectd.html">H/ICH/eCTD/US/3.2/Heading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_ectd2.html">H/ICH/eCTD/US/4.0/Heading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_emt.html">H/MedDRA/Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_emt2.html">H/MedDRA/SMQs by ICH</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_emt3.html">H/MedDRA/FMQs by FDA</a></li>
@@ -256,7 +256,7 @@ The adjusted <span class="math notranslate nohighlight">\(\tau\)</span> (tau-b) 
 <h2>Algorithm - 1<a class="headerlink" href="#algorithm-1" title="Link to this heading"></a></h2>
 <p><strong>WARNING: FOR SMALL SAMPLE SIZES ONLY</strong></p>
 <p>Note that the algorithm in this section is implement in <code class="docutils literal notranslate"><span class="pre">mtbp3.stalab</span></code> for illustration purpose.
-Although the matrix form is closely represent <a class="reference internal" href="#equation-eq-tau2">Eq. (6)</a>,
+Although the matrix form is closely representing <a class="reference internal" href="#equation-eq-tau2">Eq. (6)</a>,
 the calculation time increases greatly when the sample size increases.
 Other algorithms can be found in references.</p>
 <p>Let <span class="math notranslate nohighlight">\(Y_{1} = (Y_{11}, \ldots, Y_{n1})\)</span> and <span class="math notranslate nohighlight">\(Y_{2} = (Y_{12}, \ldots, Y_{n2})\)</span>.
@@ -266,11 +266,10 @@ Let <span class="math notranslate nohighlight">\(\times\)</span> represent the m
 <span class="math notranslate nohighlight">\(g([(a,b)]) = [sign(a-b)]\)</span>.
 and <span class="math notranslate nohighlight">\(h(X_n) = 1_n \times X_n \times 1_n^T\)</span>
 where <span class="math notranslate nohighlight">\(X_n\)</span> is a size <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span> matrix, and <span class="math notranslate nohighlight">\(1_n\)</span> is a length <span class="math notranslate nohighlight">\(n\)</span> one vector.
-Both tau-a and tau-b can be calculated as</p>
+Both tau-a and tau-b can be calculated using the following steps:</p>
 <ol class="arabic simple">
-<li><p><span class="math notranslate nohighlight">\(\tau_1 = g(Y_{1} \times_{car} Y_{1})\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\tau_2 = g(Y_{2} \times_{car} Y_{2})\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\tau = \frac{h(\tau_1 \times_{ele} \tau_2) }{ \sqrt{h(abs(\tau_1))}\sqrt{h(abs(\tau_2))} }\)</span></p></li>
+<li><p>calculate components <span class="math notranslate nohighlight">\(\tau_1 = g(Y_{1} \times_{car} Y_{1})\)</span> and <span class="math notranslate nohighlight">\(\tau_2 = g(Y_{2} \times_{car} Y_{2})\)</span></p></li>
+<li><p>calculate <span class="math notranslate nohighlight">\(\tau\)</span> as <span class="math notranslate nohighlight">\(\tau = \frac{h(\tau_1 \times_{ele} \tau_2) }{ \sqrt{h(abs(\tau_1))}\sqrt{h(abs(\tau_2))} }\)</span></p></li>
 </ol>
 <section id="id5">
 <h3>How-to<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>

@@ -1,0 +1,34 @@
+mtbp3.stdcdisc.lib
+==================
+
+.. py:module:: mtbp3.stdcdisc.lib
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   mtbp3.stdcdisc.lib.input_file
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   mtbp3.stdcdisc.lib.accessLib
+
+
+Module Contents
+---------------
+
+.. py:class:: accessLib(input_file)
+
+   .. py:method:: get_ct_df()
+
+
+.. py:data:: input_file
+   :value: '/Users/yh2020/cdisc.txt'
+
+

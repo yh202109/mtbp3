@@ -4,3 +4,12 @@ mtbp3.stdcdisc
 .. py:module:: mtbp3.stdcdisc
 
 
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/mtbp3/stdcdisc/lib/index
+
+
