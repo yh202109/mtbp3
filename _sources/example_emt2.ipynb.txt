@@ -26,7 +26,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "# H/MedDRA/SMQs by ICH\n",
+    "# H/ICH/MedDRA/SMQs by ICH\n",
     "\n",
     "The Medical Dictionary for Regulatory Activities (MedDRA) is a set of standardized terminologies commonly used in clinical safety recording, communicating, and reporting activities.  MedDRA is developed and maintained by the International Council for Harmonisation of Technical Requirements for Pharmaceuticals for Human Use (ICH)[^1]<sup>,</sup>[^2]. \n",
     "\n",

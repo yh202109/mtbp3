@@ -9,7 +9,7 @@ Attributes
 
 .. autoapisummary::
 
-   mtbp3.stdcdisc.lib.input_file
+   mtbp3.stdcdisc.lib.cl
 
 
 Classes
@@ -25,10 +25,26 @@ Module Contents
 
 .. py:class:: accessLib(input_file)
 
+   A class for accessing the CDISC library using an input file and API key.
+
+   .. attribute:: input_file
+
+      The path to the input file containing the API key.
+
+      :type: str
+
+   :raises FileNotFoundError: If the input file is not found.
+   :raises ValueError: If the API key is empty.
+
+
    .. py:method:: get_ct_df()
 
+      Retrieves a DataFrame containing information about CDISC library packages.
 
-.. py:data:: input_file
-   :value: '/Users/yh2020/cdisc.txt'
+      :returns: The DataFrame containing package information.
+      :rtype: pandas.DataFrame
 
+
+
+.. py:data:: cl
 

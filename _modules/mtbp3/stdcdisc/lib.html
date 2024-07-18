@@ -50,10 +50,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../example_clinical.html">H/Clinical/Grouped Summary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../example_ectd.html">H/ICH/eCTD/US/3.2/Heading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../example_ectd2.html">H/ICH/eCTD/US/4.0/Heading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../example_emt.html">H/MedDRA/Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../example_emt2.html">H/MedDRA/SMQs by ICH</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../example_emt3.html">H/MedDRA/FMQs by FDA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../example_emt4.html">H/MedDRA/(MLGs by CIOMS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../example_emt.html">H/ICH/MedDRA/Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../example_emt2.html">H/ICH/MedDRA/SMQs by ICH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../example_emt3.html">H/ICH/MedDRA/FMQs by FDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../example_emt4.html">H/ICH/MedDRA/(MLGs by CIOMS)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../std_iso_pdf.html">Std/ISO/PDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../std_iso_idmp.html">Std/ISO/IDMP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../std_cdisc.html">Std/CDISC/Basics</a></li>
@@ -115,6 +115,17 @@
 <div class="viewcode-block" id="accessLib">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/stdcdisc/lib/index.html#mtbp3.stdcdisc.lib.accessLib">[docs]</a>
 <span class="k">class</span> <span class="nc">accessLib</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class for accessing the CDISC library using an input file and API key.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        input_file (str): The path to the input file containing the API key.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        FileNotFoundError: If the input file is not found.</span>
+<span class="sd">        ValueError: If the API key is empty.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_file</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">input_file</span> <span class="o">=</span> <span class="n">input_file</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_file</span><span class="p">):</span>
@@ -129,6 +140,12 @@
 <div class="viewcode-block" id="accessLib.get_ct_df">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/stdcdisc/lib/index.html#mtbp3.stdcdisc.lib.accessLib.get_ct_df">[docs]</a>
     <span class="k">def</span> <span class="nf">get_ct_df</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieves a DataFrame containing information about CDISC library packages.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pandas.DataFrame: The DataFrame containing package information.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Code to access the CDISC library using the input file and API key</span>
         <span class="n">ep</span> <span class="o">=</span> <span class="s2">&quot;/mdr/products&quot;</span>
         <span class="n">pp</span> <span class="o">=</span> <span class="s2">&quot;/Terminology&quot;</span>
@@ -151,9 +168,8 @@
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">input_file</span> <span class="o">=</span> <span class="s2">&quot;/Users/yh2020/cdisc.txt&quot;</span>
-    <span class="n">cl</span> <span class="o">=</span> <span class="n">accessLib</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span>
-    <span class="n">out</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">test_connection</span><span class="p">()</span>
+    <span class="n">cl</span> <span class="o">=</span> <span class="n">accessLib</span><span class="p">(</span><span class="s2">&quot;/Users/yh2020/cdisc.txt&quot;</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">get_ct_df</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
 </pre></div>
 

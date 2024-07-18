@@ -106,13 +106,26 @@
                 "Steps: \n",
                 "\n",
                 "1. To access CDISC library and documents, follow steps here to create cdiscID: https://www.cdisc.org/cdiscid-sign-insign-instructions\n",
-                "2. save the key to a file\n"
+                "2. save the key to a file, say \"/user/home/name/cdisc.txt\"\n",
+                "3. Use the code below to initiate"
             ]
         },
         {
             "cell_type": "markdown",
             "metadata": {},
             "source": [
+                "```python\n",
+                "from mtbp3.stdcdisc.lib import accessLib\n",
+                "cl = accessLib(\"/user/home/name/cdisc.txt\")\n",
+                "```"
+            ]
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [
+                "The connection requires personal key. \n",
+                "Therefore, this pages does not include test code demonstrations.\n",
                 "Please see API Reference for functions included in `stdcdisc.lib`."
             ]
         },

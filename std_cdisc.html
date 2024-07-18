@@ -53,10 +53,10 @@
 <li class="toctree-l1"><a class="reference internal" href="example_clinical.html">H/Clinical/Grouped Summary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_ectd.html">H/ICH/eCTD/US/3.2/Heading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_ectd2.html">H/ICH/eCTD/US/4.0/Heading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_emt.html">H/MedDRA/Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_emt2.html">H/MedDRA/SMQs by ICH</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_emt3.html">H/MedDRA/FMQs by FDA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_emt4.html">H/MedDRA/(MLGs by CIOMS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_emt.html">H/ICH/MedDRA/Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_emt2.html">H/ICH/MedDRA/SMQs by ICH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_emt3.html">H/ICH/MedDRA/FMQs by FDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_emt4.html">H/ICH/MedDRA/(MLGs by CIOMS)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="std_iso_pdf.html">Std/ISO/PDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="std_iso_idmp.html">Std/ISO/IDMP</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Std/CDISC/Basics</a><ul>
@@ -173,9 +173,16 @@ the implementation of data standards needs considerable time and effort.</p>
 <p>Steps:</p>
 <ol class="arabic simple">
 <li><p>To access CDISC library and documents, follow steps here to create cdiscID: https://www.cdisc.org/cdiscid-sign-insign-instructions</p></li>
-<li><p>save the key to a file</p></li>
+<li><p>save the key to a file, say “/user/home/name/cdisc.txt”</p></li>
+<li><p>Use the code below to initiate</p></li>
 </ol>
-<p>Please see API Reference for functions included in <code class="docutils literal notranslate"><span class="pre">stdcdisc.lib</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mtbp3.stdcdisc.lib</span> <span class="kn">import</span> <span class="n">accessLib</span>
+<span class="n">cl</span> <span class="o">=</span> <span class="n">accessLib</span><span class="p">(</span><span class="s2">&quot;/user/home/name/cdisc.txt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The connection requires personal key.
+Therefore, this pages does not include test code demonstrations.
+Please see API Reference for functions included in <code class="docutils literal notranslate"><span class="pre">stdcdisc.lib</span></code>.</p>
 </section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>

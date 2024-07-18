@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>H/MedDRA/SMQs by ICH &mdash; mtbp3  documentation</title>
+  <title>H/ICH/MedDRA/SMQs by ICH &mdash; mtbp3  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -24,8 +24,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="H/MedDRA/FMQs by FDA" href="example_emt3.html" />
-    <link rel="prev" title="H/MedDRA/Basics" href="example_emt.html" /> 
+    <link rel="next" title="H/ICH/MedDRA/FMQs by FDA" href="example_emt3.html" />
+    <link rel="prev" title="H/ICH/MedDRA/Basics" href="example_emt.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -53,16 +53,16 @@
 <li class="toctree-l1"><a class="reference internal" href="example_clinical.html">H/Clinical/Grouped Summary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_ectd.html">H/ICH/eCTD/US/3.2/Heading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_ectd2.html">H/ICH/eCTD/US/4.0/Heading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_emt.html">H/MedDRA/Basics</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">H/MedDRA/SMQs by ICH</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="example_emt.html">H/ICH/MedDRA/Basics</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">H/ICH/MedDRA/SMQs by ICH</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#assign-meddra-distribution-folder">Assign MedDRA Distribution Folder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#find-smq-terms">Find SMQ Terms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#find-meddra-terms-given-a-smq">Find MedDRA Terms Given a SMQ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="example_emt3.html">H/MedDRA/FMQs by FDA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_emt4.html">H/MedDRA/(MLGs by CIOMS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_emt3.html">H/ICH/MedDRA/FMQs by FDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_emt4.html">H/ICH/MedDRA/(MLGs by CIOMS)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="std_iso_pdf.html">Std/ISO/PDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="std_iso_idmp.html">Std/ISO/IDMP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="std_cdisc.html">Std/CDISC/Basics</a></li>
@@ -90,7 +90,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">H/MedDRA/SMQs by ICH</li>
+      <li class="breadcrumb-item active">H/ICH/MedDRA/SMQs by ICH</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/example_emt2.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -115,8 +115,8 @@
     #
     #  You should have received a copy of the GNU General Public license
     #  along with this program. If not, see <https://www.gnu.org/license/> 
---><section id="h-meddra-smqs-by-ich">
-<h1>H/MedDRA/SMQs by ICH<a class="headerlink" href="#h-meddra-smqs-by-ich" title="Link to this heading"></a></h1>
+--><section id="h-ich-meddra-smqs-by-ich">
+<h1>H/ICH/MedDRA/SMQs by ICH<a class="headerlink" href="#h-ich-meddra-smqs-by-ich" title="Link to this heading"></a></h1>
 <p>The Medical Dictionary for Regulatory Activities (MedDRA) is a set of standardized terminologies commonly used in clinical safety recording, communicating, and reporting activities.  MedDRA is developed and maintained by the International Council for Harmonisation of Technical Requirements for Pharmaceuticals for Human Use (ICH)<a class="footnote-reference brackets" href="#id5" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a><sup>,</sup><a class="footnote-reference brackets" href="#id6" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
 <p>The Standardized MedDRA Queries (SMQs) are groups of MedDRA terms used to describe conditions of interest<a class="footnote-reference brackets" href="#id7" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.
 A detailed demonstration of using SMQ can be found in JMP reporting documentation <a class="footnote-reference brackets" href="#id8" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>.</p>
@@ -243,8 +243,8 @@ Use the function <code class="docutils literal notranslate"><span class="pre">fi
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="example_emt.html" class="btn btn-neutral float-left" title="H/MedDRA/Basics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="example_emt3.html" class="btn btn-neutral float-right" title="H/MedDRA/FMQs by FDA" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="example_emt.html" class="btn btn-neutral float-left" title="H/ICH/MedDRA/Basics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="example_emt3.html" class="btn btn-neutral float-right" title="H/ICH/MedDRA/FMQs by FDA" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
