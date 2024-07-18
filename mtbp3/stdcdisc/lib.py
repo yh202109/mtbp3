@@ -40,14 +40,18 @@ class accessLib:
 
         self.baseURL = "https://library.cdisc.org/api"
 
-    def get_ct_df(self):
+    def get_ct_list(self):
         """
         Retrieves a DataFrame containing information about CDISC library packages.
 
+        This method sends a GET request to the CDISC library API to retrieve information about CDISC library packages.
+        It returns a DataFrame containing package information, including the title, package series, effective date, path, and type of each package.
+
         Returns:
-            pandas.DataFrame: The DataFrame containing package information.
+            dict: A dictionary containing the DataFrame with package information and a set of unique package titles.
+                - 'ct': pandas.DataFrame: The DataFrame containing package information.
+                - 'title': set: A set of unique package titles.
         """
-        # Code to access the CDISC library using the input file and API key
         ep = "/mdr/products"
         pp = "/Terminology"
         req = requests.get(
@@ -61,12 +65,13 @@ class accessLib:
             df = pd.DataFrame()
             for package in packages:
                 title = package['title']
-                t1, t2 = title.split(" Package ")
+                t1, t2 = title.split(" Controlled Terminology Package ")
                 t2, t3 = t2.split(" Effective ")
-                df = df._append({'Title': t1, 'Series': t2, 'Effective': t3, 'Path': package['href'], 'Type': package['type']}, ignore_index=True)
-        return df
+                df = df._append({'Title': t1, 'PkgSeries': t2, 'Effective': t3, 'Path': package['href'], 'Type': package['type']}, ignore_index=True)
+            df['Newest'] = df['Effective'] == df.groupby('Title')['Effective'].transform('max')
+        return {'ct': df, 'title': set(df['Title'])}
 
 if __name__ == "__main__":
     cl = accessLib("/Users/yh2020/cdisc.txt")
-    out = cl.get_ct_df()
-    print(out)
+    out = cl.get_ct_list()
+    print(out['ct'])
