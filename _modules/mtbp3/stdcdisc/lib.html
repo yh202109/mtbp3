@@ -137,16 +137,20 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">baseURL</span> <span class="o">=</span> <span class="s2">&quot;https://library.cdisc.org/api&quot;</span>
 
-<div class="viewcode-block" id="accessLib.get_ct_df">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/stdcdisc/lib/index.html#mtbp3.stdcdisc.lib.accessLib.get_ct_df">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_ct_df</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="accessLib.get_ct_list">
+<a class="viewcode-back" href="../../../autoapi/mtbp3/stdcdisc/lib/index.html#mtbp3.stdcdisc.lib.accessLib.get_ct_list">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_ct_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Retrieves a DataFrame containing information about CDISC library packages.</span>
 
+<span class="sd">        This method sends a GET request to the CDISC library API to retrieve information about CDISC library packages.</span>
+<span class="sd">        It returns a DataFrame containing package information, including the title, package series, effective date, path, and type of each package.</span>
+
 <span class="sd">        Returns:</span>
-<span class="sd">            pandas.DataFrame: The DataFrame containing package information.</span>
+<span class="sd">            dict: A dictionary containing the DataFrame with package information and a set of unique package titles.</span>
+<span class="sd">                - &#39;ct&#39;: pandas.DataFrame: The DataFrame containing package information.</span>
+<span class="sd">                - &#39;title&#39;: set: A set of unique package titles.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># Code to access the CDISC library using the input file and API key</span>
         <span class="n">ep</span> <span class="o">=</span> <span class="s2">&quot;/mdr/products&quot;</span>
         <span class="n">pp</span> <span class="o">=</span> <span class="s2">&quot;/Terminology&quot;</span>
         <span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
@@ -160,17 +164,18 @@
             <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
             <span class="k">for</span> <span class="n">package</span> <span class="ow">in</span> <span class="n">packages</span><span class="p">:</span>
                 <span class="n">title</span> <span class="o">=</span> <span class="n">package</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span>
-                <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span> <span class="o">=</span> <span class="n">title</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; Package &quot;</span><span class="p">)</span>
+                <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span> <span class="o">=</span> <span class="n">title</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; Controlled Terminology Package &quot;</span><span class="p">)</span>
                 <span class="n">t2</span><span class="p">,</span> <span class="n">t3</span> <span class="o">=</span> <span class="n">t2</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; Effective &quot;</span><span class="p">)</span>
-                <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">_append</span><span class="p">({</span><span class="s1">&#39;Title&#39;</span><span class="p">:</span> <span class="n">t1</span><span class="p">,</span> <span class="s1">&#39;Series&#39;</span><span class="p">:</span> <span class="n">t2</span><span class="p">,</span> <span class="s1">&#39;Effective&#39;</span><span class="p">:</span> <span class="n">t3</span><span class="p">,</span> <span class="s1">&#39;Path&#39;</span><span class="p">:</span> <span class="n">package</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">],</span> <span class="s1">&#39;Type&#39;</span><span class="p">:</span> <span class="n">package</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]},</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">df</span></div>
+                <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">_append</span><span class="p">({</span><span class="s1">&#39;Title&#39;</span><span class="p">:</span> <span class="n">t1</span><span class="p">,</span> <span class="s1">&#39;PkgSeries&#39;</span><span class="p">:</span> <span class="n">t2</span><span class="p">,</span> <span class="s1">&#39;Effective&#39;</span><span class="p">:</span> <span class="n">t3</span><span class="p">,</span> <span class="s1">&#39;Path&#39;</span><span class="p">:</span> <span class="n">package</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">],</span> <span class="s1">&#39;Type&#39;</span><span class="p">:</span> <span class="n">package</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]},</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Newest&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Effective&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Title&#39;</span><span class="p">)[</span><span class="s1">&#39;Effective&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;max&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;ct&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="nb">set</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">])}</span></div>
 </div>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">cl</span> <span class="o">=</span> <span class="n">accessLib</span><span class="p">(</span><span class="s2">&quot;/Users/yh2020/cdisc.txt&quot;</span><span class="p">)</span>
-    <span class="n">out</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">get_ct_df</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">get_ct_list</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="s1">&#39;ct&#39;</span><span class="p">])</span>
 </pre></div>
 
            </div>

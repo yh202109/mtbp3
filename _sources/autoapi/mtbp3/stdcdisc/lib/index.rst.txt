@@ -37,12 +37,19 @@ Module Contents
    :raises ValueError: If the API key is empty.
 
 
-   .. py:method:: get_ct_df()
+   .. py:method:: get_ct_list()
 
       Retrieves a DataFrame containing information about CDISC library packages.
 
-      :returns: The DataFrame containing package information.
-      :rtype: pandas.DataFrame
+      This method sends a GET request to the CDISC library API to retrieve information about CDISC library packages.
+      It returns a DataFrame containing package information, including the title, package series, effective date, path, and type of each package.
+
+      :returns:
+
+                A dictionary containing the DataFrame with package information and a set of unique package titles.
+                    - 'ct': pandas.DataFrame: The DataFrame containing package information.
+                    - 'title': set: A set of unique package titles.
+      :rtype: dict
 
 
 

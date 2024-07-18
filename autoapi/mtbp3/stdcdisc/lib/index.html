@@ -162,15 +162,24 @@
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="mtbp3.stdcdisc.lib.accessLib.get_ct_df">
-<span class="sig-name descname"><span class="pre">get_ct_df</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/stdcdisc/lib.html#accessLib.get_ct_df"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.stdcdisc.lib.accessLib.get_ct_df" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="mtbp3.stdcdisc.lib.accessLib.get_ct_list">
+<span class="sig-name descname"><span class="pre">get_ct_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/stdcdisc/lib.html#accessLib.get_ct_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.stdcdisc.lib.accessLib.get_ct_list" title="Link to this definition"></a></dt>
 <dd><p>Retrieves a DataFrame containing information about CDISC library packages.</p>
+<p>This method sends a GET request to the CDISC library API to retrieve information about CDISC library packages.
+It returns a DataFrame containing package information, including the title, package series, effective date, path, and type of each package.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The DataFrame containing package information.</p>
+<dd class="field-odd"><p><dl class="simple">
+<dt>A dictionary containing the DataFrame with package information and a set of unique package titles.</dt><dd><ul class="simple">
+<li><p>’ct’: pandas.DataFrame: The DataFrame containing package information.</p></li>
+<li><p>’title’: set: A set of unique package titles.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>pandas.DataFrame</p>
+<dd class="field-even"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>
