@@ -21,13 +21,13 @@ Functions are grouped into:
   - MedDRA: `health.emt` 
   - WHODrug: 
 - Standard: 
-  - CDISC<sup>*</sup>: 
+  - CDISC<sup>*</sup>: `stdcdisc.lib`
   - ISO: `stdiso.pdfsummary` 
 - StatLab<sup>*</sup>: 
   - Correlation: `statlab.corr` 
   - Reliability: `statlab.kappa`
 
-<sup>*</sup> Documents related to theses topics are not executed while building.
+<sup>*</sup> Documents are not executed while building.
 
 ## Table of Contents
 
