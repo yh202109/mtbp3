@@ -289,7 +289,7 @@ and
 .. math::
 
   var\left(\sum_{j} N_{ij}^2 \right) 
-  =& 2R(R-1)\left(\sum_j p_j^2 - (2R-3)\left(\sum_j p_j^2\right)^2 + 2(R-2)\sum_j p_j^3\right),
+  = 2R(R-1)\left(\sum_j p_j^2 - (2R-3)\left(\sum_j p_j^2\right)^2 + 2(R-2)\sum_j p_j^3\right).
 
 *************
 Lab Exercise
