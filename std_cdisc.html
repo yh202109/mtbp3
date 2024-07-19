@@ -190,6 +190,32 @@ the implementation of data standards needs considerable time and effort.</p>
 <span class="nb">print</span><span class="p">(</span><span class="n">cl</span><span class="o">.</span><span class="n">ct_list_titles</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;CDASH&#39;</span><span class="p">,</span> <span class="s1">&#39;MRCT&#39;</span><span class="p">,</span> <span class="s1">&#39;COA&#39;</span><span class="p">,</span> <span class="s1">&#39;ADaM&#39;</span><span class="p">,</span> <span class="s1">&#39;Protocol&#39;</span><span class="p">,</span> <span class="s1">&#39;SDTM&#39;</span><span class="p">,</span> <span class="s1">&#39;QRS&#39;</span><span class="p">,</span> <span class="s1">&#39;SEND&#39;</span><span class="p">,</span> <span class="s1">&#39;QS-FT&#39;</span><span class="p">,</span> <span class="s1">&#39;Define-XML&#39;</span><span class="p">,</span> <span class="s1">&#39;Glossary&#39;</span><span class="p">,</span> <span class="s1">&#39;DDF&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Please note that this page is not executed while building.
+Functions and options might be updated as needed.
+Please visit API reference page for the newest information on this module.</p>
+<p>To get the newest protocol ct package information:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">get_ct_package</span><span class="p">(</span><span class="s1">&#39;Protocol&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;package_info&#39;</span><span class="p">],</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;CDISC Controlled Terminology for Protocol is the set of CDISC-developed or CDISC-adopted standard expressions (values) used with data items within CDISC-defined PROTOCOL datasets.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;effectiveDate&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-03-29&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Protocol Controlled Terminology Package 57 Effective 2024-03-29&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Protocol CT 2024-03-29&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;Protocol Controlled Terminology developed by the CDISC Terminology Team in collaboration with the National Cancer Institute&#39;s Enterprise Vocabulary Services (EVS)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;registrationStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;Final&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-03-29&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </section>
 </section>
 <section id="reference">
