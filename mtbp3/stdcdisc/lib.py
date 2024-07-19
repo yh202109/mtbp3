@@ -74,4 +74,4 @@ class accessLib:
 if __name__ == "__main__":
     cl = accessLib("/Users/yh2020/cdisc.txt")
     out = cl.get_ct_list()
-    print(out['ct'])
+    print(cl.ct_list_titles)
