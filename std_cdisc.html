@@ -63,7 +63,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#cdisc-foundational-standards">CDISC Foundational Standards</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#select-cdisc-version">Select CDISC Version</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#resources">Resources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cdisc-library-resource">CDISC Library Resource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cdisc-library-resource">CDISC Library Resource</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#get-ct-packages">Get CT Packages</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
@@ -180,9 +183,14 @@ the implementation of data standards needs considerable time and effort.</p>
 <span class="n">cl</span> <span class="o">=</span> <span class="n">accessLib</span><span class="p">(</span><span class="s2">&quot;/user/home/name/cdisc.txt&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The connection requires personal key.
-Therefore, this pages does not include test code demonstrations.
-Please see API Reference for functions included in <code class="docutils literal notranslate"><span class="pre">stdcdisc.lib</span></code>.</p>
+<section id="get-ct-packages">
+<h3>Get CT Packages<a class="headerlink" href="#get-ct-packages" title="Link to this heading"></a></h3>
+<p>To get a list of newest CT packages available:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cl</span><span class="o">.</span><span class="n">get_ct_list</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cl</span><span class="o">.</span><span class="n">ct_list_titles</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>

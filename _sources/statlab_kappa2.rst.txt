@@ -277,11 +277,19 @@ where
 and 
 
 .. math::
-  :label: eq_kappa2
+  :label: eq_kappa2_vn2
 
   var\left(\sum_{j} N_{ij}^2 \right) 
-  =& E\left(\sum_{j} N_{ij}^4\right) + E\left(\sum_j\sum_k N_{ij}^2 N_{ik}^2 \right) - \left(E\left(\sum_{j} N_{ij}^2\right)\right)^2 \\
-  =& 2R(R-1)\left(\sum_j p_j^2 - (2R-3)\left(\sum_j p_j^2\right)^2 + 2(R-2)\sum_j p_j^3\right).
+  =& E\left( \left(\sum_{j} N_{ij}^2\right)^2\right) - \left(E\left(\sum_{j} N_{ij}^2\right)\right)^2 \\
+  =& E\left(\sum_{j} N_{ij}^4\right) + E\left(\sum_j\sum_{k \neq j} N_{ij}^2 N_{ik}^2 \right) - \left(E\left(\sum_{j} N_{ij}^2\right)\right)^2.
+
+
+:eq:`eq_kappa2_vn2` can be calculated as [2]_ :sup:`(Eq. 15)`
+
+.. math::
+
+  var\left(\sum_{j} N_{ij}^2 \right) 
+  =& 2R(R-1)\left(\sum_j p_j^2 - (2R-3)\left(\sum_j p_j^2\right)^2 + 2(R-2)\sum_j p_j^3\right),
 
 *************
 Lab Exercise
