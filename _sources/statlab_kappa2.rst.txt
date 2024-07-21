@@ -36,7 +36,7 @@ with categorical rating outcomes [1]_ [2]_.
 Notation 
 *************
 
-Assume there are the same :math:`R+N_0` (:math:`geq 2+N_0`) raters and each of :math:`n` samples were rated by :math:`R` randomly selected raters and were not rated by the rest of :math:`N_0` raters.
+Assume there are the same :math:`R+N_0` (:math:`\geq 2+N_0`) raters and each of :math:`n` samples were rated by :math:`R` randomly selected raters and were not rated by the rest of :math:`N_0` raters.
 For :math:`J` categories rating, let :math:`Y_{r,i} \in \{v_0, v_1,v_2,\ldots, v_J \}` represent rating 
 from rater :math:`r=1,2,\ldots,R+N_0` for sample :math:`i = 1, \ldots, n`.
 Let :math:`N_{ij}` represent the total number of raters gave rating :math:`(v_j)` to sample :math:`i`, where :math:`j \in \{0, 1,\ldots,J\}`.
@@ -287,7 +287,7 @@ To calculate :eq:`eq_kappa2_vn2`,
 we can use the MGF, :math:`\left(\sum_{j}p_je^{t_j}\right)^R`, to derive
 :math:`E\left(N_{ij}^2\right) = Rp_j + R(R-1)p_j^2`, 
 :math:`E\left(N_{ij}^3\right) = Rp_j + 3R(R-1)p_j^2 + R(R-1)(R-2)p_j^3`, and 
-:math:`E\left(N_{ij}^4\right) = ` (Lab Exercise; to be used in :eq:`eq_kappa2_vn3` and :eq:`eq_kappa2_vn5`). 
+:math:`E\left(N_{ij}^4\right) =` (Lab Exercise; to be used in :eq:`eq_kappa2_vn3` and :eq:`eq_kappa2_vn5`). 
 
 The first element of :eq:`eq_kappa2_vn2` can be calculated as [2]_ :sup:`(Eq. 12)`
 
@@ -313,12 +313,7 @@ The second element of :eq:`eq_kappa2_vn2` can be calculated using
   :label: eq_kappa2_vn5
 
   E\left( N_{ij}^2 N_{ik}^2 \right)
-  =& E\left(N_{ik}^2E\left(N_{ij}^2|N_{ik}\right)\right) \\
-  =& \frac{p_j}{1-p_k}E\left(RN_{ik}^2-N_{ik}^3\right) 
-  + \frac{p_j^2}{(1-p_k)^2}E\left((R^2-R)N_{ik}^2 - (2R+1)N_{ik}^3-N_{ik}^4\right)
-  =& \left(\frac{p_j}{1-p_k} + \frac{p_j^2}{(1-p_k)^2}(R^2-R)\right)E(N_{ik}^2) 
-  -\left(\frac{p_j}{1-p_k}E(N_{ik}^3) + \frac{p_j^2}{(1-p_k)^2}(2R+1)\right)E(N_{ik}^3)
-  -\frac{p_j^2}{(1-p_k)^2}E(N_{ik}^4)
+  = R(R-1)p_j(p_k+(R-2)p_k^2) + R(R-1)(R-2)p_j^2(p_k+(R-3)2p_k^2)
 
 Combining :eq:`eq_kappa2_vn3`, :eq:`eq_kappa2_vn4`, and :eq:`eq_kappa2_vn5`, 
 :eq:`eq_kappa2_vn2` can be calculated as [2]_ :sup:`(Eq. 15)`
