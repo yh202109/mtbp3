@@ -284,10 +284,10 @@ and
   =& E\left(\sum_{j} N_{ij}^4\right) + E\left(\sum_j\sum_{k \neq j} N_{ij}^2 N_{ik}^2 \right) - \left(E\left(\sum_{j} N_{ij}^2\right)\right)^2.
 
 We can use the MGF :math:`\left(\sum_{j}p_je^{t_j}\right)^R` to derive
-:math:`E\left(N__{ij}^2\right) = Rp_j + R(R-1)p_j^2`, and
-:math:`E\left(N__{ij}^3\right) = Rp_j + 3R(R-1)p_j^2 + R(R-1)(R-2)p_j^3`. 
+:math:`E\left(N_{ij}^2\right) = Rp_j + R(R-1)p_j^2`, and
+:math:`E\left(N_{ij}^3\right) = Rp_j + 3R(R-1)p_j^2 + R(R-1)(R-2)p_j^3`. 
 
-The first element of :eq:`eq_kappa2_vn2` is [2]_ :sup:`(Eq. 12)`
+The first element of :eq:`eq_kappa2_vn2` [2]_ :sup:`(Eq. 12)`
 
 .. math::
 
