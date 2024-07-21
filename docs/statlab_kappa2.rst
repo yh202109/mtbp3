@@ -296,7 +296,6 @@ The first element of :eq:`eq_kappa2_vn2` can be calculated as [2]_ :sup:`(Eq. 12
   E\left(\sum_{j} N_{ij}^4\right)
   = R + 7R(R-1)\sum_j p_j^2 + 6R(R-1)(R-2)\sum_j p_j^3 + R(R-1)(R-2)(R-3)\sum_j p_j^4
 
-
 The third element of :eq:`eq_kappa2_vn2` can be calculated as [2]_ :sup:`(Eq. 14)`
 
 .. math::
@@ -306,13 +305,14 @@ The third element of :eq:`eq_kappa2_vn2` can be calculated as [2]_ :sup:`(Eq. 14
   =& R^2\left(1 + (R-1)\sum_{j} p_j^2 \right)^2  \\
   =& R^2 + R^2(R-1)\left(2\sum_{j} p_j^2 + (R-1)(\sum_j p_j^2)^2\right) 
 
-The second element of :eq:`eq_kappa2_vn2` can be calculated using 
+The second element of :eq:`eq_kappa2_vn2` can be calculated, using 
+:math:`E\left( N_{ij}^2 N_{ik}^2 \right) = R(R-1)p_j(p_k+(R-2)p_k^2) + R(R-1)(R-2)p_j^2(p_k+(R-3)p_k^2)`, as
 
 .. math::
   :label: eq_kappa2_vn5
 
-  E\left( N_{ij}^2 N_{ik}^2 \right)
-  = R(R-1)p_j(p_k+(R-2)p_k^2) + R(R-1)(R-2)p_j^2(p_k+(R-3)p_k^2)
+  E\left( \sum_j\sum_{k \neq j} N_{ij}^2 N_{ik}^2 \right) 
+  =& R(R-1) + R(R-1)(2R-5)(\sum_j p_j^2) - 2R(R-1)(R-2)(\sum_j p_j^3) - R(R-1)(R-2)(R-3) \sum_j p_j^4 + R(R-1)(R-2)(R-3) (\sum_{j} p_j^2)^2
 
 Combining :eq:`eq_kappa2_vn3`, :eq:`eq_kappa2_vn4`, and :eq:`eq_kappa2_vn5`, 
 :eq:`eq_kappa2_vn2` can be calculated as [2]_ :sup:`(Eq. 15)`
