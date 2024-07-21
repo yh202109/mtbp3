@@ -29,6 +29,18 @@ Package Contents
 
 .. py:class:: LsrTree(path='', outfmt='list', with_counts=False, count_str='', with_file_label=False, label_str='')
 
+   .. py:attribute:: path
+
+
+   .. py:attribute:: outfmt
+
+
+   .. py:attribute:: with_counts
+
+
+   .. py:attribute:: count_str
+
+
    .. py:method:: list_files()
 
       List files in the specified directory based on the output format.
@@ -119,6 +131,80 @@ Package Contents
       The year of the version published.
 
       :type: str
+
+
+   .. py:attribute:: version_number
+      :value: '00.0'
+
+
+
+   .. py:attribute:: version_number_us
+      :value: '00_0'
+
+
+
+   .. py:attribute:: readme_file
+      :value: None
+
+
+
+   .. py:attribute:: year
+      :value: ''
+
+
+
+   .. py:attribute:: month
+      :value: ''
+
+
+
+   .. py:attribute:: language
+      :value: ''
+
+
+
+   .. py:attribute:: mdhier
+      :value: None
+
+
+
+   .. py:attribute:: llt
+      :value: None
+
+
+
+   .. py:attribute:: smq_list
+      :value: None
+
+
+
+   .. py:attribute:: smq_content
+      :value: None
+
+
+
+   .. py:attribute:: fmq_list
+      :value: None
+
+
+
+   .. py:attribute:: fmq_list_unique
+      :value: None
+
+
+
+   .. py:attribute:: fmq_list_default
+      :value: None
+
+
+
+   .. py:attribute:: meddra_release_file
+
+
+   .. py:attribute:: pattern
+
+
+   .. py:attribute:: files
 
 
    .. py:method:: expected_file_lists()

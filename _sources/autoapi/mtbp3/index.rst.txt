@@ -58,6 +58,18 @@ Package Contents
 
 .. py:class:: LsrTree(path='', outfmt='list', with_counts=False, count_str='', with_file_label=False, label_str='')
 
+   .. py:attribute:: path
+
+
+   .. py:attribute:: outfmt
+
+
+   .. py:attribute:: with_counts
+
+
+   .. py:attribute:: count_str
+
+
    .. py:method:: list_files()
 
       List files in the specified directory based on the output format.
@@ -180,6 +192,24 @@ Package Contents
 
 .. py:class:: ListTree(lst=[], label=[], infmt='path')
 
+   .. py:attribute:: lst
+
+
+   .. py:attribute:: label
+
+
+   .. py:attribute:: infmt
+
+
+   .. py:attribute:: df
+
+
+   .. py:attribute:: prelst
+
+
+   .. py:attribute:: out
+
+
    .. py:method:: __list_tree_df()
 
 
@@ -215,6 +245,51 @@ Package Contents
 
    Raises:
    - ValueError: If an invalid parameter is provided or if group_col, x_col, or y_col is not found in DataFrame columns.
+
+
+   .. py:attribute:: df
+
+
+   .. py:attribute:: grid_col
+
+
+   .. py:attribute:: point_position
+
+
+   .. py:attribute:: grid_wrap
+
+
+   .. py:attribute:: group_col
+
+
+   .. py:attribute:: y_col
+
+
+   .. py:attribute:: x_col
+
+
+   .. py:attribute:: pt_size
+
+
+   .. py:attribute:: x_scale_base
+
+
+   .. py:attribute:: y_scale_base
+
+
+   .. py:attribute:: title
+
+
+   .. py:attribute:: fig_size_0
+
+
+   .. py:attribute:: fig_size_1
+
+
+   .. py:attribute:: x_label_rotate
+
+
+   .. py:attribute:: grid_kws
 
 
    .. py:method:: update_parameters(**kwargs)

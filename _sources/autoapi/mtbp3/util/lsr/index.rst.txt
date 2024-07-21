@@ -17,6 +17,18 @@ Module Contents
 
 .. py:class:: LsrTree(path='', outfmt='list', with_counts=False, count_str='', with_file_label=False, label_str='')
 
+   .. py:attribute:: path
+
+
+   .. py:attribute:: outfmt
+
+
+   .. py:attribute:: with_counts
+
+
+   .. py:attribute:: count_str
+
+
    .. py:method:: list_files()
 
       List files in the specified directory based on the output format.

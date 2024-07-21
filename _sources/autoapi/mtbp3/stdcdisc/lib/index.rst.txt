@@ -37,6 +37,14 @@ Module Contents
    :raises ValueError: If the API key is empty.
 
 
+   .. py:attribute:: input_file
+
+
+   .. py:attribute:: baseURL
+      :value: 'https://library.cdisc.org/api'
+
+
+
    .. py:method:: get_ct_list()
 
       Retrieves a DataFrame containing information about CDISC library packages.

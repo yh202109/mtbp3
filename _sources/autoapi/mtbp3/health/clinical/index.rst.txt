@@ -43,6 +43,9 @@ Module Contents
       
 
 
+   .. py:attribute:: df
+
+
    .. py:method:: generate_dataset(design=1)
       :staticmethod:
 

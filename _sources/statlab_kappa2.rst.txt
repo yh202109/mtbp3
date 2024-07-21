@@ -36,7 +36,7 @@ with categorical rating outcomes [1]_ [2]_.
 Notation 
 *************
 
-Assume there are the same :math:`R+N_0 \geq 2+N_0` raters and each of :math:`n` samples were rated by :math:`R` randomly selected raters and were not rated by the rest of :math:`N_0` raters.
+Assume there are the same :math:`R+N_0` (:math:`geq 2+N_0`) raters and each of :math:`n` samples were rated by :math:`R` randomly selected raters and were not rated by the rest of :math:`N_0` raters.
 For :math:`J` categories rating, let :math:`Y_{r,i} \in \{v_0, v_1,v_2,\ldots, v_J \}` represent rating 
 from rater :math:`r=1,2,\ldots,R+N_0` for sample :math:`i = 1, \ldots, n`.
 Let :math:`N_{ij}` represent the total number of raters gave rating :math:`(v_j)` to sample :math:`i`, where :math:`j \in \{0, 1,\ldots,J\}`.
@@ -250,7 +250,7 @@ More Details
 probability of having agreement for a sample from two randomly selected raters estimated from :numref:`Tabel %s <tbl_count1>`.
 :eq:`eq_exp1` corresponds to the expected 
 probability of having agreement for a sample from two randomly selected raters under the assumption of no agreement, 
-which corresponds to the assumption of :math:`(N_{i1},\ldots, N_{iJ}) \sim multi(n, (p_1,\ldots, p_J))`.
+which corresponds to the assumption of :math:`(N_{i1},\ldots, N_{iJ}) \sim multi(R, (p_1,\ldots, p_J))`.
 Note that the notations in this page did not use conventional 'hat' to represent estimated :math:`p_j`.
 
 The equation :eq:`eq_kappa1` can be expressed as [2]_ :sup:`(Eq. 9)`,
@@ -283,6 +283,24 @@ and
   =& E\left( \left(\sum_{j} N_{ij}^2\right)^2\right) - \left(E\left(\sum_{j} N_{ij}^2\right)\right)^2 \\
   =& E\left(\sum_{j} N_{ij}^4\right) + E\left(\sum_j\sum_{k \neq j} N_{ij}^2 N_{ik}^2 \right) - \left(E\left(\sum_{j} N_{ij}^2\right)\right)^2.
 
+We can use the MGF :math:`\left(\sum_{j}p_je^{t_j}\right)^R` to derive
+:math:`E\left(N__{ij}^2\right) = Rp_j + R(R-1)p_j^2`, and
+:math:`E\left(N__{ij}^3\right) = Rp_j + 3R(R-1)p_j^2 + R(R-1)(R-2)p_j^3`. 
+
+The first element of :eq:`eq_kappa2_vn2` is [2]_ :sup:`(Eq. 12)`
+
+.. math::
+
+  E\left(\sum_{j} N_{ij}^4\right)
+  = R + 7R(R-1)\sum_j p_j^2 + 6R(R-1)(R-2)\sum_j p_j^3 + R(R-1)(R-2)(R-3)\sum_j p_j^4
+
+The third element of :eq:`eq_kappa2_vn2` as [2]_ :sup:`(Eq. 14)`
+
+.. math::
+
+  \left(E\left(\sum_{j} N_{ij}^2\right)\right)^2 
+  =& R^2\left(1 + (R-1)\sum_{j} p_j^2 \right)^2  \\
+  =& R^2 + R^2(R-1)\left(2\sum_{j} p_j^2 + (R-1)(\sum_j p_j^2)^2\right) 
 
 :eq:`eq_kappa2_vn2` can be calculated as [2]_ :sup:`(Eq. 15)`
 

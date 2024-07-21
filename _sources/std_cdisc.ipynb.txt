@@ -26,7 +26,7 @@
             "cell_type": "markdown",
             "metadata": {},
             "source": [
-                "# Std/CDISC/Basics\n",
+                "# Std/CDISC/Library\n",
                 "\n",
                 "CDISC stands for Clinical Data Interchange Standards Consortium. \n",
                 "As the name indicated, the organization engages with clinical data community and creates and maintains data standards for clinical developments, \n",

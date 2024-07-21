@@ -47,6 +47,80 @@ Module Contents
       :type: str
 
 
+   .. py:attribute:: version_number
+      :value: '00.0'
+
+
+
+   .. py:attribute:: version_number_us
+      :value: '00_0'
+
+
+
+   .. py:attribute:: readme_file
+      :value: None
+
+
+
+   .. py:attribute:: year
+      :value: ''
+
+
+
+   .. py:attribute:: month
+      :value: ''
+
+
+
+   .. py:attribute:: language
+      :value: ''
+
+
+
+   .. py:attribute:: mdhier
+      :value: None
+
+
+
+   .. py:attribute:: llt
+      :value: None
+
+
+
+   .. py:attribute:: smq_list
+      :value: None
+
+
+
+   .. py:attribute:: smq_content
+      :value: None
+
+
+
+   .. py:attribute:: fmq_list
+      :value: None
+
+
+
+   .. py:attribute:: fmq_list_unique
+      :value: None
+
+
+
+   .. py:attribute:: fmq_list_default
+      :value: None
+
+
+
+   .. py:attribute:: meddra_release_file
+
+
+   .. py:attribute:: pattern
+
+
+   .. py:attribute:: files
+
+
    .. py:method:: expected_file_lists()
 
       Get the three lists of files associated with the Emt.

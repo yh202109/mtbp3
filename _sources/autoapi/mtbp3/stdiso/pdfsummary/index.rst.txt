@@ -81,6 +81,23 @@ Module Contents
       
 
 
+   .. py:attribute:: tmp0
+
+
+   .. py:attribute:: tmp1
+
+
+   .. py:attribute:: summary
+
+
+   .. py:attribute:: summary_label
+
+
+   .. py:attribute:: outline_list
+      :value: []
+
+
+
    .. py:method:: get_summary_string()
 
       Returns a string representation of the summary information.
