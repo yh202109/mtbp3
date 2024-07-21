@@ -287,14 +287,14 @@ We can use the MGF :math:`\left(\sum_{j}p_je^{t_j}\right)^R` to derive
 :math:`E\left(N_{ij}^2\right) = Rp_j + R(R-1)p_j^2`, and
 :math:`E\left(N_{ij}^3\right) = Rp_j + 3R(R-1)p_j^2 + R(R-1)(R-2)p_j^3`. 
 
-The first element of :eq:`eq_kappa2_vn2` [2]_ :sup:`(Eq. 12)`
+For the first element of :eq:`eq_kappa2_vn2`, [2]_ :sup:`(Eq. 12)`
 
 .. math::
 
   E\left(\sum_{j} N_{ij}^4\right)
   = R + 7R(R-1)\sum_j p_j^2 + 6R(R-1)(R-2)\sum_j p_j^3 + R(R-1)(R-2)(R-3)\sum_j p_j^4
 
-The third element of :eq:`eq_kappa2_vn2` as [2]_ :sup:`(Eq. 14)`
+For the third element of :eq:`eq_kappa2_vn2` [2]_ :sup:`(Eq. 14)`
 
 .. math::
 
