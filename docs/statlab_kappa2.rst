@@ -250,7 +250,7 @@ More Details
 probability of having agreement for a sample from two randomly selected raters estimated from :numref:`Tabel %s <tbl_count1>`.
 :eq:`eq_exp1` corresponds to the expected 
 probability of having agreement for a sample from two randomly selected raters under the assumption of no agreement, 
-which corresponds to the assumption of :math:`(N_{i1},\ldots, N_{iJ}) \sim multi(R, (p_1,\ldots, p_J))`.
+which corresponds to the assumption of :math:`(N_{i1},\ldots, N_{iJ}) \sim multi(R, (p_1,\ldots, p_J))` where :math:`R>4`.
 Note that the notations in this page did not use conventional 'hat' to represent estimated :math:`p_j`.
 
 The equation :eq:`eq_kappa1` can be expressed as [2]_ :sup:`(Eq. 9)`,
@@ -287,7 +287,7 @@ To calculate :eq:`eq_kappa2_vn2`,
 we can use the MGF, :math:`\left(\sum_{j}p_je^{t_j}\right)^R`, to derive
 :math:`E\left(N_{ij}^2\right) = Rp_j + R(R-1)p_j^2`, 
 :math:`E\left(N_{ij}^3\right) = Rp_j + 3R(R-1)p_j^2 + R(R-1)(R-2)p_j^3`, and 
-:math:`E\left(N_{ij}^4\right) =` (Lab Exercise; to be used in :eq:`eq_kappa2_vn3` and :eq:`eq_kappa2_vn5`). 
+:math:`E\left(N_{ij}^4\right) =` (Lab Exercise; to be used in :eq:`eq_kappa2_vn3`). 
 
 The first element of :eq:`eq_kappa2_vn2` can be calculated as [2]_ :sup:`(Eq. 12)`
 
@@ -313,7 +313,7 @@ The second element of :eq:`eq_kappa2_vn2` can be calculated using
   :label: eq_kappa2_vn5
 
   E\left( N_{ij}^2 N_{ik}^2 \right)
-  = R(R-1)p_j(p_k+(R-2)p_k^2) + R(R-1)(R-2)p_j^2(p_k+(R-3)2p_k^2)
+  = R(R-1)p_j(p_k+(R-2)p_k^2) + R(R-1)(R-2)p_j^2(p_k+(R-3)p_k^2)
 
 Combining :eq:`eq_kappa2_vn3`, :eq:`eq_kappa2_vn4`, and :eq:`eq_kappa2_vn5`, 
 :eq:`eq_kappa2_vn2` can be calculated as [2]_ :sup:`(Eq. 15)`
