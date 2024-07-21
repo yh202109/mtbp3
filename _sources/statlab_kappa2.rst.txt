@@ -285,9 +285,8 @@ and
 
 To calculate :eq:`eq_kappa2_vn2`, 
 we can use the MGF, :math:`\left(\sum_{j}p_je^{t_j}\right)^R`, to derive
-:math:`E\left(N_{ij}^2\right) = Rp_j + R(R-1)p_j^2`, 
-:math:`E\left(N_{ij}^3\right) = Rp_j + 3R(R-1)p_j^2 + R(R-1)(R-2)p_j^3`, and 
-:math:`E\left(N_{ij}^4\right) =` (Lab Exercise; to be used in :eq:`eq_kappa2_vn3`). 
+:math:`E\left(N_{ij}^2\right) = Rp_j + R(R-1)p_j^2`, and
+:math:`E\left(N_{ij}^3\right) = Rp_j + 3R(R-1)p_j^2 + R(R-1)(R-2)p_j^3`. 
 
 The first element of :eq:`eq_kappa2_vn2` can be calculated as [2]_ :sup:`(Eq. 12)`
 
