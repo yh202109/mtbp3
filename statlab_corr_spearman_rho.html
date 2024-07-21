@@ -154,13 +154,13 @@ For the <span class="math notranslate nohighlight">\(i\)</span> th sample, let
 and <span class="math notranslate nohighlight">\(S_{i3}\)</span> be the number of observed values greater to <span class="math notranslate nohighlight">\(Y_{i1}\)</span>.
 We can calculate the rank of a single sample as</p>
 <div class="math notranslate nohighlight" id="equation-eq-rank">
-<span class="eqno">(7)<a class="headerlink" href="#equation-eq-rank" title="Link to this equation"></a></span>\[R_{i1} = S_{i1} + \frac{S_{i2}+1}{2} = n - S_{i3} - \frac{S_{i2}-1}{2}.\]</div>
-<p>For a vector, <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> has the <code class="docutils literal notranslate"><span class="pre">rank</span></code> function with <code class="docutils literal notranslate"><span class="pre">method='average'</span></code> option to calculate rank as defined in <a class="reference internal" href="#equation-eq-rank">Eq. (7)</a>.
+<span class="eqno">(10)<a class="headerlink" href="#equation-eq-rank" title="Link to this equation"></a></span>\[R_{i1} = S_{i1} + \frac{S_{i2}+1}{2} = n - S_{i3} - \frac{S_{i2}-1}{2}.\]</div>
+<p>For a vector, <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> has the <code class="docutils literal notranslate"><span class="pre">rank</span></code> function with <code class="docutils literal notranslate"><span class="pre">method='average'</span></code> option to calculate rank as defined in <a class="reference internal" href="#equation-eq-rank">Eq. (10)</a>.
 In <code class="docutils literal notranslate"><span class="pre">R</span></code>, that can be calculated using the <code class="docutils literal notranslate"><span class="pre">rank</span></code> function with <code class="docutils literal notranslate"><span class="pre">ties.method='average'</span></code> option.
 See reference <a class="footnote-reference brackets" href="#id7" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> for ranking in <code class="docutils literal notranslate"><span class="pre">Julia</span></code>.</p>
 <p>The Spearman’s <span class="math notranslate nohighlight">\(\rho\)</span> can be calculated as:</p>
 <div class="math notranslate nohighlight" id="equation-eq-rho">
-<span class="eqno">(8)<a class="headerlink" href="#equation-eq-rho" title="Link to this equation"></a></span>\[\rho = \frac{\frac{1}{n}\sum_i R_{i1}R_{i2} - \frac{1}{4}(n+1)^2}{s_1 s_2},\]</div>
+<span class="eqno">(11)<a class="headerlink" href="#equation-eq-rho" title="Link to this equation"></a></span>\[\rho = \frac{\frac{1}{n}\sum_i R_{i1}R_{i2} - \frac{1}{4}(n+1)^2}{s_1 s_2},\]</div>
 <p>where <span class="math notranslate nohighlight">\(s_1^2 = \sum_i R_{i1}^2 - \frac{1}{4}(n+1)^2\)</span>,
 and <span class="math notranslate nohighlight">\(s_2^2 = \sum_i R_{i2}^2 - \frac{1}{4}(n+1)^2\)</span>.</p>
 </section>
@@ -240,7 +240,7 @@ and <span class="math notranslate nohighlight">\(s_2^2 = \sum_i R_{i2}^2 - \frac
 <h2>More Details<a class="headerlink" href="#more-details" title="Link to this heading"></a></h2>
 <p>Assume that <span class="math notranslate nohighlight">\(Y_{i1} \sim \mathcal{D}\)</span>.
 For continuous <span class="math notranslate nohighlight">\(Y_{i1}\)</span>, if we can assume that <span class="math notranslate nohighlight">\(P(S_{i1}=0)=1\)</span>,
-then <a class="reference internal" href="#equation-eq-rank">Eq. (7)</a> can be simplified as <span class="math notranslate nohighlight">\(R_{i1} = S_{i1}+1\)</span>.
+then <a class="reference internal" href="#equation-eq-rank">Eq. (10)</a> can be simplified as <span class="math notranslate nohighlight">\(R_{i1} = S_{i1}+1\)</span>.
 For a given sample size <span class="math notranslate nohighlight">\(n\)</span>, and <span class="math notranslate nohighlight">\(r \in \{1, \ldots, n\}\)</span>, the pmf of <span class="math notranslate nohighlight">\(R_{i1}\)</span> is
 <span class="math notranslate nohighlight">\(P(R_{i1} = r) = \frac{1}{n}\)</span>, which does not depend on <span class="math notranslate nohighlight">\(r\)</span> or <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> <a class="footnote-reference brackets" href="#id9" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>.</p>
 </section>

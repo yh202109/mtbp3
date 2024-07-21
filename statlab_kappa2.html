@@ -373,19 +373,31 @@ The variance of <span class="math notranslate nohighlight">\(\kappa\)</span> und
 <span class="eqno">(4)<a class="headerlink" href="#equation-eq-kappa2-vn2" title="Link to this equation"></a></span>\[\begin{split}var\left(\sum_{j} N_{ij}^2 \right)
 =&amp; E\left( \left(\sum_{j} N_{ij}^2\right)^2\right) - \left(E\left(\sum_{j} N_{ij}^2\right)\right)^2 \\
 =&amp; E\left(\sum_{j} N_{ij}^4\right) + E\left(\sum_j\sum_{k \neq j} N_{ij}^2 N_{ik}^2 \right) - \left(E\left(\sum_{j} N_{ij}^2\right)\right)^2.\end{split}\]</div>
-<p>We can use the MGF <span class="math notranslate nohighlight">\(\left(\sum_{j}p_je^{t_j}\right)^R\)</span> to derive
-<span class="math notranslate nohighlight">\(E\left(N_{ij}^2\right) = Rp_j + R(R-1)p_j^2\)</span>, and
-<span class="math notranslate nohighlight">\(E\left(N_{ij}^3\right) = Rp_j + 3R(R-1)p_j^2 + R(R-1)(R-2)p_j^3\)</span>.</p>
-<p>For the first element of <a class="reference internal" href="#equation-eq-kappa2-vn2">Eq. (4)</a>, <a class="footnote-reference brackets" href="#id9" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> <sup>(Eq. 12)</sup></p>
-<div class="math notranslate nohighlight">
-\[E\left(\sum_{j} N_{ij}^4\right)
+<p>To calculate <a class="reference internal" href="#equation-eq-kappa2-vn2">Eq. (4)</a>,
+we can use the MGF, <span class="math notranslate nohighlight">\(\left(\sum_{j}p_je^{t_j}\right)^R\)</span>, to derive
+<span class="math notranslate nohighlight">\(E\left(N_{ij}^2\right) = Rp_j + R(R-1)p_j^2\)</span>,
+<span class="math notranslate nohighlight">\(E\left(N_{ij}^3\right) = Rp_j + 3R(R-1)p_j^2 + R(R-1)(R-2)p_j^3\)</span>, and
+<span class="math notranslate nohighlight">\(E\left(N_{ij}^4\right) = ` (Lab Exercise; to be used in :eq:`eq_kappa2_vn3\)</span> and <a class="reference internal" href="#equation-eq-kappa2-vn5">Eq. (7)</a>).</p>
+<p>The first element of <a class="reference internal" href="#equation-eq-kappa2-vn2">Eq. (4)</a> can be calculated as <a class="footnote-reference brackets" href="#id9" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> <sup>(Eq. 12)</sup></p>
+<div class="math notranslate nohighlight" id="equation-eq-kappa2-vn3">
+<span class="eqno">(5)<a class="headerlink" href="#equation-eq-kappa2-vn3" title="Link to this equation"></a></span>\[E\left(\sum_{j} N_{ij}^4\right)
 = R + 7R(R-1)\sum_j p_j^2 + 6R(R-1)(R-2)\sum_j p_j^3 + R(R-1)(R-2)(R-3)\sum_j p_j^4\]</div>
-<p>For the third element of <a class="reference internal" href="#equation-eq-kappa2-vn2">Eq. (4)</a> <a class="footnote-reference brackets" href="#id9" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> <sup>(Eq. 14)</sup></p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\left(E\left(\sum_{j} N_{ij}^2\right)\right)^2
+<p>The third element of <a class="reference internal" href="#equation-eq-kappa2-vn2">Eq. (4)</a> can be calculated as <a class="footnote-reference brackets" href="#id9" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> <sup>(Eq. 14)</sup></p>
+<div class="math notranslate nohighlight" id="equation-eq-kappa2-vn4">
+<span class="eqno">(6)<a class="headerlink" href="#equation-eq-kappa2-vn4" title="Link to this equation"></a></span>\[\begin{split}\left(E\left(\sum_{j} N_{ij}^2\right)\right)^2
 =&amp; R^2\left(1 + (R-1)\sum_{j} p_j^2 \right)^2  \\
 =&amp; R^2 + R^2(R-1)\left(2\sum_{j} p_j^2 + (R-1)(\sum_j p_j^2)^2\right)\end{split}\]</div>
-<p><a class="reference internal" href="#equation-eq-kappa2-vn2">Eq. (4)</a> can be calculated as <a class="footnote-reference brackets" href="#id9" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> <sup>(Eq. 15)</sup></p>
+<p>The second element of <a class="reference internal" href="#equation-eq-kappa2-vn2">Eq. (4)</a> can be calculated using</p>
+<div class="math notranslate nohighlight" id="equation-eq-kappa2-vn5">
+<span class="eqno">(7)<a class="headerlink" href="#equation-eq-kappa2-vn5" title="Link to this equation"></a></span>\[\begin{split}E\left( N_{ij}^2 N_{ik}^2 \right)
+=&amp; E\left(N_{ik}^2E\left(N_{ij}^2|N_{ik}\right)\right) \\
+=&amp; \frac{p_j}{1-p_k}E\left(RN_{ik}^2-N_{ik}^3\right)
++ \frac{p_j^2}{(1-p_k)^2}E\left((R^2-R)N_{ik}^2 - (2R+1)N_{ik}^3-N_{ik}^4\right)
+=&amp; \left(\frac{p_j}{1-p_k} + \frac{p_j^2}{(1-p_k)^2}(R^2-R)\right)E(N_{ik}^2)
+-\left(\frac{p_j}{1-p_k}E(N_{ik}^3) + \frac{p_j^2}{(1-p_k)^2}(2R+1)\right)E(N_{ik}^3)
+-\frac{p_j^2}{(1-p_k)^2}E(N_{ik}^4)\end{split}\]</div>
+<p>Combining <a class="reference internal" href="#equation-eq-kappa2-vn3">Eq. (5)</a>, <a class="reference internal" href="#equation-eq-kappa2-vn4">Eq. (6)</a>, and <a class="reference internal" href="#equation-eq-kappa2-vn5">Eq. (7)</a>,
+<a class="reference internal" href="#equation-eq-kappa2-vn2">Eq. (4)</a> can be calculated as <a class="footnote-reference brackets" href="#id9" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> <sup>(Eq. 15)</sup></p>
 <div class="math notranslate nohighlight">
 \[var\left(\sum_{j} N_{ij}^2 \right)
 = 2R(R-1)\left(\sum_j p_j^2 - (2R-3)\left(\sum_j p_j^2\right)^2 + 2(R-2)\sum_j p_j^3\right).\]</div>

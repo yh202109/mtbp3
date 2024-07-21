@@ -156,23 +156,23 @@
 and <span class="math notranslate nohighlight">\(t = \frac{n(n-1)}{2}\)</span>.
 The coefficient <span class="math notranslate nohighlight">\(\tau\)</span> (tau-a) can be calculated as</p>
 <div class="math notranslate nohighlight" id="equation-eq-tau1">
-<span class="eqno">(5)<a class="headerlink" href="#equation-eq-tau1" title="Link to this equation"></a></span>\[\tau = \frac{ c - d }{t}.\]</div>
-<p>If there are no ties, the maximum value of <a class="reference internal" href="#equation-eq-tau1">Eq. (5)</a> is 1 at <span class="math notranslate nohighlight">\(c=t\)</span>,
+<span class="eqno">(8)<a class="headerlink" href="#equation-eq-tau1" title="Link to this equation"></a></span>\[\tau = \frac{ c - d }{t}.\]</div>
+<p>If there are no ties, the maximum value of <a class="reference internal" href="#equation-eq-tau1">Eq. (8)</a> is 1 at <span class="math notranslate nohighlight">\(c=t\)</span>,
 and the minimum is -1 at <span class="math notranslate nohighlight">\(d=t\)</span>.</p>
-<p><a class="reference internal" href="#equation-eq-tau1">Eq. (5)</a> can also be expressed as</p>
+<p><a class="reference internal" href="#equation-eq-tau1">Eq. (8)</a> can also be expressed as</p>
 <div class="math notranslate nohighlight" id="equation-eq-tau2">
-<span class="eqno">(6)<a class="headerlink" href="#equation-eq-tau2" title="Link to this equation"></a></span>\[\begin{split}\tau =&amp; \frac{2}{n(n-1)} \left( \sum_{i=1}^n \sum_{j &lt; i} Z_{ij1}Z_{ij2} \right) \\
+<span class="eqno">(9)<a class="headerlink" href="#equation-eq-tau2" title="Link to this equation"></a></span>\[\begin{split}\tau =&amp; \frac{2}{n(n-1)} \left( \sum_{i=1}^n \sum_{j &lt; i} Z_{ij1}Z_{ij2} \right) \\
 =&amp; \frac{1}{n(n-1)} \left( \sum_{i=1}^n \sum_{j=1}^n Z_{ij1}Z_{ij2} \right).\end{split}\]</div>
 <p>Under independent sample assumption, for a fixed <span class="math notranslate nohighlight">\(n\)</span>, we know that
 <span class="math notranslate nohighlight">\(E(Z_{ij1})=E(Z_{ij2})=0\)</span> and
 <span class="math notranslate nohighlight">\(Var(Z_{ij1})=Var(Z_{ij2})=1-\frac{1}{n}\)</span>.
-From <a class="reference internal" href="#equation-eq-tau2">Eq. (6)</a>, we can see that <span class="math notranslate nohighlight">\(\tau\)</span> is a type of correlation coefficient.</p>
-<p>If there are ties, the maximum value of <a class="reference internal" href="#equation-eq-tau1">Eq. (5)</a> becomes less then 1.
+From <a class="reference internal" href="#equation-eq-tau2">Eq. (9)</a>, we can see that <span class="math notranslate nohighlight">\(\tau\)</span> is a type of correlation coefficient.</p>
+<p>If there are ties, the maximum value of <a class="reference internal" href="#equation-eq-tau1">Eq. (8)</a> becomes less then 1.
 Consider the scenario that there are <span class="math notranslate nohighlight">\(n_{t1}\)</span> groups of ties in <span class="math notranslate nohighlight">\(\{Y_{i1}\}\)</span>,
 and there are <span class="math notranslate nohighlight">\(n_{t2}\)</span> groups of ties in <span class="math notranslate nohighlight">\(\{Y_{i2}\}\)</span>.
 Let <span class="math notranslate nohighlight">\(n_{t1,k}\)</span> be the number of ties within the <span class="math notranslate nohighlight">\(k\)</span> th group of ties in <span class="math notranslate nohighlight">\(\{Y_{i1}\}\)</span>,
 and <span class="math notranslate nohighlight">\(n_{t2,k}\)</span> be the number of ties within the <span class="math notranslate nohighlight">\(k\)</span> th group of ties in <span class="math notranslate nohighlight">\(\{Y_{i2}\}\)</span>
-The adjusted <span class="math notranslate nohighlight">\(\tau\)</span> (tau-b) is calculated by replacing <span class="math notranslate nohighlight">\(t\)</span> in <a class="reference internal" href="#equation-eq-tau1">Eq. (5)</a> with
+The adjusted <span class="math notranslate nohighlight">\(\tau\)</span> (tau-b) is calculated by replacing <span class="math notranslate nohighlight">\(t\)</span> in <a class="reference internal" href="#equation-eq-tau1">Eq. (8)</a> with
 <span class="math notranslate nohighlight">\(t^* = \sqrt{\frac{1}{2}n(n-1)-\sum_{k=1}^{n_{t1}} \frac{1}{2}n_{t1,k}(n_{t1,k}-1)}\sqrt{\frac{1}{2}n(n-1)-\sum_{k=1}^{n_{t2}} \frac{1}{2}n_{t2,k}(n_{t2,k}-1)}\)</span></p>
 </section>
 <section id="example-group-1">
@@ -256,7 +256,7 @@ The adjusted <span class="math notranslate nohighlight">\(\tau\)</span> (tau-b) 
 <h2>Algorithm - 1<a class="headerlink" href="#algorithm-1" title="Link to this heading"></a></h2>
 <p><strong>WARNING: FOR SMALL SAMPLE SIZES ONLY</strong></p>
 <p>Note that the algorithm in this section is implement in <code class="docutils literal notranslate"><span class="pre">mtbp3.stalab</span></code> for illustration purpose.
-Although the matrix form is closely representing <a class="reference internal" href="#equation-eq-tau2">Eq. (6)</a>,
+Although the matrix form is closely representing <a class="reference internal" href="#equation-eq-tau2">Eq. (9)</a>,
 the calculation time increases greatly when the sample size increases.
 Other algorithms can be found in references.</p>
 <p>Let <span class="math notranslate nohighlight">\(Y_{1} = (Y_{11}, \ldots, Y_{n1})\)</span> and <span class="math notranslate nohighlight">\(Y_{2} = (Y_{12}, \ldots, Y_{n2})\)</span>.

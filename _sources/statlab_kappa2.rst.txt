@@ -283,25 +283,44 @@ and
   =& E\left( \left(\sum_{j} N_{ij}^2\right)^2\right) - \left(E\left(\sum_{j} N_{ij}^2\right)\right)^2 \\
   =& E\left(\sum_{j} N_{ij}^4\right) + E\left(\sum_j\sum_{k \neq j} N_{ij}^2 N_{ik}^2 \right) - \left(E\left(\sum_{j} N_{ij}^2\right)\right)^2.
 
-We can use the MGF :math:`\left(\sum_{j}p_je^{t_j}\right)^R` to derive
-:math:`E\left(N_{ij}^2\right) = Rp_j + R(R-1)p_j^2`, and
-:math:`E\left(N_{ij}^3\right) = Rp_j + 3R(R-1)p_j^2 + R(R-1)(R-2)p_j^3`. 
+To calculate :eq:`eq_kappa2_vn2`, 
+we can use the MGF, :math:`\left(\sum_{j}p_je^{t_j}\right)^R`, to derive
+:math:`E\left(N_{ij}^2\right) = Rp_j + R(R-1)p_j^2`, 
+:math:`E\left(N_{ij}^3\right) = Rp_j + 3R(R-1)p_j^2 + R(R-1)(R-2)p_j^3`, and 
+:math:`E\left(N_{ij}^4\right) = ` (Lab Exercise; to be used in :eq:`eq_kappa2_vn3` and :eq:`eq_kappa2_vn5`). 
 
-For the first element of :eq:`eq_kappa2_vn2`, [2]_ :sup:`(Eq. 12)`
+The first element of :eq:`eq_kappa2_vn2` can be calculated as [2]_ :sup:`(Eq. 12)`
 
 .. math::
+  :label: eq_kappa2_vn3
 
   E\left(\sum_{j} N_{ij}^4\right)
   = R + 7R(R-1)\sum_j p_j^2 + 6R(R-1)(R-2)\sum_j p_j^3 + R(R-1)(R-2)(R-3)\sum_j p_j^4
 
-For the third element of :eq:`eq_kappa2_vn2` [2]_ :sup:`(Eq. 14)`
+
+The third element of :eq:`eq_kappa2_vn2` can be calculated as [2]_ :sup:`(Eq. 14)`
 
 .. math::
+  :label: eq_kappa2_vn4
 
   \left(E\left(\sum_{j} N_{ij}^2\right)\right)^2 
   =& R^2\left(1 + (R-1)\sum_{j} p_j^2 \right)^2  \\
   =& R^2 + R^2(R-1)\left(2\sum_{j} p_j^2 + (R-1)(\sum_j p_j^2)^2\right) 
 
+The second element of :eq:`eq_kappa2_vn2` can be calculated using 
+
+.. math::
+  :label: eq_kappa2_vn5
+
+  E\left( N_{ij}^2 N_{ik}^2 \right)
+  =& E\left(N_{ik}^2E\left(N_{ij}^2|N_{ik}\right)\right) \\
+  =& \frac{p_j}{1-p_k}E\left(RN_{ik}^2-N_{ik}^3\right) 
+  + \frac{p_j^2}{(1-p_k)^2}E\left((R^2-R)N_{ik}^2 - (2R+1)N_{ik}^3-N_{ik}^4\right)
+  =& \left(\frac{p_j}{1-p_k} + \frac{p_j^2}{(1-p_k)^2}(R^2-R)\right)E(N_{ik}^2) 
+  -\left(\frac{p_j}{1-p_k}E(N_{ik}^3) + \frac{p_j^2}{(1-p_k)^2}(2R+1)\right)E(N_{ik}^3)
+  -\frac{p_j^2}{(1-p_k)^2}E(N_{ik}^4)
+
+Combining :eq:`eq_kappa2_vn3`, :eq:`eq_kappa2_vn4`, and :eq:`eq_kappa2_vn5`, 
 :eq:`eq_kappa2_vn2` can be calculated as [2]_ :sup:`(Eq. 15)`
 
 .. math::
