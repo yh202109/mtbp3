@@ -355,11 +355,11 @@ Number of sample: 100
 probability of having agreement for a sample from two randomly selected raters estimated from <a class="reference internal" href="#tbl-count1"><span class="std std-numref">Tabel 11</span></a>.
 <a class="reference internal" href="#equation-eq-exp1">Eq. (2)</a> corresponds to the expected
 probability of having agreement for a sample from two randomly selected raters under the assumption of no agreement,
-which corresponds to the assumption of <span class="math notranslate nohighlight">\((N_{i1},\ldots, N_{iJ}) \sim multi(R, (p_1,\ldots, p_J))\)</span> where <span class="math notranslate nohighlight">\(R&gt;4\)</span>.
-Note that the notations in this page did not use conventional ‘hat’ to represent estimated <span class="math notranslate nohighlight">\(p_j\)</span>.</p>
-<p>The equation <a class="reference internal" href="#equation-eq-kappa1">Eq. (3)</a> can be expressed as <a class="footnote-reference brackets" href="#id9" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> <sup>(Eq. 9)</sup>,</p>
+which corresponds to the assumption of <span class="math notranslate nohighlight">\((N_{i1},\ldots, N_{iJ}) \sim multi(R, (p_1,\ldots, p_J))\)</span> where <span class="math notranslate nohighlight">\(R&gt;4\)</span>.</p>
+<p>Let <span class="math notranslate nohighlight">\(S_{p2} = \sum_j p_j^2\)</span>, <span class="math notranslate nohighlight">\(S_{p3} = \sum_j p_j^3\)</span>, and <span class="math notranslate nohighlight">\(S_{p4} = \sum_j p_j^4\)</span>.
+The equation <a class="reference internal" href="#equation-eq-kappa1">Eq. (3)</a> can be expressed as <a class="footnote-reference brackets" href="#id9" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> <sup>(Eq. 9)</sup>,</p>
 <div class="math notranslate nohighlight">
-\[\kappa = \frac{\sum_{i=1}^{n}\sum_{j=1}^J N_{ij}^2 - nR\left(1+(R-1)\sum_{j=1}^J p_j^2\right)}{nR(R-1)(1-\sum_{j=1}^J p_j^2)}\]</div>
+\[\kappa = \frac{\sum_{i=1}^{n}\sum_{j=1}^J N_{ij}^2 - nR\left(1+(R-1) S_{p2} \right)}{nR(R-1)(1- S_{p2} )}\]</div>
 <p>Note that Fleiss (1971) assumed large <span class="math notranslate nohighlight">\(n\)</span> and fixed <span class="math notranslate nohighlight">\(p_j\)</span> while deriving variance of kappa.
 Please see the Fleiss (1971) for more discussions.
 The variance of <span class="math notranslate nohighlight">\(\kappa\)</span> under the assumption of no agreement beyond chance can be approximated as:</p>
@@ -367,7 +367,7 @@ The variance of <span class="math notranslate nohighlight">\(\kappa\)</span> und
 \[var(\kappa) = c(n,R,\{p_j\}) var\left(\sum_{j=1}^J N_{1j}^2 \right),\]</div>
 <p>where</p>
 <div class="math notranslate nohighlight">
-\[c(n,R,\{p_j\}) = n^{-1}\left(R(R-1)\left(1-\sum_{j=1}^J p_j^2\right)\right)^{-2},\]</div>
+\[c(n,R,\{p_j\}) = n^{-1}\left(R(R-1)\left(1-S_{p2}\right)\right)^{-2},\]</div>
 <p>and</p>
 <div class="math notranslate nohighlight" id="equation-eq-kappa2-vn2">
 <span class="eqno">(4)<a class="headerlink" href="#equation-eq-kappa2-vn2" title="Link to this equation"></a></span>\[\begin{split}var\left(\sum_{j} N_{ij}^2 \right)
@@ -380,24 +380,24 @@ we can use the MGF, <span class="math notranslate nohighlight">\(\left(\sum_{j}p
 <p>The first element of <a class="reference internal" href="#equation-eq-kappa2-vn2">Eq. (4)</a> can be calculated as <a class="footnote-reference brackets" href="#id9" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> <sup>(Eq. 12)</sup></p>
 <div class="math notranslate nohighlight" id="equation-eq-kappa2-vn3">
 <span class="eqno">(5)<a class="headerlink" href="#equation-eq-kappa2-vn3" title="Link to this equation"></a></span>\[E\left(\sum_{j} N_{ij}^4\right)
-= R + 7R(R-1)\sum_j p_j^2 + 6R(R-1)(R-2)\sum_j p_j^3 + R(R-1)(R-2)(R-3)\sum_j p_j^4\]</div>
+= R + 7R(R-1)S_{p2} + 6R(R-1)(R-2)S_{p3} + R(R-1)(R-2)(R-3)S_{p4}\]</div>
 <p>The third element of <a class="reference internal" href="#equation-eq-kappa2-vn2">Eq. (4)</a> can be calculated as <a class="footnote-reference brackets" href="#id9" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> <sup>(Eq. 14)</sup></p>
 <div class="math notranslate nohighlight" id="equation-eq-kappa2-vn4">
 <span class="eqno">(6)<a class="headerlink" href="#equation-eq-kappa2-vn4" title="Link to this equation"></a></span>\[\begin{split}\left(E\left(\sum_{j} N_{ij}^2\right)\right)^2
-=&amp; R^2\left(1 + (R-1)\sum_{j} p_j^2 \right)^2  \\
-=&amp; R^2 + R^2(R-1)\left(2\sum_{j} p_j^2 + (R-1)(\sum_j p_j^2)^2\right)\end{split}\]</div>
+=&amp; R^2\left(1 + (R-1)S_{p2} \right)^2  \\
+=&amp; R^2 + R^2(R-1)\left(2 S_{p2} + (R-1)S_{p2}^2\right)\end{split}\]</div>
 <p>The second element of <a class="reference internal" href="#equation-eq-kappa2-vn2">Eq. (4)</a> can be calculated, using
 <span class="math notranslate nohighlight">\(E\left( N_{ij}^2 N_{ik}^2 \right) = R(R-1)p_j(p_k+(R-2)p_k^2) + R(R-1)(R-2)p_j^2(p_k+(R-3)p_k^2)\)</span>, as</p>
 <div class="math notranslate nohighlight" id="equation-eq-kappa2-vn5">
 <span class="eqno">(7)<a class="headerlink" href="#equation-eq-kappa2-vn5" title="Link to this equation"></a></span>\[\begin{split}E\left( \sum_j\sum_{k \neq j} N_{ij}^2 N_{ik}^2 \right)
-=&amp; R(R-1) + R(R-1)(2R-5)\left(\sum_j p_j^2\right)
-- 2R(R-1)(R-2)\left(\sum_j p_j^3\right) \\
-&amp;- R(R-1)(R-2)(R-3)\left(\sum_j p_j^4 \right) + R(R-1)(R-2)(R-3) \left(\sum_{j} p_j^2\right)^2\end{split}\]</div>
+=&amp; R(R-1) + R(R-1)(2R-5)S_{p2}
+- 2R(R-1)(R-2)S_{p3} \\
+&amp;- R(R-1)(R-2)(R-3)S_{p4} + R(R-1)(R-2)(R-3) S_{p2}^2\end{split}\]</div>
 <p>Combining <a class="reference internal" href="#equation-eq-kappa2-vn3">Eq. (5)</a>, <a class="reference internal" href="#equation-eq-kappa2-vn4">Eq. (6)</a>, and <a class="reference internal" href="#equation-eq-kappa2-vn5">Eq. (7)</a>,
 <a class="reference internal" href="#equation-eq-kappa2-vn2">Eq. (4)</a> can be calculated as <a class="footnote-reference brackets" href="#id9" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> <sup>(Eq. 15)</sup></p>
 <div class="math notranslate nohighlight">
 \[var\left(\sum_{j} N_{ij}^2 \right)
-= 2R(R-1)\left(\sum_j p_j^2 - (2R-3)\left(\sum_j p_j^2\right)^2 + 2(R-2)\sum_j p_j^3\right).\]</div>
+= 2R(R-1)\left(S_{p2} - (2R-3)S_{p2}^2 + 2(R-2)S_{p3}\right).\]</div>
 </section>
 <section id="id7">
 <h2>Lab Exercise<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
