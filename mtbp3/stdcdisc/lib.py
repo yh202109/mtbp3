@@ -16,6 +16,7 @@
 import requests
 import os
 import pandas as pd
+import json
 
 class accessLib:
     """
@@ -29,6 +30,7 @@ class accessLib:
         ValueError: If the API key is empty.
     """
 
+
     def __init__(self, input_file):
         self.input_file = input_file
         if not os.path.isfile(self.input_file):
@@ -39,8 +41,10 @@ class accessLib:
             raise ValueError("API key is empty.")
 
         self.baseURL = "https://library.cdisc.org/api"
+        self.ct_list = pd.DataFrame()
+        self.ct_list_titles = []
 
-    def get_ct_list(self):
+    def get_ct_list(self, newest=True):
         """
         Retrieves a DataFrame containing information about CDISC library packages.
 
@@ -68,10 +72,79 @@ class accessLib:
                 t1, t2 = title.split(" Controlled Terminology Package ")
                 t2, t3 = t2.split(" Effective ")
                 df = df._append({'Title': t1, 'PkgSeries': t2, 'Effective': t3, 'Path': package['href'], 'Type': package['type']}, ignore_index=True)
-            df['Newest'] = df['Effective'] == df.groupby('Title')['Effective'].transform('max')
-        return {'ct': df, 'title': set(df['Title'])}
+            df['TitleL'] = df['Title'].str.lower()
+            df['Newest'] = df['Effective'] == df.groupby('TitleL')['Effective'].transform('max')
+        else:
+            raise ValueError("Invalid status code: " + str(req.status_code) + " - " + req.reason)
+
+        if newest:
+            df = df[df['Newest']]
+        self.ct_list = df
+        self.ct_list_titles = set(df['Title'])
+        return 
+
+    def get_ct_package(self, title = "", pkg_series = "", out_folder = ""):
+        """
+        Downloads a CDISC library package based on the specified title and series.
+
+        This method takes a title and series as input and downloads the corresponding CDISC library package.
+        The package is downloaded from the URL specified in self.baseURL + self.ct_list['ct']['Path'].
+
+        Args:
+            title (str): The title of the package to download.
+            series (str): The series of the package to download.
+
+        Returns:
+            bool: True if the package is successfully downloaded, False otherwise.
+        """
+        if self.ct_list.empty:
+            self.get_ct_list()
+        if title not in self.ct_list_titles:
+            raise ValueError("Invalid title. Title not found in the CDISC library.")
+        pkg_series = str(pkg_series)
+        if not (isinstance(pkg_series, str) and len(pkg_series) <= 2):
+            raise ValueError("Invalid series. Pkg_series must be a length 2 string or an integer.")
+
+        df = self.ct_list[(self.ct_list['TitleL'] == title.lower())]
+
+        if pkg_series == "":
+            df = df[df['Newest']]
+        else:
+            if pkg_series not in df['PkgSeries'].values:
+                raise ValueError("Invalid series. Series not found in the CDISC library.")
+            df = df[(df['PkgSeries'] == pkg_series)]
+        if len(df) != 1:
+            raise ValueError("Invalid package. Multiple packages found with the same title and series.")
+
+        package_url = self.baseURL + df['Path'].values[0]
+        req = requests.get(package_url, headers={'api-key': self.api_key})
+        req.close()
+        if req.status_code == 200:
+            c = req.json()
+            package_info = {
+                'description': c['description'],
+                'effectiveDate': c['effectiveDate'],
+                'label': c['label'],
+                'name': c['name'],
+                'source': c['source'],
+                'registrationStatus': c['registrationStatus'],
+                'version': c['version']
+            }
+        
+            out = {'codelists': c['codelists'], 'package_info': package_info}
+            if out_folder != "" and os.path.isdir(out_folder):
+                package_name = package_url.split('/')[-1]
+                out_path = os.path.join(out_folder, package_name)
+                with open(out_path, 'w') as file:
+                    json.dump(out, file)
+        
+            return out
+        else:
+            raise ValueError("Invalid status code: " + str(req.status_code) + " - " + req.reason)
 
 if __name__ == "__main__":
-    cl = accessLib("/Users/yh2020/cdisc.txt")
-    out = cl.get_ct_list()
-    print(cl.ct_list_titles)
+    pass
+
+    #cl = accessLib("/Users/yh2020/cdisc.txt")
+    #cl.get_ct_list()
+    #c = cl.get_ct_package('Protocol')
