@@ -251,13 +251,14 @@ probability of having agreement for a sample from two randomly selected raters e
 :eq:`eq_exp1` corresponds to the expected 
 probability of having agreement for a sample from two randomly selected raters under the assumption of no agreement, 
 which corresponds to the assumption of :math:`(N_{i1},\ldots, N_{iJ}) \sim multi(R, (p_1,\ldots, p_J))` where :math:`R>4`.
-Note that the notations in this page did not use conventional 'hat' to represent estimated :math:`p_j`.
 
+
+Let :math:`S_{p2} = \sum_j p_j^2`, :math:`S_{p3} = \sum_j p_j^3`, and :math:`S_{p4} = \sum_j p_j^4`. 
 The equation :eq:`eq_kappa1` can be expressed as [2]_ :sup:`(Eq. 9)`,
 
 .. math::
 
-  \kappa = \frac{\sum_{i=1}^{n}\sum_{j=1}^J N_{ij}^2 - nR\left(1+(R-1)\sum_{j=1}^J p_j^2\right)}{nR(R-1)(1-\sum_{j=1}^J p_j^2)}
+  \kappa = \frac{\sum_{i=1}^{n}\sum_{j=1}^J N_{ij}^2 - nR\left(1+(R-1) S_{p2} \right)}{nR(R-1)(1- S_{p2} )}
 
 
 Note that Fleiss (1971) assumed large :math:`n` and fixed :math:`p_j` while deriving variance of kappa.
@@ -272,7 +273,7 @@ where
 
 .. math::
 
-  c(n,R,\{p_j\}) = n^{-1}\left(R(R-1)\left(1-\sum_{j=1}^J p_j^2\right)\right)^{-2},
+  c(n,R,\{p_j\}) = n^{-1}\left(R(R-1)\left(1-S_{p2}\right)\right)^{-2},
 
 and 
 
@@ -294,7 +295,7 @@ The first element of :eq:`eq_kappa2_vn2` can be calculated as [2]_ :sup:`(Eq. 12
   :label: eq_kappa2_vn3
 
   E\left(\sum_{j} N_{ij}^4\right)
-  = R + 7R(R-1)\sum_j p_j^2 + 6R(R-1)(R-2)\sum_j p_j^3 + R(R-1)(R-2)(R-3)\sum_j p_j^4
+  = R + 7R(R-1)S_{p2} + 6R(R-1)(R-2)S_{p3} + R(R-1)(R-2)(R-3)S_{p4}
 
 The third element of :eq:`eq_kappa2_vn2` can be calculated as [2]_ :sup:`(Eq. 14)`
 
@@ -302,8 +303,8 @@ The third element of :eq:`eq_kappa2_vn2` can be calculated as [2]_ :sup:`(Eq. 14
   :label: eq_kappa2_vn4
 
   \left(E\left(\sum_{j} N_{ij}^2\right)\right)^2 
-  =& R^2\left(1 + (R-1)\sum_{j} p_j^2 \right)^2  \\
-  =& R^2 + R^2(R-1)\left(2\sum_{j} p_j^2 + (R-1)(\sum_j p_j^2)^2\right) 
+  =& R^2\left(1 + (R-1)S_{p2} \right)^2  \\
+  =& R^2 + R^2(R-1)\left(2 S_{p2} + (R-1)S_{p2}^2\right) 
 
 The second element of :eq:`eq_kappa2_vn2` can be calculated, using 
 :math:`E\left( N_{ij}^2 N_{ik}^2 \right) = R(R-1)p_j(p_k+(R-2)p_k^2) + R(R-1)(R-2)p_j^2(p_k+(R-3)p_k^2)`, as
@@ -312,9 +313,9 @@ The second element of :eq:`eq_kappa2_vn2` can be calculated, using
   :label: eq_kappa2_vn5
 
   E\left( \sum_j\sum_{k \neq j} N_{ij}^2 N_{ik}^2 \right) 
-  =& R(R-1) + R(R-1)(2R-5)\left(\sum_j p_j^2\right) 
-  - 2R(R-1)(R-2)\left(\sum_j p_j^3\right) \\
-  &- R(R-1)(R-2)(R-3)\left(\sum_j p_j^4 \right) + R(R-1)(R-2)(R-3) \left(\sum_{j} p_j^2\right)^2
+  =& R(R-1) + R(R-1)(2R-5)S_{p2} 
+  - 2R(R-1)(R-2)S_{p3} \\
+  &- R(R-1)(R-2)(R-3)S_{p4} + R(R-1)(R-2)(R-3) S_{p2}^2
 
 Combining :eq:`eq_kappa2_vn3`, :eq:`eq_kappa2_vn4`, and :eq:`eq_kappa2_vn5`, 
 :eq:`eq_kappa2_vn2` can be calculated as [2]_ :sup:`(Eq. 15)`
@@ -322,7 +323,7 @@ Combining :eq:`eq_kappa2_vn3`, :eq:`eq_kappa2_vn4`, and :eq:`eq_kappa2_vn5`,
 .. math::
 
   var\left(\sum_{j} N_{ij}^2 \right) 
-  = 2R(R-1)\left(\sum_j p_j^2 - (2R-3)\left(\sum_j p_j^2\right)^2 + 2(R-2)\sum_j p_j^3\right).
+  = 2R(R-1)\left(S_{p2} - (2R-3)S_{p2}^2 + 2(R-2)S_{p3}\right).
 
 *************
 Lab Exercise
