@@ -116,16 +116,6 @@
              
   <section id="module-mtbp3.stdcdisc.lib">
 <span id="mtbp3-stdcdisc-lib"></span><h1>mtbp3.stdcdisc.lib<a class="headerlink" href="#module-mtbp3.stdcdisc.lib" title="Link to this heading"></a></h1>
-<section id="attributes">
-<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h2>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mtbp3.stdcdisc.lib.cl" title="mtbp3.stdcdisc.lib.cl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cl</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-</tbody>
-</table>
-</section>
 <section id="classes">
 <h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
 <table class="autosummary longtable docutils align-default">
@@ -171,9 +161,19 @@
 <span class="sig-name descname"><span class="pre">baseURL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://library.cdisc.org/api'</span></em><a class="headerlink" href="#mtbp3.stdcdisc.lib.accessLib.baseURL" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mtbp3.stdcdisc.lib.accessLib.ct_list">
+<span class="sig-name descname"><span class="pre">ct_list</span></span><a class="headerlink" href="#mtbp3.stdcdisc.lib.accessLib.ct_list" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mtbp3.stdcdisc.lib.accessLib.ct_list_titles">
+<span class="sig-name descname"><span class="pre">ct_list_titles</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#mtbp3.stdcdisc.lib.accessLib.ct_list_titles" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="mtbp3.stdcdisc.lib.accessLib.get_ct_list">
-<span class="sig-name descname"><span class="pre">get_ct_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/stdcdisc/lib.html#accessLib.get_ct_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.stdcdisc.lib.accessLib.get_ct_list" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_ct_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">newest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/stdcdisc/lib.html#accessLib.get_ct_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.stdcdisc.lib.accessLib.get_ct_list" title="Link to this definition"></a></dt>
 <dd><p>Retrieves a DataFrame containing information about CDISC library packages.</p>
 <p>This method sends a GET request to the CDISC library API to retrieve information about CDISC library packages.
 It returns a DataFrame containing package information, including the title, package series, effective date, path, and type of each package.</p>
@@ -194,12 +194,29 @@ It returns a DataFrame containing package information, including the title, pack
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="mtbp3.stdcdisc.lib.accessLib.get_ct_package">
+<span class="sig-name descname"><span class="pre">get_ct_package</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pkg_series</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/stdcdisc/lib.html#accessLib.get_ct_package"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.stdcdisc.lib.accessLib.get_ct_package" title="Link to this definition"></a></dt>
+<dd><p>Downloads a CDISC library package based on the specified title and series.</p>
+<p>This method takes a title and series as input and downloads the corresponding CDISC library package.
+The package is downloaded from the URL specified in self.baseURL + self.ct_list[‘ct’][‘Path’].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>title</strong> (<em>str</em>) – The title of the package to download.</p></li>
+<li><p><strong>series</strong> (<em>str</em>) – The series of the package to download.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the package is successfully downloaded, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="py data">
-<dt class="sig sig-object py" id="mtbp3.stdcdisc.lib.cl">
-<span class="sig-prename descclassname"><span class="pre">mtbp3.stdcdisc.lib.</span></span><span class="sig-name descname"><span class="pre">cl</span></span><a class="headerlink" href="#mtbp3.stdcdisc.lib.cl" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+</dd></dl>
 
 </section>
 </section>

@@ -111,6 +111,7 @@
 <span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">json</span>
 
 <div class="viewcode-block" id="accessLib">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/stdcdisc/lib/index.html#mtbp3.stdcdisc.lib.accessLib">[docs]</a>
@@ -126,6 +127,7 @@
 <span class="sd">        ValueError: If the API key is empty.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_file</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">input_file</span> <span class="o">=</span> <span class="n">input_file</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_file</span><span class="p">):</span>
@@ -136,10 +138,12 @@
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;API key is empty.&quot;</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">baseURL</span> <span class="o">=</span> <span class="s2">&quot;https://library.cdisc.org/api&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ct_list</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ct_list_titles</span> <span class="o">=</span> <span class="p">[]</span>
 
 <div class="viewcode-block" id="accessLib.get_ct_list">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/stdcdisc/lib/index.html#mtbp3.stdcdisc.lib.accessLib.get_ct_list">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_ct_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_ct_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newest</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Retrieves a DataFrame containing information about CDISC library packages.</span>
 
@@ -167,15 +171,87 @@
                 <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span> <span class="o">=</span> <span class="n">title</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; Controlled Terminology Package &quot;</span><span class="p">)</span>
                 <span class="n">t2</span><span class="p">,</span> <span class="n">t3</span> <span class="o">=</span> <span class="n">t2</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; Effective &quot;</span><span class="p">)</span>
                 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">_append</span><span class="p">({</span><span class="s1">&#39;Title&#39;</span><span class="p">:</span> <span class="n">t1</span><span class="p">,</span> <span class="s1">&#39;PkgSeries&#39;</span><span class="p">:</span> <span class="n">t2</span><span class="p">,</span> <span class="s1">&#39;Effective&#39;</span><span class="p">:</span> <span class="n">t3</span><span class="p">,</span> <span class="s1">&#39;Path&#39;</span><span class="p">:</span> <span class="n">package</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">],</span> <span class="s1">&#39;Type&#39;</span><span class="p">:</span> <span class="n">package</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]},</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-            <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Newest&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Effective&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Title&#39;</span><span class="p">)[</span><span class="s1">&#39;Effective&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;max&#39;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;ct&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="nb">set</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">])}</span></div>
+            <span class="n">df</span><span class="p">[</span><span class="s1">&#39;TitleL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+            <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Newest&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Effective&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;TitleL&#39;</span><span class="p">)[</span><span class="s1">&#39;Effective&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;max&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid status code: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; - &quot;</span> <span class="o">+</span> <span class="n">req</span><span class="o">.</span><span class="n">reason</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">newest</span><span class="p">:</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Newest&#39;</span><span class="p">]]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ct_list</span> <span class="o">=</span> <span class="n">df</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ct_list_titles</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">])</span>
+        <span class="k">return</span> </div>
+
+
+<div class="viewcode-block" id="accessLib.get_ct_package">
+<a class="viewcode-back" href="../../../autoapi/mtbp3/stdcdisc/lib/index.html#mtbp3.stdcdisc.lib.accessLib.get_ct_package">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_ct_package</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">pkg_series</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">out_folder</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Downloads a CDISC library package based on the specified title and series.</span>
+
+<span class="sd">        This method takes a title and series as input and downloads the corresponding CDISC library package.</span>
+<span class="sd">        The package is downloaded from the URL specified in self.baseURL + self.ct_list[&#39;ct&#39;][&#39;Path&#39;].</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            title (str): The title of the package to download.</span>
+<span class="sd">            series (str): The series of the package to download.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True if the package is successfully downloaded, False otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ct_list</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_ct_list</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">title</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ct_list_titles</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid title. Title not found in the CDISC library.&quot;</span><span class="p">)</span>
+        <span class="n">pkg_series</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">pkg_series</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">pkg_series</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">pkg_series</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid series. Pkg_series must be a length 2 string or an integer.&quot;</span><span class="p">)</span>
+
+        <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ct_list</span><span class="p">[(</span><span class="bp">self</span><span class="o">.</span><span class="n">ct_list</span><span class="p">[</span><span class="s1">&#39;TitleL&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">title</span><span class="o">.</span><span class="n">lower</span><span class="p">())]</span>
+
+        <span class="k">if</span> <span class="n">pkg_series</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Newest&#39;</span><span class="p">]]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">pkg_series</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;PkgSeries&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid series. Series not found in the CDISC library.&quot;</span><span class="p">)</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;PkgSeries&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">pkg_series</span><span class="p">)]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid package. Multiple packages found with the same title and series.&quot;</span><span class="p">)</span>
+
+        <span class="n">package_url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">baseURL</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Path&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">package_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;api-key&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_key</span><span class="p">})</span>
+        <span class="n">req</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">req</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+            <span class="n">package_info</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="n">c</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">],</span>
+                <span class="s1">&#39;effectiveDate&#39;</span><span class="p">:</span> <span class="n">c</span><span class="p">[</span><span class="s1">&#39;effectiveDate&#39;</span><span class="p">],</span>
+                <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="n">c</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">],</span>
+                <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">c</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span>
+                <span class="s1">&#39;source&#39;</span><span class="p">:</span> <span class="n">c</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">],</span>
+                <span class="s1">&#39;registrationStatus&#39;</span><span class="p">:</span> <span class="n">c</span><span class="p">[</span><span class="s1">&#39;registrationStatus&#39;</span><span class="p">],</span>
+                <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="n">c</span><span class="p">[</span><span class="s1">&#39;version&#39;</span><span class="p">]</span>
+            <span class="p">}</span>
+        
+            <span class="n">out</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;codelists&#39;</span><span class="p">:</span> <span class="n">c</span><span class="p">[</span><span class="s1">&#39;codelists&#39;</span><span class="p">],</span> <span class="s1">&#39;package_info&#39;</span><span class="p">:</span> <span class="n">package_info</span><span class="p">}</span>
+            <span class="k">if</span> <span class="n">out_folder</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">out_folder</span><span class="p">):</span>
+                <span class="n">package_name</span> <span class="o">=</span> <span class="n">package_url</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">out_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out_folder</span><span class="p">,</span> <span class="n">package_name</span><span class="p">)</span>
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">out_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+                    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+        
+            <span class="k">return</span> <span class="n">out</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid status code: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; - &quot;</span> <span class="o">+</span> <span class="n">req</span><span class="o">.</span><span class="n">reason</span><span class="p">)</span></div>
 </div>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">cl</span> <span class="o">=</span> <span class="n">accessLib</span><span class="p">(</span><span class="s2">&quot;/Users/yh2020/cdisc.txt&quot;</span><span class="p">)</span>
-    <span class="n">out</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">get_ct_list</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">cl</span><span class="o">.</span><span class="n">ct_list_titles</span><span class="p">)</span>
+    <span class="k">pass</span>
+
+    <span class="c1">#cl = accessLib(&quot;/Users/yh2020/cdisc.txt&quot;)</span>
+    <span class="c1">#cl.get_ct_list()</span>
+    <span class="c1">#c = cl.get_ct_package(&#39;Protocol&#39;)</span>
 </pre></div>
 
            </div>

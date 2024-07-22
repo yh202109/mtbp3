@@ -4,14 +4,6 @@ mtbp3.stdcdisc.lib
 .. py:module:: mtbp3.stdcdisc.lib
 
 
-Attributes
-----------
-
-.. autoapisummary::
-
-   mtbp3.stdcdisc.lib.cl
-
-
 Classes
 -------
 
@@ -45,7 +37,15 @@ Module Contents
 
 
 
-   .. py:method:: get_ct_list()
+   .. py:attribute:: ct_list
+
+
+   .. py:attribute:: ct_list_titles
+      :value: []
+
+
+
+   .. py:method:: get_ct_list(newest=True)
 
       Retrieves a DataFrame containing information about CDISC library packages.
 
@@ -61,5 +61,20 @@ Module Contents
 
 
 
-.. py:data:: cl
+   .. py:method:: get_ct_package(title='', pkg_series='', out_folder='')
+
+      Downloads a CDISC library package based on the specified title and series.
+
+      This method takes a title and series as input and downloads the corresponding CDISC library package.
+      The package is downloaded from the URL specified in self.baseURL + self.ct_list['ct']['Path'].
+
+      :param title: The title of the package to download.
+      :type title: str
+      :param series: The series of the package to download.
+      :type series: str
+
+      :returns: True if the package is successfully downloaded, False otherwise.
+      :rtype: bool
+
+
 
