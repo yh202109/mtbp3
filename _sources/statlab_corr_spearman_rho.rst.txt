@@ -61,15 +61,15 @@ Let :math:`(Y_{i1}, Y_{i2})` be a pair of random variables corresponding to the 
 Let :math:`(R_{i1}, R_{i2})` be the rank of :math:`Y_{i1}` and the rank of :math:`Y_{i2}`.
 In the case of ties, one method is to assign the tied group with the average of unique ranks corresponding the tied group.
 For the :math:`i` th sample, let 
-:math:`S_{i1}` be the number of observed values less than :math:`Y_{i1}`,
-:math:`S_{i2}` be the number of observed values equal to :math:`Y_{i1}`,
-and :math:`S_{i3}` be the number of observed values greater to :math:`Y_{i1}`.
+:math:`S_{i1,1}` be the number of observed values less than :math:`Y_{i1}`,
+:math:`S_{i1,2}` be the number of observed values equal to :math:`Y_{i1}`,
+and :math:`S_{i1,3}` be the number of observed values greater to :math:`Y_{i1}`.
 We can calculate the rank of a single sample as 
 
 .. math::
   :label: eq_rank
 
-  R_{i1} = S_{i1} + \frac{S_{i2}+1}{2} = n - S_{i3} - \frac{S_{i2}-1}{2}.
+  R_{i1} = S_{i1,1} + \frac{S_{i1,2}+1}{2} = n - S_{i1,3} - \frac{S_{i1,2}-1}{2}.
 
 For a vector, ``pandas.DataFrame`` has the ``rank`` function with ``method='average'`` option to calculate rank as defined in :eq:`eq_rank`. 
 In ``R``, that can be calculated using the ``rank`` function with ``ties.method='average'`` option.
@@ -146,8 +146,9 @@ More Details
 *************
 
 Assume that :math:`Y_{i1} \sim \mathcal{D}`.
-For continuous :math:`Y_{i1}`, if we can assume that :math:`P(S_{i2}=1)=1` for all :math:`i`, 
-then :eq:`eq_rank` can be simplified as :math:`R_{i1} = S_{i1}+1`.
+For continuous :math:`Y_{i1}`, if we can assume 
+that :math:`P(S_{i1,2}=1)=1` for all :math:`i`, 
+then :eq:`eq_rank` can be simplified as :math:`R_{i1} = S_{i1,1}+1`.
 For a given sample size :math:`n`, and :math:`r \in \{1, \ldots, n\}`, the pmf of :math:`R_{i1}` is 
 :math:`P(R_{i1} = r) = \frac{1}{n}`, which does not depend on :math:`r` or :math:`\mathcal{D}` [4]_.
 

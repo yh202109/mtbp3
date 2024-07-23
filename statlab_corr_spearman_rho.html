@@ -60,7 +60,7 @@
 <li class="toctree-l1"><a class="reference internal" href="example_emt4.html">H/ICH/MedDRA/(MLGs by CIOMS)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="std_iso_pdf.html">Std/ISO/PDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="std_iso_idmp.html">Std/ISO/IDMP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="std_cdisc.html">Std/CDISC/Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="std_cdisc.html">Std/CDISC/Library Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="statlab_kappa.html">StatLab/Cohen’s Kappa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="statlab_kappa2.html">StatLab/Fleiss’s Kappa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="statlab_corr_tau.html">StatLab/Corr/NP/Kendall’s Tau</a></li>
@@ -149,12 +149,12 @@
 <p>Let <span class="math notranslate nohighlight">\((R_{i1}, R_{i2})\)</span> be the rank of <span class="math notranslate nohighlight">\(Y_{i1}\)</span> and the rank of <span class="math notranslate nohighlight">\(Y_{i2}\)</span>.
 In the case of ties, one method is to assign the tied group with the average of unique ranks corresponding the tied group.
 For the <span class="math notranslate nohighlight">\(i\)</span> th sample, let
-<span class="math notranslate nohighlight">\(S_{i1}\)</span> be the number of observed values less than <span class="math notranslate nohighlight">\(Y_{i1}\)</span>,
-<span class="math notranslate nohighlight">\(S_{i2}\)</span> be the number of observed values equal to <span class="math notranslate nohighlight">\(Y_{i1}\)</span>,
-and <span class="math notranslate nohighlight">\(S_{i3}\)</span> be the number of observed values greater to <span class="math notranslate nohighlight">\(Y_{i1}\)</span>.
+<span class="math notranslate nohighlight">\(S_{i1,1}\)</span> be the number of observed values less than <span class="math notranslate nohighlight">\(Y_{i1}\)</span>,
+<span class="math notranslate nohighlight">\(S_{i1,2}\)</span> be the number of observed values equal to <span class="math notranslate nohighlight">\(Y_{i1}\)</span>,
+and <span class="math notranslate nohighlight">\(S_{i1,3}\)</span> be the number of observed values greater to <span class="math notranslate nohighlight">\(Y_{i1}\)</span>.
 We can calculate the rank of a single sample as</p>
 <div class="math notranslate nohighlight" id="equation-eq-rank">
-<span class="eqno">(10)<a class="headerlink" href="#equation-eq-rank" title="Link to this equation"></a></span>\[R_{i1} = S_{i1} + \frac{S_{i2}+1}{2} = n - S_{i3} - \frac{S_{i2}-1}{2}.\]</div>
+<span class="eqno">(10)<a class="headerlink" href="#equation-eq-rank" title="Link to this equation"></a></span>\[R_{i1} = S_{i1,1} + \frac{S_{i1,2}+1}{2} = n - S_{i1,3} - \frac{S_{i1,2}-1}{2}.\]</div>
 <p>For a vector, <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> has the <code class="docutils literal notranslate"><span class="pre">rank</span></code> function with <code class="docutils literal notranslate"><span class="pre">method='average'</span></code> option to calculate rank as defined in <a class="reference internal" href="#equation-eq-rank">Eq. (10)</a>.
 In <code class="docutils literal notranslate"><span class="pre">R</span></code>, that can be calculated using the <code class="docutils literal notranslate"><span class="pre">rank</span></code> function with <code class="docutils literal notranslate"><span class="pre">ties.method='average'</span></code> option.
 See reference <a class="footnote-reference brackets" href="#id7" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> for ranking in <code class="docutils literal notranslate"><span class="pre">Julia</span></code>.</p>
@@ -239,8 +239,9 @@ and <span class="math notranslate nohighlight">\(s_2^2 = \sum_i R_{i2}^2 - \frac
 <section id="more-details">
 <h2>More Details<a class="headerlink" href="#more-details" title="Link to this heading"></a></h2>
 <p>Assume that <span class="math notranslate nohighlight">\(Y_{i1} \sim \mathcal{D}\)</span>.
-For continuous <span class="math notranslate nohighlight">\(Y_{i1}\)</span>, if we can assume that <span class="math notranslate nohighlight">\(P(S_{i2}=1)=1\)</span> for all <span class="math notranslate nohighlight">\(i\)</span>,
-then <a class="reference internal" href="#equation-eq-rank">Eq. (10)</a> can be simplified as <span class="math notranslate nohighlight">\(R_{i1} = S_{i1}+1\)</span>.
+For continuous <span class="math notranslate nohighlight">\(Y_{i1}\)</span>, if we can assume
+that <span class="math notranslate nohighlight">\(P(S_{i1,2}=1)=1\)</span> for all <span class="math notranslate nohighlight">\(i\)</span>,
+then <a class="reference internal" href="#equation-eq-rank">Eq. (10)</a> can be simplified as <span class="math notranslate nohighlight">\(R_{i1} = S_{i1,1}+1\)</span>.
 For a given sample size <span class="math notranslate nohighlight">\(n\)</span>, and <span class="math notranslate nohighlight">\(r \in \{1, \ldots, n\}\)</span>, the pmf of <span class="math notranslate nohighlight">\(R_{i1}\)</span> is
 <span class="math notranslate nohighlight">\(P(R_{i1} = r) = \frac{1}{n}\)</span>, which does not depend on <span class="math notranslate nohighlight">\(r\)</span> or <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> <a class="footnote-reference brackets" href="#id9" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>.</p>
 </section>
