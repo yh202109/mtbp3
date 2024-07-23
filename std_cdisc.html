@@ -123,7 +123,7 @@
 <h1>Std/CDISC/Library Resource<a class="headerlink" href="#std-cdisc-library-resource" title="Link to this heading"></a></h1>
 <p>CDISC stands for Clinical Data Interchange Standards Consortium.
 As the name indicated, the organization engages with clinical data community and creates and maintains data standards for clinical developments,
-such that the planning, creating, storing, using and exchanging of information and records can be processed at a higher level of consistency <a class="footnote-reference brackets" href="#id6" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+such that the planning, creating, storing, using and exchanging of information and records can be processed at a higher level of consistency <a class="footnote-reference brackets" href="#id8" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
 <p>The modules <code class="docutils literal notranslate"><span class="pre">stdcdisc</span></code> include basic functions for processing data already prepared with CDISC standards.</p>
 <p>Please note that this page is not executed while building.
 Functions and options might be updated as needed.
@@ -154,10 +154,10 @@ CDSIC foundational standards include:</p>
 <section id="select-cdisc-version">
 <h2>Select CDISC Version<a class="headerlink" href="#select-cdisc-version" title="Link to this heading"></a></h2>
 <p>CDISC standards SEND, SDTM, and ADaM are required for electronic study data submitted to CDER and CBER of FDA.<br />
-A full list of FDA supported version for CDISC models and IGs is available online <a class="footnote-reference brackets" href="#id7" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.
+A full list of FDA supported version for CDISC models and IGs is available online <a class="footnote-reference brackets" href="#id9" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.
 Please note that data model standard and IG versions supported by FDA are determined by
-comparing the “study starting date” with “Date Support Begins” and “Date Support Ends” within data standard catalog <a class="footnote-reference brackets" href="#id8" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.
-Please see FDA technical conformance guidance and study data standards catalog for more details <a class="footnote-reference brackets" href="#id9" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>.</p>
+comparing the “study starting date” with “Date Support Begins” and “Date Support Ends” within data standard catalog <a class="footnote-reference brackets" href="#id10" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.
+Please see FDA technical conformance guidance and study data standards catalog for more details <a class="footnote-reference brackets" href="#id11" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>.</p>
 </section>
 <section id="resources">
 <h2>Resources<a class="headerlink" href="#resources" title="Link to this heading"></a></h2>
@@ -188,7 +188,7 @@ the implementation of data standards needs considerable time and effort.</p>
 </div>
 <section id="get-ct-packages">
 <h3>Get CT Packages<a class="headerlink" href="#get-ct-packages" title="Link to this heading"></a></h3>
-<p>CDISC Controlled Terminology (CT) is maintained and distributed as part of the National Cancer Institute (NCI) Thesaurus.</p>
+<p>CDISC Controlled Terminology (CT) is maintained and distributed as part of the National Cancer Institute (NCI) Thesaurus <a class="footnote-reference brackets" href="#id12" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>.</p>
 <p>To get a list of newest CT packages available:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cl</span><span class="o">.</span><span class="n">get_ct_list</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">cl</span><span class="o">.</span><span class="n">ct_list_titles</span><span class="p">)</span>
@@ -202,9 +202,9 @@ the implementation of data standards needs considerable time and effort.</p>
 <ul class="simple">
 <li><p>DDF: digital data flow.</p></li>
 <li><p>MRCT: multi-regional clinical trials</p></li>
-<li><p>COA: clinical outcome assessment. This is an archived version. COA is part of QRS supplement supporting FDA COA qualification program <a class="footnote-reference brackets" href="#id10" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>.</p></li>
+<li><p>COA: clinical outcome assessment. This is an archived version. COA is part of QRS supplement supporting FDA COA qualification program <a class="footnote-reference brackets" href="#id13" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>.</p></li>
 <li><p>QRS: questionnaires, ratings and scales. This is an archived version. QRS SDTM CT is currently included in SDTM CT.</p></li>
-<li><p>QS-FT: questionnaire and functional test. This is an archived version. This set was merged into COA at 2014 [^r7].</p></li>
+<li><p>QS-FT: questionnaire and functional test. This is an archived version. This set was merged into COA at 2014 <a class="footnote-reference brackets" href="#id14" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>.</p></li>
 </ul>
 <p>To get the newest protocol ct package information:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
@@ -231,25 +231,33 @@ the implementation of data standards needs considerable time and effort.</p>
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>
 <hr class="footnotes docutils" />
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id6" role="doc-footnote">
+<aside class="footnote brackets" id="id8" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p>CDISC. (year). CDISC Standards. (<a class="reference external" href="https://www.cdisc.org/standards">web page</a>)</p>
 </aside>
-<aside class="footnote brackets" id="id7" role="doc-footnote">
+<aside class="footnote brackets" id="id9" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
 <p>FDA. (year). Data Standards Resource. (<a class="reference external" href="https://www.fda.gov/industry/fda-data-standards-advisory-board/study-data-standards-resources">web page</a>)</p>
 </aside>
-<aside class="footnote brackets" id="id8" role="doc-footnote">
+<aside class="footnote brackets" id="id10" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
 <p>FDA. (year). Data Standards Catalog. (<a class="reference external" href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/data-standards-catalog">web page</a>)</p>
 </aside>
-<aside class="footnote brackets" id="id9" role="doc-footnote">
+<aside class="footnote brackets" id="id11" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
 <p>FDA. (year). Study Data Technical Conformance Guide. (<a class="reference external" href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/study-data-technical-conformance-guide-technical-specifications-document">web page</a>)</p>
 </aside>
-<aside class="footnote brackets" id="id10" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">6</a><span class="fn-bracket">]</span></span>
+<aside class="footnote brackets" id="id12" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">5</a><span class="fn-bracket">]</span></span>
+<p>NCI. (yeawr). CDISC Terminology. (<a class="reference external" href="https://datascience.cancer.gov/resources/cancer-vocabulary/cdisc-terminology">web page</a>)</p>
+</aside>
+<aside class="footnote brackets" id="id13" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">6</a><span class="fn-bracket">]</span></span>
 <p>FDA. (2023). Clinical Outcome Assessment (COA) Qualification Program. (<a class="reference external" href="https://www.fda.gov/drugs/drug-development-tool-ddt-qualification-programs/clinical-outcome-assessment-coa-qualification-program">web page</a>)</p>
+</aside>
+<aside class="footnote brackets" id="id14" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">7</a><span class="fn-bracket">]</span></span>
+<p>P21. (2015). CDISC Questionnaire and Functional Test (QS-FT) Terminology has been deprecated. (<a class="reference external" href="https://www.pinnacle21.com/forum/cdisc-questionnaire-and-functional-test-qs-ft-terminology-has-been-deprecated">web page</a>)</p>
 </aside>
 </aside>
 </section>
