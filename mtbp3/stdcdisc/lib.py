@@ -178,21 +178,25 @@ class accessLib:
             remaining_list_label = []
             for index, item in enumerate(codelists):
                 if isinstance(item, dict):
-                    if 'conceptId' in item.keys() and 'name' not in item.keys():
-                        item['name']=""
+                    if 'group' not in item.keys():
+                        item['group']=""
                     if 'synonyms' not in item.keys():
                         item['synonyms']=[]
                     if 'terms' in item.keys():
+                        for i in range(len(item['terms'])):
+                            if 'name' not in item['terms'][i].keys():
+                                item['terms'][i]['name'] = ""
+                                item['terms'][i]['group'] = item['name']
                         nterms = len(item['terms'])
                         remaining_list.extend(item['terms'])
                         remaining_list_label.extend([codelists_label[index]+'.pseudo'+item['conceptId']]*nterms)
                     else:
                         nterms = 0
-                    data.append([codelists_label[index], level, item['conceptId'], item['name'], item['preferredTerm'], item['submissionValue'], '; '.join(item['synonyms']), item['definition'], nterms])
+                    data.append([codelists_label[index], level, item['conceptId'], item['name'], item['group'], item['preferredTerm'], item['submissionValue'], '; '.join(item['synonyms']), item['definition'], nterms])
                 else:
                     not_processed.append(item)
                     
-        df = pd.DataFrame(data, columns=['label', 'level', 'conceptId', 'name', 'preferredTerm', 'submissionValue', 'synonyms', 'definition', 'terms'])
+        df = pd.DataFrame(data, columns=['label', 'level', 'conceptId', 'name', 'group', 'preferredTerm', 'submissionValue', 'synonyms', 'definition', 'terms'])
         label = df[['label', 'preferredTerm']]
         df = df.drop('label', axis=1)
 
