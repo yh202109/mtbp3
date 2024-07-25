@@ -226,12 +226,13 @@
             "cell_type": "markdown",
             "metadata": {},
             "source": [
-                "To get the newest protocol ct package information:\n",
+                "To get the newest Protocol CT package in DataFrame format:\n",
                 "\n",
                 "```python\n",
-                "title = 'Protocol'\n",
-                "cl = accessLib(\"/Users/yh2020/cdisc.txt\")\n",
+                "from mtbp3.stdcdisc.lib import accessLib\n",
+                "cl = accessLib(\"/user/home/name/cdisc.txt\")\n",
                 "cl.get_ct_list()\n",
+                "title = 'Protocol'\n",
                 "cl.get_ct_package(title)\n",
                 "cl.get_ct_codelists_df(title)\n",
                 "print(cl.ct_package[title]['ct_df'][['conceptId', 'name', 'preferredTerm']].head())\n",
@@ -246,6 +247,31 @@
                 "2   C201267  Biomarker Category Value Set Terminology  CDISC Protocol Biomarker Category Value Set Te...\n",
                 "3   C142191      Clinical Study Attribute Terminology  CDISC Protocol Entities Clinical Study Attribu...\n",
                 "4   C139020      Clinical Trial Attribute Terminology  CDISC Protocol Entities Clinical Trial Attribu...\n",
+                "```"
+            ]
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [
+                "To get the newest Glossary CT package in DataFrame format:\n",
+                "\n",
+                "```python\n",
+                "title = 'Glossary'\n",
+                "cl.get_ct_package(title)\n",
+                "cl.get_ct_codelists_df(title)\n",
+                "print(cl.ct_package[title]['ct_df'][['conceptId', 'name', 'group', 'preferredTerm', 'definition']].head())\n",
+                "```\n",
+                "\n",
+                "Output:\n",
+                "\n",
+                "```\n",
+                "  conceptId            name           group                  preferredTerm                                         definition\n",
+                "0    C67497  CDISC Glossary                     CDISC Glossary Terminology  The terminology of the Clinical Data Interchan...\n",
+                "1    C80442                  CDISC Glossary  Premarket Device Notification  510(k). Premarket Notification (PMN) required ...\n",
+                "2    C42610                  CDISC Glossary                   Abbreviation  A set of letters that are drawn from a word or...\n",
+                "3    C71733                  CDISC Glossary          Biological Absorption  The process by which medications reach the blo...\n",
+                "4   C156638                  CDISC Glossary           Accelerated Approval  Regulatory mechanism by which new drugs meant ...\n",
                 "```"
             ]
         },
