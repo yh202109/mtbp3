@@ -19,7 +19,7 @@
 .. role:: red
 
 #############
-StatLab/Fleiss's Kappa  
+StatLab/Reli/Fleiss's Kappa  
 #############
 
 :red-b:`Disclaimer:`
@@ -266,6 +266,7 @@ Please see the Fleiss (1971) for more discussions.
 The variance of :math:`\kappa` under the assumption of no agreement beyond chance can be approximated as:
 
 .. math::
+  :label: eq_kappa2_vk
 
   var(\kappa) = c(n,R,\{p_j\}) var\left(\sum_{j=1}^J N_{1j}^2 \right),
 
@@ -324,6 +325,10 @@ Combining :eq:`eq_kappa2_vn3`, :eq:`eq_kappa2_vn4`, and :eq:`eq_kappa2_vn5`,
 
   var\left(\sum_{j} N_{ij}^2 \right) 
   = 2R(R-1)\left(S_{p2} - (2R-3)S_{p2}^2 + 2(R-2)S_{p3}\right).
+
+Let :math:`s^2` be the estimated variance of :math:`\kappa` using :eq:`eq_kappa2_vk`.
+Under the hypothesis of no agreement beyond chances, the limit distribution :math:`\kappa/s` would be a standard normal distribution.
+The value of :math:`\kappa/s` then could be used to describe if the overall agreement is greater then by chance alone [2]_.
 
 *************
 Lab Exercise

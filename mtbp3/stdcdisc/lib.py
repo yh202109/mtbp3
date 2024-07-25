@@ -43,6 +43,8 @@ class accessLib:
         self.baseURL = "https://library.cdisc.org/api"
         self.ct_list = pd.DataFrame()
         self.ct_list_titles = []
+        self.ct_package = {}
+
 
     def get_ct_list(self, newest=True):
         """
@@ -74,13 +76,16 @@ class accessLib:
                 df = df._append({'Title': t1, 'PkgSeries': t2, 'Effective': t3, 'Path': package['href'], 'Type': package['type']}, ignore_index=True)
             df['TitleL'] = df['Title'].str.lower()
             df['Newest'] = df['Effective'] == df.groupby('TitleL')['Effective'].transform('max')
+            df = df.sort_values(['TitleL', 'PkgSeries']).reset_index(drop=True)
         else:
             raise ValueError("Invalid status code: " + str(req.status_code) + " - " + req.reason)
 
         if newest:
-            df = df[df['Newest']]
+            df = df[df['Newest']].reset_index(drop=True)
+
         self.ct_list = df
-        self.ct_list_titles = set(df['Title'])
+        self.ct_list_titles = sorted(set(df['Title']))
+
         return 
 
     def get_ct_package(self, title = "", pkg_series = "", out_folder = ""):
@@ -137,14 +142,64 @@ class accessLib:
                 out_path = os.path.join(out_folder, package_name)
                 with open(out_path, 'w') as file:
                     json.dump(out, file)
-        
-            return out
+
+            self.ct_package[title] = out
+            return 
         else:
             raise ValueError("Invalid status code: " + str(req.status_code) + " - " + req.reason)
+    
+    def get_ct_codelists_df(self, title="", max_level = 3):
+        """
+        Converts the codelist information from the package to a pandas DataFrame.
+
+        Args:
+            package (dict): The package information returned by get_ct_package.
+
+        Returns:
+            pandas.DataFrame: A DataFrame containing the codelist information.
+        """
+        if not title in self.ct_package.keys():
+            print(self.ct_package.keys())
+            raise ValueError("Invalid CT package.")
+        if 'package_info' not in self.ct_package[title].keys() or 'codelists' not in self.ct_package[title].keys():
+            raise ValueError("Invalid package. Package does not contain package_info or codelists.")
+        package = self.ct_package[title]
+        tmp = package['package_info']['name'].replace(r'[^a-zA-Z0-9]', '_')
+        remaining_list = package['codelists']
+        remaining_list_label = [tmp] * len(remaining_list)
+        data = []
+        not_processed = []
+        for level in range(max_level):
+            if len(remaining_list) == 0:
+                break
+            codelists = remaining_list
+            codelists_label = remaining_list_label
+            remaining_list = []
+            remaining_list_label = []
+            for index, item in enumerate(codelists):
+                if isinstance(item, dict):
+                    if 'conceptId' in item.keys() and 'name' not in item.keys():
+                        item['name']=""
+                    if 'synonyms' not in item.keys():
+                        item['synonyms']=[]
+                    if 'terms' in item.keys():
+                        nterms = len(item['terms'])
+                        remaining_list.extend(item['terms'])
+                        remaining_list_label.extend([codelists_label[index]+'.pseudo'+item['conceptId']]*nterms)
+                    else:
+                        nterms = 0
+                    data.append([codelists_label[index], level, item['conceptId'], item['name'], item['preferredTerm'], item['submissionValue'], '; '.join(item['synonyms']), item['definition'], nterms])
+                else:
+                    not_processed.append(item)
+                    
+        df = pd.DataFrame(data, columns=['label', 'level', 'conceptId', 'name', 'preferredTerm', 'submissionValue', 'synonyms', 'definition', 'terms'])
+        label = df[['label', 'preferredTerm']]
+        df = df.drop('label', axis=1)
+
+        self.ct_package[title]['label_df'] = label
+        self.ct_package[title]['ct_df'] = df
+
+        return 
 
 if __name__ == "__main__":
     pass
-
-    #cl = accessLib("/Users/yh2020/cdisc.txt")
-    #cl.get_ct_list()
-    #c = cl.get_ct_package('Protocol')

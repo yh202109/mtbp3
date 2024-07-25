@@ -24,7 +24,7 @@
 
 
 #############
-StatLab/Cohen's Kappa 
+StatLab/Reli/Cohen's Kappa 
 #############
 
 :red-b:`Disclaimer:`
