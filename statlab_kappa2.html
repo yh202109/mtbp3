@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>StatLab/Fleiss’s Kappa &mdash; mtbp3  documentation</title>
+  <title>StatLab/Reli/Fleiss’s Kappa &mdash; mtbp3  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -26,7 +26,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="StatLab/Corr/NP/Kendall’s Tau" href="statlab_corr_tau.html" />
-    <link rel="prev" title="StatLab/Cohen’s Kappa" href="statlab_kappa.html" /> 
+    <link rel="prev" title="StatLab/Reli/Cohen’s Kappa" href="statlab_kappa.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -61,15 +61,15 @@
 <li class="toctree-l1"><a class="reference internal" href="std_iso_pdf.html">Std/ISO/PDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="std_iso_idmp.html">Std/ISO/IDMP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="std_cdisc.html">Std/CDISC/Library Resource</a></li>
-<li class="toctree-l1"><a class="reference internal" href="statlab_kappa.html">StatLab/Cohen’s Kappa</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">StatLab/Fleiss’s Kappa</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="statlab_kappa.html">StatLab/Reli/Cohen’s Kappa</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">StatLab/Reli/Fleiss’s Kappa</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#background">Background</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#notation">Notation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#example-group-1">Example - Group-1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-to">How-to</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lab-exercise">Lab Exercise</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-details">More Details</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id7">Lab Exercise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">Lab Exercise</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
@@ -95,7 +95,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">StatLab/Fleiss’s Kappa</li>
+      <li class="breadcrumb-item active">StatLab/Reli/Fleiss’s Kappa</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/statlab_kappa2.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -105,14 +105,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="statlab-fleiss-s-kappa">
-<h1>StatLab/Fleiss’s Kappa<a class="headerlink" href="#statlab-fleiss-s-kappa" title="Link to this heading"></a></h1>
+  <section id="statlab-reli-fleiss-s-kappa">
+<h1>StatLab/Reli/Fleiss’s Kappa<a class="headerlink" href="#statlab-reli-fleiss-s-kappa" title="Link to this heading"></a></h1>
 <p><span class="red-b">Disclaimer:</span>
 <span class="red">This page is provided only for studying and practicing. The author does not intend to promote or advocate any particular analysis method or software.</span></p>
 <section id="background">
 <h2>Background<a class="headerlink" href="#background" title="Link to this heading"></a></h2>
 <p>Fleiss’s kappa (<span class="math notranslate nohighlight">\(\kappa\)</span>) is a statistic used for describing inter-rater reliability of multiple independent raters
-with categorical rating outcomes <a class="footnote-reference brackets" href="#id8" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#id9" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
+with categorical rating outcomes <a class="footnote-reference brackets" href="#id9" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#id10" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
 </section>
 <section id="notation">
 <h2>Notation<a class="headerlink" href="#notation" title="Link to this heading"></a></h2>
@@ -200,8 +200,8 @@ Therefore, <span class="math notranslate nohighlight">\(v_0\)</span> will not be
 </section>
 <section id="example-group-1">
 <h2>Example - Group-1<a class="headerlink" href="#example-group-1" title="Link to this heading"></a></h2>
-<table class="docutils align-default" id="id10">
-<caption><span class="caption-number">Table 12 </span><span class="caption-text">Fleiss’s <span class="math notranslate nohighlight">\(\kappa = 1.0\)</span></span><a class="headerlink" href="#id10" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id11">
+<caption><span class="caption-number">Table 12 </span><span class="caption-text">Fleiss’s <span class="math notranslate nohighlight">\(\kappa = 1.0\)</span></span><a class="headerlink" href="#id11" title="Link to this table"></a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 20.0%" />
@@ -256,8 +256,8 @@ Therefore, <span class="math notranslate nohighlight">\(v_0\)</span> will not be
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default" id="id11">
-<caption><span class="caption-number">Table 13 </span><span class="caption-text">Fleiss’s <span class="math notranslate nohighlight">\(\kappa\)</span> = -0.0909090909090909</span><a class="headerlink" href="#id11" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id12">
+<caption><span class="caption-number">Table 13 </span><span class="caption-text">Fleiss’s <span class="math notranslate nohighlight">\(\kappa\)</span> = -0.0909090909090909</span><a class="headerlink" href="#id12" title="Link to this table"></a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 20.0%" />
@@ -357,50 +357,53 @@ probability of having agreement for a sample from two randomly selected raters e
 probability of having agreement for a sample from two randomly selected raters under the assumption of no agreement,
 which corresponds to the assumption of <span class="math notranslate nohighlight">\((N_{i1},\ldots, N_{iJ}) \sim multi(R, (p_1,\ldots, p_J))\)</span> where <span class="math notranslate nohighlight">\(R&gt;4\)</span>.</p>
 <p>Let <span class="math notranslate nohighlight">\(S_{p2} = \sum_j p_j^2\)</span>, <span class="math notranslate nohighlight">\(S_{p3} = \sum_j p_j^3\)</span>, and <span class="math notranslate nohighlight">\(S_{p4} = \sum_j p_j^4\)</span>.
-The equation <a class="reference internal" href="#equation-eq-kappa1">Eq. (3)</a> can be expressed as <a class="footnote-reference brackets" href="#id9" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> <sup>(Eq. 9)</sup>,</p>
+The equation <a class="reference internal" href="#equation-eq-kappa1">Eq. (3)</a> can be expressed as <a class="footnote-reference brackets" href="#id10" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> <sup>(Eq. 9)</sup>,</p>
 <div class="math notranslate nohighlight">
 \[\kappa = \frac{\sum_{i=1}^{n}\sum_{j=1}^J N_{ij}^2 - nR\left(1+(R-1) S_{p2} \right)}{nR(R-1)(1- S_{p2} )}\]</div>
 <p>Note that Fleiss (1971) assumed large <span class="math notranslate nohighlight">\(n\)</span> and fixed <span class="math notranslate nohighlight">\(p_j\)</span> while deriving variance of kappa.
 Please see the Fleiss (1971) for more discussions.
 The variance of <span class="math notranslate nohighlight">\(\kappa\)</span> under the assumption of no agreement beyond chance can be approximated as:</p>
-<div class="math notranslate nohighlight">
-\[var(\kappa) = c(n,R,\{p_j\}) var\left(\sum_{j=1}^J N_{1j}^2 \right),\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-kappa2-vk">
+<span class="eqno">(4)<a class="headerlink" href="#equation-eq-kappa2-vk" title="Link to this equation"></a></span>\[var(\kappa) = c(n,R,\{p_j\}) var\left(\sum_{j=1}^J N_{1j}^2 \right),\]</div>
 <p>where</p>
 <div class="math notranslate nohighlight">
 \[c(n,R,\{p_j\}) = n^{-1}\left(R(R-1)\left(1-S_{p2}\right)\right)^{-2},\]</div>
 <p>and</p>
 <div class="math notranslate nohighlight" id="equation-eq-kappa2-vn2">
-<span class="eqno">(4)<a class="headerlink" href="#equation-eq-kappa2-vn2" title="Link to this equation"></a></span>\[\begin{split}var\left(\sum_{j} N_{ij}^2 \right)
+<span class="eqno">(5)<a class="headerlink" href="#equation-eq-kappa2-vn2" title="Link to this equation"></a></span>\[\begin{split}var\left(\sum_{j} N_{ij}^2 \right)
 =&amp; E\left( \left(\sum_{j} N_{ij}^2\right)^2\right) - \left(E\left(\sum_{j} N_{ij}^2\right)\right)^2 \\
 =&amp; E\left(\sum_{j} N_{ij}^4\right) + E\left(\sum_j\sum_{k \neq j} N_{ij}^2 N_{ik}^2 \right) - \left(E\left(\sum_{j} N_{ij}^2\right)\right)^2.\end{split}\]</div>
-<p>To calculate <a class="reference internal" href="#equation-eq-kappa2-vn2">Eq. (4)</a>,
+<p>To calculate <a class="reference internal" href="#equation-eq-kappa2-vn2">Eq. (5)</a>,
 we can use the MGF, <span class="math notranslate nohighlight">\(\left(\sum_{j}p_je^{t_j}\right)^R\)</span>, to derive
 <span class="math notranslate nohighlight">\(E\left(N_{ij}^2\right) = Rp_j + R(R-1)p_j^2\)</span>, and
 <span class="math notranslate nohighlight">\(E\left(N_{ij}^3\right) = Rp_j + 3R(R-1)p_j^2 + R(R-1)(R-2)p_j^3\)</span>.</p>
-<p>The first element of <a class="reference internal" href="#equation-eq-kappa2-vn2">Eq. (4)</a> can be calculated as <a class="footnote-reference brackets" href="#id9" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> <sup>(Eq. 12)</sup></p>
+<p>The first element of <a class="reference internal" href="#equation-eq-kappa2-vn2">Eq. (5)</a> can be calculated as <a class="footnote-reference brackets" href="#id10" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> <sup>(Eq. 12)</sup></p>
 <div class="math notranslate nohighlight" id="equation-eq-kappa2-vn3">
-<span class="eqno">(5)<a class="headerlink" href="#equation-eq-kappa2-vn3" title="Link to this equation"></a></span>\[E\left(\sum_{j} N_{ij}^4\right)
+<span class="eqno">(6)<a class="headerlink" href="#equation-eq-kappa2-vn3" title="Link to this equation"></a></span>\[E\left(\sum_{j} N_{ij}^4\right)
 = R + 7R(R-1)S_{p2} + 6R(R-1)(R-2)S_{p3} + R(R-1)(R-2)(R-3)S_{p4}\]</div>
-<p>The third element of <a class="reference internal" href="#equation-eq-kappa2-vn2">Eq. (4)</a> can be calculated as <a class="footnote-reference brackets" href="#id9" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> <sup>(Eq. 14)</sup></p>
+<p>The third element of <a class="reference internal" href="#equation-eq-kappa2-vn2">Eq. (5)</a> can be calculated as <a class="footnote-reference brackets" href="#id10" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> <sup>(Eq. 14)</sup></p>
 <div class="math notranslate nohighlight" id="equation-eq-kappa2-vn4">
-<span class="eqno">(6)<a class="headerlink" href="#equation-eq-kappa2-vn4" title="Link to this equation"></a></span>\[\begin{split}\left(E\left(\sum_{j} N_{ij}^2\right)\right)^2
+<span class="eqno">(7)<a class="headerlink" href="#equation-eq-kappa2-vn4" title="Link to this equation"></a></span>\[\begin{split}\left(E\left(\sum_{j} N_{ij}^2\right)\right)^2
 =&amp; R^2\left(1 + (R-1)S_{p2} \right)^2  \\
 =&amp; R^2 + R^2(R-1)\left(2 S_{p2} + (R-1)S_{p2}^2\right)\end{split}\]</div>
-<p>The second element of <a class="reference internal" href="#equation-eq-kappa2-vn2">Eq. (4)</a> can be calculated, using
+<p>The second element of <a class="reference internal" href="#equation-eq-kappa2-vn2">Eq. (5)</a> can be calculated, using
 <span class="math notranslate nohighlight">\(E\left( N_{ij}^2 N_{ik}^2 \right) = R(R-1)p_j(p_k+(R-2)p_k^2) + R(R-1)(R-2)p_j^2(p_k+(R-3)p_k^2)\)</span>, as</p>
 <div class="math notranslate nohighlight" id="equation-eq-kappa2-vn5">
-<span class="eqno">(7)<a class="headerlink" href="#equation-eq-kappa2-vn5" title="Link to this equation"></a></span>\[\begin{split}E\left( \sum_j\sum_{k \neq j} N_{ij}^2 N_{ik}^2 \right)
+<span class="eqno">(8)<a class="headerlink" href="#equation-eq-kappa2-vn5" title="Link to this equation"></a></span>\[\begin{split}E\left( \sum_j\sum_{k \neq j} N_{ij}^2 N_{ik}^2 \right)
 =&amp; R(R-1) + R(R-1)(2R-5)S_{p2}
 - 2R(R-1)(R-2)S_{p3} \\
 &amp;- R(R-1)(R-2)(R-3)S_{p4} + R(R-1)(R-2)(R-3) S_{p2}^2\end{split}\]</div>
-<p>Combining <a class="reference internal" href="#equation-eq-kappa2-vn3">Eq. (5)</a>, <a class="reference internal" href="#equation-eq-kappa2-vn4">Eq. (6)</a>, and <a class="reference internal" href="#equation-eq-kappa2-vn5">Eq. (7)</a>,
-<a class="reference internal" href="#equation-eq-kappa2-vn2">Eq. (4)</a> can be calculated as <a class="footnote-reference brackets" href="#id9" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> <sup>(Eq. 15)</sup></p>
+<p>Combining <a class="reference internal" href="#equation-eq-kappa2-vn3">Eq. (6)</a>, <a class="reference internal" href="#equation-eq-kappa2-vn4">Eq. (7)</a>, and <a class="reference internal" href="#equation-eq-kappa2-vn5">Eq. (8)</a>,
+<a class="reference internal" href="#equation-eq-kappa2-vn2">Eq. (5)</a> can be calculated as <a class="footnote-reference brackets" href="#id10" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> <sup>(Eq. 15)</sup></p>
 <div class="math notranslate nohighlight">
 \[var\left(\sum_{j} N_{ij}^2 \right)
 = 2R(R-1)\left(S_{p2} - (2R-3)S_{p2}^2 + 2(R-2)S_{p3}\right).\]</div>
+<p>Let <span class="math notranslate nohighlight">\(s^2\)</span> be the estimated variance of <span class="math notranslate nohighlight">\(\kappa\)</span> using <a class="reference internal" href="#equation-eq-kappa2-vk">Eq. (4)</a>.
+Under the hypothesis of no agreement beyond chances, the limit distribution <span class="math notranslate nohighlight">\(\kappa/s\)</span> would be a standard normal distribution.
+The value of <span class="math notranslate nohighlight">\(\kappa/s\)</span> then could be used to describe if the overall agreement is greater then by chance alone <a class="footnote-reference brackets" href="#id10" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
 </section>
-<section id="id7">
-<h2>Lab Exercise<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
+<section id="id8">
+<h2>Lab Exercise<a class="headerlink" href="#id8" title="Link to this heading"></a></h2>
 <ol class="arabic simple" start="2">
 <li><p>Find <span class="math notranslate nohighlight">\(Cov(N_{i1},N_{i2})\)</span> under no agreement assumption.</p></li>
 </ol>
@@ -408,13 +411,13 @@ we can use the MGF, <span class="math notranslate nohighlight">\(\left(\sum_{j}p
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id8" role="doc-footnote">
+<aside class="footnote brackets" id="id9" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p>Wikipedia. (year). Fleiss’s kappa. <a class="reference external" href="https://en.wikipedia.org/wiki/Fleiss%27_kappa">https://en.wikipedia.org/wiki/Fleiss%27_kappa</a></p>
 </aside>
-<aside class="footnote brackets" id="id9" role="doc-footnote">
+<aside class="footnote brackets" id="id10" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id3">2</a>,<a role="doc-backlink" href="#id4">3</a>,<a role="doc-backlink" href="#id5">4</a>,<a role="doc-backlink" href="#id6">5</a>)</span>
+<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id3">2</a>,<a role="doc-backlink" href="#id4">3</a>,<a role="doc-backlink" href="#id5">4</a>,<a role="doc-backlink" href="#id6">5</a>,<a role="doc-backlink" href="#id7">6</a>)</span>
 <p>Fleiss, J. L. (1971). Measuring nominal scale agreement among many raters. Psychological Bulletin, 76(5), 378-382. <a class="reference external" href="https://doi.org/10.1037/h0031619">https://doi.org/10.1037/h0031619</a></p>
 </aside>
 </aside>
@@ -425,7 +428,7 @@ we can use the MGF, <span class="math notranslate nohighlight">\(\left(\sum_{j}p
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="statlab_kappa.html" class="btn btn-neutral float-left" title="StatLab/Cohen’s Kappa" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="statlab_kappa.html" class="btn btn-neutral float-left" title="StatLab/Reli/Cohen’s Kappa" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="statlab_corr_tau.html" class="btn btn-neutral float-right" title="StatLab/Corr/NP/Kendall’s Tau" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

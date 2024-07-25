@@ -60,8 +60,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../std_iso_pdf.html">Std/ISO/PDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../std_iso_idmp.html">Std/ISO/IDMP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../std_cdisc.html">Std/CDISC/Library Resource</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../statlab_kappa.html">StatLab/Cohen’s Kappa</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../statlab_kappa2.html">StatLab/Fleiss’s Kappa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../statlab_kappa.html">StatLab/Reli/Cohen’s Kappa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../statlab_kappa2.html">StatLab/Reli/Fleiss’s Kappa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../statlab_corr_tau.html">StatLab/Corr/NP/Kendall’s Tau</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../statlab_corr_spearman_rho.html">StatLab/Corr/NP/Spearman’s Rho</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../changelog.html">Changelog</a></li>
@@ -171,6 +171,11 @@
 <span class="sig-name descname"><span class="pre">ct_list_titles</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#mtbp3.stdcdisc.lib.accessLib.ct_list_titles" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mtbp3.stdcdisc.lib.accessLib.ct_package">
+<span class="sig-name descname"><span class="pre">ct_package</span></span><a class="headerlink" href="#mtbp3.stdcdisc.lib.accessLib.ct_package" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="mtbp3.stdcdisc.lib.accessLib.get_ct_list">
 <span class="sig-name descname"><span class="pre">get_ct_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">newest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/stdcdisc/lib.html#accessLib.get_ct_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.stdcdisc.lib.accessLib.get_ct_list" title="Link to this definition"></a></dt>
@@ -212,6 +217,23 @@ The package is downloaded from the URL specified in self.baseURL + self.ct_list[
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mtbp3.stdcdisc.lib.accessLib.get_ct_codelists_df">
+<span class="sig-name descname"><span class="pre">get_ct_codelists_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/stdcdisc/lib.html#accessLib.get_ct_codelists_df"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.stdcdisc.lib.accessLib.get_ct_codelists_df" title="Link to this definition"></a></dt>
+<dd><p>Converts the codelist information from the package to a pandas DataFrame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>package</strong> (<em>dict</em>) – The package information returned by get_ct_package.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A DataFrame containing the codelist information.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
 </dd>
 </dl>
 </dd></dl>

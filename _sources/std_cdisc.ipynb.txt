@@ -36,7 +36,7 @@
                 "\n",
                 "Please note that this page is not executed while building. \n",
                 "Functions and options might be updated as needed.\n",
-                "Please visit API reference page for the newest information on this module."
+                "Please visit API reference page for the newest information on this module.\n"
             ]
         },
         {
@@ -131,7 +131,7 @@
                 "### Get CT Packages\n",
                 "\n",
                 "CDISC Controlled Terminology (CT) is maintained and distributed as part of the National Cancer Institute (NCI) Thesaurus [^5].\n",
-                "\n",
+                "CT can be downloaded from NCI FTP and multiple file formats are available (Excel, text, odm.xml, pdf, html, and OWL/RDF formats) [^6].\n",
                 "\n",
                 "To get a list of newest CT packages available:\n",
                 "\n",
@@ -148,7 +148,7 @@
                 "Output:\n",
                 "\n",
                 "```\n",
-                "{'CDASH', 'MRCT', 'COA', 'ADaM', 'Protocol', 'SDTM', 'QRS', 'SEND', 'QS-FT', 'Define-XML', 'Glossary', 'DDF'}\n",
+                "['ADaM', 'CDASH', 'COA', 'DDF', 'Define-XML', 'Glossary', 'MRCT', 'Protocol', 'QRS', 'QS-FT', 'SDTM', 'SEND']\n",
                 "```"
             ]
         },
@@ -160,9 +160,38 @@
                 "\n",
                 "- DDF: digital data flow.\n",
                 "- MRCT: multi-regional clinical trials\n",
-                "- COA: clinical outcome assessment. This is an archived version. COA is part of QRS supplement supporting FDA COA qualification program [^6].\n",
+                "- COA: clinical outcome assessment. This is an archived version. COA is part of QRS supplement supporting FDA COA qualification program [^7].\n",
                 "- QRS: questionnaires, ratings and scales. This is an archived version. QRS SDTM CT is currently included in SDTM CT. \n",
-                "- QS-FT: questionnaire and functional test. This is an archived version. This set was merged into COA [^7]."
+                "- QS-FT: questionnaire and functional test. This is an archived version. This set was merged into COA [^8]."
+            ]
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [
+                "To show package effective date:\n",
+                "\n",
+                "```python\n",
+                "print(cl.ct_list[['Title','PkgSeries','Effective']])\n",
+                "```\n",
+                "\n",
+                "Output:\n",
+                "\n",
+                "```\n",
+                "         Title PkgSeries   Effective\n",
+                "0         ADaM        57  2024-03-29\n",
+                "1        CDASH        52  2022-12-16\n",
+                "2          COA        21  2015-03-27\n",
+                "3          DDF        57  2024-03-29\n",
+                "4   Define-XML        57  2024-03-29\n",
+                "5     Glossary        56  2023-12-15\n",
+                "6         MRCT        57  2024-03-29\n",
+                "7     Protocol        57  2024-03-29\n",
+                "8          QRS        23  2015-09-25\n",
+                "9        QS-FT        19  2014-09-26\n",
+                "10        SDTM        57  2024-03-29\n",
+                "11        SEND        57  2024-03-29\n",
+                "```\n"
             ]
         },
         {
@@ -174,8 +203,8 @@
                 "```python\n",
                 "import json\n",
                 "\n",
-                "c = cl.get_ct_package('Protocol')\n",
-                "print(json.dumps(c['package_info'], indent=4))\n",
+                "cl.get_ct_package('Protocol')\n",
+                "print(json.dumps(cl.ct_package['Protocol']['package_info']))\n",
                 "```\n",
                 "\n",
                 "Output:\n",
@@ -197,15 +226,43 @@
             "cell_type": "markdown",
             "metadata": {},
             "source": [
+                "To get the newest protocol ct package information:\n",
+                "\n",
+                "```python\n",
+                "title = 'Protocol'\n",
+                "cl = accessLib(\"/Users/yh2020/cdisc.txt\")\n",
+                "cl.get_ct_list()\n",
+                "cl.get_ct_package(title)\n",
+                "cl.get_ct_codelists_df(title)\n",
+                "print(cl.ct_package[title]['ct_df'][['conceptId', 'name', 'preferredTerm']].head())\n",
+                "```\n",
+                "\n",
+                "Output:\n",
+                "\n",
+                "```\n",
+                "  conceptId                                      name                                      preferredTerm\n",
+                "0   C179587   Biological Sample Attribute Terminology  CDISC Protocol Biological Sample Attribute Ter...\n",
+                "1   C201266           Biomarker Attribute Terminology     CDISC Protocol Biomarker Attribute Terminology\n",
+                "2   C201267  Biomarker Category Value Set Terminology  CDISC Protocol Biomarker Category Value Set Te...\n",
+                "3   C142191      Clinical Study Attribute Terminology  CDISC Protocol Entities Clinical Study Attribu...\n",
+                "4   C139020      Clinical Trial Attribute Terminology  CDISC Protocol Entities Clinical Trial Attribu...\n",
+                "```"
+            ]
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [
                 "## Reference\n",
                 "\n",
                 "[^1]: CDISC. (year). CDISC Standards. ([web page](https://www.cdisc.org/standards))\n",
                 "[^2]: FDA. (year). Data Standards Resource. ([web page](https://www.fda.gov/industry/fda-data-standards-advisory-board/study-data-standards-resources))\n",
                 "[^3]: FDA. (year). Data Standards Catalog. ([web page](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/data-standards-catalog))\n",
                 "[^4]: FDA. (year). Study Data Technical Conformance Guide. ([web page](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/study-data-technical-conformance-guide-technical-specifications-document))\n",
-                "[^5]: NCI. (yeawr). CDISC Terminology. ([web page](https://datascience.cancer.gov/resources/cancer-vocabulary/cdisc-terminology))\n",
-                "[^6]: FDA. (2023). Clinical Outcome Assessment (COA) Qualification Program. ([web page](https://www.fda.gov/drugs/drug-development-tool-ddt-qualification-programs/clinical-outcome-assessment-coa-qualification-program))\n",
-                "[^7]: P21. (2015). CDISC Questionnaire and Functional Test (QS-FT) Terminology has been deprecated. ([web page](https://www.pinnacle21.com/forum/cdisc-questionnaire-and-functional-test-qs-ft-terminology-has-been-deprecated))\n",
+                "[^5]: NCI. (year). NCI Thesaurus (NCIt). ([web page](https://ncit.nci.nih.gov/ncitbrowser/))\n",
+                "[^6]: NCI. (year). CDISC Terminology. ([web page](https://datascience.cancer.gov/resources/cancer-vocabulary/cdisc-terminology))\n",
+                "[^7]: FDA. (2023). Clinical Outcome Assessment (COA) Qualification Program. ([web page](https://www.fda.gov/drugs/drug-development-tool-ddt-qualification-programs/clinical-outcome-assessment-coa-qualification-program))\n",
+                "[^8]: P21. (2015). CDISC Questionnaire and Functional Test (QS-FT) Terminology has been deprecated. ([web page](https://www.pinnacle21.com/forum/cdisc-questionnaire-and-functional-test-qs-ft-terminology-has-been-deprecated))\n",
                 "\n",
                 "\n",
                 "\n",

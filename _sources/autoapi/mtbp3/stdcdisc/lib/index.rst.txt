@@ -45,6 +45,9 @@ Module Contents
 
 
 
+   .. py:attribute:: ct_package
+
+
    .. py:method:: get_ct_list(newest=True)
 
       Retrieves a DataFrame containing information about CDISC library packages.
@@ -75,6 +78,18 @@ Module Contents
 
       :returns: True if the package is successfully downloaded, False otherwise.
       :rtype: bool
+
+
+
+   .. py:method:: get_ct_codelists_df(title='', max_level=3)
+
+      Converts the codelist information from the package to a pandas DataFrame.
+
+      :param package: The package information returned by get_ct_package.
+      :type package: dict
+
+      :returns: A DataFrame containing the codelist information.
+      :rtype: pandas.DataFrame
 
 
 

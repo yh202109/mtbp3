@@ -111,7 +111,7 @@
     "## Find Terms Given a FMQ\n",
     "\n",
     "There are currently 104 FMQs.\n",
-    "There are 8,839 PTs are utilized to define to either broad or narrow scope of FMQs.\n",
+    "There are 8,839 PTs utilized to define either broad or narrow scope of FMQs.\n",
     "Note that 4 of 104 FMQs are algorithm based. \n",
     "Algorithm based FMQs may utilize additional data sources, including labs, concomitant medication records, patient histories, etc.\n"
    ]

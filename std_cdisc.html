@@ -24,7 +24,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="StatLab/Cohen’s Kappa" href="statlab_kappa.html" />
+    <link rel="next" title="StatLab/Reli/Cohen’s Kappa" href="statlab_kappa.html" />
     <link rel="prev" title="Std/ISO/IDMP" href="std_iso_idmp.html" /> 
 </head>
 
@@ -70,8 +70,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="statlab_kappa.html">StatLab/Cohen’s Kappa</a></li>
-<li class="toctree-l1"><a class="reference internal" href="statlab_kappa2.html">StatLab/Fleiss’s Kappa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statlab_kappa.html">StatLab/Reli/Cohen’s Kappa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statlab_kappa2.html">StatLab/Reli/Fleiss’s Kappa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="statlab_corr_tau.html">StatLab/Corr/NP/Kendall’s Tau</a></li>
 <li class="toctree-l1"><a class="reference internal" href="statlab_corr_spearman_rho.html">StatLab/Corr/NP/Spearman’s Rho</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
@@ -123,7 +123,7 @@
 <h1>Std/CDISC/Library Resource<a class="headerlink" href="#std-cdisc-library-resource" title="Link to this heading"></a></h1>
 <p>CDISC stands for Clinical Data Interchange Standards Consortium.
 As the name indicated, the organization engages with clinical data community and creates and maintains data standards for clinical developments,
-such that the planning, creating, storing, using and exchanging of information and records can be processed at a higher level of consistency <a class="footnote-reference brackets" href="#id8" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+such that the planning, creating, storing, using and exchanging of information and records can be processed at a higher level of consistency <a class="footnote-reference brackets" href="#id9" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
 <p>The modules <code class="docutils literal notranslate"><span class="pre">stdcdisc</span></code> include basic functions for processing data already prepared with CDISC standards.</p>
 <p>Please note that this page is not executed while building.
 Functions and options might be updated as needed.
@@ -154,10 +154,10 @@ CDSIC foundational standards include:</p>
 <section id="select-cdisc-version">
 <h2>Select CDISC Version<a class="headerlink" href="#select-cdisc-version" title="Link to this heading"></a></h2>
 <p>CDISC standards SEND, SDTM, and ADaM are required for electronic study data submitted to CDER and CBER of FDA.<br />
-A full list of FDA supported version for CDISC models and IGs is available online <a class="footnote-reference brackets" href="#id9" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.
+A full list of FDA supported version for CDISC models and IGs is available online <a class="footnote-reference brackets" href="#id10" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.
 Please note that data model standard and IG versions supported by FDA are determined by
-comparing the “study starting date” with “Date Support Begins” and “Date Support Ends” within data standard catalog <a class="footnote-reference brackets" href="#id10" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.
-Please see FDA technical conformance guidance and study data standards catalog for more details <a class="footnote-reference brackets" href="#id11" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>.</p>
+comparing the “study starting date” with “Date Support Begins” and “Date Support Ends” within data standard catalog <a class="footnote-reference brackets" href="#id11" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.
+Please see FDA technical conformance guidance and study data standards catalog for more details <a class="footnote-reference brackets" href="#id12" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>.</p>
 </section>
 <section id="resources">
 <h2>Resources<a class="headerlink" href="#resources" title="Link to this heading"></a></h2>
@@ -188,29 +188,50 @@ the implementation of data standards needs considerable time and effort.</p>
 </div>
 <section id="get-ct-packages">
 <h3>Get CT Packages<a class="headerlink" href="#get-ct-packages" title="Link to this heading"></a></h3>
-<p>CDISC Controlled Terminology (CT) is maintained and distributed as part of the National Cancer Institute (NCI) Thesaurus <a class="footnote-reference brackets" href="#id12" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>.</p>
+<p>CDISC Controlled Terminology (CT) is maintained and distributed as part of the National Cancer Institute (NCI) Thesaurus <a class="footnote-reference brackets" href="#id13" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>.
+CT can be downloaded from NCI FTP and multiple file formats are available (Excel, text, odm.xml, pdf, html, and OWL/RDF formats) <a class="footnote-reference brackets" href="#id14" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>.</p>
 <p>To get a list of newest CT packages available:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cl</span><span class="o">.</span><span class="n">get_ct_list</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">cl</span><span class="o">.</span><span class="n">ct_list_titles</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;CDASH&#39;</span><span class="p">,</span> <span class="s1">&#39;MRCT&#39;</span><span class="p">,</span> <span class="s1">&#39;COA&#39;</span><span class="p">,</span> <span class="s1">&#39;ADaM&#39;</span><span class="p">,</span> <span class="s1">&#39;Protocol&#39;</span><span class="p">,</span> <span class="s1">&#39;SDTM&#39;</span><span class="p">,</span> <span class="s1">&#39;QRS&#39;</span><span class="p">,</span> <span class="s1">&#39;SEND&#39;</span><span class="p">,</span> <span class="s1">&#39;QS-FT&#39;</span><span class="p">,</span> <span class="s1">&#39;Define-XML&#39;</span><span class="p">,</span> <span class="s1">&#39;Glossary&#39;</span><span class="p">,</span> <span class="s1">&#39;DDF&#39;</span><span class="p">}</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;ADaM&#39;</span><span class="p">,</span> <span class="s1">&#39;CDASH&#39;</span><span class="p">,</span> <span class="s1">&#39;COA&#39;</span><span class="p">,</span> <span class="s1">&#39;DDF&#39;</span><span class="p">,</span> <span class="s1">&#39;Define-XML&#39;</span><span class="p">,</span> <span class="s1">&#39;Glossary&#39;</span><span class="p">,</span> <span class="s1">&#39;MRCT&#39;</span><span class="p">,</span> <span class="s1">&#39;Protocol&#39;</span><span class="p">,</span> <span class="s1">&#39;QRS&#39;</span><span class="p">,</span> <span class="s1">&#39;QS-FT&#39;</span><span class="p">,</span> <span class="s1">&#39;SDTM&#39;</span><span class="p">,</span> <span class="s1">&#39;SEND&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Some notes about these titles:</p>
 <ul class="simple">
 <li><p>DDF: digital data flow.</p></li>
 <li><p>MRCT: multi-regional clinical trials</p></li>
-<li><p>COA: clinical outcome assessment. This is an archived version. COA is part of QRS supplement supporting FDA COA qualification program <a class="footnote-reference brackets" href="#id13" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>.</p></li>
+<li><p>COA: clinical outcome assessment. This is an archived version. COA is part of QRS supplement supporting FDA COA qualification program <a class="footnote-reference brackets" href="#id15" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>.</p></li>
 <li><p>QRS: questionnaires, ratings and scales. This is an archived version. QRS SDTM CT is currently included in SDTM CT.</p></li>
-<li><p>QS-FT: questionnaire and functional test. This is an archived version. This set was merged into COA <a class="footnote-reference brackets" href="#id14" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>.</p></li>
+<li><p>QS-FT: questionnaire and functional test. This is an archived version. This set was merged into COA <a class="footnote-reference brackets" href="#id16" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a>.</p></li>
 </ul>
+<p>To show package effective date:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">cl</span><span class="o">.</span><span class="n">ct_list</span><span class="p">[[</span><span class="s1">&#39;Title&#39;</span><span class="p">,</span><span class="s1">&#39;PkgSeries&#39;</span><span class="p">,</span><span class="s1">&#39;Effective&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>         <span class="n">Title</span> <span class="n">PkgSeries</span>   <span class="n">Effective</span>
+<span class="mi">0</span>         <span class="n">ADaM</span>        <span class="mi">57</span>  <span class="mi">2024</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">29</span>
+<span class="mi">1</span>        <span class="n">CDASH</span>        <span class="mi">52</span>  <span class="mi">2022</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">16</span>
+<span class="mi">2</span>          <span class="n">COA</span>        <span class="mi">21</span>  <span class="mi">2015</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">27</span>
+<span class="mi">3</span>          <span class="n">DDF</span>        <span class="mi">57</span>  <span class="mi">2024</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">29</span>
+<span class="mi">4</span>   <span class="n">Define</span><span class="o">-</span><span class="n">XML</span>        <span class="mi">57</span>  <span class="mi">2024</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">29</span>
+<span class="mi">5</span>     <span class="n">Glossary</span>        <span class="mi">56</span>  <span class="mi">2023</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">15</span>
+<span class="mi">6</span>         <span class="n">MRCT</span>        <span class="mi">57</span>  <span class="mi">2024</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">29</span>
+<span class="mi">7</span>     <span class="n">Protocol</span>        <span class="mi">57</span>  <span class="mi">2024</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">29</span>
+<span class="mi">8</span>          <span class="n">QRS</span>        <span class="mi">23</span>  <span class="mi">2015</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">25</span>
+<span class="mi">9</span>        <span class="n">QS</span><span class="o">-</span><span class="n">FT</span>        <span class="mi">19</span>  <span class="mi">2014</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">26</span>
+<span class="mi">10</span>        <span class="n">SDTM</span>        <span class="mi">57</span>  <span class="mi">2024</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">29</span>
+<span class="mi">11</span>        <span class="n">SEND</span>        <span class="mi">57</span>  <span class="mi">2024</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">29</span>
+</pre></div>
+</div>
 <p>To get the newest protocol ct package information:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
 
-<span class="n">c</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">get_ct_package</span><span class="p">(</span><span class="s1">&#39;Protocol&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;package_info&#39;</span><span class="p">],</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">get_ct_package</span><span class="p">(</span><span class="s1">&#39;Protocol&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">cl</span><span class="o">.</span><span class="n">ct_package</span><span class="p">[</span><span class="s1">&#39;Protocol&#39;</span><span class="p">][</span><span class="s1">&#39;package_info&#39;</span><span class="p">]))</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -225,38 +246,60 @@ the implementation of data standards needs considerable time and effort.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
+<p>To get the newest protocol ct package information:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Protocol&#39;</span>
+<span class="n">cl</span> <span class="o">=</span> <span class="n">accessLib</span><span class="p">(</span><span class="s2">&quot;/Users/yh2020/cdisc.txt&quot;</span><span class="p">)</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">get_ct_list</span><span class="p">()</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">get_ct_package</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">get_ct_codelists_df</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cl</span><span class="o">.</span><span class="n">ct_package</span><span class="p">[</span><span class="n">title</span><span class="p">][</span><span class="s1">&#39;ct_df&#39;</span><span class="p">][[</span><span class="s1">&#39;conceptId&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;preferredTerm&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">conceptId</span>                                      <span class="n">name</span>                                      <span class="n">preferredTerm</span>
+<span class="mi">0</span>   <span class="n">C179587</span>   <span class="n">Biological</span> <span class="n">Sample</span> <span class="n">Attribute</span> <span class="n">Terminology</span>  <span class="n">CDISC</span> <span class="n">Protocol</span> <span class="n">Biological</span> <span class="n">Sample</span> <span class="n">Attribute</span> <span class="n">Ter</span><span class="o">...</span>
+<span class="mi">1</span>   <span class="n">C201266</span>           <span class="n">Biomarker</span> <span class="n">Attribute</span> <span class="n">Terminology</span>     <span class="n">CDISC</span> <span class="n">Protocol</span> <span class="n">Biomarker</span> <span class="n">Attribute</span> <span class="n">Terminology</span>
+<span class="mi">2</span>   <span class="n">C201267</span>  <span class="n">Biomarker</span> <span class="n">Category</span> <span class="n">Value</span> <span class="n">Set</span> <span class="n">Terminology</span>  <span class="n">CDISC</span> <span class="n">Protocol</span> <span class="n">Biomarker</span> <span class="n">Category</span> <span class="n">Value</span> <span class="n">Set</span> <span class="n">Te</span><span class="o">...</span>
+<span class="mi">3</span>   <span class="n">C142191</span>      <span class="n">Clinical</span> <span class="n">Study</span> <span class="n">Attribute</span> <span class="n">Terminology</span>  <span class="n">CDISC</span> <span class="n">Protocol</span> <span class="n">Entities</span> <span class="n">Clinical</span> <span class="n">Study</span> <span class="n">Attribu</span><span class="o">...</span>
+<span class="mi">4</span>   <span class="n">C139020</span>      <span class="n">Clinical</span> <span class="n">Trial</span> <span class="n">Attribute</span> <span class="n">Terminology</span>  <span class="n">CDISC</span> <span class="n">Protocol</span> <span class="n">Entities</span> <span class="n">Clinical</span> <span class="n">Trial</span> <span class="n">Attribu</span><span class="o">...</span>
+</pre></div>
+</div>
 </section>
 </section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>
 <hr class="footnotes docutils" />
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id8" role="doc-footnote">
+<aside class="footnote brackets" id="id9" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p>CDISC. (year). CDISC Standards. (<a class="reference external" href="https://www.cdisc.org/standards">web page</a>)</p>
 </aside>
-<aside class="footnote brackets" id="id9" role="doc-footnote">
+<aside class="footnote brackets" id="id10" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
 <p>FDA. (year). Data Standards Resource. (<a class="reference external" href="https://www.fda.gov/industry/fda-data-standards-advisory-board/study-data-standards-resources">web page</a>)</p>
 </aside>
-<aside class="footnote brackets" id="id10" role="doc-footnote">
+<aside class="footnote brackets" id="id11" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
 <p>FDA. (year). Data Standards Catalog. (<a class="reference external" href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/data-standards-catalog">web page</a>)</p>
 </aside>
-<aside class="footnote brackets" id="id11" role="doc-footnote">
+<aside class="footnote brackets" id="id12" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
 <p>FDA. (year). Study Data Technical Conformance Guide. (<a class="reference external" href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/study-data-technical-conformance-guide-technical-specifications-document">web page</a>)</p>
 </aside>
-<aside class="footnote brackets" id="id12" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">5</a><span class="fn-bracket">]</span></span>
-<p>NCI. (yeawr). CDISC Terminology. (<a class="reference external" href="https://datascience.cancer.gov/resources/cancer-vocabulary/cdisc-terminology">web page</a>)</p>
-</aside>
 <aside class="footnote brackets" id="id13" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">6</a><span class="fn-bracket">]</span></span>
-<p>FDA. (2023). Clinical Outcome Assessment (COA) Qualification Program. (<a class="reference external" href="https://www.fda.gov/drugs/drug-development-tool-ddt-qualification-programs/clinical-outcome-assessment-coa-qualification-program">web page</a>)</p>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">5</a><span class="fn-bracket">]</span></span>
+<p>NCI. (year). NCI Thesaurus (NCIt). (<a class="reference external" href="https://ncit.nci.nih.gov/ncitbrowser/">web page</a>)</p>
 </aside>
 <aside class="footnote brackets" id="id14" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">6</a><span class="fn-bracket">]</span></span>
+<p>NCI. (year). CDISC Terminology. (<a class="reference external" href="https://datascience.cancer.gov/resources/cancer-vocabulary/cdisc-terminology">web page</a>)</p>
+</aside>
+<aside class="footnote brackets" id="id15" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">7</a><span class="fn-bracket">]</span></span>
+<p>FDA. (2023). Clinical Outcome Assessment (COA) Qualification Program. (<a class="reference external" href="https://www.fda.gov/drugs/drug-development-tool-ddt-qualification-programs/clinical-outcome-assessment-coa-qualification-program">web page</a>)</p>
+</aside>
+<aside class="footnote brackets" id="id16" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">8</a><span class="fn-bracket">]</span></span>
 <p>P21. (2015). CDISC Questionnaire and Functional Test (QS-FT) Terminology has been deprecated. (<a class="reference external" href="https://www.pinnacle21.com/forum/cdisc-questionnaire-and-functional-test-qs-ft-terminology-has-been-deprecated">web page</a>)</p>
 </aside>
 </aside>
@@ -268,7 +311,7 @@ the implementation of data standards needs considerable time and effort.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="std_iso_idmp.html" class="btn btn-neutral float-left" title="Std/ISO/IDMP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="statlab_kappa.html" class="btn btn-neutral float-right" title="StatLab/Cohen’s Kappa" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="statlab_kappa.html" class="btn btn-neutral float-right" title="StatLab/Reli/Cohen’s Kappa" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

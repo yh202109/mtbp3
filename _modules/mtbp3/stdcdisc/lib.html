@@ -57,8 +57,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../std_iso_pdf.html">Std/ISO/PDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../std_iso_idmp.html">Std/ISO/IDMP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../std_cdisc.html">Std/CDISC/Library Resource</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../statlab_kappa.html">StatLab/Cohen’s Kappa</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../statlab_kappa2.html">StatLab/Fleiss’s Kappa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../statlab_kappa.html">StatLab/Reli/Cohen’s Kappa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../statlab_kappa2.html">StatLab/Reli/Fleiss’s Kappa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../statlab_corr_tau.html">StatLab/Corr/NP/Kendall’s Tau</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../statlab_corr_spearman_rho.html">StatLab/Corr/NP/Spearman’s Rho</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
@@ -140,6 +140,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">baseURL</span> <span class="o">=</span> <span class="s2">&quot;https://library.cdisc.org/api&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ct_list</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ct_list_titles</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ct_package</span> <span class="o">=</span> <span class="p">{}</span>
+
 
 <div class="viewcode-block" id="accessLib.get_ct_list">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/stdcdisc/lib/index.html#mtbp3.stdcdisc.lib.accessLib.get_ct_list">[docs]</a>
@@ -173,13 +175,16 @@
                 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">_append</span><span class="p">({</span><span class="s1">&#39;Title&#39;</span><span class="p">:</span> <span class="n">t1</span><span class="p">,</span> <span class="s1">&#39;PkgSeries&#39;</span><span class="p">:</span> <span class="n">t2</span><span class="p">,</span> <span class="s1">&#39;Effective&#39;</span><span class="p">:</span> <span class="n">t3</span><span class="p">,</span> <span class="s1">&#39;Path&#39;</span><span class="p">:</span> <span class="n">package</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">],</span> <span class="s1">&#39;Type&#39;</span><span class="p">:</span> <span class="n">package</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]},</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
             <span class="n">df</span><span class="p">[</span><span class="s1">&#39;TitleL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
             <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Newest&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Effective&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;TitleL&#39;</span><span class="p">)[</span><span class="s1">&#39;Effective&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;max&#39;</span><span class="p">)</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;TitleL&#39;</span><span class="p">,</span> <span class="s1">&#39;PkgSeries&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid status code: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; - &quot;</span> <span class="o">+</span> <span class="n">req</span><span class="o">.</span><span class="n">reason</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">newest</span><span class="p">:</span>
-            <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Newest&#39;</span><span class="p">]]</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Newest&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">ct_list</span> <span class="o">=</span> <span class="n">df</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">ct_list_titles</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ct_list_titles</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">]))</span>
+
         <span class="k">return</span> </div>
 
 
@@ -239,19 +244,72 @@
                 <span class="n">out_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out_folder</span><span class="p">,</span> <span class="n">package_name</span><span class="p">)</span>
                 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">out_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
                     <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
-        
-            <span class="k">return</span> <span class="n">out</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">ct_package</span><span class="p">[</span><span class="n">title</span><span class="p">]</span> <span class="o">=</span> <span class="n">out</span>
+            <span class="k">return</span> 
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid status code: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; - &quot;</span> <span class="o">+</span> <span class="n">req</span><span class="o">.</span><span class="n">reason</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="accessLib.get_ct_codelists_df">
+<a class="viewcode-back" href="../../../autoapi/mtbp3/stdcdisc/lib/index.html#mtbp3.stdcdisc.lib.accessLib.get_ct_codelists_df">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_ct_codelists_df</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">max_level</span> <span class="o">=</span> <span class="mi">3</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Converts the codelist information from the package to a pandas DataFrame.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            package (dict): The package information returned by get_ct_package.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pandas.DataFrame: A DataFrame containing the codelist information.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">title</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ct_package</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ct_package</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid CT package.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;package_info&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ct_package</span><span class="p">[</span><span class="n">title</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="ow">or</span> <span class="s1">&#39;codelists&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ct_package</span><span class="p">[</span><span class="n">title</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid package. Package does not contain package_info or codelists.&quot;</span><span class="p">)</span>
+        <span class="n">package</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ct_package</span><span class="p">[</span><span class="n">title</span><span class="p">]</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">package</span><span class="p">[</span><span class="s1">&#39;package_info&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^a-zA-Z0-9]&#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">)</span>
+        <span class="n">remaining_list</span> <span class="o">=</span> <span class="n">package</span><span class="p">[</span><span class="s1">&#39;codelists&#39;</span><span class="p">]</span>
+        <span class="n">remaining_list_label</span> <span class="o">=</span> <span class="p">[</span><span class="n">tmp</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">remaining_list</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">not_processed</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">level</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_level</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">remaining_list</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="n">codelists</span> <span class="o">=</span> <span class="n">remaining_list</span>
+            <span class="n">codelists_label</span> <span class="o">=</span> <span class="n">remaining_list_label</span>
+            <span class="n">remaining_list</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">remaining_list_label</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">codelists</span><span class="p">):</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="s1">&#39;conceptId&#39;</span> <span class="ow">in</span> <span class="n">item</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="ow">and</span> <span class="s1">&#39;name&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">item</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                        <span class="n">item</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+                    <span class="k">if</span> <span class="s1">&#39;synonyms&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">item</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                        <span class="n">item</span><span class="p">[</span><span class="s1">&#39;synonyms&#39;</span><span class="p">]</span><span class="o">=</span><span class="p">[]</span>
+                    <span class="k">if</span> <span class="s1">&#39;terms&#39;</span> <span class="ow">in</span> <span class="n">item</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                        <span class="n">nterms</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;terms&#39;</span><span class="p">])</span>
+                        <span class="n">remaining_list</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;terms&#39;</span><span class="p">])</span>
+                        <span class="n">remaining_list_label</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">codelists_label</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;.pseudo&#39;</span><span class="o">+</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;conceptId&#39;</span><span class="p">]]</span><span class="o">*</span><span class="n">nterms</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">nterms</span> <span class="o">=</span> <span class="mi">0</span>
+                    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">codelists_label</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">level</span><span class="p">,</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;conceptId&#39;</span><span class="p">],</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;preferredTerm&#39;</span><span class="p">],</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;submissionValue&#39;</span><span class="p">],</span> <span class="s1">&#39;; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;synonyms&#39;</span><span class="p">]),</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;definition&#39;</span><span class="p">],</span> <span class="n">nterms</span><span class="p">])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">not_processed</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+                    
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">,</span> <span class="s1">&#39;level&#39;</span><span class="p">,</span> <span class="s1">&#39;conceptId&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;preferredTerm&#39;</span><span class="p">,</span> <span class="s1">&#39;submissionValue&#39;</span><span class="p">,</span> <span class="s1">&#39;synonyms&#39;</span><span class="p">,</span> <span class="s1">&#39;definition&#39;</span><span class="p">,</span> <span class="s1">&#39;terms&#39;</span><span class="p">])</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;label&#39;</span><span class="p">,</span> <span class="s1">&#39;preferredTerm&#39;</span><span class="p">]]</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;label&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">ct_package</span><span class="p">[</span><span class="n">title</span><span class="p">][</span><span class="s1">&#39;label_df&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">label</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ct_package</span><span class="p">[</span><span class="n">title</span><span class="p">][</span><span class="s1">&#39;ct_df&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span>
+
+        <span class="k">return</span> </div>
 </div>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="k">pass</span>
-
-    <span class="c1">#cl = accessLib(&quot;/Users/yh2020/cdisc.txt&quot;)</span>
-    <span class="c1">#cl.get_ct_list()</span>
-    <span class="c1">#c = cl.get_ct_package(&#39;Protocol&#39;)</span>
 </pre></div>
 
            </div>
