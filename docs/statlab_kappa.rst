@@ -149,6 +149,11 @@ The SE of :math:`\kappa` is calculated as
 Interpretation of Cohen's Kappa Suggested in Literature
 *************
 
+There are several groups of interpretation. Some roughly (not-strictly) defined types are listed below:
+
+1. Table based interpretation: a shared interpretation simplifies application process and provides a easy to compare values.
+2. Interpretation based on Approximated model based confidence interval or Bootstrap confidence intervals with a preselected criterion
+3. Bayesian inference based interpretation [8]_ 
 
 Cohen (1960) [4]_ suggested the Kappa result be interpreted as follows: 
 
@@ -485,6 +490,10 @@ The weighted :math:`\kappa` is calculated as
 
 .. math::
   \kappa = 1- \frac{\sum_{j_1=1}^J\sum_{j_2=1}^J w_{j_1,j_2}N_{j_1,j_2}}{\sum_{j_1=1}^J\sum_{j_2=1}^J w_{j_1,j_2}\hat{E}_{j_1, j_2}}.
+
+(There shall be another page discussing weighted methods and variations)
+
+
 
 *************
 Reference

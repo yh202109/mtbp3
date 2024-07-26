@@ -1,4 +1,4 @@
-#  Copyright (C) 2023 Y Hsu <yh202109@gmail.com>
+#  Copyright (C) 2023-2024 Y Hsu <yh202109@gmail.com>
 #
 #  This program is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public license as published by
@@ -19,8 +19,7 @@ import os
 import re
 import numpy as np
 import pandas as pd
-from mtbp3.util.lsr import LsrTree
-import mtbp3
+from mtbp3.util import util, lsr, cdt 
 
 class Emt:
     """A class representing MedDRA terms.
@@ -30,7 +29,7 @@ class Emt:
 
     Attributes:
         folder_name (str): The folder name associated with the Emt.
-        lsr (LsrTree): An instance of the LsrTree class for listing files.
+        lsrt (LsrTree): An instance of the LsrTree class for listing files.
         month (str): The month of the version published.
         year (str): The year of the version published.
     """
@@ -47,7 +46,7 @@ class Emt:
             self.folder_name = folder_name
             self.demo = False
         else:
-            self.folder_name = mtbp3.get_data('test_emt/MedDRA')
+            self.folder_name = util.get_data('test_emt/MedDRA')
             self.demo = True
 
         self.version_number = "00.0"
@@ -127,8 +126,8 @@ class Emt:
         Returns:
             list: A list of missing file names.
         """
-        lsr = LsrTree(self.folder_name, outfmt="list")
-        lsr_files = lsr.list_files()
+        lsrt = lsr.LsrTree(self.folder_name, outfmt="list")
+        lsr_files = lsrt.list_files()
         support_doc_files, med_ascii_files, seq_ascii_files = self.expected_file_lists()
 
         missing_files = []
@@ -161,8 +160,8 @@ class Emt:
         Returns:
             list: A list of file names.
         """
-        lsr = LsrTree(self.folder_name, outfmt="tree", with_counts=True)
-        lsr_files = lsr.list_files()
+        lsrt = lsr.LsrTree(self.folder_name, outfmt="tree", with_counts=True)
+        lsr_files = lsrt.list_files()
         return lsr_files
 
     def find_soc(self, terms=[], ignore_case=False):
@@ -625,7 +624,7 @@ class Emt:
     def load_fmq_default(self):
         if self.fmq_list_default is None:
             try:
-                tmp = pd.read_csv(os.path.join(mtbp3.get_data('test_emt/FMQ'), "FMQ_Consolidated_List.csv"), delimiter=',', header=0)
+                tmp = pd.read_csv(os.path.join(util.get_data('test_emt/FMQ'), "FMQ_Consolidated_List.csv"), delimiter=',', header=0)
                 tmp = tmp.iloc[:, :-1]
                 tmp.columns = ['fmq', 'pt', 'fmq_pt', 'classification']
                 self.fmq_list_default = tmp
@@ -759,7 +758,7 @@ class Emt:
             list1 = pt_df['fmq_class'].unique().tolist()
             lists = pt_df['fmq_class_soc'].unique().tolist()
             list2 = pt_df['fmq_class_soc_pt'].unique().tolist()
-            tree = mtbp3.util.cdt.ListTree(lst = ['FMQ/']+list0+list1+lists+list2)
+            tree = lsr.ListTree(lst = ['FMQ/']+list0+list1+lists+list2)
             return tree.list_tree(to_right=to_right)
         else:
             pt_df = pt_df.sort_values(by=['fmq', 'classification'])
@@ -776,7 +775,7 @@ class Emt:
 
             list1 = pt_df['fmq_class'].unique().tolist()
             list2 = pt_df['fmq_class_pt'].unique().tolist()
-            tree = mtbp3.util.cdt.ListTree(lst = ['FMQ/']+list0+list1+list2)
+            tree = lsr.ListTree(lst = ['FMQ/']+list0+list1+list2)
             return tree.list_tree(to_right=to_right)
 
 if __name__ == "__main__":
