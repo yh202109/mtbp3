@@ -19,7 +19,6 @@ import os
 import re
 import numpy as np
 import pandas as pd
-import mtbp3
 from mtbp3 import util
 
 class Emt:
@@ -47,7 +46,7 @@ class Emt:
             self.folder_name = folder_name
             self.demo = False
         else:
-            self.folder_name = mtbp3.get_data('test_emt/MedDRA')
+            self.folder_name = util.get_data('test_emt/MedDRA')
             self.demo = True
 
         self.version_number = "00.0"
@@ -625,7 +624,7 @@ class Emt:
     def load_fmq_default(self):
         if self.fmq_list_default is None:
             try:
-                tmp = pd.read_csv(os.path.join(mtbp3.get_data('test_emt/FMQ'), "FMQ_Consolidated_List.csv"), delimiter=',', header=0)
+                tmp = pd.read_csv(os.path.join(util.get_data('test_emt/FMQ'), "FMQ_Consolidated_List.csv"), delimiter=',', header=0)
                 tmp = tmp.iloc[:, :-1]
                 tmp.columns = ['fmq', 'pt', 'fmq_pt', 'classification']
                 self.fmq_list_default = tmp
