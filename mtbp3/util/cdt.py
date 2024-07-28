@@ -172,7 +172,7 @@ class ListTree:
         self.infmt = infmt
         self.df = pd.DataFrame()
         self.prelst = pd.DataFrame()
-        self.out = pd.DataFrame()
+        self.tree = pd.DataFrame()
     
     def __list_tree_df(self):
         if not isinstance(self.lst, list):
@@ -290,11 +290,20 @@ class ListTree:
         self.prelst = prelst
     
     def list_tree(self, to_right=False):
+        """
+        Returns a DataFrame representing the tree structure of the object.
+
+        Parameters:
+        - to_right (bool): If True, aligns the tree structure to the right by padding with spaces.
+
+        Returns:
+        - tree (DataFrame): DataFrame representing the tree structure.
+        """
         self.__list_tree_pre(to_right=to_right)
         
         if self.prelst.empty:
-            self.out = pd.DataFrame()
-            return self.out
+            self.tree = pd.DataFrame()
+            return self.tree
         
         out_joined = self.prelst.apply(lambda row: ''.join(row), axis=1)
         
@@ -302,8 +311,34 @@ class ListTree:
             max_length = out_joined.str.len().max()
             out_joined = out_joined.apply(lambda x: x.rjust(max_length))
         
-        self.out = out_joined
-        return self.out
+        self.tree = out_joined
+        return self.tree
+
+    def list_tree_with_keyword(self, keywords, neighbor = 0, outfmt='simple'):
+        """
+        Search for keywords in the list of items.
+
+        Args:
+            keywords (list): List of keywords to search for.
+
+        Returns:
+            list: List of items that contain the keywords.
+
+        """
+        if not isinstance(keywords, list):
+            raise ValueError("keywords should be a list.")
+        
+        if not self.lst:
+            return []
+
+        if outfmt == 'simple':
+            result = [item for item in self.lst if any(keyword in item for keyword in keywords)]
+        elif outfmt == 'subtree':
+            for item in result:
+                if any(keyword in item for keyword in keywords):
+                    result.append(item)
+        else: 
+            return []
 
 if __name__ == "__main__":
     pass

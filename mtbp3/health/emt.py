@@ -19,7 +19,8 @@ import os
 import re
 import numpy as np
 import pandas as pd
-from mtbp3.util import util, lsr, cdt 
+import mtbp3
+from mtbp3 import util
 
 class Emt:
     """A class representing MedDRA terms.
@@ -46,7 +47,7 @@ class Emt:
             self.folder_name = folder_name
             self.demo = False
         else:
-            self.folder_name = util.get_data('test_emt/MedDRA')
+            self.folder_name = mtbp3.get_data('test_emt/MedDRA')
             self.demo = True
 
         self.version_number = "00.0"
@@ -126,7 +127,7 @@ class Emt:
         Returns:
             list: A list of missing file names.
         """
-        lsrt = lsr.LsrTree(self.folder_name, outfmt="list")
+        lsrt = util.lsr.LsrTree(self.folder_name, outfmt="list")
         lsr_files = lsrt.list_files()
         support_doc_files, med_ascii_files, seq_ascii_files = self.expected_file_lists()
 
@@ -160,7 +161,7 @@ class Emt:
         Returns:
             list: A list of file names.
         """
-        lsrt = lsr.LsrTree(self.folder_name, outfmt="tree", with_counts=True)
+        lsrt = util.lsr.LsrTree(self.folder_name, outfmt="tree", with_counts=True)
         lsr_files = lsrt.list_files()
         return lsr_files
 
@@ -624,7 +625,7 @@ class Emt:
     def load_fmq_default(self):
         if self.fmq_list_default is None:
             try:
-                tmp = pd.read_csv(os.path.join(util.get_data('test_emt/FMQ'), "FMQ_Consolidated_List.csv"), delimiter=',', header=0)
+                tmp = pd.read_csv(os.path.join(mtbp3.get_data('test_emt/FMQ'), "FMQ_Consolidated_List.csv"), delimiter=',', header=0)
                 tmp = tmp.iloc[:, :-1]
                 tmp.columns = ['fmq', 'pt', 'fmq_pt', 'classification']
                 self.fmq_list_default = tmp
@@ -758,7 +759,7 @@ class Emt:
             list1 = pt_df['fmq_class'].unique().tolist()
             lists = pt_df['fmq_class_soc'].unique().tolist()
             list2 = pt_df['fmq_class_soc_pt'].unique().tolist()
-            tree = lsr.ListTree(lst = ['FMQ/']+list0+list1+lists+list2)
+            tree = util.lsr.ListTree(lst = ['FMQ/']+list0+list1+lists+list2)
             return tree.list_tree(to_right=to_right)
         else:
             pt_df = pt_df.sort_values(by=['fmq', 'classification'])
@@ -775,7 +776,7 @@ class Emt:
 
             list1 = pt_df['fmq_class'].unique().tolist()
             list2 = pt_df['fmq_class_pt'].unique().tolist()
-            tree = lsr.ListTree(lst = ['FMQ/']+list0+list1+list2)
+            tree = util.lsr.ListTree(lst = ['FMQ/']+list0+list1+list2)
             return tree.list_tree(to_right=to_right)
 
 if __name__ == "__main__":

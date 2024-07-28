@@ -3,12 +3,12 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 import unittest
 import pandas as pd
-from mtbp3.health.emt import Emt
+from mtbp3.health import emt
 
 class TestEmt(unittest.TestCase):
 
     def setUp(self):
-        self.emt = Emt()
+        self.emt = emt.Emt()
         self.emt.find_files()
 
     def test_expected_file_lists(self):

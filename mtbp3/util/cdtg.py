@@ -77,6 +77,7 @@ class catPlotter:
             self.x_order = []
         if grid_kws is None:
             grid_kws = {}
+        
         self.grid_kws = grid_kws
         sns.set_style("ticks", {'axes.grid': True})
     

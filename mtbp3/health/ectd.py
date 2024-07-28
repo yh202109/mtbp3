@@ -15,7 +15,8 @@
 
 import pandas as pd
 import os
-from mtbp3.util import cdt, util
+import mtbp3
+from mtbp3 import util
     
 class ctoc_by_fda:
     def __init__(self, ectd_version="3.2.2", ctoc_version="2.3.3"):
@@ -23,8 +24,9 @@ class ctoc_by_fda:
         assert isinstance(ctoc_version, str) and all(char.isdigit() or char == '.' for char in ctoc_version), "Version must be a string with integers and dots"
         self.ectd_version = ectd_version
         self.ctoc_version = ctoc_version
-        self.folder_name = util.get_data(f'supp_ectd/fda_ectd{ectd_version}_ctocv{ctoc_version}.txt')
+        self.folder_name = mtbp3.get_data(f'supp_ectd/fda_ectd{ectd_version}_ctocv{ctoc_version}.txt')
         self.ctoc = self.__load_list()
+        print(self.folder_name)
 
     def __load_list(self):
         #file_path = f'./mtbp3/data/supp_ectd/fda_ectd{self.ectd_version}_ctocv{ctoc_version}.txt'
@@ -43,7 +45,7 @@ class ctoc_by_fda:
             module = 1
 
         filtered_ctoc = [item for item in self.ctoc if item.startswith(str(module))]
-        tree = cdt.ListTree(lst=filtered_ctoc, infmt='dotspace')
+        tree = mtbp3.util.cdt.ListTree(lst=filtered_ctoc, infmt='dotspace')
         return tree.list_tree(to_right=to_right)
     
     @staticmethod
@@ -109,9 +111,9 @@ class ctoc_by_fda:
                         out_colored.append(f"{first_part} {colored_second_part}")
                     else:
                         out_colored.append(row)
-                out_tree = cdt.ListTree(lst=out_colored, infmt='dotspace')
+                out_tree = mtbp3.util.cdt.ListTree(lst=out_colored, infmt='dotspace')
             else:
-                out_tree = cdt.ListTree(lst=out, infmt='dotspace')
+                out_tree = mtbp3.util.cdt.ListTree(lst=out, infmt='dotspace')
             return out_tree.list_tree(to_right=to_right)
         else:
             raise ValueError("Invalid value for outfmt. Supported values are 'simple' and 'tree'.")
