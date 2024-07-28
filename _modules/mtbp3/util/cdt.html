@@ -83,6 +83,7 @@
       <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
           <li class="breadcrumb-item"><a href="../../mtbp3.html">mtbp3</a></li>
+          <li class="breadcrumb-item"><a href="../util.html">mtbp3.util</a></li>
       <li class="breadcrumb-item active">mtbp3.util.cdt</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -278,7 +279,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">infmt</span> <span class="o">=</span> <span class="n">infmt</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">prelst</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tree</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
     
     <span class="k">def</span> <span class="nf">__list_tree_df</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lst</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
@@ -398,11 +399,20 @@
 <div class="viewcode-block" id="ListTree.list_tree">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.ListTree.list_tree">[docs]</a>
     <span class="k">def</span> <span class="nf">list_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">to_right</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a DataFrame representing the tree structure of the object.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        - to_right (bool): If True, aligns the tree structure to the right by padding with spaces.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        - tree (DataFrame): DataFrame representing the tree structure.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__list_tree_pre</span><span class="p">(</span><span class="n">to_right</span><span class="o">=</span><span class="n">to_right</span><span class="p">)</span>
         
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">prelst</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">out</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tree</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tree</span>
         
         <span class="n">out_joined</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prelst</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">row</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
         
@@ -410,8 +420,37 @@
             <span class="n">max_length</span> <span class="o">=</span> <span class="n">out_joined</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
             <span class="n">out_joined</span> <span class="o">=</span> <span class="n">out_joined</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="n">max_length</span><span class="p">))</span>
         
-        <span class="bp">self</span><span class="o">.</span><span class="n">out</span> <span class="o">=</span> <span class="n">out_joined</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">out</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tree</span> <span class="o">=</span> <span class="n">out_joined</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tree</span></div>
+
+
+<div class="viewcode-block" id="ListTree.list_tree_with_keyword">
+<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.ListTree.list_tree_with_keyword">[docs]</a>
+    <span class="k">def</span> <span class="nf">list_tree_with_keyword</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keywords</span><span class="p">,</span> <span class="n">neighbor</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;simple&#39;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Search for keywords in the list of items.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            keywords (list): List of keywords to search for.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            list: List of items that contain the keywords.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">keywords</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;keywords should be a list.&quot;</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">lst</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+
+        <span class="k">if</span> <span class="n">outfmt</span> <span class="o">==</span> <span class="s1">&#39;simple&#39;</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">lst</span> <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">keyword</span> <span class="ow">in</span> <span class="n">item</span> <span class="k">for</span> <span class="n">keyword</span> <span class="ow">in</span> <span class="n">keywords</span><span class="p">)]</span>
+        <span class="k">elif</span> <span class="n">outfmt</span> <span class="o">==</span> <span class="s1">&#39;subtree&#39;</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">keyword</span> <span class="ow">in</span> <span class="n">item</span> <span class="k">for</span> <span class="n">keyword</span> <span class="ow">in</span> <span class="n">keywords</span><span class="p">):</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span> 
+            <span class="k">return</span> <span class="p">[]</span></div>
 </div>
 
 

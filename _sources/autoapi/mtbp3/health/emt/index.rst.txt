@@ -28,7 +28,7 @@ Module Contents
 
       :type: str
 
-   .. attribute:: lsr
+   .. attribute:: lsrt
 
       An instance of the LsrTree class for listing files.
 

@@ -109,10 +109,9 @@
 <span class="c1">#  along with this program. If not, see &lt;https://www.gnu.org/license/&gt;</span>
 
 <span class="kn">from</span> <span class="nn">pypdf</span> <span class="kn">import</span> <span class="n">PdfReader</span>
-<span class="kn">import</span> <span class="nn">mtbp3</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">mtbp3.util.cdt</span> <span class="kn">import</span> <span class="n">ListTree</span>
+<span class="kn">from</span> <span class="nn">mtbp3</span> <span class="kn">import</span> <span class="n">cdt</span><span class="p">,</span> <span class="n">util</span>
 
 <div class="viewcode-block" id="pdfSummary">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/stdiso/pdfsummary/index.html#mtbp3.stdiso.pdfsummary.pdfSummary">[docs]</a>
@@ -143,7 +142,7 @@
 <span class="sd">            path (str, optional): The path to the PDF file. If not provided, a demo file will be used.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">pdf_path</span> <span class="o">=</span> <span class="n">mtbp3</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s1">&#39;attention.pdf&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pdf_path</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s1">&#39;attention.pdf&#39;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">demo</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">pdf_path</span> <span class="o">=</span> <span class="n">path</span>
@@ -295,7 +294,7 @@
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">outline_list</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;self.outline_list should be a length 2 list&quot;</span><span class="p">)</span>
 
-        <span class="n">tree</span> <span class="o">=</span> <span class="n">ListTree</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">outline_list</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">infmt</span><span class="o">=</span><span class="s1">&#39;dotspace&#39;</span><span class="p">)</span>
+        <span class="n">tree</span> <span class="o">=</span> <span class="n">cdt</span><span class="o">.</span><span class="n">ListTree</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">outline_list</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">infmt</span><span class="o">=</span><span class="s1">&#39;dotspace&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">list_tree</span><span class="p">(</span><span class="n">to_right</span><span class="o">=</span><span class="n">to_right</span><span class="p">))</span></div>
 </div>
 

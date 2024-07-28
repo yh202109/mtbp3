@@ -42,7 +42,10 @@
                 "- ISO 11239 and ISO/TS 20440 / **Dosage Form and Route** of Administration\n",
                 "- ISO 11240 / **Units** of Measurement (UoM)\n",
                 "\n",
-                "\n"
+                "Related ISO standards:\n",
+                "\n",
+                "- ISO Technical Specifications (TS) 16791:2020 (which complements ISO 11615) assists Automatic Identification and Data Capture (AIDC) related to health informatics.\n",
+                "- ISO Technical Requirements (TR) 14872:2019 includes core principles for maintenance of identifiers and terms supporting IDMP\n"
             ]
         },
         {

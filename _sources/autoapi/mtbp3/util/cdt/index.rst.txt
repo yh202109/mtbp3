@@ -102,7 +102,7 @@ Module Contents
    .. py:attribute:: prelst
 
 
-   .. py:attribute:: out
+   .. py:attribute:: tree
 
 
    .. py:method:: __list_tree_df()
@@ -112,5 +112,26 @@ Module Contents
 
 
    .. py:method:: list_tree(to_right=False)
+
+      Returns a DataFrame representing the tree structure of the object.
+
+      Parameters:
+      - to_right (bool): If True, aligns the tree structure to the right by padding with spaces.
+
+      Returns:
+      - tree (DataFrame): DataFrame representing the tree structure.
+
+
+
+   .. py:method:: list_tree_with_keyword(keywords, neighbor=0, outfmt='simple')
+
+      Search for keywords in the list of items.
+
+      :param keywords: List of keywords to search for.
+      :type keywords: list
+
+      :returns: List of items that contain the keywords.
+      :rtype: list
+
 
 

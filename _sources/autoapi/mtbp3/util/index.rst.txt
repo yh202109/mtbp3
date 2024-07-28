@@ -13,6 +13,15 @@ Submodules
    /autoapi/mtbp3/util/cdt/index
    /autoapi/mtbp3/util/cdtg/index
    /autoapi/mtbp3/util/lsr/index
+   /autoapi/mtbp3/util/util/index
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   mtbp3.util._ROOT
 
 
 Classes
@@ -33,6 +42,7 @@ Functions
    mtbp3.util.diff_2cols_in_1df
    mtbp3.util.diff_2cols_in_2df
    mtbp3.util.summarize_1nc_by_2group
+   mtbp3.util.get_data
 
 
 Package Contents
@@ -189,7 +199,7 @@ Package Contents
    .. py:attribute:: prelst
 
 
-   .. py:attribute:: out
+   .. py:attribute:: tree
 
 
    .. py:method:: __list_tree_df()
@@ -199,6 +209,27 @@ Package Contents
 
 
    .. py:method:: list_tree(to_right=False)
+
+      Returns a DataFrame representing the tree structure of the object.
+
+      Parameters:
+      - to_right (bool): If True, aligns the tree structure to the right by padding with spaces.
+
+      Returns:
+      - tree (DataFrame): DataFrame representing the tree structure.
+
+
+
+   .. py:method:: list_tree_with_keyword(keywords, neighbor=0, outfmt='simple')
+
+      Search for keywords in the list of items.
+
+      :param keywords: List of keywords to search for.
+      :type keywords: list
+
+      :returns: List of items that contain the keywords.
+      :rtype: list
+
 
 
 .. py:class:: catPlotter(df, y_col, group_col=None, grid_col=None, grid_wrap=None, x_col=None, pt_size=5, y_scale_base=0, x_scale_base=0, title='', fig_size_0=7, fig_size_1=6, point_position='swarm', x_label_rotate=None, grid_kws=None)
@@ -314,4 +345,8 @@ Package Contents
       - ValueError: If group_col or y_col is not found in DataFrame columns.
 
 
+
+.. py:data:: _ROOT
+
+.. py:function:: get_data(path)
 

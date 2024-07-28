@@ -81,6 +81,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mtbp3._ROOT"><code class="docutils literal notranslate"><span class="pre">_ROOT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mtbp3.get_data"><code class="docutils literal notranslate"><span class="pre">get_data()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#mtbp3.LsrTree"><code class="docutils literal notranslate"><span class="pre">LsrTree</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#mtbp3.diff_2cols_in_1df"><code class="docutils literal notranslate"><span class="pre">diff_2cols_in_1df()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#mtbp3.diff_2cols_in_2df"><code class="docutils literal notranslate"><span class="pre">diff_2cols_in_2df()</span></code></a></li>
@@ -88,8 +90,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#mtbp3.ListTree"><code class="docutils literal notranslate"><span class="pre">ListTree</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#mtbp3.catPlotter"><code class="docutils literal notranslate"><span class="pre">catPlotter</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#mtbp3.__version__"><code class="docutils literal notranslate"><span class="pre">__version__</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#mtbp3._ROOT"><code class="docutils literal notranslate"><span class="pre">_ROOT</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#mtbp3.get_data"><code class="docutils literal notranslate"><span class="pre">get_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">_ROOT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">get_data()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -143,10 +145,13 @@ It imports all the functions and classes from the util module.</p>
 <h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h2>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mtbp3.__version__" title="mtbp3.__version__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__version__</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#id0" title="mtbp3._ROOT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_ROOT</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mtbp3._ROOT" title="mtbp3._ROOT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_ROOT</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mtbp3.__version__" title="mtbp3.__version__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__version__</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#id0" title="mtbp3._ROOT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_ROOT</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -172,16 +177,19 @@ It imports all the functions and classes from the util module.</p>
 <h2>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mtbp3.diff_2cols_in_1df" title="mtbp3.diff_2cols_in_1df"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diff_2cols_in_1df</span></code></a>(df[, col1, col2, keep_diff_only])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#id3" title="mtbp3.get_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_data</span></code></a>(path)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mtbp3.diff_2cols_in_1df" title="mtbp3.diff_2cols_in_1df"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diff_2cols_in_1df</span></code></a>(df[, col1, col2, keep_diff_only])</p></td>
 <td><p>Calculate the difference between two columns in a DataFrame.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mtbp3.diff_2cols_in_2df" title="mtbp3.diff_2cols_in_2df"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diff_2cols_in_2df</span></code></a>(df1, df2, col, gp)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mtbp3.diff_2cols_in_2df" title="mtbp3.diff_2cols_in_2df"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diff_2cols_in_2df</span></code></a>(df1, df2, col, gp)</p></td>
 <td><p>Check if a column exists in both dataframes.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mtbp3.summarize_1nc_by_2group" title="mtbp3.summarize_1nc_by_2group"><code class="xref py py-obj docutils literal notranslate"><span class="pre">summarize_1nc_by_2group</span></code></a>([df, column, cutoff, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mtbp3.summarize_1nc_by_2group" title="mtbp3.summarize_1nc_by_2group"><code class="xref py py-obj docutils literal notranslate"><span class="pre">summarize_1nc_by_2group</span></code></a>([df, column, cutoff, ...])</p></td>
 <td><p>Create a summary dataframe that shows the percentage of NaN values and values less than a cutoff point in a numerical column.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mtbp3.get_data" title="mtbp3.get_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_data</span></code></a>(path)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#id3" title="mtbp3.get_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_data</span></code></a>(path)</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -189,6 +197,16 @@ It imports all the functions and classes from the util module.</p>
 </section>
 <section id="package-contents">
 <h2>Package Contents<a class="headerlink" href="#package-contents" title="Link to this heading"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="mtbp3._ROOT">
+<span class="sig-prename descclassname"><span class="pre">mtbp3.</span></span><span class="sig-name descname"><span class="pre">_ROOT</span></span><a class="headerlink" href="#mtbp3._ROOT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mtbp3.get_data">
+<span class="sig-prename descclassname"><span class="pre">mtbp3.</span></span><span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mtbp3.html#get_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.get_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="mtbp3.LsrTree">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mtbp3.</span></span><span class="sig-name descname"><span class="pre">LsrTree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'list'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_counts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_file_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mtbp3/util/lsr.html#LsrTree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.LsrTree" title="Link to this definition"></a></dt>
@@ -410,8 +428,8 @@ If there is no difference between the two columns, the string “The two columns
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="mtbp3.ListTree.out">
-<span class="sig-name descname"><span class="pre">out</span></span><a class="headerlink" href="#mtbp3.ListTree.out" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="mtbp3.ListTree.tree">
+<span class="sig-name descname"><span class="pre">tree</span></span><a class="headerlink" href="#mtbp3.ListTree.tree" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -427,7 +445,29 @@ If there is no difference between the two columns, the string “The two columns
 <dl class="py method">
 <dt class="sig sig-object py" id="mtbp3.ListTree.list_tree">
 <span class="sig-name descname"><span class="pre">list_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to_right</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mtbp3/util/cdt.html#ListTree.list_tree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.ListTree.list_tree" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Returns a DataFrame representing the tree structure of the object.</p>
+<p>Parameters:
+- to_right (bool): If True, aligns the tree structure to the right by padding with spaces.</p>
+<p>Returns:
+- tree (DataFrame): DataFrame representing the tree structure.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mtbp3.ListTree.list_tree_with_keyword">
+<span class="sig-name descname"><span class="pre">list_tree_with_keyword</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keywords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neighbor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'simple'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mtbp3/util/cdt.html#ListTree.list_tree_with_keyword"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.ListTree.list_tree_with_keyword" title="Link to this definition"></a></dt>
+<dd><p>Search for keywords in the list of items.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>keywords</strong> (<em>list</em>) – List of keywords to search for.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of items that contain the keywords.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -578,13 +618,13 @@ If there is no difference between the two columns, the string “The two columns
 <dd></dd></dl>
 
 <dl class="py data">
-<dt class="sig sig-object py" id="mtbp3._ROOT">
-<span class="sig-prename descclassname"><span class="pre">mtbp3.</span></span><span class="sig-name descname"><span class="pre">_ROOT</span></span><a class="headerlink" href="#mtbp3._ROOT" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id0">
+<span class="sig-prename descclassname"><span class="pre">mtbp3.</span></span><span class="sig-name descname"><span class="pre">_ROOT</span></span><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mtbp3.get_data">
-<span class="sig-prename descclassname"><span class="pre">mtbp3.</span></span><span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mtbp3.html#get_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.get_data" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id3">
+<span class="sig-prename descclassname"><span class="pre">mtbp3.</span></span><span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mtbp3.html#get_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id3" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </section>
