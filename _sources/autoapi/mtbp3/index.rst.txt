@@ -30,7 +30,6 @@ Attributes
 
    mtbp3._ROOT
    mtbp3.__version__
-   mtbp3._ROOT
 
 
 Classes
@@ -52,7 +51,6 @@ Functions
    mtbp3.diff_2cols_in_1df
    mtbp3.diff_2cols_in_2df
    mtbp3.summarize_1nc_by_2group
-   mtbp3.get_data
 
 
 Package Contents
@@ -361,8 +359,4 @@ Package Contents
 
 
 .. py:data:: __version__
-
-.. py:data:: _ROOT
-
-.. py:function:: get_data(path)
 
