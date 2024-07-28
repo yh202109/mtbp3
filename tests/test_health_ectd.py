@@ -1,10 +1,10 @@
 import unittest
-from mtbp3.health.ectd import ctoc_by_fda
+from mtbp3.health import ectd
 
 class TestCtocByFDA(unittest.TestCase):
 
     def setUp(self):
-        self.ctoc = ctoc_by_fda(ectd_version="3.2.2", ctoc_version="2.3.3")
+        self.ctoc = ectd.ctoc_by_fda(ectd_version="3.2.2", ctoc_version="2.3.3")
 
     def test_load_list(self):
         self.assertIsInstance(self.ctoc.ctoc, list)

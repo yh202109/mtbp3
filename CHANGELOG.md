@@ -2,6 +2,19 @@
 
 <!--next-version-placeholder-->
 
+## v0.2.21 (2024-07-26)
+
+- update stdcdisc.lib
+    - df output
+- update import methods
+
+## v0.2.20 (2024-07-20)
+
+- add stdcdisc.lib
+    - add get_ct_list
+    - add get_ct_package
+    - add preview ct package
+
 ## v0.2.19 (2024-07-09)
 
 - add ectd search tree 
