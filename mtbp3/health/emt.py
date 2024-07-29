@@ -758,7 +758,7 @@ class Emt:
             list1 = pt_df['fmq_class'].unique().tolist()
             lists = pt_df['fmq_class_soc'].unique().tolist()
             list2 = pt_df['fmq_class_soc_pt'].unique().tolist()
-            tree = util.lsr.ListTree(lst = ['FMQ/']+list0+list1+lists+list2)
+            tree = util.cdt.ListTree(lst = ['FMQ/']+list0+list1+lists+list2)
             return tree.list_tree(to_right=to_right)
         else:
             pt_df = pt_df.sort_values(by=['fmq', 'classification'])
@@ -775,7 +775,7 @@ class Emt:
 
             list1 = pt_df['fmq_class'].unique().tolist()
             list2 = pt_df['fmq_class_pt'].unique().tolist()
-            tree = util.lsr.ListTree(lst = ['FMQ/']+list0+list1+list2)
+            tree = util.cdt.ListTree(lst = ['FMQ/']+list0+list1+list2)
             return tree.list_tree(to_right=to_right)
 
 if __name__ == "__main__":
