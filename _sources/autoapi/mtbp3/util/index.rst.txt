@@ -13,7 +13,6 @@ Submodules
    /autoapi/mtbp3/util/cdt/index
    /autoapi/mtbp3/util/cdtg/index
    /autoapi/mtbp3/util/lsr/index
-   /autoapi/mtbp3/util/util/index
 
 
 Attributes
