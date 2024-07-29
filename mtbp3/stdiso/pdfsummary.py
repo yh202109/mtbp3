@@ -16,7 +16,7 @@
 from pypdf import PdfReader
 import os
 import pandas as pd
-from mtbp3 import cdt, util
+from mtbp3 import util
 
 class pdfSummary:
     """
@@ -186,7 +186,7 @@ class pdfSummary:
         if len(self.outline_list) != 2:
             raise ValueError("self.outline_list should be a length 2 list")
 
-        tree = cdt.ListTree(lst=self.outline_list[0], infmt='dotspace')
+        tree = util.cdt.ListTree(lst=self.outline_list[0], infmt='dotspace')
         return '\n'.join(tree.list_tree(to_right=to_right))
 
 if __name__ == "__main__":
