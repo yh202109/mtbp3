@@ -205,5 +205,34 @@ class accessLib:
 
         return 
 
+    def get_standards(self):
+        """
+        Retrieves a list of available standards from the CDISC library.
+
+        This method sends a GET request to the CDISC library API to retrieve a list of available standards.
+        It returns a list of standard names.
+
+        Returns:
+            list: A list of available standards.
+        """
+        ep = "/mdr/products"
+        req = requests.get(
+            self.baseURL + ep,
+            headers={'api-key': self.api_key, 'Accept': 'application/json'}
+        )
+        req.close()
+
+        if req.status_code == 200:
+            data = req.json()
+            # standards = [standard['name'] for standard in data['_links']['standards']]
+            # return standards
+            return data
+        else:
+            raise ValueError("Invalid status code: " + str(req.status_code) + " - " + req.reason)
+
 if __name__ == "__main__":
+    # Example usage of get_standards method
+    lib = accessLib("/Users/yh2020/cdisc.txt")  # Replace with the actual path to the input file
+    standards = lib.get_standards()
+    print(standards)
     pass
