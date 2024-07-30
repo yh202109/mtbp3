@@ -4,6 +4,14 @@ mtbp3.stdcdisc.lib
 .. py:module:: mtbp3.stdcdisc.lib
 
 
+Attributes
+----------
+
+.. autoapisummary::
+
+   mtbp3.stdcdisc.lib.lib
+
+
 Classes
 -------
 
@@ -92,4 +100,18 @@ Module Contents
       :rtype: pandas.DataFrame
 
 
+
+   .. py:method:: get_standards()
+
+      Retrieves a list of available standards from the CDISC library.
+
+      This method sends a GET request to the CDISC library API to retrieve a list of available standards.
+      It returns a list of standard names.
+
+      :returns: A list of available standards.
+      :rtype: list
+
+
+
+.. py:data:: lib
 

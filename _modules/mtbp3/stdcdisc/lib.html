@@ -304,10 +304,42 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">ct_package</span><span class="p">[</span><span class="n">title</span><span class="p">][</span><span class="s1">&#39;ct_df&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span>
 
         <span class="k">return</span> </div>
+
+
+<div class="viewcode-block" id="accessLib.get_standards">
+<a class="viewcode-back" href="../../../autoapi/mtbp3/stdcdisc/lib/index.html#mtbp3.stdcdisc.lib.accessLib.get_standards">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_standards</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieves a list of available standards from the CDISC library.</span>
+
+<span class="sd">        This method sends a GET request to the CDISC library API to retrieve a list of available standards.</span>
+<span class="sd">        It returns a list of standard names.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            list: A list of available standards.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ep</span> <span class="o">=</span> <span class="s2">&quot;/mdr/products&quot;</span>
+        <span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">baseURL</span> <span class="o">+</span> <span class="n">ep</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;api-key&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_key</span><span class="p">,</span> <span class="s1">&#39;Accept&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">}</span>
+        <span class="p">)</span>
+        <span class="n">req</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">req</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+            <span class="c1"># standards = [standard[&#39;name&#39;] for standard in data[&#39;_links&#39;][&#39;standards&#39;]]</span>
+            <span class="c1"># return standards</span>
+            <span class="k">return</span> <span class="n">data</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid status code: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; - &quot;</span> <span class="o">+</span> <span class="n">req</span><span class="o">.</span><span class="n">reason</span><span class="p">)</span></div>
 </div>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1"># Example usage of get_standards method</span>
+    <span class="n">lib</span> <span class="o">=</span> <span class="n">accessLib</span><span class="p">(</span><span class="s2">&quot;/Users/yh2020/cdisc.txt&quot;</span><span class="p">)</span>  <span class="c1"># Replace with the actual path to the input file</span>
+    <span class="n">standards</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">get_standards</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">standards</span><span class="p">)</span>
     <span class="k">pass</span>
 </pre></div>
 
