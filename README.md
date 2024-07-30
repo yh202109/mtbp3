@@ -23,13 +23,11 @@ Functions are grouped into:
   - ICH/MedDRA: `health.emt` 
   - WHODrug: 
 - Standard: 
-  - CDISC<sup>*</sup>: `stdcdisc.lib`
+  - CDISC<sup>[*]</sup>: `stdcdisc.lib`
   - ISO: `stdiso.pdfsummary` 
-- StatLab<sup>*</sup>: 
-  - Correlation: `statlab.corr` 
-  - Reliability: `statlab.kappa`
+- StatLab has been moved to a new package `mtbp3Lab` after v0.2.21 and will be extend to provide a broarder range of practicing topics. Enjoy! 
 
-<sup>*</sup> Documents are not executed while building.
+<sup>[*]</sup> Documents are not executed while building.
 
 ## Table of Contents
 
