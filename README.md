@@ -15,8 +15,6 @@ Functions are grouped into:
   - Data summary: `util.cdt`
   - Graphs: `util.cdtg`
   - System: `util.lsr`
-- Geo-spatial
-  - Data summary: 
 - Health
   - Data summary: `health.clinical`
   - ICH/eCTD: `health.ectd` 
@@ -25,10 +23,10 @@ Functions are grouped into:
 - Standard: 
   - CDISC<sup>[*]</sup>: `stdcdisc.lib`
   - ISO: `stdiso.pdfsummary` 
-- StatLab has been moved to a new package `mtbp3Lab` [here](https://yh202109.github.io/mtbp3Lab/index.html) after v0.2.21 and will be extended to provide more practicing topics. Enjoy! 
-
 
 <sup>[*]</sup> Documents are not executed while building.
+
+StatLab has been moved to another package, `mtbp3Lab`, after v0.2.21, and will be extended to provide more practicing topics. Enjoy [here](https://yh202109.github.io/mtbp3Lab/index.html)!
 
 ## Table of Contents
 
