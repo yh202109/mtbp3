@@ -25,7 +25,8 @@ Functions are grouped into:
 - Standard: 
   - CDISC<sup>[*]</sup>: `stdcdisc.lib`
   - ISO: `stdiso.pdfsummary` 
-- StatLab has been moved to a new package `mtbp3Lab` after v0.2.21 and will be extended to provide a broarder range of practicing topics. Enjoy! 
+- StatLab has been moved to a new package `mtbp3Lab` [here](https://yh202109.github.io/mtbp3Lab/index.html) after v0.2.21 and will be extended to provide more practicing topics. Enjoy! 
+
 
 <sup>[*]</sup> Documents are not executed while building.
 
