@@ -17,6 +17,7 @@ from pypdf import PdfReader
 import os
 import pandas as pd
 from mtbp3 import util
+from PIL import ImageFile
 
 class pdfSummary:
     """
@@ -81,6 +82,43 @@ class pdfSummary:
         }
         self.outline_list = []
 
+    def get_image(self, page_index=0, image_index=0, outfolder=""):
+        """
+        Retrieves an image from the PDF summary.
+        Args:
+            page_index (int, optional): The index of the page containing the image. Defaults to 0.
+            image_index (int, optional): The index of the image within the page. Defaults to 0.
+            outfolder (str, optional): The folder to save the image file. Defaults to "".
+        Returns:
+            str or PIL.Image: If `outfolder` is provided, the function saves the image file and returns the file path as a string.
+            Otherwise, it returns the image as a PIL.Image object.
+        Raises:
+            ValueError: If `page_index` or `image_index` is not a non-negative integer, or if they are out of range.
+        """
+
+        if (not isinstance(page_index, int)) or (not isinstance(page_index, int)):
+            raise ValueError("page_index and image_index must be non-negative integers")
+        if page_index < 0 or page_index >= self.summary['n_page']:
+            raise ValueError("Invalid page index")
+        if image_index < 0 or image_index >= self.summary['n_image_in_page'][page_index]:
+            raise ValueError("Invalid image index")
+
+        img = self.pp.pages[page_index].images[image_index]
+
+        if outfolder:
+            filename = f"image_{page_index}_{image_index}_{img.name}"
+            filepath = os.path.join(outfolder, filename)
+
+            with open(filepath, 'wb') as fp:
+                fp.write(img.data)
+            return filepath
+
+        else:
+            p = ImageFile.Parser()
+            p.feed(img.data)
+            im = p.close()
+            return im
+            
     def get_summary_string(self):
         """
         Returns a string representation of the summary information.
@@ -190,6 +228,11 @@ class pdfSummary:
         return '\n'.join(tree.list_tree(to_right=to_right))
 
 if __name__ == "__main__":
-    pfr = pdfSummary("/Users/yh2020/dt2/proj/mtbp3/mtbp3/data/attention.pdf")
-    print(pfr.get_outline_list(max_itr=1))
+    pass
+    # pfr = pdfSummary("/Users/yh2020/dt2/proj/mtbp3/mtbp3/data/attention.pdf")
+    # img = pfr.get_image(page_index=2, image_index=0, outfolder='')
+    # print(type(img))
+    # img.show()
+
+
 

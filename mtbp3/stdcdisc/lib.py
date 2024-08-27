@@ -148,7 +148,7 @@ class accessLib:
         else:
             raise ValueError("Invalid status code: " + str(req.status_code) + " - " + req.reason)
     
-    def get_ct_codelists_df(self, title="", max_level = 3):
+    def get_ct_codelists_df(self, title="", max_level = 3, max_item=10):
         """
         Converts the codelist information from the package to a pandas DataFrame.
 
@@ -163,6 +163,10 @@ class accessLib:
             raise ValueError("Invalid CT package.")
         if 'package_info' not in self.ct_package[title].keys() or 'codelists' not in self.ct_package[title].keys():
             raise ValueError("Invalid package. Package does not contain package_info or codelists.")
+        if not isinstance(max_level, int) or max_level < 1:
+            max_level = 1
+        if not isinstance(max_item, int) or max_item < 1:
+            max_item = 1
         package = self.ct_package[title]
         tmp = package['package_info']['name'].replace(r'[^a-zA-Z0-9]', '_')
         remaining_list = package['codelists']
@@ -177,6 +181,10 @@ class accessLib:
             remaining_list = []
             remaining_list_label = []
             for index, item in enumerate(codelists):
+                if index >= max_item:
+                    tmp = '<<<remaining>>'
+                    data.append([codelists_label[index], level] + [tmp]*7 + [len(codelists) - index])
+                    break
                 if isinstance(item, dict):
                     if 'group' not in item.keys():
                         item['group']=""

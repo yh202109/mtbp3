@@ -25,7 +25,6 @@ class ctoc_by_fda:
         self.ctoc_version = ctoc_version
         self.folder_name = util.get_data(f'supp_ectd/fda_ectd{ectd_version}_ctocv{ctoc_version}.txt')
         self.ctoc = self.__load_list()
-        print(self.folder_name)
 
     def __load_list(self):
         #file_path = f'./mtbp3/data/supp_ectd/fda_ectd{self.ectd_version}_ctocv{ctoc_version}.txt'
@@ -119,7 +118,3 @@ class ctoc_by_fda:
 
 if __name__ == "__main__":
     pass
-    words = ['rems', 'dsur']
-    ctoc = ctoc_by_fda()
-    sections = ctoc.find_section_given_words(words, outfmt='tree')
-    print(sections)
