@@ -222,37 +222,12 @@ To extract the first image on the 3rd page:</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span> 
 
-<span class="n">display</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span> 
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">display</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
-
-<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/IPython/core/display_functions.py:305,</span> in <span class="ni">display</span><span class="nt">(include, exclude, metadata, transient, display_id, raw, clear, *objs, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">302</span>         <span class="k">if</span> <span class="n">metadata</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">303</span>             <span class="c1"># kwarg-specified metadata gets precedence</span>
-<span class="g g-Whitespace">    </span><span class="mi">304</span>             <span class="n">_merge</span><span class="p">(</span><span class="n">md_dict</span><span class="p">,</span> <span class="n">metadata</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">305</span>         <span class="n">publish_display_data</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">format_dict</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="n">md_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">306</span> <span class="k">if</span> <span class="n">display_id</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">307</span>     <span class="k">return</span> <span class="n">DisplayHandle</span><span class="p">(</span><span class="n">display_id</span><span class="p">)</span>
-
-<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/IPython/core/display_functions.py:93,</span> in <span class="ni">publish_display_data</span><span class="nt">(data, metadata, source, transient, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">90</span> <span class="k">if</span> <span class="n">transient</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">91</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;transient&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">transient</span>
-<span class="ne">---&gt; </span><span class="mi">93</span> <span class="n">display_pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">94</span>     <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">95</span>     <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">96</span>     <span class="o">**</span><span class="n">kwargs</span>
-<span class="g g-Whitespace">     </span><span class="mi">97</span> <span class="p">)</span>
-
-<span class="ne">TypeError</span>: ZMQDisplayPublisher.publish() got an unexpected keyword argument &#39;width&#39;
-</pre></div>
-</div>
+<img alt="_images/82a80f6732141d124f9a143f9e5340c3e34672a55194207f160f1dd60d1ef0f0.png" src="_images/82a80f6732141d124f9a143f9e5340c3e34672a55194207f160f1dd60d1ef0f0.png" />
 </div>
 </div>
 <p>To save the 2nd image on the 4th page to a file, add an existing folder path using <code class="docutils literal notranslate"><span class="pre">outfolder='add_path_here'</span></code>:</p>
@@ -263,6 +238,9 @@ To extract the first image on the 3rd page:</p>
 <span class="n">display</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/2973dff4b153b750c37e9aa3fb18981b1ae9455832391354ce31f681e242b511.png"><img alt="_images/2973dff4b153b750c37e9aa3fb18981b1ae9455832391354ce31f681e242b511.png" src="_images/2973dff4b153b750c37e9aa3fb18981b1ae9455832391354ce31f681e242b511.png" style="width: 300px;" /></a>
 </div>
 </div>
 </section>
