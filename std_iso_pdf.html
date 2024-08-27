@@ -58,6 +58,8 @@
 <li class="toctree-l1"><a class="reference internal" href="example_emt3.html">H/ICH/MedDRA/FMQs by FDA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_emt4.html">H/ICH/MedDRA/(MLGs by CIOMS)</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Std/ISO/PDF</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pdf-file-summary">PDF File Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#image">Image</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
@@ -136,6 +138,8 @@ and currently maintained by the International Organization for Standardization (
 Steps for <strong>creating and validating</strong> PDF/A files can be found in reference <a class="footnote-reference brackets" href="#id12" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a><sup>,</sup><a class="footnote-reference brackets" href="#id13" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>.</p>
 <p>The module <code class="docutils literal notranslate"><span class="pre">stdiso.pdfsummary</span></code> depends on package <code class="docutils literal notranslate"><span class="pre">pypdf</span></code> <a class="footnote-reference brackets" href="#id14" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>.
 The module <code class="docutils literal notranslate"><span class="pre">stdiso.pdfsummary</span></code> include functions for creating summaries about a specified PDF file.</p>
+<section id="pdf-file-summary">
+<h2>PDF File Summary<a class="headerlink" href="#pdf-file-summary" title="Link to this heading"></a></h2>
 <p>To use <code class="docutils literal notranslate"><span class="pre">mtbp3.stdiso</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -196,6 +200,9 @@ More details about the example pdf can be found here: https://arxiv.org/abs/1706
 </div>
 </div>
 </div>
+</section>
+<section id="image">
+<h2>Image<a class="headerlink" href="#image" title="Link to this heading"></a></h2>
 <p>We can see that there is one image in the 3rd page from the summary above.
 To extract the first image on the 3rd page:</p>
 <div class="cell docutils container">
@@ -215,27 +222,35 @@ To extract the first image on the 3rd page:</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span> 
 
+<span class="n">img</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/82a80f6732141d124f9a143f9e5340c3e34672a55194207f160f1dd60d1ef0f0.png" src="_images/82a80f6732141d124f9a143f9e5340c3e34672a55194207f160f1dd60d1ef0f0.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span> 
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">img</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">display</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: Image.resize() got an unexpected keyword argument &#39;width&#39;
+</pre></div>
 </div>
 </div>
-<p>To save the image to a file, add an existing folder path using <code class="docutils literal notranslate"><span class="pre">outfolder='add_path_here'</span></code>.</p>
+</div>
+<p>To save the 2nd image on the 4th page to a file, add an existing folder path using <code class="docutils literal notranslate"><span class="pre">outfolder='add_path_here'</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img_path</span> <span class="o">=</span> <span class="n">pfr</span><span class="o">.</span><span class="n">get_image</span><span class="p">(</span><span class="n">page_index</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">image_index</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">outfolder</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
-<span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">img_path</span><span class="p">)</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">img_path</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/2973dff4b153b750c37e9aa3fb18981b1ae9455832391354ce31f681e242b511.png" src="_images/2973dff4b153b750c37e9aa3fb18981b1ae9455832391354ce31f681e242b511.png" />
 </div>
-</div>
+</section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>
 </section>
