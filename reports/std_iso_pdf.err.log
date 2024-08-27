@@ -17,8 +17,7 @@ nbclient.exceptions.CellExecutionError: An error occurred while executing the fo
 ------------------
 from IPython.display import Image 
 
-img.resize(width=300)
-display(img)
+display(img, width=300)
 ------------------
 
 
@@ -26,8 +25,24 @@ display(img)
 [0;31mTypeError[0m                                 Traceback (most recent call last)
 Cell [0;32mIn[4], line 3[0m
 [1;32m      1[0m [38;5;28;01mfrom[39;00m [38;5;21;01mIPython[39;00m[38;5;21;01m.[39;00m[38;5;21;01mdisplay[39;00m [38;5;28;01mimport[39;00m Image 
-[0;32m----> 3[0m [43mimg[49m[38;5;241;43m.[39;49m[43mresize[49m[43m([49m[43mwidth[49m[38;5;241;43m=[39;49m[38;5;241;43m300[39;49m[43m)[49m
-[1;32m      4[0m display(img)
+[0;32m----> 3[0m [43mdisplay[49m[43m([49m[43mimg[49m[43m,[49m[43m [49m[43mwidth[49m[38;5;241;43m=[39;49m[38;5;241;43m300[39;49m[43m)[49m
 
-[0;31mTypeError[0m: Image.resize() got an unexpected keyword argument 'width'
+File [0;32m~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/IPython/core/display_functions.py:305[0m, in [0;36mdisplay[0;34m(include, exclude, metadata, transient, display_id, raw, clear, *objs, **kwargs)[0m
+[1;32m    302[0m         [38;5;28;01mif[39;00m metadata:
+[1;32m    303[0m             [38;5;66;03m# kwarg-specified metadata gets precedence[39;00m
+[1;32m    304[0m             _merge(md_dict, metadata)
+[0;32m--> 305[0m         [43mpublish_display_data[49m[43m([49m[43mdata[49m[38;5;241;43m=[39;49m[43mformat_dict[49m[43m,[49m[43m [49m[43mmetadata[49m[38;5;241;43m=[39;49m[43mmd_dict[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[1;32m    306[0m [38;5;28;01mif[39;00m display_id:
+[1;32m    307[0m     [38;5;28;01mreturn[39;00m DisplayHandle(display_id)
+
+File [0;32m~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/IPython/core/display_functions.py:93[0m, in [0;36mpublish_display_data[0;34m(data, metadata, source, transient, **kwargs)[0m
+[1;32m     90[0m [38;5;28;01mif[39;00m transient:
+[1;32m     91[0m     kwargs[[38;5;124m'[39m[38;5;124mtransient[39m[38;5;124m'[39m] [38;5;241m=[39m transient
+[0;32m---> 93[0m [43mdisplay_pub[49m[38;5;241;43m.[39;49m[43mpublish[49m[43m([49m
+[1;32m     94[0m [43m    [49m[43mdata[49m[38;5;241;43m=[39;49m[43mdata[49m[43m,[49m
+[1;32m     95[0m [43m    [49m[43mmetadata[49m[38;5;241;43m=[39;49m[43mmetadata[49m[43m,[49m
+[1;32m     96[0m [43m    [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m
+[1;32m     97[0m [43m[49m[43m)[49m
+
+[0;31mTypeError[0m: ZMQDisplayPublisher.publish() got an unexpected keyword argument 'width'
 
