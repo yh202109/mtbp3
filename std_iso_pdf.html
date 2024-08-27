@@ -202,7 +202,6 @@ To extract the first image on the 3rd page:</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">pfr</span><span class="o">.</span><span class="n">get_image</span><span class="p">(</span><span class="n">page_index</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">image_index</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">outfolder</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">img</span><span class="p">))</span>
-<span class="n">img</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -212,14 +211,21 @@ To extract the first image on the 3rd page:</p>
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>To save the image to a file, add an existing folder path using <code class="docutils literal notranslate"><span class="pre">outfolder='add_path_here'</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span> 
 
 <span class="n">img_path</span> <span class="o">=</span> <span class="n">pfr</span><span class="o">.</span><span class="n">get_image</span><span class="p">(</span><span class="n">page_index</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">image_index</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">outfolder</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
-<span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">img_path</span><span class="p">)</span>
-<span class="n">img</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">img_path</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -232,9 +238,10 @@ To extract the first image on the 3rd page:</p>
 /usr/bin/xdg-open: 882: links: not found
 /usr/bin/xdg-open: 882: lynx: not found
 /usr/bin/xdg-open: 882: w3m: not found
-xdg-open: no method available for opening &#39;/tmp/tmp3fze9007.PNG&#39;
+xdg-open: no method available for opening &#39;/tmp/tmpih59h2pu.PNG&#39;
 </pre></div>
 </div>
+<img alt="_images/2973dff4b153b750c37e9aa3fb18981b1ae9455832391354ce31f681e242b511.png" src="_images/2973dff4b153b750c37e9aa3fb18981b1ae9455832391354ce31f681e242b511.png" />
 </div>
 </div>
 <section id="reference">
