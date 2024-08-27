@@ -147,7 +147,9 @@
             },
             "outputs": [],
             "source": [
-                "display.Image(img, width=300)"
+                "from IPython.display import Image \n",
+                "\n",
+                "display(Image(img, width=300))"
             ]
         },
         {
@@ -171,8 +173,6 @@
             },
             "outputs": [],
             "source": [
-                "from IPython.display import Image \n",
-                "\n",
                 "img_path = pfr.get_image(page_index=3, image_index=1, outfolder='.')\n",
                 "img = Image(filename=img_path, width=300)\n",
                 "display(img)"
