@@ -2,6 +2,11 @@
 
 <!--next-version-placeholder-->
 
+## v0.2.22 (2024-08-27)
+
+- update pdfsummary
+    - add image function
+
 ## v0.2.21 (2024-07-26)
 
 - update stdcdisc.lib
