@@ -83,6 +83,19 @@ class pdfSummary:
         self.outline_list = []
 
     def get_image(self, page_index=0, image_index=0, outfolder=""):
+        """
+        Retrieves an image from the PDF summary.
+        Args:
+            page_index (int, optional): The index of the page containing the image. Defaults to 0.
+            image_index (int, optional): The index of the image within the page. Defaults to 0.
+            outfolder (str, optional): The folder to save the image file. Defaults to "".
+        Returns:
+            str or PIL.Image: If `outfolder` is provided, the function saves the image file and returns the file path as a string.
+            Otherwise, it returns the image as a PIL.Image object.
+        Raises:
+            ValueError: If `page_index` or `image_index` is not a non-negative integer, or if they are out of range.
+        """
+
         if (not isinstance(page_index, int)) or (not isinstance(page_index, int)):
             raise ValueError("page_index and image_index must be non-negative integers")
         if page_index < 0 or page_index >= self.summary['n_page']:

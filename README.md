@@ -9,6 +9,11 @@
 
 My tool box in Python.
 
+Quick links: 
+[Github](https://github.com/yh202109/mtbp3) |
+[Documentation](https://yh202109.github.io/mtbp3/index.html) |
+[StatLab](https://yh202109.github.io/mtbp3Lab/index.html).
+
 Functions are grouped into:
 
 - General 
@@ -26,7 +31,8 @@ Functions are grouped into:
 
 <sup>[*]</sup> Documents are not executed while building.
 
-StatLab has been moved to another package, `mtbp3Lab`, after v0.2.21, and will be extended to provide more practicing topics. Enjoy [here](https://yh202109.github.io/mtbp3Lab/index.html)!
+StatLab has been moved to another package, `mtbp3Lab`, after v0.2.21, and will be extended to provide more practicing topics. 
+Enjoy [here](https://yh202109.github.io/mtbp3Lab/index.html)!
 
 ## Table of Contents
 
@@ -54,7 +60,6 @@ import mtbp3
 print(mtbp3.__version__)
 ``` 
 
-Please find more examples from the link [here](https://yh202109.github.io/mtbp3/index.html).
 
 ## Contributing
 
