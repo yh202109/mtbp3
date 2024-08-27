@@ -25,7 +25,6 @@ statlab_corr_spearman_rho.rst
 changelog.md
 contributing.md
 conduct.md
-autoapi/index
 ```
 
 
