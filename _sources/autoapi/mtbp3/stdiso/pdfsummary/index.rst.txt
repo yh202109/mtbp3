@@ -92,6 +92,21 @@ Module Contents
 
    .. py:method:: get_image(page_index=0, image_index=0, outfolder='')
 
+      Retrieves an image from the PDF summary.
+      :param page_index: The index of the page containing the image. Defaults to 0.
+      :type page_index: int, optional
+      :param image_index: The index of the image within the page. Defaults to 0.
+      :type image_index: int, optional
+      :param outfolder: The folder to save the image file. Defaults to "".
+      :type outfolder: str, optional
+
+      :returns: If `outfolder` is provided, the function saves the image file and returns the file path as a string.
+                Otherwise, it returns the image as a PIL.Image object.
+      :rtype: str or PIL.Image
+
+      :raises ValueError: If `page_index` or `image_index` is not a non-negative integer, or if they are out of range.
+
+
 
    .. py:method:: get_summary_string()
 

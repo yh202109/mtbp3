@@ -177,6 +177,19 @@
 <div class="viewcode-block" id="pdfSummary.get_image">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/stdiso/pdfsummary/index.html#mtbp3.stdiso.pdfsummary.pdfSummary.get_image">[docs]</a>
     <span class="k">def</span> <span class="nf">get_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page_index</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">image_index</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">outfolder</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieves an image from the PDF summary.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            page_index (int, optional): The index of the page containing the image. Defaults to 0.</span>
+<span class="sd">            image_index (int, optional): The index of the image within the page. Defaults to 0.</span>
+<span class="sd">            outfolder (str, optional): The folder to save the image file. Defaults to &quot;&quot;.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            str or PIL.Image: If `outfolder` is provided, the function saves the image file and returns the file path as a string.</span>
+<span class="sd">            Otherwise, it returns the image as a PIL.Image object.</span>
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If `page_index` or `image_index` is not a non-negative integer, or if they are out of range.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">page_index</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">page_index</span><span class="p">,</span> <span class="nb">int</span><span class="p">)):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;page_index and image_index must be non-negative integers&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">page_index</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">page_index</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">summary</span><span class="p">[</span><span class="s1">&#39;n_page&#39;</span><span class="p">]:</span>
