@@ -28,7 +28,6 @@ ipywidgets = { version = "*", optional = false }
 scikit-learn = { version = "*", optional = false }
 statsmodels = { version = "*", optional = false }
 defusedxml = { version = "*", optional = false }
-PIL = { version = "*", optional = false }
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
