@@ -4,14 +4,6 @@ mtbp3.stdiso.pdfsummary
 .. py:module:: mtbp3.stdiso.pdfsummary
 
 
-Attributes
-----------
-
-.. autoapisummary::
-
-   mtbp3.stdiso.pdfsummary.pfr
-
-
 Classes
 -------
 
@@ -98,6 +90,9 @@ Module Contents
 
 
 
+   .. py:method:: get_image(page_index=0, image_index=0, outfolder='')
+
+
    .. py:method:: get_summary_string()
 
       Returns a string representation of the summary information.
@@ -148,6 +143,4 @@ Module Contents
       :rtype: str
 
 
-
-.. py:data:: pfr
 

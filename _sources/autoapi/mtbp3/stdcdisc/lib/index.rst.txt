@@ -89,7 +89,7 @@ Module Contents
 
 
 
-   .. py:method:: get_ct_codelists_df(title='', max_level=3)
+   .. py:method:: get_ct_codelists_df(title='', max_level=3, max_item=10)
 
       Converts the codelist information from the package to a pandas DataFrame.
 

@@ -107,6 +107,7 @@
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">mtbp3</span> <span class="kn">import</span> <span class="n">util</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">ImageFile</span>
 
 <div class="viewcode-block" id="pdfSummary">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/stdiso/pdfsummary/index.html#mtbp3.stdiso.pdfsummary.pdfSummary">[docs]</a>
@@ -173,6 +174,33 @@
         <span class="p">}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">outline_list</span> <span class="o">=</span> <span class="p">[]</span>
 
+<div class="viewcode-block" id="pdfSummary.get_image">
+<a class="viewcode-back" href="../../../autoapi/mtbp3/stdiso/pdfsummary/index.html#mtbp3.stdiso.pdfsummary.pdfSummary.get_image">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page_index</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">image_index</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">outfolder</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">page_index</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">page_index</span><span class="p">,</span> <span class="nb">int</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;page_index and image_index must be non-negative integers&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">page_index</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">page_index</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">summary</span><span class="p">[</span><span class="s1">&#39;n_page&#39;</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid page index&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">image_index</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">image_index</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">summary</span><span class="p">[</span><span class="s1">&#39;n_image_in_page&#39;</span><span class="p">][</span><span class="n">page_index</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid image index&quot;</span><span class="p">)</span>
+
+        <span class="n">img</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">pages</span><span class="p">[</span><span class="n">page_index</span><span class="p">]</span><span class="o">.</span><span class="n">images</span><span class="p">[</span><span class="n">image_index</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">outfolder</span><span class="p">:</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;image_</span><span class="si">{</span><span class="n">page_index</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">image_index</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">img</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">outfolder</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+                <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">filepath</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="n">ImageFile</span><span class="o">.</span><span class="n">Parser</span><span class="p">()</span>
+            <span class="n">p</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+            <span class="n">im</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">im</span></div>
+
+            
 <div class="viewcode-block" id="pdfSummary.get_summary_string">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/stdiso/pdfsummary/index.html#mtbp3.stdiso.pdfsummary.pdfSummary.get_summary_string">[docs]</a>
     <span class="k">def</span> <span class="nf">get_summary_string</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -295,8 +323,13 @@
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">pfr</span> <span class="o">=</span> <span class="n">pdfSummary</span><span class="p">(</span><span class="s2">&quot;/Users/yh2020/dt2/proj/mtbp3/mtbp3/data/attention.pdf&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">pfr</span><span class="o">.</span><span class="n">get_outline_list</span><span class="p">(</span><span class="n">max_itr</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+    <span class="k">pass</span>
+    <span class="c1"># pfr = pdfSummary(&quot;/Users/yh2020/dt2/proj/mtbp3/mtbp3/data/attention.pdf&quot;)</span>
+    <span class="c1"># img = pfr.get_image(page_index=2, image_index=0, outfolder=&#39;&#39;)</span>
+    <span class="c1"># print(type(img))</span>
+    <span class="c1"># img.show()</span>
+
+
 
 </pre></div>
 

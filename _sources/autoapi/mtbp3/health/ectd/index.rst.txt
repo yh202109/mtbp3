@@ -4,14 +4,6 @@ mtbp3.health.ectd
 .. py:module:: mtbp3.health.ectd
 
 
-Attributes
-----------
-
-.. autoapisummary::
-
-   mtbp3.health.ectd.words
-
-
 Classes
 -------
 
@@ -49,9 +41,5 @@ Module Contents
 
 
    .. py:method:: find_section_given_words(words, outfmt='simple', include='up', to_right=False, colored=None)
-
-
-.. py:data:: words
-   :value: ['rems', 'dsur']
 
 
