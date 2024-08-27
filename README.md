@@ -10,9 +10,9 @@
 My tool box in Python.
 
 Quick links: 
-[Github](https://github.com/yh202109/mtbp3) |
-[Documentation](https://yh202109.github.io/mtbp3/index.html) |
-[StatLab](https://yh202109.github.io/mtbp3Lab/index.html).
+[Mtbp3 Documentation](https://yh202109.github.io/mtbp3/index.html) |
+[StatLab Documentation](https://yh202109.github.io/mtbp3Lab/index.html) |
+[Github](https://github.com/yh202109/mtbp3) 
 
 Functions are grouped into:
 
