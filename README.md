@@ -27,6 +27,7 @@ Functions are grouped into:
   - WHODrug: 
 - Standard: 
   - CDISC<sup>[*]</sup>: `stdcdisc.lib`
+  - H7/FHIR: 
   - ISO: `stdiso.pdfsummary` 
 
 <sup>[*]</sup> Documents are not executed while building.
