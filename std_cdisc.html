@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Std/CDISC/Library Resource &mdash; mtbp3  documentation</title>
+  <title>S/CDISC/Library Resource &mdash; mtbp3  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -25,7 +25,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="&lt;no title&gt;" href="statlab_kappa.html" />
-    <link rel="prev" title="Std/ISO/IDMP" href="std_iso_idmp.html" /> 
+    <link rel="prev" title="S/ISO/IDMP" href="std_iso_idmp.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -57,9 +57,10 @@
 <li class="toctree-l1"><a class="reference internal" href="example_emt2.html">H/ICH/MedDRA/SMQs by ICH</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_emt3.html">H/ICH/MedDRA/FMQs by FDA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_emt4.html">H/ICH/MedDRA/(MLGs by CIOMS)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="std_iso_pdf.html">Std/ISO/PDF</a></li>
-<li class="toctree-l1"><a class="reference internal" href="std_iso_idmp.html">Std/ISO/IDMP</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Std/CDISC/Library Resource</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="std_hl7fhir_us_pqcmc.html">S/HL7/FHIR-R5/US/PQ-CMC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="std_iso_pdf.html">S/ISO/PDF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="std_iso_idmp.html">S/ISO/IDMP</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">S/CDISC/Library Resource</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#cdisc-foundational-standards">CDISC Foundational Standards</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#select-cdisc-version">Select CDISC Version</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#resources">Resources</a></li>
@@ -90,7 +91,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Std/CDISC/Library Resource</li>
+      <li class="breadcrumb-item active">S/CDISC/Library Resource</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/std_cdisc.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -115,8 +116,8 @@
     #
     #  You should have received a copy of the GNU General Public license
     #  along with this program. If not, see <https://www.gnu.org/license/> 
---><section id="std-cdisc-library-resource">
-<h1>Std/CDISC/Library Resource<a class="headerlink" href="#std-cdisc-library-resource" title="Link to this heading"></a></h1>
+--><section id="s-cdisc-library-resource">
+<h1>S/CDISC/Library Resource<a class="headerlink" href="#s-cdisc-library-resource" title="Link to this heading"></a></h1>
 <p>CDISC stands for Clinical Data Interchange Standards Consortium.
 As the name indicated, the organization engages with clinical data community and creates and maintains data standards for clinical developments,
 such that the planning, creating, storing, using and exchanging of information and records can be processed at a higher level of consistency <a class="footnote-reference brackets" href="#id9" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
@@ -185,8 +186,8 @@ the implementation of data standards needs considerable time and effort.</p>
 <section id="get-ct-packages">
 <h3>Get CT Packages<a class="headerlink" href="#get-ct-packages" title="Link to this heading"></a></h3>
 <p>CDISC Controlled Terminology (CT) is maintained and distributed as part of the National Cancer Institute (NCI) Thesaurus <a class="footnote-reference brackets" href="#id13" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>.
-CT can be downloaded from NCI FTP and multiple file formats are available (Excel, text, odm.xml, pdf, html, and OWL/RDF formats) <a class="footnote-reference brackets" href="#id14" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>.</p>
-<p>To get a list of newest CT packages available:</p>
+CT can also be downloaded from NCI FTP and multiple file formats are available (Excel, text, odm.xml, pdf, html, and OWL/RDF formats) <a class="footnote-reference brackets" href="#id14" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>.</p>
+<p>To get a list of newest CT packages available on CDISC Library:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cl</span><span class="o">.</span><span class="n">get_ct_list</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">cl</span><span class="o">.</span><span class="n">ct_list_titles</span><span class="p">)</span>
 </pre></div>
@@ -323,7 +324,7 @@ CT can be downloaded from NCI FTP and multiple file formats are available (Excel
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="std_iso_idmp.html" class="btn btn-neutral float-left" title="Std/ISO/IDMP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="std_iso_idmp.html" class="btn btn-neutral float-left" title="S/ISO/IDMP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="statlab_kappa.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

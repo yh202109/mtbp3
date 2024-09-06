@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Std/ISO/IDMP &mdash; mtbp3  documentation</title>
+  <title>S/ISO/IDMP &mdash; mtbp3  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -24,8 +24,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Std/CDISC/Library Resource" href="std_cdisc.html" />
-    <link rel="prev" title="Std/ISO/PDF" href="std_iso_pdf.html" /> 
+    <link rel="next" title="S/CDISC/Library Resource" href="std_cdisc.html" />
+    <link rel="prev" title="S/ISO/PDF" href="std_iso_pdf.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -57,17 +57,19 @@
 <li class="toctree-l1"><a class="reference internal" href="example_emt2.html">H/ICH/MedDRA/SMQs by ICH</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_emt3.html">H/ICH/MedDRA/FMQs by FDA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_emt4.html">H/ICH/MedDRA/(MLGs by CIOMS)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="std_iso_pdf.html">Std/ISO/PDF</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Std/ISO/IDMP</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="std_hl7fhir_us_pqcmc.html">S/HL7/FHIR-R5/US/PQ-CMC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="std_iso_pdf.html">S/ISO/PDF</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">S/ISO/IDMP</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#ema-implementation-of-idmp">EMA Implementation of IDMP</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#eu-database-xevmpd">EU Database - xEVMPD</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#unicom-project">UNICOM project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unicom-project">UNICOM Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spor-data-management-services">SPOR Data Management Services</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="std_cdisc.html">Std/CDISC/Library Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="std_cdisc.html">S/CDISC/Library Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="conduct.html">Code of Conduct</a></li>
@@ -88,7 +90,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Std/ISO/IDMP</li>
+      <li class="breadcrumb-item active">S/ISO/IDMP</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/std_iso_idmp.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -113,16 +115,20 @@
     #
     #  You should have received a copy of the GNU General Public license
     #  along with this program. If not, see <https://www.gnu.org/license/> 
---><section id="std-iso-idmp">
-<h1>Std/ISO/IDMP<a class="headerlink" href="#std-iso-idmp" title="Link to this heading"></a></h1>
+--><section id="s-iso-idmp">
+<h1>S/ISO/IDMP<a class="headerlink" href="#s-iso-idmp" title="Link to this heading"></a></h1>
 <p>IDMP stands for Identification of Medicinal Products,
 which consists five standards related to data elements, formats, and structures
 for communicating information related to medicinal products during development, clinical trials, regulatory submission, post approval monitoring, etc.
-ISO IDMP standards are maintained by the International Organization for Standardization (ISO)<a class="footnote-reference brackets" href="#id7" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>
-and utilized by FDA<a class="footnote-reference brackets" href="#id8" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> and required by EMA  <a class="footnote-reference brackets" href="#id9" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a><sup>,</sup><a class="footnote-reference brackets" href="#id10" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>.</p>
+ISO IDMP standards are maintained by the International Organization for Standardization (ISO)<a class="footnote-reference brackets" href="#id12" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>
+and utilized by FDA<a class="footnote-reference brackets" href="#id13" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a><sup>,</sup><a class="footnote-reference brackets" href="#id21" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>10<span class="fn-bracket">]</span></a><sup>,</sup><a class="footnote-reference brackets" href="#id22" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>11<span class="fn-bracket">]</span></a> and required by EMA  <a class="footnote-reference brackets" href="#id14" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a><sup>,</sup><a class="footnote-reference brackets" href="#id15" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>.</p>
 <p>ISO IDMP includes five standards:</p>
 <ul class="simple">
-<li><p>ISO 11615 and ISO/TS 20443 / Medicinal Product Identification (MPID)</p></li>
+<li><p>ISO 11615 and ISO/TS 20443 / Medicinal Product Identification (MPID)</p>
+<ul>
+<li><p>this is for human use medicinal product information, including information about packaging, manufacturer, batch, origin, pharmaceutical product, marketing authorization, substance, version control, etc.</p></li>
+</ul>
+</li>
 <li><p>ISO 11616 and ISO/TS 20451 / Pharmaceutical Product Identifier (PhPID)</p></li>
 <li><p>ISO 11238 and ISO/TS 19844 / <strong>Substance</strong> Identification (SubID)</p></li>
 <li><p>ISO 11239 and ISO/TS 20440 / <strong>Dosage Form and Route</strong> of Administration</p></li>
@@ -133,13 +139,21 @@ and utilized by FDA<a class="footnote-reference brackets" href="#id8" id="id2" r
 <li><p>ISO Technical Specifications (TS) 16791:2020 (which complements ISO 11615) assists Automatic Identification and Data Capture (AIDC) related to health informatics.</p></li>
 <li><p>ISO Technical Requirements (TR) 14872:2019 includes core principles for maintenance of identifiers and terms supporting IDMP</p></li>
 </ul>
+<p>Related HL7 standards:</p>
+<ul class="simple">
+<li><p>HL7 Messaging Specifications</p>
+<ul>
+<li><p>this is based on HL7 Common Product Model (CPM) using XML</p></li>
+</ul>
+</li>
+</ul>
 <section id="ema-implementation-of-idmp">
 <h2>EMA Implementation of IDMP<a class="headerlink" href="#ema-implementation-of-idmp" title="Link to this heading"></a></h2>
 <p>IDMP is mandated by the EU legislation.
 The plan of migrating to IDMP format for submission to EMA is through phases based on the SPOR (Substances, products, organisations and referentials) data system.</p>
 <p>Related regulation:</p>
 <ul class="simple">
-<li><p>Implementing Regulation (EU) No 520/2012:</p>
+<li><p>Commission Implementing Regulation (EU) No 520/2012:</p>
 <ul>
 <li><p>Article 25 <em>Use of internationally agreed terminology</em></p></li>
 <li><p>Article 26 <em>Use of internationally agreed formats and standards</em></p></li>
@@ -156,14 +170,32 @@ The plan of migrating to IDMP format for submission to EMA is through phases bas
 <h3>EU Database - xEVMPD<a class="headerlink" href="#eu-database-xevmpd" title="Link to this heading"></a></h3>
 <p>The currently mandatory human use medicinal product information database is
 Extended EudraVigilance medicinal product dictionary (xEVMPD),
-which is based on Extended EudraVigilance Product Report Message (xEVPRM) format <a class="footnote-reference brackets" href="#id12" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>,
+which is based on Extended EudraVigilance Product Report Message (xEVPRM) format <a class="footnote-reference brackets" href="#id17" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>,
 Submissions are mandated to support the format by Article 81 <em>EU database</em> of Clinical Trial Regulation (EU) No 536/2014.
 The format of product information will be migrated to IDMP by planned phases.</p>
 </section>
 <section id="unicom-project">
-<h3>UNICOM project<a class="headerlink" href="#unicom-project" title="Link to this heading"></a></h3>
+<h3>UNICOM Project<a class="headerlink" href="#unicom-project" title="Link to this heading"></a></h3>
 <p>UNICOM is a four years project (2019-2023) that generated discussions and resources for implementation of IDMP standards,
-testing, regulatory uses of data standards, and harmonizing data formats <a class="footnote-reference brackets" href="#id13" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>.</p>
+testing, regulatory uses of data standards, and harmonizing data formats <a class="footnote-reference brackets" href="#id18" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>.</p>
+</section>
+<section id="spor-data-management-services">
+<h3>SPOR Data Management Services<a class="headerlink" href="#spor-data-management-services" title="Link to this heading"></a></h3>
+<p>EMA will establish services maintaining four domains of master data include <a class="footnote-reference brackets" href="#id15" id="id9" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>:</p>
+<ul class="simple">
+<li><p>The first phase implementation:</p>
+<ul>
+<li><p>Organisations Management Services (OMS) <a class="footnote-reference brackets" href="#id19" id="id10" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a>;</p></li>
+<li><p>Referentials Management Services (RMS) <a class="footnote-reference brackets" href="#id20" id="id11" role="doc-noteref"><span class="fn-bracket">[</span>9<span class="fn-bracket">]</span></a>.</p></li>
+</ul>
+</li>
+<li><p>The subsequent phase implementation:</p>
+<ul>
+<li><p>Substance Management Services (SMS);</p></li>
+<li><p>Product Management Services (PMS);</p></li>
+</ul>
+</li>
+</ul>
 </section>
 </section>
 <section id="reference">
@@ -172,33 +204,50 @@ testing, regulatory uses of data standards, and harmonizing data formats <a clas
 </section>
 <hr class="footnotes docutils" />
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id7" role="doc-footnote">
+<aside class="footnote brackets" id="id12" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p>ISO. (2017). Revised IDMP standards to improve description of medicinal products worldwide. (<a class="reference external" href="https://www.iso.org/news/ref2234.html">web page</a>)</p>
 </aside>
-<aside class="footnote brackets" id="id8" role="doc-footnote">
+<aside class="footnote brackets" id="id13" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
 <p>FDA. (year). Identification of Medicinal Products (IDMP). (<a class="reference external" href="https://www.fda.gov/industry/fda-data-standards-advisory-board/identification-medicinal-products-idmp">web page</a>)</p>
 </aside>
-<aside class="footnote brackets" id="id9" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<aside class="footnote brackets" id="id14" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">3</a><span class="fn-bracket">]</span></span>
 <p>EMA. (year). Data on medicines (ISO IDMP standards): Overview. (<a class="reference external" href="https://www.ema.europa.eu/en/human-regulatory-overview/research-development/data-medicines-iso-idmp-standards-overview">web page</a>)</p>
 </aside>
-<aside class="footnote brackets" id="id10" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
+<aside class="footnote brackets" id="id15" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id6">1</a>,<a role="doc-backlink" href="#id9">2</a>)</span>
 <p>EMA. (2016). Introduction to ISO Identification of Medicinal Products, SPOR programme. (<a class="reference external" href="https://www.ema.europa.eu/en/documents/other/introduction-iso-identification-medicinal-products-spor-programme_en.pdf">pdf</a>)</p>
 </aside>
-<aside class="footnote brackets" id="id11" role="doc-footnote">
+<aside class="footnote brackets" id="id16" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></span>
 <p>EMA. (year). SPOR. (<a class="reference external" href="https://spor.ema.europa.eu/sporwi/">web page</a>)</p>
 </aside>
-<aside class="footnote brackets" id="id12" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">6</a><span class="fn-bracket">]</span></span>
+<aside class="footnote brackets" id="id17" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">6</a><span class="fn-bracket">]</span></span>
 <p>EMA. (2024). Guidance on the electronic submission of information on investigational medicinal products for human use in the Extended EudraVigilance medicinal product dictionary (XEVMPD). (<a class="reference external" href="https://www.ema.europa.eu/en/documents/other/guidance-electronic-submission-information-investigational-medicinal-products-human-use-extended-eudravigilance-medicinal-product-dictionary-xevmpd_en.pdf">pdf</a>)</p>
 </aside>
-<aside class="footnote brackets" id="id13" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">7</a><span class="fn-bracket">]</span></span>
+<aside class="footnote brackets" id="id18" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">7</a><span class="fn-bracket">]</span></span>
 <p>UNICOM. (2024). About Unicom. (<a class="reference external" href="https://unicom-project.eu/about/">web page</a>)</p>
+</aside>
+<aside class="footnote brackets" id="id19" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id10">8</a><span class="fn-bracket">]</span></span>
+<p>EMA. (year). Organisation Management Service (OMS). (<a class="reference external" href="https://www.ema.europa.eu/en/human-regulatory-overview/research-and-development/data-medicines-iso-idmp-standards-overview/substance-product-organisation-and-referential-spor-master-data/organisation-management-service-oms">web page</a>)</p>
+</aside>
+<aside class="footnote brackets" id="id20" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id11">9</a><span class="fn-bracket">]</span></span>
+<p>EMA. (year). Referentials Management Service (RMS). (<a class="reference external" href="https://www.ema.europa.eu/en/human-regulatory-overview/research-and-development/data-medicines-iso-idmp-standards-overview/substance-product-organisation-and-referential-spor-master-data/referentials-management-service-rms">web page</a>)</p>
+</aside>
+<aside class="footnote brackets" id="id21" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">10</a><span class="fn-bracket">]</span></span>
+<p>FDA. (2023). Toward Global IDMP Implementation: A Focus on Global Use Cases. (<a class="reference external" href="https://www.fda.gov/drugs/news-events-human-drugs/toward-global-idmp-implementation-focus-global-use-cases-11282023">web page</a>)</p>
+</aside>
+<aside class="footnote brackets" id="id22" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">11</a><span class="fn-bracket">]</span></span>
+<p>FDA. (2023). Guidance: Identification of Medicinal Products — Implementation and Use. (<a class="reference external" href="https://www.fda.gov/media/166736/download">pdf</a>)</p>
 </aside>
 </aside>
 
@@ -206,8 +255,8 @@ testing, regulatory uses of data standards, and harmonizing data formats <a clas
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="std_iso_pdf.html" class="btn btn-neutral float-left" title="Std/ISO/PDF" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="std_cdisc.html" class="btn btn-neutral float-right" title="Std/CDISC/Library Resource" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="std_iso_pdf.html" class="btn btn-neutral float-left" title="S/ISO/PDF" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="std_cdisc.html" class="btn btn-neutral float-right" title="S/CDISC/Library Resource" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

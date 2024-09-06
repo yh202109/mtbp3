@@ -26,17 +26,18 @@
             "cell_type": "markdown",
             "metadata": {},
             "source": [
-                "# Std/ISO/IDMP\n",
+                "# S/ISO/IDMP\n",
                 "\n",
                 "IDMP stands for Identification of Medicinal Products, \n",
                 "which consists five standards related to data elements, formats, and structures \n",
                 "for communicating information related to medicinal products during development, clinical trials, regulatory submission, post approval monitoring, etc. \n",
                 "ISO IDMP standards are maintained by the International Organization for Standardization (ISO)[^1] \n",
-                "and utilized by FDA[^2] and required by EMA  [^3]<sup>,</sup>[^4]. \n",
+                "and utilized by FDA[^2]<sup>,</sup>[^10]<sup>,</sup>[^11] and required by EMA  [^3]<sup>,</sup>[^4]. \n",
                 "\n",
                 "ISO IDMP includes five standards:\n",
                 " \n",
                 "- ISO 11615 and ISO/TS 20443 / Medicinal Product Identification (MPID) \n",
+                "    - this is for human use medicinal product information, including information about packaging, manufacturer, batch, origin, pharmaceutical product, marketing authorization, substance, version control, etc.\n",
                 "- ISO 11616 and ISO/TS 20451 / Pharmaceutical Product Identifier (PhPID)\n",
                 "- ISO 11238 and ISO/TS 19844 / **Substance** Identification (SubID)\n",
                 "- ISO 11239 and ISO/TS 20440 / **Dosage Form and Route** of Administration\n",
@@ -45,7 +46,12 @@
                 "Related ISO standards:\n",
                 "\n",
                 "- ISO Technical Specifications (TS) 16791:2020 (which complements ISO 11615) assists Automatic Identification and Data Capture (AIDC) related to health informatics.\n",
-                "- ISO Technical Requirements (TR) 14872:2019 includes core principles for maintenance of identifiers and terms supporting IDMP\n"
+                "- ISO Technical Requirements (TR) 14872:2019 includes core principles for maintenance of identifiers and terms supporting IDMP\n",
+                "\n",
+                "Related HL7 standards:\n",
+                "\n",
+                "- HL7 Messaging Specifications\n",
+                "    - this is based on HL7 Common Product Model (CPM) using XML"
             ]
         },
         {
@@ -59,7 +65,7 @@
                 "\n",
                 "Related regulation:\n",
                 "\n",
-                "- Implementing Regulation (EU) No 520/2012:\n",
+                "- Commission Implementing Regulation (EU) No 520/2012:\n",
                 "    - Article 25 *Use of internationally agreed terminology*\n",
                 "    - Article 26 *Use of internationally agreed formats and standards* \n",
                 "    - Article 40 *Transitional provisions*\n",
@@ -74,10 +80,22 @@
                 "Submissions are mandated to support the format by Article 81 *EU database* of Clinical Trial Regulation (EU) No 536/2014.\n",
                 "The format of product information will be migrated to IDMP by planned phases.\n",
                 "\n",
-                "### UNICOM project\n",
+                "### UNICOM Project\n",
                 "\n",
                 "UNICOM is a four years project (2019-2023) that generated discussions and resources for implementation of IDMP standards,\n",
                 "testing, regulatory uses of data standards, and harmonizing data formats [^7]. \n",
+                "\n",
+                "### SPOR Data Management Services \n",
+                "\n",
+                "EMA will establish services maintaining four domains of master data include [^4]:\n",
+                "\n",
+                "- The first phase implementation: \n",
+                "    - Organisations Management Services (OMS) [^8];\n",
+                "    - Referentials Management Services (RMS) [^9].\n",
+                "- The subsequent phase implementation: \n",
+                "    - Substance Management Services (SMS);\n",
+                "    - Product Management Services (PMS);\n",
+                "\n",
                 "\n"
             ]
         },
@@ -93,7 +111,11 @@
                 "[^4]: EMA. (2016). Introduction to ISO Identification of Medicinal Products, SPOR programme. ([pdf](https://www.ema.europa.eu/en/documents/other/introduction-iso-identification-medicinal-products-spor-programme_en.pdf))\n",
                 "[^5]: EMA. (year). SPOR. ([web page](https://spor.ema.europa.eu/sporwi/))\n",
                 "[^6]: EMA. (2024). Guidance on the electronic submission of information on investigational medicinal products for human use in the Extended EudraVigilance medicinal product dictionary (XEVMPD). ([pdf](https://www.ema.europa.eu/en/documents/other/guidance-electronic-submission-information-investigational-medicinal-products-human-use-extended-eudravigilance-medicinal-product-dictionary-xevmpd_en.pdf))\n",
-                "[^7]: UNICOM. (2024). About Unicom. ([web page](https://unicom-project.eu/about/))"
+                "[^7]: UNICOM. (2024). About Unicom. ([web page](https://unicom-project.eu/about/))\n",
+                "[^8]: EMA. (year). Organisation Management Service (OMS). ([web page](https://www.ema.europa.eu/en/human-regulatory-overview/research-and-development/data-medicines-iso-idmp-standards-overview/substance-product-organisation-and-referential-spor-master-data/organisation-management-service-oms))\n",
+                "[^9]: EMA. (year). Referentials Management Service (RMS). ([web page](https://www.ema.europa.eu/en/human-regulatory-overview/research-and-development/data-medicines-iso-idmp-standards-overview/substance-product-organisation-and-referential-spor-master-data/referentials-management-service-rms))\n",
+                "[^10]: FDA. (2023). Toward Global IDMP Implementation: A Focus on Global Use Cases. ([web page](https://www.fda.gov/drugs/news-events-human-drugs/toward-global-idmp-implementation-focus-global-use-cases-11282023))\n",
+                "[^11]: FDA. (2023). Guidance: Identification of Medicinal Products — Implementation and Use. ([pdf](https://www.fda.gov/media/166736/download))"
             ]
         }
     ],

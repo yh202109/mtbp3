@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Std/ISO/PDF &mdash; mtbp3  documentation</title>
+  <title>S/ISO/PDF &mdash; mtbp3  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -24,8 +24,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Std/ISO/IDMP" href="std_iso_idmp.html" />
-    <link rel="prev" title="H/ICH/MedDRA/(MLGs by CIOMS)" href="example_emt4.html" /> 
+    <link rel="next" title="S/ISO/IDMP" href="std_iso_idmp.html" />
+    <link rel="prev" title="S/HL7/FHIR-R5/US/PQ-CMC" href="std_hl7fhir_us_pqcmc.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -57,14 +57,15 @@
 <li class="toctree-l1"><a class="reference internal" href="example_emt2.html">H/ICH/MedDRA/SMQs by ICH</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_emt3.html">H/ICH/MedDRA/FMQs by FDA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_emt4.html">H/ICH/MedDRA/(MLGs by CIOMS)</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Std/ISO/PDF</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="std_hl7fhir_us_pqcmc.html">S/HL7/FHIR-R5/US/PQ-CMC</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">S/ISO/PDF</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#pdf-file-summary">PDF File Summary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#work-with-images">Work with Images</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="std_iso_idmp.html">Std/ISO/IDMP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="std_cdisc.html">Std/CDISC/Library Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="std_iso_idmp.html">S/ISO/IDMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="std_cdisc.html">S/CDISC/Library Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="conduct.html">Code of Conduct</a></li>
@@ -85,7 +86,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Std/ISO/PDF</li>
+      <li class="breadcrumb-item active">S/ISO/PDF</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/std_iso_pdf.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -110,8 +111,8 @@
     #
     #  You should have received a copy of the GNU General Public license
     #  along with this program. If not, see <https://www.gnu.org/license/> 
---><section id="std-iso-pdf">
-<h1>Std/ISO/PDF<a class="headerlink" href="#std-iso-pdf" title="Link to this heading"></a></h1>
+--><section id="s-iso-pdf">
+<h1>S/ISO/PDF<a class="headerlink" href="#s-iso-pdf" title="Link to this heading"></a></h1>
 <p>PDF stands for Portable Document Format, which was created by Adobe<a class="footnote-reference brackets" href="#id8" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>,
 and currently maintained by the International Organization for Standardization (ISO) as an open source international standard <a class="footnote-reference brackets" href="#id9" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
 <p>Some commonly used specialized PDF types include:</p>
@@ -230,7 +231,7 @@ To extract the first image on the 3rd page:</p>
 <img alt="_images/8691dc1ee94c67631c3d83e9e0c7bfeac1048cb3bd155daf14e6ff5a08f94e51.png" src="_images/8691dc1ee94c67631c3d83e9e0c7bfeac1048cb3bd155daf14e6ff5a08f94e51.png" />
 </div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">resize()</span></code> function above resized the figure before displaying. Use <code class="docutils literal notranslate"><span class="pre">display(img)</span></code> in <code class="docutils literal notranslate"><span class="pre">Jupyter</span></code> if resizing is not required.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">resize()</span></code> function above resized the figure before displaying. Use <code class="docutils literal notranslate"><span class="pre">display(img)</span></code> in Jupyter if resizing is not required.</p>
 <p>To save the 2nd image on the 4th page to a file, add an existing folder path using <code class="docutils literal notranslate"><span class="pre">outfolder='add_path_here'</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -240,7 +241,7 @@ To extract the first image on the 3rd page:</p>
 </div>
 </div>
 <p>The function <code class="docutils literal notranslate"><span class="pre">get_image()</span></code> returns a file path instead of the image when the <code class="docutils literal notranslate"><span class="pre">outfolder</span></code> option is not an empty string.
-To read and display the saved image file in <code class="docutils literal notranslate"><span class="pre">Jupyter</span></code>:</p>
+To read and display the saved image file in Jupyter:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span> 
@@ -295,8 +296,8 @@ To read and display the saved image file in <code class="docutils literal notran
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="example_emt4.html" class="btn btn-neutral float-left" title="H/ICH/MedDRA/(MLGs by CIOMS)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="std_iso_idmp.html" class="btn btn-neutral float-right" title="Std/ISO/IDMP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="std_hl7fhir_us_pqcmc.html" class="btn btn-neutral float-left" title="S/HL7/FHIR-R5/US/PQ-CMC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="std_iso_idmp.html" class="btn btn-neutral float-right" title="S/ISO/IDMP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

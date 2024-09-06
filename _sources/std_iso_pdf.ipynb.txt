@@ -30,7 +30,7 @@
                 }
             },
             "source": [
-                "# Std/ISO/PDF \n",
+                "# S/ISO/PDF \n",
                 "\n",
                 "PDF stands for Portable Document Format, which was created by Adobe[^1], \n",
                 "and currently maintained by the International Organization for Standardization (ISO) as an open source international standard [^2]. \n",
@@ -159,7 +159,7 @@
                 }
             },
             "source": [
-                "The `resize()` function above resized the figure before displaying. Use `display(img)` in `Jupyter` if resizing is not required.\n",
+                "The `resize()` function above resized the figure before displaying. Use `display(img)` in Jupyter if resizing is not required.\n",
                 "\n",
                 "To save the 2nd image on the 4th page to a file, add an existing folder path using `outfolder='add_path_here'`:"
             ]
@@ -182,7 +182,7 @@
             "metadata": {},
             "source": [
                 "The function `get_image()` returns a file path instead of the image when the `outfolder` option is not an empty string. \n",
-                "To read and display the saved image file in `Jupyter`:"
+                "To read and display the saved image file in Jupyter:"
             ]
         },
         {
