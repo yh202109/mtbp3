@@ -29,8 +29,7 @@
                 "# U/Data/JSON tools\n",
                 "\n",
                 "JavaScript Object Notation (JSON) is a data exchange format deigned to be \"minimal, portable, textual, and a subset of JavaScript\"[^1].\n",
-                "\n",
-                "The module `util.jsonutil` depends on package `json` [^1] and provide simplified interface for creating keys summary, extracting values by keys, and preview.  \n"
+                "\n"
             ]
         },
         {
@@ -93,6 +92,8 @@
                 "A schema object describe the structure of elements within a JSON data object [^6].\n",
                 "\n",
                 "Please note that there are multiple Python tools available for generating JSON schema. \n",
+                "Discussions below use package `genson` for illustration the use of schema.\n",
+                "Other schema tools should yield similar results.\n",
                 "\n",
                 "To generate a schema from an object using package `genson`:"
             ]
