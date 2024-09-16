@@ -7,6 +7,7 @@
 
 example_cdtg.ipynb
 example_files.ipynb
+util_jsonutil.ipynb
 example_clinical.ipynb
 example_ectd.ipynb
 example_ectd2.ipynb

@@ -425,8 +425,7 @@
 5.3.1.1.pseudo.11 Randomisation scheme (E3 16.1.7)
 5.3.1.1.pseudo.12 Audit certificates report (E3 16.1.8)
 5.3.1.1.pseudo.13 Statistical methods interim analysis plan (E3 16.1.9)
-5.3.1.1.pseudo.14 Inter-laboratory standardisation methods quality
-5.3.1.1.pseudo.15 assurance (E3 16.1.10)
+5.3.1.1.pseudo.14 Inter-laboratory standardisation methods quality assurance (E3 16.1.10)
 5.3.1.1.pseudo.16 Publications based on study (E3 16.1.11)
 5.3.1.1.pseudo.17 Publications referenced in report (E3 16.1.12)
 5.3.1.1.pseudo.18 Discontinued patients (E3 16.2.1)
