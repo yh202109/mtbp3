@@ -6,6 +6,8 @@
 
 - update pdfsummary
     - add image function
+- add util.jsonutil
+    - add preview function
 
 ## v0.2.21 (2024-07-26)
 

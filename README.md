@@ -20,6 +20,7 @@ Functions are grouped into:
   - Data summary: `util.cdt`
   - Graphs: `util.cdtg`
   - System: `util.lsr`
+  - JSON: `util.jsonutil`
 - Health
   - Data summary: `health.clinical`
   - ICH/eCTD: `health.ectd` 
