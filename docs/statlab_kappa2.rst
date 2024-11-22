@@ -14,4 +14,4 @@
     #  You should have received a copy of the GNU General Public license
     #  along with this program. If not, see <https://www.gnu.org/license/>
    
-Please visit the new page here: https://yh202109.github.io/mtbp3Lab/statlab_kappa2.html
+plese visit the new page here: https://yh202109.github.io/mtbp3Lab/statlab_kappa2.html
