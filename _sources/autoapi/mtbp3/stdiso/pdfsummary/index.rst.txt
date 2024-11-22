@@ -73,12 +73,6 @@ Module Contents
       
 
 
-   .. py:attribute:: tmp0
-
-
-   .. py:attribute:: tmp1
-
-
    .. py:attribute:: summary
 
 

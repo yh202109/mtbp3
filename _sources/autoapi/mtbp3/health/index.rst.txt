@@ -123,15 +123,6 @@ Package Contents
 
 
 
-   .. py:attribute:: meddra_release_file
-
-
-   .. py:attribute:: pattern
-
-
-   .. py:attribute:: files
-
-
    .. py:method:: expected_file_lists()
 
       Get the three lists of files associated with the Emt.

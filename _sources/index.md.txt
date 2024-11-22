@@ -15,10 +15,10 @@ example_emt.ipynb
 example_emt2.ipynb
 example_emt3.ipynb
 example_emt4.ipynb
+std_cdisc.ipynb
 std_hl7fhir_us_pqcmc.ipynb
 std_iso_pdf.ipynb
 std_iso_idmp.ipynb
-std_cdisc.ipynb
 statlab_kappa.rst
 statlab_kappa2.rst
 statlab_corr_tau.rst

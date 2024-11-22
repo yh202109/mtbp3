@@ -29,6 +29,8 @@
                 "# U/Data/JSON tools\n",
                 "\n",
                 "JavaScript Object Notation (JSON) is a data exchange format deigned to be \"minimal, portable, textual, and a subset of JavaScript\"[^1].\n",
+                "The definition of JSON was originally designed as part of JavaScript.\n",
+                "Now the format is widely used for many applications.\n",
                 "\n"
             ]
         },
@@ -36,11 +38,11 @@
             "cell_type": "markdown",
             "metadata": {},
             "source": [
-                "## JSON Format Refresh\n",
+                "## JSON Format \n",
                 "\n",
                 "JSON grammar, data structure, and conformance rules can be found in reference [^3]. \n",
                 "\n",
-                "Below is an example of using `json` to process a JSON object found in reference [^4]:\n"
+                "Below is an example of using `json` to process a JSON instance found in reference [^4]:\n"
             ]
         },
         {
@@ -61,7 +63,7 @@
                 "        \"Height\": 600,\n",
                 "        \"Title\":  \"View from 15th Floor\",\n",
                 "        \"Thumbnail\": {\n",
-                "            \"Url\":    \"http://na/image/481989943\",\n",
+                "            \"Url\":    \"http://na/image/001\",\n",
                 "            \"Height\": 125,\n",
                 "            \"Width\":  100\n",
                 "        },\n",
@@ -70,6 +72,14 @@
                 "    }\n",
                 "}\n",
                 "print(json.dumps(ex1, indent=2))"
+            ]
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [
+                "There are three literal names in JSON format, all lower cases: false, true, null.  \n",
+                "Note that the output printed above shows `false`, while the Python format input is `False`."
             ]
         },
         {
@@ -87,13 +97,13 @@
                 }
             },
             "source": [
-                "For a larger dataset, a foundation schema or structure template is helpful to infer, create, modify and validate JSON objects to ensure correct data exchange.\n",
+                "For a larger dataset, a foundation schema or structure template is helpful to infer, create, modify and validate receiving JSON instances to ensure correct data exchange.\n",
                 "A brief history and links about JSON schema can be found in reference [^5].\n",
-                "A schema object describe the structure of elements within a JSON data object [^6].\n",
+                "A schema object describe the structure of elements within a JSON dataset [^6].\n",
                 "\n",
                 "Please note that there are multiple Python tools available for generating JSON schema. \n",
-                "Discussions below use package `genson` for illustration the use of schema.\n",
-                "Other schema tools should yield similar results.\n",
+                "Discussions below use package `genson` for illustration of the use of schema.\n",
+                "Other schema tools should work as well.\n",
                 "\n",
                 "To generate a schema from an object using package `genson`:"
             ]
@@ -135,8 +145,9 @@
                 "ex2 = [ex1['Image']] + [\n",
                 "    {\n",
                 "        \"Width\":  \"701\",\n",
-                "        \"Height\": False,\n",
+                "        \"Height\": -1.0,\n",
                 "        \"Title\":  \"View from 16th Floor\",\n",
+                "        \"new_field\": \"This is a new field\"\n",
                 "    }\n",
                 "]\n",
                 "\n",
@@ -149,9 +160,29 @@
             "cell_type": "markdown",
             "metadata": {},
             "source": [
-                "The output of `to_schema()` is a dictionary type object and can be edited as needed.\n",
-                "The package `genson` also provides functions to update `builder`, and to create extended schema builder."
+                "The output of `to_schema()` is a JSON document and can be edited as needed.\n",
+                "The package `genson` also provides functions to update a schema, and to create extended schema builder."
             ]
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [
+                "The module `util.jsonsch` accepts a schema object, and provides summary. \n",
+                "Note that there are wide varieties of usage of JSON format and schema.\n",
+                "The module `util.jsonsch` is still in developing stage and only supports a set of keywords."
+            ]
+        },
+        {
+            "cell_type": "code",
+            "execution_count": null,
+            "metadata": {
+                "vscode": {
+                    "languageId": "plaintext"
+                }
+            },
+            "outputs": [],
+            "source": []
         },
         {
             "cell_type": "markdown",

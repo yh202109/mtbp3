@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
@@ -6,21 +8,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>U/Data/JSON tools &mdash; mtbp3  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
       <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
       <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=ce7ddcad" />
 
   
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -51,7 +49,7 @@
 <li class="toctree-l1"><a class="reference internal" href="example_cdtg.html">U/Graph/Categorical Plots Using catPlotter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_files.html">U/System/List Folder Contents</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">U/Data/JSON tools</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#json-format-refresh">JSON Format Refresh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#json-format">JSON Format</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#json-schema">JSON Schema</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
@@ -63,10 +61,10 @@
 <li class="toctree-l1"><a class="reference internal" href="example_emt2.html">H/ICH/MedDRA/SMQs by ICH</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_emt3.html">H/ICH/MedDRA/FMQs by FDA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_emt4.html">H/ICH/MedDRA/(MLGs by CIOMS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="std_cdisc.html">S/CDISC/Library Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="std_hl7fhir_us_pqcmc.html">S/HL7/FHIR-R5/US/PQ-CMC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="std_iso_pdf.html">S/ISO/PDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="std_iso_idmp.html">S/ISO/IDMP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="std_cdisc.html">S/CDISC/Library Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="conduct.html">Code of Conduct</a></li>
@@ -114,11 +112,13 @@
     #  along with this program. If not, see <https://www.gnu.org/license/> 
 --><section id="u-data-json-tools">
 <h1>U/Data/JSON tools<a class="headerlink" href="#u-data-json-tools" title="Link to this heading"></a></h1>
-<p>JavaScript Object Notation (JSON) is a data exchange format deigned to be “minimal, portable, textual, and a subset of JavaScript”<a class="footnote-reference brackets" href="#id6" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
-<section id="json-format-refresh">
-<h2>JSON Format Refresh<a class="headerlink" href="#json-format-refresh" title="Link to this heading"></a></h2>
+<p>JavaScript Object Notation (JSON) is a data exchange format deigned to be “minimal, portable, textual, and a subset of JavaScript”<a class="footnote-reference brackets" href="#id6" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.
+The definition of JSON was originally designed as part of JavaScript.
+Now the format is widely used for many applications.</p>
+<section id="json-format">
+<h2>JSON Format<a class="headerlink" href="#json-format" title="Link to this heading"></a></h2>
 <p>JSON grammar, data structure, and conformance rules can be found in reference <a class="footnote-reference brackets" href="#id8" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.</p>
-<p>Below is an example of using <code class="docutils literal notranslate"><span class="pre">json</span></code> to process a JSON object found in reference <a class="footnote-reference brackets" href="#id9" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>:</p>
+<p>Below is an example of using <code class="docutils literal notranslate"><span class="pre">json</span></code> to process a JSON instance found in reference <a class="footnote-reference brackets" href="#id9" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span> 
@@ -129,7 +129,7 @@
         <span class="s2">&quot;Height&quot;</span><span class="p">:</span> <span class="mi">600</span><span class="p">,</span>
         <span class="s2">&quot;Title&quot;</span><span class="p">:</span>  <span class="s2">&quot;View from 15th Floor&quot;</span><span class="p">,</span>
         <span class="s2">&quot;Thumbnail&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;Url&quot;</span><span class="p">:</span>    <span class="s2">&quot;http://na/image/481989943&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Url&quot;</span><span class="p">:</span>    <span class="s2">&quot;http://na/image/001&quot;</span><span class="p">,</span>
             <span class="s2">&quot;Height&quot;</span><span class="p">:</span> <span class="mi">125</span><span class="p">,</span>
             <span class="s2">&quot;Width&quot;</span><span class="p">:</span>  <span class="mi">100</span>
         <span class="p">},</span>
@@ -148,7 +148,7 @@
     &quot;Height&quot;: 600,
     &quot;Title&quot;: &quot;View from 15th Floor&quot;,
     &quot;Thumbnail&quot;: {
-      &quot;Url&quot;: &quot;http://na/image/481989943&quot;,
+      &quot;Url&quot;: &quot;http://na/image/001&quot;,
       &quot;Height&quot;: 125,
       &quot;Width&quot;: 100
     },
@@ -165,15 +165,17 @@
 </div>
 </div>
 </div>
+<p>There are three literal names in JSON format, all lower cases: false, true, null.<br />
+Note that the output printed above shows <code class="docutils literal notranslate"><span class="pre">false</span></code>, while the Python format input is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 </section>
 <section id="json-schema">
 <h2>JSON Schema<a class="headerlink" href="#json-schema" title="Link to this heading"></a></h2>
-<p>For a larger dataset, a foundation schema or structure template is helpful to infer, create, modify and validate JSON objects to ensure correct data exchange.
+<p>For a larger dataset, a foundation schema or structure template is helpful to infer, create, modify and validate receiving JSON instances to ensure correct data exchange.
 A brief history and links about JSON schema can be found in reference <a class="footnote-reference brackets" href="#id10" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>.
-A schema object describe the structure of elements within a JSON data object <a class="footnote-reference brackets" href="#id11" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>.</p>
+A schema object describe the structure of elements within a JSON dataset <a class="footnote-reference brackets" href="#id11" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>.</p>
 <p>Please note that there are multiple Python tools available for generating JSON schema.
-Discussions below use package <code class="docutils literal notranslate"><span class="pre">genson</span></code> for illustration the use of schema.
-Other schema tools should yield similar results.</p>
+Discussions below use package <code class="docutils literal notranslate"><span class="pre">genson</span></code> for illustration of the use of schema.
+Other schema tools should work as well.</p>
 <p>To generate a schema from an object using package <code class="docutils literal notranslate"><span class="pre">genson</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -209,8 +211,9 @@ Other schema tools should yield similar results.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ex2</span> <span class="o">=</span> <span class="p">[</span><span class="n">ex1</span><span class="p">[</span><span class="s1">&#39;Image&#39;</span><span class="p">]]</span> <span class="o">+</span> <span class="p">[</span>
     <span class="p">{</span>
         <span class="s2">&quot;Width&quot;</span><span class="p">:</span>  <span class="s2">&quot;701&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Height&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s2">&quot;Height&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>
         <span class="s2">&quot;Title&quot;</span><span class="p">:</span>  <span class="s2">&quot;View from 16th Floor&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;new_field&quot;</span><span class="p">:</span> <span class="s2">&quot;This is a new field&quot;</span>
     <span class="p">}</span>
 <span class="p">]</span>
 
@@ -234,10 +237,7 @@ Other schema tools should yield similar results.</p>
         ]
       },
       &quot;Height&quot;: {
-        &quot;type&quot;: [
-          &quot;boolean&quot;,
-          &quot;integer&quot;
-        ]
+        &quot;type&quot;: &quot;number&quot;
       },
       &quot;Title&quot;: {
         &quot;type&quot;: &quot;string&quot;
@@ -269,6 +269,9 @@ Other schema tools should yield similar results.</p>
         &quot;items&quot;: {
           &quot;type&quot;: &quot;integer&quot;
         }
+      },
+      &quot;new_field&quot;: {
+        &quot;type&quot;: &quot;string&quot;
       }
     },
     &quot;required&quot;: [
@@ -282,8 +285,11 @@ Other schema tools should yield similar results.</p>
 </div>
 </div>
 </div>
-<p>The output of <code class="docutils literal notranslate"><span class="pre">to_schema()</span></code> is a dictionary type object and can be edited as needed.
-The package <code class="docutils literal notranslate"><span class="pre">genson</span></code> also provides functions to update <code class="docutils literal notranslate"><span class="pre">builder</span></code>, and to create extended schema builder.</p>
+<p>The output of <code class="docutils literal notranslate"><span class="pre">to_schema()</span></code> is a JSON document and can be edited as needed.
+The package <code class="docutils literal notranslate"><span class="pre">genson</span></code> also provides functions to update a schema, and to create extended schema builder.</p>
+<p>The module <code class="docutils literal notranslate"><span class="pre">util.jsonsch</span></code> accepts a schema object, and provides summary.
+Note that there are wide varieties of usage of JSON format and schema.
+The module <code class="docutils literal notranslate"><span class="pre">util.jsonsch</span></code> is still in developing stage and only supports a set of keywords.</p>
 </section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>

@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
@@ -6,26 +8,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>S/CDISC/Library Resource &mdash; mtbp3  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
       <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
       <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=ce7ddcad" />
 
   
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="statlab_kappa.html" />
-    <link rel="prev" title="S/ISO/IDMP" href="std_iso_idmp.html" /> 
+    <link rel="next" title="S/HL7/FHIR-R5/US/PQ-CMC" href="std_hl7fhir_us_pqcmc.html" />
+    <link rel="prev" title="H/ICH/MedDRA/(MLGs by CIOMS)" href="example_emt4.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -58,9 +56,6 @@
 <li class="toctree-l1"><a class="reference internal" href="example_emt2.html">H/ICH/MedDRA/SMQs by ICH</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_emt3.html">H/ICH/MedDRA/FMQs by FDA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_emt4.html">H/ICH/MedDRA/(MLGs by CIOMS)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="std_hl7fhir_us_pqcmc.html">S/HL7/FHIR-R5/US/PQ-CMC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="std_iso_pdf.html">S/ISO/PDF</a></li>
-<li class="toctree-l1"><a class="reference internal" href="std_iso_idmp.html">S/ISO/IDMP</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">S/CDISC/Library Resource</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#cdisc-foundational-standards">CDISC Foundational Standards</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#select-cdisc-version">Select CDISC Version</a></li>
@@ -72,6 +67,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="std_hl7fhir_us_pqcmc.html">S/HL7/FHIR-R5/US/PQ-CMC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="std_iso_pdf.html">S/ISO/PDF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="std_iso_idmp.html">S/ISO/IDMP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="conduct.html">Code of Conduct</a></li>
@@ -181,7 +179,7 @@ the implementation of data standards needs considerable time and effort.</p>
 <li><p>Use the code below to initiate</p></li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mtbp3.stdcdisc.lib</span> <span class="kn">import</span> <span class="n">accessLib</span>
-<span class="n">cl</span> <span class="o">=</span> <span class="n">accessLib</span><span class="p">(</span><span class="s2">&quot;/user/home/name/cdisc.txt&quot;</span><span class="p">)</span>
+<span class="n">clib</span> <span class="o">=</span> <span class="n">accessLib</span><span class="p">(</span><span class="s2">&quot;/user/home/name/cdisc.txt&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <section id="get-ct-packages">
@@ -189,12 +187,12 @@ the implementation of data standards needs considerable time and effort.</p>
 <p>CDISC Controlled Terminology (CT) is maintained and distributed as part of the National Cancer Institute (NCI) Thesaurus <a class="footnote-reference brackets" href="#id13" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>.
 CT can also be downloaded from NCI FTP and multiple file formats are available (Excel, text, odm.xml, pdf, html, and OWL/RDF formats) <a class="footnote-reference brackets" href="#id14" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>.</p>
 <p>To get a list of newest CT packages available on CDISC Library:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cl</span><span class="o">.</span><span class="n">get_ct_list</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">cl</span><span class="o">.</span><span class="n">ct_list_titles</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">clib</span><span class="o">.</span><span class="n">get_ct_list</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">clib</span><span class="o">.</span><span class="n">ct_list_titles</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;ADaM&#39;</span><span class="p">,</span> <span class="s1">&#39;CDASH&#39;</span><span class="p">,</span> <span class="s1">&#39;COA&#39;</span><span class="p">,</span> <span class="s1">&#39;DDF&#39;</span><span class="p">,</span> <span class="s1">&#39;Define-XML&#39;</span><span class="p">,</span> <span class="s1">&#39;Glossary&#39;</span><span class="p">,</span> <span class="s1">&#39;MRCT&#39;</span><span class="p">,</span> <span class="s1">&#39;Protocol&#39;</span><span class="p">,</span> <span class="s1">&#39;QRS&#39;</span><span class="p">,</span> <span class="s1">&#39;QS-FT&#39;</span><span class="p">,</span> <span class="s1">&#39;SDTM&#39;</span><span class="p">,</span> <span class="s1">&#39;SEND&#39;</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;ADaM&#39;</span><span class="p">,</span> <span class="s1">&#39;CDASH&#39;</span><span class="p">,</span> <span class="s1">&#39;COA&#39;</span><span class="p">,</span> <span class="s1">&#39;DDF&#39;</span><span class="p">,</span> <span class="s1">&#39;Define-XML&#39;</span><span class="p">,</span> <span class="s1">&#39;Glossary&#39;</span><span class="p">,</span> <span class="s1">&#39;MRCT&#39;</span><span class="p">,</span> <span class="s1">&#39;Protocol&#39;</span><span class="p">,</span> <span class="s1">&#39;QRS&#39;</span><span class="p">,</span> <span class="s1">&#39;QS-FT&#39;</span><span class="p">,</span> <span class="s1">&#39;SDTM&#39;</span><span class="p">,</span> <span class="s1">&#39;SEND&#39;</span><span class="p">,</span> <span class="s1">&#39;TMF&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Some notes about these titles:</p>
@@ -211,47 +209,45 @@ CT can also be downloaded from NCI FTP and multiple file formats are available (
 </div>
 <p>Output:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>         <span class="n">Title</span> <span class="n">PkgSeries</span>   <span class="n">Effective</span>
-<span class="mi">0</span>         <span class="n">ADaM</span>        <span class="mi">57</span>  <span class="mi">2024</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">29</span>
-<span class="mi">1</span>        <span class="n">CDASH</span>        <span class="mi">52</span>  <span class="mi">2022</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">16</span>
+<span class="mi">0</span>         <span class="n">ADaM</span>        <span class="mi">58</span>  <span class="mi">2024</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">27</span>
+<span class="mi">1</span>        <span class="n">CDASH</span>        <span class="mi">58</span>  <span class="mi">2024</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">27</span>
 <span class="mi">2</span>          <span class="n">COA</span>        <span class="mi">21</span>  <span class="mi">2015</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">27</span>
-<span class="mi">3</span>          <span class="n">DDF</span>        <span class="mi">57</span>  <span class="mi">2024</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">29</span>
-<span class="mi">4</span>   <span class="n">Define</span><span class="o">-</span><span class="n">XML</span>        <span class="mi">57</span>  <span class="mi">2024</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">29</span>
-<span class="mi">5</span>     <span class="n">Glossary</span>        <span class="mi">56</span>  <span class="mi">2023</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">15</span>
-<span class="mi">6</span>         <span class="n">MRCT</span>        <span class="mi">57</span>  <span class="mi">2024</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">29</span>
-<span class="mi">7</span>     <span class="n">Protocol</span>        <span class="mi">57</span>  <span class="mi">2024</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">29</span>
+<span class="mi">3</span>          <span class="n">DDF</span>        <span class="mi">58</span>  <span class="mi">2024</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">27</span>
+<span class="mi">4</span>   <span class="n">Define</span><span class="o">-</span><span class="n">XML</span>        <span class="mi">58</span>  <span class="mi">2024</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">27</span>
+<span class="mi">5</span>     <span class="n">Glossary</span>        <span class="mi">58</span>  <span class="mi">2024</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">27</span>
+<span class="mi">6</span>         <span class="n">MRCT</span>        <span class="mi">58</span>  <span class="mi">2024</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">27</span>
+<span class="mi">7</span>     <span class="n">Protocol</span>        <span class="mi">58</span>  <span class="mi">2024</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">27</span>
 <span class="mi">8</span>          <span class="n">QRS</span>        <span class="mi">23</span>  <span class="mi">2015</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">25</span>
 <span class="mi">9</span>        <span class="n">QS</span><span class="o">-</span><span class="n">FT</span>        <span class="mi">19</span>  <span class="mi">2014</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">26</span>
-<span class="mi">10</span>        <span class="n">SDTM</span>        <span class="mi">57</span>  <span class="mi">2024</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">29</span>
-<span class="mi">11</span>        <span class="n">SEND</span>        <span class="mi">57</span>  <span class="mi">2024</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">29</span>
+<span class="mi">10</span>        <span class="n">SDTM</span>        <span class="mi">58</span>  <span class="mi">2024</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">27</span>
+<span class="mi">11</span>        <span class="n">SEND</span>        <span class="mi">58</span>  <span class="mi">2024</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">27</span>
+<span class="mi">12</span>         <span class="n">TMF</span>        <span class="mi">58</span>  <span class="mi">2024</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">27</span>
 </pre></div>
 </div>
 <p>To get the newest protocol ct package information:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
 
-<span class="n">cl</span><span class="o">.</span><span class="n">get_ct_package</span><span class="p">(</span><span class="s1">&#39;Protocol&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">cl</span><span class="o">.</span><span class="n">ct_package</span><span class="p">[</span><span class="s1">&#39;Protocol&#39;</span><span class="p">][</span><span class="s1">&#39;package_info&#39;</span><span class="p">]))</span>
+<span class="n">clib</span><span class="o">.</span><span class="n">get_ct_package</span><span class="p">(</span><span class="s1">&#39;Protocol&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">clib</span><span class="o">.</span><span class="n">ct_package</span><span class="p">[</span><span class="s1">&#39;Protocol&#39;</span><span class="p">][</span><span class="s1">&#39;package_info&#39;</span><span class="p">],</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Output:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;CDISC Controlled Terminology for Protocol is the set of CDISC-developed or CDISC-adopted standard expressions (values) used with data items within CDISC-defined PROTOCOL datasets.&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;effectiveDate&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-03-29&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Protocol Controlled Terminology Package 57 Effective 2024-03-29&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Protocol CT 2024-03-29&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;Protocol Controlled Terminology developed by the CDISC Terminology Team in collaboration with the National Cancer Institute&#39;s Enterprise Vocabulary Services (EVS)&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;registrationStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;Final&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-03-29&quot;</span>
+  <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;CDISC Controlled Terminology for Protocol is the set of CDISC-developed or CDISC-adopted standard expressions (values) used with data items within CDISC-defined PROTOCOL datasets.&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;effectiveDate&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-09-27&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Protocol Controlled Terminology Package 58 Effective 2024-09-27&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Protocol CT 2024-09-27&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;Protocol Controlled Terminology developed by the CDISC Terminology Team in collaboration with the National Cancer Institute&#39;s Enterprise Vocabulary Services (EVS)&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;registrationStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;Final&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-09-27&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>To get the newest Protocol CT package in DataFrame format:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mtbp3.stdcdisc.lib</span> <span class="kn">import</span> <span class="n">accessLib</span>
-<span class="n">cl</span> <span class="o">=</span> <span class="n">accessLib</span><span class="p">(</span><span class="s2">&quot;/user/home/name/cdisc.txt&quot;</span><span class="p">)</span>
-<span class="n">cl</span><span class="o">.</span><span class="n">get_ct_list</span><span class="p">()</span>
-<span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Protocol&#39;</span>
-<span class="n">cl</span><span class="o">.</span><span class="n">get_ct_package</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
-<span class="n">cl</span><span class="o">.</span><span class="n">get_ct_codelists_df</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">cl</span><span class="o">.</span><span class="n">ct_package</span><span class="p">[</span><span class="n">title</span><span class="p">][</span><span class="s1">&#39;ct_df&#39;</span><span class="p">][[</span><span class="s1">&#39;conceptId&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;preferredTerm&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Protocol&#39;</span>
+<span class="n">clib</span><span class="o">.</span><span class="n">get_ct_package</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+<span class="n">clib</span><span class="o">.</span><span class="n">get_ct_codelists_df</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">clib</span><span class="o">.</span><span class="n">ct_package</span><span class="p">[</span><span class="n">title</span><span class="p">][</span><span class="s1">&#39;ct_df&#39;</span><span class="p">][[</span><span class="s1">&#39;conceptId&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;preferredTerm&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -265,18 +261,18 @@ CT can also be downloaded from NCI FTP and multiple file formats are available (
 </div>
 <p>To get the newest Glossary CT package in DataFrame format:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Glossary&#39;</span>
-<span class="n">cl</span><span class="o">.</span><span class="n">get_ct_package</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
-<span class="n">cl</span><span class="o">.</span><span class="n">get_ct_codelists_df</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">cl</span><span class="o">.</span><span class="n">ct_package</span><span class="p">[</span><span class="n">title</span><span class="p">][</span><span class="s1">&#39;ct_df&#39;</span><span class="p">][[</span><span class="s1">&#39;conceptId&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;group&#39;</span><span class="p">,</span> <span class="s1">&#39;preferredTerm&#39;</span><span class="p">,</span> <span class="s1">&#39;definition&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="n">clib</span><span class="o">.</span><span class="n">get_ct_package</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+<span class="n">clib</span><span class="o">.</span><span class="n">get_ct_codelists_df</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">clib</span><span class="o">.</span><span class="n">ct_package</span><span class="p">[</span><span class="n">title</span><span class="p">][</span><span class="s1">&#39;ct_df&#39;</span><span class="p">][[</span><span class="s1">&#39;conceptId&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;preferredTerm&#39;</span><span class="p">,</span> <span class="s1">&#39;definition&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">conceptId</span>            <span class="n">name</span>           <span class="n">group</span>                  <span class="n">preferredTerm</span>                                         <span class="n">definition</span>
-<span class="mi">0</span>    <span class="n">C67497</span>  <span class="n">CDISC</span> <span class="n">Glossary</span>                     <span class="n">CDISC</span> <span class="n">Glossary</span> <span class="n">Terminology</span>  <span class="n">The</span> <span class="n">terminology</span> <span class="n">of</span> <span class="n">the</span> <span class="n">Clinical</span> <span class="n">Data</span> <span class="n">Interchan</span><span class="o">...</span>
-<span class="mi">1</span>    <span class="n">C80442</span>                  <span class="n">CDISC</span> <span class="n">Glossary</span>  <span class="n">Premarket</span> <span class="n">Device</span> <span class="n">Notification</span>  <span class="mi">510</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span> <span class="n">Premarket</span> <span class="n">Notification</span> <span class="p">(</span><span class="n">PMN</span><span class="p">)</span> <span class="n">required</span> <span class="o">...</span>
-<span class="mi">2</span>    <span class="n">C42610</span>                  <span class="n">CDISC</span> <span class="n">Glossary</span>                   <span class="n">Abbreviation</span>  <span class="n">A</span> <span class="nb">set</span> <span class="n">of</span> <span class="n">letters</span> <span class="n">that</span> <span class="n">are</span> <span class="n">drawn</span> <span class="kn">from</span> <span class="nn">a</span> <span class="n">word</span> <span class="ow">or</span><span class="o">...</span>
-<span class="mi">3</span>    <span class="n">C71733</span>                  <span class="n">CDISC</span> <span class="n">Glossary</span>          <span class="n">Biological</span> <span class="n">Absorption</span>  <span class="n">The</span> <span class="n">process</span> <span class="n">by</span> <span class="n">which</span> <span class="n">medications</span> <span class="n">reach</span> <span class="n">the</span> <span class="n">blo</span><span class="o">...</span>
-<span class="mi">4</span>   <span class="n">C156638</span>                  <span class="n">CDISC</span> <span class="n">Glossary</span>           <span class="n">Accelerated</span> <span class="n">Approval</span>  <span class="n">Regulatory</span> <span class="n">mechanism</span> <span class="n">by</span> <span class="n">which</span> <span class="n">new</span> <span class="n">drugs</span> <span class="n">meant</span> <span class="o">...</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">conceptId</span>                                      <span class="n">name</span>                                      <span class="n">preferredTerm</span>                                         <span class="n">definition</span>
+<span class="mi">0</span>   <span class="n">C179587</span>   <span class="n">Biological</span> <span class="n">Sample</span> <span class="n">Attribute</span> <span class="n">Terminology</span>  <span class="n">CDISC</span> <span class="n">Protocol</span> <span class="n">Biological</span> <span class="n">Sample</span> <span class="n">Attribute</span> <span class="n">Ter</span><span class="o">...</span>  <span class="n">A</span> <span class="n">terminology</span> <span class="n">value</span> <span class="nb">set</span> <span class="n">relevant</span> <span class="n">to</span> <span class="n">the</span> <span class="n">attrib</span><span class="o">...</span>
+<span class="mi">1</span>   <span class="n">C201266</span>           <span class="n">Biomarker</span> <span class="n">Attribute</span> <span class="n">Terminology</span>     <span class="n">CDISC</span> <span class="n">Protocol</span> <span class="n">Biomarker</span> <span class="n">Attribute</span> <span class="n">Terminology</span>  <span class="n">A</span> <span class="n">terminology</span> <span class="n">value</span> <span class="nb">set</span> <span class="n">relevant</span> <span class="n">to</span> <span class="n">the</span> <span class="n">attrib</span><span class="o">...</span>
+<span class="mi">2</span>   <span class="n">C201267</span>  <span class="n">Biomarker</span> <span class="n">Category</span> <span class="n">Value</span> <span class="n">Set</span> <span class="n">Terminology</span>  <span class="n">CDISC</span> <span class="n">Protocol</span> <span class="n">Biomarker</span> <span class="n">Category</span> <span class="n">Value</span> <span class="n">Set</span> <span class="n">Te</span><span class="o">...</span>  <span class="n">The</span> <span class="n">terminology</span> <span class="n">relevant</span> <span class="n">to</span> <span class="n">the</span> <span class="n">categorization</span><span class="o">...</span>
+<span class="mi">3</span>   <span class="n">C142191</span>      <span class="n">Clinical</span> <span class="n">Study</span> <span class="n">Attribute</span> <span class="n">Terminology</span>  <span class="n">CDISC</span> <span class="n">Protocol</span> <span class="n">Entities</span> <span class="n">Clinical</span> <span class="n">Study</span> <span class="n">Attribu</span><span class="o">...</span>  <span class="n">A</span> <span class="n">terminology</span> <span class="n">value</span> <span class="nb">set</span> <span class="n">relevant</span> <span class="n">to</span> <span class="n">the</span> <span class="n">attrib</span><span class="o">...</span>
+<span class="mi">4</span>   <span class="n">C139020</span>      <span class="n">Clinical</span> <span class="n">Trial</span> <span class="n">Attribute</span> <span class="n">Terminology</span>  <span class="n">CDISC</span> <span class="n">Protocol</span> <span class="n">Entities</span> <span class="n">Clinical</span> <span class="n">Trial</span> <span class="n">Attribu</span><span class="o">...</span>  <span class="n">A</span> <span class="n">terminology</span> <span class="n">value</span> <span class="nb">set</span> <span class="n">relevant</span> <span class="n">to</span> <span class="n">the</span> <span class="n">attrib</span><span class="o">...</span>
 </pre></div>
 </div>
 </section>
@@ -325,8 +321,8 @@ CT can also be downloaded from NCI FTP and multiple file formats are available (
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="std_iso_idmp.html" class="btn btn-neutral float-left" title="S/ISO/IDMP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="statlab_kappa.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="example_emt4.html" class="btn btn-neutral float-left" title="H/ICH/MedDRA/(MLGs by CIOMS)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="std_hl7fhir_us_pqcmc.html" class="btn btn-neutral float-right" title="S/HL7/FHIR-R5/US/PQ-CMC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
