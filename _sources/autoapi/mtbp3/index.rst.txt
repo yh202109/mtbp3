@@ -47,6 +47,7 @@ Functions
 .. autoapisummary::
 
    mtbp3.get_data
+   mtbp3.color_str
    mtbp3.diff_2cols_in_1df
    mtbp3.diff_2cols_in_2df
    mtbp3.summarize_1nc_by_2group
@@ -132,6 +133,8 @@ Package Contents
       :rtype: str
 
 
+
+.. py:function:: color_str(input_str='', words=[], colors='red')
 
 .. py:function:: diff_2cols_in_1df(df, col1='ARM', col2='ACTARM', keep_diff_only=False)
 
@@ -228,18 +231,6 @@ Package Contents
 
       Returns:
       - tree (DataFrame): DataFrame representing the tree structure.
-
-
-
-   .. py:method:: list_tree_with_keyword(keywords, neighbor=0, outfmt='simple')
-
-      Search for keywords in the list of items.
-
-      :param keywords: List of keywords to search for.
-      :type keywords: list
-
-      :returns: List of items that contain the keywords.
-      :rtype: list
 
 
 

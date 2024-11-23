@@ -106,6 +106,52 @@
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<div class="viewcode-block" id="color_str">
+<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.color_str">[docs]</a>
+<span class="k">def</span> <span class="nf">color_str</span><span class="p">(</span><span class="n">input_str</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">words</span><span class="o">=</span><span class="p">[],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">input_str</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;input_str must be a string&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">words</span><span class="p">:</span>
+            <span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">words</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">input_str</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="n">words</span><span class="p">:</span>
+        <span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">input_str</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">input_str</span>
+
+    <span class="n">color_dic</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;red&#39;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">:</span> <span class="mi">33</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">:</span> <span class="mi">34</span><span class="p">,</span> <span class="s1">&#39;magenta&#39;</span><span class="p">:</span> <span class="mi">35</span><span class="p">,</span> <span class="s1">&#39;cyan&#39;</span><span class="p">:</span> <span class="mi">36</span><span class="p">}</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">colors</span> <span class="ow">or</span> <span class="n">colors</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">color_dic</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">colors</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span>  <span class="c1"># default color</span>
+        <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">colors</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">]</span>
+        <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">color_dic</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="ow">and</span> <span class="n">c</span> <span class="k">else</span> <span class="s1">&#39;red&#39;</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">]</span>
+    
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">):</span>
+        <span class="n">colors</span> <span class="o">=</span> <span class="n">colors</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">colors</span> <span class="o">=</span> <span class="n">colors</span> <span class="o">*</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> <span class="o">//</span> <span class="nb">len</span><span class="p">(</span><span class="n">colors</span><span class="p">))</span> <span class="o">+</span> <span class="n">colors</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">colors</span><span class="p">)]</span>
+
+    <span class="n">color_strs</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\x1b</span><span class="s2">[</span><span class="si">{</span><span class="n">color_dic</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="si">}</span><span class="s2">m&quot;</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">words</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">input_str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">output_str</span> <span class="o">=</span> <span class="n">input_str</span><span class="p">[:</span><span class="n">start</span><span class="p">]</span> <span class="o">+</span> <span class="n">color_strs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">input_str</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\x1b</span><span class="s2">[0m&quot;</span> <span class="o">+</span> <span class="n">input_str</span><span class="p">[</span><span class="n">end</span><span class="p">:]</span>
+
+    <span class="k">return</span> <span class="n">output_str</span></div>
+
 
 <div class="viewcode-block" id="diff_2cols_in_1df">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.diff_2cols_in_1df">[docs]</a>
@@ -417,36 +463,8 @@
         
         <span class="bp">self</span><span class="o">.</span><span class="n">tree</span> <span class="o">=</span> <span class="n">out_joined</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tree</span></div>
-
-
-<div class="viewcode-block" id="ListTree.list_tree_with_keyword">
-<a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.ListTree.list_tree_with_keyword">[docs]</a>
-    <span class="k">def</span> <span class="nf">list_tree_with_keyword</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keywords</span><span class="p">,</span> <span class="n">neighbor</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;simple&#39;</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Search for keywords in the list of items.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            keywords (list): List of keywords to search for.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            list: List of items that contain the keywords.</span>
-
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">keywords</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;keywords should be a list.&quot;</span><span class="p">)</span>
-        
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">lst</span><span class="p">:</span>
-            <span class="k">return</span> <span class="p">[]</span>
-
-        <span class="k">if</span> <span class="n">outfmt</span> <span class="o">==</span> <span class="s1">&#39;simple&#39;</span><span class="p">:</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">lst</span> <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">keyword</span> <span class="ow">in</span> <span class="n">item</span> <span class="k">for</span> <span class="n">keyword</span> <span class="ow">in</span> <span class="n">keywords</span><span class="p">)]</span>
-        <span class="k">elif</span> <span class="n">outfmt</span> <span class="o">==</span> <span class="s1">&#39;subtree&#39;</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
-                <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">keyword</span> <span class="ow">in</span> <span class="n">item</span> <span class="k">for</span> <span class="n">keyword</span> <span class="ow">in</span> <span class="n">keywords</span><span class="p">):</span>
-                    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span> 
-            <span class="k">return</span> <span class="p">[]</span></div>
 </div>
+
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>

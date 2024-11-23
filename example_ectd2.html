@@ -594,6 +594,9 @@ The <code class="docutils literal notranslate"><span class="pre">ectd</span></co
     └── 4.3 Literature references
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -836,18 +839,19 @@ The <code class="docutils literal notranslate"><span class="pre">ectd</span></co
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    1 Module 1 Administrative information
-    ├── 1.13 Annual report
-    │   └── 1.13.15 Development safety update report (<span class=" -Color -Color-Magenta">DSUR</span>)
-    └── 1.16 Risk management plan
-        ├── 1.16.1 Risk Management (Non-<span class=" -Color -Color-Magenta">REMS</span>)
-        └── 1.16.2 Risk Evaluation and Mitigation Strategy (<span class=" -Color -Color-Magenta">REMS</span>)
-            ├── 1.16.2.1 Final <span class=" -Color -Color-Magenta">REMS</span>
-            ├── 1.16.2.2 Draft <span class=" -Color -Color-Magenta">REMS</span>
-            ├── 1.16.2.3 <span class=" -Color -Color-Magenta">REMS</span> Assessment
-            ├── 1.16.2.4 <span class=" -Color -Color-Magenta">REMS</span> Assessment Methodology
-            ├── 1.16.2.5 <span class=" -Color -Color-Magenta">REMS</span> Correspondence
-            └── 1.16.2.6 <span class=" -Color -Color-Magenta">REMS</span> Modification History
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ctoc</span><span class="o">.</span><span class="n">find_section_given_words</span><span class="p">(</span><span class="n">words</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;REMS&quot;</span><span class="p">,</span><span class="s2">&quot;dsur&quot;</span><span class="p">],</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">,</span> <span class="n">colored</span><span class="o">=</span><span class="s1">&#39;magenta&#39;</span><span class="p">)))</span>
+
+<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/health/ectd.py:108,</span> in <span class="ni">ctoc_by_fda.find_section_given_words</span><span class="nt">(self, words, outfmt, include, to_right, colored)</span>
+<span class="g g-Whitespace">    </span><span class="mi">106</span>     <span class="n">first_part</span> <span class="o">=</span> <span class="n">split_row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">107</span>     <span class="n">second_part</span> <span class="o">=</span> <span class="n">split_row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">108</span>     <span class="n">colored_second_part</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">cdt</span><span class="o">.</span><span class="n">colorstr</span><span class="p">(</span><span class="n">second_part</span><span class="p">,</span> <span class="n">words</span><span class="o">=</span><span class="n">words</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colored</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">109</span>     <span class="n">out_colored</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">first_part</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">colored_second_part</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">110</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="ne">AttributeError</span>: module &#39;mtbp3.util.cdt&#39; has no attribute &#39;colorstr&#39;
 </pre></div>
 </div>
 </div>
@@ -856,13 +860,6 @@ The <code class="docutils literal notranslate"><span class="pre">ectd</span></co
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ctoc</span><span class="o">.</span><span class="n">find_section_given_words</span><span class="p">(</span><span class="n">words</span><span class="o">=</span><span class="s2">&quot;dsur&quot;</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">,</span> <span class="n">colored</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    1 Module 1 Administrative information
-    └── 1.13 Annual report
-        └── 1.13.15 Development safety update report (<span class=" -Color -Color-Green">DSUR</span>)
 </pre></div>
 </div>
 </div>

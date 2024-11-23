@@ -150,16 +150,19 @@
 <h2>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mtbp3.util.diff_2cols_in_1df" title="mtbp3.util.diff_2cols_in_1df"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diff_2cols_in_1df</span></code></a>(df[, col1, col2, keep_diff_only])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mtbp3.util.color_str" title="mtbp3.util.color_str"><code class="xref py py-obj docutils literal notranslate"><span class="pre">color_str</span></code></a>([input_str, words, colors])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mtbp3.util.diff_2cols_in_1df" title="mtbp3.util.diff_2cols_in_1df"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diff_2cols_in_1df</span></code></a>(df[, col1, col2, keep_diff_only])</p></td>
 <td><p>Calculate the difference between two columns in a DataFrame.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mtbp3.util.diff_2cols_in_2df" title="mtbp3.util.diff_2cols_in_2df"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diff_2cols_in_2df</span></code></a>(df1, df2, col, gp)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mtbp3.util.diff_2cols_in_2df" title="mtbp3.util.diff_2cols_in_2df"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diff_2cols_in_2df</span></code></a>(df1, df2, col, gp)</p></td>
 <td><p>Check if a column exists in both dataframes.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#mtbp3.util.summarize_1nc_by_2group" title="mtbp3.util.summarize_1nc_by_2group"><code class="xref py py-obj docutils literal notranslate"><span class="pre">summarize_1nc_by_2group</span></code></a>([df, column, cutoff, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#mtbp3.util.summarize_1nc_by_2group" title="mtbp3.util.summarize_1nc_by_2group"><code class="xref py py-obj docutils literal notranslate"><span class="pre">summarize_1nc_by_2group</span></code></a>([df, column, cutoff, ...])</p></td>
 <td><p>Create a summary dataframe that shows the percentage of NaN values and values less than a cutoff point in a numerical column.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#mtbp3.util.get_data" title="mtbp3.util.get_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_data</span></code></a>(path)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mtbp3.util.get_data" title="mtbp3.util.get_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_data</span></code></a>(path)</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -281,6 +284,11 @@
 </dd></dl>
 
 </dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mtbp3.util.color_str">
+<span class="sig-prename descclassname"><span class="pre">mtbp3.util.</span></span><span class="sig-name descname"><span class="pre">color_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">words</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'red'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/cdt.html#color_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.color_str" title="Link to this definition"></a></dt>
+<dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="mtbp3.util.diff_2cols_in_1df">
@@ -410,23 +418,6 @@ If there is no difference between the two columns, the string “The two columns
 - to_right (bool): If True, aligns the tree structure to the right by padding with spaces.</p>
 <p>Returns:
 - tree (DataFrame): DataFrame representing the tree structure.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mtbp3.util.ListTree.list_tree_with_keyword">
-<span class="sig-name descname"><span class="pre">list_tree_with_keyword</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keywords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neighbor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'simple'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/cdt.html#ListTree.list_tree_with_keyword"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.ListTree.list_tree_with_keyword" title="Link to this definition"></a></dt>
-<dd><p>Search for keywords in the list of items.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>keywords</strong> (<em>list</em>) – List of keywords to search for.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>List of items that contain the keywords.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list</p>
-</dd>
-</dl>
 </dd></dl>
 
 </dd></dl>
