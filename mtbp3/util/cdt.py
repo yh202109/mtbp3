@@ -15,6 +15,49 @@
 
 import numpy as np
 import pandas as pd
+import json
+
+def color_str(input_str="", words=[], colors='red'):
+    if not isinstance(input_str, str):
+        return "input_str must be a string"
+    if isinstance(words, str):
+        if words:
+            words = [words]
+        else:
+            return input_str
+    if isinstance(words, list) and words:
+        words = [str(word) for word in words]
+        if len(words) == 0:
+            return input_str
+    else:
+        return input_str
+
+    color_dic = {'red': 31, 'green': 32, 'yellow': 33, 'blue': 34, 'magenta': 35, 'cyan': 36}
+
+    if isinstance(colors, str):
+        if not colors or colors not in color_dic.keys():
+            colors = 'red'  # default color
+        colors = [colors.lower()]
+    elif isinstance(colors, list):
+        colors = [str(c).lower() for c in colors]
+        colors = [c if c in color_dic.keys() and c else 'red' for c in colors]
+    
+    if len(colors) == len(words):
+        colors = colors
+    else:
+        colors = colors * (len(words) // len(colors)) + colors[:len(words) % len(colors)]
+
+    color_strs = [f"\x1b[{color_dic[c]}m" for c in colors]
+
+    for i, word in enumerate(words):
+        try:
+            start = input_str.lower().index(word.lower())
+            end = start + len(word)
+        except ValueError:
+            continue
+        output_str = input_str[:start] + color_strs[i] + input_str[start:end] + "\x1b[0m" + input_str[end:]
+
+    return output_str
 
 def diff_2cols_in_1df(df, col1='ARM', col2='ACTARM', keep_diff_only=False):
     """
@@ -314,31 +357,6 @@ class ListTree:
         self.tree = out_joined
         return self.tree
 
-    def list_tree_with_keyword(self, keywords, neighbor = 0, outfmt='simple'):
-        """
-        Search for keywords in the list of items.
-
-        Args:
-            keywords (list): List of keywords to search for.
-
-        Returns:
-            list: List of items that contain the keywords.
-
-        """
-        if not isinstance(keywords, list):
-            raise ValueError("keywords should be a list.")
-        
-        if not self.lst:
-            return []
-
-        if outfmt == 'simple':
-            result = [item for item in self.lst if any(keyword in item for keyword in keywords)]
-        elif outfmt == 'subtree':
-            for item in result:
-                if any(keyword in item for keyword in keywords):
-                    result.append(item)
-        else: 
-            return []
 
 if __name__ == "__main__":
     pass
