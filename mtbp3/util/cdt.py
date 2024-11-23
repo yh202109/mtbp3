@@ -49,13 +49,14 @@ def color_str(input_str="", words=[], colors='red'):
 
     color_strs = [f"\x1b[{color_dic[c]}m" for c in colors]
 
+    output_str = input_str
     for i, word in enumerate(words):
         try:
-            start = input_str.lower().index(word.lower())
+            start = output_str.lower().index(word.lower())
             end = start + len(word)
         except ValueError:
             continue
-        output_str = input_str[:start] + color_strs[i] + input_str[start:end] + "\x1b[0m" + input_str[end:]
+        output_str = output_str[:start] + color_strs[i] + output_str[start:end] + "\x1b[0m" + output_str[end:]
 
     return output_str
 
