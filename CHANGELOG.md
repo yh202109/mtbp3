@@ -2,12 +2,14 @@
 
 <!--next-version-placeholder-->
 
-## v0.2.22 (2024-08-27)
+## v0.2.22 (2024-11-23)
 
 - update pdfsummary
     - add image function
-- add util.jsonutil
-    - add preview function
+- update ectd
+    - rewrite color function
+- add seq.ictvmslview
+    - add msl table view
 
 ## v0.2.21 (2024-07-26)
 

@@ -46,32 +46,6 @@ class ctoc_by_fda:
         tree = util.cdt.ListTree(lst=filtered_ctoc, infmt='dotspace')
         return tree.list_tree(to_right=to_right)
     
-    @staticmethod
-    def color_output(out="", words=[], color='red'):
-        assert isinstance(out, str) or not out, "out must be a string"
-        if isinstance(words, str) and words:
-            words = [words]
-        elif isinstance(words, list) and words:
-            assert all(isinstance(word, str) and word for word in words), "Elements in the list must be strings"
-        color_dic = {'red': 31, 'green': 32, 'yellow': 33, 'blue': 34, 'magenta': 35, 'cyan': 36}
-        if color not in color_dic.keys():
-            return out
-        else:
-            color_str = f"\x1b[{color_dic[color]}m"
-
-            row = out
-            for word in words:
-                try:
-                    start = row.lower().index(word.lower())
-                    end = start + len(word)
-                except ValueError:
-                    continue
-                start = row.lower().index(word.lower())
-                end = start + len(word)
-                row = row[:start] + color_str + row[start:end] + "\x1b[0m" + row[end:]
-        
-            return row
-
     def find_section_given_words(self, words, outfmt='simple', include='up', to_right=False, colored=None):
         if isinstance(words, str) and words:
             words = [words]

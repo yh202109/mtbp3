@@ -18,6 +18,22 @@ import pandas as pd
 import json
 
 def color_str(input_str="", words=[], colors='red'):
+    """
+    Colorize specified words in a given string.
+    Args:
+        input_str (str): The input string in which words will be colorized.
+        words (list or str): A list of words or a single word to be colorized in the input string.
+        colors (list or str): A list of colors or a single color to be used for colorizing the words. 
+                              Supported colors are 'red', 'green', 'yellow', 'blue', 'magenta', and 'cyan'.
+    Returns:
+        str: The input string with specified words colorized. If input_str is not a string, returns an error message.
+             If words is empty or not found in the input string, returns the original input string.
+    Raises:
+        ValueError: If the length of colors list does not match the length of words list, colors will be repeated to match the length.
+    Example:
+        >>> color_str("Hello World", ["Hello", "World"], ["red", "blue"])
+        '\x1b[31mHello\x1b[0m \x1b[34mWorld\x1b[0m'
+    """
     if not isinstance(input_str, str):
         return "input_str must be a string"
     if isinstance(words, str):
