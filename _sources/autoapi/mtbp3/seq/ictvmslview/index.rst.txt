@@ -33,7 +33,7 @@ Module Contents
    .. py:method:: __load_list()
 
 
-   .. py:method:: find_rows_given_str(search_str='', search_rank='Species', neighbor_rank='')
+   .. py:method:: find_rows_given_str(search_str='', search_rank='Species', color='')
 
       Find rows in the DataFrame that contain the given search string.
       Parameters:
