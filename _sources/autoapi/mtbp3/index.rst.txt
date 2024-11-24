@@ -17,6 +17,7 @@ Submodules
    :maxdepth: 1
 
    /autoapi/mtbp3/health/index
+   /autoapi/mtbp3/seq/index
    /autoapi/mtbp3/stdcdisc/index
    /autoapi/mtbp3/stdiso/index
    /autoapi/mtbp3/util/index
@@ -135,6 +136,29 @@ Package Contents
 
 
 .. py:function:: color_str(input_str='', words=[], colors='red')
+
+   Colorize specified words in a given string.
+   :param input_str: The input string in which words will be colorized.
+   :type input_str: str
+   :param words: A list of words or a single word to be colorized in the input string.
+   :type words: list or str
+   :param colors: A list of colors or a single color to be used for colorizing the words.
+                  Supported colors are 'red', 'green', 'yellow', 'blue', 'magenta', and 'cyan'.
+   :type colors: list or str
+
+   :returns:
+
+             The input string with specified words colorized. If input_str is not a string, returns an error message.
+                  If words is empty or not found in the input string, returns the original input string.
+   :rtype: str
+
+   :raises ValueError: If the length of colors list does not match the length of words list, colors will be repeated to match the length.
+
+   .. rubric:: Example
+
+   >>> color_str("Hello World", ["Hello", "World"], ["red", "blue"])
+   '[31mHello[0m [34mWorld[0m'
+
 
 .. py:function:: diff_2cols_in_1df(df, col1='ARM', col2='ACTARM', keep_diff_only=False)
 

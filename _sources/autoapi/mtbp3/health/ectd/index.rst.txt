@@ -35,11 +35,6 @@ Module Contents
    .. py:method:: show_ctoc_tree(module=None, to_right=False)
 
 
-   .. py:method:: color_output(out='', words=[], color='red')
-      :staticmethod:
-
-
-
    .. py:method:: find_section_given_words(words, outfmt='simple', include='up', to_right=False, colored=None)
 
 

@@ -1,0 +1,352 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seq/ICTV/MSL &mdash; mtbp3  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=ce7ddcad" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Changelog" href="changelog.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="statlab_corr_spearman_rho.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            mtbp3
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="example_cdtg.html">U/Graph/Categorical Plots Using catPlotter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_files.html">U/System/List Folder Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="util_jsonutil.html">U/Data/JSON tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_clinical.html">H/Clinical/Grouped Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_ectd.html">H/ICH/eCTD/US/3.2/Heading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_ectd2.html">H/ICH/eCTD/US/4.0/Heading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_emt.html">H/ICH/MedDRA/Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_emt2.html">H/ICH/MedDRA/SMQs by ICH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_emt3.html">H/ICH/MedDRA/FMQs by FDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_emt4.html">H/ICH/MedDRA/(MLGs by CIOMS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="std_cdisc.html">S/CDISC/Library Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="std_hl7fhir_us_pqcmc.html">S/HL7/FHIR-R5/US/PQ-CMC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="std_iso_pdf.html">S/ISO/PDF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="std_iso_idmp.html">S/ISO/IDMP</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Seq/ICTV/MSL</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#an-example">An Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to">How to</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">mtbp3</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Seq/ICTV/MSL</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/seq_ictv_taxonomy.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="seq-ictv-msl">
+<h1>Seq/ICTV/MSL<a class="headerlink" href="#seq-ictv-msl" title="Link to this heading"></a></h1>
+<p>International Committee on Taxonomy of Viruses (ICTV) <a class="footnote-reference brackets" href="#id12" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> maintains a database <a class="footnote-reference brackets" href="#id13" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> of virus taxonomic classification <a class="footnote-reference brackets" href="#id14" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.
+The Master Species Lists (MSL) <a class="footnote-reference brackets" href="#id15" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a> provides “the official, current virus taxonomy approved by the ICTV”.
+The Virus Metadata Resource (VMR) <a class="footnote-reference brackets" href="#id16" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a> provides “exemplars and additional isolates for each virus species”.</p>
+<section id="an-example">
+<h2>An Example<a class="headerlink" href="#an-example" title="Link to this heading"></a></h2>
+<p>ICTV provides MSL downloads in .xlsx <a class="footnote-reference brackets" href="#id15" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>, web version of interactive search <a class="footnote-reference brackets" href="#id17" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>, and visual taxonomy browser <a class="footnote-reference brackets" href="#id18" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>.
+For example, if we are interested in studying the virus causing feline acquired immunodeficiency syndrome <a class="footnote-reference brackets" href="#id19" id="id9" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a>, we can find the following taxonomy information in the ICTV MSL:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column name</p></th>
+<th class="head"><p>value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Realm</p></td>
+<td><p>Riboviria</p></td>
+</tr>
+<tr class="row-odd"><td><p>Subrealm</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Kingdom</p></td>
+<td><p>Pararnavirae</p></td>
+</tr>
+<tr class="row-odd"><td><p>Subkingdom</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Phylum</p></td>
+<td><p>Artverviricota</p></td>
+</tr>
+<tr class="row-odd"><td><p>Subphylum</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Class</p></td>
+<td><p>Revtraviricetes</p></td>
+</tr>
+<tr class="row-odd"><td><p>Subclass</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Order</p></td>
+<td><p>Ortervirales</p></td>
+</tr>
+<tr class="row-odd"><td><p>Suborder</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Family</p></td>
+<td><p>Retroviridae</p></td>
+</tr>
+<tr class="row-odd"><td><p>Subfamily</p></td>
+<td><p>Orthoretrovirinae</p></td>
+</tr>
+<tr class="row-even"><td><p>Genus</p></td>
+<td><p>Lentivirus</p></td>
+</tr>
+<tr class="row-odd"><td><p>Subgenus</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Species</p></td>
+<td><p>Lentivirus felimdef</p></td>
+</tr>
+<tr class="row-odd"><td><p>Genome</p></td>
+<td><p>ssRNA-RT</p></td>
+</tr>
+<tr class="row-even"><td><p>Last Change</p></td>
+<td><p>Renamed,</p></td>
+</tr>
+<tr class="row-odd"><td><p>MSL of Last Change</p></td>
+<td><p>39</p></td>
+</tr>
+<tr class="row-even"><td><p>Proposal for Last Change</p></td>
+<td><p>2023.009D.Retroviridae_68rensp.zip</p></td>
+</tr>
+<tr class="row-odd"><td><p>Taxon History URL</p></td>
+<td><p>ictv.global=202305029</p></td>
+</tr>
+</tbody>
+</table>
+<p>From the taxon history, we can see that the specie name was <em>Feline immunodeficiency virus</em> (FIV) in the previous releases, and changed to <em>Lentivirus felimdef</em> <a class="footnote-reference brackets" href="#id20" id="id10" role="doc-noteref"><span class="fn-bracket">[</span>9<span class="fn-bracket">]</span></a>.
+The reasons of changes proposed are included in the <em>Proposal for Last Change</em> link.
+Additional information about FIV, for example, about the genus Lentivirus can be found in ICTV report <a class="footnote-reference brackets" href="#id21" id="id11" role="doc-noteref"><span class="fn-bracket">[</span>10<span class="fn-bracket">]</span></a>.</p>
+</section>
+<section id="how-to">
+<h2>How to<a class="headerlink" href="#how-to" title="Link to this heading"></a></h2>
+<p>The module <code class="docutils literal notranslate"><span class="pre">mtbp3.seq.ictvmsiview</span></code> accept a csv file exported from the current the MSL tab of the MSL downloaded file.
+For demonstration, a small subset of MSL (containing only 15 rows) is shipped with this module.
+When using the option <code class="docutils literal notranslate"><span class="pre">msl_file_path</span> <span class="pre">=</span> <span class="pre">&quot;&quot;</span></code>, the example file will be loaded.</p>
+<p>To load a MSL csv file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mtbp3.seq</span> <span class="kn">import</span> <span class="n">ictvmslview</span>
+<span class="n">msl</span> <span class="o">=</span> <span class="n">ictvmslview</span><span class="o">.</span><span class="n">ictvmsl</span><span class="p">(</span><span class="n">msl_file_path</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File supp_seq/ICTV_MSL39v4_example.csv has been loaded
+Column names: [&#39;Sort&#39;, &#39;Realm&#39;, &#39;Subrealm&#39;, &#39;Kingdom&#39;, &#39;Subkingdom&#39;, &#39;Phylum&#39;, &#39;Subphylum&#39;, &#39;Class&#39;, &#39;Subclass&#39;, &#39;Order&#39;, &#39;Suborder&#39;, &#39;Family&#39;, &#39;Subfamily&#39;, &#39;Genus&#39;, &#39;Subgenus&#39;, &#39;Species&#39;, &#39;Genome&#39;, &#39;Last Change&#39;, &#39;MSL of Last Change&#39;, &#39;Proposal for Last Change &#39;, &#39;Taxon History URL&#39;]
+Total number of rows: 15
+</pre></div>
+</div>
+</div>
+</div>
+<p>To view the first row of loaded file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">msl</span><span class="o">.</span><span class="n">msl</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sort                                                                    5973
+Realm                                                           Monodnaviria
+Subrealm                                                                 NaN
+Kingdom                                                         Shotokuvirae
+Subkingdom                                                               NaN
+Phylum                                                      Cressdnaviricota
+Subphylum                                                                NaN
+Class                                                          Arfiviricetes
+Subclass                                                                 NaN
+Order                                                          Jormunvirales
+Suborder                                                                 NaN
+Family                                                       Draupnirviridae
+Subfamily                                                                NaN
+Genus                                                          Pollentivirus
+Subgenus                                                                 NaN
+Species                                               Pollentivirus pleritis
+Genome                                                            ssDNA(+/-)
+Last Change                                                             New,
+MSL of Last Change                                                        39
+Proposal for Last Change     2023.023D.Squillovirales_1no_1nf_42ng_67nsp.zip
+Taxon History URL                                      ictv.global=202318740
+Name: 0, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that the column names related to taxonomy ranks are case sensitive when using search functions below.</p>
+<p>To search rows with “lentivirus fel” included in a species name:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">msl</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_str</span><span class="o">=</span><span class="s2">&quot;lentivirus fel&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sort                                                      13704
+Realm                                                 Riboviria
+Subrealm                                                    NaN
+Kingdom                                            Pararnavirae
+Subkingdom                                                  NaN
+Phylum                                           Artverviricota
+Subphylum                                                   NaN
+Class                                           Revtraviricetes
+Subclass                                                    NaN
+Order                                              Ortervirales
+Suborder                                                    NaN
+Family                                             Retroviridae
+Subfamily                                     Orthoretrovirinae
+Genus                                                Lentivirus
+Subgenus                                                    NaN
+Species                                     Lentivirus felimdef
+Genome                                                 ssRNA-RT
+Last Change                                            Renamed,
+MSL of Last Change                                           39
+Proposal for Last Change     2023.009D.Retroviridae_68rensp.zip
+Taxon History URL                         ictv.global=202305029
+Name: 9, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>
+</section>
+</section>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id12" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>ICTV. (2024). About Virus Taxonomic Classification. (<a class="reference external" href="https://ictv.global/taxonomy/about">web page</a>)</p>
+</aside>
+<aside class="footnote brackets" id="id13" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>Elliot J Lefkowitz, Donald M Dempsey, Robert Curtis Hendrickson, Richard J Orton, Stuart G Siddell, Donald B Smith, Virus taxonomy: the database of the International Committee on Taxonomy of Viruses (ICTV), Nucleic Acids Research, Volume 46, Issue D1, 4 January 2018, Pages D708–D717, https://doi.org/10.1093/nar/gkx932</p>
+</aside>
+<aside class="footnote brackets" id="id14" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p>wiki. (year). Virus classification. (<a class="reference external" href="https://en.wikipedia.org/wiki/Virus_classification">web page</a>)</p>
+</aside>
+<aside class="footnote brackets" id="id15" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id4">1</a>,<a role="doc-backlink" href="#id6">2</a>)</span>
+<p>ICTV. (2024). Master Species Lists (MSL). (<a class="reference external" href="https://ictv.global/msl">web page</a>)</p>
+</aside>
+<aside class="footnote brackets" id="id16" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">5</a><span class="fn-bracket">]</span></span>
+<p>ICTV. (2024). Virus Metadata Resource (VMR). (<a class="reference external" href="https://ictv.global/vmr">web page</a>)</p>
+</aside>
+<aside class="footnote brackets" id="id17" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">6</a><span class="fn-bracket">]</span></span>
+<p>ICTV. (2024). Current ICTV Taxonomy Release. (<a class="reference external" href="https://ictv.global/taxonomy">web page</a>)</p>
+</aside>
+<aside class="footnote brackets" id="id18" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">7</a><span class="fn-bracket">]</span></span>
+<p>ICTV. (2024). Visual Taxonomy Browser. (<a class="reference external" href="https://ictv.global/taxonomy/visual-browser">web page</a>)</p>
+</aside>
+<aside class="footnote brackets" id="id19" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id9">8</a><span class="fn-bracket">]</span></span>
+<p>Sykes J. E. (2014). Feline Immunodeficiency Virus Infection. Canine and Feline Infectious Diseases, 209–223. (<a class="reference external" href="https://doi.org/10.1016/B978-1-4377-0795-3.00021-1">web page</a>)</p>
+</aside>
+<aside class="footnote brackets" id="id20" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id10">9</a><span class="fn-bracket">]</span></span>
+<p>ICTV. (2023). History of the taxon. (<a class="reference external" href="https://ictv.global/taxonomy/taxondetails?taxnode_id=202305029">web page</a>)</p>
+</aside>
+<aside class="footnote brackets" id="id21" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id11">10</a><span class="fn-bracket">]</span></span>
+<p>ICTV. (year). The ICTV Report on Virus Classification and Taxon Nomenclature. (<a class="reference external" href="https://ictv.global/report/chapter/retroviridae/retroviridae/lentivirus">web page</a>)</p>
+</aside>
+</aside>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="statlab_corr_spearman_rho.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="changelog.html" class="btn btn-neutral float-right" title="Changelog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Y. Hsu.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

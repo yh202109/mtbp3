@@ -57,6 +57,7 @@
 <li class="toctree-l1"><a class="reference internal" href="std_hl7fhir_us_pqcmc.html">S/HL7/FHIR-R5/US/PQ-CMC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="std_iso_pdf.html">S/ISO/PDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="std_iso_idmp.html">S/ISO/IDMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seq_ictv_taxonomy.html">Seq/ICTV/MSL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="conduct.html">Code of Conduct</a></li>
@@ -137,7 +138,11 @@
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="autoapi/mtbp3/health/ectd/index.html#mtbp3.health.ectd.ctoc_by_fda.__load_list">__load_list() (mtbp3.health.ectd.ctoc_by_fda method)</a>
+
+      <ul>
+        <li><a href="autoapi/mtbp3/seq/ictvmslview/index.html#mtbp3.seq.ictvmslview.ictvmsl.__load_list">(mtbp3.seq.ictvmslview.ictvmsl method)</a>
 </li>
+      </ul></li>
       <li><a href="autoapi/mtbp3/index.html#mtbp3.__version__">__version__ (in module mtbp3)</a>
 </li>
       <li><a href="autoapi/mtbp3/index.html#mtbp3._ROOT">_ROOT (in module mtbp3)</a>
@@ -198,8 +203,6 @@
         <li><a href="autoapi/mtbp3/util/cdtg/index.html#mtbp3.util.cdtg.catPlotter">(class in mtbp3.util.cdtg)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/mtbp3/health/ectd/index.html#mtbp3.health.ectd.ctoc_by_fda.color_output">color_output() (mtbp3.health.ectd.ctoc_by_fda static method)</a>
-</li>
       <li><a href="autoapi/mtbp3/index.html#mtbp3.color_str">color_str() (in module mtbp3)</a>
 
       <ul>
@@ -382,6 +385,8 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/mtbp3/seq/ictvmslview/index.html#mtbp3.seq.ictvmslview.ictvmsl.find_rows_given_str">find_rows_given_str() (mtbp3.seq.ictvmslview.ictvmsl method)</a>
+</li>
       <li><a href="autoapi/mtbp3/health/ectd/index.html#mtbp3.health.ectd.ctoc_by_fda.find_section_given_words">find_section_given_words() (mtbp3.health.ectd.ctoc_by_fda method)</a>
 </li>
       <li><a href="autoapi/mtbp3/health/index.html#mtbp3.health.Emt.find_smq">find_smq() (mtbp3.health.Emt method)</a>
@@ -534,6 +539,8 @@
 <h2 id="I">I</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/mtbp3/seq/ictvmslview/index.html#mtbp3.seq.ictvmslview.ictvmsl">ictvmsl (class in mtbp3.seq.ictvmslview)</a>
+</li>
       <li><a href="autoapi/mtbp3/index.html#mtbp3.ListTree.infmt">infmt (mtbp3.ListTree attribute)</a>
 
       <ul>
@@ -724,6 +731,10 @@
 </li>
         <li><a href="autoapi/mtbp3/health/emt/index.html#module-mtbp3.health.emt">mtbp3.health.emt</a>
 </li>
+        <li><a href="autoapi/mtbp3/seq/index.html#module-mtbp3.seq">mtbp3.seq</a>
+</li>
+        <li><a href="autoapi/mtbp3/seq/ictvmslview/index.html#module-mtbp3.seq.ictvmslview">mtbp3.seq.ictvmslview</a>
+</li>
         <li><a href="autoapi/mtbp3/stdcdisc/index.html#module-mtbp3.stdcdisc">mtbp3.stdcdisc</a>
 </li>
         <li><a href="autoapi/mtbp3/stdcdisc/lib/index.html#module-mtbp3.stdcdisc.lib">mtbp3.stdcdisc.lib</a>
@@ -747,6 +758,12 @@
         <li><a href="autoapi/mtbp3/health/emt/index.html#id1">(mtbp3.health.emt.Emt attribute)</a>, <a href="autoapi/mtbp3/health/emt/index.html#mtbp3.health.emt.Emt.month">[1]</a>
 </li>
       </ul></li>
+      <li><a href="autoapi/mtbp3/seq/ictvmslview/index.html#mtbp3.seq.ictvmslview.ictvmsl.msl">msl (mtbp3.seq.ictvmslview.ictvmsl attribute)</a>
+</li>
+      <li><a href="autoapi/mtbp3/seq/ictvmslview/index.html#mtbp3.seq.ictvmslview.ictvmsl.msl_column_names">msl_column_names (mtbp3.seq.ictvmslview.ictvmsl attribute)</a>
+</li>
+      <li><a href="autoapi/mtbp3/seq/ictvmslview/index.html#mtbp3.seq.ictvmslview.ictvmsl.msl_version">msl_version (mtbp3.seq.ictvmslview.ictvmsl attribute)</a>
+</li>
       <li>
     mtbp3
 
@@ -782,6 +799,20 @@
 
       <ul>
         <li><a href="autoapi/mtbp3/health/emt/index.html#module-mtbp3.health.emt">module</a>
+</li>
+      </ul></li>
+      <li>
+    mtbp3.seq
+
+      <ul>
+        <li><a href="autoapi/mtbp3/seq/index.html#module-mtbp3.seq">module</a>
+</li>
+      </ul></li>
+      <li>
+    mtbp3.seq.ictvmslview
+
+      <ul>
+        <li><a href="autoapi/mtbp3/seq/ictvmslview/index.html#module-mtbp3.seq.ictvmslview">module</a>
 </li>
       </ul></li>
       <li>

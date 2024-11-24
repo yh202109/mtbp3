@@ -1,0 +1,51 @@
+mtbp3.seq.ictvmslview
+=====================
+
+.. py:module:: mtbp3.seq.ictvmslview
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   mtbp3.seq.ictvmslview.ictvmsl
+
+
+Module Contents
+---------------
+
+.. py:class:: ictvmsl(msl_file_path='')
+
+   .. py:attribute:: msl_version
+      :value: ''
+
+
+
+   .. py:attribute:: msl_column_names
+      :value: []
+
+
+
+   .. py:attribute:: msl
+
+
+   .. py:method:: __load_list()
+
+
+   .. py:method:: find_rows_given_str(search_str='', search_rank='Species', neighbor_rank='')
+
+      Find rows in the DataFrame that contain the given search string.
+      Parameters:
+      search_str (str): The string to search for in the DataFrame. Must be a nonempty string.
+      search_rank (str): The column name to search within. Must be 'all' or one of the column names in the DataFrame. Default is "Species".
+      neighbor_rank (str): (Unused parameter, can be removed or implemented in future versions).
+      Returns:
+      DataFrame: A DataFrame containing rows that match the search criteria.
+      Raises:
+      TypeError: If search_str is not a string.
+      ValueError: If search_str is an empty string.
+      ValueError: If search_rank is not 'all' and not a valid column name in the DataFrame.
+
+
+

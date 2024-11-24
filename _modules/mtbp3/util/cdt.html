@@ -57,6 +57,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../std_hl7fhir_us_pqcmc.html">S/HL7/FHIR-R5/US/PQ-CMC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../std_iso_pdf.html">S/ISO/PDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../std_iso_idmp.html">S/ISO/IDMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../seq_ictv_taxonomy.html">Seq/ICTV/MSL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../conduct.html">Code of Conduct</a></li>
@@ -111,6 +112,22 @@
 <div class="viewcode-block" id="color_str">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/util/index.html#mtbp3.color_str">[docs]</a>
 <span class="k">def</span> <span class="nf">color_str</span><span class="p">(</span><span class="n">input_str</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">words</span><span class="o">=</span><span class="p">[],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Colorize specified words in a given string.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        input_str (str): The input string in which words will be colorized.</span>
+<span class="sd">        words (list or str): A list of words or a single word to be colorized in the input string.</span>
+<span class="sd">        colors (list or str): A list of colors or a single color to be used for colorizing the words. </span>
+<span class="sd">                              Supported colors are &#39;red&#39;, &#39;green&#39;, &#39;yellow&#39;, &#39;blue&#39;, &#39;magenta&#39;, and &#39;cyan&#39;.</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        str: The input string with specified words colorized. If input_str is not a string, returns an error message.</span>
+<span class="sd">             If words is empty or not found in the input string, returns the original input string.</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: If the length of colors list does not match the length of words list, colors will be repeated to match the length.</span>
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; color_str(&quot;Hello World&quot;, [&quot;Hello&quot;, &quot;World&quot;], [&quot;red&quot;, &quot;blue&quot;])</span>
+<span class="sd">        &#39;\x1b[31mHello\x1b[0m \x1b[34mWorld\x1b[0m&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">input_str</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">&quot;input_str must be a string&quot;</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>

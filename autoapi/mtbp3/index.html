@@ -60,6 +60,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../std_hl7fhir_us_pqcmc.html">S/HL7/FHIR-R5/US/PQ-CMC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../std_iso_pdf.html">S/ISO/PDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../std_iso_idmp.html">S/ISO/IDMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../seq_ictv_taxonomy.html">Seq/ICTV/MSL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../conduct.html">Code of Conduct</a></li>
@@ -67,6 +68,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">mtbp3</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="health/index.html">mtbp3.health</a></li>
+<li class="toctree-l4"><a class="reference internal" href="seq/index.html">mtbp3.seq</a></li>
 <li class="toctree-l4"><a class="reference internal" href="stdcdisc/index.html">mtbp3.stdcdisc</a></li>
 <li class="toctree-l4"><a class="reference internal" href="stdiso/index.html">mtbp3.stdiso</a></li>
 <li class="toctree-l4"><a class="reference internal" href="util/index.html">mtbp3.util</a></li>
@@ -128,6 +130,7 @@ It imports all the functions and classes from the util module.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="health/index.html">mtbp3.health</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seq/index.html">mtbp3.seq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stdcdisc/index.html">mtbp3.stdcdisc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stdiso/index.html">mtbp3.stdiso</a></li>
 <li class="toctree-l1"><a class="reference internal" href="util/index.html">mtbp3.util</a></li>
@@ -171,7 +174,7 @@ It imports all the functions and classes from the util module.</p>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#mtbp3.color_str" title="mtbp3.color_str"><code class="xref py py-obj docutils literal notranslate"><span class="pre">color_str</span></code></a>([input_str, words, colors])</p></td>
-<td><p></p></td>
+<td><p>Colorize specified words in a given string.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mtbp3.diff_2cols_in_1df" title="mtbp3.diff_2cols_in_1df"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diff_2cols_in_1df</span></code></a>(df[, col1, col2, keep_diff_only])</p></td>
 <td><p>Calculate the difference between two columns in a DataFrame.</p></td>
@@ -315,7 +318,36 @@ It imports all the functions and classes from the util module.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="mtbp3.color_str">
 <span class="sig-prename descclassname"><span class="pre">mtbp3.</span></span><span class="sig-name descname"><span class="pre">color_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">words</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'red'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mtbp3/util/cdt.html#color_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.color_str" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Colorize specified words in a given string.
+:param input_str: The input string in which words will be colorized.
+:type input_str: str
+:param words: A list of words or a single word to be colorized in the input string.
+:type words: list or str
+:param colors: A list of colors or a single color to be used for colorizing the words.</p>
+<blockquote>
+<div><p>Supported colors are ‘red’, ‘green’, ‘yellow’, ‘blue’, ‘magenta’, and ‘cyan’.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>The input string with specified words colorized. If input_str is not a string, returns an error message.</dt><dd><p>If words is empty or not found in the input string, returns the original input string.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If the length of colors list does not match the length of words list, colors will be repeated to match the length.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">color_str</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="s2">&quot;World&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">])</span>
+<span class="go">&#39;[31mHello[0m [34mWorld[0m&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="mtbp3.diff_2cols_in_1df">
