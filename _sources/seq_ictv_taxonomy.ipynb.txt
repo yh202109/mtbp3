@@ -101,6 +101,38 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
+    "To view the unique values of 'Realm' in the file and number of rows under each realm:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "vscode": {
+     "languageId": "plaintext"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "msl.msl['Realm'].value_counts()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The counts above are from the example file (only 15 rows in total).\n",
+    "The MSL 39v4 includes the following realms:\n",
+    "\n",
+    "| Realm | Count of Species |\n",
+    "| --- | --- |\n",
+    "| Adnaviria     |    32 |\n",
+    "| Duplodnaviria |  4973 |\n",
+    "| Monodnaviria  |  2028 |\n",
+    "| Riboviria     |  6712 |\n",
+    "| Ribozyviria   |    21 |\n",
+    "| Varidnaviria  |   288 |\n",
+    "\n",
     "Please note that the column names will be used as `search_rank` in this module and those are case sensitive.\n",
     "The `search_str` is not case sensitive, as shown below.\n",
     "\n",
@@ -137,7 +169,7 @@
    },
    "outputs": [],
    "source": [
-    "print(msl.find_rows_given_str(search_str=\"lentivirus\", search_rank=\"Species\", color=\"red\", narrow=True)[['Genus', 'Species']])"
+    "print(msl.find_rows_given_str(search_str=\"lentivirus\", search_rank=\"Species\", color=\"red\", narrow=True)[['Genus', 'Species','Genome']])"
    ]
   },
   {

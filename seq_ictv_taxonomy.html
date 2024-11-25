@@ -234,6 +234,51 @@ Name: 0, dtype: object
 </div>
 </div>
 </div>
+<p>To view the unique values of ‘Realm’ in the file and number of rows under each realm:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msl</span><span class="o">.</span><span class="n">msl</span><span class="p">[</span><span class="s1">&#39;Realm&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Realm
+Riboviria       10
+Monodnaviria     5
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>The counts above are from the example file (only 15 rows in total).
+The MSL 39v4 includes the following realms:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Realm</p></th>
+<th class="head"><p>Count of Species</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Adnaviria</p></td>
+<td><p>32</p></td>
+</tr>
+<tr class="row-odd"><td><p>Duplodnaviria</p></td>
+<td><p>4973</p></td>
+</tr>
+<tr class="row-even"><td><p>Monodnaviria</p></td>
+<td><p>2028</p></td>
+</tr>
+<tr class="row-odd"><td><p>Riboviria</p></td>
+<td><p>6712</p></td>
+</tr>
+<tr class="row-even"><td><p>Ribozyviria</p></td>
+<td><p>21</p></td>
+</tr>
+<tr class="row-odd"><td><p>Varidnaviria</p></td>
+<td><p>288</p></td>
+</tr>
+</tbody>
+</table>
 <p>Please note that the column names will be used as <code class="docutils literal notranslate"><span class="pre">search_rank</span></code> in this module and those are case sensitive.
 The <code class="docutils literal notranslate"><span class="pre">search_str</span></code> is not case sensitive, as shown below.</p>
 <p>To search for rows with “lentivirus fel” included in a species name:</p>
@@ -281,27 +326,27 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <p>To search for rows with “lentivirus” included in species name:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">msl</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_str</span><span class="o">=</span><span class="s2">&quot;lentivirus&quot;</span><span class="p">,</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Species&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">narrow</span><span class="o">=</span><span class="kc">True</span><span class="p">)[[</span><span class="s1">&#39;Genus&#39;</span><span class="p">,</span> <span class="s1">&#39;Species&#39;</span><span class="p">]])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">msl</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_str</span><span class="o">=</span><span class="s2">&quot;lentivirus&quot;</span><span class="p">,</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Species&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">narrow</span><span class="o">=</span><span class="kc">True</span><span class="p">)[[</span><span class="s1">&#39;Genus&#39;</span><span class="p">,</span> <span class="s1">&#39;Species&#39;</span><span class="p">,</span><span class="s1">&#39;Genome&#39;</span><span class="p">]])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>            Genus                          Species
-0   Pollentivirus  Pol<span class=" -Color -Color-Red">lentivirus</span> pleritis
-1    Valentivirus   Va<span class=" -Color -Color-Red">lentivirus</span> aedvexis
-2    Valentivirus   Va<span class=" -Color -Color-Red">lentivirus</span> rhisidis
-3    Valentivirus   Va<span class=" -Color -Color-Red">lentivirus</span> ridensis
-4    Valentivirus   Va<span class=" -Color -Color-Red">lentivirus</span> saquitis
-5      Lentivirus     <span class=" -Color -Color-Red">Lentivirus</span> bovimdef
-6      Lentivirus       <span class=" -Color -Color-Red">Lentivirus</span> bovjem
-7      Lentivirus    <span class=" -Color -Color-Red">Lentivirus</span> capartenc
-8      Lentivirus    <span class=" -Color -Color-Red">Lentivirus</span> equinfane
-9      Lentivirus     <span class=" -Color -Color-Red">Lentivirus</span> felimdef
-10     Lentivirus    <span class=" -Color -Color-Red">Lentivirus</span> humimdef1
-11     Lentivirus    <span class=" -Color -Color-Red">Lentivirus</span> humimdef2
-12     Lentivirus    <span class=" -Color -Color-Red">Lentivirus</span> ovivismae
-13     Lentivirus          <span class=" -Color -Color-Red">Lentivirus</span> pum
-14     Lentivirus     <span class=" -Color -Color-Red">Lentivirus</span> simimdef
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>            Genus                          Species      Genome
+0   Pollentivirus  Pol<span class=" -Color -Color-Red">lentivirus</span> pleritis  ssDNA(+/-)
+1    Valentivirus   Va<span class=" -Color -Color-Red">lentivirus</span> aedvexis  ssDNA(+/-)
+2    Valentivirus   Va<span class=" -Color -Color-Red">lentivirus</span> rhisidis  ssDNA(+/-)
+3    Valentivirus   Va<span class=" -Color -Color-Red">lentivirus</span> ridensis  ssDNA(+/-)
+4    Valentivirus   Va<span class=" -Color -Color-Red">lentivirus</span> saquitis  ssDNA(+/-)
+5      Lentivirus     <span class=" -Color -Color-Red">Lentivirus</span> bovimdef    ssRNA-RT
+6      Lentivirus       <span class=" -Color -Color-Red">Lentivirus</span> bovjem    ssRNA-RT
+7      Lentivirus    <span class=" -Color -Color-Red">Lentivirus</span> capartenc    ssRNA-RT
+8      Lentivirus    <span class=" -Color -Color-Red">Lentivirus</span> equinfane    ssRNA-RT
+9      Lentivirus     <span class=" -Color -Color-Red">Lentivirus</span> felimdef    ssRNA-RT
+10     Lentivirus    <span class=" -Color -Color-Red">Lentivirus</span> humimdef1    ssRNA-RT
+11     Lentivirus    <span class=" -Color -Color-Red">Lentivirus</span> humimdef2    ssRNA-RT
+12     Lentivirus    <span class=" -Color -Color-Red">Lentivirus</span> ovivismae    ssRNA-RT
+13     Lentivirus          <span class=" -Color -Color-Red">Lentivirus</span> pum    ssRNA-RT
+14     Lentivirus     <span class=" -Color -Color-Red">Lentivirus</span> simimdef    ssRNA-RT
 </pre></div>
 </div>
 </div>
