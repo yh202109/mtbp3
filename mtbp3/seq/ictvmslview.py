@@ -50,8 +50,12 @@ class ictvmsl:
                 tmp['Family'] = tmp.apply(lambda row: f"{row['Family']}(sub-rank:{row['Subfamily']})" if pd.notna(row['Subfamily']) else row['Family'], axis=1)
             if 'Genus' in tmp.columns and 'Subgenus' in tmp.columns:
                 tmp['Genus'] = tmp.apply(lambda row: f"{row['Genus']}(sub-rank:{row['Subgenus']})" if pd.notna(row['Subgenus']) else row['Genus'], axis=1)
+            print(tmp.shape)
             tmp = tmp.iloc[:, :-4]
+            print(tmp.shape)
             self.msl2 = tmp.drop(columns=[col for col in tmp.columns if col.lower().startswith('sub')])
+            print(self.msl2.shape)
+            print(self.msl2.columns)
             print(f"File {self.msl_file_path} has been loaded")
             print("Column names:", self.msl.columns.tolist())
             print("Total number of rows:", len(self.msl))
@@ -89,7 +93,7 @@ class ictvmsl:
 
         if search_rank == "all":
             if narrow:
-                filtered_df = self.msl2[self.msl.iloc[:, 1:16].apply(lambda row: search_str.lower() == row.astype(str).str.lower().values, axis=1)]
+                filtered_df = self.msl2[self.msl2.iloc[:, 1:9].apply(lambda row: search_str.lower() == row.astype(str).str.lower().values, axis=1)]
             else:
                 filtered_df = self.msl[self.msl.iloc[:, 1:16].apply(lambda row: search_str.lower() in row.astype(str).str.lower().values, axis=1)]
             if color:
@@ -97,7 +101,7 @@ class ictvmsl:
                     filtered_df[col] = filtered_df[col].apply(lambda row: util.cdt.color_str(row, words=search_str, colors=color) if pd.notna(row) else row)
         else:
             if narrow:
-                filtered_df = self.msl2[self.msl[search_rank].str.contains(search_str, case=False, na=False)]
+                filtered_df = self.msl2[self.msl2[search_rank].str.contains(search_str, case=False, na=False)]
             else:
                 filtered_df = self.msl[self.msl[search_rank].str.contains(search_str, case=False, na=False)]
             if color:
