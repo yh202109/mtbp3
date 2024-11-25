@@ -35,6 +35,23 @@ class ictvmsl:
 
         if self.msl is not None:
             self.msl_column_names = self.msl.columns.tolist()
+            tmp = self.msl
+            if 'Realm' in tmp.columns and 'Subrealm' in tmp.columns:
+                tmp['Realm'] = tmp.apply(lambda row: f"{row['Realm']}(sub-rank:{row['Subrealm']})" if pd.notna(row['Subrealm']) else row['Realm'], axis=1)
+            if 'Kingdom' in tmp.columns and 'Subkingdom' in tmp.columns:
+                tmp['Kingdom'] = tmp.apply(lambda row: f"{row['Kingdom']}(sub-rank:{row['Subkingdom']})" if pd.notna(row['Subkingdom']) else row['Kingdom'], axis=1)
+            if 'Phylum' in tmp.columns and 'Subphylum' in tmp.columns:
+                tmp['Phylum'] = tmp.apply(lambda row: f"{row['Phylum']}(sub-rank:{row['Subphylum']})" if pd.notna(row['Subphylum']) else row['Phylum'], axis=1)
+            if 'Class' in tmp.columns and 'Subclass' in tmp.columns:
+                tmp['Class'] = tmp.apply(lambda row: f"{row['Class']}(sub-rank:{row['Subclass']})" if pd.notna(row['Subclass']) else row['Class'], axis=1)
+            if 'Order' in tmp.columns and 'Suborder' in tmp.columns:
+                tmp['Order'] = tmp.apply(lambda row: f"{row['Order']}(sub-rank:{row['Suborder']})" if pd.notna(row['Suborder']) else row['Order'], axis=1)
+            if 'Family' in tmp.columns and 'Subfamily' in tmp.columns:
+                tmp['Family'] = tmp.apply(lambda row: f"{row['Family']}(sub-rank:{row['Subfamily']})" if pd.notna(row['Subfamily']) else row['Family'], axis=1)
+            if 'Genus' in tmp.columns and 'Subgenus' in tmp.columns:
+                tmp['Genus'] = tmp.apply(lambda row: f"{row['Genus']}(sub-rank:{row['Subgenus']})" if pd.notna(row['Subgenus']) else row['Genus'], axis=1)
+            tmp = tmp.iloc[:, :-4]
+            self.msl2 = tmp.drop(columns=[col for col in tmp.columns if col.lower().startswith('sub')])
             print(f"File {self.msl_file_path} has been loaded")
             print("Column names:", self.msl.columns.tolist())
             print("Total number of rows:", len(self.msl))
@@ -48,7 +65,7 @@ class ictvmsl:
         else:
             raise FileNotFoundError(f"File not found: {file_path}")
 
-    def find_rows_given_str(self, search_str="", search_rank="Species", color=""):
+    def find_rows_given_str(self, search_str="", search_rank="Species", color="", narrow=False):
         """
         Find rows in the DataFrame that contain the given search string.
         Parameters:
@@ -71,12 +88,18 @@ class ictvmsl:
             raise ValueError(f"search_rank must be 'all' or one of the following: {', '.join(self.msl_column_names)}")
 
         if search_rank == "all":
-            filtered_df = self.msl[self.msl.iloc[:, 1:16].apply(lambda row: search_str.lower() in row.astype(str).str.lower().values, axis=1)]
+            if narrow:
+                filtered_df = self.msl2[self.msl.iloc[:, 1:16].apply(lambda row: search_str.lower() == row.astype(str).str.lower().values, axis=1)]
+            else:
+                filtered_df = self.msl[self.msl.iloc[:, 1:16].apply(lambda row: search_str.lower() in row.astype(str).str.lower().values, axis=1)]
             if color:
                 for col in self.msl_column_names[1:16]:
                     filtered_df[col] = filtered_df[col].apply(lambda row: util.cdt.color_str(row, words=search_str, colors=color) if pd.notna(row) else row)
         else:
-            filtered_df = self.msl[self.msl[search_rank].str.contains(search_str, case=False, na=False)]
+            if narrow:
+                filtered_df = self.msl2[self.msl[search_rank].str.contains(search_str, case=False, na=False)]
+            else:
+                filtered_df = self.msl[self.msl[search_rank].str.contains(search_str, case=False, na=False)]
             if color:
                 filtered_df[search_rank] = filtered_df[search_rank].apply(lambda row: util.cdt.color_str(row, words=search_str, colors=color))
 
