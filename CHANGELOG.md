@@ -2,6 +2,11 @@
 
 <!--next-version-placeholder-->
 
+## v0.2.23 (2024-11-23)
+
+- update seq.ictvmslview
+    - adjust sub display
+
 ## v0.2.22 (2024-11-23)
 
 - update pdfsummary

@@ -71,9 +71,9 @@ class ictvmsl:
             raise ValueError(f"search_rank must be 'all' or one of the following: {', '.join(self.msl_column_names)}")
 
         if search_rank == "all":
-            filtered_df = self.msl[self.msl.apply(lambda row: search_str.lower() in row.astype(str).str.lower().values, axis=1)]
+            filtered_df = self.msl[self.msl.iloc[:, 1:16].apply(lambda row: search_str.lower() in row.astype(str).str.lower().values, axis=1)]
             if color:
-                for col in self.msl_column_names:
+                for col in self.msl_column_names[1:16]:
                     filtered_df[col] = filtered_df[col].apply(lambda row: util.cdt.color_str(row, words=search_str, colors=color) if pd.notna(row) else row)
         else:
             filtered_df = self.msl[self.msl[search_rank].str.contains(search_str, case=False, na=False)]
