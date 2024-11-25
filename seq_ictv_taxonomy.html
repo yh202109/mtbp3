@@ -193,7 +193,13 @@ When using the option <code class="docutils literal notranslate"><span class="pr
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File supp_seq/ICTV_MSL39v4_example.csv has been loaded
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(15, 21)
+(15, 17)
+(15, 10)
+Index([&#39;Sort&#39;, &#39;Realm&#39;, &#39;Kingdom&#39;, &#39;Phylum&#39;, &#39;Class&#39;, &#39;Order&#39;, &#39;Family&#39;,
+       &#39;Genus&#39;, &#39;Species&#39;, &#39;Genome&#39;],
+      dtype=&#39;object&#39;)
+File supp_seq/ICTV_MSL39v4_example.csv has been loaded
 Column names: [&#39;Sort&#39;, &#39;Realm&#39;, &#39;Subrealm&#39;, &#39;Kingdom&#39;, &#39;Subkingdom&#39;, &#39;Phylum&#39;, &#39;Subphylum&#39;, &#39;Class&#39;, &#39;Subclass&#39;, &#39;Order&#39;, &#39;Suborder&#39;, &#39;Family&#39;, &#39;Subfamily&#39;, &#39;Genus&#39;, &#39;Subgenus&#39;, &#39;Species&#39;, &#39;Genome&#39;, &#39;Last Change&#39;, &#39;MSL of Last Change&#39;, &#39;Proposal for Last Change &#39;, &#39;Taxon History URL&#39;]
 Total number of rows: 15
 </pre></div>
@@ -268,7 +274,7 @@ Taxon History URL                               ictv.global=202305029
 Name: 9, dtype: object
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:104: SettingWithCopyWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:108: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
@@ -281,305 +287,70 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <p>To search for rows with “lentivirus” included in any name:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msl</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_str</span><span class="o">=</span><span class="s2">&quot;lentivirus&quot;</span><span class="p">,</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msl</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_str</span><span class="o">=</span><span class="s2">&quot;lentivirus&quot;</span><span class="p">,</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">narrow</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:97: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">msl</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_str</span><span class="o">=</span><span class="s2">&quot;lentivirus&quot;</span><span class="p">,</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">narrow</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  filtered_df[col] = filtered_df[col].apply(lambda row: util.cdt.color_str(row, words=search_str, colors=color) if pd.notna(row) else row)
+<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:96,</span> in <span class="ni">ictvmsl.find_rows_given_str</span><span class="nt">(self, search_str, search_rank, color, narrow)</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span> <span class="k">if</span> <span class="n">search_rank</span> <span class="o">==</span> <span class="s2">&quot;all&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span>     <span class="k">if</span> <span class="n">narrow</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">96</span>         <span class="n">filtered_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">msl2</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">msl2</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="n">search_str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="n">row</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>         <span class="n">filtered_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">msl</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">msl</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">16</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="n">search_str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">row</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/frame.py:4108,</span> in <span class="ni">DataFrame.__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4106</span>     <span class="k">if</span> <span class="n">is_iterator</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">4107</span>         <span class="n">key</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">4108</span>     <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">_get_indexer_strict</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;columns&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">4110</span> <span class="c1"># take() does not accept boolean indexers</span>
+<span class="g g-Whitespace">   </span><span class="mi">4111</span> <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">indexer</span><span class="p">,</span> <span class="s2">&quot;dtype&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="o">==</span> <span class="nb">bool</span><span class="p">:</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/indexes/base.py:6195,</span> in <span class="ni">Index._get_indexer_strict</span><span class="nt">(self, key, axis_name)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6192</span>     <span class="n">keyarr</span> <span class="o">=</span> <span class="n">com</span><span class="o">.</span><span class="n">asarray_tuplesafe</span><span class="p">(</span><span class="n">keyarr</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6194</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_index_as_unique</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">6195</span>     <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_indexer_for</span><span class="p">(</span><span class="n">keyarr</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6196</span>     <span class="n">keyarr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">keyarr</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">6197</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/indexes/base.py:6182,</span> in <span class="ni">Index.get_indexer_for</span><span class="nt">(self, target)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6164</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">6165</span><span class="sd"> Guaranteed return of an indexer even when non-unique.</span>
+<span class="g g-Whitespace">   </span><span class="mi">6166</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6179</span><span class="sd"> array([0, 2])</span>
+<span class="g g-Whitespace">   </span><span class="mi">6180</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">6181</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_index_as_unique</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">6182</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_indexer</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6183</span> <span class="n">indexer</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_indexer_non_unique</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6184</span> <span class="k">return</span> <span class="n">indexer</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/indexes/base.py:3953,</span> in <span class="ni">Index.get_indexer</span><span class="nt">(self, target, method, limit, tolerance)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3948</span>     <span class="n">target</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">dtype</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3949</span>     <span class="k">return</span> <span class="n">this</span><span class="o">.</span><span class="n">_get_indexer</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">3950</span>         <span class="n">target</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="n">tolerance</span>
+<span class="g g-Whitespace">   </span><span class="mi">3951</span>     <span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">3953</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_indexer</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="n">tolerance</span><span class="p">)</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/indexes/base.py:3980,</span> in <span class="ni">Index._get_indexer</span><span class="nt">(self, target, method, limit, tolerance)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3977</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3978</span>         <span class="n">tgt_values</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">_get_engine_target</span><span class="p">()</span>
+<span class="ne">-&gt; </span><span class="mi">3980</span>     <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_indexer</span><span class="p">(</span><span class="n">tgt_values</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3982</span> <span class="k">return</span> <span class="n">ensure_platform_int</span><span class="p">(</span><span class="n">indexer</span><span class="p">)</span>
+
+<span class="nn">File index.pyx:351,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_indexer</span><span class="nt">()</span>
+
+<span class="nn">File pandas/_libs/hashtable_class_helper.pxi:7132,</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.lookup</span><span class="nt">()</span>
+
+<span class="ne">TypeError</span>: unhashable type: &#39;numpy.ndarray&#39;
 </pre></div>
 </div>
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Sort</th>
-      <th>Realm</th>
-      <th>Subrealm</th>
-      <th>Kingdom</th>
-      <th>Subkingdom</th>
-      <th>Phylum</th>
-      <th>Subphylum</th>
-      <th>Class</th>
-      <th>Subclass</th>
-      <th>Order</th>
-      <th>...</th>
-      <th>Family</th>
-      <th>Subfamily</th>
-      <th>Genus</th>
-      <th>Subgenus</th>
-      <th>Species</th>
-      <th>Genome</th>
-      <th>Last Change</th>
-      <th>MSL of Last Change</th>
-      <th>Proposal for Last Change</th>
-      <th>Taxon History URL</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>5</th>
-      <td>13700</td>
-      <td>Riboviria</td>
-      <td>NaN</td>
-      <td>Pararnavirae</td>
-      <td>NaN</td>
-      <td>Artverviricota</td>
-      <td>NaN</td>
-      <td>Revtraviricetes</td>
-      <td>NaN</td>
-      <td>Ortervirales</td>
-      <td>...</td>
-      <td>Retroviridae(sub-rank:Orthoretrovirinae)</td>
-      <td>Orthoretrovirinae</td>
-      <td>[31mLentivirus[0m</td>
-      <td>NaN</td>
-      <td>[31mLentivirus[0m bovimdef</td>
-      <td>ssRNA-RT</td>
-      <td>Renamed,</td>
-      <td>39</td>
-      <td>2023.009D.Retroviridae_68rensp.zip</td>
-      <td>ictv.global=202305026</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>13701</td>
-      <td>Riboviria</td>
-      <td>NaN</td>
-      <td>Pararnavirae</td>
-      <td>NaN</td>
-      <td>Artverviricota</td>
-      <td>NaN</td>
-      <td>Revtraviricetes</td>
-      <td>NaN</td>
-      <td>Ortervirales</td>
-      <td>...</td>
-      <td>Retroviridae(sub-rank:Orthoretrovirinae)</td>
-      <td>Orthoretrovirinae</td>
-      <td>[31mLentivirus[0m</td>
-      <td>NaN</td>
-      <td>[31mLentivirus[0m bovjem</td>
-      <td>ssRNA-RT</td>
-      <td>Renamed,</td>
-      <td>39</td>
-      <td>2023.009D.Retroviridae_68rensp.zip</td>
-      <td>ictv.global=202305032</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>13702</td>
-      <td>Riboviria</td>
-      <td>NaN</td>
-      <td>Pararnavirae</td>
-      <td>NaN</td>
-      <td>Artverviricota</td>
-      <td>NaN</td>
-      <td>Revtraviricetes</td>
-      <td>NaN</td>
-      <td>Ortervirales</td>
-      <td>...</td>
-      <td>Retroviridae(sub-rank:Orthoretrovirinae)</td>
-      <td>Orthoretrovirinae</td>
-      <td>[31mLentivirus[0m</td>
-      <td>NaN</td>
-      <td>[31mLentivirus[0m capartenc</td>
-      <td>ssRNA-RT</td>
-      <td>Renamed,</td>
-      <td>39</td>
-      <td>2023.009D.Retroviridae_68rensp.zip</td>
-      <td>ictv.global=202305027</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>13703</td>
-      <td>Riboviria</td>
-      <td>NaN</td>
-      <td>Pararnavirae</td>
-      <td>NaN</td>
-      <td>Artverviricota</td>
-      <td>NaN</td>
-      <td>Revtraviricetes</td>
-      <td>NaN</td>
-      <td>Ortervirales</td>
-      <td>...</td>
-      <td>Retroviridae(sub-rank:Orthoretrovirinae)</td>
-      <td>Orthoretrovirinae</td>
-      <td>[31mLentivirus[0m</td>
-      <td>NaN</td>
-      <td>[31mLentivirus[0m equinfane</td>
-      <td>ssRNA-RT</td>
-      <td>Renamed,</td>
-      <td>39</td>
-      <td>2023.009D.Retroviridae_68rensp.zip</td>
-      <td>ictv.global=202305028</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>13704</td>
-      <td>Riboviria</td>
-      <td>NaN</td>
-      <td>Pararnavirae</td>
-      <td>NaN</td>
-      <td>Artverviricota</td>
-      <td>NaN</td>
-      <td>Revtraviricetes</td>
-      <td>NaN</td>
-      <td>Ortervirales</td>
-      <td>...</td>
-      <td>Retroviridae(sub-rank:Orthoretrovirinae)</td>
-      <td>Orthoretrovirinae</td>
-      <td>[31mLentivirus[0m</td>
-      <td>NaN</td>
-      <td>[31mLentivirus[0m felimdef</td>
-      <td>ssRNA-RT</td>
-      <td>Renamed,</td>
-      <td>39</td>
-      <td>2023.009D.Retroviridae_68rensp.zip</td>
-      <td>ictv.global=202305029</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>13705</td>
-      <td>Riboviria</td>
-      <td>NaN</td>
-      <td>Pararnavirae</td>
-      <td>NaN</td>
-      <td>Artverviricota</td>
-      <td>NaN</td>
-      <td>Revtraviricetes</td>
-      <td>NaN</td>
-      <td>Ortervirales</td>
-      <td>...</td>
-      <td>Retroviridae(sub-rank:Orthoretrovirinae)</td>
-      <td>Orthoretrovirinae</td>
-      <td>[31mLentivirus[0m</td>
-      <td>NaN</td>
-      <td>[31mLentivirus[0m humimdef1</td>
-      <td>ssRNA-RT</td>
-      <td>Renamed,</td>
-      <td>39</td>
-      <td>2023.009D.Retroviridae_68rensp.zip</td>
-      <td>ictv.global=202305030</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>13706</td>
-      <td>Riboviria</td>
-      <td>NaN</td>
-      <td>Pararnavirae</td>
-      <td>NaN</td>
-      <td>Artverviricota</td>
-      <td>NaN</td>
-      <td>Revtraviricetes</td>
-      <td>NaN</td>
-      <td>Ortervirales</td>
-      <td>...</td>
-      <td>Retroviridae(sub-rank:Orthoretrovirinae)</td>
-      <td>Orthoretrovirinae</td>
-      <td>[31mLentivirus[0m</td>
-      <td>NaN</td>
-      <td>[31mLentivirus[0m humimdef2</td>
-      <td>ssRNA-RT</td>
-      <td>Renamed,</td>
-      <td>39</td>
-      <td>2023.009D.Retroviridae_68rensp.zip</td>
-      <td>ictv.global=202305031</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>13707</td>
-      <td>Riboviria</td>
-      <td>NaN</td>
-      <td>Pararnavirae</td>
-      <td>NaN</td>
-      <td>Artverviricota</td>
-      <td>NaN</td>
-      <td>Revtraviricetes</td>
-      <td>NaN</td>
-      <td>Ortervirales</td>
-      <td>...</td>
-      <td>Retroviridae(sub-rank:Orthoretrovirinae)</td>
-      <td>Orthoretrovirinae</td>
-      <td>[31mLentivirus[0m</td>
-      <td>NaN</td>
-      <td>[31mLentivirus[0m ovivismae</td>
-      <td>ssRNA-RT</td>
-      <td>Renamed,</td>
-      <td>39</td>
-      <td>2023.009D.Retroviridae_68rensp.zip</td>
-      <td>ictv.global=202305035</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>13708</td>
-      <td>Riboviria</td>
-      <td>NaN</td>
-      <td>Pararnavirae</td>
-      <td>NaN</td>
-      <td>Artverviricota</td>
-      <td>NaN</td>
-      <td>Revtraviricetes</td>
-      <td>NaN</td>
-      <td>Ortervirales</td>
-      <td>...</td>
-      <td>Retroviridae(sub-rank:Orthoretrovirinae)</td>
-      <td>Orthoretrovirinae</td>
-      <td>[31mLentivirus[0m</td>
-      <td>NaN</td>
-      <td>[31mLentivirus[0m pum</td>
-      <td>ssRNA-RT</td>
-      <td>Renamed,</td>
-      <td>39</td>
-      <td>2023.009D.Retroviridae_68rensp.zip</td>
-      <td>ictv.global=202305033</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>13709</td>
-      <td>Riboviria</td>
-      <td>NaN</td>
-      <td>Pararnavirae</td>
-      <td>NaN</td>
-      <td>Artverviricota</td>
-      <td>NaN</td>
-      <td>Revtraviricetes</td>
-      <td>NaN</td>
-      <td>Ortervirales</td>
-      <td>...</td>
-      <td>Retroviridae(sub-rank:Orthoretrovirinae)</td>
-      <td>Orthoretrovirinae</td>
-      <td>[31mLentivirus[0m</td>
-      <td>NaN</td>
-      <td>[31mLentivirus[0m simimdef</td>
-      <td>ssRNA-RT</td>
-      <td>Renamed,</td>
-      <td>39</td>
-      <td>2023.009D.Retroviridae_68rensp.zip</td>
-      <td>ictv.global=202305034</td>
-    </tr>
-  </tbody>
-</table>
-<p>10 rows × 21 columns</p>
-</div></div></div>
+</div>
 </div>
 </section>
 <section id="reference">
