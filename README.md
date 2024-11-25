@@ -30,6 +30,8 @@ Functions are grouped into:
   - CDISC<sup>[*]</sup>: `stdcdisc.lib`
   - H7/FHIR: 
   - ISO: `stdiso.pdfsummary` 
+- Bioinfo:
+  - ICTV: `seq.ictvmslview`
 
 <sup>[*]</sup> Documents are not executed while building.
 
