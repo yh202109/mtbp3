@@ -281,112 +281,30 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <p>To search for rows with “lentivirus” included in species name:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msl</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_str</span><span class="o">=</span><span class="s2">&quot;lentivirus&quot;</span><span class="p">,</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Species&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">narrow</span><span class="o">=</span><span class="kc">True</span><span class="p">)[[</span><span class="s1">&#39;Genus&#39;</span><span class="p">,</span> <span class="s1">&#39;Species&#39;</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">msl</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_str</span><span class="o">=</span><span class="s2">&quot;lentivirus&quot;</span><span class="p">,</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Species&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">narrow</span><span class="o">=</span><span class="kc">True</span><span class="p">)[[</span><span class="s1">&#39;Genus&#39;</span><span class="p">,</span> <span class="s1">&#39;Species&#39;</span><span class="p">]])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Genus</th>
-      <th>Species</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Pollentivirus</td>
-      <td>Pol[31mlentivirus[0m pleritis</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Valentivirus</td>
-      <td>Va[31mlentivirus[0m aedvexis</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Valentivirus</td>
-      <td>Va[31mlentivirus[0m rhisidis</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Valentivirus</td>
-      <td>Va[31mlentivirus[0m ridensis</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Valentivirus</td>
-      <td>Va[31mlentivirus[0m saquitis</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Lentivirus</td>
-      <td>[31mLentivirus[0m bovimdef</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>Lentivirus</td>
-      <td>[31mLentivirus[0m bovjem</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Lentivirus</td>
-      <td>[31mLentivirus[0m capartenc</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>Lentivirus</td>
-      <td>[31mLentivirus[0m equinfane</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>Lentivirus</td>
-      <td>[31mLentivirus[0m felimdef</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>Lentivirus</td>
-      <td>[31mLentivirus[0m humimdef1</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>Lentivirus</td>
-      <td>[31mLentivirus[0m humimdef2</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>Lentivirus</td>
-      <td>[31mLentivirus[0m ovivismae</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>Lentivirus</td>
-      <td>[31mLentivirus[0m pum</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>Lentivirus</td>
-      <td>[31mLentivirus[0m simimdef</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>            Genus                          Species
+0   Pollentivirus  Pol<span class=" -Color -Color-Red">lentivirus</span> pleritis
+1    Valentivirus   Va<span class=" -Color -Color-Red">lentivirus</span> aedvexis
+2    Valentivirus   Va<span class=" -Color -Color-Red">lentivirus</span> rhisidis
+3    Valentivirus   Va<span class=" -Color -Color-Red">lentivirus</span> ridensis
+4    Valentivirus   Va<span class=" -Color -Color-Red">lentivirus</span> saquitis
+5      Lentivirus     <span class=" -Color -Color-Red">Lentivirus</span> bovimdef
+6      Lentivirus       <span class=" -Color -Color-Red">Lentivirus</span> bovjem
+7      Lentivirus    <span class=" -Color -Color-Red">Lentivirus</span> capartenc
+8      Lentivirus    <span class=" -Color -Color-Red">Lentivirus</span> equinfane
+9      Lentivirus     <span class=" -Color -Color-Red">Lentivirus</span> felimdef
+10     Lentivirus    <span class=" -Color -Color-Red">Lentivirus</span> humimdef1
+11     Lentivirus    <span class=" -Color -Color-Red">Lentivirus</span> humimdef2
+12     Lentivirus    <span class=" -Color -Color-Red">Lentivirus</span> ovivismae
+13     Lentivirus          <span class=" -Color -Color-Red">Lentivirus</span> pum
+14     Lentivirus     <span class=" -Color -Color-Red">Lentivirus</span> simimdef
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="reference">

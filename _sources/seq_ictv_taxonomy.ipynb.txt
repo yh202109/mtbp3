@@ -137,7 +137,7 @@
    },
    "outputs": [],
    "source": [
-    "msl.find_rows_given_str(search_str=\"lentivirus\", search_rank=\"Species\", color=\"red\", narrow=True)[['Genus', 'Species']]"
+    "print(msl.find_rows_given_str(search_str=\"lentivirus\", search_rank=\"Species\", color=\"red\", narrow=True)[['Genus', 'Species']])"
    ]
   },
   {
