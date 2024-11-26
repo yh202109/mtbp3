@@ -26,7 +26,7 @@ Functions
 Module Contents
 ---------------
 
-.. py:function:: color_str(input_str='', words=[], colors='red')
+.. py:function:: color_str(input_str='', words=[], colors='red', exact=False)
 
    Colorize specified words in a given string.
    :param input_str: The input string in which words will be colorized.

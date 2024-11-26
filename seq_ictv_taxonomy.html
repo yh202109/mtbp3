@@ -323,7 +323,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 </div>
-<p>To search for rows with “lentivirus” included in species name:</p>
+<p>To search for rows with “lentivirus” included in species:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">msl</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_str</span><span class="o">=</span><span class="s2">&quot;lentivirus&quot;</span><span class="p">,</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Species&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">narrow</span><span class="o">=</span><span class="kc">True</span><span class="p">)[[</span><span class="s1">&#39;Genus&#39;</span><span class="p">,</span> <span class="s1">&#39;Species&#39;</span><span class="p">,</span><span class="s1">&#39;Genome&#39;</span><span class="p">]])</span>
@@ -347,6 +347,24 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 12     Lentivirus    <span class=" -Color -Color-Red">Lentivirus</span> ovivismae    ssRNA-RT
 13     Lentivirus          <span class=" -Color -Color-Red">Lentivirus</span> pum    ssRNA-RT
 14     Lentivirus     <span class=" -Color -Color-Red">Lentivirus</span> simimdef    ssRNA-RT
+</pre></div>
+</div>
+</div>
+</div>
+<p>To search for rows with “lentivirus” as Genus:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">msl</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_str</span><span class="o">=</span><span class="s2">&quot;lentivirus&quot;</span><span class="p">,</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Species&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">narrow</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">msl</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_str</span><span class="o">=</span><span class="s2">&quot;lentivirus&quot;</span><span class="p">,</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Species&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">narrow</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+
+<span class="ne">TypeError</span>: ictvmsl.find_rows_given_str() got an unexpected keyword argument &#39;exact&#39;
 </pre></div>
 </div>
 </div>
