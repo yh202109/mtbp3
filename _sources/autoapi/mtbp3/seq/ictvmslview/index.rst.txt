@@ -27,13 +27,16 @@ Module Contents
 
 
 
+   .. py:attribute:: msl2
+
+
    .. py:attribute:: msl
 
 
    .. py:method:: __load_list()
 
 
-   .. py:method:: find_rows_given_str(search_str='', search_rank='Species', color='', narrow=False)
+   .. py:method:: find_rows_given_str(search_str='', search_rank='Species', color='', narrow=False, outfmt='simple', exact=False)
 
       Find rows in the DataFrame that contain the given search string.
       Parameters:

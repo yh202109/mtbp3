@@ -196,6 +196,11 @@ When using the option <code class="docutils literal notranslate"><span class="pr
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File supp_seq/ICTV_MSL39v4_example.csv has been loaded
 Column names: [&#39;Sort&#39;, &#39;Realm&#39;, &#39;Subrealm&#39;, &#39;Kingdom&#39;, &#39;Subkingdom&#39;, &#39;Phylum&#39;, &#39;Subphylum&#39;, &#39;Class&#39;, &#39;Subclass&#39;, &#39;Order&#39;, &#39;Suborder&#39;, &#39;Family&#39;, &#39;Subfamily&#39;, &#39;Genus&#39;, &#39;Subgenus&#39;, &#39;Species&#39;, &#39;Genome&#39;, &#39;Last Change&#39;, &#39;MSL of Last Change&#39;, &#39;Proposal for Last Change &#39;, &#39;Taxon History URL&#39;]
 Total number of rows: 15
+Number of rows by &#39;Realm&#39;:
+Realm
+Riboviria       10
+Monodnaviria     5
+Name: count, dtype: int64
 </pre></div>
 </div>
 </div>
@@ -289,36 +294,36 @@ The <code class="docutils literal notranslate"><span class="pre">search_str</spa
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sort                                                            13704
-Realm                                                       Riboviria
-Subrealm                                                          NaN
-Kingdom                                                  Pararnavirae
-Subkingdom                                                        NaN
-Phylum                                                 Artverviricota
-Subphylum                                                         NaN
-Class                                                 Revtraviricetes
-Subclass                                                          NaN
-Order                                                    Ortervirales
-Suborder                                                          NaN
-Family                       Retroviridae(sub-rank:Orthoretrovirinae)
-Subfamily                                           Orthoretrovirinae
-Genus                                                      Lentivirus
-Subgenus                                                          NaN
-Species                                  <span class=" -Color -Color-Red">Lentivirus fel</span>imdef
-Genome                                                       ssRNA-RT
-Last Change                                                  Renamed,
-MSL of Last Change                                                 39
-Proposal for Last Change           2023.009D.Retroviridae_68rensp.zip
-Taxon History URL                               ictv.global=202305029
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sort                                                             13704
+Realm                                                        Riboviria
+Subrealm                                                           NaN
+Kingdom                                                   Pararnavirae
+Subkingdom                                                         NaN
+Phylum                                                  Artverviricota
+Subphylum                                                          NaN
+Class                                                  Revtraviricetes
+Subclass                                                           NaN
+Order                                                     Ortervirales
+Suborder                                                           NaN
+Family                       Retroviridae(Subfamily:Orthoretrovirinae)
+Subfamily                                            Orthoretrovirinae
+Genus                                                       Lentivirus
+Subgenus                                                           NaN
+Species                                   <span class=" -Color -Color-Red">Lentivirus fel</span>imdef
+Genome                                                        ssRNA-RT
+Last Change                                                   Renamed,
+MSL of Last Change                                                  39
+Proposal for Last Change            2023.009D.Retroviridae_68rensp.zip
+Taxon History URL                                ictv.global=202305029
 Name: 9, dtype: object
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:107: SettingWithCopyWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:131: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  filtered_df[search_rank] = filtered_df[search_rank].apply(lambda row: util.cdt.color_str(row, words=search_str, colors=color))
+  filtered_df[search_rank] = filtered_df[search_rank].apply(lambda row: util.cdt.color_str(row, words=search_str, colors=color, exact=exact))
 </pre></div>
 </div>
 </div>
@@ -359,12 +364,9 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">msl</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_str</span><span class="o">=</span><span class="s2">&quot;lentivirus&quot;</span><span class="p">,</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Species&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">narrow</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
-
-<span class="ne">TypeError</span>: ictvmsl.find_rows_given_str() got an unexpected keyword argument &#39;exact&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Empty DataFrame
+Columns: [Sort, Realm, Kingdom, Phylum, Class, Order, Family, Genus, Species, Genome, Last Change]
+Index: []
 </pre></div>
 </div>
 </div>
