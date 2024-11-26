@@ -359,14 +359,54 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <p>To search for rows with “lentivirus” as Genus:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">msl</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_str</span><span class="o">=</span><span class="s2">&quot;lentivirus&quot;</span><span class="p">,</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Species&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">narrow</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">msl</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_str</span><span class="o">=</span><span class="s2">&quot;lentivirus&quot;</span><span class="p">,</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Genus&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">narrow</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Empty DataFrame
-Columns: [Sort, Realm, Kingdom, Phylum, Class, Order, Family, Genus, Species, Genome, Last Change]
-Index: []
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     Sort      Realm       Kingdom          Phylum            Class  \
+5   13700  Riboviria  Pararnavirae  Artverviricota  Revtraviricetes   
+6   13701  Riboviria  Pararnavirae  Artverviricota  Revtraviricetes   
+7   13702  Riboviria  Pararnavirae  Artverviricota  Revtraviricetes   
+8   13703  Riboviria  Pararnavirae  Artverviricota  Revtraviricetes   
+9   13704  Riboviria  Pararnavirae  Artverviricota  Revtraviricetes   
+10  13705  Riboviria  Pararnavirae  Artverviricota  Revtraviricetes   
+11  13706  Riboviria  Pararnavirae  Artverviricota  Revtraviricetes   
+12  13707  Riboviria  Pararnavirae  Artverviricota  Revtraviricetes   
+13  13708  Riboviria  Pararnavirae  Artverviricota  Revtraviricetes   
+14  13709  Riboviria  Pararnavirae  Artverviricota  Revtraviricetes   
+
+           Order                                     Family       Genus  \
+5   Ortervirales  Retroviridae(Subfamily:Orthoretrovirinae)  Lentivirus   
+6   Ortervirales  Retroviridae(Subfamily:Orthoretrovirinae)  Lentivirus   
+7   Ortervirales  Retroviridae(Subfamily:Orthoretrovirinae)  Lentivirus   
+8   Ortervirales  Retroviridae(Subfamily:Orthoretrovirinae)  Lentivirus   
+9   Ortervirales  Retroviridae(Subfamily:Orthoretrovirinae)  Lentivirus   
+10  Ortervirales  Retroviridae(Subfamily:Orthoretrovirinae)  Lentivirus   
+11  Ortervirales  Retroviridae(Subfamily:Orthoretrovirinae)  Lentivirus   
+12  Ortervirales  Retroviridae(Subfamily:Orthoretrovirinae)  Lentivirus   
+13  Ortervirales  Retroviridae(Subfamily:Orthoretrovirinae)  Lentivirus   
+14  Ortervirales  Retroviridae(Subfamily:Orthoretrovirinae)  Lentivirus   
+
+                 Species    Genome Last Change  
+5    Lentivirus bovimdef  ssRNA-RT    Renamed,  
+6      Lentivirus bovjem  ssRNA-RT    Renamed,  
+7   Lentivirus capartenc  ssRNA-RT    Renamed,  
+8   Lentivirus equinfane  ssRNA-RT    Renamed,  
+9    Lentivirus felimdef  ssRNA-RT    Renamed,  
+10  Lentivirus humimdef1  ssRNA-RT    Renamed,  
+11  Lentivirus humimdef2  ssRNA-RT    Renamed,  
+12  Lentivirus ovivismae  ssRNA-RT    Renamed,  
+13        Lentivirus pum  ssRNA-RT    Renamed,  
+14   Lentivirus simimdef  ssRNA-RT    Renamed,  
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:131: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filtered_df[search_rank] = filtered_df[search_rank].apply(lambda row: util.cdt.color_str(row, words=search_str, colors=color, exact=exact))
 </pre></div>
 </div>
 </div>
