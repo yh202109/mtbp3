@@ -51,7 +51,7 @@ class ictvmsl:
                 tmp['Family'] = tmp.apply(lambda row: f"{row['Family']}(Subfamily:{row['Subfamily']})" if pd.notna(row['Subfamily']) else row['Family'], axis=1)
             if 'Genus' in tmp.columns and 'Subgenus' in tmp.columns:
                 tmp['Genus'] = tmp.apply(lambda row: f"{row['Genus']}(sSubgenus:{row['Subgenus']})" if pd.notna(row['Subgenus']) else row['Genus'], axis=1)
-            tmp = tmp.iloc[:, :-3]
+            tmp = tmp.iloc[:, :-4]
             self.msl2 = tmp.drop(columns=[col for col in tmp.columns if col.lower().startswith('sub')])
             print(f"File {self.msl_file_path} has been loaded")
             print("Column names:", self.msl.columns.tolist())
