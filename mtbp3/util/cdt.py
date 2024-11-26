@@ -17,7 +17,7 @@ import numpy as np
 import pandas as pd
 import json
 
-def color_str(input_str="", words=[], colors='red'):
+def color_str(input_str="", words=[], colors='red', exact=False):
     """
     Colorize specified words in a given string.
     Args:
@@ -66,13 +66,19 @@ def color_str(input_str="", words=[], colors='red'):
     color_strs = [f"\x1b[{color_dic[c]}m" for c in colors]
 
     output_str = input_str
-    for i, word in enumerate(words):
-        try:
-            start = output_str.lower().index(word.lower())
-            end = start + len(word)
-        except ValueError:
-            continue
-        output_str = output_str[:start] + color_strs[i] + output_str[start:end] + "\x1b[0m" + output_str[end:]
+    if exact:
+        for i, word in enumerate(words):
+            if output_str == word:
+                output_str = color_strs[i] + output_str + "\x1b[0m"
+                continue
+    else:
+        for i, word in enumerate(words):
+            try:
+                start = output_str.lower().index(word.lower())
+                end = start + len(word)
+            except ValueError:
+                continue
+            output_str = output_str[:start] + color_strs[i] + output_str[start:end] + "\x1b[0m" + output_str[end:]
 
     return output_str
 
