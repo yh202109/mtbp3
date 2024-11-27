@@ -186,7 +186,7 @@ Additional information about FIV, for example, about the genus <em>Lentivirus</e
 <h2>How to<a class="headerlink" href="#how-to" title="Link to this heading"></a></h2>
 <p>The module <code class="docutils literal notranslate"><span class="pre">mtbp3.seq.ictvmsiview</span></code> accept a csv file exported from the MSL tab of MSL download file.
 The csv file path can be assigned using the option <code class="docutils literal notranslate"><span class="pre">msl_file_path</span></code>.
-For demonstration, a small subset of MSL (containing only 15 rows) is shipped with this module.
+For demonstration, a small subset of MSL is shipped with this module.
 When using the option <code class="docutils literal notranslate"><span class="pre">msl_file_path</span> <span class="pre">=</span> <span class="pre">&quot;&quot;</span></code>, the example file will be loaded.</p>
 <p>To load a MSL csv file:</p>
 <div class="cell docutils container">
@@ -199,7 +199,7 @@ When using the option <code class="docutils literal notranslate"><span class="pr
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File supp_seq/ICTV_MSL39v4_example.csv has been loaded
 Column names: [&#39;Sort&#39;, &#39;Realm&#39;, &#39;Subrealm&#39;, &#39;Kingdom&#39;, &#39;Subkingdom&#39;, &#39;Phylum&#39;, &#39;Subphylum&#39;, &#39;Class&#39;, &#39;Subclass&#39;, &#39;Order&#39;, &#39;Suborder&#39;, &#39;Family&#39;, &#39;Subfamily&#39;, &#39;Genus&#39;, &#39;Subgenus&#39;, &#39;Species&#39;, &#39;Genome&#39;, &#39;Last Change&#39;, &#39;MSL of Last Change&#39;, &#39;Proposal for Last Change &#39;, &#39;Taxon History URL&#39;]
-Total number of rows: 15
+Total number of rows: 65
 </pre></div>
 </div>
 </div>
@@ -212,27 +212,27 @@ Total number of rows: 15
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sort                                                                    5973
-Realm                                                           Monodnaviria
-Subrealm                                                                 NaN
-Kingdom                                                         Shotokuvirae
-Subkingdom                                                               NaN
-Phylum                                                      Cressdnaviricota
-Subphylum                                                                NaN
-Class                                                          Arfiviricetes
-Subclass                                                                 NaN
-Order                                                          Jormunvirales
-Suborder                                                                 NaN
-Family                                                       Draupnirviridae
-Subfamily                                                                NaN
-Genus                                                          Pollentivirus
-Subgenus                                                                 NaN
-Species                                               Pollentivirus pleritis
-Genome                                                            ssDNA(+/-)
-Last Change                                                             New,
-MSL of Last Change                                                        39
-Proposal for Last Change     2023.023D.Squillovirales_1no_1nf_42ng_67nsp.zip
-Taxon History URL                                      ictv.global=202318740
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sort                                                      13664
+Realm                                                 Riboviria
+Subrealm                                                    NaN
+Kingdom                                            Pararnavirae
+Subkingdom                                                  NaN
+Phylum                                           Artverviricota
+Subphylum                                                   NaN
+Class                                           Revtraviricetes
+Subclass                                                    NaN
+Order                                              Ortervirales
+Suborder                                                    NaN
+Family                                             Retroviridae
+Subfamily                                     Orthoretrovirinae
+Genus                                           Alpharetrovirus
+Subgenus                                                    NaN
+Species                           Alpharetrovirus avicarmilhil2
+Genome                                                 ssRNA-RT
+Last Change                                            Renamed,
+MSL of Last Change                                           39
+Proposal for Last Change     2023.009D.Retroviridae_68rensp.zip
+Taxon History URL                         ictv.global=202304982
 Name: 0, dtype: object
 </pre></div>
 </div>
@@ -247,14 +247,13 @@ Name: 0, dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Realm
-Riboviria       10
-Monodnaviria     5
+Riboviria    65
 Name: count, dtype: int64
 </pre></div>
 </div>
 </div>
 </div>
-<p>The counts above are from the example file (only 15 rows in total).
+<p>The counts above are from the example file.
 The MSL 39v4 includes the following realms:</p>
 <table class="docutils align-default">
 <thead>
@@ -316,7 +315,7 @@ Last Change                                            Renamed,
 MSL of Last Change                                           39
 Proposal for Last Change     2023.009D.Retroviridae_68rensp.zip
 Taxon History URL                         ictv.global=202305029
-Name: 9, dtype: object
+Name: 40, dtype: object
 </pre></div>
 </div>
 </div>
@@ -329,22 +328,17 @@ Name: 9, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>            Genus                          Species      Genome
-0   Pollentivirus  Pol<span class=" -Color -Color-Red">lentivirus</span> pleritis  ssDNA(+/-)
-1    Valentivirus   Va<span class=" -Color -Color-Red">lentivirus</span> aedvexis  ssDNA(+/-)
-2    Valentivirus   Va<span class=" -Color -Color-Red">lentivirus</span> rhisidis  ssDNA(+/-)
-3    Valentivirus   Va<span class=" -Color -Color-Red">lentivirus</span> ridensis  ssDNA(+/-)
-4    Valentivirus   Va<span class=" -Color -Color-Red">lentivirus</span> saquitis  ssDNA(+/-)
-5      Lentivirus     <span class=" -Color -Color-Red">Lentivirus</span> bovimdef    ssRNA-RT
-6      Lentivirus       <span class=" -Color -Color-Red">Lentivirus</span> bovjem    ssRNA-RT
-7      Lentivirus    <span class=" -Color -Color-Red">Lentivirus</span> capartenc    ssRNA-RT
-8      Lentivirus    <span class=" -Color -Color-Red">Lentivirus</span> equinfane    ssRNA-RT
-9      Lentivirus     <span class=" -Color -Color-Red">Lentivirus</span> felimdef    ssRNA-RT
-10     Lentivirus    <span class=" -Color -Color-Red">Lentivirus</span> humimdef1    ssRNA-RT
-11     Lentivirus    <span class=" -Color -Color-Red">Lentivirus</span> humimdef2    ssRNA-RT
-12     Lentivirus    <span class=" -Color -Color-Red">Lentivirus</span> ovivismae    ssRNA-RT
-13     Lentivirus          <span class=" -Color -Color-Red">Lentivirus</span> pum    ssRNA-RT
-14     Lentivirus     <span class=" -Color -Color-Red">Lentivirus</span> simimdef    ssRNA-RT
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         Genus                        Species    Genome
+36  Lentivirus   <span class=" -Color -Color-Red">Lentivirus</span> bovimdef  ssRNA-RT
+37  Lentivirus     <span class=" -Color -Color-Red">Lentivirus</span> bovjem  ssRNA-RT
+38  Lentivirus  <span class=" -Color -Color-Red">Lentivirus</span> capartenc  ssRNA-RT
+39  Lentivirus  <span class=" -Color -Color-Red">Lentivirus</span> equinfane  ssRNA-RT
+40  Lentivirus   <span class=" -Color -Color-Red">Lentivirus</span> felimdef  ssRNA-RT
+41  Lentivirus  <span class=" -Color -Color-Red">Lentivirus</span> humimdef1  ssRNA-RT
+42  Lentivirus  <span class=" -Color -Color-Red">Lentivirus</span> humimdef2  ssRNA-RT
+43  Lentivirus  <span class=" -Color -Color-Red">Lentivirus</span> ovivismae  ssRNA-RT
+44  Lentivirus        <span class=" -Color -Color-Red">Lentivirus</span> pum  ssRNA-RT
+45  Lentivirus   <span class=" -Color -Color-Red">Lentivirus</span> simimdef  ssRNA-RT
 </pre></div>
 </div>
 </div>
@@ -378,11 +372,11 @@ Name: 9, dtype: object
 </div>
 </div>
 </div>
-<p>There are more than one viruses belong to order Ortervirales that can infect feline.
-To search for virus within the Ortervirales order that can infect feline:</p>
+<p>There are more than one viruses in the Retroviridae family that can infect feline.
+To search for virus within the Retroviridae famiy that can infect feline:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">msl</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_str</span><span class="o">=</span><span class="s2">&quot; fel&quot;</span><span class="p">,</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Species&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">,</span> <span class="n">search_within_subset</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Order&quot;</span><span class="p">:</span><span class="s2">&quot;Ortervirales&quot;</span><span class="p">})))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">msl</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_str</span><span class="o">=</span><span class="s2">&quot; fel&quot;</span><span class="p">,</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Species&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">,</span> <span class="n">search_within_subset</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Family&quot;</span><span class="p">:</span><span class="s2">&quot;Retroviridae&quot;</span><span class="p">})))</span>
 </pre></div>
 </div>
 </div>
@@ -392,9 +386,14 @@ To search for virus within the Ortervirales order that can infect feline:</p>
         └── [Phylum] Artverviricota:
             └── [Class] Revtraviricetes:
                 └── [Order] Ortervirales:
-                    └── [Family] Retroviridae(Subfamily:Orthoretrovirinae):
-                        └── [Genus] Lentivirus:
-                            └── [Species] Lentivirus<span class=" -Color -Color-Red"> fel</span>imdef
+                    ├── [Family] Retroviridae(Subfamily:Orthoretrovirinae):
+                    │   ├── [Genus] Gammaretrovirus:
+                    │   │   └── [Species] Gammaretrovirus<span class=" -Color -Color-Red"> fel</span>leu
+                    │   └── [Genus] Lentivirus:
+                    │       └── [Species] Lentivirus<span class=" -Color -Color-Red"> fel</span>imdef
+                    └── [Family] Retroviridae(Subfamily:Spumaretrovirinae):
+                        └── [Genus] Felispumavirus:
+                            └── [Species] Felispumavirus<span class=" -Color -Color-Red"> fel</span>cat
 </pre></div>
 </div>
 </div>
