@@ -13,9 +13,11 @@
 #  You should have received a copy of the GNU General Public license
 #  along with this program. If not, see <https://www.gnu.org/license/>
 
+warnings.simplefilter(action='ignore', category=FutureWarning)
 import pandas as pd
 import os
 from mtbp3 import util
+import warnings
     
 class ictvmsl:
     def __init__(self, msl_file_path = ""):
@@ -133,7 +135,9 @@ class ictvmsl:
                 filtered_df = self.msl[self.msl[search_rank].str.contains(search_str, case=False, na=False)]
 
             if color:
-                filtered_df[search_rank] = filtered_df[search_rank].apply(lambda row: util.cdt.color_str(row, words=search_str, colors=color, exact=exact))
+                index = self.msl.columns.get_loc(search_rank)
+                filtered_df.iloc[:, index] = filtered_df.iloc[:, index].apply(lambda row: util.cdt.color_str(row, words=search_str, colors=color, exact=exact))
+                #filtered_df[search_rank] = filtered_df[search_rank].apply(lambda row: util.cdt.color_str(row, words=search_str, colors=color, exact=exact))
 
             if narrow:
                 filtered_df = self.make_narrow(filtered_df)
@@ -146,25 +150,25 @@ class ictvmsl:
             tree_list = filtered_df['Realm'].unique().tolist()
             tree_list = [f"/Realm:{item}/" for item in tree_list]
             tmp = filtered_df[['Realm', 'Kingdom']].drop_duplicates()
-            tmp['string'] = tmp.apply(lambda row: f"/Realm:{row['Realm']}/Kingdom:{row['Kingdom']}/", axis=1)
+            tmp['string'] = tmp.apply(lambda row: f"/[Realm] {row['Realm']}/[Kingdom] {row['Kingdom']}/", axis=1)
             tree_list = tree_list + tmp['string'].unique().tolist()
             tmp = filtered_df[['Realm', 'Kingdom', 'Phylum']].drop_duplicates()
-            tmp['string'] = tmp.apply(lambda row: f"/Realm:{row['Realm']}/Kingdom:{row['Kingdom']}/Phylum:{row['Phylum']}/", axis=1)
+            tmp['string'] = tmp.apply(lambda row: f"/[Realm] {row['Realm']}/[Kingdom] {row['Kingdom']}/[Phylum] {row['Phylum']}/", axis=1)
             tree_list = tree_list + tmp['string'].unique().tolist()
             tmp = filtered_df[['Realm', 'Kingdom', 'Phylum', 'Class']].drop_duplicates()
-            tmp['string'] = tmp.apply(lambda row: f"/Realm:{row['Realm']}/Kingdom:{row['Kingdom']}/Phylum:{row['Phylum']}/Class:{row['Class']}/", axis=1)
+            tmp['string'] = tmp.apply(lambda row: f"/[Realm] {row['Realm']}/[Kingdom] {row['Kingdom']}/[Phylum] {row['Phylum']}/[Class] {row['Class']}/", axis=1)
             tree_list = tree_list + tmp['string'].unique().tolist()
             tmp = filtered_df[['Realm', 'Kingdom', 'Phylum', 'Class', 'Order']].drop_duplicates()
-            tmp['string'] = tmp.apply(lambda row: f"/Realm:{row['Realm']}/Kingdom:{row['Kingdom']}/Phylum:{row['Phylum']}/Class:{row['Class']}/Order:{row['Order']}/", axis=1)
+            tmp['string'] = tmp.apply(lambda row: f"/[Realm] {row['Realm']}/[Kingdom] {row['Kingdom']}/[Phylum] {row['Phylum']}/[Class] {row['Class']}/[Order] {row['Order']}/", axis=1)
             tree_list = tree_list + tmp['string'].unique().tolist()
             tmp = filtered_df[['Realm', 'Kingdom', 'Phylum', 'Class', 'Order', 'Family']].drop_duplicates()
-            tmp['string'] = tmp.apply(lambda row: f"/Realm:{row['Realm']}/Kingdom:{row['Kingdom']}/Phylum:{row['Phylum']}/Class:{row['Class']}/Order:{row['Order']}/Family:{row['Family']}/", axis=1)
+            tmp['string'] = tmp.apply(lambda row: f"/[Realm] {row['Realm']}/[Kingdom] {row['Kingdom']}/[Phylum] {row['Phylum']}/[Class] {row['Class']}/[Order] {row['Order']}/[Family] {row['Family']}/", axis=1)
             tree_list = tree_list + tmp['string'].unique().tolist()
             tmp = filtered_df[['Realm', 'Kingdom', 'Phylum', 'Class', 'Order', 'Family', 'Genus']].drop_duplicates()
-            tmp['string'] = tmp.apply(lambda row: f"/Realm:{row['Realm']}/Kingdom:{row['Kingdom']}/Phylum:{row['Phylum']}/Class:{row['Class']}/Order:{row['Order']}/Family:{row['Family']}/Genus:{row['Genus']}/", axis=1)
+            tmp['string'] = tmp.apply(lambda row: f"/[Realm] {row['Realm']}/[Kingdom] {row['Kingdom']}/[Phylum] {row['Phylum']}/[Class] {row['Class']}/[Order] {row['Order']}/[Family] {row['Family']}/[Genus] {row['Genus']}/", axis=1)
             tree_list = tree_list + tmp['string'].unique().tolist()
             tmp = filtered_df[['Realm', 'Kingdom', 'Phylum', 'Class', 'Order', 'Family', 'Genus', 'Species']].drop_duplicates()
-            tmp['string'] = tmp.apply(lambda row: f"/Realm:{row['Realm']}/Kingdom:{row['Kingdom']}/Phylum:{row['Phylum']}/Class:{row['Class']}/Order:{row['Order']}/Family:{row['Family']}/Genus:{row['Genus']}/Species:{row['Species']}", axis=1)
+            tmp['string'] = tmp.apply(lambda row: f"/[Realm] {row['Realm']}/[Kingdom] {row['Kingdom']}/[Phylum] {row['Phylum']}/[Class] {row['Class']}/[Order] {row['Order']}/[Family] {row['Family']}/[Genus] {row['Genus']}/[Species] {row['Species']}", axis=1)
             tree_list = tree_list + tmp['string'].unique().tolist()
             out_tree = util.cdt.ListTree(lst=tree_list)
             return out_tree.list_tree()
