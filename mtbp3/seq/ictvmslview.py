@@ -61,7 +61,7 @@ class ictvmsl:
             self.msl = pd.read_excel("temp.xlsx", sheet_name="MSL")
             os.remove("temp.xlsx")
             self.msl_column_names = self.msl.columns.tolist()
-            print(f"File of current version has been loaded")
+            print(f"File of version {version} has been loaded")
             print("Column names:", self.msl_column_names)
             print("Total number of rows:", len(self.msl))
         else:
