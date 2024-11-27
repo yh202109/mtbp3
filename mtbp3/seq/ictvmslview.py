@@ -47,7 +47,7 @@ class ictvmsl:
         all_url = {
             "current": "https://ictv.global/msl/current",
             "39.v4": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2023_MSL39.v4.xlsx",
-            "39.v3": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2023_MSL39.v3.xlsx
+            "39.v3": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2023_MSL39.v3.xlsx"
         }
         if version in all_url:
             url = all_url[version]
