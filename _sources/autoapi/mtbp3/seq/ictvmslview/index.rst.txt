@@ -30,6 +30,9 @@ Module Contents
    .. py:attribute:: msl
 
 
+   .. py:method:: update_msl(version='current')
+
+
    .. py:method:: make_narrow(msl)
       :staticmethod:
 
