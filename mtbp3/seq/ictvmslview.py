@@ -13,11 +13,12 @@
 #  You should have received a copy of the GNU General Public license
 #  along with this program. If not, see <https://www.gnu.org/license/>
 
-warnings.simplefilter(action='ignore', category=FutureWarning)
 import pandas as pd
 import os
 from mtbp3 import util
 import warnings
+
+warnings.simplefilter(action='ignore', category=FutureWarning)
     
 class ictvmsl:
     def __init__(self, msl_file_path = ""):
