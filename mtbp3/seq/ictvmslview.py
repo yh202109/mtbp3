@@ -141,7 +141,7 @@ class ictvmsl:
             raise ValueError(f"search_rank must be 'all' or one of the following: {', '.join(self.msl_column_names)}")
         if outfmt not in ["simple", "tree"]:
             raise ValueError("outfmt must be 'simple' or 'tree'")
-        if search_within_subset is not None and not isinstance(search_subset, dict):
+        if search_within_subset is not None and not isinstance(search_within_subset, dict):
             raise TypeError("search_subset must be a dictionary or None")
 
         msl2 = self.msl
