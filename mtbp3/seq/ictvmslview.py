@@ -31,7 +31,6 @@ class ictvmsl:
 
         self.msl_version = ""
         self.msl_column_names = []
-        self.msl2 = pd.DataFrame()
         self.msl = self.__load_list()
 
         if self.msl is not None:
@@ -108,7 +107,7 @@ class ictvmsl:
                 filtered_df = self.make_narrow(filtered_df)
         else:
             if exact:
-                filtered_df = self.msl2[self.msl2[search_rank].str.lower() == search_str.lower()]
+                filtered_df = self.msl[self.msl[search_rank].str.lower() == search_str.lower()]
             else:
                 filtered_df = self.msl[self.msl[search_rank].str.contains(search_str, case=False, na=False)]
 
