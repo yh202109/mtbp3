@@ -17,6 +17,7 @@ import pandas as pd
 import os
 from mtbp3 import util
 import warnings
+import requests
 
 warnings.simplefilter(action='ignore', category=FutureWarning)
     
@@ -39,8 +40,33 @@ class ictvmsl:
         if self.msl is not None:
             self.msl_column_names = self.msl.columns.tolist()
             print(f"File {self.msl_file_path} has been loaded")
-            print("Column names:", self.msl.columns.tolist())
+            print("Column names:", self.msl_column_names)
             print("Total number of rows:", len(self.msl))
+
+    def update_msl(self, version="current"):
+        all_url = {
+            "current": "https://ictv.global/msl/current",
+            "39.v4": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2023_MSL39.v4.xlsx",
+            "39.v3": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2023_MSL39.v3.xlsx
+        }
+        if version in all_url:
+            url = all_url[version]
+        else:
+            raise ValueError(f"Version {version} is not supported. Supported versions are: {', '.join(all_url.keys())}")
+
+        response = requests.get(url)
+        if response.status_code == 200:
+            with open("temp.xlsx", "wb") as f:
+            f.write(response.content)
+            self.msl = pd.read_excel("temp.xlsx", sheet_name="MSL")
+            os.remove("temp.xlsx")
+            self.msl_column_names = self.msl.columns.tolist()
+            print(f"File of current version has been loaded")
+            print("Column names:", self.msl_column_names)
+            print("Total number of rows:", len(self.msl))
+        else:
+            raise Exception(f"Failed to download file from {url}. Status code: {response.status_code}")
+
 
     @staticmethod
     def make_narrow(msl):
@@ -149,7 +175,7 @@ class ictvmsl:
             filtered_df = self.make_narrow(filtered_df)
 
             tree_list = filtered_df['Realm'].unique().tolist()
-            tree_list = [f"/Realm:{item}/" for item in tree_list]
+            tree_list = [f"/[Realm] {item}/" for item in tree_list]
             tmp = filtered_df[['Realm', 'Kingdom']].drop_duplicates()
             tmp['string'] = tmp.apply(lambda row: f"/[Realm] {row['Realm']}/[Kingdom] {row['Kingdom']}/", axis=1)
             tree_list = tree_list + tmp['string'].unique().tolist()
