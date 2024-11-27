@@ -378,6 +378,32 @@ Name: 9, dtype: object
 </div>
 </div>
 </div>
+<p>There are more than one [Family] Retroviridae viruses that can infect feline.
+To search for virus within the Retroviridae famiy that can infect feline:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">msl</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_str</span><span class="o">=</span><span class="s2">&quot; fel&quot;</span><span class="p">,</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Species&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">,</span> <span class="n">search_within_subset</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Family&quot;</span><span class="p">:</span><span class="s2">&quot;Retroviridae&quot;</span><span class="p">})))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">msl</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_str</span><span class="o">=</span><span class="s2">&quot; fel&quot;</span><span class="p">,</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Species&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">,</span> <span class="n">search_within_subset</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Family&quot;</span><span class="p">:</span><span class="s2">&quot;Retroviridae&quot;</span><span class="p">})))</span>
+
+<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:144,</span> in <span class="ni">ictvmsl.find_rows_given_str</span><span class="nt">(self, search_str, search_rank, color, narrow, outfmt, exact, search_within_subset)</span>
+<span class="g g-Whitespace">    </span><span class="mi">142</span> <span class="k">if</span> <span class="n">outfmt</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;simple&quot;</span><span class="p">,</span> <span class="s2">&quot;tree&quot;</span><span class="p">]:</span>
+<span class="g g-Whitespace">    </span><span class="mi">143</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;outfmt must be &#39;simple&#39; or &#39;tree&#39;&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">144</span> <span class="k">if</span> <span class="n">search_within_subset</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">search_subset</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">145</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;search_subset must be a dictionary or None&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">147</span> <span class="n">msl2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">msl</span>
+
+<span class="ne">NameError</span>: name &#39;search_subset&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="update-msl">
 <h3>Update MSL<a class="headerlink" href="#update-msl" title="Link to this heading"></a></h3>

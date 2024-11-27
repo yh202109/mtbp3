@@ -199,6 +199,27 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
+    "There are more than one [Family] Retroviridae viruses that can infect feline.\n",
+    "To search for virus within the Retroviridae famiy that can infect feline:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "vscode": {
+     "languageId": "plaintext"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "print('\\n'.join(msl.find_rows_given_str(search_str=\" fel\", search_rank=\"Species\", color=\"red\", outfmt='tree', search_within_subset={\"Family\":\"Retroviridae\"})))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
     "### Update MSL\n",
     "\n",
     "To download the current release:"
