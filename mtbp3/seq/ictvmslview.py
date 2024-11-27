@@ -57,7 +57,7 @@ class ictvmsl:
         response = requests.get(url)
         if response.status_code == 200:
             with open("temp.xlsx", "wb") as f:
-            f.write(response.content)
+                f.write(response.content)
             self.msl = pd.read_excel("temp.xlsx", sheet_name="MSL")
             os.remove("temp.xlsx")
             self.msl_column_names = self.msl.columns.tolist()
