@@ -33,6 +33,11 @@ Module Contents
    .. py:attribute:: msl
 
 
+   .. py:method:: make_narrow(msl)
+      :staticmethod:
+
+
+
    .. py:method:: __load_list()
 
 

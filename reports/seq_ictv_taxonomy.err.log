@@ -1,0 +1,49 @@
+Traceback (most recent call last):
+  File "/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+  File "/opt/hostedtoolcache/Python/3.10.15/x64/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+print(msl.find_rows_given_str(search_str="lentivirus", search_rank="Genus", color="red", narrow=True, exact=True)[['Family','Genus','Species']])
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+Cell [0;32mIn[6], line 1[0m
+[0;32m----> 1[0m [38;5;28mprint[39m([43mmsl[49m[38;5;241;43m.[39;49m[43mfind_rows_given_str[49m[43m([49m[43msearch_str[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43mlentivirus[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[43msearch_rank[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43mGenus[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[43mcolor[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43mred[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[43mnarrow[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m,[49m[43m [49m[43mexact[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m)[49m[[[38;5;124m'[39m[38;5;124mFamily[39m[38;5;124m'[39m,[38;5;124m'[39m[38;5;124mGenus[39m[38;5;124m'[39m,[38;5;124m'[39m[38;5;124mSpecies[39m[38;5;124m'[39m]])
+
+File [0;32m~/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:111[0m, in [0;36mictvmsl.find_rows_given_str[0;34m(self, search_str, search_rank, color, narrow, outfmt, exact)[0m
+[1;32m    109[0m [38;5;28;01melse[39;00m:
+[1;32m    110[0m     [38;5;28;01mif[39;00m exact:
+[0;32m--> 111[0m         filtered_df [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mmsl2[[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mmsl2[49m[43m[[49m[43msearch_rank[49m[43m][49m[38;5;241m.[39mstr[38;5;241m.[39mlower() [38;5;241m==[39m search_str[38;5;241m.[39mlower()]
+[1;32m    112[0m     [38;5;28;01melse[39;00m:
+[1;32m    113[0m         filtered_df [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mmsl[[38;5;28mself[39m[38;5;241m.[39mmsl[search_rank][38;5;241m.[39mstr[38;5;241m.[39mcontains(search_str, case[38;5;241m=[39m[38;5;28;01mFalse[39;00m, na[38;5;241m=[39m[38;5;28;01mFalse[39;00m)]
+
+File [0;32m~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/frame.py:4102[0m, in [0;36mDataFrame.__getitem__[0;34m(self, key)[0m
+[1;32m   4100[0m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39mcolumns[38;5;241m.[39mnlevels [38;5;241m>[39m [38;5;241m1[39m:
+[1;32m   4101[0m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_getitem_multilevel(key)
+[0;32m-> 4102[0m indexer [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mcolumns[49m[38;5;241;43m.[39;49m[43mget_loc[49m[43m([49m[43mkey[49m[43m)[49m
+[1;32m   4103[0m [38;5;28;01mif[39;00m is_integer(indexer):
+[1;32m   4104[0m     indexer [38;5;241m=[39m [indexer]
+
+File [0;32m~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/indexes/range.py:417[0m, in [0;36mRangeIndex.get_loc[0;34m(self, key)[0m
+[1;32m    415[0m         [38;5;28;01mraise[39;00m [38;5;167;01mKeyError[39;00m(key) [38;5;28;01mfrom[39;00m [38;5;21;01merr[39;00m
+[1;32m    416[0m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(key, Hashable):
+[0;32m--> 417[0m     [38;5;28;01mraise[39;00m [38;5;167;01mKeyError[39;00m(key)
+[1;32m    418[0m [38;5;28mself[39m[38;5;241m.[39m_check_indexing_error(key)
+[1;32m    419[0m [38;5;28;01mraise[39;00m [38;5;167;01mKeyError[39;00m(key)
+
+[0;31mKeyError[0m: 'Genus'
+
