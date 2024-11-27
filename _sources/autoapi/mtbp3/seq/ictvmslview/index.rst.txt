@@ -27,9 +27,6 @@ Module Contents
 
 
 
-   .. py:attribute:: msl2
-
-
    .. py:attribute:: msl
 
 

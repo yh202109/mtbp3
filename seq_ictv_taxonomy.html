@@ -313,7 +313,7 @@ Taxon History URL                         ictv.global=202305029
 Name: 9, dtype: object
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:116: SettingWithCopyWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:115: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
@@ -359,33 +359,79 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">msl</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_str</span><span class="o">=</span><span class="s2">&quot;lentivirus&quot;</span><span class="p">,</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Genus&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">narrow</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">True</span><span class="p">)[[</span><span class="s1">&#39;Family&#39;</span><span class="p">,</span><span class="s1">&#39;Genus&#39;</span><span class="p">,</span><span class="s1">&#39;Species&#39;</span><span class="p">]])</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                       Family                Genus  \
+5   Retroviridae(Subfamily:Orthoretrovirinae)  <span class=" -Color -Color-Red">Lentivirus</span>   
+6   Retroviridae(Subfamily:Orthoretrovirinae)  <span class=" -Color -Color-Red">Lentivirus</span>   
+7   Retroviridae(Subfamily:Orthoretrovirinae)  <span class=" -Color -Color-Red">Lentivirus</span>   
+8   Retroviridae(Subfamily:Orthoretrovirinae)  <span class=" -Color -Color-Red">Lentivirus</span>   
+9   Retroviridae(Subfamily:Orthoretrovirinae)  <span class=" -Color -Color-Red">Lentivirus</span>   
+10  Retroviridae(Subfamily:Orthoretrovirinae)  <span class=" -Color -Color-Red">Lentivirus</span>   
+11  Retroviridae(Subfamily:Orthoretrovirinae)  <span class=" -Color -Color-Red">Lentivirus</span>   
+12  Retroviridae(Subfamily:Orthoretrovirinae)  <span class=" -Color -Color-Red">Lentivirus</span>   
+13  Retroviridae(Subfamily:Orthoretrovirinae)  <span class=" -Color -Color-Red">Lentivirus</span>   
+14  Retroviridae(Subfamily:Orthoretrovirinae)  <span class=" -Color -Color-Red">Lentivirus</span>   
 
-<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:111,</span> in <span class="ni">ictvmsl.find_rows_given_str</span><span class="nt">(self, search_str, search_rank, color, narrow, outfmt, exact)</span>
-<span class="g g-Whitespace">    </span><span class="mi">109</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">110</span>     <span class="k">if</span> <span class="n">exact</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">111</span>         <span class="n">filtered_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">msl2</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">msl2</span><span class="p">[</span><span class="n">search_rank</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="n">search_str</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span>
-<span class="g g-Whitespace">    </span><span class="mi">112</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">113</span>         <span class="n">filtered_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">msl</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">msl</span><span class="p">[</span><span class="n">search_rank</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">search_str</span><span class="p">,</span> <span class="n">case</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">na</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span>
+                 Species  
+5    Lentivirus bovimdef  
+6      Lentivirus bovjem  
+7   Lentivirus capartenc  
+8   Lentivirus equinfane  
+9    Lentivirus felimdef  
+10  Lentivirus humimdef1  
+11  Lentivirus humimdef2  
+12  Lentivirus ovivismae  
+13        Lentivirus pum  
+14   Lentivirus simimdef  
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:115: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
 
-<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/frame.py:4102,</span> in <span class="ni">DataFrame.__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4100</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">nlevels</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">4101</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_multilevel</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">4102</span> <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4103</span> <span class="k">if</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">indexer</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">4104</span>     <span class="n">indexer</span> <span class="o">=</span> <span class="p">[</span><span class="n">indexer</span><span class="p">]</span>
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filtered_df[search_rank] = filtered_df[search_rank].apply(lambda row: util.cdt.color_str(row, words=search_str, colors=color, exact=exact))
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:45: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
 
-<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/indexes/range.py:417,</span> in <span class="ni">RangeIndex.get_loc</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">    </span><span class="mi">415</span>         <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
-<span class="g g-Whitespace">    </span><span class="mi">416</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">Hashable</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">417</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">418</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_indexing_error</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">419</span> <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  msl[&#39;Realm&#39;] = msl.apply(lambda row: f&quot;{row[&#39;Realm&#39;]}(Subrealm:{row[&#39;Subrealm&#39;]})&quot; if pd.notna(row[&#39;Subrealm&#39;]) else row[&#39;Realm&#39;], axis=1)
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:47: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
 
-<span class="ne">KeyError</span>: &#39;Genus&#39;
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  msl[&#39;Kingdom&#39;] = msl.apply(lambda row: f&quot;{row[&#39;Kingdom&#39;]}(Subkingdom:{row[&#39;Subkingdom&#39;]})&quot; if pd.notna(row[&#39;Subkingdom&#39;]) else row[&#39;Kingdom&#39;], axis=1)
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:49: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  msl[&#39;Phylum&#39;] = msl.apply(lambda row: f&quot;{row[&#39;Phylum&#39;]}(Subphylum:{row[&#39;Subphylum&#39;]})&quot; if pd.notna(row[&#39;Subphylum&#39;]) else row[&#39;Phylum&#39;], axis=1)
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:51: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  msl[&#39;Class&#39;] = msl.apply(lambda row: f&quot;{row[&#39;Class&#39;]}(Subclass:{row[&#39;Subclass&#39;]})&quot; if pd.notna(row[&#39;Subclass&#39;]) else row[&#39;Class&#39;], axis=1)
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:53: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  msl[&#39;Order&#39;] = msl.apply(lambda row: f&quot;{row[&#39;Order&#39;]}(Suborder:{row[&#39;Suborder&#39;]})&quot; if pd.notna(row[&#39;Suborder&#39;]) else row[&#39;Order&#39;], axis=1)
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:55: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  msl[&#39;Family&#39;] = msl.apply(lambda row: f&quot;{row[&#39;Family&#39;]}(Subfamily:{row[&#39;Subfamily&#39;]})&quot; if pd.notna(row[&#39;Subfamily&#39;]) else row[&#39;Family&#39;], axis=1)
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:57: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  msl[&#39;Genus&#39;] = msl.apply(lambda row: f&quot;{row[&#39;Genus&#39;]}(Subgenus:{row[&#39;Subgenus&#39;]})&quot; if pd.notna(row[&#39;Subgenus&#39;]) else row[&#39;Genus&#39;], axis=1)
 </pre></div>
 </div>
 </div>
@@ -393,6 +439,77 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">msl</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_str</span><span class="o">=</span><span class="s2">&quot;lentivirus&quot;</span><span class="p">,</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Genus&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">True</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Riboviria:
+    └── Pararnavirae:
+        └── Artverviricota:
+            └── Revtraviricetes:
+                └── Ortervirales:
+                    └── Retroviridae(Subfamily:Orthoretrovirinae):
+                        └── <span class=" -Color -Color-Red">Lentivirus</span>:
+                            ├── Lentivirus bovimdef
+                            ├── Lentivirus bovjem
+                            ├── Lentivirus capartenc
+                            ├── Lentivirus equinfane
+                            ├── Lentivirus felimdef
+                            ├── Lentivirus humimdef1
+                            ├── Lentivirus humimdef2
+                            ├── Lentivirus ovivismae
+                            ├── Lentivirus pum
+                            └── Lentivirus simimdef
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:115: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filtered_df[search_rank] = filtered_df[search_rank].apply(lambda row: util.cdt.color_str(row, words=search_str, colors=color, exact=exact))
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:45: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  msl[&#39;Realm&#39;] = msl.apply(lambda row: f&quot;{row[&#39;Realm&#39;]}(Subrealm:{row[&#39;Subrealm&#39;]})&quot; if pd.notna(row[&#39;Subrealm&#39;]) else row[&#39;Realm&#39;], axis=1)
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:47: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  msl[&#39;Kingdom&#39;] = msl.apply(lambda row: f&quot;{row[&#39;Kingdom&#39;]}(Subkingdom:{row[&#39;Subkingdom&#39;]})&quot; if pd.notna(row[&#39;Subkingdom&#39;]) else row[&#39;Kingdom&#39;], axis=1)
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:49: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  msl[&#39;Phylum&#39;] = msl.apply(lambda row: f&quot;{row[&#39;Phylum&#39;]}(Subphylum:{row[&#39;Subphylum&#39;]})&quot; if pd.notna(row[&#39;Subphylum&#39;]) else row[&#39;Phylum&#39;], axis=1)
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:51: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  msl[&#39;Class&#39;] = msl.apply(lambda row: f&quot;{row[&#39;Class&#39;]}(Subclass:{row[&#39;Subclass&#39;]})&quot; if pd.notna(row[&#39;Subclass&#39;]) else row[&#39;Class&#39;], axis=1)
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:53: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  msl[&#39;Order&#39;] = msl.apply(lambda row: f&quot;{row[&#39;Order&#39;]}(Suborder:{row[&#39;Suborder&#39;]})&quot; if pd.notna(row[&#39;Suborder&#39;]) else row[&#39;Order&#39;], axis=1)
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:55: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  msl[&#39;Family&#39;] = msl.apply(lambda row: f&quot;{row[&#39;Family&#39;]}(Subfamily:{row[&#39;Subfamily&#39;]})&quot; if pd.notna(row[&#39;Subfamily&#39;]) else row[&#39;Family&#39;], axis=1)
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:57: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  msl[&#39;Genus&#39;] = msl.apply(lambda row: f&quot;{row[&#39;Genus&#39;]}(Subgenus:{row[&#39;Subgenus&#39;]})&quot; if pd.notna(row[&#39;Subgenus&#39;]) else row[&#39;Genus&#39;], axis=1)
 </pre></div>
 </div>
 </div>
