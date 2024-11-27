@@ -136,6 +136,9 @@
     "Please note that the column names will be used as `search_rank` in this module and those are case sensitive.\n",
     "The `search_str` is not case sensitive, as shown below.\n",
     "\n",
+    "\n",
+    "### Search within MSL \n",
+    "\n",
     "To search for rows with \"lentivirus fel\" included in a species name:"
    ]
   },
@@ -206,6 +209,15 @@
    ]
   },
   {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Update MSL\n",
+    "\n",
+    "To download the current release:"
+   ]
+  },
+  {
    "cell_type": "code",
    "execution_count": null,
    "metadata": {
@@ -215,7 +227,7 @@
    },
    "outputs": [],
    "source": [
-    "msl.update_msl()"
+    "msl.update_msl(version=\"current\")"
    ]
   },
   {

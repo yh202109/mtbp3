@@ -62,7 +62,11 @@
 <li class="toctree-l1"><a class="reference internal" href="std_iso_idmp.html">S/ISO/IDMP</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Seq/ICTV/MSL</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#an-example">An Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#how-to">How to</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to">How to</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#search-within-msl">Search within MSL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#update-msl">Update MSL</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
@@ -281,6 +285,8 @@ The MSL 39v4 includes the following realms:</p>
 </table>
 <p>Please note that the column names will be used as <code class="docutils literal notranslate"><span class="pre">search_rank</span></code> in this module and those are case sensitive.
 The <code class="docutils literal notranslate"><span class="pre">search_str</span></code> is not case sensitive, as shown below.</p>
+<section id="search-within-msl">
+<h3>Search within MSL<a class="headerlink" href="#search-within-msl" title="Link to this heading"></a></h3>
 <p>To search for rows with “lentivirus fel” included in a species name:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -406,9 +412,13 @@ Name: 9, dtype: object
 </div>
 </div>
 </div>
+</section>
+<section id="update-msl">
+<h3>Update MSL<a class="headerlink" href="#update-msl" title="Link to this heading"></a></h3>
+<p>To download the current release:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msl</span><span class="o">.</span><span class="n">update_msl</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msl</span><span class="o">.</span><span class="n">update_msl</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="s2">&quot;current&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -420,6 +430,7 @@ Total number of rows: 14690
 </div>
 </div>
 </div>
+</section>
 </section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>
