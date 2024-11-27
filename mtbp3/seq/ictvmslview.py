@@ -118,7 +118,7 @@ class ictvmsl:
         else:
             raise FileNotFoundError(f"File not found: {file_path}")
 
-    def find_rows_given_str(self, search_str="", search_rank="Species", color="", narrow=False, outfmt="simple", exact=False):
+    def find_rows_given_str(self, search_str="", search_rank="Species", color="", narrow=False, outfmt="simple", exact=False, search_within_subset=None):
         """
         Find rows in the DataFrame that contain the given search string.
         Parameters:
@@ -141,15 +141,24 @@ class ictvmsl:
             raise ValueError(f"search_rank must be 'all' or one of the following: {', '.join(self.msl_column_names)}")
         if outfmt not in ["simple", "tree"]:
             raise ValueError("outfmt must be 'simple' or 'tree'")
+        if search_within_subset is not None and not isinstance(search_subset, dict):
+            raise TypeError("search_subset must be a dictionary or None")
+
+        msl2 = self.msl
+        if search_within_subset is not None:
+            for key, value in search_within_subset.items():
+                if key in msl2.columns and isinstance(value, str) and value:
+                    index = msl2.columns.get_loc(key)
+                    msl2 = msl2[msl2.iloc[:, index].str.lower() == value.lower()]
 
         if search_rank == "all":
             if exact:
-                filtered_df = self.msl[self.msl.iloc[:, 1:16].apply(lambda row: search_str.lower() == row.astype(str).str.lower().values, axis=1)]
+                filtered_df = msl2[msl2.iloc[:, 1:16].apply(lambda row: search_str.lower() == row.astype(str).str.lower().values, axis=1)]
                 if color:
                     for col in filtered_df[1:16]:
                         filtered_df[col] = filtered_df[col].apply(lambda row: util.cdt.color_str(row, words=search_str, colors=color, exact=exact) if pd.notna(row) else row)
             else:
-                filtered_df = self.msl[self.msl.iloc[:, 1:16].apply(lambda row: search_str.lower() in row.astype(str).str.lower().values, axis=1)]
+                filtered_df = msl2[msl2.iloc[:, 1:16].apply(lambda row: search_str.lower() in row.astype(str).str.lower().values, axis=1)]
                 if color:
                     for col in filtered_df[1:16]:
                         filtered_df[col] = filtered_df[col].apply(lambda row: util.cdt.color_str(row, words=search_str, colors=color, exact=exact) if pd.notna(row) else row)
@@ -157,12 +166,12 @@ class ictvmsl:
                 filtered_df = self.make_narrow(filtered_df)
         else:
             if exact:
-                filtered_df = self.msl[self.msl[search_rank].str.lower() == search_str.lower()]
+                filtered_df = msl2[msl2[search_rank].str.lower() == search_str.lower()]
             else:
-                filtered_df = self.msl[self.msl[search_rank].str.contains(search_str, case=False, na=False)]
+                filtered_df = msl2[msl2[search_rank].str.contains(search_str, case=False, na=False)]
 
             if color:
-                index = self.msl.columns.get_loc(search_rank)
+                index = msl2.columns.get_loc(search_rank)
                 filtered_df.iloc[:, index] = filtered_df.iloc[:, index].apply(lambda row: util.cdt.color_str(row, words=search_str, colors=color, exact=exact))
                 #filtered_df[search_rank] = filtered_df[search_rank].apply(lambda row: util.cdt.color_str(row, words=search_str, colors=color, exact=exact))
 
