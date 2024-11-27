@@ -214,7 +214,20 @@
    },
    "outputs": [],
    "source": [
-    "msl.update_msl(version=\"current\")"
+    "# msl.update_msl(version=\"current\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Output:\n",
+    "\n",
+    "```\n",
+    "File of version current has been loaded\n",
+    "Column names: ['Sort', 'Realm', 'Subrealm', 'Kingdom', 'Subkingdom', 'Phylum', 'Subphylum', 'Class', 'Subclass', 'Order', 'Suborder', 'Family', 'Subfamily', 'Genus', 'Subgenus', 'Species', 'Genome', 'Last Change', 'MSL of Last Change', 'Proposal for Last Change ', 'Taxon History URL']\n",
+    "Total number of rows: 14690\n",
+    "```"
    ]
   },
   {
