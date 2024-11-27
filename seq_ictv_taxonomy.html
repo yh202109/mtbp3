@@ -352,40 +352,6 @@ Name: 9, dtype: object
 <p>To search for rows with “lentivirus” as Genus using <code class="docutils literal notranslate"><span class="pre">exact=True</span></code> option (partly exact, the searching is still not case sensitive):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">msl</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_str</span><span class="o">=</span><span class="s2">&quot;lentivirus&quot;</span><span class="p">,</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Genus&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">narrow</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">True</span><span class="p">)[[</span><span class="s1">&#39;Family&#39;</span><span class="p">,</span><span class="s1">&#39;Genus&#39;</span><span class="p">,</span><span class="s1">&#39;Species&#39;</span><span class="p">]])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                       Family                Genus  \
-5   Retroviridae(Subfamily:Orthoretrovirinae)  <span class=" -Color -Color-Red">Lentivirus</span>   
-6   Retroviridae(Subfamily:Orthoretrovirinae)  <span class=" -Color -Color-Red">Lentivirus</span>   
-7   Retroviridae(Subfamily:Orthoretrovirinae)  <span class=" -Color -Color-Red">Lentivirus</span>   
-8   Retroviridae(Subfamily:Orthoretrovirinae)  <span class=" -Color -Color-Red">Lentivirus</span>   
-9   Retroviridae(Subfamily:Orthoretrovirinae)  <span class=" -Color -Color-Red">Lentivirus</span>   
-10  Retroviridae(Subfamily:Orthoretrovirinae)  <span class=" -Color -Color-Red">Lentivirus</span>   
-11  Retroviridae(Subfamily:Orthoretrovirinae)  <span class=" -Color -Color-Red">Lentivirus</span>   
-12  Retroviridae(Subfamily:Orthoretrovirinae)  <span class=" -Color -Color-Red">Lentivirus</span>   
-13  Retroviridae(Subfamily:Orthoretrovirinae)  <span class=" -Color -Color-Red">Lentivirus</span>   
-14  Retroviridae(Subfamily:Orthoretrovirinae)  <span class=" -Color -Color-Red">Lentivirus</span>   
-
-                 Species  
-5    Lentivirus bovimdef  
-6      Lentivirus bovjem  
-7   Lentivirus capartenc  
-8   Lentivirus equinfane  
-9    Lentivirus felimdef  
-10  Lentivirus humimdef1  
-11  Lentivirus humimdef2  
-12  Lentivirus ovivismae  
-13        Lentivirus pum  
-14   Lentivirus simimdef  
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">msl</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_str</span><span class="o">=</span><span class="s2">&quot;lentivirus&quot;</span><span class="p">,</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Genus&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">True</span><span class="p">)))</span>
 </pre></div>
 </div>
