@@ -313,7 +313,7 @@ Taxon History URL                         ictv.global=202305029
 Name: 9, dtype: object
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:115: SettingWithCopyWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:136: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
@@ -347,6 +347,22 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 12     Lentivirus    <span class=" -Color -Color-Red">Lentivirus</span> ovivismae    ssRNA-RT
 13     Lentivirus          <span class=" -Color -Color-Red">Lentivirus</span> pum    ssRNA-RT
 14     Lentivirus     <span class=" -Color -Color-Red">Lentivirus</span> simimdef    ssRNA-RT
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:47: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  msl.iloc[:, index1] = msl.apply(lambda row: f&quot;{row[index1]}(Subrealm:{row[index2]})&quot; if pd.notna(row[index1]) else row[index1], axis=1)
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:52: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  msl.iloc[:, index1] = msl.apply(lambda row: f&quot;{row[index1]}(Subkingdom:{row[index2]})&quot; if pd.notna(row[index2]) else row[index1], axis=1)
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:57: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  msl.iloc[:, index1] = msl.apply(lambda row: f&quot;{row[index1]}(Subphylum:{row[index2]})&quot; if pd.notna(row[index2]) else row[index1], axis=1)
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:62: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  msl.iloc[:, index1] = msl.apply(lambda row: f&quot;{row[index1]}(Subclass:{row[index2]})&quot; if pd.notna(row[index2]) else row[index1], axis=1)
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:67: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  msl.iloc[:, index1] = msl.apply(lambda row: f&quot;{row[index1]}(Suborder:{row[index2]})&quot; if pd.notna(row[index2]) else row[index1], axis=1)
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:72: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  msl.iloc[:, index1] = msl.apply(lambda row: f&quot;{row[index1]}(Subfamily:{row[index2]})&quot; if pd.notna(row[index2]) else row[index1], axis=1)
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:77: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  msl.iloc[:, index1] = msl.apply(lambda row: f&quot;{row[index1]}(Subgenus:{row[index2]})&quot; if pd.notna(row[index2]) else row[index1], axis=1)
 </pre></div>
 </div>
 </div>
@@ -384,54 +400,26 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 14   Lentivirus simimdef  
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:115: SettingWithCopyWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:136: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
   filtered_df[search_rank] = filtered_df[search_rank].apply(lambda row: util.cdt.color_str(row, words=search_str, colors=color, exact=exact))
-/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:45: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  msl[&#39;Realm&#39;] = msl.apply(lambda row: f&quot;{row[&#39;Realm&#39;]}(Subrealm:{row[&#39;Subrealm&#39;]})&quot; if pd.notna(row[&#39;Subrealm&#39;]) else row[&#39;Realm&#39;], axis=1)
-/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:47: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  msl[&#39;Kingdom&#39;] = msl.apply(lambda row: f&quot;{row[&#39;Kingdom&#39;]}(Subkingdom:{row[&#39;Subkingdom&#39;]})&quot; if pd.notna(row[&#39;Subkingdom&#39;]) else row[&#39;Kingdom&#39;], axis=1)
-/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:49: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  msl[&#39;Phylum&#39;] = msl.apply(lambda row: f&quot;{row[&#39;Phylum&#39;]}(Subphylum:{row[&#39;Subphylum&#39;]})&quot; if pd.notna(row[&#39;Subphylum&#39;]) else row[&#39;Phylum&#39;], axis=1)
-/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:51: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  msl[&#39;Class&#39;] = msl.apply(lambda row: f&quot;{row[&#39;Class&#39;]}(Subclass:{row[&#39;Subclass&#39;]})&quot; if pd.notna(row[&#39;Subclass&#39;]) else row[&#39;Class&#39;], axis=1)
-/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:53: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  msl[&#39;Order&#39;] = msl.apply(lambda row: f&quot;{row[&#39;Order&#39;]}(Suborder:{row[&#39;Suborder&#39;]})&quot; if pd.notna(row[&#39;Suborder&#39;]) else row[&#39;Order&#39;], axis=1)
-/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:55: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  msl[&#39;Family&#39;] = msl.apply(lambda row: f&quot;{row[&#39;Family&#39;]}(Subfamily:{row[&#39;Subfamily&#39;]})&quot; if pd.notna(row[&#39;Subfamily&#39;]) else row[&#39;Family&#39;], axis=1)
-/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:57: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  msl[&#39;Genus&#39;] = msl.apply(lambda row: f&quot;{row[&#39;Genus&#39;]}(Subgenus:{row[&#39;Subgenus&#39;]})&quot; if pd.notna(row[&#39;Subgenus&#39;]) else row[&#39;Genus&#39;], axis=1)
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:47: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  msl.iloc[:, index1] = msl.apply(lambda row: f&quot;{row[index1]}(Subrealm:{row[index2]})&quot; if pd.notna(row[index1]) else row[index1], axis=1)
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:52: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  msl.iloc[:, index1] = msl.apply(lambda row: f&quot;{row[index1]}(Subkingdom:{row[index2]})&quot; if pd.notna(row[index2]) else row[index1], axis=1)
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:57: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  msl.iloc[:, index1] = msl.apply(lambda row: f&quot;{row[index1]}(Subphylum:{row[index2]})&quot; if pd.notna(row[index2]) else row[index1], axis=1)
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:62: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  msl.iloc[:, index1] = msl.apply(lambda row: f&quot;{row[index1]}(Subclass:{row[index2]})&quot; if pd.notna(row[index2]) else row[index1], axis=1)
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:67: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  msl.iloc[:, index1] = msl.apply(lambda row: f&quot;{row[index1]}(Suborder:{row[index2]})&quot; if pd.notna(row[index2]) else row[index1], axis=1)
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:72: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  msl.iloc[:, index1] = msl.apply(lambda row: f&quot;{row[index1]}(Subfamily:{row[index2]})&quot; if pd.notna(row[index2]) else row[index1], axis=1)
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:77: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  msl.iloc[:, index1] = msl.apply(lambda row: f&quot;{row[index1]}(Subgenus:{row[index2]})&quot; if pd.notna(row[index2]) else row[index1], axis=1)
 </pre></div>
 </div>
 </div>
@@ -443,73 +431,45 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Riboviria:
-    └── Pararnavirae:
-        └── Artverviricota:
-            └── Revtraviricetes:
-                └── Ortervirales:
-                    └── Retroviridae(Subfamily:Orthoretrovirinae):
-                        └── <span class=" -Color -Color-Red">Lentivirus</span>:
-                            ├── Lentivirus bovimdef
-                            ├── Lentivirus bovjem
-                            ├── Lentivirus capartenc
-                            ├── Lentivirus equinfane
-                            ├── Lentivirus felimdef
-                            ├── Lentivirus humimdef1
-                            ├── Lentivirus humimdef2
-                            ├── Lentivirus ovivismae
-                            ├── Lentivirus pum
-                            └── Lentivirus simimdef
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Realm:Riboviria(Subrealm:nan):
+    └── Kingdom:Pararnavirae:
+        └── Phylum:Artverviricota:
+            └── Class:Revtraviricetes:
+                └── Order:Ortervirales:
+                    └── Family:Retroviridae(Subfamily:Orthoretrovirinae):
+                        └── Genus:<span class=" -Color -Color-Red">Lentivirus</span>:
+                            ├── Species:Lentivirus bovimdef
+                            ├── Species:Lentivirus bovjem
+                            ├── Species:Lentivirus capartenc
+                            ├── Species:Lentivirus equinfane
+                            ├── Species:Lentivirus felimdef
+                            ├── Species:Lentivirus humimdef1
+                            ├── Species:Lentivirus humimdef2
+                            ├── Species:Lentivirus ovivismae
+                            ├── Species:Lentivirus pum
+                            └── Species:Lentivirus simimdef
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:115: SettingWithCopyWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:136: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
   filtered_df[search_rank] = filtered_df[search_rank].apply(lambda row: util.cdt.color_str(row, words=search_str, colors=color, exact=exact))
-/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:45: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  msl[&#39;Realm&#39;] = msl.apply(lambda row: f&quot;{row[&#39;Realm&#39;]}(Subrealm:{row[&#39;Subrealm&#39;]})&quot; if pd.notna(row[&#39;Subrealm&#39;]) else row[&#39;Realm&#39;], axis=1)
-/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:47: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  msl[&#39;Kingdom&#39;] = msl.apply(lambda row: f&quot;{row[&#39;Kingdom&#39;]}(Subkingdom:{row[&#39;Subkingdom&#39;]})&quot; if pd.notna(row[&#39;Subkingdom&#39;]) else row[&#39;Kingdom&#39;], axis=1)
-/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:49: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  msl[&#39;Phylum&#39;] = msl.apply(lambda row: f&quot;{row[&#39;Phylum&#39;]}(Subphylum:{row[&#39;Subphylum&#39;]})&quot; if pd.notna(row[&#39;Subphylum&#39;]) else row[&#39;Phylum&#39;], axis=1)
-/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:51: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  msl[&#39;Class&#39;] = msl.apply(lambda row: f&quot;{row[&#39;Class&#39;]}(Subclass:{row[&#39;Subclass&#39;]})&quot; if pd.notna(row[&#39;Subclass&#39;]) else row[&#39;Class&#39;], axis=1)
-/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:53: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  msl[&#39;Order&#39;] = msl.apply(lambda row: f&quot;{row[&#39;Order&#39;]}(Suborder:{row[&#39;Suborder&#39;]})&quot; if pd.notna(row[&#39;Suborder&#39;]) else row[&#39;Order&#39;], axis=1)
-/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:55: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  msl[&#39;Family&#39;] = msl.apply(lambda row: f&quot;{row[&#39;Family&#39;]}(Subfamily:{row[&#39;Subfamily&#39;]})&quot; if pd.notna(row[&#39;Subfamily&#39;]) else row[&#39;Family&#39;], axis=1)
-/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:57: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  msl[&#39;Genus&#39;] = msl.apply(lambda row: f&quot;{row[&#39;Genus&#39;]}(Subgenus:{row[&#39;Subgenus&#39;]})&quot; if pd.notna(row[&#39;Subgenus&#39;]) else row[&#39;Genus&#39;], axis=1)
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:47: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  msl.iloc[:, index1] = msl.apply(lambda row: f&quot;{row[index1]}(Subrealm:{row[index2]})&quot; if pd.notna(row[index1]) else row[index1], axis=1)
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:52: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  msl.iloc[:, index1] = msl.apply(lambda row: f&quot;{row[index1]}(Subkingdom:{row[index2]})&quot; if pd.notna(row[index2]) else row[index1], axis=1)
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:57: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  msl.iloc[:, index1] = msl.apply(lambda row: f&quot;{row[index1]}(Subphylum:{row[index2]})&quot; if pd.notna(row[index2]) else row[index1], axis=1)
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:62: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  msl.iloc[:, index1] = msl.apply(lambda row: f&quot;{row[index1]}(Subclass:{row[index2]})&quot; if pd.notna(row[index2]) else row[index1], axis=1)
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:67: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  msl.iloc[:, index1] = msl.apply(lambda row: f&quot;{row[index1]}(Suborder:{row[index2]})&quot; if pd.notna(row[index2]) else row[index1], axis=1)
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:72: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  msl.iloc[:, index1] = msl.apply(lambda row: f&quot;{row[index1]}(Subfamily:{row[index2]})&quot; if pd.notna(row[index2]) else row[index1], axis=1)
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:77: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  msl.iloc[:, index1] = msl.apply(lambda row: f&quot;{row[index1]}(Subgenus:{row[index2]})&quot; if pd.notna(row[index2]) else row[index1], axis=1)
 </pre></div>
 </div>
 </div>
