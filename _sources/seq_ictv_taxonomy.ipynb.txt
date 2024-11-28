@@ -217,14 +217,12 @@
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": null,
+   "cell_type": "markdown",
    "metadata": {
     "vscode": {
      "languageId": "plaintext"
     }
    },
-   "outputs": [],
    "source": [
     "To search for two known virus species:"
    ]
