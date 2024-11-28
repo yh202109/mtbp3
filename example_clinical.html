@@ -128,8 +128,8 @@ Clinical data include data collected at planning, executing, monitoring and post
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  study treatment subject   visit  meal  calorie
-0  STD1      TRT1  SUBJ01  VISIT1     1     1038
-1  STD1      TRT1  SUBJ01  VISIT1     2     1827
+0  STD1      TRT1  SUBJ01  VISIT1     1      870
+1  STD1      TRT1  SUBJ01  VISIT1     2     1034
 </pre></div>
 </div>
 </div>
@@ -146,12 +146,12 @@ Clinical data include data collected at planning, executing, monitoring and post
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  study treatment subject   visit  N(0&lt;=X&lt;500)  N(500&lt;=X&lt;1000)  \
-0  STD1      TRT1  SUBJ01  VISIT1            0               0   
-1  STD1      TRT1  SUBJ01  VISIT2            1               3   
+0  STD1      TRT1  SUBJ01  VISIT1            0               1   
+1  STD1      TRT1  SUBJ01  VISIT2            0               1   
 
    N(1000&lt;=V&lt;=2000)  N(all)  
-0                 4       4  
-1                 0       4  
+0                 2       3  
+1                 3       4  
 </pre></div>
 </div>
 </div>
@@ -166,22 +166,22 @@ Clinical data include data collected at planning, executing, monitoring and post
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   study treatment   visit  N(0&lt;=X&lt;3)  N(3&lt;=X&lt;5)  N(5&lt;=V&lt;=7)  N(all)
-0   STD1      TRT1  VISIT1          7         10           3      20
-1   STD1      TRT1  VISIT2          7          6           2      15
-2   STD1      TRT1  VISIT3          2          6           5      13
-3   STD1      TRT1  VISIT4          1          3           2       6
-4   STD1      TRT2  VISIT1          8          9           3      20
-5   STD1      TRT2  VISIT2          2          8           5      15
-6   STD1      TRT2  VISIT3          3          2           3       8
-7   STD1      TRT2  VISIT4          1          2           1       4
-8   STD2      TRT1  VISIT1          3         12           5      20
-9   STD2      TRT1  VISIT2          3          6           6      15
-10  STD2      TRT1  VISIT3          4          4           2      10
-11  STD2      TRT1  VISIT4          2          3           4       9
-12  STD2      TRT2  VISIT1          2         11           7      20
-13  STD2      TRT2  VISIT2          3         10           3      16
-14  STD2      TRT2  VISIT3          5          4           1      10
-15  STD2      TRT2  VISIT4          1          1           1       3
+0   STD1      TRT1  VISIT1          4         10           6      20
+1   STD1      TRT1  VISIT2          5          6           4      15
+2   STD1      TRT1  VISIT3          3          2           3       8
+3   STD1      TRT1  VISIT4          0          3           2       5
+4   STD1      TRT2  VISIT1          2         14           4      20
+5   STD1      TRT2  VISIT2          6          6           4      16
+6   STD1      TRT2  VISIT3          3          4           2       9
+7   STD1      TRT2  VISIT4          2          3           2       7
+8   STD2      TRT1  VISIT1          7         11           2      20
+9   STD2      TRT1  VISIT2          5          8           5      18
+10  STD2      TRT1  VISIT3          1          8           1      10
+11  STD2      TRT1  VISIT4          0          4           2       6
+12  STD2      TRT2  VISIT1          4          8           8      20
+13  STD2      TRT2  VISIT2          4         10           3      17
+14  STD2      TRT2  VISIT3          5          5           3      13
+15  STD2      TRT2  VISIT4          1          3           3       7
 </pre></div>
 </div>
 </div>
@@ -195,22 +195,22 @@ Clinical data include data collected at planning, executing, monitoring and post
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   study treatment   visit  Sum(0&lt;=X&lt;3)  Sum(3&lt;=X&lt;5)  Sum(5&lt;=V&lt;=7)  Sum(all)
-0   STD1      TRT1  VISIT1           14           37            15        66
-1   STD1      TRT1  VISIT2           14           22            10        46
-2   STD1      TRT1  VISIT3            4           19            25        48
-3   STD1      TRT1  VISIT4            2            9            10        21
-4   STD1      TRT2  VISIT1           16           33            15        64
-5   STD1      TRT2  VISIT2            4           28            25        57
-6   STD1      TRT2  VISIT3            6            7            15        28
-7   STD1      TRT2  VISIT4            2            7             5        14
-8   STD2      TRT1  VISIT1            6           42            25        73
-9   STD2      TRT1  VISIT2            6           22            30        58
-10  STD2      TRT1  VISIT3            8           14            10        32
-11  STD2      TRT1  VISIT4            4            9            20        33
-12  STD2      TRT2  VISIT1            4           41            35        80
-13  STD2      TRT2  VISIT2            6           38            15        59
-14  STD2      TRT2  VISIT3           10           13             5        28
-15  STD2      TRT2  VISIT4            2            4             5        11
+0   STD1      TRT1  VISIT1            8           33            30        71
+1   STD1      TRT1  VISIT2           10           20            20        50
+2   STD1      TRT1  VISIT3            6            7            15        28
+3   STD1      TRT1  VISIT4            0           10            10        20
+4   STD1      TRT2  VISIT1            4           50            20        74
+5   STD1      TRT2  VISIT2           12           22            20        54
+6   STD1      TRT2  VISIT3            6           13            10        29
+7   STD1      TRT2  VISIT4            4           12            10        26
+8   STD2      TRT1  VISIT1           14           38            10        62
+9   STD2      TRT1  VISIT2           10           29            25        64
+10  STD2      TRT1  VISIT3            2           29             5        36
+11  STD2      TRT1  VISIT4            0           14            10        24
+12  STD2      TRT2  VISIT1            8           28            40        76
+13  STD2      TRT2  VISIT2            8           38            15        61
+14  STD2      TRT2  VISIT3           10           17            15        42
+15  STD2      TRT2  VISIT4            2           10            15        27
 </pre></div>
 </div>
 </div>
