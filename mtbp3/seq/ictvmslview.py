@@ -22,6 +22,30 @@ import requests
 warnings.simplefilter(action='ignore', category=FutureWarning)
     
 class ictvmsl:
+    """
+    A class to handle ICTV Master Species List (MSL) data.
+    Attributes:
+    -----------
+    msl_file_path : str
+        Path to the MSL file.
+    msl_file_fullpath : str
+        Full path to the MSL file.
+    msl_version : str
+        Version of the MSL.
+    msl_column_names : list
+        List of column names in the MSL.
+    msl : DataFrame
+        The MSL data loaded into a pandas DataFrame.
+    Methods:
+    --------
+    update_msl(self, version="current")
+        Updates the MSL data by downloading the specified version from the ICTV website.
+    make_narrow(msl)
+        Converts the MSL DataFrame to a narrower format by combining certain columns.
+    find_rows_given_str(self, search_str="", search_rank="Species", color="", narrow=False, outfmt="simple", exact=False, search_within_subset=None)
+        Finds rows in the MSL DataFrame that contain the given search string.
+    """
+
     def __init__(self, msl_file_path = ""):
         if not isinstance(msl_file_path, str):
             raise TypeError("msl_file_path must be a string")
@@ -120,17 +144,20 @@ class ictvmsl:
 
     def find_rows_given_str(self, search_str="", search_rank="Species", color="", narrow=False, outfmt="simple", exact=False, search_within_subset=None):
         """
-        Find rows in the DataFrame that contain the given search string.
+        Find rows in the MSL dataframe that match a given search string.
         Parameters:
-        search_str (str): The string to search for in the DataFrame. Must be a nonempty string.
-        search_rank (str): The column name to search within. Must be 'all' or one of the column names in the DataFrame. Default is "Species".
-        neighbor_rank (str): (Unused parameter, can be removed or implemented in future versions).
+        search_str (str): The string to search for. Must be a nonempty string.
+        search_rank (str): The rank to search within (e.g., "Species"). Must be 'all' or one of the column names in the MSL dataframe.
+        color (str): The color to highlight the search string in the results.
+        narrow (bool): Whether to narrow the results to a specific format.
+        outfmt (str): The output format. Must be 'simple' or 'tree'.
+        exact (bool): Whether to search for an exact match.
+        search_within_subset (dict): A dictionary specifying a subset of the MSL dataframe to search within.
         Returns:
-        DataFrame: A DataFrame containing rows that match the search criteria.
+        pandas.DataFrame or str: The filtered dataframe if outfmt is 'simple', or a tree representation of the results if outfmt is 'tree'.
         Raises:
-        TypeError: If search_str is not a string.
-        ValueError: If search_str is an empty string.
-        ValueError: If search_rank is not 'all' and not a valid column name in the DataFrame.
+        TypeError: If search_str is not a string or if search_within_subset is not a dictionary or None.
+        ValueError: If search_str is empty, if search_rank is invalid, or if outfmt is invalid.
         """
 
         if not isinstance(search_str, str):
