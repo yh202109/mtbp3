@@ -64,7 +64,7 @@ Module Contents
    .. py:method:: __load_list()
 
 
-   .. py:method:: find_rows_given_str(search_str='', search_rank='Species', color='', narrow=False, outfmt='simple', exact=False, search_within_subset=None)
+   .. py:method:: find_rows_given_str(search_strings=None, search_rank='Species', color='', narrow=False, outfmt='simple', exact=False, search_within_subset=None)
 
       Find rows in the MSL dataframe that match a given search string.
       Parameters:

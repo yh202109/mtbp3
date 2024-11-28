@@ -178,7 +178,7 @@ For example, if we are interested in studying the virus causing feline acquired 
 </tr>
 </tbody>
 </table>
-<p>From the taxon history, we can see that the specie name was <em>Feline immunodeficiency virus</em> (FIV) in the previous releases, and changed to <em>Lentivirus felimdef</em> in the 2023 release <a class="footnote-reference brackets" href="#id20" id="id10" role="doc-noteref"><span class="fn-bracket">[</span>9<span class="fn-bracket">]</span></a>.
+<p>From the taxon history, we can see that the species name was <em>Feline immunodeficiency virus</em> (FIV) in the previous releases, and changed to <em>Lentivirus felimdef</em> in the 2023 release <a class="footnote-reference brackets" href="#id20" id="id10" role="doc-noteref"><span class="fn-bracket">[</span>9<span class="fn-bracket">]</span></a>.
 The reasons of changes proposed are included in the <em>Proposal for Last Change</em> link.
 Additional information about FIV, for example, about the genus <em>Lentivirus</em>, can be found in ICTV report <a class="footnote-reference brackets" href="#id21" id="id11" role="doc-noteref"><span class="fn-bracket">[</span>10<span class="fn-bracket">]</span></a>.</p>
 </section>
@@ -254,7 +254,7 @@ Name: count, dtype: int64
 </div>
 </div>
 <p>The counts above are from the example file.
-The MSL 39v4 includes the following realms:</p>
+The full MSL 39v4 includes the following realms:</p>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Realm</p></th>
@@ -294,28 +294,12 @@ The <code class="docutils literal notranslate"><span class="pre">search_str</spa
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sort                                                      13704
-Realm                                                 Riboviria
-Subrealm                                                    NaN
-Kingdom                                            Pararnavirae
-Subkingdom                                                  NaN
-Phylum                                           Artverviricota
-Subphylum                                                   NaN
-Class                                           Revtraviricetes
-Subclass                                                    NaN
-Order                                              Ortervirales
-Suborder                                                    NaN
-Family                                             Retroviridae
-Subfamily                                     Orthoretrovirinae
-Genus                                                Lentivirus
-Subgenus                                                    NaN
-Species                            <span class=" -Color -Color-Red">Lentivirus fel</span>imdef
-Genome                                                 ssRNA-RT
-Last Change                                            Renamed,
-MSL of Last Change                                           39
-Proposal for Last Change     2023.009D.Retroviridae_68rensp.zip
-Taxon History URL                         ictv.global=202305029
-Name: 40, dtype: object
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">msl</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_str</span><span class="o">=</span><span class="s2">&quot;lentivirus fel&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span>
+
+<span class="ne">TypeError</span>: ictvmsl.find_rows_given_str() got an unexpected keyword argument &#39;search_str&#39;
 </pre></div>
 </div>
 </div>
@@ -327,47 +311,11 @@ Name: 40, dtype: object
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         Genus                        Species    Genome
-36  Lentivirus   <span class=" -Color -Color-Red">Lentivirus</span> bovimdef  ssRNA-RT
-37  Lentivirus     <span class=" -Color -Color-Red">Lentivirus</span> bovjem  ssRNA-RT
-38  Lentivirus  <span class=" -Color -Color-Red">Lentivirus</span> capartenc  ssRNA-RT
-39  Lentivirus  <span class=" -Color -Color-Red">Lentivirus</span> equinfane  ssRNA-RT
-40  Lentivirus   <span class=" -Color -Color-Red">Lentivirus</span> felimdef  ssRNA-RT
-41  Lentivirus  <span class=" -Color -Color-Red">Lentivirus</span> humimdef1  ssRNA-RT
-42  Lentivirus  <span class=" -Color -Color-Red">Lentivirus</span> humimdef2  ssRNA-RT
-43  Lentivirus  <span class=" -Color -Color-Red">Lentivirus</span> ovivismae  ssRNA-RT
-44  Lentivirus        <span class=" -Color -Color-Red">Lentivirus</span> pum  ssRNA-RT
-45  Lentivirus   <span class=" -Color -Color-Red">Lentivirus</span> simimdef  ssRNA-RT
-</pre></div>
-</div>
-</div>
 </div>
 <p>To search for rows with “lentivirus” as Genus using <code class="docutils literal notranslate"><span class="pre">exact=True</span></code> option (partly exact, the searching is still not case sensitive):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">msl</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_str</span><span class="o">=</span><span class="s2">&quot;lentivirus&quot;</span><span class="p">,</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Genus&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">True</span><span class="p">)))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    [Realm] Riboviria(Subrealm:nan):
-    └── [Kingdom] Pararnavirae:
-        └── [Phylum] Artverviricota:
-            └── [Class] Revtraviricetes:
-                └── [Order] Ortervirales:
-                    └── [Family] Retroviridae(Subfamily:Orthoretrovirinae):
-                        └── [Genus] <span class=" -Color -Color-Red">Lentivirus</span>:
-                            ├── [Species] Lentivirus bovimdef
-                            ├── [Species] Lentivirus bovjem
-                            ├── [Species] Lentivirus capartenc
-                            ├── [Species] Lentivirus equinfane
-                            ├── [Species] Lentivirus felimdef
-                            ├── [Species] Lentivirus humimdef1
-                            ├── [Species] Lentivirus humimdef2
-                            ├── [Species] Lentivirus ovivismae
-                            ├── [Species] Lentivirus pum
-                            └── [Species] Lentivirus simimdef
 </pre></div>
 </div>
 </div>
@@ -380,20 +328,10 @@ To search for virus within the Retroviridae famiy that can infect feline:</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    [Realm] Riboviria(Subrealm:nan):
-    └── [Kingdom] Pararnavirae:
-        └── [Phylum] Artverviricota:
-            └── [Class] Revtraviricetes:
-                └── [Order] Ortervirales:
-                    ├── [Family] Retroviridae(Subfamily:Orthoretrovirinae):
-                    │   ├── [Genus] Gammaretrovirus:
-                    │   │   └── [Species] Gammaretrovirus<span class=" -Color -Color-Red"> fel</span>leu
-                    │   └── [Genus] Lentivirus:
-                    │       └── [Species] Lentivirus<span class=" -Color -Color-Red"> fel</span>imdef
-                    └── [Family] Retroviridae(Subfamily:Spumaretrovirinae):
-                        └── [Genus] Felispumavirus:
-                            └── [Species] Felispumavirus<span class=" -Color -Color-Red"> fel</span>cat
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">msl</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_strings</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Gammaretrovirus felleu&quot;</span><span class="p">,</span> <span class="s2">&quot;Lentivirus felimdef&quot;</span><span class="p">],</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Species&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
