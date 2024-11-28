@@ -97,37 +97,37 @@ class ictvmsl:
         if 'Realm' in msl.columns and 'Subrealm' in msl.columns:
             index1 = msl.columns.get_loc('Realm')
             index2 = msl.columns.get_loc('Subrealm')
-            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}; [Subrealm] {row[index2]})" if pd.notna(row[index1]) else row[index1], axis=1)
+            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}; [Subrealm] {row[index2]}" if pd.notna(row[index1]) else row[index1], axis=1)
             #msl['Realm'] = msl.apply(lambda row: f"{row['Realm']}(Subrealm:{row['Subrealm']})" if pd.notna(row['Subrealm']) else row['Realm'], axis=1)
         if 'Kingdom' in msl.columns and 'Subkingdom' in msl.columns:
             index1 = msl.columns.get_loc('Kingdom')
             index2 = msl.columns.get_loc('Subkingdom')
-            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}; [Subkingdom]{row[index2]})" if pd.notna(row[index2]) else row[index1], axis=1)
+            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}; [Subkingdom]{row[index2]}" if pd.notna(row[index2]) else row[index1], axis=1)
             #msl['Kingdom'] = msl.apply(lambda row: f"{row['Kingdom']}(Subkingdom:{row['Subkingdom']})" if pd.notna(row['Subkingdom']) else row['Kingdom'], axis=1)
         if 'Phylum' in msl.columns and 'Subphylum' in msl.columns:
             index1 = msl.columns.get_loc('Phylum')
             index2 = msl.columns.get_loc('Subphylum')
-            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}; [Subphylum] {row[index2]})" if pd.notna(row[index2]) else row[index1], axis=1)
+            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}; [Subphylum] {row[index2]}" if pd.notna(row[index2]) else row[index1], axis=1)
             #msl['Phylum'] = msl.apply(lambda row: f"{row['Phylum']}(Subphylum:{row['Subphylum']})" if pd.notna(row['Subphylum']) else row['Phylum'], axis=1)
         if 'Class' in msl.columns and 'Subclass' in msl.columns:
             index1 = msl.columns.get_loc('Class')
             index2 = msl.columns.get_loc('Subclass')
-            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}; [Subclass] {row[index2]})" if pd.notna(row[index2]) else row[index1], axis=1)
+            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}; [Subclass] {row[index2]}" if pd.notna(row[index2]) else row[index1], axis=1)
             #msl['Class'] = msl.apply(lambda row: f"{row['Class']}(Subclass:{row['Subclass']})" if pd.notna(row['Subclass']) else row['Class'], axis=1)
         if 'Order' in msl.columns and 'Suborder' in msl.columns:
             index1 = msl.columns.get_loc('Order')
             index2 = msl.columns.get_loc('Suborder')
-            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}; [Suborder] {row[index2]})" if pd.notna(row[index2]) else row[index1], axis=1)
+            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}; [Suborder] {row[index2]}" if pd.notna(row[index2]) else row[index1], axis=1)
             #msl['Order'] = msl.apply(lambda row: f"{row['Order']}(Suborder:{row['Suborder']})" if pd.notna(row['Suborder']) else row['Order'], axis=1)
         if 'Family' in msl.columns and 'Subfamily' in msl.columns:
             index1 = msl.columns.get_loc('Family')
             index2 = msl.columns.get_loc('Subfamily')
-            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}; [Subfamily] {row[index2]})" if pd.notna(row[index2]) else row[index1], axis=1)
+            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}; [Subfamily] {row[index2]}" if pd.notna(row[index2]) else row[index1], axis=1)
             #msl['Family'] = msl.apply(lambda row: f"{row['Family']}(Subfamily:{row['Subfamily']})" if pd.notna(row['Subfamily']) else row['Family'], axis=1)
         if 'Genus' in msl.columns and 'Subgenus' in msl.columns:
             index1 = msl.columns.get_loc('Genus')
             index2 = msl.columns.get_loc('Subgenus')
-            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}; [Subgenus] {row[index2]})" if pd.notna(row[index2]) else row[index1], axis=1)
+            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}; [Subgenus] {row[index2]}" if pd.notna(row[index2]) else row[index1], axis=1)
             #msl['Genus'] = msl.apply(lambda row: f"{row['Genus']}(Subgenus:{row['Subgenus']})" if pd.notna(row['Subgenus']) else row['Genus'], axis=1)
         msl = msl.iloc[:, :-4]
         msl2 = msl.drop(columns=[col for col in msl.columns if col.lower().startswith('sub')])
