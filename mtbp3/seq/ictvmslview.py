@@ -97,37 +97,37 @@ class ictvmsl:
         if 'Realm' in msl.columns and 'Subrealm' in msl.columns:
             index1 = msl.columns.get_loc('Realm')
             index2 = msl.columns.get_loc('Subrealm')
-            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}(Subrealm:{row[index2]})" if pd.notna(row[index1]) else row[index1], axis=1)
+            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}; [Subrealm] {row[index2]})" if pd.notna(row[index1]) else row[index1], axis=1)
             #msl['Realm'] = msl.apply(lambda row: f"{row['Realm']}(Subrealm:{row['Subrealm']})" if pd.notna(row['Subrealm']) else row['Realm'], axis=1)
         if 'Kingdom' in msl.columns and 'Subkingdom' in msl.columns:
             index1 = msl.columns.get_loc('Kingdom')
             index2 = msl.columns.get_loc('Subkingdom')
-            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}(Subkingdom:{row[index2]})" if pd.notna(row[index2]) else row[index1], axis=1)
+            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}; [Subkingdom]{row[index2]})" if pd.notna(row[index2]) else row[index1], axis=1)
             #msl['Kingdom'] = msl.apply(lambda row: f"{row['Kingdom']}(Subkingdom:{row['Subkingdom']})" if pd.notna(row['Subkingdom']) else row['Kingdom'], axis=1)
         if 'Phylum' in msl.columns and 'Subphylum' in msl.columns:
             index1 = msl.columns.get_loc('Phylum')
             index2 = msl.columns.get_loc('Subphylum')
-            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}(Subphylum:{row[index2]})" if pd.notna(row[index2]) else row[index1], axis=1)
+            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}; [Subphylum] {row[index2]})" if pd.notna(row[index2]) else row[index1], axis=1)
             #msl['Phylum'] = msl.apply(lambda row: f"{row['Phylum']}(Subphylum:{row['Subphylum']})" if pd.notna(row['Subphylum']) else row['Phylum'], axis=1)
         if 'Class' in msl.columns and 'Subclass' in msl.columns:
             index1 = msl.columns.get_loc('Class')
             index2 = msl.columns.get_loc('Subclass')
-            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}(Subclass:{row[index2]})" if pd.notna(row[index2]) else row[index1], axis=1)
+            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}; [Subclass] {row[index2]})" if pd.notna(row[index2]) else row[index1], axis=1)
             #msl['Class'] = msl.apply(lambda row: f"{row['Class']}(Subclass:{row['Subclass']})" if pd.notna(row['Subclass']) else row['Class'], axis=1)
         if 'Order' in msl.columns and 'Suborder' in msl.columns:
             index1 = msl.columns.get_loc('Order')
             index2 = msl.columns.get_loc('Suborder')
-            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}(Suborder:{row[index2]})" if pd.notna(row[index2]) else row[index1], axis=1)
+            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}; [Suborder] {row[index2]})" if pd.notna(row[index2]) else row[index1], axis=1)
             #msl['Order'] = msl.apply(lambda row: f"{row['Order']}(Suborder:{row['Suborder']})" if pd.notna(row['Suborder']) else row['Order'], axis=1)
         if 'Family' in msl.columns and 'Subfamily' in msl.columns:
             index1 = msl.columns.get_loc('Family')
             index2 = msl.columns.get_loc('Subfamily')
-            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}(Subfamily:{row[index2]})" if pd.notna(row[index2]) else row[index1], axis=1)
+            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}; [Subfamily] {row[index2]})" if pd.notna(row[index2]) else row[index1], axis=1)
             #msl['Family'] = msl.apply(lambda row: f"{row['Family']}(Subfamily:{row['Subfamily']})" if pd.notna(row['Subfamily']) else row['Family'], axis=1)
         if 'Genus' in msl.columns and 'Subgenus' in msl.columns:
             index1 = msl.columns.get_loc('Genus')
             index2 = msl.columns.get_loc('Subgenus')
-            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}(Subgenus:{row[index2]})" if pd.notna(row[index2]) else row[index1], axis=1)
+            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}; [Subgenus] {row[index2]})" if pd.notna(row[index2]) else row[index1], axis=1)
             #msl['Genus'] = msl.apply(lambda row: f"{row['Genus']}(Subgenus:{row['Subgenus']})" if pd.notna(row['Subgenus']) else row['Genus'], axis=1)
         msl = msl.iloc[:, :-4]
         msl2 = msl.drop(columns=[col for col in msl.columns if col.lower().startswith('sub')])
@@ -142,7 +142,7 @@ class ictvmsl:
         else:
             raise FileNotFoundError(f"File not found: {file_path}")
 
-    def find_rows_given_str(self, search_str="", search_rank="Species", color="", narrow=False, outfmt="simple", exact=False, search_within_subset=None):
+    def find_rows_given_str(self, search_strings=None, search_rank="Species", color="", narrow=False, outfmt="simple", exact=False, search_within_subset=None):
         """
         Find rows in the MSL dataframe that match a given search string.
         Parameters:
@@ -160,10 +160,12 @@ class ictvmsl:
         ValueError: If search_str is empty, if search_rank is invalid, or if outfmt is invalid.
         """
 
-        if not isinstance(search_str, str):
-            raise TypeError("search_str must be a string")
-        if not search_str:
-            raise ValueError("search_str must be a nonempty string")
+        if not (isinstance(search_strings, list) or isinstance(search_strings, str)):
+            raise TypeError("search_strings must be a list or a string")
+        if not search_strings:
+            raise ValueError("search_strings must be a nonempty list or a nonempty string")
+        if isinstance(search_strings, str):
+            search_strings = [search_strings]
         if search_rank and search_rank != "all" and search_rank not in self.msl_column_names:
             raise ValueError(f"search_rank must be 'all' or one of the following: {', '.join(self.msl_column_names)}")
         if outfmt not in ["simple", "tree"]:
@@ -180,30 +182,23 @@ class ictvmsl:
 
         if search_rank == "all":
             if exact:
-                filtered_df = msl2[msl2.iloc[:, 1:16].apply(lambda row: search_str.lower() == row.astype(str).str.lower().values, axis=1)]
-                if color:
-                    for col in filtered_df[1:16]:
-                        filtered_df[col] = filtered_df[col].apply(lambda row: util.cdt.color_str(row, words=search_str, colors=color, exact=exact) if pd.notna(row) else row)
+                filtered_df = msl2[msl2.iloc[:, 1:16].apply(lambda row: any(search_str.lower() == element.lower() for element in row.astype(str).values for search_str in search_strings), axis=1)]
             else:
-                filtered_df = msl2[msl2.iloc[:, 1:16].apply(lambda row: search_str.lower() in row.astype(str).str.lower().values, axis=1)]
-                if color:
-                    for col in filtered_df[1:16]:
-                        filtered_df[col] = filtered_df[col].apply(lambda row: util.cdt.color_str(row, words=search_str, colors=color, exact=exact) if pd.notna(row) else row)
-            if narrow:
-                filtered_df = self.make_narrow(filtered_df)
+                filtered_df = msl2[msl2.iloc[:, 1:16].apply(lambda row: any(search_str.lower() in element.lower() for element in row.astype(str).values for search_str in search_strings), axis=1)]
+            if color:
+                for col in filtered_df[1:16]:
+                    filtered_df[col] = filtered_df[col].apply(lambda row: util.cdt.color_str(row, words=search_strings, colors=color, exact=exact) if pd.notna(row) else row)
         else:
             if exact:
-                filtered_df = msl2[msl2[search_rank].str.lower() == search_str.lower()]
+                filtered_df = msl2[msl2[search_rank].apply(lambda x: any(search_str.lower() == x.lower() for search_str in search_strings) if pd.notna(x) else False)]
             else:
-                filtered_df = msl2[msl2[search_rank].str.contains(search_str, case=False, na=False)]
-
+                filtered_df = msl2[msl2[search_rank].apply(lambda x: any(search_str.lower() in x.lower() for search_str in search_strings) if pd.notna(x) else False)]
             if color:
                 index = msl2.columns.get_loc(search_rank)
-                filtered_df.iloc[:, index] = filtered_df.iloc[:, index].apply(lambda row: util.cdt.color_str(row, words=search_str, colors=color, exact=exact))
-                #filtered_df[search_rank] = filtered_df[search_rank].apply(lambda row: util.cdt.color_str(row, words=search_str, colors=color, exact=exact))
+                filtered_df.iloc[:, index] = filtered_df.iloc[:, index].apply(lambda row: util.cdt.color_str(row, words=search_strings, colors=color, exact=exact))
 
-            if narrow:
-                filtered_df = self.make_narrow(filtered_df)
+        if narrow:
+            filtered_df = self.make_narrow(filtered_df)
 
         if outfmt == "simple":
             return filtered_df
