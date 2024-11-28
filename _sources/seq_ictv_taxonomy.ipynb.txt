@@ -134,7 +134,7 @@
     "| Varidnaviria  |   288 |\n",
     "\n",
     "Please note that the column names will be used as `search_rank` in this module and those are case sensitive.\n",
-    "The `search_str` is not case sensitive, as shown below.\n",
+    "The `search_strings` is not case sensitive, as shown below.\n",
     "\n",
     "\n",
     "### Search within MSL \n",
@@ -152,7 +152,7 @@
    },
    "outputs": [],
    "source": [
-    "print(msl.find_rows_given_str(search_str=\"lentivirus fel\", color=\"red\").iloc[0].transpose())"
+    "print(msl.find_rows_given_str(search_strings=\"lentivirus fel\", color=\"red\").iloc[0].transpose())"
    ]
   },
   {
@@ -172,7 +172,7 @@
    },
    "outputs": [],
    "source": [
-    "print(msl.find_rows_given_str(search_str=\"lentivirus\", search_rank=\"Species\", color=\"red\", narrow=True)[['Genus', 'Species','Genome']])"
+    "print(msl.find_rows_given_str(search_strings=\"lentivirus\", search_rank=\"Species\", color=\"red\", narrow=True)[['Genus', 'Species','Genome']])"
    ]
   },
   {
@@ -192,7 +192,7 @@
    },
    "outputs": [],
    "source": [
-    "print('\\n'.join(msl.find_rows_given_str(search_str=\"lentivirus\", search_rank=\"Genus\", color=\"red\", outfmt='tree', exact=True)))"
+    "print('\\n'.join(msl.find_rows_given_str(search_strings=\"lentivirus\", search_rank=\"Genus\", color=\"red\", outfmt='tree', exact=True)))"
    ]
   },
   {
@@ -213,7 +213,7 @@
    },
    "outputs": [],
    "source": [
-    "print('\\n'.join(msl.find_rows_given_str(search_str=\" fel\", search_rank=\"Species\", color=\"red\", outfmt='tree', search_within_subset={\"Family\":\"Retroviridae\"})))"
+    "print('\\n'.join(msl.find_rows_given_str(search_strings=\" fel\", search_rank=\"Species\", color=\"red\", outfmt='tree', search_within_subset={\"Family\":\"Retroviridae\"})))"
    ]
   },
   {
