@@ -2,10 +2,12 @@
 
 <!--next-version-placeholder-->
 
-## v0.2.23 (2024-11-23)
+## v0.2.24 (2024-11-28)
 
 - update seq.ictvmslview
     - adjust sub display
+    - add search_strings
+    - add tree display
 
 ## v0.2.22 (2024-11-23)
 
