@@ -115,6 +115,30 @@
 <div class="viewcode-block" id="ictvmsl">
 <a class="viewcode-back" href="../../../autoapi/mtbp3/seq/ictvmslview/index.html#mtbp3.seq.ictvmslview.ictvmsl">[docs]</a>
 <span class="k">class</span> <span class="nc">ictvmsl</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class to handle ICTV Master Species List (MSL) data.</span>
+<span class="sd">    Attributes:</span>
+<span class="sd">    -----------</span>
+<span class="sd">    msl_file_path : str</span>
+<span class="sd">        Path to the MSL file.</span>
+<span class="sd">    msl_file_fullpath : str</span>
+<span class="sd">        Full path to the MSL file.</span>
+<span class="sd">    msl_version : str</span>
+<span class="sd">        Version of the MSL.</span>
+<span class="sd">    msl_column_names : list</span>
+<span class="sd">        List of column names in the MSL.</span>
+<span class="sd">    msl : DataFrame</span>
+<span class="sd">        The MSL data loaded into a pandas DataFrame.</span>
+<span class="sd">    Methods:</span>
+<span class="sd">    --------</span>
+<span class="sd">    update_msl(self, version=&quot;current&quot;)</span>
+<span class="sd">        Updates the MSL data by downloading the specified version from the ICTV website.</span>
+<span class="sd">    make_narrow(msl)</span>
+<span class="sd">        Converts the MSL DataFrame to a narrower format by combining certain columns.</span>
+<span class="sd">    find_rows_given_str(self, search_str=&quot;&quot;, search_rank=&quot;Species&quot;, color=&quot;&quot;, narrow=False, outfmt=&quot;simple&quot;, exact=False, search_within_subset=None)</span>
+<span class="sd">        Finds rows in the MSL DataFrame that contain the given search string.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msl_file_path</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">msl_file_path</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;msl_file_path must be a string&quot;</span><span class="p">)</span>
@@ -221,17 +245,20 @@
 <a class="viewcode-back" href="../../../autoapi/mtbp3/seq/ictvmslview/index.html#mtbp3.seq.ictvmslview.ictvmsl.find_rows_given_str">[docs]</a>
     <span class="k">def</span> <span class="nf">find_rows_given_str</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">search_str</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Species&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">narrow</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s2">&quot;simple&quot;</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">search_within_subset</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Find rows in the DataFrame that contain the given search string.</span>
+<span class="sd">        Find rows in the MSL dataframe that match a given search string.</span>
 <span class="sd">        Parameters:</span>
-<span class="sd">        search_str (str): The string to search for in the DataFrame. Must be a nonempty string.</span>
-<span class="sd">        search_rank (str): The column name to search within. Must be &#39;all&#39; or one of the column names in the DataFrame. Default is &quot;Species&quot;.</span>
-<span class="sd">        neighbor_rank (str): (Unused parameter, can be removed or implemented in future versions).</span>
+<span class="sd">        search_str (str): The string to search for. Must be a nonempty string.</span>
+<span class="sd">        search_rank (str): The rank to search within (e.g., &quot;Species&quot;). Must be &#39;all&#39; or one of the column names in the MSL dataframe.</span>
+<span class="sd">        color (str): The color to highlight the search string in the results.</span>
+<span class="sd">        narrow (bool): Whether to narrow the results to a specific format.</span>
+<span class="sd">        outfmt (str): The output format. Must be &#39;simple&#39; or &#39;tree&#39;.</span>
+<span class="sd">        exact (bool): Whether to search for an exact match.</span>
+<span class="sd">        search_within_subset (dict): A dictionary specifying a subset of the MSL dataframe to search within.</span>
 <span class="sd">        Returns:</span>
-<span class="sd">        DataFrame: A DataFrame containing rows that match the search criteria.</span>
+<span class="sd">        pandas.DataFrame or str: The filtered dataframe if outfmt is &#39;simple&#39;, or a tree representation of the results if outfmt is &#39;tree&#39;.</span>
 <span class="sd">        Raises:</span>
-<span class="sd">        TypeError: If search_str is not a string.</span>
-<span class="sd">        ValueError: If search_str is an empty string.</span>
-<span class="sd">        ValueError: If search_rank is not &#39;all&#39; and not a valid column name in the DataFrame.</span>
+<span class="sd">        TypeError: If search_str is not a string or if search_within_subset is not a dictionary or None.</span>
+<span class="sd">        ValueError: If search_str is empty, if search_rank is invalid, or if outfmt is invalid.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">search_str</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>

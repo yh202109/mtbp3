@@ -118,7 +118,7 @@
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mtbp3.seq.ictvmslview.ictvmsl" title="mtbp3.seq.ictvmslview.ictvmsl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ictvmsl</span></code></a></p></td>
-<td><p></p></td>
+<td><p>A class to handle ICTV Master Species List (MSL) data.</p></td>
 </tr>
 </tbody>
 </table>
@@ -128,7 +128,34 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="mtbp3.seq.ictvmslview.ictvmsl">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mtbp3.seq.ictvmslview.</span></span><span class="sig-name descname"><span class="pre">ictvmsl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msl_file_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/seq/ictvmslview.html#ictvmsl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.seq.ictvmslview.ictvmsl" title="Link to this definition"></a></dt>
-<dd><dl class="py attribute">
+<dd><p>A class to handle ICTV Master Species List (MSL) data.
+Attributes:
+———–
+msl_file_path : str</p>
+<blockquote>
+<div><p>Path to the MSL file.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>msl_file_fullpath<span class="classifier">str</span></dt><dd><p>Full path to the MSL file.</p>
+</dd>
+<dt>msl_version<span class="classifier">str</span></dt><dd><p>Version of the MSL.</p>
+</dd>
+<dt>msl_column_names<span class="classifier">list</span></dt><dd><p>List of column names in the MSL.</p>
+</dd>
+<dt>msl<span class="classifier">DataFrame</span></dt><dd><p>The MSL data loaded into a pandas DataFrame.</p>
+</dd>
+</dl>
+<section id="methods">
+<h3>Methods:<a class="headerlink" href="#methods" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>update_msl(self, version=”current”)</dt><dd><p>Updates the MSL data by downloading the specified version from the ICTV website.</p>
+</dd>
+<dt>make_narrow(msl)</dt><dd><p>Converts the MSL DataFrame to a narrower format by combining certain columns.</p>
+</dd>
+<dt>find_rows_given_str(self, search_str=””, search_rank=”Species”, color=””, narrow=False, outfmt=”simple”, exact=False, search_within_subset=None)</dt><dd><p>Finds rows in the MSL DataFrame that contain the given search string.</p>
+</dd>
+</dl>
+<dl class="py attribute">
 <dt class="sig sig-object py" id="mtbp3.seq.ictvmslview.ictvmsl.msl_version">
 <span class="sig-name descname"><span class="pre">msl_version</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#mtbp3.seq.ictvmslview.ictvmsl.msl_version" title="Link to this definition"></a></dt>
 <dd></dd></dl>
@@ -161,19 +188,23 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="mtbp3.seq.ictvmslview.ictvmsl.find_rows_given_str">
 <span class="sig-name descname"><span class="pre">find_rows_given_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_rank</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Species'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">narrow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'simple'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exact</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_within_subset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/seq/ictvmslview.html#ictvmsl.find_rows_given_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.seq.ictvmslview.ictvmsl.find_rows_given_str" title="Link to this definition"></a></dt>
-<dd><p>Find rows in the DataFrame that contain the given search string.
+<dd><p>Find rows in the MSL dataframe that match a given search string.
 Parameters:
-search_str (str): The string to search for in the DataFrame. Must be a nonempty string.
-search_rank (str): The column name to search within. Must be ‘all’ or one of the column names in the DataFrame. Default is “Species”.
-neighbor_rank (str): (Unused parameter, can be removed or implemented in future versions).
+search_str (str): The string to search for. Must be a nonempty string.
+search_rank (str): The rank to search within (e.g., “Species”). Must be ‘all’ or one of the column names in the MSL dataframe.
+color (str): The color to highlight the search string in the results.
+narrow (bool): Whether to narrow the results to a specific format.
+outfmt (str): The output format. Must be ‘simple’ or ‘tree’.
+exact (bool): Whether to search for an exact match.
+search_within_subset (dict): A dictionary specifying a subset of the MSL dataframe to search within.
 Returns:
-DataFrame: A DataFrame containing rows that match the search criteria.
+pandas.DataFrame or str: The filtered dataframe if outfmt is ‘simple’, or a tree representation of the results if outfmt is ‘tree’.
 Raises:
-TypeError: If search_str is not a string.
-ValueError: If search_str is an empty string.
-ValueError: If search_rank is not ‘all’ and not a valid column name in the DataFrame.</p>
+TypeError: If search_str is not a string or if search_within_subset is not a dictionary or None.
+ValueError: If search_str is empty, if search_rank is invalid, or if outfmt is invalid.</p>
 </dd></dl>
 
+</section>
 </dd></dl>
 
 </section>
