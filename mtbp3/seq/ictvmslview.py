@@ -98,7 +98,8 @@ class ictvmsl:
         if version in all_url:
             url = all_url[version]
         else:
-            raise ValueError(f"Version {version} is not supported. Supported versions are: {', '.join(all_url.keys())}")
+            print(f"Version {version} is not supported. Supported versions are: {', '.join(all_url.keys())}")
+            return
 
         response = requests.get(url)
         if response.status_code == 200:
