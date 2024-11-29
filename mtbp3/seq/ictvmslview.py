@@ -191,12 +191,13 @@ class ictvmsl:
                 filtered_df[col] = filtered_df[col].apply(lambda x: f"[{col}] {x}" if pd.notna(x) else x)
             tree_list = []
 
-            for i in range(len(filtered_df.columns)-1):
+            for i in range(len(filtered_df.columns)):
                 tmp = filtered_df.iloc[:, :i].drop_duplicates()
                 tmp['concat'] = tmp.apply(lambda row: "/" + "/".join(row.astype(str)) + "/", axis=1)
                 tree_list += tmp['concat'].unique().tolist()
-            filtered_df['concat'] = filtered_df.apply(lambda row: "/" + "/".join(row.astype(str)), axis=1)
+            filtered_df['concat'] = filtered_df.apply(lambda row: "/Search/" + "/".join(row.astype(str)), axis=1)
             tree_list += filtered_df['concat'].unique().tolist()
+            tree_list = tree_list[1:]
 
             out_tree = util.cdt.ListTree(lst=tree_list)
             return out_tree.list_tree()
