@@ -108,6 +108,7 @@ class ictvmsl:
             for col in msl.columns:
                 if col.lower().startswith('sub') and msl[col].isna().all():
                     msl = msl.drop(columns=[col])
+            msl = msl.iloc[:, :-4]
         else: 
             raise ValueError("Unknown method. Supported methods are 'concatenation' and 'drop'")
 
@@ -187,12 +188,12 @@ class ictvmsl:
             filtered_df = filtered_df.fillna("NA")
             filtered_df = filtered_df.iloc[:, 1:-1]
             for col in filtered_df.columns:
-                filtered_df[col] = filtered_df[col].apply(lambda x: f"[{col}]: {x}" if pd.notna(x) else x)
+                filtered_df[col] = filtered_df[col].apply(lambda x: f"[{col}] {x}" if pd.notna(x) else x)
             tree_list = []
 
             for i in range(len(filtered_df.columns)-1):
                 tmp = filtered_df.iloc[:, :i].drop_duplicates()
-                tmp['concat'] = tmp.apply(lambda row: "/" + "/".join(row.astype(str)) + "/", axis=1)
+                tmp['concat'] = tmp.apply(lambda row: "/".join(row.astype(str)) + "/", axis=1)
                 tree_list += tmp['concat'].unique().tolist()
             filtered_df['concat'] = filtered_df.apply(lambda row: "/" + "/".join(row.astype(str)), axis=1)
             tree_list += filtered_df['concat'].unique().tolist()
