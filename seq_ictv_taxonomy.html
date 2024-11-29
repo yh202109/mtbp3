@@ -494,19 +494,7 @@ That will return output:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">msl</span><span class="o">.</span><span class="n">update_msl</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-
-<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:101,</span> in <span class="ni">ictvmsl.update_msl</span><span class="nt">(self, version)</span>
-<span class="g g-Whitespace">     </span><span class="mi">99</span>     <span class="n">url</span> <span class="o">=</span> <span class="n">all_url</span><span class="p">[</span><span class="n">version</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">100</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">101</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Version </span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2"> is not supported. Supported versions are: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">all_url</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">103</span> <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">104</span> <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
-
-<span class="ne">ValueError</span>: Version  is not supported. Supported versions are: current, 39.v4, 39.v3, 39.v2, 39.v1, 38.v3, 38.v2, 38.v1, 2021.v3, 2021.v2, 2021.v1, 2020, 2019, 2018b.v2, 2018a, 2017, 2016.v1.3, 2015, 2014.v4, 2013.v2, 2012.v4, 2011.v2, 2009.v10, 2008, 2005.v1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Version  is not supported. Supported versions are: current, 39.v4, 39.v3, 39.v2, 39.v1, 38.v3, 38.v2, 38.v1, 2021.v3, 2021.v2, 2021.v1, 2020, 2019, 2018b.v2, 2018a, 2017, 2016.v1.3, 2015, 2014.v4, 2013.v2, 2012.v4, 2011.v2, 2009.v10, 2008, 2005.v1
 </pre></div>
 </div>
 </div>
