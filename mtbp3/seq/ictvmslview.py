@@ -196,7 +196,7 @@ class ictvmsl:
                 tmp = filtered_df.iloc[:, :i].drop_duplicates()
                 tmp['concat'] = tmp.apply(lambda row: "/" + "/".join(row.astype(str)) + "/", axis=1)
                 tree_list += tmp['concat'].unique().tolist()
-            filtered_df['concat'] = filtered_df.apply(lambda row: "/Search/" + "/".join(row.astype(str)), axis=1)
+            filtered_df['concat'] = filtered_df.apply(lambda row: "/" + "/".join(row.astype(str)), axis=1)
             tree_list += filtered_df['concat'].unique().tolist()
             tree_list = tree_list[1:]
             tree_list = sorted(tree_list)
