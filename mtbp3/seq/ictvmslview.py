@@ -104,7 +104,7 @@ class ictvmsl:
                     msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}; [{col}] {row[index2]}" if pd.notna(row[index2]) else row[index1], axis=1)
             msl = msl.iloc[:, :-4]
             msl = msl.drop(columns=[col for col in msl.columns if col.lower().startswith('sub')])
-        elif method="drop":
+        elif method == "drop":
             for col in msl.columns:
                 if col.lower().startswith('sub') and msl[col].isna().all():
                     msl = msl.drop(columns=[col])

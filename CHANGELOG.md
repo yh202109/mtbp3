@@ -2,6 +2,11 @@
 
 <!--next-version-placeholder-->
 
+## v0.2.26 (2024-11-29)
+
+- update seq.ictvmslview
+    - update tree format
+
 ## v0.2.25 (2024-11-28)
 
 - update seq.ictvmslview
