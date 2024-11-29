@@ -93,45 +93,25 @@ class ictvmsl:
 
 
     @staticmethod
-    def make_narrow(msl):
-        if 'Realm' in msl.columns and 'Subrealm' in msl.columns:
-            index1 = msl.columns.get_loc('Realm')
-            index2 = msl.columns.get_loc('Subrealm')
-            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}; [Subrealm] {row[index2]}" if pd.notna(row[index1]) else row[index1], axis=1)
-            #msl['Realm'] = msl.apply(lambda row: f"{row['Realm']}(Subrealm:{row['Subrealm']})" if pd.notna(row['Subrealm']) else row['Realm'], axis=1)
-        if 'Kingdom' in msl.columns and 'Subkingdom' in msl.columns:
-            index1 = msl.columns.get_loc('Kingdom')
-            index2 = msl.columns.get_loc('Subkingdom')
-            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}; [Subkingdom]{row[index2]}" if pd.notna(row[index2]) else row[index1], axis=1)
-            #msl['Kingdom'] = msl.apply(lambda row: f"{row['Kingdom']}(Subkingdom:{row['Subkingdom']})" if pd.notna(row['Subkingdom']) else row['Kingdom'], axis=1)
-        if 'Phylum' in msl.columns and 'Subphylum' in msl.columns:
-            index1 = msl.columns.get_loc('Phylum')
-            index2 = msl.columns.get_loc('Subphylum')
-            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}; [Subphylum] {row[index2]}" if pd.notna(row[index2]) else row[index1], axis=1)
-            #msl['Phylum'] = msl.apply(lambda row: f"{row['Phylum']}(Subphylum:{row['Subphylum']})" if pd.notna(row['Subphylum']) else row['Phylum'], axis=1)
-        if 'Class' in msl.columns and 'Subclass' in msl.columns:
-            index1 = msl.columns.get_loc('Class')
-            index2 = msl.columns.get_loc('Subclass')
-            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}; [Subclass] {row[index2]}" if pd.notna(row[index2]) else row[index1], axis=1)
-            #msl['Class'] = msl.apply(lambda row: f"{row['Class']}(Subclass:{row['Subclass']})" if pd.notna(row['Subclass']) else row['Class'], axis=1)
-        if 'Order' in msl.columns and 'Suborder' in msl.columns:
-            index1 = msl.columns.get_loc('Order')
-            index2 = msl.columns.get_loc('Suborder')
-            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}; [Suborder] {row[index2]}" if pd.notna(row[index2]) else row[index1], axis=1)
-            #msl['Order'] = msl.apply(lambda row: f"{row['Order']}(Suborder:{row['Suborder']})" if pd.notna(row['Suborder']) else row['Order'], axis=1)
-        if 'Family' in msl.columns and 'Subfamily' in msl.columns:
-            index1 = msl.columns.get_loc('Family')
-            index2 = msl.columns.get_loc('Subfamily')
-            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}; [Subfamily] {row[index2]}" if pd.notna(row[index2]) else row[index1], axis=1)
-            #msl['Family'] = msl.apply(lambda row: f"{row['Family']}(Subfamily:{row['Subfamily']})" if pd.notna(row['Subfamily']) else row['Family'], axis=1)
-        if 'Genus' in msl.columns and 'Subgenus' in msl.columns:
-            index1 = msl.columns.get_loc('Genus')
-            index2 = msl.columns.get_loc('Subgenus')
-            msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}; [Subgenus] {row[index2]}" if pd.notna(row[index2]) else row[index1], axis=1)
-            #msl['Genus'] = msl.apply(lambda row: f"{row['Genus']}(Subgenus:{row['Subgenus']})" if pd.notna(row['Subgenus']) else row['Genus'], axis=1)
-        msl = msl.iloc[:, :-4]
-        msl2 = msl.drop(columns=[col for col in msl.columns if col.lower().startswith('sub')])
-        return msl2
+    def make_narrow(msl, method="concatenation"):
+        if method == "full":
+            return msl
+        elif method == "concatenation":
+            for col in msl.columns:
+                if col.lower().startswith('sub') and not msl[col].isna().all():
+                    index1 = msl.columns.get_loc(col[3:].capitalize())
+                    index2 = msl.columns.get_loc(col)
+                    msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}; [{col}] {row[index2]}" if pd.notna(row[index2]) else row[index1], axis=1)
+            msl = msl.iloc[:, :-4]
+            msl = msl.drop(columns=[col for col in msl.columns if col.lower().startswith('sub')])
+        elif method="drop":
+            for col in msl.columns:
+                if col.lower().startswith('sub') and msl[col].isna().all():
+                    msl = msl.drop(columns=[col])
+        else: 
+            raise ValueError("Unknown method. Supported methods are 'concatenation' and 'drop'")
+
+        return msl
 
     def __load_list(self):
         #file_path = f'./mtbp3/data/supp_seq/ICTV_MSL39v4_example.csv'
@@ -142,7 +122,7 @@ class ictvmsl:
         else:
             raise FileNotFoundError(f"File not found: {file_path}")
 
-    def find_rows_given_str(self, search_strings=None, search_rank="Species", color="", narrow=False, outfmt="simple", exact=False, search_within_subset=None):
+    def find_rows_given_str(self, search_strings=None, search_rank="Species", color="", narrow=False, outfmt="simple", exact=False, search_within_subset=None, tree_style="concatenate"):
         """
         Find rows in the MSL dataframe that match a given search string.
         Parameters:
@@ -197,37 +177,26 @@ class ictvmsl:
                 index = msl2.columns.get_loc(search_rank)
                 filtered_df.iloc[:, index] = filtered_df.iloc[:, index].apply(lambda row: util.cdt.color_str(row, words=search_strings, colors=color, exact=exact))
 
-        if narrow:
-            filtered_df = self.make_narrow(filtered_df)
 
         if outfmt == "simple":
+            if narrow:
+                filtered_df = self.make_narrow(filtered_df, method="drop")
             return filtered_df
-        elif outfmt == "tree" and not narrow:
-            filtered_df = self.make_narrow(filtered_df)
+        elif outfmt == "tree":
+            filtered_df = self.make_narrow(filtered_df, method=tree_style)
+            filtered_df = filtered_df.fillna("NA")
+            filtered_df = filtered_df.iloc[:, 1:-1]
+            for col in filtered_df.columns:
+                filtered_df[col] = filtered_df[col].apply(lambda x: f"[{col}]: {x}" if pd.notna(x) else x)
+            tree_list = []
 
-            tree_list = filtered_df['Realm'].unique().tolist()
-            tree_list = [f"/[Realm] {item}/" for item in tree_list]
-            tmp = filtered_df[['Realm', 'Kingdom']].drop_duplicates()
-            tmp['string'] = tmp.apply(lambda row: f"/[Realm] {row['Realm']}/[Kingdom] {row['Kingdom']}/", axis=1)
-            tree_list = tree_list + tmp['string'].unique().tolist()
-            tmp = filtered_df[['Realm', 'Kingdom', 'Phylum']].drop_duplicates()
-            tmp['string'] = tmp.apply(lambda row: f"/[Realm] {row['Realm']}/[Kingdom] {row['Kingdom']}/[Phylum] {row['Phylum']}/", axis=1)
-            tree_list = tree_list + tmp['string'].unique().tolist()
-            tmp = filtered_df[['Realm', 'Kingdom', 'Phylum', 'Class']].drop_duplicates()
-            tmp['string'] = tmp.apply(lambda row: f"/[Realm] {row['Realm']}/[Kingdom] {row['Kingdom']}/[Phylum] {row['Phylum']}/[Class] {row['Class']}/", axis=1)
-            tree_list = tree_list + tmp['string'].unique().tolist()
-            tmp = filtered_df[['Realm', 'Kingdom', 'Phylum', 'Class', 'Order']].drop_duplicates()
-            tmp['string'] = tmp.apply(lambda row: f"/[Realm] {row['Realm']}/[Kingdom] {row['Kingdom']}/[Phylum] {row['Phylum']}/[Class] {row['Class']}/[Order] {row['Order']}/", axis=1)
-            tree_list = tree_list + tmp['string'].unique().tolist()
-            tmp = filtered_df[['Realm', 'Kingdom', 'Phylum', 'Class', 'Order', 'Family']].drop_duplicates()
-            tmp['string'] = tmp.apply(lambda row: f"/[Realm] {row['Realm']}/[Kingdom] {row['Kingdom']}/[Phylum] {row['Phylum']}/[Class] {row['Class']}/[Order] {row['Order']}/[Family] {row['Family']}/", axis=1)
-            tree_list = tree_list + tmp['string'].unique().tolist()
-            tmp = filtered_df[['Realm', 'Kingdom', 'Phylum', 'Class', 'Order', 'Family', 'Genus']].drop_duplicates()
-            tmp['string'] = tmp.apply(lambda row: f"/[Realm] {row['Realm']}/[Kingdom] {row['Kingdom']}/[Phylum] {row['Phylum']}/[Class] {row['Class']}/[Order] {row['Order']}/[Family] {row['Family']}/[Genus] {row['Genus']}/", axis=1)
-            tree_list = tree_list + tmp['string'].unique().tolist()
-            tmp = filtered_df[['Realm', 'Kingdom', 'Phylum', 'Class', 'Order', 'Family', 'Genus', 'Species']].drop_duplicates()
-            tmp['string'] = tmp.apply(lambda row: f"/[Realm] {row['Realm']}/[Kingdom] {row['Kingdom']}/[Phylum] {row['Phylum']}/[Class] {row['Class']}/[Order] {row['Order']}/[Family] {row['Family']}/[Genus] {row['Genus']}/[Species] {row['Species']}", axis=1)
-            tree_list = tree_list + tmp['string'].unique().tolist()
+            for i in range(len(filtered_df.columns)-1):
+                tmp = filtered_df.iloc[:, :i].drop_duplicates()
+                tmp['concat'] = tmp.apply(lambda row: "/" + "/".join(row.astype(str)) + "/", axis=1)
+                tree_list += tmp['concat'].unique().tolist()
+            filtered_df['concat'] = filtered_df.apply(lambda row: "/" + "/".join(row.astype(str)), axis=1)
+            tree_list += filtered_df['concat'].unique().tolist()
+
             out_tree = util.cdt.ListTree(lst=tree_list)
             return out_tree.list_tree()
         else:

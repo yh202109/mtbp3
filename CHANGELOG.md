@@ -2,7 +2,7 @@
 
 <!--next-version-placeholder-->
 
-## v0.2.24 (2024-11-28)
+## v0.2.25 (2024-11-28)
 
 - update seq.ictvmslview
     - adjust sub display
