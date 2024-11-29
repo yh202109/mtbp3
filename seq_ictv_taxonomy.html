@@ -418,12 +418,9 @@ To search for virus within the Retroviridae famiy that can infect feline:</p>
                             └── [Species] <span class=" -Color -Color-Red">Lentivirus felimdef</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
 </div>
 </div>
-</div>
-<p>There are two more types of tree format:</p>
+<p>There are two more types of tree available, including a tree with nonempty ranks:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">msl</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_strings</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Gammaretrovirus felleu&quot;</span><span class="p">,</span> <span class="s2">&quot;Lentivirus felimdef&quot;</span><span class="p">],</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Species&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">,</span> <span class="n">tree_style</span><span class="o">=</span><span class="s2">&quot;drop&quot;</span><span class="p">)))</span>
@@ -446,7 +443,7 @@ To search for virus within the Retroviridae famiy that can infect feline:</p>
 </div>
 </div>
 </div>
-<p>and</p>
+<p>and a tree with full 15 ranks:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">msl</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_strings</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Gammaretrovirus felleu&quot;</span><span class="p">,</span> <span class="s2">&quot;Lentivirus felimdef&quot;</span><span class="p">],</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Species&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">,</span> <span class="n">tree_style</span><span class="o">=</span><span class="s2">&quot;full&quot;</span><span class="p">)))</span>
@@ -482,19 +479,37 @@ To search for virus within the Retroviridae famiy that can infect feline:</p>
 </section>
 <section id="update-msl">
 <h3>Update MSL<a class="headerlink" href="#update-msl" title="Link to this heading"></a></h3>
-<p>To download the current release:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># msl.update_msl(version=&quot;current&quot;)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Output:</p>
+<p>To download the current release, use <code class="docutils literal notranslate"><span class="pre">msl.update_msl(version=&quot;current&quot;)</span></code>.
+That will return output:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">File</span> <span class="n">of</span> <span class="n">version</span> <span class="n">current</span> <span class="n">has</span> <span class="n">been</span> <span class="n">loaded</span>
 <span class="n">Column</span> <span class="n">names</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Sort&#39;</span><span class="p">,</span> <span class="s1">&#39;Realm&#39;</span><span class="p">,</span> <span class="s1">&#39;Subrealm&#39;</span><span class="p">,</span> <span class="s1">&#39;Kingdom&#39;</span><span class="p">,</span> <span class="s1">&#39;Subkingdom&#39;</span><span class="p">,</span> <span class="s1">&#39;Phylum&#39;</span><span class="p">,</span> <span class="s1">&#39;Subphylum&#39;</span><span class="p">,</span> <span class="s1">&#39;Class&#39;</span><span class="p">,</span> <span class="s1">&#39;Subclass&#39;</span><span class="p">,</span> <span class="s1">&#39;Order&#39;</span><span class="p">,</span> <span class="s1">&#39;Suborder&#39;</span><span class="p">,</span> <span class="s1">&#39;Family&#39;</span><span class="p">,</span> <span class="s1">&#39;Subfamily&#39;</span><span class="p">,</span> <span class="s1">&#39;Genus&#39;</span><span class="p">,</span> <span class="s1">&#39;Subgenus&#39;</span><span class="p">,</span> <span class="s1">&#39;Species&#39;</span><span class="p">,</span> <span class="s1">&#39;Genome&#39;</span><span class="p">,</span> <span class="s1">&#39;Last Change&#39;</span><span class="p">,</span> <span class="s1">&#39;MSL of Last Change&#39;</span><span class="p">,</span> <span class="s1">&#39;Proposal for Last Change &#39;</span><span class="p">,</span> <span class="s1">&#39;Taxon History URL&#39;</span><span class="p">]</span>
 <span class="n">Total</span> <span class="n">number</span> <span class="n">of</span> <span class="n">rows</span><span class="p">:</span> <span class="mi">14690</span>
 </pre></div>
+</div>
+<p>To see available versions available:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msl</span><span class="o">.</span><span class="n">update_msl</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">msl</span><span class="o">.</span><span class="n">update_msl</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:101,</span> in <span class="ni">ictvmsl.update_msl</span><span class="nt">(self, version)</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span>     <span class="n">url</span> <span class="o">=</span> <span class="n">all_url</span><span class="p">[</span><span class="n">version</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">101</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Version </span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2"> is not supported. Supported versions are: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">all_url</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">103</span> <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span> <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+
+<span class="ne">ValueError</span>: Version  is not supported. Supported versions are: current, 39.v4, 39.v3, 39.v2, 39.v1, 38.v3, 38.v2, 38.v1, 2021.v3, 2021.v2, 2021.v1, 2020, 2019, 2018b.v2, 2018a, 2017, 2016.v1.3, 2015, 2014.v4, 2013.v2, 2012.v4, 2011.v2, 2009.v10, 2008, 2005.v1
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>

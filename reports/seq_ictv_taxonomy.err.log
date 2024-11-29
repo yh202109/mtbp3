@@ -1,0 +1,35 @@
+Traceback (most recent call last):
+  File "/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+  File "/opt/hostedtoolcache/Python/3.10.15/x64/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/runner/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+msl.update_msl(version="")
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+Cell [0;32mIn[11], line 1[0m
+[0;32m----> 1[0m [43mmsl[49m[38;5;241;43m.[39;49m[43mupdate_msl[49m[43m([49m[43mversion[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43m"[39;49m[43m)[49m
+
+File [0;32m~/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:101[0m, in [0;36mictvmsl.update_msl[0;34m(self, version)[0m
+[1;32m     99[0m     url [38;5;241m=[39m all_url[version]
+[1;32m    100[0m [38;5;28;01melse[39;00m:
+[0;32m--> 101[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;124mf[39m[38;5;124m"[39m[38;5;124mVersion [39m[38;5;132;01m{[39;00mversion[38;5;132;01m}[39;00m[38;5;124m is not supported. Supported versions are: [39m[38;5;132;01m{[39;00m[38;5;124m'[39m[38;5;124m, [39m[38;5;124m'[39m[38;5;241m.[39mjoin(all_url[38;5;241m.[39mkeys())[38;5;132;01m}[39;00m[38;5;124m"[39m)
+[1;32m    103[0m response [38;5;241m=[39m requests[38;5;241m.[39mget(url)
+[1;32m    104[0m [38;5;28;01mif[39;00m response[38;5;241m.[39mstatus_code [38;5;241m==[39m [38;5;241m200[39m:
+
+[0;31mValueError[0m: Version  is not supported. Supported versions are: current, 39.v4, 39.v3, 39.v2, 39.v1, 38.v3, 38.v2, 38.v1, 2021.v3, 2021.v2, 2021.v1, 2020, 2019, 2018b.v2, 2018a, 2017, 2016.v1.3, 2015, 2014.v4, 2013.v2, 2012.v4, 2011.v2, 2009.v10, 2008, 2005.v1
+
