@@ -351,23 +351,44 @@ Name: 40, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    ├── :
-    └── [Realm]: Riboviria:
-    └── [Kingdom]: Pararnavirae:
-        └── [Phylum]: Artverviricota:
-            └── [Class]: Revtraviricetes:
-                └── [Order]: Ortervirales:
-                    └── [Family]: Retroviridae; [Subfamily] Orthoretrovirinae:
-                                [Species]: Lentivirus bovimdef
-                                [Species]: Lentivirus bovjem
-                                [Species]: Lentivirus capartenc
-                                [Species]: Lentivirus equinfane
-                                [Species]: Lentivirus felimdef
-                                [Species]: Lentivirus humimdef1
-                                [Species]: Lentivirus humimdef2
-                                [Species]: Lentivirus ovivismae
-                                [Species]: Lentivirus pum
-                                [Species]: Lentivirus simimdef
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">msl</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_strings</span><span class="o">=</span><span class="s2">&quot;lentivirus&quot;</span><span class="p">,</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Genus&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">True</span><span class="p">)))</span>
+
+<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:202,</span> in <span class="ni">ictvmsl.find_rows_given_str</span><span class="nt">(self, search_strings, search_rank, color, narrow, outfmt, exact, search_within_subset, tree_style)</span>
+<span class="g g-Whitespace">    </span><span class="mi">199</span>     <span class="n">tree_list</span> <span class="o">+=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;concat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">201</span>     <span class="n">out_tree</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">cdt</span><span class="o">.</span><span class="n">ListTree</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">tree_list</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">202</span>     <span class="k">return</span> <span class="n">out_tree</span><span class="o">.</span><span class="n">list_tree</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">203</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">204</span>     <span class="k">return</span>
+
+<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/util/cdt.py:368,</span> in <span class="ni">ListTree.list_tree</span><span class="nt">(self, to_right)</span>
+<span class="g g-Whitespace">    </span><span class="mi">358</span> <span class="k">def</span> <span class="nf">list_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">to_right</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">359</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">360</span><span class="sd">     Returns a DataFrame representing the tree structure of the object.</span>
+<span class="g g-Whitespace">    </span><span class="mi">361</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">366</span><span class="sd">     - tree (DataFrame): DataFrame representing the tree structure.</span>
+<span class="g g-Whitespace">    </span><span class="mi">367</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">368</span>     <span class="bp">self</span><span class="o">.</span><span class="n">__list_tree_pre</span><span class="p">(</span><span class="n">to_right</span><span class="o">=</span><span class="n">to_right</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">370</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">prelst</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">371</span>         <span class="bp">self</span><span class="o">.</span><span class="n">tree</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/util/cdt.py:303,</span> in <span class="ni">ListTree.__list_tree_pre</span><span class="nt">(self, to_right)</span>
+<span class="g g-Whitespace">    </span><span class="mi">302</span> <span class="k">def</span> <span class="nf">__list_tree_pre</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">to_right</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">303</span>     <span class="bp">self</span><span class="o">.</span><span class="n">__list_tree_df</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">304</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">305</span>         <span class="bp">self</span><span class="o">.</span><span class="n">prelst</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span>
+
+<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/util/cdt.py:277,</span> in <span class="ni">ListTree.__list_tree_df</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">274</span> <span class="n">df0</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df0</span><span class="p">[</span><span class="s1">&#39;lst&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">276</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df0</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+<span class="ne">--&gt; </span><span class="mi">277</span>     <span class="n">r0</span><span class="p">,</span> <span class="n">r1</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;lst&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">278</span>     <span class="k">if</span> <span class="n">r1</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">279</span>         <span class="k">if</span> <span class="s1">&#39;/&#39;</span> <span class="ow">in</span> <span class="n">r0</span><span class="p">:</span>
+
+<span class="ne">ValueError</span>: not enough values to unpack (expected 2, got 1)
 </pre></div>
 </div>
 </div>
@@ -380,39 +401,11 @@ To search for virus within the Retroviridae famiy that can infect feline:</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    ├── :
-    └── [Realm]: Riboviria:
-    └── [Kingdom]: Pararnavirae:
-        └── [Phylum]: Artverviricota:
-            └── [Class]: Revtraviricetes:
-                └── [Order]: Ortervirales:
-                    ├── [Family]: Retroviridae; [Subfamily] Orthoretrovirinae:
-                    │           [Species]: Gammaretrovirus<span class=" -Color -Color-Red"> fel</span>leu
-                    │           [Species]: Lentivirus<span class=" -Color -Color-Red"> fel</span>imdef
-                    └── [Family]: Retroviridae; [Subfamily] Spumaretrovirinae:
-                                [Species]: Felispumavirus<span class=" -Color -Color-Red"> fel</span>cat
-</pre></div>
-</div>
-</div>
 </div>
 <p>To search for two known virus species:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">msl</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_strings</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Gammaretrovirus felleu&quot;</span><span class="p">,</span> <span class="s2">&quot;Lentivirus felimdef&quot;</span><span class="p">],</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Species&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">)))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    ├── :
-    └── [Realm]: Riboviria:
-    └── [Kingdom]: Pararnavirae:
-        └── [Phylum]: Artverviricota:
-            └── [Class]: Revtraviricetes:
-                └── [Order]: Ortervirales:
-                    └── [Family]: Retroviridae; [Subfamily] Orthoretrovirinae:
-                                [Species]: <span class=" -Color -Color-Red">Gammaretrovirus felleu</span>
-                                [Species]: <span class=" -Color -Color-Red">Lentivirus felimdef</span>
 </pre></div>
 </div>
 </div>
@@ -424,65 +417,11 @@ To search for virus within the Retroviridae famiy that can infect feline:</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    ├── :
-    └── [Realm]: Riboviria:
-    └── [Kingdom]: Pararnavirae:
-        └── [Phylum]: Artverviricota:
-            └── [Class]: Revtraviricetes:
-                └── [Order]: Ortervirales:
-                    └── [Family]: Retroviridae:
-                        └── [Subfamily]: Orthoretrovirinae:
-                            ├── [Genus]: Gammaretrovirus:
-                            │   └── [Species]: <span class=" -Color -Color-Red">Gammaretrovirus felleu</span>:
-                            │       └── [Genome]: ssRNA-RT:
-                            │           └── [Last Change]: Renamed,:
-                            │                       [Proposal for Last Change ]: 2023.009D.Retroviridae_68rensp.zip
-                            └── [Genus]: Lentivirus:
-                                └── [Species]: <span class=" -Color -Color-Red">Lentivirus felimdef</span>:
-                                    └── [Genome]: ssRNA-RT:
-                                        └── [Last Change]: Renamed,:
-                                                    [Proposal for Last Change ]: 2023.009D.Retroviridae_68rensp.zip
-</pre></div>
-</div>
-</div>
 </div>
 <p>and</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">msl</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_strings</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Gammaretrovirus felleu&quot;</span><span class="p">,</span> <span class="s2">&quot;Lentivirus felimdef&quot;</span><span class="p">],</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Species&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">,</span> <span class="n">tree_style</span><span class="o">=</span><span class="s2">&quot;full&quot;</span><span class="p">)))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    ├── :
-    └── [Realm]: Riboviria:
-    └── [Subrealm]: NA:
-        └── [Kingdom]: Pararnavirae:
-            └── [Subkingdom]: NA:
-                └── [Phylum]: Artverviricota:
-                    └── [Subphylum]: NA:
-                        └── [Class]: Revtraviricetes:
-                            └── [Subclass]: NA:
-                                └── [Order]: Ortervirales:
-                                    └── [Suborder]: NA:
-                                        └── [Family]: Retroviridae:
-                                            └── [Subfamily]: Orthoretrovirinae:
-                                                ├── [Genus]: Gammaretrovirus:
-                                                │   └── [Subgenus]: NA:
-                                                │       └── [Species]: <span class=" -Color -Color-Red">Gammaretrovirus felleu</span>:
-                                                │           └── [Genome]: ssRNA-RT:
-                                                │               └── [Last Change]: Renamed,:
-                                                │                           [Proposal for Last Change ]: 2023.009D.Retroviridae_68rensp.zip
-                                                └── [Genus]: Lentivirus:
-                                                    └── [Subgenus]: NA:
-                                                        └── [Species]: <span class=" -Color -Color-Red">Lentivirus felimdef</span>:
-                                                            └── [Genome]: ssRNA-RT:
-                                                                └── [Last Change]: Renamed,:
-                                                                            [Proposal for Last Change ]: 2023.009D.Retroviridae_68rensp.zip
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
