@@ -95,6 +95,7 @@ class ictvmsl:
     @staticmethod
     def make_narrow(msl, method="concatenation"):
         if method == "full":
+            msl = msl.iloc[:, :-4]
             return msl
         elif method == "concatenation":
             for col in msl.columns:
