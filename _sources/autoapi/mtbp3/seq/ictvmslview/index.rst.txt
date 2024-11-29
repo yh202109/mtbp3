@@ -56,7 +56,7 @@ Module Contents
    .. py:method:: update_msl(version='current')
 
 
-   .. py:method:: make_narrow(msl)
+   .. py:method:: make_narrow(msl, method='concatenation')
       :staticmethod:
 
 
@@ -64,7 +64,7 @@ Module Contents
    .. py:method:: __load_list()
 
 
-   .. py:method:: find_rows_given_str(search_strings=None, search_rank='Species', color='', narrow=False, outfmt='simple', exact=False, search_within_subset=None)
+   .. py:method:: find_rows_given_str(search_strings=None, search_rank='Species', color='', narrow=False, outfmt='simple', exact=False, search_within_subset=None, tree_style='concatenate')
 
       Find rows in the MSL dataframe that match a given search string.
       Parameters:

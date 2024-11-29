@@ -244,6 +244,46 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
+    "There are two more types of tree format:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "vscode": {
+     "languageId": "plaintext"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "print('\\n'.join(msl.find_rows_given_str(search_strings=[\"Gammaretrovirus felleu\", \"Lentivirus felimdef\"], search_rank=\"Species\", color=\"red\", outfmt='tree', tree_style=\"drop\")))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "and"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "vscode": {
+     "languageId": "plaintext"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "print('\\n'.join(msl.find_rows_given_str(search_strings=[\"Gammaretrovirus felleu\", \"Lentivirus felimdef\"], search_rank=\"Species\", color=\"red\", outfmt='tree', tree_style=\"full\")))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
     "### Update MSL\n",
     "\n",
     "To download the current release:"

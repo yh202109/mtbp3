@@ -351,23 +351,25 @@ Name: 40, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    [Realm] Riboviria; [Subrealm] nan:
-    └── [Kingdom] Pararnavirae:
-        └── [Phylum] Artverviricota:
-            └── [Class] Revtraviricetes:
-                └── [Order] Ortervirales:
-                    └── [Family] Retroviridae; [Subfamily] Orthoretrovirinae:
-                        └── [Genus] <span class=" -Color -Color-Red">Lentivirus</span>:
-                            ├── [Species] Lentivirus bovimdef
-                            ├── [Species] Lentivirus bovjem
-                            ├── [Species] Lentivirus capartenc
-                            ├── [Species] Lentivirus equinfane
-                            ├── [Species] Lentivirus felimdef
-                            ├── [Species] Lentivirus humimdef1
-                            ├── [Species] Lentivirus humimdef2
-                            ├── [Species] Lentivirus ovivismae
-                            ├── [Species] Lentivirus pum
-                            └── [Species] Lentivirus simimdef
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">msl</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_strings</span><span class="o">=</span><span class="s2">&quot;lentivirus&quot;</span><span class="p">,</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Genus&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">True</span><span class="p">)))</span>
+
+<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:186,</span> in <span class="ni">ictvmsl.find_rows_given_str</span><span class="nt">(self, search_strings, search_rank, color, narrow, outfmt, exact, search_within_subset, tree_style)</span>
+<span class="g g-Whitespace">    </span><span class="mi">184</span>     <span class="k">return</span> <span class="n">filtered_df</span>
+<span class="g g-Whitespace">    </span><span class="mi">185</span> <span class="k">elif</span> <span class="n">outfmt</span> <span class="o">==</span> <span class="s2">&quot;tree&quot;</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">186</span>     <span class="n">filtered_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_narrow</span><span class="p">(</span><span class="n">filtered_df</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">tree_style</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">187</span>     <span class="n">filtered_df</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;NA&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">188</span>     <span class="n">filtered_df</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/seq/ictvmslview.py:112,</span> in <span class="ni">ictvmsl.make_narrow</span><span class="nt">(msl, method)</span>
+<span class="g g-Whitespace">    </span><span class="mi">110</span>             <span class="n">msl</span> <span class="o">=</span> <span class="n">msl</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">col</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">111</span> <span class="k">else</span><span class="p">:</span> 
+<span class="ne">--&gt; </span><span class="mi">112</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unknown method. Supported methods are &#39;concatenation&#39; and &#39;drop&#39;&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">114</span> <span class="k">return</span> <span class="n">msl</span>
+
+<span class="ne">ValueError</span>: Unknown method. Supported methods are &#39;concatenation&#39; and &#39;drop&#39;
 </pre></div>
 </div>
 </div>
@@ -380,23 +382,6 @@ To search for virus within the Retroviridae famiy that can infect feline:</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    [Realm] Riboviria; [Subrealm] nan:
-    └── [Kingdom] Pararnavirae:
-        └── [Phylum] Artverviricota:
-            └── [Class] Revtraviricetes:
-                └── [Order] Ortervirales:
-                    ├── [Family] Retroviridae; [Subfamily] Orthoretrovirinae:
-                    │   ├── [Genus] Gammaretrovirus:
-                    │   │   └── [Species] Gammaretrovirus<span class=" -Color -Color-Red"> fel</span>leu
-                    │   └── [Genus] Lentivirus:
-                    │       └── [Species] Lentivirus<span class=" -Color -Color-Red"> fel</span>imdef
-                    └── [Family] Retroviridae; [Subfamily] Spumaretrovirinae:
-                        └── [Genus] Felispumavirus:
-                            └── [Species] Felispumavirus<span class=" -Color -Color-Red"> fel</span>cat
-</pre></div>
-</div>
-</div>
 </div>
 <p>To search for two known virus species:</p>
 <div class="cell docutils container">
@@ -405,20 +390,19 @@ To search for virus within the Retroviridae famiy that can infect feline:</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    [Realm] Riboviria; [Subrealm] nan:
-    └── [Kingdom] Pararnavirae:
-        └── [Phylum] Artverviricota:
-            └── [Class] Revtraviricetes:
-                └── [Order] Ortervirales:
-                    └── [Family] Retroviridae; [Subfamily] Orthoretrovirinae:
-                        ├── [Genus] Gammaretrovirus:
-                        │   └── [Species] <span class=" -Color -Color-Red">Gammaretrovirus felleu</span>
-                        └── [Genus] Lentivirus:
-                            └── [Species] <span class=" -Color -Color-Red">Lentivirus felimdef</span>
+</div>
+<p>There are two more types of tree format:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">msl</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_strings</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Gammaretrovirus felleu&quot;</span><span class="p">,</span> <span class="s2">&quot;Lentivirus felimdef&quot;</span><span class="p">],</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Species&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">,</span> <span class="n">tree_style</span><span class="o">=</span><span class="s2">&quot;drop&quot;</span><span class="p">)))</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</div>
+</div>
+<p>and</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">msl</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_strings</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Gammaretrovirus felleu&quot;</span><span class="p">,</span> <span class="s2">&quot;Lentivirus felimdef&quot;</span><span class="p">],</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Species&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">,</span> <span class="n">tree_style</span><span class="o">=</span><span class="s2">&quot;full&quot;</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
