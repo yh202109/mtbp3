@@ -71,7 +71,29 @@ class ictvmsl:
         all_url = {
             "current": "https://ictv.global/msl/current",
             "39.v4": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2023_MSL39.v4.xlsx",
-            "39.v3": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2023_MSL39.v3.xlsx"
+            "39.v3": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2023_MSL39.v3.xlsx",
+            "39.v2": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2023_MSL39.v2.xlsx",
+            "39.v1": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2023_MSL39.v1.xlsx",
+            "38.v3": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2022_MSL38.v3.xlsx",
+            "38.v2": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2022_MSL38.v2.xlsx",
+            "38.v1": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2022_MSL38.v1.xlsx",
+            "2021.v3": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2021_v3.xlsx",
+            "2021.v2": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2021_v2.xlsx",
+            "2021.v1": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2021_v1.xlsx",
+            "2020": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2020.xlsx",
+            "2019": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2019.xlsx",
+            "2018b.v2": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2018b.v2.xlsx",
+            "2018a": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2018a.xlsx",
+            "2017": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2017.xlsx",
+            "2016.v1.3": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2016_v1.3.xlsx",
+            "2015": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2015.xlsx",
+            "2014.v4": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2014_v4.xls",
+            "2013.v2": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2013_v2.xls",
+            "2012.v4": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2012_v4.xls",
+            "2011.v2": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2011_v2.xls",
+            "2009.v10": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2009_v10.xls",
+            "2008": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2008.xls",
+            "2005.v1": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2005_v1.xls",
         }
         if version in all_url:
             url = all_url[version]
