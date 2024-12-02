@@ -111,14 +111,14 @@ class ictvvmr:
             vmr.iloc[:, index1] = vmr.apply(lambda row: f"{row[index1]} ({row[index2]})" if pd.notna(row[index1]) and pd.notna(row[index2]) else row[index1], axis=1)
         if 'Virus name(s)' in vmr.columns:
             index1 = vmr.columns.get_loc('Virus name(s)')
-            vmr.iloc[:, index1] = vmr.iloc[:, index1].str.replace(r'/', '\/', regex=False)
+            vmr.iloc[:, index1] = vmr.iloc[:, index1].str.replace(r'\/', '_', regex=False)
         if 'Virus GENBANK accession' in vmr.columns and 'Genome coverage' in vmr.columns:
             index2 = vmr.columns.get_loc('Virus isolate designation')
             index5 = vmr.columns.get_loc('Genome coverage')
             vmr.iloc[:, index2] = vmr.apply(lambda row: row[index5] if pd.isna(row[index2]) else row[index2], axis=1)
         if 'Virus isolate designation' in vmr.columns:
             index2 = vmr.columns.get_loc('Virus isolate designation')
-            vmr.iloc[:, index2] = vmr.iloc[:, index2].str.replace(r'/', '\/', regex=False)
+            vmr.iloc[:, index2] = vmr.iloc[:, index2].str.replace(r'\/', '_', regex=False)
         if 'Virus name(s)' in vmr.columns and 'Virus isolate designation' in vmr.columns and 'Virus GENBANK accession' in vmr.columns and 'Exemplar or additional isolate' in vmr.columns:
             index1 = vmr.columns.get_loc('Virus name(s)')
             index2 = vmr.columns.get_loc('Virus isolate designation')
@@ -197,6 +197,9 @@ class ictvvmr:
                     index = vmr2.columns.get_loc(key)
                     vmr2 = vmr2[vmr2.iloc[:, index].str.lower() == value.lower()]
 
+        if search_rank_or_exemplar and search_rank_or_exemplar != "all" and search_rank_or_exemplar not in vmr2.columns:
+            raise ValueError(f"search_rank_or_exemplar must be 'all' or one of the following: {', '.join(vmr2.columns[3:19])}")
+
         if search_rank_or_exemplar == "all":
             if exact:
                 filtered_df = vmr2[vmr2.iloc[:, 3:19].apply(lambda row: any(search_str.lower() == element.lower() for element in row.astype(str).values for search_str in search_strings), axis=1)]
@@ -206,12 +209,12 @@ class ictvvmr:
                 for col in filtered_df[3:19]:
                     filtered_df[col] = filtered_df[col].apply(lambda row: util.cdt.color_str(row, words=search_strings, colors=color, exact=exact) if pd.notna(row) else row)
         else:
+            index = vmr2.columns.get_loc(search_rank_or_exemplar)
             if exact:
-                filtered_df = vmr2[vmr2[search_rank_or_exemplar].apply(lambda x: any(search_str.lower() == x.lower() for search_str in search_strings) if pd.notna(x) else False)]
+                filtered_df = vmr2[vmr2.iloc[:, index].apply(lambda x: any(search_str.lower() == x.lower() for search_str in search_strings) if pd.notna(x) else False)]
             else:
-                filtered_df = vmr2[vmr2[search_rank_or_exemplar].apply(lambda x: any(search_str.lower() in x.lower() for search_str in search_strings) if pd.notna(x) else False)]
+                filtered_df = vmr2[vmr2.iloc[:, index].apply(lambda x: any(search_str.lower() in x.lower() for search_str in search_strings) if pd.notna(x) else False)]
             if color:
-                index = vmr2.columns.get_loc(search_rank_or_exemplar)
                 filtered_df.iloc[:, index] = filtered_df.iloc[:, index].apply(lambda row: util.cdt.color_str(row, words=search_strings, colors=color, exact=exact))
 
 
