@@ -421,6 +421,9 @@ To search for virus within the Retroviridae famiy that can infect feline:</p>
                             └── [Species] <span class=" -Color -Color-Red">Lentivirus felimdef</span>
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 <p>There are two more types of tree available, including a tree with nonempty ranks:</p>
@@ -547,25 +550,25 @@ Similarily, use <code class="docutils literal notranslate"><span class="pre">vmr
                         └── [Subfamily] Orthoretrovirinae:
                             └── [Genus] <span class=" -Color -Color-Red">Lentivirus</span>:
                                 ├── [Species] Lentivirus bovimdef (ssRNA-RT):
-                                │   └── [Exemplar or additional isolate] [E] bovine immunodeficiency virus (HXB3) (Genebank: M32690)
+                                │   └── E
                                 ├── [Species] Lentivirus bovjem (ssRNA-RT):
-                                │           87) (Genebank: U21603)
+                                │   └── E
                                 ├── [Species] Lentivirus capartenc (ssRNA-RT):
-                                │   └── [Exemplar or additional isolate] [E] caprine arthritis encephalitis virus (Clements) (Genebank: M33677)
+                                │   └── E
                                 ├── [Species] Lentivirus equinfane (ssRNA-RT):
-                                │   └── [Exemplar or additional isolate] [E] equine infectious anemia virus (Genebank: U01866
+                                │   └── E
                                 ├── [Species] Lentivirus felimdef (ssRNA-RT):
-                                │   └── [Exemplar or additional isolate] [E] feline immunodeficiency virus (Petaluma) (Genebank: M25381)
+                                │   └── E
                                 ├── [Species] Lentivirus humimdef1 (ssRNA-RT):
-                                │   └── [Exemplar or additional isolate] [E] human immunodeficiency virus 1 (Genebank: AF033819
+                                │   └── E
                                 ├── [Species] Lentivirus humimdef2 (ssRNA-RT):
-                                │   └── [Exemplar or additional isolate] [E] human immunodeficiency virus 2 (BEN) (Genebank: M30502)
+                                │   └── E
                                 ├── [Species] Lentivirus ovivismae (ssRNA-RT):
-                                │           maedi virus (kv1772) (Genebank: L06906)
+                                │   └── E
                                 ├── [Species] Lentivirus pum (ssRNA-RT):
-                                │   └── [Exemplar or additional isolate] [E] puma lentivirus (14) (Genebank: U03982)
+                                │   └── E
                                 └── [Species] Lentivirus simimdef (ssRNA-RT):
-                                    └── [Exemplar or additional isolate] [E] simian immunodeficiency virus (Genebank: M58410
+                                    └── E
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -578,11 +581,10 @@ Try using .loc[row_indexer,col_indexer] = value instead
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
   vmr[&#39;Species&#39;] = vmr.apply(lambda row: f&quot;{row[&#39;Species&#39;]} ({row[&#39;Genome&#39;]})&quot; if pd.notna(row[&#39;Species&#39;]) and pd.notna(row[&#39;Genome&#39;]) else row[&#39;Species&#39;], axis=1)
 /home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvvmrview.py:111: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
+A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  vmr[&#39;Exemplar or additional isolate&#39;] = vmr.apply(lambda row: f&quot;[{row[&#39;Exemplar or additional isolate&#39;]}] {row[&#39;Virus name(s)&#39;]} ({row[&#39;Virus isolate designation&#39;]}) (Genebank: {row[&#39;Virus GENBANK accession&#39;]})&quot; if pd.notna(row[&#39;Virus name(s)&#39;]) and pd.notna(row[&#39;Virus isolate designation&#39;]) and pd.notna(row[&#39;Virus GENBANK accession&#39;]) else f&quot;[{row[&#39;Exemplar or additional isolate&#39;]}] {row[&#39;Virus name(s)&#39;]} (Genebank: {row[&#39;Virus GENBANK accession&#39;]}&quot;, axis=1)
+  vmr.rename(columns={&#39;Exemplar or additional isolate&#39;: &#39;Exemplar&#39;}, inplace=True)
 </pre></div>
 </div>
 </div>
