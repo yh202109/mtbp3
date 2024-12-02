@@ -109,13 +109,12 @@ class ictvvmr:
             index1 = vmr.columns.get_loc('Species')
             index2 = vmr.columns.get_loc('Genome')
             vmr.iloc[:, index1] = vmr.apply(lambda row: f"{row[index1]} ({row[index2]})" if pd.notna(row[index1]) and pd.notna(row[index2]) else row[index1], axis=1)
-        if 'Exemplar or additional isolate' in vmr.columns:
-            vmr.rename(columns={'Exemplar or additional isolate': 'Exemplar'}, inplace=True)
-        if 'Virus name(s)' in vmr.columns and 'Virus isolate designation' in vmr.columns and 'Virus GENBANK accession' in vmr.columns and 'Exemplar' in vmr.columns:
+        vmr['Exemplar or additional isolate'] = vmr['Exemplar or additional isolate'].apply(lambda x: x.replace('/', '\\/') if isinstance(x, str) else x)
+        if 'Virus name(s)' in vmr.columns and 'Virus isolate designation' in vmr.columns and 'Virus GENBANK accession' in vmr.columns and 'Exemplar or additional isolate' in vmr.columns:
             index1 = vmr.columns.get_loc('Virus name(s)')
             index2 = vmr.columns.get_loc('Virus isolate designation')
             index3 = vmr.columns.get_loc('Virus GENBANK accession')
-            index4 = vmr.columns.get_loc('Exemplar')
+            index4 = vmr.columns.get_loc('Exemplar or additional isolate')
             vmr.iloc[:, index4] = vmr.apply(lambda row: f"[{row[index4]}] {row[index1]} ({row[index2]}) (Genebank: {row[index3]})" if pd.notna(row[index1]) and pd.notna(row[index2]) and pd.notna(row[index3]) else f"[{row[index4]}] {row[index1]} (Genebank: {row[index3]})", axis=1)
 
         if method == "full":
