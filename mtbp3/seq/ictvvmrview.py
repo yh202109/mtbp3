@@ -111,14 +111,14 @@ class ictvvmr:
             vmr.iloc[:, index1] = vmr.apply(lambda row: f"{row[index1]} ({row[index2]})" if pd.notna(row[index1]) and pd.notna(row[index2]) else row[index1], axis=1)
         if 'Virus name(s)' in vmr.columns:
             index1 = vmr.columns.get_loc('Virus name(s)')
-            vmr.iloc[:, index1] = vmr.iloc[:, index1].str.replace(r'\/', '\\\/', regex=False)
+            vmr.iloc[:, index1] = vmr.iloc[:, index1].str.replace(r'/', '\/', regex=False)
         if 'Virus GENBANK accession' in vmr.columns and 'Genome coverage' in vmr.columns:
             index2 = vmr.columns.get_loc('Virus isolate designation')
             index5 = vmr.columns.get_loc('Genome coverage')
             vmr.iloc[:, index2] = vmr.apply(lambda row: row[index5] if pd.isna(row[index2]) else row[index2], axis=1)
         if 'Virus isolate designation' in vmr.columns:
             index2 = vmr.columns.get_loc('Virus isolate designation')
-            vmr.iloc[:, index2] = vmr.iloc[:, index2].str.replace(r'\/', '\\\/', regex=False)
+            vmr.iloc[:, index2] = vmr.iloc[:, index2].str.replace(r'/', '\/', regex=False)
         if 'Virus name(s)' in vmr.columns and 'Virus isolate designation' in vmr.columns and 'Virus GENBANK accession' in vmr.columns and 'Exemplar or additional isolate' in vmr.columns:
             index1 = vmr.columns.get_loc('Virus name(s)')
             index2 = vmr.columns.get_loc('Virus isolate designation')
