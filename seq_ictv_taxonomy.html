@@ -474,6 +474,9 @@ To search for virus within the Retroviridae famiy that can infect feline:</p>
                                                         └── [Species] <span class=" -Color -Color-Red">Lentivirus felimdef</span>
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -530,7 +533,7 @@ Similarily, use <code class="docutils literal notranslate"><span class="pre">vmr
 <p>To search for genus “lentivirus”:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">vmr</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_strings</span><span class="o">=</span><span class="s2">&quot;lentivirus&quot;</span><span class="p">,</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Genus&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">True</span><span class="p">)))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">vmr</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_strings</span><span class="o">=</span><span class="s2">&quot;lentivirus&quot;</span><span class="p">,</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Genus&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tree_style</span><span class="o">=</span><span class="s2">&quot;drop&quot;</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -540,28 +543,32 @@ Similarily, use <code class="docutils literal notranslate"><span class="pre">vmr
         └── [Phylum] Artverviricota:
             └── [Class] Revtraviricetes:
                 └── [Order] Ortervirales:
-                    └── [Family] Retroviridae; [Subfamily] Orthoretrovirinae:
-                        └── [Genus] <span class=" -Color -Color-Red">Lentivirus</span>:
-                            ├── [Species] Lentivirus bovimdef (ssRNA-RT):
-                            │   └── [Exemplar or additional isolate] [E] bovine immunodeficiency virus (HXB3) (Genebank: M32690)
-                            ├── [Species] Lentivirus bovjem (ssRNA-RT):
-                            │           87) (Genebank: U21603)
-                            ├── [Species] Lentivirus capartenc (ssRNA-RT):
-                            │   └── [Exemplar or additional isolate] [E] caprine arthritis encephalitis virus (Clements) (Genebank: M33677)
-                            ├── [Species] Lentivirus equinfane (ssRNA-RT):
-                            │   └── [Exemplar or additional isolate] [E] equine infectious anemia virus (Genebank: U01866
-                            ├── [Species] Lentivirus felimdef (ssRNA-RT):
-                            │   └── [Exemplar or additional isolate] [E] feline immunodeficiency virus (Petaluma) (Genebank: M25381)
-                            ├── [Species] Lentivirus humimdef1 (ssRNA-RT):
-                            │   └── [Exemplar or additional isolate] [E] human immunodeficiency virus 1 (Genebank: AF033819
-                            ├── [Species] Lentivirus humimdef2 (ssRNA-RT):
-                            │   └── [Exemplar or additional isolate] [E] human immunodeficiency virus 2 (BEN) (Genebank: M30502)
-                            ├── [Species] Lentivirus ovivismae (ssRNA-RT):
-                            │           maedi virus (kv1772) (Genebank: L06906)
-                            ├── [Species] Lentivirus pum (ssRNA-RT):
-                            │   └── [Exemplar or additional isolate] [E] puma lentivirus (14) (Genebank: U03982)
-                            └── [Species] Lentivirus simimdef (ssRNA-RT):
-                                └── [Exemplar or additional isolate] [E] simian immunodeficiency virus (Genebank: M58410
+                    └── [Family] Retroviridae:
+                        └── [Subfamily] Orthoretrovirinae:
+                            └── [Genus] <span class=" -Color -Color-Red">Lentivirus</span>:
+                                ├── [Species] Lentivirus bovimdef (ssRNA-RT):
+                                │   └── [Exemplar or additional isolate] [E] bovine immunodeficiency virus (HXB3) (Genebank: M32690)
+                                ├── [Species] Lentivirus bovjem (ssRNA-RT):
+                                │           87) (Genebank: U21603)
+                                ├── [Species] Lentivirus capartenc (ssRNA-RT):
+                                │   └── [Exemplar or additional isolate] [E] caprine arthritis encephalitis virus (Clements) (Genebank: M33677)
+                                ├── [Species] Lentivirus equinfane (ssRNA-RT):
+                                │   └── [Exemplar or additional isolate] [E] equine infectious anemia virus (Genebank: U01866
+                                ├── [Species] Lentivirus felimdef (ssRNA-RT):
+                                │   └── [Exemplar or additional isolate] [E] feline immunodeficiency virus (Petaluma) (Genebank: M25381)
+                                ├── [Species] Lentivirus humimdef1 (ssRNA-RT):
+                                │   └── [Exemplar or additional isolate] [E] human immunodeficiency virus 1 (Genebank: AF033819
+                                ├── [Species] Lentivirus humimdef2 (ssRNA-RT):
+                                │   └── [Exemplar or additional isolate] [E] human immunodeficiency virus 2 (BEN) (Genebank: M30502)
+                                ├── [Species] Lentivirus ovivismae (ssRNA-RT):
+                                │           maedi virus (kv1772) (Genebank: L06906)
+                                ├── [Species] Lentivirus pum (ssRNA-RT):
+                                │   └── [Exemplar or additional isolate] [E] puma lentivirus (14) (Genebank: U03982)
+                                └── [Species] Lentivirus simimdef (ssRNA-RT):
+                                    └── [Exemplar or additional isolate] [E] simian immunodeficiency virus (Genebank: M58410
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvvmrview.py:109: SettingWithCopyWarning: 
