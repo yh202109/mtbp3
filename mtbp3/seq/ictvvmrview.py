@@ -26,28 +26,28 @@ class ictvvmr:
     A class to handle ICTV Virus Metadata Resource (VMR) data.
 
     Attributes:
-        msl_file_path : str
+        vmr_file_path : str
             Path to the VMR file.
-        msl_file_fullpath : str
+        vmr_file_fullpath : str
             Full path to the VMR file.
-        msl_version : str
+        vmr_version : str
             Version of the VMR.
-        msl_column_names : list
+        vmr_column_names : list
             List of column names in the VMR.
-        msl : DataFrame
+        vmr : DataFrame
             The VMR data loaded into a pandas DataFrame.
 
     Methods:
         update_vmr(self, version="current")
             Updates the VMR data by downloading the specified version from the ICTV website.
         make_narrow(vmr)
-            Converts the MSL DataFrame to a narrower format by combining certain columns.
+            Converts the VMR DataFrame to a narrower format by combining certain columns.
         find_rows_given_str(self, search_str="", search_rank="Species", color="", narrow=False, outfmt="simple", exact=False, search_within_subset=None)
             Finds rows in the VMR DataFrame that contain the given search string.
     """
 
     def __init__(self, vmr_file_path = ""):
-        if not isinstance(msl_file_path, str):
+        if not isinstance(vmr_file_path, str):
             raise TypeError("vmr_file_path must be a string")
 
         if vmr_file_path:
@@ -97,7 +97,7 @@ class ictvvmr:
             self.vmr_column_names = self.vmr.columns.tolist()
             print(f"File of {version} version has been loaded")
             print("Column names:", self.vmr_column_names)
-            print("Total number of rows:", len(self.vmr))
+            print("Total number of rows:", len(self.vmr))/matc
             self.vmr_version = version
         else:
             raise Exception(f"Failed to download file from {url}. Status code: {response.status_code}")
@@ -167,8 +167,8 @@ class ictvvmr:
             raise ValueError("search_strings must be a nonempty list or a nonempty string")
         if isinstance(search_strings, str):
             search_strings = [search_strings]
-        if search_rank and search_rank != "all" and search_rank not in self.msl_column_names:
-            raise ValueError(f"search_rank must be 'all' or one of the following: {', '.join(self.msl_column_names)}")
+        if search_rank and search_rank != "all" and search_rank not in self.vmr_column_names:
+            raise ValueError(f"search_rank must be 'all' or one of the following: {', '.join(self.vmr_column_names)}")
         if outfmt not in ["simple", "tree"]:
             raise ValueError("outfmt must be 'simple' or 'tree'")
         if search_within_subset is not None and not isinstance(search_within_subset, dict):
