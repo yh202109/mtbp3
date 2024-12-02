@@ -421,6 +421,9 @@ To search for virus within the Retroviridae famiy that can infect feline:</p>
                             └── [Species] <span class=" -Color -Color-Red">Lentivirus felimdef</span>
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 <p>There are two more types of tree available, including a tree with nonempty ranks:</p>
@@ -535,37 +538,111 @@ Similarily, use <code class="docutils literal notranslate"><span class="pre">vmr
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    [Realm] Riboviria:
-    └── [Kingdom] Pararnavirae:
-        └── [Phylum] Artverviricota:
-            └── [Class] Revtraviricetes:
-                └── [Order] Ortervirales:
-                    └── [Family] Retroviridae:
-                        └── [Subfamily] Orthoretrovirinae:
-                            └── [Genus] <span class=" -Color -Color-Red">Lentivirus</span>:
-                                ├── [Species] Lentivirus bovimdef (ssRNA-RT):
-                                │   └── [E] bovine immunodeficiency virus (HXB3) (Genebank: M32690)
-                                ├── [Species] Lentivirus bovjem (ssRNA-RT):
-                                │           87) (Genebank: U21603)
-                                ├── [Species] Lentivirus capartenc (ssRNA-RT):
-                                │   └── [E] caprine arthritis encephalitis virus (Clements) (Genebank: M33677)
-                                ├── [Species] Lentivirus equinfane (ssRNA-RT):
-                                │   └── [E] equine infectious anemia virus (Genebank: U01866)
-                                ├── [Species] Lentivirus felimdef (ssRNA-RT):
-                                │   └── [E] feline immunodeficiency virus (Petaluma) (Genebank: M25381)
-                                ├── [Species] Lentivirus humimdef1 (ssRNA-RT):
-                                │   └── [E] human immunodeficiency virus 1 (Genebank: AF033819)
-                                ├── [Species] Lentivirus humimdef2 (ssRNA-RT):
-                                │   └── [E] human immunodeficiency virus 2 (BEN) (Genebank: M30502)
-                                ├── [Species] Lentivirus ovivismae (ssRNA-RT):
-                                │           maedi virus (kv1772) (Genebank: L06906)
-                                ├── [Species] Lentivirus pum (ssRNA-RT):
-                                │   └── [E] puma lentivirus (14) (Genebank: U03982)
-                                └── [Species] Lentivirus simimdef (ssRNA-RT):
-                                    └── [E] simian immunodeficiency virus (Genebank: M58410)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/indexes/base.py:3805,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3804</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3805</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3806</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+
+<span class="nn">File index.pyx:167,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">File index.pyx:196,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">File pandas/_libs/hashtable_class_helper.pxi:2606,</span> in <span class="ni">pandas._libs.hashtable.Int64HashTable.get_item</span><span class="nt">()</span>
+
+<span class="nn">File pandas/_libs/hashtable_class_helper.pxi:2630,</span> in <span class="ni">pandas._libs.hashtable.Int64HashTable.get_item</span><span class="nt">()</span>
+
+<span class="ne">KeyError</span>: 19
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">vmr</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_strings</span><span class="o">=</span><span class="s2">&quot;lentivirus&quot;</span><span class="p">,</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Genus&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tree_style</span><span class="o">=</span><span class="s2">&quot;drop&quot;</span><span class="p">)))</span>
+
+<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/seq/ictvvmrview.py:218,</span> in <span class="ni">ictvvmr.find_rows_given_str</span><span class="nt">(self, search_strings, search_rank, color, narrow, outfmt, exact, search_within_subset, tree_style)</span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span>     <span class="k">return</span> <span class="n">filtered_df</span>
+<span class="g g-Whitespace">    </span><span class="mi">217</span> <span class="k">elif</span> <span class="n">outfmt</span> <span class="o">==</span> <span class="s2">&quot;tree&quot;</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">218</span>     <span class="n">filtered_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_narrow</span><span class="p">(</span><span class="n">filtered_df</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">tree_style</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">219</span>     <span class="n">filtered_df</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;NA&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span>     <span class="n">filtered_df</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">:]</span>
+
+<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/seq/ictvvmrview.py:115,</span> in <span class="ni">ictvvmr.make_narrow</span><span class="nt">(vmr, method)</span>
+<span class="g g-Whitespace">    </span><span class="mi">113</span>     <span class="n">index1</span> <span class="o">=</span> <span class="n">vmr</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s1">&#39;Virus name(s)&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">114</span>     <span class="n">index2</span> <span class="o">=</span> <span class="n">vmr</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s1">&#39;Virus isolate designation&#39;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">115</span>     <span class="n">vmr</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="n">index1</span><span class="p">]</span> <span class="o">=</span> <span class="n">vmr</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="n">index1</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;\/&#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">index1</span><span class="p">],</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">row</span><span class="p">[</span><span class="n">index1</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">116</span>     <span class="n">vmr</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="n">index2</span><span class="p">]</span> <span class="o">=</span> <span class="n">vmr</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="n">index2</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;\/&#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">index2</span><span class="p">],</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">row</span><span class="p">[</span><span class="n">index2</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">117</span> <span class="k">if</span> <span class="s1">&#39;Virus name(s)&#39;</span> <span class="ow">in</span> <span class="n">vmr</span><span class="o">.</span><span class="n">columns</span> <span class="ow">and</span> <span class="s1">&#39;Virus isolate designation&#39;</span> <span class="ow">in</span> <span class="n">vmr</span><span class="o">.</span><span class="n">columns</span> <span class="ow">and</span> <span class="s1">&#39;Virus GENBANK accession&#39;</span> <span class="ow">in</span> <span class="n">vmr</span><span class="o">.</span><span class="n">columns</span> <span class="ow">and</span> <span class="s1">&#39;Exemplar or additional isolate&#39;</span> <span class="ow">in</span> <span class="n">vmr</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/frame.py:10374,</span> in <span class="ni">DataFrame.apply</span><span class="nt">(self, func, axis, raw, result_type, args, by_row, engine, engine_kwargs, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">10360</span> <span class="kn">from</span> <span class="nn">pandas.core.apply</span> <span class="kn">import</span> <span class="n">frame_apply</span>
+<span class="g g-Whitespace">  </span><span class="mi">10362</span> <span class="n">op</span> <span class="o">=</span> <span class="n">frame_apply</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">10363</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">10364</span>     <span class="n">func</span><span class="o">=</span><span class="n">func</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">10372</span>     <span class="n">kwargs</span><span class="o">=</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">10373</span> <span class="p">)</span>
+<span class="ne">&gt; </span><span class="mi">10374</span> <span class="k">return</span> <span class="n">op</span><span class="o">.</span><span class="n">apply</span><span class="p">()</span><span class="o">.</span><span class="n">__finalize__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;apply&quot;</span><span class="p">)</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/apply.py:916,</span> in <span class="ni">FrameApply.apply</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">913</span> <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">914</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_raw</span><span class="p">(</span><span class="n">engine</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">,</span> <span class="n">engine_kwargs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">engine_kwargs</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">916</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_standard</span><span class="p">()</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/apply.py:1063,</span> in <span class="ni">FrameApply.apply_standard</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1061</span> <span class="k">def</span> <span class="nf">apply_standard</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1062</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;python&quot;</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1063</span>         <span class="n">results</span><span class="p">,</span> <span class="n">res_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_series_generator</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1064</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1065</span>         <span class="n">results</span><span class="p">,</span> <span class="n">res_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_series_numba</span><span class="p">()</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/apply.py:1081,</span> in <span class="ni">FrameApply.apply_series_generator</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1078</span> <span class="k">with</span> <span class="n">option_context</span><span class="p">(</span><span class="s2">&quot;mode.chained_assignment&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1079</span>     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">series_gen</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1080</span>         <span class="c1"># ignore SettingWithCopy here in case the user mutates</span>
+<span class="ne">-&gt; </span><span class="mi">1081</span>         <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1082</span>         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ABCSeries</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1083</span>             <span class="c1"># If we have a view on v, we need to make a copy because</span>
+<span class="g g-Whitespace">   </span><span class="mi">1084</span>             <span class="c1">#  series_generator will swap out the underlying data</span>
+<span class="g g-Whitespace">   </span><span class="mi">1085</span>             <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/seq/ictvvmrview.py:115,</span> in <span class="ni">ictvvmr.make_narrow.&lt;locals&gt;.&lt;lambda&gt;</span><span class="nt">(row)</span>
+<span class="g g-Whitespace">    </span><span class="mi">113</span>     <span class="n">index1</span> <span class="o">=</span> <span class="n">vmr</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s1">&#39;Virus name(s)&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">114</span>     <span class="n">index2</span> <span class="o">=</span> <span class="n">vmr</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s1">&#39;Virus isolate designation&#39;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">115</span>     <span class="n">vmr</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="n">index1</span><span class="p">]</span> <span class="o">=</span> <span class="n">vmr</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="n">index1</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;\/&#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">index1</span><span class="p">],</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">row</span><span class="p">[</span><span class="n">index1</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">116</span>     <span class="n">vmr</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="n">index2</span><span class="p">]</span> <span class="o">=</span> <span class="n">vmr</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="n">index2</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;\/&#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">index2</span><span class="p">],</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">row</span><span class="p">[</span><span class="n">index2</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">117</span> <span class="k">if</span> <span class="s1">&#39;Virus name(s)&#39;</span> <span class="ow">in</span> <span class="n">vmr</span><span class="o">.</span><span class="n">columns</span> <span class="ow">and</span> <span class="s1">&#39;Virus isolate designation&#39;</span> <span class="ow">in</span> <span class="n">vmr</span><span class="o">.</span><span class="n">columns</span> <span class="ow">and</span> <span class="s1">&#39;Virus GENBANK accession&#39;</span> <span class="ow">in</span> <span class="n">vmr</span><span class="o">.</span><span class="n">columns</span> <span class="ow">and</span> <span class="s1">&#39;Exemplar or additional isolate&#39;</span> <span class="ow">in</span> <span class="n">vmr</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/series.py:1121,</span> in <span class="ni">Series.__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1118</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_values</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1120</span> <span class="k">elif</span> <span class="n">key_is_scalar</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1121</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_value</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1123</span> <span class="c1"># Convert generator to list before going through hashable part</span>
+<span class="g g-Whitespace">   </span><span class="mi">1124</span> <span class="c1"># (We will iterate through the generator there to check for slices)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1125</span> <span class="k">if</span> <span class="n">is_iterator</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/series.py:1237,</span> in <span class="ni">Series._get_value</span><span class="nt">(self, label, takeable)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1234</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_values</span><span class="p">[</span><span class="n">label</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1236</span> <span class="c1"># Similar to Index.get_value, but we do not fall back to positional</span>
+<span class="ne">-&gt; </span><span class="mi">1237</span> <span class="n">loc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1239</span> <span class="k">if</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">loc</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1240</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_values</span><span class="p">[</span><span class="n">loc</span><span class="p">]</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/mtbp3-STzYEG9e-py3.10/lib/python3.10/site-packages/pandas/core/indexes/base.py:3812,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3807</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">casted_key</span><span class="p">,</span> <span class="nb">slice</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">3808</span>         <span class="nb">isinstance</span><span class="p">(</span><span class="n">casted_key</span><span class="p">,</span> <span class="n">abc</span><span class="o">.</span><span class="n">Iterable</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3809</span>         <span class="ow">and</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">slice</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3810</span>     <span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">3811</span>         <span class="k">raise</span> <span class="n">InvalidIndexError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">3812</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
+<span class="g g-Whitespace">   </span><span class="mi">3813</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3814</span>     <span class="c1"># If we have a listlike key, _check_indexing_error will raise</span>
+<span class="g g-Whitespace">   </span><span class="mi">3815</span>     <span class="c1">#  InvalidIndexError. Otherwise we fall through and re-raise</span>
+<span class="g g-Whitespace">   </span><span class="mi">3816</span>     <span class="c1">#  the TypeError.</span>
+<span class="g g-Whitespace">   </span><span class="mi">3817</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_check_indexing_error</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+<span class="ne">KeyError</span>: 19
 </pre></div>
 </div>
 </div>
