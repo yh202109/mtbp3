@@ -22,7 +22,7 @@
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="mtbp3.stdcdisc" href="../../stdcdisc/index.html" />
+    <link rel="next" title="mtbp3.seq.ictvvmrview" href="../ictvvmrview/index.html" />
     <link rel="prev" title="mtbp3.seq" href="../index.html" /> 
 </head>
 
@@ -60,7 +60,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../std_hl7fhir_us_pqcmc.html">S/HL7/FHIR-R5/US/PQ-CMC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../std_iso_pdf.html">S/ISO/PDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../std_iso_idmp.html">S/ISO/IDMP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../seq_ictv_taxonomy.html">Seq/ICTV/MSL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../seq_ictv_taxonomy.html">Seq/ICTV/MSL and VMR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../conduct.html">Code of Conduct</a></li>
@@ -128,56 +128,78 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="mtbp3.seq.ictvmslview.ictvmsl">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mtbp3.seq.ictvmslview.</span></span><span class="sig-name descname"><span class="pre">ictvmsl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msl_file_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/seq/ictvmslview.html#ictvmsl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.seq.ictvmslview.ictvmsl" title="Link to this definition"></a></dt>
-<dd><p>A class to handle ICTV Master Species List (MSL) data.
-Attributes:
-———–
-msl_file_path : str</p>
-<blockquote>
-<div><p>Path to the MSL file.</p>
-</div></blockquote>
-<dl class="simple">
-<dt>msl_file_fullpath<span class="classifier">str</span></dt><dd><p>Full path to the MSL file.</p>
-</dd>
-<dt>msl_version<span class="classifier">str</span></dt><dd><p>Version of the MSL.</p>
-</dd>
-<dt>msl_column_names<span class="classifier">list</span></dt><dd><p>List of column names in the MSL.</p>
-</dd>
-<dt>msl<span class="classifier">DataFrame</span></dt><dd><p>The MSL data loaded into a pandas DataFrame.</p>
-</dd>
-</dl>
-<section id="methods">
-<h3>Methods:<a class="headerlink" href="#methods" title="Link to this heading"></a></h3>
-<dl class="simple">
-<dt>update_msl(self, version=”current”)</dt><dd><p>Updates the MSL data by downloading the specified version from the ICTV website.</p>
-</dd>
-<dt>make_narrow(msl)</dt><dd><p>Converts the MSL DataFrame to a narrower format by combining certain columns.</p>
-</dd>
-<dt>find_rows_given_str(self, search_str=””, search_rank=”Species”, color=””, narrow=False, outfmt=”simple”, exact=False, search_within_subset=None)</dt><dd><p>Finds rows in the MSL DataFrame that contain the given search string.</p>
-</dd>
-</dl>
+<dd><p>A class to handle ICTV Master Species List (MSL) data.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mtbp3.seq.ictvmslview.ictvmsl.msl_file_path">
+<span class="sig-name descname"><span class="pre">msl_file_path</span></span><a class="headerlink" href="#mtbp3.seq.ictvmslview.ictvmsl.msl_file_path" title="Link to this definition"></a></dt>
+<dd><p>str
+Path to the MSL file.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mtbp3.seq.ictvmslview.ictvmsl.msl_file_fullpath">
+<span class="sig-name descname"><span class="pre">msl_file_fullpath</span></span><a class="headerlink" href="#mtbp3.seq.ictvmslview.ictvmsl.msl_file_fullpath" title="Link to this definition"></a></dt>
+<dd><p>str
+Full path to the MSL file.</p>
+</dd></dl>
+
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mtbp3.seq.ictvmslview.ictvmsl.msl_version">
-<span class="sig-name descname"><span class="pre">msl_version</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#mtbp3.seq.ictvmslview.ictvmsl.msl_version" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">msl_version</span></span><a class="headerlink" href="#mtbp3.seq.ictvmslview.ictvmsl.msl_version" title="Link to this definition"></a></dt>
+<dd><p>str
+Version of the MSL.</p>
+</dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mtbp3.seq.ictvmslview.ictvmsl.msl_column_names">
-<span class="sig-name descname"><span class="pre">msl_column_names</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#mtbp3.seq.ictvmslview.ictvmsl.msl_column_names" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">msl_column_names</span></span><a class="headerlink" href="#mtbp3.seq.ictvmslview.ictvmsl.msl_column_names" title="Link to this definition"></a></dt>
+<dd><p>list
+List of column names in the MSL.</p>
+</dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mtbp3.seq.ictvmslview.ictvmsl.msl">
 <span class="sig-name descname"><span class="pre">msl</span></span><a class="headerlink" href="#mtbp3.seq.ictvmslview.ictvmsl.msl" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>DataFrame
+The MSL data loaded into a pandas DataFrame.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mtbp3.seq.ictvmslview.ictvmsl.update_msl">
-<span class="sig-name descname"><span class="pre">update_msl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'current'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/seq/ictvmslview.html#ictvmsl.update_msl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.seq.ictvmslview.ictvmsl.update_msl" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">update_msl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'current'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/seq/ictvmslview.html#ictvmsl.update_msl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.seq.ictvmslview.ictvmsl.update_msl" title="Link to this definition"></a></dt>
+<dd><p>Updates the MSL data by downloading the specified version from the ICTV website.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mtbp3.seq.ictvmslview.ictvmsl.make_narrow">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">make_narrow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'concatenation'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/seq/ictvmslview.html#ictvmsl.make_narrow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.seq.ictvmslview.ictvmsl.make_narrow" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">make_narrow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msl</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/seq/ictvmslview.html#ictvmsl.make_narrow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.seq.ictvmslview.ictvmsl.make_narrow" title="Link to this definition"></a></dt>
+<dd><p>Converts the MSL DataFrame to a narrower format by combining certain columns.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mtbp3.seq.ictvmslview.ictvmsl.find_rows_given_str">
+<span class="sig-name descname"><span class="pre">find_rows_given_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_rank</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Species'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">narrow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'simple'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exact</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_within_subset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/seq/ictvmslview.html#ictvmsl.find_rows_given_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.seq.ictvmslview.ictvmsl.find_rows_given_str" title="Link to this definition"></a></dt>
+<dd><p>Finds rows in the MSL DataFrame that contain the given search string.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">msl_column_names</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">msl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#id1" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">update_msl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'current'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/seq/ictvmslview.html#ictvmsl.update_msl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id2" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id3">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">make_narrow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'concatenation'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/seq/ictvmslview.html#ictvmsl.make_narrow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id3" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -186,25 +208,37 @@ msl_file_path : str</p>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="mtbp3.seq.ictvmslview.ictvmsl.find_rows_given_str">
-<span class="sig-name descname"><span class="pre">find_rows_given_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_strings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_rank</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Species'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">narrow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'simple'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exact</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_within_subset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tree_style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'concatenation'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/seq/ictvmslview.html#ictvmsl.find_rows_given_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.seq.ictvmslview.ictvmsl.find_rows_given_str" title="Link to this definition"></a></dt>
-<dd><p>Find rows in the MSL dataframe that match a given search string.
-Parameters:
-search_str (str): The string to search for. Must be a nonempty string.
-search_rank (str): The rank to search within (e.g., “Species”). Must be ‘all’ or one of the column names in the MSL dataframe.
-color (str): The color to highlight the search string in the results.
-narrow (bool): Whether to narrow the results to a specific format.
-outfmt (str): The output format. Must be ‘simple’ or ‘tree’.
-exact (bool): Whether to search for an exact match.
-search_within_subset (dict): A dictionary specifying a subset of the MSL dataframe to search within.
-Returns:
-pandas.DataFrame or str: The filtered dataframe if outfmt is ‘simple’, or a tree representation of the results if outfmt is ‘tree’.
-Raises:
-TypeError: If search_str is not a string or if search_within_subset is not a dictionary or None.
-ValueError: If search_str is empty, if search_rank is invalid, or if outfmt is invalid.</p>
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">find_rows_given_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_strings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_rank</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Species'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">narrow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'simple'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exact</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_within_subset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tree_style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'concatenation'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/seq/ictvmslview.html#ictvmsl.find_rows_given_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id4" title="Link to this definition"></a></dt>
+<dd><p>Find rows in the dataset that match the given search strings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>search_strings</strong> (<em>list</em><em> or </em><em>str</em>) – A list of strings or a single string to search for in the dataset.</p></li>
+<li><p><strong>search_rank</strong> (<em>str</em>) – The rank to search within (default is “Species”). Can be “all” or one of the column names in the dataset.</p></li>
+<li><p><strong>color</strong> (<em>str</em>) – Color to highlight the search strings in the results (default is “”).</p></li>
+<li><p><strong>narrow</strong> (<em>bool</em>) – Whether to narrow the results (default is False).</p></li>
+<li><p><strong>outfmt</strong> (<em>str</em>) – The output format, either “simple” or “tree” (default is “simple”).</p></li>
+<li><p><strong>exact</strong> (<em>bool</em>) – Whether to match the search strings exactly (default is False).</p></li>
+<li><p><strong>search_within_subset</strong> (<em>dict</em>) – A dictionary specifying a subset of the dataset to search within (default is None).</p></li>
+<li><p><strong>tree_style</strong> (<em>str</em>) – The style of the tree output if outfmt is “tree” (default is “concatenation”).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The filtered dataset in the specified format. If outfmt is “simple”, returns a DataFrame. If outfmt is “tree”, returns a string representing the tree structure.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame or str</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>TypeError</strong> – If search_strings is not a list or a string, or if search_within_subset is not a dictionary or None.</p></li>
+<li><p><strong>ValueError</strong> – If search_strings is empty, or if search_rank is not “all” and not in the column names, or if outfmt is not “simple” or “tree”.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
-</section>
 </dd></dl>
 
 </section>
@@ -215,7 +249,7 @@ ValueError: If search_str is empty, if search_rank is invalid, or if outfmt is i
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../index.html" class="btn btn-neutral float-left" title="mtbp3.seq" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../../stdcdisc/index.html" class="btn btn-neutral float-right" title="mtbp3.stdcdisc" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../ictvvmrview/index.html" class="btn btn-neutral float-right" title="mtbp3.seq.ictvvmrview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

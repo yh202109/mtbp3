@@ -1,7 +1,7 @@
-mtbp3.seq.ictvmslview
+mtbp3.seq.ictvvmrview
 =====================
 
-.. py:module:: mtbp3.seq.ictvmslview
+.. py:module:: mtbp3.seq.ictvvmrview
 
 
 Classes
@@ -9,47 +9,47 @@ Classes
 
 .. autoapisummary::
 
-   mtbp3.seq.ictvmslview.ictvmsl
+   mtbp3.seq.ictvvmrview.ictvvmr
 
 
 Module Contents
 ---------------
 
-.. py:class:: ictvmsl(msl_file_path='')
+.. py:class:: ictvvmr(vmr_file_path='')
 
-   A class to handle ICTV Master Species List (MSL) data.
+   A class to handle ICTV Virus Metadata Resource (VMR) data.
 
    .. attribute:: msl_file_path
 
       str
-      Path to the MSL file.
+      Path to the VMR file.
 
    .. attribute:: msl_file_fullpath
 
       str
-      Full path to the MSL file.
+      Full path to the VMR file.
 
    .. attribute:: msl_version
 
       str
-      Version of the MSL.
+      Version of the VMR.
 
    .. attribute:: msl_column_names
 
       list
-      List of column names in the MSL.
+      List of column names in the VMR.
 
    .. attribute:: msl
 
       DataFrame
-      The MSL data loaded into a pandas DataFrame.
+      The VMR data loaded into a pandas DataFrame.
 
-   .. method:: update_msl(self, version="current")
+   .. method:: update_vmr(self, version="current")
 
       
-      Updates the MSL data by downloading the specified version from the ICTV website.
+      Updates the VMR data by downloading the specified version from the ICTV website.
 
-   .. method:: make_narrow(msl)
+   .. method:: make_narrow(vmr)
 
       
       Converts the MSL DataFrame to a narrower format by combining certain columns.
@@ -57,24 +57,24 @@ Module Contents
    .. method:: find_rows_given_str(self, search_str="", search_rank="Species", color="", narrow=False, outfmt="simple", exact=False, search_within_subset=None)
 
       
-      Finds rows in the MSL DataFrame that contain the given search string.
+      Finds rows in the VMR DataFrame that contain the given search string.
       
 
 
-   .. py:attribute:: msl_column_names
+   .. py:attribute:: vmr_column_names
       :value: []
 
 
 
-   .. py:attribute:: msl
+   .. py:attribute:: vmr
       :value: None
 
 
 
-   .. py:method:: update_msl(version='current')
+   .. py:method:: update_vmr(version='current')
 
 
-   .. py:method:: make_narrow(msl, method='concatenation')
+   .. py:method:: make_narrow(vmr, method='concatenation')
       :staticmethod:
 
 

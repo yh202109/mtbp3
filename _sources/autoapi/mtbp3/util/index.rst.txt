@@ -51,15 +51,23 @@ Package Contents
 .. py:class:: LsrTree(path='', outfmt='list', with_counts=False, count_str='', with_file_label=False, label_str='')
 
    .. py:attribute:: path
+      :value: ''
+
 
 
    .. py:attribute:: outfmt
+      :value: 'list'
+
 
 
    .. py:attribute:: with_counts
+      :value: False
+
 
 
    .. py:attribute:: count_str
+      :value: ''
+
 
 
    .. py:method:: list_files()
@@ -210,12 +218,18 @@ Package Contents
 .. py:class:: ListTree(lst=[], label=[], infmt='path')
 
    .. py:attribute:: lst
+      :value: []
+
 
 
    .. py:attribute:: label
+      :value: []
+
 
 
    .. py:attribute:: infmt
+      :value: 'path'
+
 
 
    .. py:attribute:: df
@@ -277,45 +291,71 @@ Package Contents
 
 
    .. py:attribute:: grid_col
+      :value: None
+
 
 
    .. py:attribute:: point_position
+      :value: 'swarm'
+
 
 
    .. py:attribute:: grid_wrap
+      :value: None
+
 
 
    .. py:attribute:: group_col
+      :value: None
+
 
 
    .. py:attribute:: y_col
 
 
    .. py:attribute:: x_col
+      :value: None
+
 
 
    .. py:attribute:: pt_size
+      :value: 5
+
 
 
    .. py:attribute:: x_scale_base
+      :value: 0
+
 
 
    .. py:attribute:: y_scale_base
+      :value: 0
+
 
 
    .. py:attribute:: title
+      :value: ''
+
 
 
    .. py:attribute:: fig_size_0
+      :value: 7
+
 
 
    .. py:attribute:: fig_size_1
+      :value: 6
+
 
 
    .. py:attribute:: x_label_rotate
+      :value: None
+
 
 
    .. py:attribute:: grid_kws
+      :value: None
+
 
 
    .. py:method:: update_parameters(**kwargs)
@@ -360,6 +400,8 @@ Package Contents
 
 
 .. py:data:: _ROOT
+   :value: b'.'
+
 
 .. py:function:: get_data(path)
 

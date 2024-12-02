@@ -60,7 +60,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../std_hl7fhir_us_pqcmc.html">S/HL7/FHIR-R5/US/PQ-CMC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../std_iso_pdf.html">S/ISO/PDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../std_iso_idmp.html">S/ISO/IDMP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../seq_ictv_taxonomy.html">Seq/ICTV/MSL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../seq_ictv_taxonomy.html">Seq/ICTV/MSL and VMR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../conduct.html">Code of Conduct</a></li>
@@ -177,22 +177,22 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mtbp3.util.</span></span><span class="sig-name descname"><span class="pre">LsrTree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'list'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_counts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_file_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/lsr.html#LsrTree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.LsrTree" title="Link to this definition"></a></dt>
 <dd><dl class="py attribute">
 <dt class="sig sig-object py" id="mtbp3.util.LsrTree.path">
-<span class="sig-name descname"><span class="pre">path</span></span><a class="headerlink" href="#mtbp3.util.LsrTree.path" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">path</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#mtbp3.util.LsrTree.path" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mtbp3.util.LsrTree.outfmt">
-<span class="sig-name descname"><span class="pre">outfmt</span></span><a class="headerlink" href="#mtbp3.util.LsrTree.outfmt" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">outfmt</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'list'</span></em><a class="headerlink" href="#mtbp3.util.LsrTree.outfmt" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mtbp3.util.LsrTree.with_counts">
-<span class="sig-name descname"><span class="pre">with_counts</span></span><a class="headerlink" href="#mtbp3.util.LsrTree.with_counts" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">with_counts</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#mtbp3.util.LsrTree.with_counts" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mtbp3.util.LsrTree.count_str">
-<span class="sig-name descname"><span class="pre">count_str</span></span><a class="headerlink" href="#mtbp3.util.LsrTree.count_str" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">count_str</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#mtbp3.util.LsrTree.count_str" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -403,17 +403,17 @@ If there is no difference between the two columns, the string “The two columns
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mtbp3.util.</span></span><span class="sig-name descname"><span class="pre">ListTree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">infmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'path'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mtbp3/util/cdt.html#ListTree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.util.ListTree" title="Link to this definition"></a></dt>
 <dd><dl class="py attribute">
 <dt class="sig sig-object py" id="mtbp3.util.ListTree.lst">
-<span class="sig-name descname"><span class="pre">lst</span></span><a class="headerlink" href="#mtbp3.util.ListTree.lst" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">lst</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#mtbp3.util.ListTree.lst" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mtbp3.util.ListTree.label">
-<span class="sig-name descname"><span class="pre">label</span></span><a class="headerlink" href="#mtbp3.util.ListTree.label" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">label</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#mtbp3.util.ListTree.label" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mtbp3.util.ListTree.infmt">
-<span class="sig-name descname"><span class="pre">infmt</span></span><a class="headerlink" href="#mtbp3.util.ListTree.infmt" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">infmt</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'path'</span></em><a class="headerlink" href="#mtbp3.util.ListTree.infmt" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -484,22 +484,22 @@ If there is no difference between the two columns, the string “The two columns
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mtbp3.util.catPlotter.grid_col">
-<span class="sig-name descname"><span class="pre">grid_col</span></span><a class="headerlink" href="#mtbp3.util.catPlotter.grid_col" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">grid_col</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#mtbp3.util.catPlotter.grid_col" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mtbp3.util.catPlotter.point_position">
-<span class="sig-name descname"><span class="pre">point_position</span></span><a class="headerlink" href="#mtbp3.util.catPlotter.point_position" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">point_position</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'swarm'</span></em><a class="headerlink" href="#mtbp3.util.catPlotter.point_position" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mtbp3.util.catPlotter.grid_wrap">
-<span class="sig-name descname"><span class="pre">grid_wrap</span></span><a class="headerlink" href="#mtbp3.util.catPlotter.grid_wrap" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">grid_wrap</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#mtbp3.util.catPlotter.grid_wrap" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mtbp3.util.catPlotter.group_col">
-<span class="sig-name descname"><span class="pre">group_col</span></span><a class="headerlink" href="#mtbp3.util.catPlotter.group_col" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">group_col</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#mtbp3.util.catPlotter.group_col" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -509,47 +509,47 @@ If there is no difference between the two columns, the string “The two columns
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mtbp3.util.catPlotter.x_col">
-<span class="sig-name descname"><span class="pre">x_col</span></span><a class="headerlink" href="#mtbp3.util.catPlotter.x_col" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">x_col</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#mtbp3.util.catPlotter.x_col" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mtbp3.util.catPlotter.pt_size">
-<span class="sig-name descname"><span class="pre">pt_size</span></span><a class="headerlink" href="#mtbp3.util.catPlotter.pt_size" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">pt_size</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#mtbp3.util.catPlotter.pt_size" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mtbp3.util.catPlotter.x_scale_base">
-<span class="sig-name descname"><span class="pre">x_scale_base</span></span><a class="headerlink" href="#mtbp3.util.catPlotter.x_scale_base" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">x_scale_base</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#mtbp3.util.catPlotter.x_scale_base" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mtbp3.util.catPlotter.y_scale_base">
-<span class="sig-name descname"><span class="pre">y_scale_base</span></span><a class="headerlink" href="#mtbp3.util.catPlotter.y_scale_base" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">y_scale_base</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#mtbp3.util.catPlotter.y_scale_base" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mtbp3.util.catPlotter.title">
-<span class="sig-name descname"><span class="pre">title</span></span><a class="headerlink" href="#mtbp3.util.catPlotter.title" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#mtbp3.util.catPlotter.title" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mtbp3.util.catPlotter.fig_size_0">
-<span class="sig-name descname"><span class="pre">fig_size_0</span></span><a class="headerlink" href="#mtbp3.util.catPlotter.fig_size_0" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">fig_size_0</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">7</span></em><a class="headerlink" href="#mtbp3.util.catPlotter.fig_size_0" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mtbp3.util.catPlotter.fig_size_1">
-<span class="sig-name descname"><span class="pre">fig_size_1</span></span><a class="headerlink" href="#mtbp3.util.catPlotter.fig_size_1" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">fig_size_1</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#mtbp3.util.catPlotter.fig_size_1" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mtbp3.util.catPlotter.x_label_rotate">
-<span class="sig-name descname"><span class="pre">x_label_rotate</span></span><a class="headerlink" href="#mtbp3.util.catPlotter.x_label_rotate" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">x_label_rotate</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#mtbp3.util.catPlotter.x_label_rotate" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mtbp3.util.catPlotter.grid_kws">
-<span class="sig-name descname"><span class="pre">grid_kws</span></span><a class="headerlink" href="#mtbp3.util.catPlotter.grid_kws" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">grid_kws</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#mtbp3.util.catPlotter.grid_kws" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -596,7 +596,7 @@ If there is no difference between the two columns, the string “The two columns
 
 <dl class="py data">
 <dt class="sig sig-object py" id="mtbp3.util._ROOT">
-<span class="sig-prename descclassname"><span class="pre">mtbp3.util.</span></span><span class="sig-name descname"><span class="pre">_ROOT</span></span><a class="headerlink" href="#mtbp3.util._ROOT" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">mtbp3.util.</span></span><span class="sig-name descname"><span class="pre">_ROOT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">b'.'</span></em><a class="headerlink" href="#mtbp3.util._ROOT" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">

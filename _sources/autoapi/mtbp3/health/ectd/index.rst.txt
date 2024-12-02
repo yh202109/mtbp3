@@ -18,9 +18,13 @@ Module Contents
 .. py:class:: ctoc_by_fda(ectd_version='3.2.2', ctoc_version='2.3.3')
 
    .. py:attribute:: ectd_version
+      :value: '3.2.2'
+
 
 
    .. py:attribute:: ctoc_version
+      :value: '2.3.3'
+
 
 
    .. py:attribute:: folder_name

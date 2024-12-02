@@ -114,12 +114,18 @@ Module Contents
 .. py:class:: ListTree(lst=[], label=[], infmt='path')
 
    .. py:attribute:: lst
+      :value: []
+
 
 
    .. py:attribute:: label
+      :value: []
+
 
 
    .. py:attribute:: infmt
+      :value: 'path'
+
 
 
    .. py:attribute:: df

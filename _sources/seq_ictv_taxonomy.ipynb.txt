@@ -4,7 +4,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "# Seq/ICTV/MSL\n",
+    "# Seq/ICTV/MSL and VMR\n",
     "\n",
     "International Committee on Taxonomy of Viruses (ICTV) [^1] maintains a database [^2] of virus taxonomic classification [^3].\n",
     "The Master Species Lists (MSL) [^4] provides \"the official, current virus taxonomy approved by the ICTV\".\n",
@@ -199,7 +199,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "There are more than one viruses in the Retroviridae family that can infect feline.\n",
+    "There are more than one virus species in the Retroviridae family that can infect feline.\n",
     "To search for virus within the Retroviridae famiy that can infect feline:"
    ]
   },
@@ -284,7 +284,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### Update MSL\n",
+    "### Download Updated MSL\n",
     "\n",
     "To download the current release, use `msl.update_msl(version=\"current\")`.\n",
     "That will return output:\n",
@@ -320,12 +320,66 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
+    "## Subtypes within Species\n",
+    "\n",
+    "ICTV MSL focuses on \"taxa at and above the species rank\" [^11].\n",
+    "Classification below the species are often related to species specific characteristics [^12]. \n",
+    "\n",
+    "\n",
+    "## Species Examplar\n",
+    "\n",
+    "ICTV VMR provides one examplar (and may be more additional isolates) for each species in VMR, with Genebak accession number and direct link to NCBI database.\n",
+    "\n",
+    "To load a VRM table extracted from VRM download file:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "vscode": {
+     "languageId": "plaintext"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "from mtbp3.seq import ictvvmrview\n",
+    "vmr = ictvvmrview.ictvvmr(vmr_file_path = \"\")\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "When the path is empty, an example file will be used for illustration. \n",
+    "Similarily, use `vmr.update_vmr(version=\"current\")`. to download the current version from ICTV.\n",
+    "\n",
+    "To search for genus \"lentivirus\":"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "vscode": {
+     "languageId": "plaintext"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "print('\\n'.join(vmr.find_rows_given_str(search_strings=\"lentivirus\", search_rank=\"Genus\", color=\"red\", outfmt='tree', exact=True)))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
     "## Other Resource\n",
     "\n",
     "NCBI:\n",
     "\n",
-    "- Explore Virus Data [^11]\n",
-    "- NCBI Visual Data Dashboard [^12]\n"
+    "- Explore Virus Data [^13]\n",
+    "- NCBI Visual Data Dashboard [^14]\n"
    ]
   },
   {
@@ -344,8 +398,10 @@
     "[^8]: Sykes J. E. (2014). Feline Immunodeficiency Virus Infection. Canine and Feline Infectious Diseases, 209–223. ([web page](https://doi.org/10.1016/B978-1-4377-0795-3.00021-1))\n",
     "[^9]: ICTV. (2023). History of the taxon. ([web page](https://ictv.global/taxonomy/taxondetails?taxnode_id=202305029))\n",
     "[^10]: ICTV. (year). The ICTV Report on Virus Classification and Taxon Nomenclature. ([web page](https://ictv.global/report/chapter/retroviridae/retroviridae/lentivirus))\n",
-    "[^11]: NCBI. (2024). Explore Virus Data: Feline immunodeficiency virus. ([web pate](https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/virus?SeqType_s=Nucleotide&VirusLineage_ss=Feline%20immunodeficiency%20virus,%20taxid:11673))\n",
-    "[^12]: NCBI. (2024). NCBI Visual Data Dashboard. ([web page](https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/))\n"
+    "[^11]: Siddell, S. G., Smith, D. B., Adriaenssens, E., Alfenas-Zerbini, P., Dutilh, B. E., Garcia, M. L., Junglen, S., Krupovic, M., Kuhn, J. H., Lambert, A. J., Lefkowitz, E. J., Łobocka, M., Mushegian, A. R., Oksanen, H. M., Robertson, D. L., Rubino, L., Sabanadzovic, S., Simmonds, P., Suzuki, N., Van Doorslaer, K., … Zerbini, F. M. (2023). Virus taxonomy and the role of the International Committee on Taxonomy of Viruses (ICTV). The Journal of general virology, 104(5), 001840. https://doi.org/10.1099/jgv.0.001840\n",
+    "[^12]: Kuhn, J. H., Bao, Y., Bavari, S., Becker, S., Bradfute, S., Brister, J. R., Bukreyev, A. A., Chandran, K., Davey, R. A., Dolnik, O., Dye, J. M., Enterlein, S., Hensley, L. E., Honko, A. N., Jahrling, P. B., Johnson, K. M., Kobinger, G., Leroy, E. M., Lever, M. S., Mühlberger, E., … Nichol, S. T. (2013). Virus nomenclature below the species level: a standardized nomenclature for natural variants of viruses assigned to the family Filoviridae. Archives of virology, 158(1), 301–311. https://doi.org/10.1007/s00705-012-1454-0\n",
+    "[^13]: NCBI. (2024). Explore Virus Data: Feline immunodeficiency virus. ([web pate](https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/virus?SeqType_s=Nucleotide&VirusLineage_ss=Feline%20immunodeficiency%20virus,%20taxid:11673))\n",
+    "[^14]: NCBI. (2024). NCBI Visual Data Dashboard. ([web page](https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/))\n"
    ]
   }
  ],

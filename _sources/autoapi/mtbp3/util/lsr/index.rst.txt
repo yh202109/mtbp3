@@ -18,15 +18,23 @@ Module Contents
 .. py:class:: LsrTree(path='', outfmt='list', with_counts=False, count_str='', with_file_label=False, label_str='')
 
    .. py:attribute:: path
+      :value: ''
+
 
 
    .. py:attribute:: outfmt
+      :value: 'list'
+
 
 
    .. py:attribute:: with_counts
+      :value: False
+
 
 
    .. py:attribute:: count_str
+      :value: ''
+
 
 
    .. py:method:: list_files()

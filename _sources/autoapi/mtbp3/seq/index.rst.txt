@@ -11,5 +11,6 @@ Submodules
    :maxdepth: 1
 
    /autoapi/mtbp3/seq/ictvmslview/index
+   /autoapi/mtbp3/seq/ictvvmrview/index
 
 
