@@ -112,8 +112,8 @@ class ictvvmr:
         if 'Virus name(s)' in vmr.columns and 'Virus isolate designation' in vmr.columns:
             index1 = vmr.columns.get_loc('Virus name(s)')
             index2 = vmr.columns.get_loc('Virus isolate designation')
-            vmr.iloc[:, index1] = vmr.apply(lambda row: row[index1].replace('\/', '_') if isinstance(row[index1], str) else row[index1])
-            vmr.iloc[:, index2] = vmr.apply(lambda row: row[index2].replace('\/', '_') if isinstance(row[index2], str) else row[index2])
+            vmr.iloc[:, index1] = vmr.iloc[:, index1].str.replace(r'\/', '_', regex=True)
+            vmr.iloc[:, index2] = vmr.iloc[:, index2].str.replace(r'\/', '_', regex=True)
         if 'Virus name(s)' in vmr.columns and 'Virus isolate designation' in vmr.columns and 'Virus GENBANK accession' in vmr.columns and 'Exemplar or additional isolate' in vmr.columns:
             index1 = vmr.columns.get_loc('Virus name(s)')
             index2 = vmr.columns.get_loc('Virus isolate designation')
