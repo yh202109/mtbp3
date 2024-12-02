@@ -206,7 +206,7 @@ class ictvvmr:
         elif outfmt == "tree":
             filtered_df = self.make_narrow(filtered_df, method=tree_style)
             filtered_df = filtered_df.fillna("NA")
-            filtered_df = filtered_df.iloc[:, 1:-1]
+            filtered_df = filtered_df.iloc[:, 3:]
             for col in filtered_df.columns:
                 filtered_df[col] = filtered_df[col].apply(lambda x: f"[{col}] {x}" if pd.notna(x) else x)
             tree_list = []
