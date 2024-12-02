@@ -477,9 +477,6 @@ To search for virus within the Retroviridae famiy that can infect feline:</p>
                                                         └── [Species] <span class=" -Color -Color-Red">Lentivirus felimdef</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 </section>
@@ -550,37 +547,28 @@ Similarily, use <code class="docutils literal notranslate"><span class="pre">vmr
                         └── [Subfamily] Orthoretrovirinae:
                             └── [Genus] <span class=" -Color -Color-Red">Lentivirus</span>:
                                 ├── [Species] Lentivirus bovimdef (ssRNA-RT):
-                                │   └── E
+                                │   └── [E] bovine immunodeficiency virus (HXB3) (Genebank: M32690)
                                 ├── [Species] Lentivirus bovjem (ssRNA-RT):
-                                │   └── E
+                                │           87) (Genebank: U21603)
                                 ├── [Species] Lentivirus capartenc (ssRNA-RT):
-                                │   └── E
+                                │   └── [E] caprine arthritis encephalitis virus (Clements) (Genebank: M33677)
                                 ├── [Species] Lentivirus equinfane (ssRNA-RT):
-                                │   └── E
+                                │   └── [E] equine infectious anemia virus (Genebank: U01866)
                                 ├── [Species] Lentivirus felimdef (ssRNA-RT):
-                                │   └── E
+                                │   └── [E] feline immunodeficiency virus (Petaluma) (Genebank: M25381)
                                 ├── [Species] Lentivirus humimdef1 (ssRNA-RT):
-                                │   └── E
+                                │   └── [E] human immunodeficiency virus 1 (Genebank: AF033819)
                                 ├── [Species] Lentivirus humimdef2 (ssRNA-RT):
-                                │   └── E
+                                │   └── [E] human immunodeficiency virus 2 (BEN) (Genebank: M30502)
                                 ├── [Species] Lentivirus ovivismae (ssRNA-RT):
-                                │   └── E
+                                │           maedi virus (kv1772) (Genebank: L06906)
                                 ├── [Species] Lentivirus pum (ssRNA-RT):
-                                │   └── E
+                                │   └── [E] puma lentivirus (14) (Genebank: U03982)
                                 └── [Species] Lentivirus simimdef (ssRNA-RT):
-                                    └── E
+                                    └── [E] simian immunodeficiency virus (Genebank: M58410)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvvmrview.py:109: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  vmr[&#39;Species&#39;] = vmr.apply(lambda row: f&quot;{row[&#39;Species&#39;]} ({row[&#39;Genome&#39;]})&quot; if pd.notna(row[&#39;Species&#39;]) and pd.notna(row[&#39;Genome&#39;]) else row[&#39;Species&#39;], axis=1)
-/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvvmrview.py:111: SettingWithCopyWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvvmrview.py:113: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
