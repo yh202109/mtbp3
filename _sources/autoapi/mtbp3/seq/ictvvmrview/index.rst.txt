@@ -19,27 +19,27 @@ Module Contents
 
    A class to handle ICTV Virus Metadata Resource (VMR) data.
 
-   .. attribute:: msl_file_path
+   .. attribute:: vmr_file_path
 
       str
       Path to the VMR file.
 
-   .. attribute:: msl_file_fullpath
+   .. attribute:: vmr_file_fullpath
 
       str
       Full path to the VMR file.
 
-   .. attribute:: msl_version
+   .. attribute:: vmr_version
 
       str
       Version of the VMR.
 
-   .. attribute:: msl_column_names
+   .. attribute:: vmr_column_names
 
       list
       List of column names in the VMR.
 
-   .. attribute:: msl
+   .. attribute:: vmr
 
       DataFrame
       The VMR data loaded into a pandas DataFrame.
@@ -52,7 +52,7 @@ Module Contents
    .. method:: make_narrow(vmr)
 
       
-      Converts the MSL DataFrame to a narrower format by combining certain columns.
+      Converts the VMR DataFrame to a narrower format by combining certain columns.
 
    .. method:: find_rows_given_str(self, search_str="", search_rank="Species", color="", narrow=False, outfmt="simple", exact=False, search_within_subset=None)
 

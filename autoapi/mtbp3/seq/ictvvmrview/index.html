@@ -130,36 +130,36 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mtbp3.seq.ictvvmrview.</span></span><span class="sig-name descname"><span class="pre">ictvvmr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vmr_file_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/seq/ictvvmrview.html#ictvvmr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.seq.ictvvmrview.ictvvmr" title="Link to this definition"></a></dt>
 <dd><p>A class to handle ICTV Virus Metadata Resource (VMR) data.</p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="mtbp3.seq.ictvvmrview.ictvvmr.msl_file_path">
-<span class="sig-name descname"><span class="pre">msl_file_path</span></span><a class="headerlink" href="#mtbp3.seq.ictvvmrview.ictvvmr.msl_file_path" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="mtbp3.seq.ictvvmrview.ictvvmr.vmr_file_path">
+<span class="sig-name descname"><span class="pre">vmr_file_path</span></span><a class="headerlink" href="#mtbp3.seq.ictvvmrview.ictvvmr.vmr_file_path" title="Link to this definition"></a></dt>
 <dd><p>str
 Path to the VMR file.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="mtbp3.seq.ictvvmrview.ictvvmr.msl_file_fullpath">
-<span class="sig-name descname"><span class="pre">msl_file_fullpath</span></span><a class="headerlink" href="#mtbp3.seq.ictvvmrview.ictvvmr.msl_file_fullpath" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="mtbp3.seq.ictvvmrview.ictvvmr.vmr_file_fullpath">
+<span class="sig-name descname"><span class="pre">vmr_file_fullpath</span></span><a class="headerlink" href="#mtbp3.seq.ictvvmrview.ictvvmr.vmr_file_fullpath" title="Link to this definition"></a></dt>
 <dd><p>str
 Full path to the VMR file.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="mtbp3.seq.ictvvmrview.ictvvmr.msl_version">
-<span class="sig-name descname"><span class="pre">msl_version</span></span><a class="headerlink" href="#mtbp3.seq.ictvvmrview.ictvvmr.msl_version" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="mtbp3.seq.ictvvmrview.ictvvmr.vmr_version">
+<span class="sig-name descname"><span class="pre">vmr_version</span></span><a class="headerlink" href="#mtbp3.seq.ictvvmrview.ictvvmr.vmr_version" title="Link to this definition"></a></dt>
 <dd><p>str
 Version of the VMR.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="mtbp3.seq.ictvvmrview.ictvvmr.msl_column_names">
-<span class="sig-name descname"><span class="pre">msl_column_names</span></span><a class="headerlink" href="#mtbp3.seq.ictvvmrview.ictvvmr.msl_column_names" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="mtbp3.seq.ictvvmrview.ictvvmr.vmr_column_names">
+<span class="sig-name descname"><span class="pre">vmr_column_names</span></span><a class="headerlink" href="#mtbp3.seq.ictvvmrview.ictvvmr.vmr_column_names" title="Link to this definition"></a></dt>
 <dd><p>list
 List of column names in the VMR.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="mtbp3.seq.ictvvmrview.ictvvmr.msl">
-<span class="sig-name descname"><span class="pre">msl</span></span><a class="headerlink" href="#mtbp3.seq.ictvvmrview.ictvvmr.msl" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="mtbp3.seq.ictvvmrview.ictvvmr.vmr">
+<span class="sig-name descname"><span class="pre">vmr</span></span><a class="headerlink" href="#mtbp3.seq.ictvvmrview.ictvvmr.vmr" title="Link to this definition"></a></dt>
 <dd><p>DataFrame
 The VMR data loaded into a pandas DataFrame.</p>
 </dd></dl>
@@ -173,7 +173,7 @@ The VMR data loaded into a pandas DataFrame.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="mtbp3.seq.ictvvmrview.ictvvmr.make_narrow">
 <span class="sig-name descname"><span class="pre">make_narrow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vmr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/seq/ictvvmrview.html#ictvvmr.make_narrow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mtbp3.seq.ictvvmrview.ictvvmr.make_narrow" title="Link to this definition"></a></dt>
-<dd><p>Converts the MSL DataFrame to a narrower format by combining certain columns.</p>
+<dd><p>Converts the VMR DataFrame to a narrower format by combining certain columns.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -183,23 +183,23 @@ The VMR data loaded into a pandas DataFrame.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="mtbp3.seq.ictvvmrview.ictvvmr.vmr_column_names">
-<span class="sig-name descname"><span class="pre">vmr_column_names</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#mtbp3.seq.ictvvmrview.ictvvmr.vmr_column_names" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">vmr_column_names</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="mtbp3.seq.ictvvmrview.ictvvmr.vmr">
-<span class="sig-name descname"><span class="pre">vmr</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#mtbp3.seq.ictvvmrview.ictvvmr.vmr" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="id0">
-<span class="sig-name descname"><span class="pre">update_vmr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'current'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/seq/ictvvmrview.html#ictvvmr.update_vmr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="id1">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">make_narrow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vmr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'concatenation'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/seq/ictvvmrview.html#ictvvmr.make_narrow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id1" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">vmr</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#id1" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">update_vmr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'current'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/seq/ictvvmrview.html#ictvvmr.update_vmr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id2" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id3">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">make_narrow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vmr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'concatenation'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/seq/ictvvmrview.html#ictvvmr.make_narrow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id3" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -208,8 +208,8 @@ The VMR data loaded into a pandas DataFrame.</p>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id2">
-<span class="sig-name descname"><span class="pre">find_rows_given_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_strings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_rank</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Species'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">narrow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'simple'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exact</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_within_subset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tree_style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'concatenation'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/seq/ictvvmrview.html#ictvvmr.find_rows_given_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id2" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">find_rows_given_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_strings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_rank</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Species'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">narrow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'simple'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exact</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_within_subset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tree_style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'concatenation'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/mtbp3/seq/ictvvmrview.html#ictvvmr.find_rows_given_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id4" title="Link to this definition"></a></dt>
 <dd><p>Find rows in the dataset that match the given search strings.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
