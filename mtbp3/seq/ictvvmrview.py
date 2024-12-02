@@ -106,11 +106,17 @@ class ictvvmr:
     @staticmethod
     def make_narrow(vmr, method="concatenation"):
         if 'Species' in vmr.columns and 'Genome' in vmr.columns:
-            vmr['Species'] = vmr.apply(lambda row: f"{row['Species']} ({row['Genome']})" if pd.notna(row['Species']) and pd.notna(row['Genome']) else row['Species'], axis=1)
+            index1 = vmr.columns.get_loc('Species')
+            index2 = vmr.columns.get_loc('Genome')
+            vmr.iloc[:, index1] = vmr.apply(lambda row: f"{row[index1]} ({row[index2]})" if pd.notna(row[index1]) and pd.notna(row[index2]) else row[index1], axis=1)
         if 'Exemplar or additional isolate' in vmr.columns:
             vmr.rename(columns={'Exemplar or additional isolate': 'Exemplar'}, inplace=True)
-        if 'Virus name(s)' in vmr.columns and 'Virus isolate designation' in vmr.columns and 'Virus GENBANK accession' in vmr.columns and 'Exemplar or additional isolate' in vmr.columns:
-            vmr['Exemplar'] = vmr.apply(lambda row: f"[{row['Exemplar']}] {row['Virus name(s)']} ({row['Virus isolate designation']}) (Genebank: {row['Virus GENBANK accession']})" if pd.notna(row['Virus name(s)']) and pd.notna(row['Virus isolate designation']) and pd.notna(row['Virus GENBANK accession']) else f"[{row['Exemplar or additional isolate']}] {row['Virus name(s)']} (Genebank: {row['Virus GENBANK accession']})", axis=1)
+        if 'Virus name(s)' in vmr.columns and 'Virus isolate designation' in vmr.columns and 'Virus GENBANK accession' in vmr.columns and 'Exemplar' in vmr.columns:
+            index1 = vmr.columns.get_loc('Virus name(s)')
+            index2 = vmr.columns.get_loc('Virus isolate designation')
+            index3 = vmr.columns.get_loc('Virus GENBANK accession')
+            index4 = vmr.columns.get_loc('Exemplar')
+            vmr.iloc[:, index4] = vmr.apply(lambda row: f"[{row[index4]}] {row[index1]} ({row[index2]}) (Genebank: {row[index3]})" if pd.notna(row[index1]) and pd.notna(row[index2]) and pd.notna(row[index3]) else f"[{row[index4]}] {row[index1]} (Genebank: {row[index3]})", axis=1)
 
         if method == "full":
             vmr = vmr.iloc[:, :-8]
