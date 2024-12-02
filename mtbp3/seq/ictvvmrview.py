@@ -155,13 +155,13 @@ class ictvvmr:
         else:
             raise FileNotFoundError(f"File not found: {file_path}")
 
-    def find_rows_given_str(self, search_strings=None, search_rank="Species", color="", narrow=False, outfmt="simple", exact=False, search_within_subset=None, tree_style="concatenation"):
+    def find_rows_given_str(self, search_strings=None, search_rank_or_exemplar="Species", color="", narrow=False, outfmt="simple", exact=False, search_within_subset=None, tree_style="concatenation", start_with_rank=None):
         """
         Find rows in the dataset that match the given search strings.
 
         Parameters:
             search_strings (list or str): A list of strings or a single string to search for in the dataset.
-            search_rank (str): The rank to search within (default is "Species"). Can be "all" or one of the column names in the dataset.
+            search_rank_or_exemplar (str): The rank (or exemplar) to search within (default is "Species"). Can be "all" or one of the column names in the dataset.
             color (str): Color to highlight the search strings in the results (default is "").
             narrow (bool): Whether to narrow the results (default is False).
             outfmt (str): The output format, either "simple" or "tree" (default is "simple").
@@ -183,12 +183,12 @@ class ictvvmr:
             raise ValueError("search_strings must be a nonempty list or a nonempty string")
         if isinstance(search_strings, str):
             search_strings = [search_strings]
-        if search_rank and search_rank != "all" and search_rank not in self.vmr_column_names:
-            raise ValueError(f"search_rank must be 'all' or one of the following: {', '.join(self.vmr_column_names)}")
+        if search_rank_or_exemplar and search_rank_or_exemplar != "all" and search_rank_or_exemplar not in self.vmr_column_names:
+            raise ValueError(f"search_rank_or_exemplar must be 'all' or one of the following: {', '.join(self.vmr_column_names)}")
         if outfmt not in ["simple", "tree"]:
             raise ValueError("outfmt must be 'simple' or 'tree'")
         if search_within_subset is not None and not isinstance(search_within_subset, dict):
-            raise TypeError("search_subset must be a dictionary or None")
+            raise TypeError("search_within_subset must be a dictionary or None")
 
         vmr2 = self.vmr
         if search_within_subset is not None:
@@ -197,7 +197,7 @@ class ictvvmr:
                     index = vmr2.columns.get_loc(key)
                     vmr2 = vmr2[vmr2.iloc[:, index].str.lower() == value.lower()]
 
-        if search_rank == "all":
+        if search_rank_or_exemplar == "all":
             if exact:
                 filtered_df = vmr2[vmr2.iloc[:, 3:18].apply(lambda row: any(search_str.lower() == element.lower() for element in row.astype(str).values for search_str in search_strings), axis=1)]
             else:
@@ -207,11 +207,11 @@ class ictvvmr:
                     filtered_df[col] = filtered_df[col].apply(lambda row: util.cdt.color_str(row, words=search_strings, colors=color, exact=exact) if pd.notna(row) else row)
         else:
             if exact:
-                filtered_df = vmr2[vmr2[search_rank].apply(lambda x: any(search_str.lower() == x.lower() for search_str in search_strings) if pd.notna(x) else False)]
+                filtered_df = vmr2[vmr2[search_rank_or_exemplar].apply(lambda x: any(search_str.lower() == x.lower() for search_str in search_strings) if pd.notna(x) else False)]
             else:
-                filtered_df = vmr2[vmr2[search_rank].apply(lambda x: any(search_str.lower() in x.lower() for search_str in search_strings) if pd.notna(x) else False)]
+                filtered_df = vmr2[vmr2[search_rank_or_exemplar].apply(lambda x: any(search_str.lower() in x.lower() for search_str in search_strings) if pd.notna(x) else False)]
             if color:
-                index = vmr2.columns.get_loc(search_rank)
+                index = vmr2.columns.get_loc(search_rank_or_exemplar)
                 filtered_df.iloc[:, index] = filtered_df.iloc[:, index].apply(lambda row: util.cdt.color_str(row, words=search_strings, colors=color, exact=exact))
 
 
