@@ -107,8 +107,10 @@ class ictvvmr:
     def make_narrow(vmr, method="concatenation"):
         if 'Species' in vmr.columns and 'Genome' in vmr.columns:
             vmr['Species'] = vmr.apply(lambda row: f"{row['Species']} ({row['Genome']})" if pd.notna(row['Species']) and pd.notna(row['Genome']) else row['Species'], axis=1)
+        if 'Exemplar or additional isolate' in vmr.columns:
+            vmr.rename(columns={'Exemplar or additional isolate': 'Exemplar'}, inplace=True)
         if 'Virus name(s)' in vmr.columns and 'Virus isolate designation' in vmr.columns and 'Virus GENBANK accession' in vmr.columns and 'Exemplar or additional isolate' in vmr.columns:
-            vmr['Exemplar or additional isolate'] = vmr.apply(lambda row: f"[{row['Exemplar or additional isolate']}] {row['Virus name(s)']} ({row['Virus isolate designation']}) (Genebank: {row['Virus GENBANK accession']})" if pd.notna(row['Virus name(s)']) and pd.notna(row['Virus isolate designation']) and pd.notna(row['Virus GENBANK accession']) else f"[{row['Exemplar or additional isolate']}] {row['Virus name(s)']} (Genebank: {row['Virus GENBANK accession']}", axis=1)
+            vmr['Exemplar'] = vmr.apply(lambda row: f"[{row['Exemplar']}] {row['Virus name(s)']} ({row['Virus isolate designation']}) (Genebank: {row['Virus GENBANK accession']})" if pd.notna(row['Virus name(s)']) and pd.notna(row['Virus isolate designation']) and pd.notna(row['Virus GENBANK accession']) else f"[{row['Exemplar or additional isolate']}] {row['Virus name(s)']} (Genebank: {row['Virus GENBANK accession']})", axis=1)
 
         if method == "full":
             vmr = vmr.iloc[:, :-8]
@@ -207,7 +209,7 @@ class ictvvmr:
             filtered_df = self.make_narrow(filtered_df, method=tree_style)
             filtered_df = filtered_df.fillna("NA")
             filtered_df = filtered_df.iloc[:, 3:]
-            for col in filtered_df.columns:
+            for col in filtered_df.columns[:-1]:
                 filtered_df[col] = filtered_df[col].apply(lambda x: f"[{col}] {x}" if pd.notna(x) else x)
             tree_list = []
 
