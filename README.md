@@ -31,7 +31,7 @@ Functions are grouped into:
   - H7/FHIR: 
   - ISO: `stdiso.pdfsummary` 
 - Bioinfo:
-  - ICTV: `seq.ictvmslview`
+  - ICTV: `seq.ictvmslview`, `seq.ictvvmrview`
 
 <sup>[*]</sup> Documents are not executed while building.
 
