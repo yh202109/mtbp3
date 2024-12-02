@@ -68,7 +68,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#subtypes-within-species">Subtypes within Species</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#species-examplar">Species Examplar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#species-exemplar">Species Exemplar</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#other-resource">Other Resource</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
@@ -421,9 +421,6 @@ To search for virus within the Retroviridae famiy that can infect feline:</p>
                             └── [Species] <span class=" -Color -Color-Red">Lentivirus felimdef</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 <p>There are two more types of tree available, including a tree with nonempty ranks:</p>
@@ -477,6 +474,9 @@ To search for virus within the Retroviridae famiy that can infect feline:</p>
                                                         └── [Species] <span class=" -Color -Color-Red">Lentivirus felimdef</span>
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -509,9 +509,9 @@ That will return output:</p>
 <p>ICTV MSL focuses on “taxa at and above the species rank” <a class="footnote-reference brackets" href="#id26" id="id12" role="doc-noteref"><span class="fn-bracket">[</span>11<span class="fn-bracket">]</span></a>.
 Classification below the species are often related to species specific characteristics <a class="footnote-reference brackets" href="#id27" id="id13" role="doc-noteref"><span class="fn-bracket">[</span>12<span class="fn-bracket">]</span></a>.</p>
 </section>
-<section id="species-examplar">
-<h2>Species Examplar<a class="headerlink" href="#species-examplar" title="Link to this heading"></a></h2>
-<p>ICTV VMR provides one examplar (and may be more additional isolates) for each species in VMR, with Genebak accession number and direct link to NCBI database.</p>
+<section id="species-exemplar">
+<h2>Species Exemplar<a class="headerlink" href="#species-exemplar" title="Link to this heading"></a></h2>
+<p>ICTV VMR provides one exemplar (and may be more additional isolates) for each species in VMR, with Genebak accession number and direct link to NCBI database.</p>
 <p>To load a VRM table extracted from VRM download file:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -568,11 +568,12 @@ Similarily, use <code class="docutils literal notranslate"><span class="pre">vmr
                                     └── [E] simian immunodeficiency virus (Genebank: M58410)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvvmrview.py:113: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvvmrview.py:112: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  vmr.rename(columns={&#39;Exemplar or additional isolate&#39;: &#39;Exemplar&#39;}, inplace=True)
+  vmr[&#39;Exemplar or additional isolate&#39;] = vmr[&#39;Exemplar or additional isolate&#39;].apply(lambda x: x.replace(&#39;/&#39;, &#39;\\/&#39;) if isinstance(x, str) else x)
 </pre></div>
 </div>
 </div>
