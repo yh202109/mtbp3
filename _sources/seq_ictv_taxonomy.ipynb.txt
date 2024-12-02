@@ -389,7 +389,7 @@
     "## Reference\n",
     "\n",
     "[^1]: ICTV. (2024). About Virus Taxonomic Classification. ([web page](https://ictv.global/taxonomy/about))\n",
-    "[^2]: Elliot J Lefkowitz, Donald M Dempsey, Robert Curtis Hendrickson, Richard J Orton, Stuart G Siddell, Donald B Smith, Virus taxonomy: the database of the International Committee on Taxonomy of Viruses (ICTV), Nucleic Acids Research, Volume 46, Issue D1, 4 January 2018, Pages D708–D717, https://doi.org/10.1093/nar/gkx932\n",
+    "[^2]: Elliot J Lefkowitz, Donald M Dempsey, Robert Curtis Hendrickson, Richard J Orton, Stuart G Siddell, Donald B Smith, Virus taxonomy: the database of the International Committee on Taxonomy of Viruses (ICTV), Nucleic Acids Research, Volume 46, Issue D1, 4 January 2018, Pages D708–D717, ([web page](https://doi.org/10.1093/nar/gkx932))\n",
     "[^3]: wiki. (year). Virus classification. ([web page](https://en.wikipedia.org/wiki/Virus_classification))\n",
     "[^4]: ICTV. (2024). Master Species Lists (MSL). ([web page](https://ictv.global/msl))\n",
     "[^5]: ICTV. (2024). Virus Metadata Resource (VMR). ([web page](https://ictv.global/vmr))\n",
