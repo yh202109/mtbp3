@@ -199,11 +199,11 @@ class ictvvmr:
 
         if search_rank_or_exemplar == "all":
             if exact:
-                filtered_df = vmr2[vmr2.iloc[:, 3:18].apply(lambda row: any(search_str.lower() == element.lower() for element in row.astype(str).values for search_str in search_strings), axis=1)]
+                filtered_df = vmr2[vmr2.iloc[:, 3:19].apply(lambda row: any(search_str.lower() == element.lower() for element in row.astype(str).values for search_str in search_strings), axis=1)]
             else:
-                filtered_df = vmr2[vmr2.iloc[:, 3:18].apply(lambda row: any(search_str.lower() in element.lower() for element in row.astype(str).values for search_str in search_strings), axis=1)]
+                filtered_df = vmr2[vmr2.iloc[:, 3:19].apply(lambda row: any(search_str.lower() in element.lower() for element in row.astype(str).values for search_str in search_strings), axis=1)]
             if color:
-                for col in filtered_df[3:18]:
+                for col in filtered_df[3:19]:
                     filtered_df[col] = filtered_df[col].apply(lambda row: util.cdt.color_str(row, words=search_strings, colors=color, exact=exact) if pd.notna(row) else row)
         else:
             if exact:
