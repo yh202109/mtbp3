@@ -421,9 +421,6 @@ To search for virus within the Retroviridae famiy that can infect feline:</p>
                             └── [Species] <span class=" -Color -Color-Red">Lentivirus felimdef</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 <p>There are two more types of tree available, including a tree with nonempty ranks:</p>
@@ -524,25 +521,9 @@ Classification below the species are often related to species specific character
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">mtbp3.seq</span> <span class="kn">import</span> <span class="n">ictvvmrview</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">vmr</span> <span class="o">=</span> <span class="n">ictvvmrview</span><span class="o">.</span><span class="n">ictvvmr</span><span class="p">(</span><span class="n">vmr_file_path</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-
-<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/seq/ictvvmrview.py:63,</span> in <span class="ni">ictvvmr.__init__</span><span class="nt">(self, vmr_file_path)</span>
-<span class="g g-Whitespace">     </span><span class="mi">60</span>     <span class="bp">self</span><span class="o">.</span><span class="n">vmr_version</span> <span class="o">=</span> <span class="s2">&quot;example&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">62</span> <span class="bp">self</span><span class="o">.</span><span class="n">vmr_column_names</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="ne">---&gt; </span><span class="mi">63</span> <span class="bp">self</span><span class="o">.</span><span class="n">vmr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__load_list</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">65</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">vmr</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">66</span>     <span class="bp">self</span><span class="o">.</span><span class="n">vmr_column_names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vmr</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-
-<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/seq/ictvvmrview.py:140,</span> in <span class="ni">ictvvmr.__load_list</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">138</span>     <span class="k">return</span> <span class="n">df</span>
-<span class="g g-Whitespace">    </span><span class="mi">139</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">140</span>     <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File not found: </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="ne">FileNotFoundError</span>: File not found: /home/runner/work/mtbp3/mtbp3/mtbp3/util/../data/supp_seq/ICTV_VMR_MSL39v4_example.csv
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File supp_seq/ICTV_VMR_MSL39v4_example.csv has been loaded
+Column names: [&#39;Isolate ID&#39;, &#39;Species Sort&#39;, &#39;Isolate Sort&#39;, &#39;Realm&#39;, &#39;Subrealm&#39;, &#39;Kingdom&#39;, &#39;Subkingdom&#39;, &#39;Phylum&#39;, &#39;Subphylum&#39;, &#39;Class&#39;, &#39;Subclass&#39;, &#39;Order&#39;, &#39;Suborder&#39;, &#39;Family&#39;, &#39;Subfamily&#39;, &#39;Genus&#39;, &#39;Subgenus&#39;, &#39;Species&#39;, &#39;Exemplar or additional isolate&#39;, &#39;Virus name(s)&#39;, &#39;Virus name abbreviation(s)&#39;, &#39;Virus isolate designation&#39;, &#39;Virus GENBANK accession&#39;, &#39;Genome coverage&#39;, &#39;Genome&#39;, &#39;Host source&#39;, &#39;Accessions Link&#39;]
+Total number of rows: 65
 </pre></div>
 </div>
 </div>
@@ -553,6 +534,127 @@ Similarily, use <code class="docutils literal notranslate"><span class="pre">vmr
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">vmr</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_strings</span><span class="o">=</span><span class="s2">&quot;lentivirus&quot;</span><span class="p">,</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Genus&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">True</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    [Species Sort] 13700:
+    └── [Isolate Sort] 1:
+        └── [Realm] Riboviria:
+            └── [Kingdom] Pararnavirae:
+                └── [Phylum] Artverviricota:
+                    └── [Class] Revtraviricetes:
+                        └── [Order] Ortervirales:
+                            └── [Family] Retroviridae; [Subfamily] Orthoretrovirinae:
+                                └── [Genus] <span class=" -Color -Color-Red">Lentivirus</span>:
+                                    └── [Species] Lentivirus bovimdef (ssRNA-RT)
+    [Species Sort] 13701:
+    └── [Isolate Sort] 1:
+        └── [Realm] Riboviria:
+            └── [Kingdom] Pararnavirae:
+                └── [Phylum] Artverviricota:
+                    └── [Class] Revtraviricetes:
+                        └── [Order] Ortervirales:
+                            └── [Family] Retroviridae; [Subfamily] Orthoretrovirinae:
+                                └── [Genus] <span class=" -Color -Color-Red">Lentivirus</span>:
+                                    └── [Species] Lentivirus bovjem (ssRNA-RT)
+    [Species Sort] 13702:
+    └── [Isolate Sort] 1:
+        └── [Realm] Riboviria:
+            └── [Kingdom] Pararnavirae:
+                └── [Phylum] Artverviricota:
+                    └── [Class] Revtraviricetes:
+                        └── [Order] Ortervirales:
+                            └── [Family] Retroviridae; [Subfamily] Orthoretrovirinae:
+                                └── [Genus] <span class=" -Color -Color-Red">Lentivirus</span>:
+                                    └── [Species] Lentivirus capartenc (ssRNA-RT)
+    [Species Sort] 13703:
+    └── [Isolate Sort] 1:
+        └── [Realm] Riboviria:
+            └── [Kingdom] Pararnavirae:
+                └── [Phylum] Artverviricota:
+                    └── [Class] Revtraviricetes:
+                        └── [Order] Ortervirales:
+                            └── [Family] Retroviridae; [Subfamily] Orthoretrovirinae:
+                                └── [Genus] <span class=" -Color -Color-Red">Lentivirus</span>:
+                                    └── [Species] Lentivirus equinfane (ssRNA-RT)
+    [Species Sort] 13704:
+    └── [Isolate Sort] 1:
+        └── [Realm] Riboviria:
+            └── [Kingdom] Pararnavirae:
+                └── [Phylum] Artverviricota:
+                    └── [Class] Revtraviricetes:
+                        └── [Order] Ortervirales:
+                            └── [Family] Retroviridae; [Subfamily] Orthoretrovirinae:
+                                └── [Genus] <span class=" -Color -Color-Red">Lentivirus</span>:
+                                    └── [Species] Lentivirus felimdef (ssRNA-RT)
+    [Species Sort] 13705:
+    └── [Isolate Sort] 1:
+        └── [Realm] Riboviria:
+            └── [Kingdom] Pararnavirae:
+                └── [Phylum] Artverviricota:
+                    └── [Class] Revtraviricetes:
+                        └── [Order] Ortervirales:
+                            └── [Family] Retroviridae; [Subfamily] Orthoretrovirinae:
+                                └── [Genus] <span class=" -Color -Color-Red">Lentivirus</span>:
+                                    └── [Species] Lentivirus humimdef1 (ssRNA-RT)
+    [Species Sort] 13706:
+    └── [Isolate Sort] 1:
+        └── [Realm] Riboviria:
+            └── [Kingdom] Pararnavirae:
+                └── [Phylum] Artverviricota:
+                    └── [Class] Revtraviricetes:
+                        └── [Order] Ortervirales:
+                            └── [Family] Retroviridae; [Subfamily] Orthoretrovirinae:
+                                └── [Genus] <span class=" -Color -Color-Red">Lentivirus</span>:
+                                    └── [Species] Lentivirus humimdef2 (ssRNA-RT)
+    [Species Sort] 13707:
+    └── [Isolate Sort] 1:
+        └── [Realm] Riboviria:
+            └── [Kingdom] Pararnavirae:
+                └── [Phylum] Artverviricota:
+                    └── [Class] Revtraviricetes:
+                        └── [Order] Ortervirales:
+                            └── [Family] Retroviridae; [Subfamily] Orthoretrovirinae:
+                                └── [Genus] <span class=" -Color -Color-Red">Lentivirus</span>:
+                                    └── [Species] Lentivirus ovivismae (ssRNA-RT)
+    [Species Sort] 13708:
+    └── [Isolate Sort] 1:
+        └── [Realm] Riboviria:
+            └── [Kingdom] Pararnavirae:
+                └── [Phylum] Artverviricota:
+                    └── [Class] Revtraviricetes:
+                        └── [Order] Ortervirales:
+                            └── [Family] Retroviridae; [Subfamily] Orthoretrovirinae:
+                                └── [Genus] <span class=" -Color -Color-Red">Lentivirus</span>:
+                                    └── [Species] Lentivirus pum (ssRNA-RT)
+    [Species Sort] 13709:
+    └── [Isolate Sort] 1:
+        └── [Realm] Riboviria:
+            └── [Kingdom] Pararnavirae:
+                └── [Phylum] Artverviricota:
+                    └── [Class] Revtraviricetes:
+                        └── [Order] Ortervirales:
+                            └── [Family] Retroviridae; [Subfamily] Orthoretrovirinae:
+                                └── [Genus] <span class=" -Color -Color-Red">Lentivirus</span>:
+                                    └── [Species] Lentivirus simimdef (ssRNA-RT)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvvmrview.py:109: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  vmr[&#39;Species&#39;] = vmr.apply(lambda row: f&quot;{row[&#39;Species&#39;]} ({row[&#39;Genome&#39;]})&quot; if pd.notna(row[&#39;Species&#39;]) and pd.notna(row[&#39;Genome&#39;]) else row[&#39;Species&#39;], axis=1)
+/home/runner/work/mtbp3/mtbp3/mtbp3/seq/ictvvmrview.py:111: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  vmr[&#39;Exemplar or additional isolate&#39;] = vmr.apply(lambda row: f&quot;[{row[&#39;Exemplar or additional isolate&#39;]}] {row[&#39;Virus name(s)&#39;]} ({row[&#39;Virus isolate designation&#39;]}) (Genebank: {row[&#39;Virus GENBANK accession&#39;]})&quot; if pd.notna(row[&#39;Virus name(s)&#39;]) and pd.notna(row[&#39;Virus isolate designation&#39;]) and pd.notna(row[&#39;Virus GENBANK accession&#39;]) else f&quot;[{row[&#39;Exemplar or additional isolate&#39;]}] {row[&#39;Virus name(s)&#39;]} (Genebank: {row[&#39;Virus GENBANK accession&#39;]}&quot;, axis=1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
