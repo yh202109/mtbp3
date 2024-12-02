@@ -111,7 +111,7 @@ class ictvvmr:
             vmr.iloc[:, index1] = vmr.apply(lambda row: f"{row[index1]} ({row[index2]})" if pd.notna(row[index1]) and pd.notna(row[index2]) else row[index1], axis=1)
         if 'Virus name(s)' in vmr.columns:
             index1 = vmr.columns.get_loc('Virus name(s)')
-            vmr.iloc[:, index1] = vmr.iloc[:, index1].str.replace(r'/', '\\\/', regex=False)
+            vmr.iloc[:, index1] = vmr.iloc[:, index1].str.replace(r'\/', '_', regex=Truee)
         if 'Virus GENBANK accession' in vmr.columns and 'Genome coverage' in vmr.columns:
             index2 = vmr.columns.get_loc('Virus isolate designation')
             index5 = vmr.columns.get_loc('Genome coverage')
