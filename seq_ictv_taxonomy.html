@@ -421,9 +421,6 @@ To search for virus within the Retroviridae famiy that can infect feline:</p>
                             └── [Species] <span class=" -Color -Color-Red">Lentivirus felimdef</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 <p>There are two more types of tree available, including a tree with nonempty ranks:</p>
@@ -475,6 +472,9 @@ To search for virus within the Retroviridae famiy that can infect feline:</p>
                                                 └── [Genus] Lentivirus:
                                                     └── [Subgenus] NA:
                                                         └── [Species] <span class=" -Color -Color-Red">Lentivirus felimdef</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -538,30 +538,26 @@ Similarily, use <code class="docutils literal notranslate"><span class="pre">vmr
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    [Realm] Riboviria:
-    └── [Kingdom] Pararnavirae:
-        └── [Phylum] Artverviricota:
-            └── [Class] Revtraviricetes:
-                └── [Order] Ortervirales:
-                    └── [Family] Retroviridae:
-                        ├── [Subfamily] Orthoretrovirinae:
-                        │   ├── [Genus] Gammaretrovirus:
-                        │   │   ├── [Species] Gammaretrovirus felleu (ssRNA-RT):
-                        │   │   │   └── [E] <span class=" -Color -Color-Red">feline</span> leukemia virus (Rickard subgroup A) (Genebank: AF052723)
-                        │   │   ├── [Species] Gammaretrovirus hazufelsar (ssRNA-RT):
-                        │   │   │   └── [E] Hardy-Zuckerman <span class=" -Color -Color-Red">feline</span> sarcoma virus (Partial genome) (Genebank: X03711)
-                        │   │   └── [Species] Gammaretrovirus snythefelsar (ssRNA-RT):
-                        │   │       └── [E] Snyder-Theilen <span class=" -Color -Color-Red">feline</span> sarcoma virus (Partial genome) (Genebank: M22820)
-                        │   └── [Genus] Lentivirus:
-                        │       └── [Species] Lentivirus felimdef (ssRNA-RT):
-                        │           └── [E] <span class=" -Color -Color-Red">feline</span> immunodeficiency virus (Petaluma) (Genebank: M25381)
-                        └── [Subfamily] Spumaretrovirinae:
-                            └── [Genus] Felispumavirus:
-                                └── [Species] Felispumavirus felcat (ssRNA-RT):
-                                    └── [E] <span class=" -Color -Color-Red">feline</span> foamy virus Felis catus (FUV7) (Genebank: Y08851)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">vmr</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_strings</span><span class="o">=</span><span class="s2">&quot;feline&quot;</span><span class="p">,</span> <span class="n">search_rank_or_exemplar</span><span class="o">=</span><span class="s2">&quot;Virus name(s)&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">,</span> <span class="n">tree_style</span><span class="o">=</span><span class="s2">&quot;drop&quot;</span><span class="p">)))</span>
+
+<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/seq/ictvvmrview.py:226,</span> in <span class="ni">ictvvmr.find_rows_given_str</span><span class="nt">(self, search_strings, search_rank_or_exemplar, color, narrow, outfmt, exact, search_within_subset, tree_style, start_with_rank)</span>
+<span class="g g-Whitespace">    </span><span class="mi">224</span>     <span class="k">return</span> <span class="n">filtered_df</span>
+<span class="g g-Whitespace">    </span><span class="mi">225</span> <span class="k">elif</span> <span class="n">outfmt</span> <span class="o">==</span> <span class="s2">&quot;tree&quot;</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">226</span>     <span class="n">filtered_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_narrow</span><span class="p">(</span><span class="n">filtered_df</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">tree_style</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">227</span>     <span class="n">filtered_df</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;NA&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">228</span>     <span class="n">filtered_df</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">:]</span>
+
+<span class="nn">File ~/work/mtbp3/mtbp3/mtbp3/seq/ictvvmrview.py:114,</span> in <span class="ni">ictvvmr.make_narrow</span><span class="nt">(vmr, method)</span>
+<span class="g g-Whitespace">    </span><span class="mi">112</span> <span class="k">if</span> <span class="s1">&#39;Virus name(s)&#39;</span> <span class="ow">in</span> <span class="n">vmr</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">113</span>     <span class="n">index1</span> <span class="o">=</span> <span class="n">vmr</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s1">&#39;Virus name(s)&#39;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">114</span>     <span class="n">vmr</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="n">index1</span><span class="p">]</span> <span class="o">=</span> <span class="n">vmr</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="n">index1</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\/&#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="n">Truee</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">115</span> <span class="k">if</span> <span class="s1">&#39;Virus GENBANK accession&#39;</span> <span class="ow">in</span> <span class="n">vmr</span><span class="o">.</span><span class="n">columns</span> <span class="ow">and</span> <span class="s1">&#39;Genome coverage&#39;</span> <span class="ow">in</span> <span class="n">vmr</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">116</span>     <span class="n">index2</span> <span class="o">=</span> <span class="n">vmr</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s1">&#39;Virus isolate designation&#39;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;Truee&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -570,41 +566,6 @@ Similarily, use <code class="docutils literal notranslate"><span class="pre">vmr
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">vmr</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_strings</span><span class="o">=</span><span class="s2">&quot;lentivirus&quot;</span><span class="p">,</span> <span class="n">search_rank_or_exemplar</span><span class="o">=</span><span class="s2">&quot;Genus&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tree_style</span><span class="o">=</span><span class="s2">&quot;drop&quot;</span><span class="p">)))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    [Realm] Riboviria:
-    └── [Kingdom] Pararnavirae:
-        └── [Phylum] Artverviricota:
-            └── [Class] Revtraviricetes:
-                └── [Order] Ortervirales:
-                    └── [Family] Retroviridae:
-                        └── [Subfamily] Orthoretrovirinae:
-                            └── [Genus] <span class=" -Color -Color-Red">Lentivirus</span>:
-                                ├── [Species] Lentivirus bovimdef (ssRNA-RT):
-                                │   └── [E] bovine immunodeficiency virus (HXB3) (Genebank: M32690)
-                                ├── [Species] Lentivirus bovjem (ssRNA-RT):
-                                │   └── [E] Jembrana disease virus (Tabanan_87) (Genebank: U21603)
-                                ├── [Species] Lentivirus capartenc (ssRNA-RT):
-                                │   └── [E] caprine arthritis encephalitis virus (Clements) (Genebank: M33677)
-                                ├── [Species] Lentivirus equinfane (ssRNA-RT):
-                                │   └── [E] equine infectious anemia virus (Complete genome) (Genebank: U01866)
-                                ├── [Species] Lentivirus felimdef (ssRNA-RT):
-                                │   └── [E] feline immunodeficiency virus (Petaluma) (Genebank: M25381)
-                                ├── [Species] Lentivirus humimdef1 (ssRNA-RT):
-                                │   └── [E] human immunodeficiency virus 1 (Complete genome) (Genebank: AF033819)
-                                ├── [Species] Lentivirus humimdef2 (ssRNA-RT):
-                                │   └── [E] human immunodeficiency virus 2 (BEN) (Genebank: M30502)
-                                ├── [Species] Lentivirus ovivismae (ssRNA-RT):
-                                │           maedi virus (kv1772) (Genebank: L06906)
-                                ├── [Species] Lentivirus pum (ssRNA-RT):
-                                │   └── [E] puma lentivirus (14) (Genebank: U03982)
-                                └── [Species] Lentivirus simimdef (ssRNA-RT):
-                                    └── [E] simian immunodeficiency virus (Complete genome) (Genebank: M58410)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
