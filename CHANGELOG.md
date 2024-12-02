@@ -2,10 +2,15 @@
 
 <!--next-version-placeholder-->
 
-## v0.2.26 (2024-11-29)
+## v0.2.29 (2024-12-02)
 
-- update seq.ictvmslview
-    - update tree format
+- update seq.ictvvmrview
+    - display bug fix in search exemplar
+
+## v0.2.27 (2024-12-02)
+
+- add seq.ictvvmrview
+    - add search exemplar
 
 ## v0.2.25 (2024-11-28)
 
