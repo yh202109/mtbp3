@@ -21,80 +21,62 @@ import requests
 
 warnings.simplefilter(action='ignore', category=FutureWarning)
     
-class ictvmsl:
+class ictvvmr:
     """
-    A class to handle ICTV Master Species List (MSL) data.
+    A class to handle ICTV Virus Metadata Resource (VMR) data.
 
     Attributes:
         msl_file_path : str
-            Path to the MSL file.
+            Path to the VMR file.
         msl_file_fullpath : str
-            Full path to the MSL file.
+            Full path to the VMR file.
         msl_version : str
-            Version of the MSL.
+            Version of the VMR.
         msl_column_names : list
-            List of column names in the MSL.
+            List of column names in the VMR.
         msl : DataFrame
-            The MSL data loaded into a pandas DataFrame.
+            The VMR data loaded into a pandas DataFrame.
 
     Methods:
-        update_msl(self, version="current")
-            Updates the MSL data by downloading the specified version from the ICTV website.
-        make_narrow(msl)
+        update_vmr(self, version="current")
+            Updates the VMR data by downloading the specified version from the ICTV website.
+        make_narrow(vmr)
             Converts the MSL DataFrame to a narrower format by combining certain columns.
         find_rows_given_str(self, search_str="", search_rank="Species", color="", narrow=False, outfmt="simple", exact=False, search_within_subset=None)
-            Finds rows in the MSL DataFrame that contain the given search string.
+            Finds rows in the VMR DataFrame that contain the given search string.
     """
 
-    def __init__(self, msl_file_path = ""):
+    def __init__(self, vmr_file_path = ""):
         if not isinstance(msl_file_path, str):
-            raise TypeError("msl_file_path must be a string")
+            raise TypeError("vmr_file_path must be a string")
 
-        if msl_file_path:
-            self.msl_file_path = msl_file_path
-            self.msl_file_fullpath = msl_file_path
-            self.msl_version = ""
+        if vmr_file_path:
+            self.vmr_file_path = vmr_file_path
+            self.vmr_file_fullpath = vmr_file_path
+            self.vmr_version = ""
         else:
-            self.msl_file_path = f'supp_seq/ICTV_MSL39v4_example.csv'
-            self.msl_file_fullpath = util.get_data(self.msl_file_path)
-            self.msl_version = "example"
+            self.vmr_file_path = f'supp_seq/ICTV_VMR_MSL39v4_example.csv'
+            self.vmr_file_fullpath = util.get_data(self.vmr_file_path)
+            self.vmr_version = "example"
 
-        self.msl_column_names = []
-        self.msl = self.__load_list()
+        self.vmr_column_names = []
+        self.vmr = self.__load_list()
 
-        if self.msl is not None:
-            self.msl_column_names = self.msl.columns.tolist()
-            print(f"File {self.msl_file_path} has been loaded")
-            print("Column names:", self.msl_column_names)
-            print("Total number of rows:", len(self.msl))
+        if self.vmr is not None:
+            self.vmr_column_names = self.vmr.columns.tolist()
+            print(f"File {self.vmr_file_path} has been loaded")
+            print("Column names:", self.vmr_column_names)
+            print("Total number of rows:", len(self.vmr))
 
-    def update_msl(self, version="current"):
+    def update_vmr(self, version="current"):
         all_url = {
-            "current": "https://ictv.global/msl/current",
-            "39.v4": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2023_MSL39.v4.xlsx",
-            "39.v3": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2023_MSL39.v3.xlsx",
-            "39.v2": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2023_MSL39.v2.xlsx",
-            "39.v1": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2023_MSL39.v1.xlsx",
-            "38.v3": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2022_MSL38.v3.xlsx",
-            "38.v2": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2022_MSL38.v2.xlsx",
-            "38.v1": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2022_MSL38.v1.xlsx",
-            "2021.v3": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2021_v3.xlsx",
-            "2021.v2": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2021_v2.xlsx",
-            "2021.v1": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2021_v1.xlsx",
-            "2020": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2020.xlsx",
-            "2019": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2019.xlsx",
-            "2018b.v2": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2018b.v2.xlsx",
-            "2018a": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2018a.xlsx",
-            "2017": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2017.xlsx",
-            "2016.v1.3": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2016_v1.3.xlsx",
-            "2015": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2015.xlsx",
-            "2014.v4": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2014_v4.xls",
-            "2013.v2": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2013_v2.xls",
-            "2012.v4": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2012_v4.xls",
-            "2011.v2": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2011_v2.xls",
-            "2009.v10": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2009_v10.xls",
-            "2008": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2008.xls",
-            "2005.v1": "https://ictv.global/sites/default/files/MSL/ICTV_Master_Species_List_2005_v1.xls",
+            "current": "https://ictv.global/vmr/current",
+            "39.v4": "https://ictv.global/sites/default/files/VMR/VMR_MSL39.v4_20241106.xlsx",
+            "39.v2": "https://ictv.global/sites/default/files/VMR/VMR_MSL39.v2_20240920.xlsx",
+            "39.v1": "https://ictv.global/sites/default/files/VMR/VMR_MSL39.v1_20240912.xlsx",
+            "38.v3": "https://ictv.global/sites/default/files/VMR/VMR_MSL38_v3.xlsx",
+            "38.v2": "https://ictv.global/sites/default/files/VMR/VMR_MSL38_v2.xlsx",
+            "38.v1": "https://ictv.global/sites/default/files/VMR/VMR_MSL38_v1.xlsx",
         }
         if version in all_url:
             url = all_url[version]
@@ -106,43 +88,51 @@ class ictvmsl:
         if response.status_code == 200:
             with open("temp.xlsx", "wb") as f:
                 f.write(response.content)
-            self.msl = pd.read_excel("temp.xlsx", sheet_name="MSL")
+            xls = pd.ExcelFile("temp.xlsx")
+            sheet_name = next((sheet for sheet in xls.sheet_names if sheet.startswith("VMR")), None)
+            if sheet_name is None:
+                raise ValueError("No sheet name starting with 'VMR' found in the Excel file.")
+            self.vmr = pd.read_excel("temp.xlsx", sheet_name=sheet_name)
             os.remove("temp.xlsx")
-            self.msl_column_names = self.msl.columns.tolist()
+            self.vmr_column_names = self.vmr.columns.tolist()
             print(f"File of {version} version has been loaded")
-            print("Column names:", self.msl_column_names)
-            print("Total number of rows:", len(self.msl))
-            self.msl_version = version
+            print("Column names:", self.vmr_column_names)
+            print("Total number of rows:", len(self.vmr))
+            self.vmr_version = version
         else:
             raise Exception(f"Failed to download file from {url}. Status code: {response.status_code}")
 
 
     @staticmethod
-    def make_narrow(msl, method="concatenation"):
+    def make_narrow(vmr, method="concatenation"):
+        if 'Species' in vmr.columns and 'Genome' in vmr.columns:
+            vmr['Species'] = vmr.apply(lambda row: f"{row['Species']} ({row['Genome']})" if pd.notna(row['Species']) and pd.notna(row['Genome']) else row['Species'], axis=1)
+        if 'Virus name(s)' in vmr.columns and 'Virus isolate designation' in vmr.columns and 'Virus GENBANK accession' in vmr.columns and 'Exemplar or additional isolate' in vmr.columns:
+            vmr['Exemplar or additional isolate'] = vmr.apply(lambda row: f"[{row['Exemplar or additional isolate']}] {row['Virus name(s)']} ({row['Virus isolate designation']}) (Genebank: {row['Virus GENBANK accession']})" if pd.notna(row['Virus name(s)']) and pd.notna(row['Virus isolate designation']) and pd.notna(row['Virus GENBANK accession']) else f"[{row['Exemplar or additional isolate']}] {row['Virus name(s)']} (Genebank: {row['Virus GENBANK accession']}, axis=1)
+
         if method == "full":
-            msl = msl.iloc[:, :-4]
-            return msl
+            vmr = vmr.iloc[:, :-8]
+            return vmr
         elif method == "concatenation":
-            for col in msl.columns:
-                if col.lower().startswith('sub') and not msl[col].isna().all():
-                    index1 = msl.columns.get_loc(col[3:].capitalize())
-                    index2 = msl.columns.get_loc(col)
-                    msl.iloc[:, index1] = msl.apply(lambda row: f"{row[index1]}; [{col}] {row[index2]}" if pd.notna(row[index2]) else row[index1], axis=1)
-            msl = msl.iloc[:, :-4]
-            msl = msl.drop(columns=[col for col in msl.columns if col.lower().startswith('sub')])
+            for col in vmr.columns:
+                if col.lower().startswith('sub') and not vmr[col].isna().all():
+                    index1 = vmr.columns.get_loc(col[3:].capitalize())
+                    index2 = vmr.columns.get_loc(col)
+                    vmr.iloc[:, index1] = vmr.apply(lambda row: f"{row[index1]}; [{col}] {row[index2]}" if pd.notna(row[index2]) else row[index1], axis=1)
+            vmr = vmr.iloc[:, :-8]
+            vmr = vmr.drop(columns=[col for col in vmr.columns if col.lower().startswith('sub')])
         elif method == "drop":
-            for col in msl.columns:
-                if col.lower().startswith('sub') and msl[col].isna().all():
-                    msl = msl.drop(columns=[col])
-            msl = msl.iloc[:, :-4]
+            for col in vmr.columns:
+                if col.lower().startswith('sub') and vmr[col].isna().all():
+                    vmr = vmr.drop(columns=[col])
+            vmr = vmr.iloc[:, :-8]
         else: 
             raise ValueError("Unknown method. Supported methods are 'concatenation' and 'drop'")
 
-        return msl
+        return vmr
 
     def __load_list(self):
-        #file_path = f'./mtbp3/data/supp_seq/ICTV_MSL39v4_example.csv'
-        file_path = self.msl_file_fullpath
+        file_path = self.vmr_file_fullpath
         if os.path.isfile(file_path):
             df = pd.read_csv(file_path)
             return df
@@ -184,28 +174,28 @@ class ictvmsl:
         if search_within_subset is not None and not isinstance(search_within_subset, dict):
             raise TypeError("search_subset must be a dictionary or None")
 
-        msl2 = self.msl
+        vmr2 = self.vmr
         if search_within_subset is not None:
             for key, value in search_within_subset.items():
-                if key in msl2.columns and isinstance(value, str) and value:
-                    index = msl2.columns.get_loc(key)
-                    msl2 = msl2[msl2.iloc[:, index].str.lower() == value.lower()]
+                if key in vmr2.columns and isinstance(value, str) and value:
+                    index = vmr2.columns.get_loc(key)
+                    vmr2 = vmr2[vmr2.iloc[:, index].str.lower() == value.lower()]
 
         if search_rank == "all":
             if exact:
-                filtered_df = msl2[msl2.iloc[:, 1:16].apply(lambda row: any(search_str.lower() == element.lower() for element in row.astype(str).values for search_str in search_strings), axis=1)]
+                filtered_df = vmr2[vmr2.iloc[:, 3:18].apply(lambda row: any(search_str.lower() == element.lower() for element in row.astype(str).values for search_str in search_strings), axis=1)]
             else:
-                filtered_df = msl2[msl2.iloc[:, 1:16].apply(lambda row: any(search_str.lower() in element.lower() for element in row.astype(str).values for search_str in search_strings), axis=1)]
+                filtered_df = vmr2[vmr2.iloc[:, 3:18].apply(lambda row: any(search_str.lower() in element.lower() for element in row.astype(str).values for search_str in search_strings), axis=1)]
             if color:
-                for col in filtered_df[1:16]:
+                for col in filtered_df[3:18]:
                     filtered_df[col] = filtered_df[col].apply(lambda row: util.cdt.color_str(row, words=search_strings, colors=color, exact=exact) if pd.notna(row) else row)
         else:
             if exact:
-                filtered_df = msl2[msl2[search_rank].apply(lambda x: any(search_str.lower() == x.lower() for search_str in search_strings) if pd.notna(x) else False)]
+                filtered_df = vmr2[vmr2[search_rank].apply(lambda x: any(search_str.lower() == x.lower() for search_str in search_strings) if pd.notna(x) else False)]
             else:
-                filtered_df = msl2[msl2[search_rank].apply(lambda x: any(search_str.lower() in x.lower() for search_str in search_strings) if pd.notna(x) else False)]
+                filtered_df = vmr2[vmr2[search_rank].apply(lambda x: any(search_str.lower() in x.lower() for search_str in search_strings) if pd.notna(x) else False)]
             if color:
-                index = msl2.columns.get_loc(search_rank)
+                index = vmr2.columns.get_loc(search_rank)
                 filtered_df.iloc[:, index] = filtered_df.iloc[:, index].apply(lambda row: util.cdt.color_str(row, words=search_strings, colors=color, exact=exact))
 
 
