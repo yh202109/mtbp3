@@ -82,14 +82,14 @@ Module Contents
    .. py:method:: __load_list()
 
 
-   .. py:method:: find_rows_given_str(search_strings=None, search_rank='Species', color='', narrow=False, outfmt='simple', exact=False, search_within_subset=None, tree_style='concatenation')
+   .. py:method:: find_rows_given_str(search_strings=None, search_rank_or_exemplar='Species', color='', narrow=False, outfmt='simple', exact=False, search_within_subset=None, tree_style='concatenation', start_with_rank=None)
 
       Find rows in the dataset that match the given search strings.
 
       :param search_strings: A list of strings or a single string to search for in the dataset.
       :type search_strings: list or str
-      :param search_rank: The rank to search within (default is "Species"). Can be "all" or one of the column names in the dataset.
-      :type search_rank: str
+      :param search_rank_or_exemplar: The rank (or exemplar) to search within (default is "Species"). Can be "all" or one of the column names in the dataset.
+      :type search_rank_or_exemplar: str
       :param color: Color to highlight the search strings in the results (default is "").
       :type color: str
       :param narrow: Whether to narrow the results (default is False).

@@ -421,9 +421,6 @@ To search for virus within the Retroviridae famiy that can infect feline:</p>
                             └── [Species] <span class=" -Color -Color-Red">Lentivirus felimdef</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 <p>There are two more types of tree available, including a tree with nonempty ranks:</p>
@@ -475,6 +472,9 @@ To search for virus within the Retroviridae famiy that can infect feline:</p>
                                                 └── [Genus] Lentivirus:
                                                     └── [Subgenus] NA:
                                                         └── [Species] <span class=" -Color -Color-Red">Lentivirus felimdef</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -530,27 +530,15 @@ Total number of rows: 65
 </div>
 <p>When the path is empty, an example file will be used for illustration.
 Similarily, use <code class="docutils literal notranslate"><span class="pre">vmr.update_vmr(version=&quot;current&quot;)</span></code>. to download the current version from ICTV.</p>
-<p>To search for species “Gammaretrovirus felleu” and “Lentivirus felimdef”:</p>
+<p>To search for exemplars including “feline”:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">vmr</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_strings</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Gammaretrovirus felleu&quot;</span><span class="p">,</span> <span class="s2">&quot;Lentivirus felimdef&quot;</span><span class="p">],</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Species&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">,</span> <span class="n">tree_style</span><span class="o">=</span><span class="s2">&quot;drop&quot;</span><span class="p">)))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">vmr</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_strings</span><span class="o">=</span><span class="s2">&quot;feline&quot;</span><span class="p">,</span> <span class="n">search_rank_or_exemplar</span><span class="o">=</span><span class="s2">&quot;Exemplar or additional isolate&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">,</span> <span class="n">tree_style</span><span class="o">=</span><span class="s2">&quot;drop&quot;</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    [Realm] Riboviria:
-    └── [Kingdom] Pararnavirae:
-        └── [Phylum] Artverviricota:
-            └── [Class] Revtraviricetes:
-                └── [Order] Ortervirales:
-                    └── [Family] Retroviridae:
-                        └── [Subfamily] Orthoretrovirinae:
-                            ├── [Genus] Gammaretrovirus:
-                            │   └── [Species] <span class=" -Color -Color-Red">Gammaretrovirus felleu</span> (ssRNA-RT):
-                            │       └── [E] feline leukemia virus (Rickard subgroup A) (Genebank: AF052723)
-                            └── [Genus] Lentivirus:
-                                └── [Species] <span class=" -Color -Color-Red">Lentivirus felimdef</span> (ssRNA-RT):
-                                    └── [E] feline immunodeficiency virus (Petaluma) (Genebank: M25381)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Input should be a nonempty list.
 </pre></div>
 </div>
 </div>
@@ -558,7 +546,7 @@ Similarily, use <code class="docutils literal notranslate"><span class="pre">vmr
 <p>To search for genus “lentivirus”:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">vmr</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_strings</span><span class="o">=</span><span class="s2">&quot;lentivirus&quot;</span><span class="p">,</span> <span class="n">search_rank</span><span class="o">=</span><span class="s2">&quot;Genus&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tree_style</span><span class="o">=</span><span class="s2">&quot;drop&quot;</span><span class="p">)))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">vmr</span><span class="o">.</span><span class="n">find_rows_given_str</span><span class="p">(</span><span class="n">search_strings</span><span class="o">=</span><span class="s2">&quot;lentivirus&quot;</span><span class="p">,</span> <span class="n">search_rank_or_exemplar</span><span class="o">=</span><span class="s2">&quot;Genus&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">outfmt</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tree_style</span><span class="o">=</span><span class="s2">&quot;drop&quot;</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -591,6 +579,9 @@ Similarily, use <code class="docutils literal notranslate"><span class="pre">vmr
                                 │   └── [E] puma lentivirus (14) (Genebank: U03982)
                                 └── [Species] Lentivirus simimdef (ssRNA-RT):
                                     └── [E] simian immunodeficiency virus (Complete genome) (Genebank: M58410)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>

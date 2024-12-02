@@ -354,7 +354,7 @@
     "When the path is empty, an example file will be used for illustration. \n",
     "Similarily, use `vmr.update_vmr(version=\"current\")`. to download the current version from ICTV.\n",
     "\n",
-    "To search for species \"Gammaretrovirus felleu\" and \"Lentivirus felimdef\":"
+    "To search for exemplars including \"feline\":"
    ]
   },
   {
@@ -367,13 +367,14 @@
    },
    "outputs": [],
    "source": [
-    "print('\\n'.join(vmr.find_rows_given_str(search_strings=[\"Gammaretrovirus felleu\", \"Lentivirus felimdef\"], search_rank=\"Species\", color=\"red\", outfmt='tree', tree_style=\"drop\")))"
+    "print('\\n'.join(vmr.find_rows_given_str(search_strings=\"feline\", search_rank_or_exemplar=\"Exemplar or additional isolate\", color=\"red\", outfmt='tree', tree_style=\"drop\")))"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
+    "\n",
     "To search for genus \"lentivirus\":"
    ]
   },
@@ -387,7 +388,7 @@
    },
    "outputs": [],
    "source": [
-    "print('\\n'.join(vmr.find_rows_given_str(search_strings=\"lentivirus\", search_rank=\"Genus\", color=\"red\", outfmt='tree', exact=True, tree_style=\"drop\")))"
+    "print('\\n'.join(vmr.find_rows_given_str(search_strings=\"lentivirus\", search_rank_or_exemplar=\"Genus\", color=\"red\", outfmt='tree', exact=True, tree_style=\"drop\")))"
    ]
   },
   {
