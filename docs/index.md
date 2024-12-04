@@ -25,6 +25,7 @@ statlab_kappa2.rst
 statlab_corr_tau.rst
 statlab_corr_spearman_rho.rst
 seq_ictv_taxonomy.ipynb
+seq_ncbi_taxonomy.ipynb
 
 changelog.md
 contributing.md
