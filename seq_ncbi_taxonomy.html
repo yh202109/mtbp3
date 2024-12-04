@@ -181,12 +181,104 @@ Scientific name is formal                           True
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../mtbp3/data/supp_seq/taxonomy_report.jsonl&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
     <span class="n">line</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
 
-<span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">line</span><span class="p">),</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;taxonomy&#39;: {&#39;taxId&#39;: 11673, &#39;rank&#39;: &#39;SPECIES&#39;, &#39;currentScientificName&#39;: {&#39;name&#39;: &#39;Feline immunodeficiency virus&#39;, &#39;notes&#39;: [{&#39;name&#39;: &#39;ICTV Status&#39;, &#39;note&#39;: &#39;Name is currently accepted by the International Committee on Taxonomy of Viruses.&#39;, &#39;noteClassifier&#39;: &#39;ictv_accepted&#39;}]}, &#39;groupName&#39;: &#39;viruses&#39;, &#39;classification&#39;: {&#39;superkingdom&#39;: {&#39;name&#39;: &#39;Viruses&#39;, &#39;id&#39;: 10239}, &#39;kingdom&#39;: {&#39;name&#39;: &#39;Pararnavirae&#39;, &#39;id&#39;: 2732397}, &#39;phylum&#39;: {&#39;name&#39;: &#39;Artverviricota&#39;, &#39;id&#39;: 2732409}, &#39;class&#39;: {&#39;name&#39;: &#39;Revtraviricetes&#39;, &#39;id&#39;: 2732514}, &#39;order&#39;: {&#39;name&#39;: &#39;Ortervirales&#39;, &#39;id&#39;: 2169561}, &#39;family&#39;: {&#39;name&#39;: &#39;Retroviridae&#39;, &#39;id&#39;: 11632}, &#39;genus&#39;: {&#39;name&#39;: &#39;Lentivirus&#39;, &#39;id&#39;: 11646}, &#39;species&#39;: {&#39;name&#39;: &#39;Feline immunodeficiency virus&#39;, &#39;id&#39;: 11673}}, &#39;parents&#39;: [1, 10239, 2559587, 2732397, 2732409, 2732514, 2169561, 11632, 327045, 11646], &#39;children&#39;: [11648, 289357, 36373, 36372, 36371, 45409, 31676, 11675, 11674], &#39;counts&#39;: [{&#39;type&#39;: &#39;COUNT_TYPE_ASSEMBLY&#39;, &#39;count&#39;: 1}, {&#39;type&#39;: &#39;COUNT_TYPE_GENE&#39;, &#39;count&#39;: 5}, {&#39;type&#39;: &#39;COUNT_TYPE_PROTEIN_CODING&#39;, &#39;count&#39;: 5}], &#39;genomicMoltype&#39;: &#39;ssRNA-RT&#39;, &#39;currentScientificNameIsFormal&#39;: True}, &#39;query&#39;: [&#39;11673&#39;]}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+  &quot;taxonomy&quot;: {
+    &quot;taxId&quot;: 11673,
+    &quot;rank&quot;: &quot;SPECIES&quot;,
+    &quot;currentScientificName&quot;: {
+      &quot;name&quot;: &quot;Feline immunodeficiency virus&quot;,
+      &quot;notes&quot;: [
+        {
+          &quot;name&quot;: &quot;ICTV Status&quot;,
+          &quot;note&quot;: &quot;Name is currently accepted by the International Committee on Taxonomy of Viruses.&quot;,
+          &quot;noteClassifier&quot;: &quot;ictv_accepted&quot;
+        }
+      ]
+    },
+    &quot;groupName&quot;: &quot;viruses&quot;,
+    &quot;classification&quot;: {
+      &quot;superkingdom&quot;: {
+        &quot;name&quot;: &quot;Viruses&quot;,
+        &quot;id&quot;: 10239
+      },
+      &quot;kingdom&quot;: {
+        &quot;name&quot;: &quot;Pararnavirae&quot;,
+        &quot;id&quot;: 2732397
+      },
+      &quot;phylum&quot;: {
+        &quot;name&quot;: &quot;Artverviricota&quot;,
+        &quot;id&quot;: 2732409
+      },
+      &quot;class&quot;: {
+        &quot;name&quot;: &quot;Revtraviricetes&quot;,
+        &quot;id&quot;: 2732514
+      },
+      &quot;order&quot;: {
+        &quot;name&quot;: &quot;Ortervirales&quot;,
+        &quot;id&quot;: 2169561
+      },
+      &quot;family&quot;: {
+        &quot;name&quot;: &quot;Retroviridae&quot;,
+        &quot;id&quot;: 11632
+      },
+      &quot;genus&quot;: {
+        &quot;name&quot;: &quot;Lentivirus&quot;,
+        &quot;id&quot;: 11646
+      },
+      &quot;species&quot;: {
+        &quot;name&quot;: &quot;Feline immunodeficiency virus&quot;,
+        &quot;id&quot;: 11673
+      }
+    },
+    &quot;parents&quot;: [
+      1,
+      10239,
+      2559587,
+      2732397,
+      2732409,
+      2732514,
+      2169561,
+      11632,
+      327045,
+      11646
+    ],
+    &quot;children&quot;: [
+      11648,
+      289357,
+      36373,
+      36372,
+      36371,
+      45409,
+      31676,
+      11675,
+      11674
+    ],
+    &quot;counts&quot;: [
+      {
+        &quot;type&quot;: &quot;COUNT_TYPE_ASSEMBLY&quot;,
+        &quot;count&quot;: 1
+      },
+      {
+        &quot;type&quot;: &quot;COUNT_TYPE_GENE&quot;,
+        &quot;count&quot;: 5
+      },
+      {
+        &quot;type&quot;: &quot;COUNT_TYPE_PROTEIN_CODING&quot;,
+        &quot;count&quot;: 5
+      }
+    ],
+    &quot;genomicMoltype&quot;: &quot;ssRNA-RT&quot;,
+    &quot;currentScientificNameIsFormal&quot;: true
+  },
+  &quot;query&quot;: [
+    &quot;11673&quot;
+  ]
+}
 </pre></div>
 </div>
 </div>
