@@ -104,7 +104,7 @@
 <p>For example, if we are interested in studying the virus causing feline acquired immunodeficiency syndrome, we can find the information in the NCBI Taxonomy Browser <a class="footnote-reference brackets" href="#id14" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>.
 The <code class="docutils literal notranslate"><span class="pre">NCBI:txid11673</span></code> is uniquely linked to the species.</p>
 <p>To install NCBI CLI tools, follow instructions in reference <a class="footnote-reference brackets" href="#id15" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>.</p>
-<p>Follow instructions in reference to download, unzip <a class="footnote-reference brackets" href="#id16" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a> and verify <a class="footnote-reference brackets" href="#id17" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>9<span class="fn-bracket">]</span></a> for the given txid <code class="docutils literal notranslate"><span class="pre">11673</span></code> in a terminal:</p>
+<p>Follow instructions in reference to download <a class="footnote-reference brackets" href="#id16" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a>, unzip and verify <a class="footnote-reference brackets" href="#id17" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>9<span class="fn-bracket">]</span></a> for the given txid <code class="docutils literal notranslate"><span class="pre">11673</span></code> in a terminal:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">datasets</span> <span class="n">download</span> <span class="n">taxonomy</span> <span class="n">taxon</span> <span class="mi">11673</span> <span class="o">--</span><span class="n">filename</span> <span class="n">dltxid11673</span><span class="o">.</span><span class="n">zip</span>
 <span class="n">unzip</span> <span class="n">dltxid11673</span><span class="o">.</span><span class="n">zip</span> <span class="o">-</span><span class="n">d</span> <span class="n">dltxid11673</span>
 <span class="n">cd</span> <span class="n">dltxid11673</span>
@@ -130,7 +130,7 @@ The <code class="docutils literal notranslate"><span class="pre">NCBI:txid11673<
 </pre></div>
 </div>
 <p>The taxonomy_summary.tsv is included as an example.
-To view the tsv file:</p>
+To view the example tsv file:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
