@@ -129,8 +129,8 @@ The <code class="docutils literal notranslate"><span class="pre">NCBI:txid11673<
 <span class="n">ncbi_dataset</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">dataset_catalog</span><span class="o">.</span><span class="n">json</span><span class="p">:</span> <span class="n">OK</span>
 </pre></div>
 </div>
-<p>The taxonomy_summary.tsv is included as an example.
-To view the example tsv file:</p>
+<p>The downloaded tsv and jsonl are included here as an example.</p>
+<p>To view the example tsv file:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -173,6 +173,24 @@ Scientific name is formal                           True
 </div>
 </div>
 </div>
+<p>To view the jsonl file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../mtbp3/data/supp_seq/taxonomy_report.jsonl&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+
+<span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;taxonomy&#39;: {&#39;taxId&#39;: 11673, &#39;rank&#39;: &#39;SPECIES&#39;, &#39;currentScientificName&#39;: {&#39;name&#39;: &#39;Feline immunodeficiency virus&#39;, &#39;notes&#39;: [{&#39;name&#39;: &#39;ICTV Status&#39;, &#39;note&#39;: &#39;Name is currently accepted by the International Committee on Taxonomy of Viruses.&#39;, &#39;noteClassifier&#39;: &#39;ictv_accepted&#39;}]}, &#39;groupName&#39;: &#39;viruses&#39;, &#39;classification&#39;: {&#39;superkingdom&#39;: {&#39;name&#39;: &#39;Viruses&#39;, &#39;id&#39;: 10239}, &#39;kingdom&#39;: {&#39;name&#39;: &#39;Pararnavirae&#39;, &#39;id&#39;: 2732397}, &#39;phylum&#39;: {&#39;name&#39;: &#39;Artverviricota&#39;, &#39;id&#39;: 2732409}, &#39;class&#39;: {&#39;name&#39;: &#39;Revtraviricetes&#39;, &#39;id&#39;: 2732514}, &#39;order&#39;: {&#39;name&#39;: &#39;Ortervirales&#39;, &#39;id&#39;: 2169561}, &#39;family&#39;: {&#39;name&#39;: &#39;Retroviridae&#39;, &#39;id&#39;: 11632}, &#39;genus&#39;: {&#39;name&#39;: &#39;Lentivirus&#39;, &#39;id&#39;: 11646}, &#39;species&#39;: {&#39;name&#39;: &#39;Feline immunodeficiency virus&#39;, &#39;id&#39;: 11673}}, &#39;parents&#39;: [1, 10239, 2559587, 2732397, 2732409, 2732514, 2169561, 11632, 327045, 11646], &#39;children&#39;: [11648, 289357, 36373, 36372, 36371, 45409, 31676, 11675, 11674], &#39;counts&#39;: [{&#39;type&#39;: &#39;COUNT_TYPE_ASSEMBLY&#39;, &#39;count&#39;: 1}, {&#39;type&#39;: &#39;COUNT_TYPE_GENE&#39;, &#39;count&#39;: 5}, {&#39;type&#39;: &#39;COUNT_TYPE_PROTEIN_CODING&#39;, &#39;count&#39;: 5}], &#39;genomicMoltype&#39;: &#39;ssRNA-RT&#39;, &#39;currentScientificNameIsFormal&#39;: True}, &#39;query&#39;: [&#39;11673&#39;]}
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>
@@ -202,7 +220,7 @@ Scientific name is formal                           True
 </aside>
 <aside class="footnote brackets" id="id14" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">6</a><span class="fn-bracket">]</span></span>
-<p>NCBI. (year). Feline immunodeficiency virus. ([web page])(https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&amp;id=11673&amp;lvl=3&amp;lin=f&amp;keep=1&amp;srchmode=4&amp;unlock))</p>
+<p>NCBI. (year). Feline immunodeficiency virus. (<a class="reference external" href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&amp;amp;id=11673&amp;amp;lvl=3&amp;amp;lin=f&amp;amp;keep=1&amp;amp;srchmode=4&amp;amp;unlock">web page</a>)</p>
 </aside>
 <aside class="footnote brackets" id="id15" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">7</a><span class="fn-bracket">]</span></span>
@@ -210,7 +228,7 @@ Scientific name is formal                           True
 </aside>
 <aside class="footnote brackets" id="id16" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">8</a><span class="fn-bracket">]</span></span>
-<p>NCBI. (year). Get taxonomy metadata. https://www.ncbi.nlm.nih.gov/datasets/docs/v2/how-tos/taxonomy/taxonomy/))</p>
+<p>NCBI. (year). Get taxonomy metadata. (<a class="reference external" href="https://www.ncbi.nlm.nih.gov/datasets/docs/v2/how-tos/taxonomy/taxonomy/">web page</a>)</p>
 </aside>
 <aside class="footnote brackets" id="id17" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">9</a><span class="fn-bracket">]</span></span>
