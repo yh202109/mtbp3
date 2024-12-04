@@ -1,0 +1,151 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Seq/NCBI/Taxonomy Database\n",
+    "\n",
+    "The taxonomy database maintained the National Center for Biotechnology Information (NCBI) contains taxonomy information closely related to their sequence database [^1]<sup>,</sup>[^2]. There are multiple ways to access NCBI taxonomy database, including web browser [^3]<sup>,</sup>[^4], ftp, and command line tools, etc..\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## NCBI Datasets Command line Interface (CLI) Tool\n",
+    "\n",
+    "For example, if we are interested in studying the virus causing feline acquired immunodeficiency syndrome, we can find the information in the NCBI Taxonomy Browser [^6]. \n",
+    "The `NCBI:txid11673` is uniquely linked to the species.\n",
+    "\n",
+    "To install NCBI CLI tools, follow instructions in reference [^7].\n",
+    "\n",
+    "Follow instructions in reference to download, unzip [^8] and verify [^9] for the given txid `11673` in a terminal:\n",
+    "\n",
+    "```\n",
+    "datasets download taxonomy taxon 11673 --filename dltxid11673.zip\n",
+    "unzip dltxid11673.zip -d dltxid11673\n",
+    "cd dltxid11673\n",
+    "md5sum -c md5sum.txt\n",
+    "```\n",
+    "\n",
+    "Output:\n",
+    "\n",
+    "```\n",
+    "Downloading: dltxid11673.zip    2.96kB valid data package\n",
+    "Validating package files [================================================] 100% 5/5\n",
+    "```\n",
+    "\n",
+    "```\n",
+    "Archive:  dltxid11673.zip\n",
+    "  inflating: dltxid11673/README.md   \n",
+    "  inflating: dltxid11673/ncbi_dataset/data/taxonomy_report.jsonl  \n",
+    "  inflating: dltxid11673/ncbi_dataset/data/taxonomy_summary.tsv  \n",
+    "  inflating: dltxid11673/ncbi_dataset/data/dataset_catalog.json  \n",
+    "  inflating: dltxid11673/md5sum.txt  \n",
+    "```\n",
+    "\n",
+    "```\n",
+    "ncbi_dataset/data/taxonomy_report.jsonl: OK\n",
+    "ncbi_dataset/data/taxonomy_summary.tsv: OK\n",
+    "ncbi_dataset/data/dataset_catalog.json: OK\n",
+    "```\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The taxonomy_summary.tsv is included as an example. \n",
+    "To view the tsv file:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "                                                       0\n",
+      "Query                                              11673\n",
+      "Taxid                                              11673\n",
+      "Tax name                   Feline immunodeficiency virus\n",
+      "Authority                                            NaN\n",
+      "Rank                                             SPECIES\n",
+      "Basionym                                             NaN\n",
+      "Basionym authority                                   NaN\n",
+      "Curator common name                                  NaN\n",
+      "Has type material                                     no\n",
+      "Group name                                       viruses\n",
+      "Superkingdom name                                Viruses\n",
+      "Superkingdom taxid                                 10239\n",
+      "Kingdom name                                Pararnavirae\n",
+      "Kingdom taxid                                    2732397\n",
+      "Phylum name                               Artverviricota\n",
+      "Phylum taxid                                     2732409\n",
+      "Class name                               Revtraviricetes\n",
+      "Class taxid                                      2732514\n",
+      "Order name                                  Ortervirales\n",
+      "Order taxid                                      2169561\n",
+      "Family name                                 Retroviridae\n",
+      "Family taxid                                       11632\n",
+      "Genus name                                    Lentivirus\n",
+      "Genus taxid                                        11646\n",
+      "Species name               Feline immunodeficiency virus\n",
+      "Species taxid                                      11673\n",
+      "Scientific name is formal                           True\n"
+     ]
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "\n",
+    "dt = pd.read_csv('../mtbp3/data/supp_seq/taxonomy_summary.tsv', delimiter='\\t')\n",
+    "print(dt.transpose())\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Reference\n",
+    "\n",
+    "[^1]: NCBI. (2024). The Taxonomy Database. ([web page](https://www.ncbi.nlm.nih.gov/taxonomy/))\n",
+    "[^2]: Schoch C. NCBI Taxonomy. 2011 Apr 7 [Updated 2020 Feb 11]. In: Taxonomy Help [Internet]. Bethesda (MD): National Center for Biotechnology Information (US); 2011-. Available from: https://www.ncbi.nlm.nih.gov/books/NBK53758/\n",
+    "[^3]: NCBI. (year). The NCBI Taxonomy Homepage. ([web page](https://www.ncbi.nlm.nih.gov/Taxonomy/taxonomyhome.html/index.cgi))\n",
+    "[^4]: NCBI. (year). NCBI laxonomy Browser: Virus. ([web page](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Viruses))\n",
+    "[^5]: NCBI. (year). Install NCBI Datasets command-line tools. ([web page](https://www.ncbi.nlm.nih.gov/datasets/docs/v2/download-and-install/?utm_source=ncbi_insights&utm_medium=referral&utm_campaign=datasets-api-key-20241008))\n",
+    "[^6]: NCBI. (year). Feline immunodeficiency virus. ([web page])(https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=11673&lvl=3&lin=f&keep=1&srchmode=4&unlock))\n",
+    "[^7]: NCBI. (year). Install NCBI Datasets command-line tools. ([web page](https://www.ncbi.nlm.nih.gov/datasets/docs/v2/download-and-install/?utm_source=ncbi_insights&utm_medium=referral&utm_campaign=datasets-api-key-20241008))\n",
+    "[^8]: NCBI. (year). Get taxonomy metadata. https://www.ncbi.nlm.nih.gov/datasets/docs/v2/how-tos/taxonomy/taxonomy/))\n",
+    "[^9]: NCBI. (year). File validation. ([web page](https://www.ncbi.nlm.nih.gov/datasets/docs/v2/how-tos/validation/))\n",
+    "\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.13"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

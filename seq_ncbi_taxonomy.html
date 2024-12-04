@@ -1,0 +1,252 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seq/NCBI/Taxonomy Database &mdash; mtbp3  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=ce7ddcad" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Changelog" href="changelog.html" />
+    <link rel="prev" title="Seq/ICTV/MSL and VMR" href="seq_ictv_taxonomy.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            mtbp3
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="example_cdtg.html">U/Graph/Categorical Plots Using catPlotter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_files.html">U/System/List Folder Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="util_jsonutil.html">U/Data/JSON tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_clinical.html">H/Clinical/Grouped Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_ectd.html">H/ICH/eCTD/US/3.2/Heading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_ectd2.html">H/ICH/eCTD/US/4.0/Heading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_emt.html">H/ICH/MedDRA/Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_emt2.html">H/ICH/MedDRA/SMQs by ICH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_emt3.html">H/ICH/MedDRA/FMQs by FDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_emt4.html">H/ICH/MedDRA/(MLGs by CIOMS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="std_cdisc.html">S/CDISC/Library Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="std_hl7fhir_us_pqcmc.html">S/HL7/FHIR-R5/US/PQ-CMC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="std_iso_pdf.html">S/ISO/PDF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="std_iso_idmp.html">S/ISO/IDMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seq_ictv_taxonomy.html">Seq/ICTV/MSL and VMR</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Seq/NCBI/Taxonomy Database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ncbi-datasets-command-line-interface-cli-tool">NCBI Datasets Command line Interface (CLI) Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">mtbp3</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Seq/NCBI/Taxonomy Database</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/seq_ncbi_taxonomy.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="seq-ncbi-taxonomy-database">
+<h1>Seq/NCBI/Taxonomy Database<a class="headerlink" href="#seq-ncbi-taxonomy-database" title="Link to this heading"></a></h1>
+<p>The taxonomy database maintained the National Center for Biotechnology Information (NCBI) contains taxonomy information closely related to their sequence database <a class="footnote-reference brackets" href="#id9" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a><sup>,</sup><a class="footnote-reference brackets" href="#id10" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>. There are multiple ways to access NCBI taxonomy database, including web browser <a class="footnote-reference brackets" href="#id11" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a><sup>,</sup><a class="footnote-reference brackets" href="#id12" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>, ftp, and command line tools, etc..</p>
+<section id="ncbi-datasets-command-line-interface-cli-tool">
+<h2>NCBI Datasets Command line Interface (CLI) Tool<a class="headerlink" href="#ncbi-datasets-command-line-interface-cli-tool" title="Link to this heading"></a></h2>
+<p>For example, if we are interested in studying the virus causing feline acquired immunodeficiency syndrome, we can find the information in the NCBI Taxonomy Browser <a class="footnote-reference brackets" href="#id14" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>.
+The <code class="docutils literal notranslate"><span class="pre">NCBI:txid11673</span></code> is uniquely linked to the species.</p>
+<p>To install NCBI CLI tools, follow instructions in reference <a class="footnote-reference brackets" href="#id15" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>.</p>
+<p>Follow instructions in reference to download, unzip <a class="footnote-reference brackets" href="#id16" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a> and verify <a class="footnote-reference brackets" href="#id17" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>9<span class="fn-bracket">]</span></a> for the given txid <code class="docutils literal notranslate"><span class="pre">11673</span></code> in a terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">datasets</span> <span class="n">download</span> <span class="n">taxonomy</span> <span class="n">taxon</span> <span class="mi">11673</span> <span class="o">--</span><span class="n">filename</span> <span class="n">dltxid11673</span><span class="o">.</span><span class="n">zip</span>
+<span class="n">unzip</span> <span class="n">dltxid11673</span><span class="o">.</span><span class="n">zip</span> <span class="o">-</span><span class="n">d</span> <span class="n">dltxid11673</span>
+<span class="n">cd</span> <span class="n">dltxid11673</span>
+<span class="n">md5sum</span> <span class="o">-</span><span class="n">c</span> <span class="n">md5sum</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Downloading</span><span class="p">:</span> <span class="n">dltxid11673</span><span class="o">.</span><span class="n">zip</span>    <span class="mf">2.96</span><span class="n">kB</span> <span class="n">valid</span> <span class="n">data</span> <span class="n">package</span>
+<span class="n">Validating</span> <span class="n">package</span> <span class="n">files</span> <span class="p">[</span><span class="o">================================================</span><span class="p">]</span> <span class="mi">100</span><span class="o">%</span> <span class="mi">5</span><span class="o">/</span><span class="mi">5</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Archive</span><span class="p">:</span>  <span class="n">dltxid11673</span><span class="o">.</span><span class="n">zip</span>
+  <span class="n">inflating</span><span class="p">:</span> <span class="n">dltxid11673</span><span class="o">/</span><span class="n">README</span><span class="o">.</span><span class="n">md</span>   
+  <span class="n">inflating</span><span class="p">:</span> <span class="n">dltxid11673</span><span class="o">/</span><span class="n">ncbi_dataset</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">taxonomy_report</span><span class="o">.</span><span class="n">jsonl</span>  
+  <span class="n">inflating</span><span class="p">:</span> <span class="n">dltxid11673</span><span class="o">/</span><span class="n">ncbi_dataset</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">taxonomy_summary</span><span class="o">.</span><span class="n">tsv</span>  
+  <span class="n">inflating</span><span class="p">:</span> <span class="n">dltxid11673</span><span class="o">/</span><span class="n">ncbi_dataset</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">dataset_catalog</span><span class="o">.</span><span class="n">json</span>  
+  <span class="n">inflating</span><span class="p">:</span> <span class="n">dltxid11673</span><span class="o">/</span><span class="n">md5sum</span><span class="o">.</span><span class="n">txt</span>  
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ncbi_dataset</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">taxonomy_report</span><span class="o">.</span><span class="n">jsonl</span><span class="p">:</span> <span class="n">OK</span>
+<span class="n">ncbi_dataset</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">taxonomy_summary</span><span class="o">.</span><span class="n">tsv</span><span class="p">:</span> <span class="n">OK</span>
+<span class="n">ncbi_dataset</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">dataset_catalog</span><span class="o">.</span><span class="n">json</span><span class="p">:</span> <span class="n">OK</span>
+</pre></div>
+</div>
+<p>The taxonomy_summary.tsv is included as an example.
+To view the tsv file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">dt</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../mtbp3/data/supp_seq/taxonomy_summary.tsv&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                       0
+Query                                              11673
+Taxid                                              11673
+Tax name                   Feline immunodeficiency virus
+Authority                                            NaN
+Rank                                             SPECIES
+Basionym                                             NaN
+Basionym authority                                   NaN
+Curator common name                                  NaN
+Has type material                                     no
+Group name                                       viruses
+Superkingdom name                                Viruses
+Superkingdom taxid                                 10239
+Kingdom name                                Pararnavirae
+Kingdom taxid                                    2732397
+Phylum name                               Artverviricota
+Phylum taxid                                     2732409
+Class name                               Revtraviricetes
+Class taxid                                      2732514
+Order name                                  Ortervirales
+Order taxid                                      2169561
+Family name                                 Retroviridae
+Family taxid                                       11632
+Genus name                                    Lentivirus
+Genus taxid                                        11646
+Species name               Feline immunodeficiency virus
+Species taxid                                      11673
+Scientific name is formal                           True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>
+</section>
+</section>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id9" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>NCBI. (2024). The Taxonomy Database. (<a class="reference external" href="https://www.ncbi.nlm.nih.gov/taxonomy/">web page</a>)</p>
+</aside>
+<aside class="footnote brackets" id="id10" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>Schoch C. NCBI Taxonomy. 2011 Apr 7 [Updated 2020 Feb 11]. In: Taxonomy Help [Internet]. Bethesda (MD): National Center for Biotechnology Information (US); 2011-. Available from: https://www.ncbi.nlm.nih.gov/books/NBK53758/</p>
+</aside>
+<aside class="footnote brackets" id="id11" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p>NCBI. (year). The NCBI Taxonomy Homepage. (<a class="reference external" href="https://www.ncbi.nlm.nih.gov/Taxonomy/taxonomyhome.html/index.cgi">web page</a>)</p>
+</aside>
+<aside class="footnote brackets" id="id12" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
+<p>NCBI. (year). NCBI laxonomy Browser: Virus. (<a class="reference external" href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Viruses">web page</a>)</p>
+</aside>
+<aside class="footnote brackets" id="id13" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></span>
+<p>NCBI. (year). Install NCBI Datasets command-line tools. (<a class="reference external" href="https://www.ncbi.nlm.nih.gov/datasets/docs/v2/download-and-install/?utm_source=ncbi_insights&amp;amp;utm_medium=referral&amp;amp;utm_campaign=datasets-api-key-20241008">web page</a>)</p>
+</aside>
+<aside class="footnote brackets" id="id14" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">6</a><span class="fn-bracket">]</span></span>
+<p>NCBI. (year). Feline immunodeficiency virus. ([web page])(https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&amp;id=11673&amp;lvl=3&amp;lin=f&amp;keep=1&amp;srchmode=4&amp;unlock))</p>
+</aside>
+<aside class="footnote brackets" id="id15" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">7</a><span class="fn-bracket">]</span></span>
+<p>NCBI. (year). Install NCBI Datasets command-line tools. (<a class="reference external" href="https://www.ncbi.nlm.nih.gov/datasets/docs/v2/download-and-install/?utm_source=ncbi_insights&amp;amp;utm_medium=referral&amp;amp;utm_campaign=datasets-api-key-20241008">web page</a>)</p>
+</aside>
+<aside class="footnote brackets" id="id16" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">8</a><span class="fn-bracket">]</span></span>
+<p>NCBI. (year). Get taxonomy metadata. https://www.ncbi.nlm.nih.gov/datasets/docs/v2/how-tos/taxonomy/taxonomy/))</p>
+</aside>
+<aside class="footnote brackets" id="id17" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">9</a><span class="fn-bracket">]</span></span>
+<p>NCBI. (year). File validation. (<a class="reference external" href="https://www.ncbi.nlm.nih.gov/datasets/docs/v2/how-tos/validation/">web page</a>)</p>
+</aside>
+</aside>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="seq_ictv_taxonomy.html" class="btn btn-neutral float-left" title="Seq/ICTV/MSL and VMR" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="changelog.html" class="btn btn-neutral float-right" title="Changelog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Y. Hsu.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
