@@ -2,6 +2,11 @@
 
 <!--next-version-placeholder-->
 
+## v0.2.30 (2024-12-02)
+
+- update seq.ictvvmrview
+    - add species count function
+
 ## v0.2.29 (2024-12-02)
 
 - update seq.ictvvmrview

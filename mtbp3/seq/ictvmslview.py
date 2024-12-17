@@ -148,8 +148,61 @@ class ictvmsl:
             return df
         else:
             raise FileNotFoundError(f"File not found: {file_path}")
+    
+    def count_species(self, count_rank='Realm', outfmt="simple", search_within_subset=None):
+        if self.msl.empty:
+            print("The MSL data is empty.")
+            return
+        if outfmt not in ["simple", "tree"]:
+            raise ValueError("outfmt must be 'simple' or 'tree'")
+        if search_within_subset is not None and not isinstance(search_within_subset, dict):
+            raise TypeError("search_subset must be a dictionary or None")
+        if count_rank in self.msl_column_names[1:15]:
+            group_column = self.msl_column_names[1:self.msl_column_names.index(count_rank) + 1]
+        else:
+            raise ValueError(f"count_rank must be one of the following: {', '.join(self.msl_column_names[1:15])}")
 
-    def find_rows_given_str(self, search_strings=None, search_rank="Species", color="", narrow=False, outfmt="simple", exact=False, search_within_subset=None, tree_style="concatenation"):
+        count_df = self.msl
+        if search_within_subset is not None:
+            for key, value in search_within_subset.items():
+                if key in count_df.columns and isinstance(value, str) and value:
+                    index = count_df.columns.get_loc(key)
+                    count_df = count_df[count_df.iloc[:, index].str.lower() == value.lower()]
+
+        out=count_df.groupby(group_column, dropna=False).size().reset_index(name='Count of Species').dropna(axis=1, how='all')
+        if outfmt == "simple":
+            return out
+        elif outfmt == 'tree':
+            group_column = out.columns[:-1]
+            out = out.fillna("NA")
+            out.iloc[:, -2] = out.apply(lambda row: f"{row[-2]} ({row[-1]} Species)" if pd.notna(row[-1]) else row[-2], axis=1)
+
+            tree_list = ["/Virus/"]
+
+            if len(out.columns) == 2:
+                tmp = out.iloc[:, 0].tolist()
+                tree_list += ["/Virus/" + element for element in tmp]
+                out_tree = util.cdt.ListTree(lst=tree_list)
+                return out_tree.list_tree()
+
+            out = out.iloc[:, :-1]
+            for col in out.columns:
+                out[col] = out[col].apply(lambda x: f"[{col}] {x}" if pd.notna(x) else x)
+
+            for i in range(1,len(out.columns)):
+                tmp = out.iloc[:, :i].drop_duplicates()
+                tmp['concat'] = tmp.apply(lambda row: "/Virus/" + "/".join(row.astype(str)) + "/", axis=1)
+                tree_list += tmp['concat'].unique().tolist()
+            out['concat'] = out.apply(lambda row: "/Virus/" + "/".join(row.astype(str)), axis=1)
+            tree_list += out['concat'].unique().tolist()
+            #tree_list = tree_list[1:]
+            tree_list = sorted(tree_list)
+
+            out_tree = util.cdt.ListTree(lst=tree_list)
+            return out_tree.list_tree()
+
+
+    def find_rows_given_str(self, search_strings=None, search_rank="Species", color="", narrow=False, outfmt="simple", exact=False, search_within_subset=None, tree_style="concatenation", start_with_rank=None):
         """
         Find rows in the dataset that match the given search strings.
 
