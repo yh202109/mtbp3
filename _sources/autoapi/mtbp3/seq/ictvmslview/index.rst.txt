@@ -82,7 +82,10 @@ Module Contents
    .. py:method:: __load_list()
 
 
-   .. py:method:: find_rows_given_str(search_strings=None, search_rank='Species', color='', narrow=False, outfmt='simple', exact=False, search_within_subset=None, tree_style='concatenation')
+   .. py:method:: count_species(count_rank='Realm', outfmt='simple', search_within_subset=None)
+
+
+   .. py:method:: find_rows_given_str(search_strings=None, search_rank='Species', color='', narrow=False, outfmt='simple', exact=False, search_within_subset=None, tree_style='concatenation', start_with_rank=None)
 
       Find rows in the dataset that match the given search strings.
 
