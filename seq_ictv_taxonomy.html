@@ -230,6 +230,8 @@ Total number of rows: 65
 </div>
 </div>
 </div>
+<p>Please note that the column names will be used as <code class="docutils literal notranslate"><span class="pre">search_rank</span></code> in this module and those are case sensitive.
+The <code class="docutils literal notranslate"><span class="pre">search_strings</span></code> is not case sensitive, as shown below.</p>
 <p>To view the first row of loaded file:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -264,7 +266,7 @@ Name: 0, dtype: object
 </div>
 </div>
 </div>
-<p>To view the unique values of ‘Realm’ in the file and number of rows under each realm:</p>
+<p>To view the unique values of ‘Realm’ in the file and number of species under each realm:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msl</span><span class="o">.</span><span class="n">msl</span><span class="p">[</span><span class="s1">&#39;Realm&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -279,37 +281,31 @@ Name: count, dtype: int64
 </div>
 </div>
 </div>
-<p>The counts above are from the example file.
-The full MSL 39v4 includes the following realms:</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Realm</p></th>
-<th class="head"><p>Count of Species</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Adnaviria</p></td>
-<td><p>32</p></td>
-</tr>
-<tr class="row-odd"><td><p>Duplodnaviria</p></td>
-<td><p>4973</p></td>
-</tr>
-<tr class="row-even"><td><p>Monodnaviria</p></td>
-<td><p>2028</p></td>
-</tr>
-<tr class="row-odd"><td><p>Riboviria</p></td>
-<td><p>6712</p></td>
-</tr>
-<tr class="row-even"><td><p>Ribozyviria</p></td>
-<td><p>21</p></td>
-</tr>
-<tr class="row-odd"><td><p>Varidnaviria</p></td>
-<td><p>288</p></td>
-</tr>
-</tbody>
-</table>
-<p>Please note that the column names will be used as <code class="docutils literal notranslate"><span class="pre">search_rank</span></code> in this module and those are case sensitive.
-The <code class="docutils literal notranslate"><span class="pre">search_strings</span></code> is not case sensitive, as shown below.</p>
+<p>The counts above are from the example file.</p>
+<p>The full MSL 39v4 includes the following realms and kingdoms:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    virus:
+    ├── Adnaviria:
+    │   └── Zilligvirae (32 Species)
+    ├── Duplodnaviria:
+    │   └── Heunggongvirae (4973 Species)
+    ├── Monodnaviria:
+    │   ├── Loebvirae (60 Species)
+    │   ├── Sangervirae (22 Species)
+    │   ├── Shotokuvirae (1930 Species)
+    │   └── Trapavirae (16 Species)
+    ├── NA:
+    │   └── NA (636 Species)
+    ├── Riboviria:
+    │   ├── NA (17 Species)
+    │   ├── Orthornavirae (6423 Species)
+    │   └── Pararnavirae (272 Species)
+    ├── Ribozyviria:
+    │   └── NA (21 Species)
+    └── Varidnaviria:
+        ├── Bamfordvirae (279 Species)
+        └── Helvetiavirae (9 Species)
+</pre></div>
+</div>
 <section id="search-within-msl">
 <h3>Search within MSL<a class="headerlink" href="#search-within-msl" title="Link to this heading"></a></h3>
 <p>To search for rows with “lentivirus fel” included in a species name:</p>
@@ -496,6 +492,9 @@ To search for virus within family <em>Retroviridae</em> that can infect feline:<
                                                 └── [Genus] Lentivirus:
                                                     └── [Subgenus] NA:
                                                         └── [Species] <span class=" -Color -Color-Red">Lentivirus felimdef</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
