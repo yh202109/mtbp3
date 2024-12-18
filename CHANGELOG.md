@@ -2,9 +2,14 @@
 
 <!--next-version-placeholder-->
 
-## v0.2.30 (2024-12-02)
+## v0.2.31 (2024-12-17)
 
 - update seq.ictvvmrview
+    - update display 
+
+## v0.2.30 (2024-12-02)
+
+- update seq.ictvmslview
     - add species count function
 
 ## v0.2.29 (2024-12-02)

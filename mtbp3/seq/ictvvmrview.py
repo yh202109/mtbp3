@@ -97,7 +97,7 @@ class ictvvmr:
             self.vmr_column_names = self.vmr.columns.tolist()
             print(f"File of {version} version has been loaded")
             print("Column names:", self.vmr_column_names)
-            print("Total number of rows:", len(self.vmr))/matc
+            print("Total number of rows:", len(self.vmr))
             self.vmr_version = version
         else:
             raise Exception(f"Failed to download file from {url}. Status code: {response.status_code}")
